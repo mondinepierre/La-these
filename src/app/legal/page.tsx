@@ -3,7 +3,7 @@ import Link from 'next/link'
 export const metadata = {
   title: 'Avertissement légal — La Thèse',
   description:
-    'Avertissement légal et conditions d'utilisation du site La Thèse. Absence de conseil financier, risques d'investissement, responsabilité personnelle.',
+    "Avertissement légal et conditions d'utilisation du site La Thèse. Absence de conseil financier, risques d'investissement, responsabilité personnelle.",
 }
 
 export default function Legal() {

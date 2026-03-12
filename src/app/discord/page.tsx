@@ -11,8 +11,8 @@ const SITE_FEATURES = [
 
 const DISCORD_FEATURES = [
   'Questions sur les modules et les analyses',
-  'Retours d'expérience de la communauté',
-  'Discussions sur l'actualité des marchés',
+  "Retours d'expérience de la communauté",
+  "Discussions sur l'actualité des marchés",
   'Partage de lectures et de ressources',
   'Entraide entre investisseurs particuliers',
 ]

@@ -23,7 +23,7 @@ const VALUES = [
 export const metadata = {
   title: 'À propos — La Thèse',
   description:
-    'La Thèse est un espace de ressources pédagogiques sur l'investissement fondamental long terme. Sobre, sérieux, sans promesse de rendement.',
+    "La Thèse est un espace de ressources pédagogiques sur l'investissement fondamental long terme. Sobre, sérieux, sans promesse de rendement.",
 }
 
 export default function APropos() {
