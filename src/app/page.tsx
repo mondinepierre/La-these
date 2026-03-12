@@ -1,65 +1,208 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { HeroSection } from '@/components/layout/HeroSection'
+import { ArticleCard } from '@/components/ui/ArticleCard'
+
+// ─── Modules mis en avant ────────────────────────────────────────────────────
+const FEATURED_MODULES = [
+  {
+    title: "Pourquoi investir plutôt qu'épargner ?",
+    excerpt:
+      "Comprendre l'érosion monétaire et pourquoi rester liquide à 100 % est une décision qui a un coût caché.",
+    href: '/academie/pourquoi-investir',
+    level: 'debutant' as const,
+    category: 'Académie · Module 1',
+    readingTime: 6,
+  },
+  {
+    title: 'Choisir son broker : critères et comparatif',
+    excerpt:
+      "Frais, sécurité, interface, fiscalité : les quatre axes pour ne pas se tromper dès la première étape.",
+    href: '/academie/choix-du-broker',
+    level: 'debutant' as const,
+    category: 'Académie · Module 5',
+    readingTime: 8,
+  },
+  {
+    title: 'Analyse fondamentale : lire une entreprise',
+    excerpt:
+      "PER, marges, dette, flux de trésorerie — les indicateurs qui permettent de distinguer une belle entreprise d'une belle histoire.",
+    href: '/academie/analyse-fondamentale',
+    level: 'intermediaire' as const,
+    category: 'Académie · Module 7',
+    readingTime: 12,
+  },
+]
+
+// ─── Piliers du site ─────────────────────────────────────────────────────────
+const PILLARS = [
+  {
+    icon: '📖',
+    label: 'Académie',
+    description:
+      '21 modules structurés, du premier euro investi aux stratégies avancées.',
+    href: '/academie',
+    cta: 'Commencer →',
+  },
+  {
+    icon: '🔍',
+    label: 'Analyses',
+    description:
+      'Fiches valeurs et secteurs commentées selon une grille fondamentale rigoureuse.',
+    href: '/analyses',
+    cta: 'Voir les analyses →',
+  },
+  {
+    icon: '📚',
+    label: 'Glossaire',
+    description:
+      'Tous les termes essentiels définis clairement, sans jargon superflu.',
+    href: '/glossaire',
+    cta: 'Consulter →',
+  },
+]
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    <>
+      {/* ── Hero ────────────────────────────────────────────────────────── */}
+      <HeroSection
+        eyebrow="Investissement fondamental long terme"
+        title={
+          <>
+            Penser long,
+            <br />
+            investir <em>juste</em>
+          </>
+        }
+        subtitle="Des ressources claires pour comprendre les marchés et construire un patrimoine durable — sans promesse de rendement, sans bruit de fond."
+        primaryCta={{ label: "Commencer l'académie", href: '/academie' }}
+        secondaryCta={{ label: 'Voir les analyses', href: '/analyses' }}
+      />
+
+      {/* ── Corps de page ────────────────────────────────────────────────── */}
+      <div className="bg-[#F7F4EF]">
+
+        {/* ── Par où commencer ─────────────────────────────────────────── */}
+        <section className="max-w-full-layout mx-auto px-6 pt-14 pb-10">
+          <p className="section-label mb-6">Par où commencer ?</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {FEATURED_MODULES.map((module) => (
+              <ArticleCard key={module.href} {...module} />
+            ))}
+          </div>
+        </section>
+
+        <hr className="section-divider max-w-full-layout mx-auto px-6" />
+
+        {/* ── Les trois piliers ────────────────────────────────────────── */}
+        <section className="max-w-full-layout mx-auto px-6 py-10">
+          <p className="section-label mb-8">Ce que vous trouverez ici</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {PILLARS.map(({ icon, label, description, href, cta }) => (
+              <Link
+                key={href}
+                href={href}
+                className="group block bg-white border border-[#E0DBCF] rounded-lg px-6 py-6 hover:border-[#C4BEB4] hover:shadow-[0_2px_12px_rgba(28,25,23,0.06)] transition-all duration-200"
+              >
+                <span className="text-2xl mb-4 block">{icon}</span>
+                <h2 className="font-display text-xl font-medium text-[#1C1917] mb-2">
+                  {label}
+                </h2>
+                <p className="font-serif text-sm italic text-[#78716C] leading-relaxed mb-5">
+                  {description}
+                </p>
+                <span className="font-sans text-sm font-medium text-[#1B4332] group-hover:underline">
+                  {cta}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <hr className="section-divider max-w-full-layout mx-auto px-6" />
+
+        {/* ── Philosophie ──────────────────────────────────────────────── */}
+        <section className="max-w-full-layout mx-auto px-6 py-10">
+          <div className="max-w-content">
+            <p className="section-label mb-5">La philosophie</p>
+            <h2 className="font-display text-2xl md:text-3xl font-medium text-[#1C1917] leading-snug mb-5">
+              L'investissement n'est pas un jeu.{' '}
+              <em className="text-[#1B4332]">C'est une discipline.</em>
+            </h2>
+            <div className="prose-editorial text-[#1C1917]">
+              <p>
+                La Thèse est construite autour d'une conviction simple : les
+                meilleurs résultats en bourse viennent de la patience, de
+                l'analyse et du contrôle des émotions — pas de la vitesse ou du
+                bruit des marchés.
+              </p>
+              <p>
+                Ici, on ne parle pas de "coups" ni de tuyaux. On apprend à
+                évaluer des entreprises, à construire un portefeuille cohérent,
+                et à rester rationnel quand les marchés ne le sont pas.
+              </p>
+            </div>
+            <div className="mt-8 flex items-center gap-4">
+              <Link
+                href="/a-propos"
+                className="font-sans text-sm font-medium text-[#1B4332] border-b border-[#D6EDDF] hover:border-[#1B4332] transition-colors pb-0.5"
+              >
+                En savoir plus sur la démarche →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <hr className="section-divider max-w-full-layout mx-auto px-6" />
+
+        {/* ── Articles — placeholder en attente du blog ────────────────── */}
+        <section className="max-w-full-layout mx-auto px-6 py-10">
+          <div className="flex items-baseline justify-between mb-6">
+            <p className="section-label">Derniers articles</p>
+            {/* Décommenter quand le blog sera alimenté :
+            <Link href="/blog" className="font-sans text-xs text-[#78716C] hover:text-[#1C1917] transition-colors">
+              Tous les articles →
+            </Link>
+            */}
+          </div>
+          <div className="border border-dashed border-[#C4BEB4] rounded-lg px-8 py-10 text-center">
+            <p className="font-display text-lg font-medium text-[#A8A29E] mb-2">
+              Articles à venir
+            </p>
+            <p className="font-serif text-sm italic text-[#A8A29E] leading-relaxed max-w-sm mx-auto">
+              Des analyses de fond, des retours d'expérience et des mises à jour
+              de marchés seront publiés ici prochainement.
+            </p>
+          </div>
+        </section>
+
+        <hr className="section-divider max-w-full-layout mx-auto px-6" />
+
+        {/* ── CTA communauté ───────────────────────────────────────────── */}
+        <section className="max-w-full-layout mx-auto px-6 py-10 pb-16">
+          <div className="bg-white border border-[#E0DBCF] rounded-lg px-8 py-8 md:flex md:items-center md:justify-between gap-8">
+            <div>
+              <p className="section-label mb-3">La communauté</p>
+              <h2 className="font-display text-xl font-medium text-[#1C1917] mb-2">
+                Discuter, questionner, progresser ensemble.
+              </h2>
+              <p className="font-serif text-sm italic text-[#78716C] leading-relaxed max-w-md">
+                Le Discord est l'espace d'échange autour du contenu du site —
+                questions, retours d'expérience, analyses partagées.
+              </p>
+            </div>
+            <div className="mt-6 md:mt-0 shrink-0">
+              <Link
+                href="/discord"
+                className="inline-flex items-center gap-2 font-sans text-sm font-medium bg-[#1B4332] text-[#F7F4EF] px-6 py-3 rounded hover:bg-[#2D6A4F] transition-colors duration-150"
+              >
+                Rejoindre le Discord
+              </Link>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </>
+  )
 }

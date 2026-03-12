@@ -1,26 +1,211 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   VARIABLES — La Thèse Design System (v2 — validée)
+   ============================================================
+
+   RÈGLE DE COMPOSITION :
+   - Vert (#1B4332)  → nav + hero uniquement  (~30% de la page)
+   - Ivoire (#F7F4EF) → tout le reste           (~70% de la page)
+   - Or (#C9A84C)    → accent chirurgical :
+       · CTA primaire sur fond vert
+       · Quelques mots en italique dans les titres hero
+       · Barre de transition hero → body (2px)
+       · Jamais en aplat large
+
+   ============================================================ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Couleurs principales */
+  --color-accent:       #1B4332;
+  --color-accent-light: #2D6A4F;
+  --color-accent-muted: #D6EDDF;
+
+  --color-gold:         #C9A84C;
+  --color-gold-muted:   #F0E4C0;
+
+  /* Texte */
+  --color-ink:          #1C1917;
+  --color-ink-muted:    #78716C;
+  --color-ink-faint:    #A8A29E;
+
+  /* Fond & surfaces */
+  --color-bg:           #F7F4EF;  /* ivoire — fond de page */
+  --color-surface:      #FFFFFF;  /* blanc — fond des cartes */
+  --color-border:       #E0DBCF;
+  --color-border-strong: #C4BEB4;
+
+  /* Niveaux */
+  --color-level-beginner-bg:     #F2EFE9;
+  --color-level-beginner-text:   #6B6458;
+  --color-level-beginner-border: #D8D2C8;
+
+  --color-level-intermediate-bg:     #D6EDDF;
+  --color-level-intermediate-text:   #1B4332;
+  --color-level-intermediate-border: #A7D4B8;
+
+  --color-level-advanced-bg:     #1C1917;
+  --color-level-advanced-text:   #E8E4DF;
+  --color-level-advanced-border: #1C1917;
+
+  /* Typographie */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-serif:   "Lora", Georgia, serif;
+  --font-sans:    "DM Sans", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", monospace;
+
+  /* Layout */
+  --nav-height: 52px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================================
+   BASE
+   ============================================================ */
+html {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  line-height: 1.2;
+}
+
+p, li, blockquote {
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  line-height: 1.75;
+}
+
+/* ============================================================
+   ZONE HERO (fond vert)
+   Les textes dans .hero-zone s'inversent automatiquement
+   ============================================================ */
+.hero-zone {
+  background-color: var(--color-accent);
+}
+
+.hero-zone h1,
+.hero-zone h2,
+.hero-zone h3 {
+  color: #F7F4EF;
+}
+
+.hero-zone p {
+  color: rgba(247, 244, 239, 0.65);
+}
+
+/* Titre avec accent or en italique */
+.hero-zone .title-accent {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+/* Eyebrow (chapeau de section) dans le hero */
+.hero-zone .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.hero-zone .eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--color-gold);
+  flex-shrink: 0;
+}
+
+/* Barre de transition hero → body */
+.hero-transition-bar {
+  width: 100%;
+  height: 2px;
+  background: var(--color-gold);
+  opacity: 0.55;
+}
+
+/* ============================================================
+   CONTENU ÉDITORIAL LONG FORMAT
+   ============================================================ */
+.prose-editorial {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--color-ink);
+  max-width: 680px;
+}
+
+.prose-editorial h2 {
+  font-size: 24px;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose-editorial h3 {
+  font-size: 20px;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-editorial p {
+  margin-bottom: 1.25rem;
+}
+
+.prose-editorial blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--color-ink-muted);
+  margin: 1.5rem 0;
+}
+
+/* ============================================================
+   UTILITAIRES
+   ============================================================ */
+
+/* Label de section */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+/* Séparateur */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 3rem 0;
+}
+
+/* Lien éditorial */
+.link-editorial {
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-accent-muted);
+  transition: border-color 0.15s ease;
+}
+
+.link-editorial:hover {
+  border-color: var(--color-accent);
 }
