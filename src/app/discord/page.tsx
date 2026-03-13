@@ -22,29 +22,29 @@ const RULES = [
   {
     num: '01',
     title: 'Pas de "tuyaux"',
-    text: 'Le Discord n'est pas un endroit pour donner des conseils d'achat ou de vente. Chacun est responsable de ses décisions.',
+    text: "Le Discord n'est pas un endroit pour donner des conseils d'achat ou de vente. Chacun est responsable de ses décisions.",
   },
   {
     num: '02',
     title: 'Qualité des questions',
-    text: 'Avant de poser une question, vérifiez si la réponse est dans les modules ou le glossaire. La recherche fait partie de l'apprentissage.',
+    text: "Avant de poser une question, vérifiez si la réponse est dans les modules ou le glossaire. La recherche fait partie de l'apprentissage.",
   },
   {
     num: '03',
     title: 'Ton respectueux',
-    text: 'Tout le monde a commencé quelque part. Les questions "naïves" n'existent pas — uniquement des questions sans réponse encore.',
+    text: "Tout le monde a commencé quelque part. Les questions \"naïves\" n'existent pas — uniquement des questions sans réponse encore.",
   },
   {
     num: '04',
     title: 'Pas de promotion',
-    text: 'Aucune publicité, aucun lien vers des formations payantes, aucun referral. L'espace reste propre.',
+    text: "Aucune publicité, aucun lien vers des formations payantes, aucun referral. L'espace reste propre.",
   },
 ]
 
 export const metadata = {
   title: 'Rejoindre la communauté — La Thèse',
   description:
-    'Le Discord de La Thèse est un espace d'échange autour de l'investissement fondamental long terme — questions, analyses, retours d'expérience.',
+    "Le Discord de La Thèse est un espace d'échange autour de l'investissement fondamental long terme — questions, analyses, retours d'expérience.",
 }
 
 export default function Discord() {
