@@ -1,72 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* ============================================================
-   VARIABLES — La Thèse Design System (v2 — validée)
-   ============================================================
-
-   RÈGLE DE COMPOSITION :
-   - Vert (#1B4332)  → nav + hero uniquement  (~30% de la page)
-   - Ivoire (#F7F4EF) → tout le reste           (~70% de la page)
-   - Or (#C9A84C)    → accent chirurgical :
-       · CTA primaire sur fond vert
-       · Quelques mots en italique dans les titres hero
-       · Barre de transition hero → body (2px)
-       · Jamais en aplat large
-
+   THEME — La Thèse (Tailwind v4)
    ============================================================ */
+@theme {
+  /* Couleurs */
+  --color-accent:            #1B4332;
+  --color-accent-light:      #2D6A4F;
+  --color-accent-muted:      #D6EDDF;
 
-:root {
-  /* Couleurs principales */
-  --color-accent:       #1B4332;
-  --color-accent-light: #2D6A4F;
-  --color-accent-muted: #D6EDDF;
+  --color-gold:              #C9A84C;
+  --color-gold-muted:        #F0E4C0;
 
-  --color-gold:         #C9A84C;
-  --color-gold-muted:   #F0E4C0;
+  --color-ink:               #1C1917;
+  --color-ink-muted:         #78716C;
+  --color-ink-faint:         #A8A29E;
 
-  /* Texte */
-  --color-ink:          #1C1917;
-  --color-ink-muted:    #78716C;
-  --color-ink-faint:    #A8A29E;
+  --color-stone-warm:        #F7F4EF;
+  --color-stone-border:      #E0DBCF;
+  --color-stone-soft:        #C4BEB4;
 
-  /* Fond & surfaces */
-  --color-bg:           #F7F4EF;  /* ivoire — fond de page */
-  --color-surface:      #FFFFFF;  /* blanc — fond des cartes */
-  --color-border:       #E0DBCF;
-  --color-border-strong: #C4BEB4;
-
-  /* Niveaux */
-  --color-level-beginner-bg:     #F2EFE9;
-  --color-level-beginner-text:   #6B6458;
-  --color-level-beginner-border: #D8D2C8;
-
-  --color-level-intermediate-bg:     #D6EDDF;
-  --color-level-intermediate-text:   #1B4332;
-  --color-level-intermediate-border: #A7D4B8;
-
-  --color-level-advanced-bg:     #1C1917;
-  --color-level-advanced-text:   #E8E4DF;
-  --color-level-advanced-border: #1C1917;
+  --color-surface:           #FFFFFF;
 
   /* Typographie */
-  --font-display: "Playfair Display", Georgia, serif;
-  --font-serif:   "Lora", Georgia, serif;
-  --font-sans:    "DM Sans", system-ui, sans-serif;
-  --font-mono:    "JetBrains Mono", monospace;
+  --font-display:            "Playfair Display", Georgia, serif;
+  --font-serif:              "Lora", Georgia, serif;
+  --font-sans:               "DM Sans", system-ui, sans-serif;
+  --font-mono:               "JetBrains Mono", monospace;
 
-  /* Layout */
-  --nav-height: 52px;
+  /* Tailles de texte */
+  --text-xs:   12px;
+  --text-sm:   13px;
+  --text-base: 16px;
+  --text-lg:   18px;
+  --text-xl:   20px;
+  --text-2xl:  24px;
+  --text-3xl:  30px;
+  --text-4xl:  36px;
+  --text-5xl:  48px;
+
+  /* Espacements layout */
+  --max-w-content:      720px;
+  --max-w-wide:         1024px;
+  --max-w-full-layout:  1200px;
+
+  --height-nav: 52px;
+
+  /* Rayons */
+  --radius-sm:  4px;
+  --radius:     6px;
+  --radius-md:  8px;
+  --radius-lg:  10px;
+  --radius-xl:  14px;
 }
 
 /* ============================================================
    BASE
    ============================================================ */
 html {
-  background-color: var(--color-bg);
+  background-color: var(--color-stone-warm);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -90,8 +83,7 @@ p, li, blockquote {
 }
 
 /* ============================================================
-   ZONE HERO (fond vert)
-   Les textes dans .hero-zone s'inversent automatiquement
+   HERO ZONE
    ============================================================ */
 .hero-zone {
   background-color: var(--color-accent);
@@ -100,20 +92,18 @@ p, li, blockquote {
 .hero-zone h1,
 .hero-zone h2,
 .hero-zone h3 {
-  color: #F7F4EF;
+  color: var(--color-stone-warm);
 }
 
 .hero-zone p {
   color: rgba(247, 244, 239, 0.65);
 }
 
-/* Titre avec accent or en italique */
 .hero-zone .title-accent {
   font-style: italic;
   color: var(--color-gold);
 }
 
-/* Eyebrow (chapeau de section) dans le hero */
 .hero-zone .eyebrow {
   display: flex;
   align-items: center;
@@ -134,7 +124,6 @@ p, li, blockquote {
   flex-shrink: 0;
 }
 
-/* Barre de transition hero → body */
 .hero-transition-bar {
   width: 100%;
   height: 2px;
@@ -143,7 +132,7 @@ p, li, blockquote {
 }
 
 /* ============================================================
-   CONTENU ÉDITORIAL LONG FORMAT
+   PROSE ÉDITORIAL
    ============================================================ */
 .prose-editorial {
   font-family: var(--font-serif);
@@ -154,12 +143,14 @@ p, li, blockquote {
 }
 
 .prose-editorial h2 {
+  font-family: var(--font-display);
   font-size: 24px;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .prose-editorial h3 {
+  font-family: var(--font-display);
   font-size: 20px;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
@@ -180,8 +171,6 @@ p, li, blockquote {
 /* ============================================================
    UTILITAIRES
    ============================================================ */
-
-/* Label de section */
 .section-label {
   font-family: var(--font-sans);
   font-size: 11px;
@@ -191,14 +180,12 @@ p, li, blockquote {
   color: var(--color-ink-faint);
 }
 
-/* Séparateur */
 .section-divider {
   border: none;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-stone-border);
   margin: 3rem 0;
 }
 
-/* Lien éditorial */
 .link-editorial {
   color: var(--color-accent);
   text-decoration: none;
@@ -208,4 +195,19 @@ p, li, blockquote {
 
 .link-editorial:hover {
   border-color: var(--color-accent);
+}
+
+/* ============================================================
+   LAYOUT UTILITAIRES (remplacement des classes Tailwind custom)
+   ============================================================ */
+.max-w-full-layout {
+  max-width: var(--max-w-full-layout);
+}
+
+.max-w-content {
+  max-width: var(--max-w-content);
+}
+
+.h-nav {
+  height: var(--height-nav);
 }
