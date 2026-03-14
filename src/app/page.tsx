@@ -2,34 +2,34 @@ import Link from 'next/link'
 import { HeroSection } from '@/components/layout/HeroSection'
 import { ArticleCard } from '@/components/ui/ArticleCard'
 
-// ─── Modules mis en avant ────────────────────────────────────────────────────
+// ─── Modules mis en avant — Parcours Bases ───────────────────────────────────
 const FEATURED_MODULES = [
   {
-    title: "Pourquoi investir plutôt qu'épargner ?",
+    title: 'Pourquoi investir ?',
     excerpt:
       "Comprendre l'érosion monétaire et pourquoi rester liquide à 100 % est une décision qui a un coût caché.",
-    href: '/academie/pourquoi-investir',
+    href: '/academie/bases/pourquoi-investir',
     level: 'debutant' as const,
-    category: 'Académie · Module 1',
-    readingTime: 6,
+    category: 'Bases · Leçon 1',
+    readingTime: 7,
   },
   {
-    title: 'Choisir son broker : critères et comparatif',
+    title: 'Choisir sa stratégie',
+    excerpt:
+      "Investissement passif, actif, DCA — comprendre les grandes approches avant de choisir celle qui correspond à votre situation.",
+    href: '/academie/bases/choisir-sa-strategie',
+    level: 'debutant' as const,
+    category: 'Bases · Leçon 2',
+    readingTime: 12,
+  },
+  {
+    title: 'Choisir son broker',
     excerpt:
       "Frais, sécurité, interface, fiscalité : les quatre axes pour ne pas se tromper dès la première étape.",
-    href: '/academie/choix-du-broker',
+    href: '/academie/bases/choisir-son-broker',
     level: 'debutant' as const,
-    category: 'Académie · Module 5',
+    category: 'Bases · Leçon 4',
     readingTime: 8,
-  },
-  {
-    title: 'Analyse fondamentale : lire une entreprise',
-    excerpt:
-      "PER, marges, dette, flux de trésorerie — les indicateurs qui permettent de distinguer une belle entreprise d'une belle histoire.",
-    href: '/academie/analyse-fondamentale',
-    level: 'intermediaire' as const,
-    category: 'Académie · Module 7',
-    readingTime: 12,
   },
 ]
 
@@ -39,8 +39,8 @@ const PILLARS = [
     icon: '📖',
     label: 'Académie',
     description:
-      '21 modules structurés, du premier euro investi aux stratégies avancées.',
-    href: '/academie',
+      "Cinq leçons fondamentales pour poser les bases avant d'investir votre premier euro.",
+    href: '/academie/bases',
     cta: 'Commencer →',
   },
   {
@@ -64,7 +64,7 @@ const PILLARS = [
 export default function Home() {
   return (
     <>
-      {/* ── Hero ────────────────────────────────────────────────────────── */}
+      {/* Hero */}
       <HeroSection
         eyebrow="Investissement fondamental long terme"
         title={
@@ -75,16 +75,23 @@ export default function Home() {
           </>
         }
         subtitle="Des ressources claires pour comprendre les marchés et construire un patrimoine durable — sans promesse de rendement, sans bruit de fond."
-        primaryCta={{ label: "Commencer l'académie", href: '/academie' }}
+        primaryCta={{ label: "Commencer l'académie", href: '/academie/bases' }}
         secondaryCta={{ label: 'Voir les analyses', href: '/analyses' }}
       />
 
-      {/* ── Corps de page ────────────────────────────────────────────────── */}
       <div className="bg-[#F7F4EF]">
 
-        {/* ── Par où commencer ─────────────────────────────────────────── */}
+        {/* Par où commencer */}
         <section className="max-w-full-layout mx-auto px-6 pt-14 pb-10">
-          <p className="section-label mb-6">Par où commencer ?</p>
+          <div className="flex items-baseline justify-between mb-6">
+            <p className="section-label">Par où commencer ?</p>
+            <Link
+              href="/academie/bases"
+              className="font-sans text-xs text-[#78716C] hover:text-[#1C1917] transition-colors"
+            >
+              Voir le parcours complet →
+            </Link>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {FEATURED_MODULES.map((module) => (
               <ArticleCard key={module.href} {...module} />
@@ -94,7 +101,7 @@ export default function Home() {
 
         <hr className="section-divider max-w-full-layout mx-auto px-6" />
 
-        {/* ── Les trois piliers ────────────────────────────────────────── */}
+        {/* Les trois piliers */}
         <section className="max-w-full-layout mx-auto px-6 py-10">
           <p className="section-label mb-8">Ce que vous trouverez ici</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -121,28 +128,23 @@ export default function Home() {
 
         <hr className="section-divider max-w-full-layout mx-auto px-6" />
 
-        {/* ── Philosophie ──────────────────────────────────────────────── */}
+        {/* Philosophie */}
         <section className="max-w-full-layout mx-auto px-6 py-10">
           <div className="max-w-content">
             <p className="section-label mb-5">La philosophie</p>
             <h2 className="font-display text-2xl md:text-3xl font-medium text-[#1C1917] leading-snug mb-5">
-              L'investissement n'est pas un jeu.{' '}
-              <em className="text-[#1B4332]">C'est une discipline.</em>
+              {"L'investissement n'est pas un jeu. "}
+              <em className="text-[#1B4332]">{"C'est une discipline."}</em>
             </h2>
             <div className="prose-editorial text-[#1C1917]">
               <p>
-                La Thèse est construite autour d'une conviction simple : les
-                meilleurs résultats en bourse viennent de la patience, de
-                l'analyse et du contrôle des émotions — pas de la vitesse ou du
-                bruit des marchés.
+                {"La Thèse est construite autour d'une conviction simple : les meilleurs résultats en bourse viennent de la patience, de l'analyse et du contrôle des émotions — pas de la vitesse ou du bruit des marchés."}
               </p>
               <p>
-                Ici, on ne parle pas de "coups" ni de tuyaux. On apprend à
-                évaluer des entreprises, à construire un portefeuille cohérent,
-                et à rester rationnel quand les marchés ne le sont pas.
+                {'Ici, on ne parle pas de "coups" ni de tuyaux. On apprend à évaluer des entreprises, à construire un portefeuille cohérent, et à rester rationnel quand les marchés ne le sont pas.'}
               </p>
             </div>
-            <div className="mt-8 flex items-center gap-4">
+            <div className="mt-8">
               <Link
                 href="/a-propos"
                 className="font-sans text-sm font-medium text-[#1B4332] border-b border-[#D6EDDF] hover:border-[#1B4332] transition-colors pb-0.5"
@@ -155,7 +157,7 @@ export default function Home() {
 
         <hr className="section-divider max-w-full-layout mx-auto px-6" />
 
-        {/* ── Articles — placeholder en attente du blog ────────────────── */}
+        {/* Articles — placeholder */}
         <section className="max-w-full-layout mx-auto px-6 py-10">
           <div className="flex items-baseline justify-between mb-6">
             <p className="section-label">Derniers articles</p>
@@ -170,15 +172,14 @@ export default function Home() {
               Articles à venir
             </p>
             <p className="font-serif text-sm italic text-[#A8A29E] leading-relaxed max-w-sm mx-auto">
-              Des analyses de fond, des retours d'expérience et des mises à jour
-              de marchés seront publiés ici prochainement.
+              {"Des analyses de fond, des retours d'expérience et des mises à jour de marchés seront publiés ici prochainement."}
             </p>
           </div>
         </section>
 
         <hr className="section-divider max-w-full-layout mx-auto px-6" />
 
-        {/* ── CTA communauté ───────────────────────────────────────────── */}
+        {/* CTA communauté */}
         <section className="max-w-full-layout mx-auto px-6 py-10 pb-16">
           <div className="bg-white border border-[#E0DBCF] rounded-lg px-8 py-8 md:flex md:items-center md:justify-between gap-8">
             <div>
@@ -187,8 +188,7 @@ export default function Home() {
                 Discuter, questionner, progresser ensemble.
               </h2>
               <p className="font-serif text-sm italic text-[#78716C] leading-relaxed max-w-md">
-                Le Discord est l'espace d'échange autour du contenu du site —
-                questions, retours d'expérience, analyses partagées.
+                {"Le Discord est l'espace d'échange autour du contenu du site — questions, retours d'expérience, analyses partagées."}
               </p>
             </div>
             <div className="mt-6 md:mt-0 shrink-0">
