@@ -33,62 +33,44 @@ export function ModuleNavigation({ prev, next, backTo }: ModuleNavigationProps) 
         </Link>
       </div>
 
-      {/* Précédent / Suivant */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      {/* Précédent / Suivant — masqués si absent */}
+      {(prev || next) && (
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
-        {/* Précédent */}
-        {prev ? (
-          <Link
-            href={prev.href}
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '14px',
-              color: 'var(--color-accent)',
-              textDecoration: 'none',
-            }}
-          >
-            ← {prev.label}
-          </Link>
-        ) : (
-          <span
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '14px',
-              color: 'var(--color-ink-faint)',
-              cursor: 'default',
-            }}
-          >
-            ← Premier module
-          </span>
-        )}
+          {prev ? (
+            <Link
+              href={prev.href}
+              style={{
+                fontFamily: 'var(--font-sans)',
+                fontSize: '14px',
+                color: 'var(--color-accent)',
+                textDecoration: 'none',
+              }}
+            >
+              ← {prev.label}
+            </Link>
+          ) : (
+            <span />
+          )}
 
-        {/* Suivant */}
-        {next ? (
-          <Link
-            href={next.href}
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '14px',
-              color: 'var(--color-accent)',
-              textDecoration: 'none',
-            }}
-          >
-            {next.label} →
-          </Link>
-        ) : (
-          <span
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '14px',
-              color: 'var(--color-ink-faint)',
-              cursor: 'default',
-            }}
-          >
-            Dernier module
-          </span>
-        )}
+          {next ? (
+            <Link
+              href={next.href}
+              style={{
+                fontFamily: 'var(--font-sans)',
+                fontSize: '14px',
+                color: 'var(--color-accent)',
+                textDecoration: 'none',
+              }}
+            >
+              {next.label} →
+            </Link>
+          ) : (
+            <span />
+          )}
 
-      </div>
+        </div>
+      )}
     </nav>
   )
 }

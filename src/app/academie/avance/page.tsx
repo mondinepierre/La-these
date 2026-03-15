@@ -3,11 +3,11 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const modules = [
-  { slug: 'long-et-short',   title: 'Long et Short',        duration: '6 min' },
-  { slug: 'le-levier',       title: 'Le Levier',            duration: '7 min' },
-  { slug: 'les-options',     title: 'Les Options',          duration: '9 min' },
-  { slug: 'le-hedge',        title: 'Le Hedge',             duration: '8 min' },
-  { slug: 'ordres-avances',  title: 'Les Ordres avancés',   duration: '8 min' },
+  { slug: 'long-et-short',  title: 'Long et Short',       duration: '6 min' },
+  { slug: 'le-levier',      title: 'Le Levier',           duration: '7 min' },
+  { slug: 'les-options',    title: 'Les Options',         duration: '9 min' },
+  { slug: 'le-hedge',       title: 'Le Hedge',            duration: '8 min' },
+  { slug: 'ordres-avances', title: 'Les Ordres avancés',  duration: '8 min' },
 ]
 
 function ModuleRow({ mod, index }: { mod: typeof modules[0], index: number }) {
@@ -53,6 +53,7 @@ export default function AvancePage() {
   return (
     <main className="max-w-content mx-auto px-6 py-12">
 
+      {/* Retour académie */}
       <Link
         href="/academie"
         style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: 'var(--color-ink-faint)', textDecoration: 'none', display: 'inline-block', marginBottom: '1.5rem' }}
@@ -62,9 +63,7 @@ export default function AvancePage() {
 
       <p className="section-label mb-4">Parcours</p>
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '0.5rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '36px', margin: 0 }}>
-          Avancé
-        </h1>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '36px', margin: 0 }}>Avancé</h1>
         <span className="level-badge level-badge--avance">Avancé</span>
       </div>
       <p style={{ fontFamily: 'var(--font-serif)', color: 'var(--color-ink-muted)', marginBottom: '3rem' }}>
@@ -76,6 +75,22 @@ export default function AvancePage() {
           <ModuleRow key={mod.slug} mod={mod} index={i} />
         ))}
       </ol>
+
+      {/* Navigation inter-niveaux */}
+      <nav style={{
+        marginTop: '3rem',
+        paddingTop: '2rem',
+        borderTop: '1px solid var(--color-stone-border)',
+        display: 'flex',
+        justifyContent: 'flex-start',
+      }}>
+        <Link
+          href="/academie/intermediaire"
+          style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', color: 'var(--color-accent)', textDecoration: 'none' }}
+        >
+          ← Parcours Intermédiaire
+        </Link>
+      </nav>
 
     </main>
   )
