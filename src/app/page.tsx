@@ -11,25 +11,25 @@ const FEATURED_MODULES = [
     href: '/academie/bases/pourquoi-investir',
     level: 'debutant' as const,
     category: 'Bases · Leçon 1',
-    readingTime: 7,
+    readingTime: 4,
   },
   {
-    title: 'Choisir sa stratégie',
+    title: 'Analyse fondamentale',
     excerpt:
-      "Investissement passif, actif, DCA — comprendre les grandes approches avant de choisir celle qui correspond à votre situation.",
-    href: '/academie/bases/choisir-sa-strategie',
-    level: 'debutant' as const,
-    category: 'Bases · Leçon 2',
-    readingTime: 12,
-  },
-  {
-    title: 'Choisir son broker',
-    excerpt:
-      "Frais, sécurité, interface, fiscalité : les quatre axes pour ne pas se tromper dès la première étape.",
-    href: '/academie/bases/choisir-son-broker',
-    level: 'debutant' as const,
-    category: 'Bases · Leçon 4',
+      "PER, marges, dette, flux de trésorerie — les indicateurs qui permettent de distinguer une belle entreprise d'une belle histoire.",
+    href: '/academie/intermediaire/analyse-fondamentale',
+    level: 'intermediaire' as const,
+    category: 'Intermédiaire · Leçon 2',
     readingTime: 8,
+  },
+  {
+    title: 'Gérer le risque',
+    excerpt:
+      "Position sizing, stop-loss, diversification — les principes qui permettent de rester dans le jeu sur le long terme.",
+    href: '/academie/intermediaire/gerer-le-risque',
+    level: 'intermediaire' as const,
+    category: 'Intermédiaire · Leçon 4',
+    readingTime: 7,
   },
 ]
 
@@ -40,7 +40,7 @@ const PILLARS = [
     label: 'Académie',
     description:
       "Cinq leçons fondamentales pour poser les bases avant d'investir votre premier euro.",
-    href: '/academie/bases',
+    href: '/academie',
     cta: 'Commencer →',
   },
   {
@@ -86,7 +86,7 @@ export default function Home() {
           <div className="flex items-baseline justify-between mb-6">
             <p className="section-label">Par où commencer ?</p>
             <Link
-              href="/academie/bases"
+              href="/academie"
               className="font-sans text-xs text-[#78716C] hover:text-[#1C1917] transition-colors"
             >
               Voir le parcours complet →

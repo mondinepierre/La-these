@@ -38,12 +38,17 @@ export default function academiePage() {
           </div>
         </Link>
 
-        {/* Avancé — bientôt disponible */}
-        <div style={{ padding: '1.5rem 0', opacity: 0.4 }}>
-          <span className="level-badge level-badge--avance" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>Avancé</span>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--color-ink)', margin: '0.25rem 0' }}>Avancé</h2>
-          <p style={{ fontFamily: 'var(--font-serif)', fontSize: '15px', color: 'var(--color-ink-muted)', margin: 0 }}>9 modules · Prérequis : Intermédiaire — bientôt disponible</p>
-        </div>
+        {/* Avancé — disponible */}
+        <Link href="/academie/avance" style={{ display: 'block', padding: '1.5rem 0', textDecoration: 'none' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <span className="level-badge level-badge--avance" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>Avancé</span>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--color-ink)', margin: '0.25rem 0' }}>Avancé</h2>
+              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '15px', color: 'var(--color-ink-muted)', margin: 0 }}>5 modules · Prérequis : Intermédiaire</p>
+            </div>
+            <span style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', color: 'var(--color-accent)' }}>Commencer →</span>
+          </div>
+        </Link>
 
       </div>
     </main>

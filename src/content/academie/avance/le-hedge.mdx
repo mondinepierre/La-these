@@ -1,0 +1,232 @@
+Le hedging — ou couverture — est la différence entre l'investisseur qui panique pendant une correction et celui qui regarde ses graphiques avec sérénité. L'objectif n'est pas de générer du profit, mais de compenser partiellement les pertes d'un portefeuille par les gains d'une position de protection.
+
+L'analogie la plus juste : tu possèdes une maison en bord de mer. La météo annonce un ouragan. Tu as deux choix — vendre la maison en urgence à prix bradé, ou acheter des volets anti-tempête pour 500 €. Le hedge, ce sont tes volets. Si l'ouragan passe à côté, tu as "perdu" 500 € pour rien. S'il frappe, ta maison est sauve.
+
+---
+
+## Pourquoi hedger plutôt que vendre ?
+
+Vendre ses positions dès que le marché baisse est une erreur coûteuse. Le hedge permet d'éviter quatre pièges.
+
+**Le matraquage fiscal.** Vendre déclenche l'imposition immédiate sur tes plus-values latentes. Une position construite depuis 5 ans peut représenter une plus-value significative — la vendre en urgence cristallise cet impôt inutilement.
+
+**La perte de tes positions de conviction.** Tu ne perds pas tes droits aux dividendes, tes droits de vote, ni tes positions fondamentales construites patiemment.
+
+**Le piège du market timing.** Si tu vends tout, quand rachètes-tu ? La plupart des investisseurs rachètent trop tard — après que le marché a déjà rebondi de 15 à 20 %. Le hedge te maintient dans le marché.
+
+**Le stress émotionnel.** Une protection en place permet de traverser les corrections sans prendre de décisions irrationnelles sous pression.
+
+---
+
+## Les outils selon ton profil
+
+Les besoins d'un investisseur passif sur ETF ne sont pas les mêmes que ceux d'un stock picker. Les outils diffèrent — inutile de maîtriser tout le catalogue si seulement deux ou trois sont pertinents pour toi.
+
+### Investisseur passif sur ETF
+
+Ton portefeuille est déjà diversifié par construction. Tu n'as pas besoin de couvrir ligne par ligne. Deux outils suffisent.
+
+**L'or.** Allouer 5 à 10 % du portefeuille en or physique ou en ETF or (SPDR Gold Shares, Amundi Physical Gold) est une couverture passive et permanente. Elle ne coûte rien au quotidien, mais joue son rôle quand le reste du portefeuille souffre — l'or a une corrélation historiquement inverse aux actions en période de panique systémique.
+
+**Les ETF hedgés (couverture de change).** Un investisseur européen qui alloue 40 à 50 % sur le marché américain est massivement exposé au dollar. Si le S&P 500 stagne mais que le dollar perd 10 % face à l'euro, le portefeuille perd 10 % sans que les actions aient bougé. Un ETF "EUR Hedged" neutralise cet impact de change mécaniquement. Cette couverture a un coût — frais légèrement supérieurs et friction liée à la différence de taux entre Fed et BCE. Elle est utile quand on anticipe un dollar affaibli sur la durée, pas comme position permanente.
+
+Exemple concret : en 2022, le dollar s'est apprécié de 15 % face à l'euro. Un investisseur européen sur S&P 500 non couvert a bénéficié de ce mouvement — son ETF a surperformé. À l'inverse, en 2023 quand le dollar s'est affaibli, l'ETF EUR Hedged a livré la performance américaine brute sans subir la perte de change. La couverture est donc un pari directionnel sur la devise, pas une protection neutre.
+
+### Stock picker
+
+Tu détiens des lignes individuelles avec des convictions spécifiques. Tes risques sont plus concentrés — et tes outils de couverture peuvent l'être aussi.
+
+**Le Put de protection.** Tu achètes un Put sur une action que tu détiens, avec un strike situé 5 à 10 % sous le prix actuel. Si l'action s'effondre, le Put s'apprécie et compense la perte. Tu crées un plancher mathématique sous lequel tu ne peux plus perdre d'argent. La mécanique complète est dans le module Options. L'essentiel ici : cette couverture a un coût (la prime), et elle expire. Si l'action stagne ou monte, la prime est perdue — comme une assurance non utilisée.
+
+**Le Costless Collar.** C'est la version gratuite du Put de protection — la manœuvre la plus élégante pour un stock picker qui refuse de payer sa couverture de sa poche.
+
+- Tu achètes un Put (strike à −5 %) : coût 200 €.
+- Simultanément, tu vends un Covered Call (strike à +10 %) : prime encaissée 200 €.
+- Résultat : protection à coût zéro.
+
+Le compromis : tu es protégé à la baisse, mais tes gains sont plafonnés à la hausse. Si l'action monte de 20 %, tu ne profites que des premiers 10 %. C'est cohérent sur des positions matures — des actions en forte plus-value latente que tu veux protéger sans vendre et sans payer.
+
+Point pratique : tant que le Collar est ouvert, tes actions sont bloquées en collatéral. Pour les vendre avant l'échéance, tu dois dénouer les deux jambes simultanément — racheter le Call et vendre le Put.
+
+**Exemple sur LVMH à 600 € (100 actions, soit 60 000 €) :**
+
+- Achat d'un Put strike 570 € (−5 %) : prime payée 300 €
+- Vente d'un Call strike 660 € (+10 %) : prime encaissée 300 €
+- Coût net : 0 €
+
+<div className="table-scroll">
+<table>
+  <thead>
+    <tr>
+      <th>Scénario à l'échéance</th>
+      <th>Cours LVMH</th>
+      <th>Résultat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Forte baisse</td>
+      <td>480 €</td>
+      <td>Put exercé — tu vends à 570 €. Perte limitée à −3 000 € au lieu de −12 000 €.</td>
+    </tr>
+    <tr>
+      <td>Légère hausse</td>
+      <td>630 €</td>
+      <td>Ni Put ni Call exercé. Tu profites de la hausse jusqu'à +3 000 €.</td>
+    </tr>
+    <tr>
+      <td>Forte hausse</td>
+      <td>720 €</td>
+      <td>Call exercé — tu vends à 660 €. Gain plafonné à +6 000 € au lieu de +12 000 €.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div style={{display:'flex',justifyContent:'center',margin:'1.5rem 0'}}>
+<svg width="100%" viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" style={{fontFamily:'var(--font-sans)'}}>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></marker>
+    <clipPath id="clip"><rect x="60" y="20" width="580" height="265"/></clipPath>
+  </defs>
+  <line x1="60" y1="255" x2="60" y2="25" stroke="#78716C" strokeWidth="1" markerEnd="url(#arr)"/>
+  <line x1="60" y1="170" x2="640" y2="170" stroke="#78716C" strokeWidth="1" markerEnd="url(#arr)"/>
+  <text x="645" y="174" fontSize="10" fill="#78716C">Prix actif</text>
+  <text x="65" y="23" fontSize="10" fill="#78716C">Profit / Perte</text>
+  <text x="48" y="104" fontSize="10" fill="#1B4332" textAnchor="end">+6 000 €</text>
+  <line x1="54" y1="100" x2="60" y2="100" stroke="#78716C" strokeWidth="0.8"/>
+  <text x="48" y="174" fontSize="10" fill="#78716C" textAnchor="end">0</text>
+  <text x="48" y="224" fontSize="10" fill="#A8A29E" textAnchor="end">−3 000 €</text>
+  <line x1="54" y1="220" x2="60" y2="220" stroke="#78716C" strokeWidth="0.8"/>
+  <line x1="160" y1="170" x2="160" y2="176" stroke="#C9A84C" strokeWidth="1"/>
+  <text x="160" y="188" fontSize="9" fill="#C9A84C" textAnchor="middle">570 €</text>
+  <text x="160" y="200" fontSize="8" fill="#A8A29E" textAnchor="middle">Put strike</text>
+  <line x1="200" y1="170" x2="200" y2="176" stroke="#78716C" strokeWidth="1"/>
+  <text x="200" y="188" fontSize="9" fill="#78716C" textAnchor="middle">600 €</text>
+  <text x="200" y="200" fontSize="8" fill="#A8A29E" textAnchor="middle">cours actuel</text>
+  <line x1="360" y1="170" x2="360" y2="176" stroke="#1B4332" strokeWidth="1"/>
+  <text x="360" y="188" fontSize="9" fill="#1B4332" textAnchor="middle">660 €</text>
+  <text x="360" y="200" fontSize="8" fill="#A8A29E" textAnchor="middle">Call strike</text>
+  <line x1="160" y1="220" x2="160" y2="170" stroke="#C9A84C" strokeWidth="0.8" strokeDasharray="4 3" opacity="0.6"/>
+  <line x1="360" y1="100" x2="360" y2="170" stroke="#1B4332" strokeWidth="0.8" strokeDasharray="4 3" opacity="0.6"/>
+  <path d="M60 220 C80 220 120 220 160 170 L160 170 L60 170 Z" fill="#C9A84C" opacity="0.2" clipPath="url(#clip)"/>
+  <path d="M160 170 C200 158 260 136 310 118 C335 109 348 104 360 100 L360 100 L600 100 L600 170 L160 170 Z" fill="#D6EDDF" opacity="0.7" clipPath="url(#clip)"/>
+  <path d="M160 170 C200 158 260 136 310 118 C335 109 348 104 360 100 C385 86 420 68 460 52 C490 40 530 32 610 24" fill="none" stroke="#A8A29E" strokeWidth="1.5" strokeDasharray="5 3" strokeLinecap="round" clipPath="url(#clip)"/>
+  <path d="M60 220 C80 220 120 220 155 173 C158 171 159 170 160 170 C200 158 260 136 310 118 C335 109 348 104 360 100 C390 100 440 100 500 100 C540 100 570 100 610 100" fill="none" stroke="#1B4332" strokeWidth="2.5" strokeLinecap="round" clipPath="url(#clip)"/>
+  <text x="100" y="240" fontSize="9" fill="#C9A84C" textAnchor="middle">Plancher</text>
+  <text x="100" y="252" fontSize="9" fill="#C9A84C" textAnchor="middle">Put protège</text>
+  <text x="490" y="96" fontSize="9" fill="#1B4332" textAnchor="middle">Gain plafonné</text>
+  <text x="490" y="108" fontSize="9" fill="#A8A29E" textAnchor="middle">Call limité</text>
+  <text x="300" y="150" fontSize="9" fill="#1B4332" textAnchor="middle">Zone de profit libre</text>
+  <text x="580" y="40" fontSize="9" fill="#A8A29E" textAnchor="middle">gain manqué</text>
+  <line x1="60" y1="285" x2="76" y2="285" stroke="#1B4332" strokeWidth="2.5"/>
+  <text x="82" y="289" fontSize="10" fill="#78716C">Costless Collar</text>
+  <line x1="200" y1="285" x2="216" y2="285" stroke="#A8A29E" strokeWidth="1.5" strokeDasharray="5 3"/>
+  <text x="222" y="289" fontSize="10" fill="#78716C">Action seule</text>
+  <rect x="320" y="279" width="12" height="10" fill="#D6EDDF" opacity="0.9" rx="1"/>
+  <text x="338" y="289" fontSize="10" fill="#78716C">Profit</text>
+  <rect x="395" y="279" width="12" height="10" fill="#C9A84C" opacity="0.4" rx="1"/>
+  <text x="413" y="289" fontSize="10" fill="#78716C">Perte</text>
+  <text x="490" y="289" fontSize="10" fill="#A8A29E">Coût net = 0 €</text>
+</svg>
+</div>
+
+**L'or et les valeurs refuges.** Une allocation de 5 à 10 % en or constitue un amortisseur passif permanent qui complète les couvertures actives ligne par ligne — contrairement au Bitcoin, qui est historiquement corrélé aux actions tech en période de stress et chute souvent avec elles. L'or est une couverture. Le BTC est une position de conviction.
+
+---
+
+## Calibrer sa couverture : le Beta-weighting
+
+Couvrir son portefeuille à l'aveugle ne sert à rien. La taille de la couverture doit être proportionnelle à la sensibilité du portefeuille — mesurée par le **Bêta**.
+
+Le marché (l'indice de référence) a un Bêta de 1. Un portefeuille avec un Bêta de 2,0 perd deux fois plus que le marché en cas de correction.
+
+- **Portefeuille défensif (Bêta ~0,5)** — utilities, dividendes, secteurs stables. Si le marché perd 10 %, ce portefeuille perd ~5 %. Un hedge léger suffit.
+- **Portefeuille offensif (Bêta ~2,0)** — tech, croissance, semiconducteurs. Si le marché perd 10 %, ce portefeuille perd ~20 %. La couverture doit être dimensionnée en conséquence.
+
+**Comment calculer le Bêta de son portefeuille ?**
+
+Le Bêta de chaque action est consultable directement sur Yahoo Finance, Morningstar ou IBKR (fiche de l'action → onglet Statistiques). Le Bêta du portefeuille est la moyenne pondérée des Bêtas de chaque ligne.
+
+Exemple sur un portefeuille de 10 000 € :
+
+<div className="table-scroll">
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Poids</th>
+      <th>Bêta</th>
+      <th>Contribution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>LVMH</td><td>40 %</td><td>0,8</td><td>0,32</td></tr>
+    <tr><td>Nvidia</td><td>35 %</td><td>1,9</td><td>0,67</td></tr>
+    <tr><td>Air Liquide</td><td>25 %</td><td>0,5</td><td>0,13</td></tr>
+    <tr><td><strong>Portefeuille</strong></td><td><strong>100 %</strong></td><td>—</td><td><strong>1,12</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+Bêta total = 1,12. Ce portefeuille est légèrement plus volatil que le marché. Si le CAC 40 perd 10 %, il perdra statistiquement ~11 %.
+
+L'erreur classique : couvrir 10 000 € de tech (Bêta 2,0) avec 10 000 € d'or. L'or ne monte pas deux fois plus vite que les actions ne chutent. La taille du hedge doit être ajustée.
+
+**Formule :** Taille du hedge = Valeur du portefeuille × Bêta moyen
+
+Avec notre exemple : 10 000 € × 1,12 = **11 200 € de couverture nécessaire** pour une neutralisation complète du risque de marché.
+
+---
+
+## Le timing : quand acheter sa protection
+
+Le hedge obéit à une règle cruciale : **on n'achète pas une assurance incendie quand les flammes lèchent déjà le toit.**
+
+Pendant un krach, la volatilité implicite explose. Acheter un Put en pleine panique coûte trois à cinq fois plus cher qu'en période calme — c'est précisément quand tu en as le plus besoin qu'il est le plus cher.
+
+L'outil de référence : le **VIX** — l'indice de la peur du marché américain, qui mesure la volatilité implicite des options S&P 500. Quand le VIX est bas (sous 15–18), les marchés sont euphoriques et les protections sont bradées. C'est le moment d'acheter ses volets anti-tempête, pas quand l'ouragan est déjà visible à l'horizon.
+
+Consultable gratuitement sur CBOE.com (le gestionnaire officiel du VIX) ou directement sur Yahoo Finance en cherchant le ticker "^VIX".
+
+<div style={{display:'flex',justifyContent:'center',margin:'1.5rem 0'}}>
+<svg width="100%" viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" style={{fontFamily:'var(--font-sans)'}}>
+  <defs>
+    <clipPath id="clipvix"><rect x="60" y="20" width="580" height="220"/></clipPath>
+  </defs>
+  <line x1="60" y1="230" x2="60" y2="25" stroke="#78716C" strokeWidth="1"/>
+  <line x1="60" y1="230" x2="640" y2="230" stroke="#78716C" strokeWidth="1"/>
+  <text x="645" y="234" fontSize="10" fill="#78716C">Temps</text>
+  <text x="65" y="23" fontSize="10" fill="#78716C">VIX</text>
+  <line x1="54" y1="185" x2="60" y2="185" stroke="#78716C" strokeWidth="0.8"/>
+  <text x="48" y="189" fontSize="10" fill="#78716C" textAnchor="end">15</text>
+  <line x1="54" y1="140" x2="60" y2="140" stroke="#78716C" strokeWidth="0.8"/>
+  <text x="48" y="144" fontSize="10" fill="#78716C" textAnchor="end">30</text>
+  <line x1="54" y1="90" x2="60" y2="90" stroke="#78716C" strokeWidth="0.8"/>
+  <text x="48" y="94" fontSize="10" fill="#78716C" textAnchor="end">50</text>
+  <rect x="60" y="168" width="580" height="62" fill="#D6EDDF" opacity="0.5"/>
+  <text x="350" y="196" fontSize="10" fill="#1B4332" textAnchor="middle" fontWeight="600">Zone d'achat idéale</text>
+  <text x="350" y="206" fontSize="10" fill="#1B4332" textAnchor="middle" fontWeight="600">protections peu chères</text>
+  <line x1="60" y1="169" x2="640" y2="169" stroke="#1B4332" strokeWidth="0.8" strokeDasharray="5 3" opacity="0.5"/>
+  <path d="M60 180 C90 178 110 175 130 172 C150 169 165 172 180 168 C200 163 215 170 230 165 C250 158 260 148 275 135 C290 118 300 95 315 75 C325 60 335 52 345 48 C360 55 370 70 380 88 C395 110 405 130 420 148 C435 163 450 172 470 175 C490 178 510 176 530 172 C550 168 570 174 590 177 C610 180 625 182 635 183" fill="none" stroke="#C9A84C" strokeWidth="2.5" strokeLinecap="round" clipPath="url(#clipvix)"/>
+  <line x1="345" y1="48" x2="345" y2="230" stroke="#C9A84C" strokeWidth="0.8" strokeDasharray="3 2" opacity="0.5"/>
+  <text x="345" y="42" fontSize="9" fill="#C9A84C" textAnchor="middle">Pic de panique</text>
+  <text x="345" y="32" fontSize="9" fill="#C9A84C" textAnchor="middle">VIX &gt; 50 → put très cher</text>
+  <line x1="150" y1="169" x2="150" y2="230" stroke="#1B4332" strokeWidth="0.8" strokeDasharray="3 2" opacity="0.4"/>
+  <text x="150" y="248" fontSize="9" fill="#1B4332" textAnchor="middle">✓ Acheter</text>
+  <text x="150" y="260" fontSize="9" fill="#1B4332" textAnchor="middle">sa protection</text>
+  <line x1="450" y1="172" x2="450" y2="230" stroke="#1B4332" strokeWidth="0.8" strokeDasharray="3 2" opacity="0.4"/>
+  <text x="450" y="248" fontSize="9" fill="#1B4332" textAnchor="middle">✓ Acheter</text>
+  <text x="450" y="260" fontSize="9" fill="#1B4332" textAnchor="middle">sa protection</text>
+  <text x="345" y="248" fontSize="9" fill="#C9A84C" textAnchor="middle">✗ Trop tard</text>
+  <text x="345" y="260" fontSize="9" fill="#C9A84C" textAnchor="middle">protection très chère</text>
+</svg>
+</div>
+
+---
+
+## À retenir
+
+Le hedge n'est pas une stratégie de gain — c'est une stratégie de préservation. Son coût est réel et doit être intégré dans le calcul de performance. Un portefeuille avec une couverture permanente sous-performera légèrement un portefeuille nu en marché haussier — c'est le prix de la sérénité.
+
+Pour un investisseur passif, la combinaison la plus simple reste une allocation de 5 à 10 % en or et un ETF hedgé sur la partie hors zone euro. Pour un stock picker, le Put de protection ou le Costless Collar sur les positions les plus exposées, achetés quand le VIX est bas, constituent une couverture précise et peu coûteuse.
