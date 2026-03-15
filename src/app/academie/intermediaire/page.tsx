@@ -3,11 +3,11 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const modules = [
-  { slug: 'pourquoi-investir',    title: 'Pourquoi investir ?',          duration: '4 min' },
-  { slug: 'choisir-sa-strategie', title: 'Choisir sa stratégie',         duration: '6 min' },
-  { slug: 'choisir-son-enveloppe',title: 'Choisir son enveloppe',        duration: '5 min' },
-  { slug: 'choisir-son-broker',   title: 'Choisir son broker',           duration: '5 min' },
-  { slug: 'routine-investisseur', title: "La routine de l'investisseur", duration: '4 min' },
+  { slug: 'analyser-un-etf',          title: 'Analyser un ETF',                    duration: '6 min' },
+  { slug: 'analyse-fondamentale',      title: 'Analyse fondamentale',               duration: '8 min' },
+  { slug: 'analyse-technique',         title: 'Analyse technique',                  duration: '10 min' },
+  { slug: 'gerer-le-risque',           title: 'Gérer le risque',                    duration: '7 min' },
+  { slug: 'psychologie-investisseur',  title: "Psychologie de l'investisseur",      duration: '6 min' },
 ]
 
 function ModuleRow({ mod, index }: { mod: typeof modules[0], index: number }) {
@@ -15,7 +15,7 @@ function ModuleRow({ mod, index }: { mod: typeof modules[0], index: number }) {
   return (
     <li>
       <Link
-        href={`/academie/bases/${mod.slug}`}
+        href={`/academie/intermediaire/${mod.slug}`}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{
@@ -35,7 +35,7 @@ function ModuleRow({ mod, index }: { mod: typeof modules[0], index: number }) {
           <span style={{
             fontFamily: 'var(--font-display)',
             fontSize: '18px',
-            color: hovered ? '#1B4332' : '#1C1917',
+            color: hovered ? '#2D6A4F' : '#1C1917',
             transition: 'color 0.15s ease',
           }}>
             {mod.title}
@@ -49,24 +49,35 @@ function ModuleRow({ mod, index }: { mod: typeof modules[0], index: number }) {
   )
 }
 
-export default function BasesPage() {
+export default function IntermediairePage() {
   return (
     <main className="max-w-content mx-auto px-6 py-12">
+
+      {/* Fil d'Ariane */}
+      <Link
+        href="/academie"
+        style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: 'var(--color-ink-faint)', textDecoration: 'none', display: 'inline-block', marginBottom: '1.5rem' }}
+      >
+        ← Académie
+      </Link>
+
       <p className="section-label mb-4">Parcours</p>
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '0.5rem' }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '36px', margin: 0 }}>
-          Les bases
+          Intermédiaire
         </h1>
-        <span className="level-badge level-badge--debutant">Débutant</span>
+        <span className="level-badge level-badge--intermediaire">Intermédiaire</span>
       </div>
       <p style={{ fontFamily: 'var(--font-serif)', color: 'var(--color-ink-muted)', marginBottom: '3rem' }}>
-        5 modules · Aucun prérequis
+        5 modules · Prérequis : Bases
       </p>
+
       <ol style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {modules.map((mod, i) => (
           <ModuleRow key={mod.slug} mod={mod} index={i} />
         ))}
       </ol>
+
     </main>
   )
 }

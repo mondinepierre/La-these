@@ -1,0 +1,469 @@
+L'analyse fondamentale répond à la question "quoi acheter". L'analyse technique répond à "quand l'acheter". Elle ne prédit pas l'avenir — elle identifie des probabilités basées sur la psychologie des foules et les traces qu'elle laisse sur les graphiques.
+
+Un investisseur long terme utilise peu l'analyse technique. Un swing trader l'utilise constamment. Entre les deux, elle sert principalement à éviter d'acheter une bonne entreprise au mauvais moment — en surchauffe, ou avant une correction prévisible.
+
+---
+
+## Les bougies japonaises : lire le prix
+
+Chaque bougie représente le mouvement du prix sur une unité de temps définie — une heure, un jour, une semaine. Elle contient quatre informations : le prix d'ouverture, le prix de clôture, le plus haut et le plus bas atteints sur la période.
+
+**Le corps** (rectangle) montre l'écart entre ouverture et clôture. **Les mèches** (traits fins) montrent les extrêmes. Une bougie **verte** signifie que le prix a clôturé plus haut qu'il n'a ouvert — les acheteurs ont dominé. Une bougie **rouge** signifie l'inverse.
+
+
+<div style={{display:'flex',justifyContent:'center',margin:'1.5rem 0'}}>
+<svg width="100%" viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" style={{fontFamily:'var(--font-sans)'}}>
+  <line x1="200" y1="40" x2="200" y2="80" stroke="#1B4332" strokeWidth="2"/>
+  <rect x="175" y="80" width="50" height="140" rx="3" fill="#1B4332" stroke="#1B4332" strokeWidth="0.5"/>
+  <line x1="200" y1="220" x2="200" y2="270" stroke="#1B4332" strokeWidth="2"/>
+  <line x1="480" y1="40" x2="480" y2="90" stroke="#C9A84C" strokeWidth="2"/>
+  <rect x="455" y="90" width="50" height="130" rx="3" fill="#C9A84C" stroke="#C9A84C" strokeWidth="0.5"/>
+  <line x1="480" y1="220" x2="480" y2="275" stroke="#C9A84C" strokeWidth="2"/>
+  <line x1="199" y1="60" x2="120" y2="55" stroke="#A8A29E" strokeWidth="0.5" strokeDasharray="3 3"/>
+  <text x="115" y="59" textAnchor="end" fontSize="12" fill="#78716C">Mèche haute</text>
+  <line x1="175" y1="80" x2="120" y2="95" stroke="#A8A29E" strokeWidth="0.5" strokeDasharray="3 3"/>
+  <text x="115" y="99" textAnchor="end" fontSize="12" fill="#78716C">Clôture</text>
+  <line x1="174" y1="150" x2="120" y2="162" stroke="#A8A29E" strokeWidth="0.5" strokeDasharray="3 3"/>
+  <text x="115" y="166" textAnchor="end" fontSize="12" fill="#78716C">Corps</text>
+  <line x1="175" y1="220" x2="120" y2="228" stroke="#A8A29E" strokeWidth="0.5" strokeDasharray="3 3"/>
+  <text x="115" y="232" textAnchor="end" fontSize="12" fill="#78716C">Ouverture</text>
+  <line x1="199" y1="245" x2="120" y2="258" stroke="#A8A29E" strokeWidth="0.5" strokeDasharray="3 3"/>
+  <text x="115" y="262" textAnchor="end" fontSize="12" fill="#78716C">Mèche basse</text>
+  <line x1="481" y1="40" x2="560" y2="35" stroke="#A8A29E" strokeWidth="0.5" strokeDasharray="3 3"/>
+  <text x="565" y="39" textAnchor="start" fontSize="12" fill="#78716C">Plus haut</text>
+  <line x1="505" y1="90" x2="560" y2="95" stroke="#A8A29E" strokeWidth="0.5" strokeDasharray="3 3"/>
+  <text x="565" y="99" textAnchor="start" fontSize="12" fill="#78716C">Ouverture</text>
+  <line x1="505" y1="155" x2="560" y2="162" stroke="#A8A29E" strokeWidth="0.5" strokeDasharray="3 3"/>
+  <text x="565" y="166" textAnchor="start" fontSize="12" fill="#78716C">Corps</text>
+  <line x1="505" y1="220" x2="560" y2="228" stroke="#A8A29E" strokeWidth="0.5" strokeDasharray="3 3"/>
+  <text x="565" y="232" textAnchor="start" fontSize="12" fill="#78716C">Clôture</text>
+  <line x1="481" y1="275" x2="560" y2="278" stroke="#A8A29E" strokeWidth="0.5" strokeDasharray="3 3"/>
+  <text x="565" y="282" textAnchor="start" fontSize="12" fill="#78716C">Plus bas</text>
+  <rect x="155" y="10" width="90" height="18" rx="3" fill="#1B4332"/>
+  <text x="200" y="23" textAnchor="middle" fontSize="12" fill="#D6EDDF">Haussière</text>
+  <rect x="435" y="10" width="90" height="18" rx="3" fill="#C9A84C"/>
+  <text x="480" y="23" textAnchor="middle" fontSize="12" fill="#412402">Baissière</text>
+</svg>
+</div>
+
+La couleur et la forme d'une bougie donnent une information sur la psychologie du moment. Quelques patterns récurrents et leur interprétation :
+
+**Marteau** : petit corps, longue mèche basse. Après une baisse, les vendeurs ont poussé le prix très bas mais les acheteurs ont repris le contrôle avant la clôture. Signal haussier potentiel. Confiance : 4/10.
+
+**Étoile filante** : petit corps, longue mèche haute. Après une hausse, les acheteurs ont poussé le prix très haut mais les vendeurs ont repris le contrôle. Signal baissier potentiel. Confiance : 4/10.
+
+**Engulfing** : une bougie qui "avale" entièrement le corps de la précédente. Si une grande verte avale une petite rouge, c'est un signal de retournement haussier. L'inverse pour un retournement baissier. Confiance : 5/10.
+
+**Morning Star / Evening Star** : structure en trois bougies (grande / petite / grande). Indique un retournement. Confiance : 6/10.
+
+**Doji** : corps minuscule ou inexistant. Les acheteurs et vendeurs sont à égalité — indécision du marché. Confiance : 2/10.
+
+
+<div style={{display:'flex',justifyContent:'center',margin:'1.5rem 0'}}>
+<svg width="100%" viewBox="0 0 680 390" xmlns="http://www.w3.org/2000/svg" style={{fontFamily:'var(--font-sans)'}}>
+  <line x1="136" y1="20" x2="136" y2="370" stroke="#E0DBCF" strokeWidth="1"/>
+  <line x1="272" y1="20" x2="272" y2="370" stroke="#E0DBCF" strokeWidth="1"/>
+  <line x1="408" y1="20" x2="408" y2="370" stroke="#E0DBCF" strokeWidth="1"/>
+  <line x1="544" y1="20" x2="544" y2="370" stroke="#E0DBCF" strokeWidth="1"/>
+  <line x1="20" y1="193" x2="660" y2="193" stroke="#E0DBCF" strokeWidth="1"/>
+  <line x1="55" y1="68" x2="55" y2="84" stroke="#1B4332" strokeWidth="1.5"/>
+  <rect x="47" y="84" width="16" height="16" fill="#1B4332"/>
+  <line x1="55" y1="100" x2="55" y2="118" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="79" y1="68" x2="79" y2="84" stroke="#C9A84C" strokeWidth="1.5"/>
+  <rect x="71" y="84" width="16" height="16" fill="#C9A84C"/>
+  <line x1="79" y1="100" x2="79" y2="118" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="204" y1="48" x2="204" y2="120" stroke="#C9A84C" strokeWidth="1.5"/>
+  <rect x="196" y="120" width="16" height="14" fill="#C9A84C"/>
+  <line x1="204" y1="134" x2="204" y2="140" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="340" y1="52" x2="340" y2="58" stroke="#1B4332" strokeWidth="1.5"/>
+  <rect x="332" y="58" width="16" height="14" fill="#1B4332"/>
+  <line x1="340" y1="72" x2="340" y2="148" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="476" y1="52" x2="476" y2="148" stroke="#78716C" strokeWidth="1.5"/>
+  <line x1="462" y1="100" x2="490" y2="100" stroke="#78716C" strokeWidth="3"/>
+  <line x1="598" y1="78" x2="598" y2="86" stroke="#C9A84C" strokeWidth="1.5"/>
+  <rect x="590" y="86" width="16" height="26" fill="#C9A84C"/>
+  <line x1="598" y1="112" x2="598" y2="120" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="619" y1="60" x2="619" y2="68" stroke="#1B4332" strokeWidth="1.5"/>
+  <rect x="611" y="68" width="16" height="48" fill="#1B4332"/>
+  <line x1="619" y1="116" x2="619" y2="124" stroke="#1B4332" strokeWidth="1.5"/>
+  <text x="68"  y="175" fontSize="11" fill="#78716C" textAnchor="middle">Spinning Tops</text>
+  <text x="204" y="175" fontSize="11" fill="#78716C" textAnchor="middle">Shooting Star</text>
+  <text x="340" y="175" fontSize="11" fill="#78716C" textAnchor="middle">Hammer</text>
+  <text x="476" y="175" fontSize="11" fill="#78716C" textAnchor="middle">Doji</text>
+  <text x="612" y="175" fontSize="11" fill="#78716C" textAnchor="middle">Bullish Engulfing</text>
+  <line x1="52" y1="248" x2="52" y2="254" stroke="#1B4332" strokeWidth="1.5"/>
+  <rect x="44" y="254" width="16" height="26" fill="#1B4332"/>
+  <line x1="52" y1="280" x2="52" y2="286" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="74" y1="238" x2="74" y2="244" stroke="#C9A84C" strokeWidth="1.5"/>
+  <rect x="66" y="244" width="16" height="52" fill="#C9A84C"/>
+  <line x1="74" y1="296" x2="74" y2="302" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="182" y1="222" x2="182" y2="230" stroke="#1B4332" strokeWidth="1.5"/>
+  <rect x="174" y="230" width="16" height="54" fill="#1B4332"/>
+  <line x1="182" y1="284" x2="182" y2="290" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="204" y1="222" x2="204" y2="240" stroke="#78716C" strokeWidth="1.5"/>
+  <line x1="196" y1="230" x2="212" y2="230" stroke="#78716C" strokeWidth="3"/>
+  <line x1="226" y1="222" x2="226" y2="230" stroke="#C9A84C" strokeWidth="1.5"/>
+  <rect x="218" y="230" width="16" height="44" fill="#C9A84C"/>
+  <line x1="226" y1="274" x2="226" y2="282" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="318" y1="218" x2="318" y2="224" stroke="#C9A84C" strokeWidth="1.5"/>
+  <rect x="310" y="224" width="16" height="54" fill="#C9A84C"/>
+  <line x1="318" y1="278" x2="318" y2="284" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="340" y1="270" x2="340" y2="288" stroke="#78716C" strokeWidth="1.5"/>
+  <line x1="332" y1="278" x2="348" y2="278" stroke="#78716C" strokeWidth="3"/>
+  <line x1="362" y1="234" x2="362" y2="240" stroke="#1B4332" strokeWidth="1.5"/>
+  <rect x="354" y="240" width="16" height="40" fill="#1B4332"/>
+  <line x1="362" y1="280" x2="362" y2="286" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="454" y1="280" x2="454" y2="286" stroke="#1B4332" strokeWidth="1.5"/>
+  <rect x="446" y="288" width="16" height="34" fill="#1B4332"/>
+  <line x1="454" y1="322" x2="454" y2="328" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="474" y1="252" x2="474" y2="256" stroke="#1B4332" strokeWidth="1.5"/>
+  <rect x="466" y="256" width="16" height="34" fill="#1B4332"/>
+  <line x1="474" y1="290" x2="474" y2="296" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="494" y1="220" x2="494" y2="224" stroke="#1B4332" strokeWidth="1.5"/>
+  <rect x="486" y="224" width="16" height="34" fill="#1B4332"/>
+  <line x1="494" y1="258" x2="494" y2="264" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="592" y1="220" x2="592" y2="224" stroke="#C9A84C" strokeWidth="1.5"/>
+  <rect x="584" y="226" width="16" height="34" fill="#C9A84C"/>
+  <line x1="592" y1="260" x2="592" y2="266" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="612" y1="254" x2="612" y2="258" stroke="#C9A84C" strokeWidth="1.5"/>
+  <rect x="604" y="259" width="16" height="34" fill="#C9A84C"/>
+  <line x1="612" y1="293" x2="612" y2="299" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="632" y1="288" x2="632" y2="291" stroke="#C9A84C" strokeWidth="1.5"/>
+  <rect x="624" y="292" width="16" height="34" fill="#C9A84C"/>
+  <line x1="632" y1="326" x2="632" y2="332" stroke="#C9A84C" strokeWidth="1.5"/>
+  <text x="68"  y="355" fontSize="11" fill="#78716C" textAnchor="middle">Bearish Engulfing</text>
+  <text x="204" y="355" fontSize="11" fill="#78716C" textAnchor="middle">Evening Star</text>
+  <text x="340" y="355" fontSize="11" fill="#78716C" textAnchor="middle">Morning Star</text>
+  <text x="476" y="355" fontSize="11" fill="#78716C" textAnchor="middle">3 Soldiers</text>
+  <text x="612" y="355" fontSize="11" fill="#78716C" textAnchor="middle">3 Crows</text>
+</svg>
+</div>
+
+Une règle importante : une bougie seule n'est jamais un signal suffisant. Elle prend son sens dans le contexte plus large — tendance, niveau de support ou de résistance, volume.
+
+---
+
+## Les moyennes mobiles : lire la tendance
+
+Une moyenne mobile (MM) calcule la moyenne des prix de clôture sur les *X* dernières bougies. Elle lisse les fluctuations quotidiennes et révèle la tendance de fond.
+
+Les trois niveaux à connaître :
+
+
+
+
+**MM20 — Court terme** : colle au prix. Utile pour surfer sur une tendance rapide ou identifier les premières zones de repli.
+
+**MM50 — Moyen terme** : le "juge de paix". C'est souvent ici que les investisseurs institutionnels reviennent acheter lors d'un repli. Un prix qui rebondit sur la MM50 en tendance haussière est un signal d'entrée classique.
+
+**MM200 — Long terme** : la tendance de fond annuelle. Un prix au-dessus de la MM200 est en zone haussière (Bull). En dessous, il est en zone baissière (Bear). En tendance haussière, la MM200 agit comme un support dynamique — le prix a tendance à rebondir dessus. En tendance baissière, elle agit comme une résistance.
+
+<div style={{display:'flex',justifyContent:'center',margin:'1.5rem 0'}}>
+<svg width="100%" viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" style={{fontFamily:'var(--font-sans)'}}>
+  <path d="M40 130 C100 138 160 148 220 158 C270 166 310 168 360 165 C410 160 460 152 510 145 C560 138 600 134 640 132" fill="none" stroke="#C9A84C" strokeWidth="2.5" strokeDasharray="8 5" strokeLinecap="round"/>
+  <path d="M40 96 C70 100 110 116 150 132 C175 142 195 152 212 157 C232 163 260 172 290 175 C315 176 338 173 360 167 C378 162 392 160 400 160 C415 158 435 148 465 130 C500 108 560 78 640 50" fill="none" stroke="#1B4332" strokeWidth="2.5" strokeLinecap="round"/>
+  <path d="M40 78 C60 72 75 88 95 80 C115 72 128 92 148 84 C168 76 180 100 200 94 C220 88 232 112 252 108 C272 104 284 124 304 120 C322 116 334 134 352 128 C368 122 380 138 398 132 C416 124 432 108 456 92 C480 76 504 56 530 42 C556 28 592 16 640 10" fill="none" stroke="#78716C" strokeWidth="1.5" strokeLinecap="round"/>
+  <circle cx="212" cy="157" r="8" fill="#F7F4EF" stroke="#C9A84C" strokeWidth="2"/>
+  <line x1="212" y1="165" x2="212" y2="195" stroke="#A8A29E" strokeWidth="0.8" strokeDasharray="3 2"/>
+  <text x="212" y="207" fontSize="12" fill="#1C1917" textAnchor="middle" fontWeight="600">Death Cross</text>
+  <text x="212" y="221" fontSize="10" fill="#78716C" textAnchor="middle">MM50 ↓ MM200</text>
+  <circle cx="400" cy="160" r="8" fill="#F7F4EF" stroke="#C9A84C" strokeWidth="2"/>
+  <line x1="400" y1="168" x2="400" y2="198" stroke="#A8A29E" strokeWidth="0.8" strokeDasharray="3 2"/>
+  <text x="400" y="210" fontSize="12" fill="#1C1917" textAnchor="middle" fontWeight="600">Golden Cross</text>
+  <text x="400" y="224" fontSize="10" fill="#78716C" textAnchor="middle">MM50 ↑ MM200</text>
+  <line x1="40" y1="268" x2="64" y2="268" stroke="#78716C" strokeWidth="1.5"/>
+  <text x="70" y="272" fontSize="11" fill="#1C1917">MM20</text>
+  <line x1="118" y1="268" x2="142" y2="268" stroke="#1B4332" strokeWidth="2.5"/>
+  <text x="148" y="272" fontSize="11" fill="#1C1917">MM50</text>
+  <line x1="196" y1="268" x2="220" y2="268" stroke="#C9A84C" strokeWidth="2.5" strokeDasharray="8 5"/>
+  <text x="226" y="272" fontSize="11" fill="#1C1917">MM200</text>
+</svg>
+</div>
+
+**Les croisements critiques** :
+
+**Golden Cross** : la MM50 croise et passe au-dessus de la MM200. Valide un changement de psychologie vers la hausse. Signal fort, à confirmer par le volume. Confiance : 7/10.
+
+**Death Cross** : la MM50 croise et passe en dessous de la MM200. Annonce souvent une période baissière durable. Confiance : 7/10.
+
+---
+
+## Les indicateurs de momentum et de volume
+
+Ces indicateurs complètent la lecture du prix et des moyennes mobiles — ils ne s'utilisent pas seuls.
+
+**RSI (Relative Strength Index)** : mesure la vitesse et l'amplitude des mouvements de prix sur une échelle de 0 à 100. En dessous de 30, le marché est survendu — une correction haussière est possible. Au-dessus de 70, il est suracheté — une correction baissière est possible. Attention : un marché peut rester suracheté longtemps en forte tendance haussière.
+
+Les **divergences RSI** sont particulièrement utiles : si le prix fait un nouveau plus haut mais que le RSI ne confirme pas (il fait un plus haut plus bas), c'est un signal d'essoufflement de la tendance — une correction est probable même si le prix monte encore. L'inverse s'appelle une divergence haussière.
+
+**MACD (Moving Average Convergence Divergence)** : mesure l'écart entre deux moyennes mobiles exponentielles. Quand la ligne MACD croise sa ligne de signal vers le haut, c'est un signal haussier. Vers le bas, baissier. Le croisement confirme une accélération ou un essoufflement de la tendance.
+
+**Le volume** : c'est le vrai juge de paix. Pas de volume, pas de confirmation. Une sortie de figure chartiste ou un croisement de moyennes mobiles sans augmentation de volume est suspect — le mouvement peut être un faux signal. Un breakout avec volume élevé est structurellement plus fiable.
+
+**L'ATR (Average True Range)** : mesure la volatilité moyenne d'un actif sur une période donnée. Utile pour calibrer un stop-loss — une règle courante est de placer le stop à 2 fois l'ATR sous le prix d'entrée, pour éviter d'être sorti par le bruit normal du marché.
+
+---
+
+## Les figures chartistes : signaux de moyen et long terme
+
+Ces formations se construisent sur plusieurs semaines ou mois. Elles sont structurellement plus fiables que les patterns de bougies parce qu'elles impliquent davantage d'acteurs sur une durée plus longue.
+
+**Double Bottom (W)** : le prix teste deux fois le même niveau de support sans le casser, puis rebondit. Signal haussier — les vendeurs ont épuisé leur force. Confiance : 7/10.
+
+<div style={{display:'flex',justifyContent:'center',margin:'1.5rem 0'}}>
+<svg width="100%" viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg" style={{fontFamily:'var(--font-sans)'}}>
+  <defs><marker id="arr6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></marker></defs>
+  <line x1="40" y1="60" x2="40" y2="65" stroke="#C9A84C" strokeWidth="1.5"/><rect x="34" y="65" width="12" height="16" fill="#C9A84C"/><line x1="40" y1="81" x2="40" y2="86" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="56" y1="74" x2="56" y2="79" stroke="#C9A84C" strokeWidth="1.5"/><rect x="50" y="79" width="12" height="18" fill="#C9A84C"/><line x1="56" y1="97" x2="56" y2="103" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="72" y1="90" x2="72" y2="96" stroke="#C9A84C" strokeWidth="1.5"/><rect x="66" y="96" width="12" height="20" fill="#C9A84C"/><line x1="72" y1="116" x2="72" y2="122" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="88" y1="110" x2="88" y2="116" stroke="#C9A84C" strokeWidth="1.5"/><rect x="82" y="116" width="12" height="22" fill="#C9A84C"/><line x1="88" y1="138" x2="88" y2="144" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="104" y1="132" x2="104" y2="138" stroke="#C9A84C" strokeWidth="1.5"/><rect x="98" y="138" width="12" height="24" fill="#C9A84C"/><line x1="104" y1="162" x2="104" y2="168" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="120" y1="168" x2="120" y2="172" stroke="#1B4332" strokeWidth="1.5"/><rect x="114" y="172" width="12" height="8" fill="#1B4332"/><line x1="120" y1="180" x2="120" y2="184" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="136" y1="166" x2="136" y2="170" stroke="#1B4332" strokeWidth="1.5"/><rect x="130" y="170" width="12" height="8" fill="#1B4332"/><line x1="136" y1="178" x2="136" y2="182" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="152" y1="152" x2="152" y2="158" stroke="#1B4332" strokeWidth="1.5"/><rect x="146" y="138" width="12" height="20" fill="#1B4332"/><line x1="152" y1="138" x2="152" y2="152" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="168" y1="128" x2="168" y2="134" stroke="#1B4332" strokeWidth="1.5"/><rect x="162" y="114" width="12" height="20" fill="#1B4332"/><line x1="168" y1="114" x2="168" y2="128" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="184" y1="108" x2="184" y2="114" stroke="#1B4332" strokeWidth="1.5"/><rect x="178" y="96" width="12" height="18" fill="#1B4332"/><line x1="184" y1="96" x2="184" y2="108" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="200" y1="110" x2="200" y2="116" stroke="#C9A84C" strokeWidth="1.5"/><rect x="194" y="116" width="12" height="20" fill="#C9A84C"/><line x1="200" y1="136" x2="200" y2="142" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="216" y1="130" x2="216" y2="136" stroke="#C9A84C" strokeWidth="1.5"/><rect x="210" y="136" width="12" height="22" fill="#C9A84C"/><line x1="216" y1="158" x2="216" y2="164" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="232" y1="164" x2="232" y2="168" stroke="#1B4332" strokeWidth="1.5"/><rect x="226" y="168" width="12" height="10" fill="#1B4332"/><line x1="232" y1="178" x2="232" y2="182" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="248" y1="162" x2="248" y2="166" stroke="#1B4332" strokeWidth="1.5"/><rect x="242" y="166" width="12" height="10" fill="#1B4332"/><line x1="248" y1="176" x2="248" y2="180" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="264" y1="148" x2="264" y2="154" stroke="#1B4332" strokeWidth="1.5"/><rect x="258" y="134" width="12" height="20" fill="#1B4332"/><line x1="264" y1="134" x2="264" y2="148" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="280" y1="126" x2="280" y2="132" stroke="#1B4332" strokeWidth="1.5"/><rect x="274" y="112" width="12" height="20" fill="#1B4332"/><line x1="280" y1="112" x2="280" y2="126" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="296" y1="104" x2="296" y2="110" stroke="#1B4332" strokeWidth="1.5"/><rect x="290" y="88" width="12" height="22" fill="#1B4332"/><line x1="296" y1="88" x2="296" y2="104" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="312" y1="86" x2="312" y2="92" stroke="#1B4332" strokeWidth="1.5"/><rect x="306" y="70" width="12" height="22" fill="#1B4332"/><line x1="312" y1="70" x2="312" y2="86" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="328" y1="68" x2="328" y2="74" stroke="#1B4332" strokeWidth="1.5"/><rect x="322" y="52" width="12" height="22" fill="#1B4332"/><line x1="328" y1="52" x2="328" y2="68" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="344" y1="52" x2="344" y2="58" stroke="#1B4332" strokeWidth="1.5"/><rect x="338" y="36" width="12" height="22" fill="#1B4332"/><line x1="344" y1="36" x2="344" y2="52" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="360" y1="38" x2="360" y2="44" stroke="#C9A84C" strokeWidth="1.5"/><rect x="354" y="44" width="12" height="14" fill="#C9A84C"/><line x1="360" y1="58" x2="360" y2="62" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="376" y1="32" x2="376" y2="38" stroke="#1B4332" strokeWidth="1.5"/><rect x="370" y="22" width="12" height="16" fill="#1B4332"/><line x1="376" y1="22" x2="376" y2="32" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="108" y1="175" x2="460" y2="175" stroke="#C9A84C" strokeWidth="1" strokeDasharray="4 3"/>
+  <circle cx="127" cy="175" r="3.5" fill="#C9A84C"/>
+  <circle cx="239" cy="175" r="3.5" fill="#C9A84C"/>
+  <text x="464" y="179" fontSize="11" fill="#C9A84C" textAnchor="start">Support</text>
+  <line x1="108" y1="100" x2="460" y2="100" stroke="#78716C" strokeWidth="1" strokeDasharray="4 3"/>
+  <text x="464" y="104" fontSize="11" fill="#78716C" textAnchor="start">Résistance</text>
+  <line x1="280" y1="25" x2="460" y2="25" stroke="#1B4332" strokeWidth="1" strokeDasharray="4 3" opacity="0.5"/>
+  <text x="464" y="29" fontSize="11" fill="#1B4332" textAnchor="start">Objectif</text>
+  <line x1="470" y1="175" x2="470" y2="100" stroke="#A8A29E" strokeWidth="0.8"/>
+  <line x1="470" y1="100" x2="470" y2="25" stroke="#1B4332" strokeWidth="0.8" strokeDasharray="2 2"/>
+  <text x="476" y="140" fontSize="10" fill="#A8A29E">H</text>
+  <text x="476" y="65" fontSize="10" fill="#1B4332">H</text>
+</svg>
+</div>
+
+
+**Épaule-Tête-Épaule (ETE)** : trois sommets consécutifs, celui du milieu étant le plus haut. Après la rupture de la "ligne de cou" (neckline), signal de retournement baissier fort. C'est l'une des figures les plus fiables de l'analyse technique. Confiance : 8/10.
+
+<div style={{display:'flex',justifyContent:'center',margin:'1.5rem 0'}}>
+<svg width="100%" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" style={{fontFamily:'var(--font-sans)'}}>
+  <line x1="30" y1="145" x2="30" y2="150" stroke="#1B4332" strokeWidth="1.5"/><rect x="24" y="130" width="12" height="20" fill="#1B4332"/><line x1="30" y1="130" x2="30" y2="145" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="46" y1="125" x2="46" y2="130" stroke="#1B4332" strokeWidth="1.5"/><rect x="40" y="110" width="12" height="20" fill="#1B4332"/><line x1="46" y1="110" x2="46" y2="125" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="62" y1="100" x2="62" y2="106" stroke="#1B4332" strokeWidth="1.5"/><rect x="56" y="86" width="12" height="20" fill="#1B4332"/><line x1="62" y1="86" x2="62" y2="100" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="78" y1="94" x2="78" y2="100" stroke="#C9A84C" strokeWidth="1.5"/><rect x="72" y="100" width="12" height="18" fill="#C9A84C"/><line x1="78" y1="118" x2="78" y2="124" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="94" y1="126" x2="94" y2="130" stroke="#C9A84C" strokeWidth="1.5"/><rect x="88" y="130" width="12" height="14" fill="#C9A84C"/><line x1="94" y1="144" x2="94" y2="148" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="110" y1="136" x2="110" y2="140" stroke="#1B4332" strokeWidth="1.5"/><rect x="104" y="126" width="12" height="16" fill="#1B4332"/><line x1="110" y1="126" x2="110" y2="136" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="126" y1="114" x2="126" y2="120" stroke="#1B4332" strokeWidth="1.5"/><rect x="120" y="100" width="12" height="20" fill="#1B4332"/><line x1="126" y1="100" x2="126" y2="114" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="142" y1="94" x2="142" y2="100" stroke="#1B4332" strokeWidth="1.5"/><rect x="136" y="78" width="12" height="22" fill="#1B4332"/><line x1="142" y1="78" x2="142" y2="94" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="158" y1="64" x2="158" y2="70" stroke="#1B4332" strokeWidth="1.5"/><rect x="152" y="50" width="12" height="20" fill="#1B4332"/><line x1="158" y1="50" x2="158" y2="64" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="174" y1="66" x2="174" y2="72" stroke="#C9A84C" strokeWidth="1.5"/><rect x="168" y="72" width="12" height="20" fill="#C9A84C"/><line x1="174" y1="92" x2="174" y2="98" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="190" y1="104" x2="190" y2="110" stroke="#C9A84C" strokeWidth="1.5"/><rect x="184" y="110" width="12" height="18" fill="#C9A84C"/><line x1="190" y1="128" x2="190" y2="134" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="206" y1="130" x2="206" y2="134" stroke="#1B4332" strokeWidth="1.5"/><rect x="200" y="120" width="12" height="16" fill="#1B4332"/><line x1="206" y1="120" x2="206" y2="130" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="222" y1="110" x2="222" y2="116" stroke="#1B4332" strokeWidth="1.5"/><rect x="216" y="96" width="12" height="20" fill="#1B4332"/><line x1="222" y1="96" x2="222" y2="110" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="238" y1="96" x2="238" y2="102" stroke="#1B4332" strokeWidth="1.5"/><rect x="232" y="82" width="12" height="20" fill="#1B4332"/><line x1="238" y1="82" x2="238" y2="96" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="254" y1="94" x2="254" y2="100" stroke="#C9A84C" strokeWidth="1.5"/><rect x="248" y="100" width="12" height="18" fill="#C9A84C"/><line x1="254" y1="118" x2="254" y2="124" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="270" y1="118" x2="270" y2="124" stroke="#C9A84C" strokeWidth="1.5"/><rect x="264" y="124" width="12" height="16" fill="#C9A84C"/><line x1="270" y1="140" x2="270" y2="146" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="286" y1="134" x2="286" y2="138" stroke="#1B4332" strokeWidth="1.5"/><rect x="280" y="126" width="12" height="14" fill="#1B4332"/><line x1="286" y1="126" x2="286" y2="134" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="302" y1="140" x2="302" y2="146" stroke="#C9A84C" strokeWidth="1.5"/><rect x="296" y="146" width="12" height="20" fill="#C9A84C"/><line x1="302" y1="166" x2="302" y2="172" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="318" y1="158" x2="318" y2="164" stroke="#C9A84C" strokeWidth="1.5"/><rect x="312" y="164" width="12" height="22" fill="#C9A84C"/><line x1="318" y1="186" x2="318" y2="192" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="334" y1="176" x2="334" y2="182" stroke="#C9A84C" strokeWidth="1.5"/><rect x="328" y="182" width="12" height="24" fill="#C9A84C"/><line x1="334" y1="206" x2="334" y2="212" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="350" y1="190" x2="350" y2="196" stroke="#C9A84C" strokeWidth="1.5"/><rect x="344" y="196" width="12" height="26" fill="#C9A84C"/><line x1="350" y1="222" x2="350" y2="226" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="24" y1="138" x2="520" y2="138" stroke="#78716C" strokeWidth="1" strokeDasharray="4 3"/>
+  <text x="524" y="142" fontSize="11" fill="#78716C" textAnchor="start">Neckline</text>
+  <line x1="280" y1="224" x2="520" y2="224" stroke="#C9A84C" strokeWidth="1" strokeDasharray="4 3" opacity="0.6"/>
+  <text x="524" y="228" fontSize="11" fill="#C9A84C" textAnchor="start">Objectif</text>
+  <line x1="164" y1="50" x2="540" y2="50" stroke="#A8A29E" strokeWidth="0.8" strokeDasharray="3 3"/>
+  <text x="62" y="80" fontSize="11" fill="#78716C" textAnchor="middle">É</text>
+  <text x="158" y="44" fontSize="11" fill="#C9A84C" textAnchor="middle" fontWeight="600">T</text>
+  <text x="238" y="76" fontSize="11" fill="#78716C" textAnchor="middle">É</text>
+  <line x1="540" y1="50" x2="540" y2="138" stroke="#A8A29E" strokeWidth="0.8"/>
+  <line x1="540" y1="138" x2="540" y2="224" stroke="#C9A84C" strokeWidth="0.8" strokeDasharray="2 2"/>
+  <text x="546" y="98" fontSize="10" fill="#A8A29E">H</text>
+  <text x="546" y="186" fontSize="10" fill="#C9A84C">H</text>
+</svg>
+</div>
+
+
+**Le Drapeau (Flag)** : après une forte hausse, le prix se consolide dans un range latéral légèrement descendant avant de repartir dans la direction initiale. Signal de continuation. Confiance : 6/10.
+
+<div style={{display:'flex',justifyContent:'center',margin:'1.5rem 0'}}>
+<svg width="100%" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" style={{fontFamily:'var(--font-sans)'}}>
+  <line x1="40" y1="204" x2="40" y2="210" stroke="#1B4332" strokeWidth="1.5"/><rect x="34" y="178" width="12" height="30" fill="#1B4332"/><line x1="40" y1="178" x2="40" y2="204" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="56" y1="192" x2="56" y2="198" stroke="#1B4332" strokeWidth="1.5"/><rect x="50" y="162" width="12" height="32" fill="#1B4332"/><line x1="56" y1="162" x2="56" y2="192" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="72" y1="174" x2="72" y2="180" stroke="#1B4332" strokeWidth="1.5"/><rect x="66" y="144" width="12" height="32" fill="#1B4332"/><line x1="72" y1="144" x2="72" y2="174" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="88" y1="156" x2="88" y2="162" stroke="#1B4332" strokeWidth="1.5"/><rect x="82" y="124" width="12" height="34" fill="#1B4332"/><line x1="88" y1="124" x2="88" y2="156" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="104" y1="132" x2="104" y2="138" stroke="#1B4332" strokeWidth="1.5"/><rect x="98" y="102" width="12" height="32" fill="#1B4332"/><line x1="104" y1="102" x2="104" y2="132" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="120" y1="108" x2="120" y2="114" stroke="#1B4332" strokeWidth="1.5"/><rect x="114" y="80" width="12" height="30" fill="#1B4332"/><line x1="120" y1="80" x2="120" y2="108" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="132" y1="75" x2="314" y2="100" stroke="#C9A84C" strokeWidth="1" strokeDasharray="4 3"/>
+  <line x1="132" y1="125" x2="314" y2="150" stroke="#C9A84C" strokeWidth="1" strokeDasharray="4 3"/>
+  <line x1="138" y1="82" x2="138" y2="88" stroke="#C9A84C" strokeWidth="1.5"/><rect x="132" y="88" width="12" height="32" fill="#C9A84C"/><line x1="138" y1="120" x2="138" y2="126" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="154" y1="96" x2="154" y2="100" stroke="#1B4332" strokeWidth="1.5"/><rect x="148" y="88" width="12" height="12" fill="#1B4332"/><line x1="154" y1="88" x2="154" y2="96" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="170" y1="104" x2="170" y2="110" stroke="#1B4332" strokeWidth="1.5"/><rect x="164" y="78" width="12" height="30" fill="#1B4332"/><line x1="170" y1="78" x2="170" y2="104" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="186" y1="82" x2="186" y2="86" stroke="#C9A84C" strokeWidth="1.5"/><rect x="180" y="86" width="12" height="14" fill="#C9A84C"/><line x1="186" y1="100" x2="186" y2="104" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="202" y1="92" x2="202" y2="97" stroke="#C9A84C" strokeWidth="1.5"/><rect x="196" y="97" width="12" height="28" fill="#C9A84C"/><line x1="202" y1="125" x2="202" y2="130" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="218" y1="108" x2="218" y2="112" stroke="#1B4332" strokeWidth="1.5"/><rect x="212" y="100" width="12" height="12" fill="#1B4332"/><line x1="218" y1="100" x2="218" y2="108" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="234" y1="100" x2="234" y2="106" stroke="#1B4332" strokeWidth="1.5"/><rect x="228" y="84" width="12" height="20" fill="#1B4332"/><line x1="234" y1="84" x2="234" y2="100" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="250" y1="86" x2="250" y2="90" stroke="#C9A84C" strokeWidth="1.5"/><rect x="244" y="90" width="12" height="22" fill="#C9A84C"/><line x1="250" y1="112" x2="250" y2="118" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="266" y1="104" x2="266" y2="108" stroke="#1B4332" strokeWidth="1.5"/><rect x="260" y="96" width="12" height="12" fill="#1B4332"/><line x1="266" y1="96" x2="266" y2="104" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="282" y1="100" x2="282" y2="106" stroke="#C9A84C" strokeWidth="1.5"/><rect x="276" y="106" width="12" height="30" fill="#C9A84C"/><line x1="282" y1="136" x2="282" y2="142" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="298" y1="112" x2="298" y2="116" stroke="#1B4332" strokeWidth="1.5"/><rect x="292" y="104" width="12" height="12" fill="#1B4332"/><line x1="298" y1="104" x2="298" y2="112" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="314" y1="92" x2="314" y2="98" stroke="#1B4332" strokeWidth="1.5"/><rect x="308" y="62" width="12" height="36" fill="#1B4332"/><line x1="314" y1="62" x2="314" y2="92" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="330" y1="66" x2="330" y2="72" stroke="#1B4332" strokeWidth="1.5"/><rect x="324" y="38" width="12" height="34" fill="#1B4332"/><line x1="330" y1="38" x2="330" y2="66" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="346" y1="42" x2="346" y2="48" stroke="#1B4332" strokeWidth="1.5"/><rect x="340" y="18" width="12" height="30" fill="#1B4332"/><line x1="346" y1="18" x2="346" y2="42" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="362" y1="24" x2="362" y2="30" stroke="#1B4332" strokeWidth="1.5"/><rect x="356" y="10" width="12" height="20" fill="#1B4332"/><line x1="362" y1="10" x2="362" y2="24" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="378" y1="14" x2="378" y2="20" stroke="#1B4332" strokeWidth="1.5"/><rect x="372" y="22" width="12" height="18" fill="#1B4332"/><line x1="378" y1="22" x2="378" y2="14" stroke="#1B4332" strokeWidth="1.5"/>
+</svg>
+</div>
+
+
+**La Tasse avec Anse (Cup and Handle)** : long arrondi de consolidation (la tasse) suivi d'une petite pause (l'anse) avant un breakout haussier. Formation longue — plusieurs mois — mais très fiable. Confiance : 8/10.
+
+<div style={{display:'flex',justifyContent:'center',margin:'1.5rem 0'}}>
+<svg width="100%" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" style={{fontFamily:'var(--font-sans)'}}>
+  <line x1="40" y1="104" x2="40" y2="110" stroke="#C9A84C" strokeWidth="1.5"/><rect x="34" y="110" width="12" height="18" fill="#C9A84C"/><line x1="40" y1="128" x2="40" y2="134" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="56" y1="126" x2="56" y2="132" stroke="#C9A84C" strokeWidth="1.5"/><rect x="50" y="132" width="12" height="20" fill="#C9A84C"/><line x1="56" y1="152" x2="56" y2="158" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="72" y1="150" x2="72" y2="156" stroke="#C9A84C" strokeWidth="1.5"/><rect x="66" y="156" width="12" height="22" fill="#C9A84C"/><line x1="72" y1="178" x2="72" y2="184" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="88" y1="178" x2="88" y2="184" stroke="#C9A84C" strokeWidth="1.5"/><rect x="82" y="184" width="12" height="20" fill="#C9A84C"/><line x1="88" y1="204" x2="88" y2="210" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="104" y1="204" x2="104" y2="208" stroke="#C9A84C" strokeWidth="1.5"/><rect x="98" y="208" width="12" height="12" fill="#C9A84C"/><line x1="104" y1="220" x2="104" y2="224" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="120" y1="208" x2="120" y2="212" stroke="#1B4332" strokeWidth="1.5"/><rect x="114" y="210" width="12" height="10" fill="#1B4332"/><line x1="120" y1="220" x2="120" y2="224" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="136" y1="210" x2="136" y2="214" stroke="#C9A84C" strokeWidth="1.5"/><rect x="130" y="214" width="12" height="8" fill="#C9A84C"/><line x1="136" y1="222" x2="136" y2="226" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="152" y1="212" x2="152" y2="216" stroke="#1B4332" strokeWidth="1.5"/><rect x="146" y="214" width="12" height="8" fill="#1B4332"/><line x1="152" y1="222" x2="152" y2="226" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="168" y1="210" x2="168" y2="214" stroke="#1B4332" strokeWidth="1.5"/><rect x="162" y="212" width="12" height="10" fill="#1B4332"/><line x1="168" y1="222" x2="168" y2="226" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="184" y1="206" x2="184" y2="210" stroke="#C9A84C" strokeWidth="1.5"/><rect x="178" y="210" width="12" height="12" fill="#C9A84C"/><line x1="184" y1="222" x2="184" y2="226" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="200" y1="202" x2="200" y2="206" stroke="#1B4332" strokeWidth="1.5"/><rect x="194" y="206" width="12" height="14" fill="#1B4332"/><line x1="200" y1="220" x2="200" y2="224" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="216" y1="188" x2="216" y2="194" stroke="#1B4332" strokeWidth="1.5"/><rect x="210" y="170" width="12" height="24" fill="#1B4332"/><line x1="216" y1="170" x2="216" y2="188" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="232" y1="158" x2="232" y2="164" stroke="#1B4332" strokeWidth="1.5"/><rect x="226" y="140" width="12" height="24" fill="#1B4332"/><line x1="232" y1="140" x2="232" y2="158" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="248" y1="128" x2="248" y2="134" stroke="#1B4332" strokeWidth="1.5"/><rect x="242" y="110" width="12" height="24" fill="#1B4332"/><line x1="248" y1="110" x2="248" y2="128" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="264" y1="104" x2="264" y2="110" stroke="#1B4332" strokeWidth="1.5"/><rect x="258" y="88" width="12" height="22" fill="#1B4332"/><line x1="264" y1="88" x2="264" y2="104" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="280" y1="102" x2="280" y2="108" stroke="#C9A84C" strokeWidth="1.5"/><rect x="274" y="108" width="12" height="18" fill="#C9A84C"/><line x1="280" y1="126" x2="280" y2="130" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="296" y1="108" x2="296" y2="112" stroke="#1B4332" strokeWidth="1.5"/><rect x="290" y="100" width="12" height="14" fill="#1B4332"/><line x1="296" y1="100" x2="296" y2="108" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="312" y1="112" x2="312" y2="116" stroke="#C9A84C" strokeWidth="1.5"/><rect x="306" y="116" width="12" height="16" fill="#C9A84C"/><line x1="312" y1="132" x2="312" y2="136" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="328" y1="110" x2="328" y2="114" stroke="#1B4332" strokeWidth="1.5"/><rect x="322" y="104" width="12" height="12" fill="#1B4332"/><line x1="328" y1="104" x2="328" y2="110" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="344" y1="114" x2="344" y2="118" stroke="#C9A84C" strokeWidth="1.5"/><rect x="338" y="118" width="12" height="14" fill="#C9A84C"/><line x1="344" y1="132" x2="344" y2="136" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="360" y1="96" x2="360" y2="102" stroke="#1B4332" strokeWidth="1.5"/><rect x="354" y="70" width="12" height="32" fill="#1B4332"/><line x1="360" y1="70" x2="360" y2="96" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="376" y1="68" x2="376" y2="74" stroke="#1B4332" strokeWidth="1.5"/><rect x="370" y="46" width="12" height="28" fill="#1B4332"/><line x1="376" y1="46" x2="376" y2="68" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="392" y1="46" x2="392" y2="52" stroke="#1B4332" strokeWidth="1.5"/><rect x="386" y="26" width="12" height="26" fill="#1B4332"/><line x1="392" y1="26" x2="392" y2="46" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="408" y1="26" x2="408" y2="32" stroke="#1B4332" strokeWidth="1.5"/><rect x="402" y="10" width="12" height="22" fill="#1B4332"/><line x1="408" y1="10" x2="408" y2="26" stroke="#1B4332" strokeWidth="1.5"/>
+  <line x1="424" y1="12" x2="424" y2="18" stroke="#C9A84C" strokeWidth="1.5"/><rect x="418" y="18" width="12" height="14" fill="#C9A84C"/><line x1="424" y1="32" x2="424" y2="36" stroke="#C9A84C" strokeWidth="1.5"/>
+  <line x1="30" y1="100" x2="560" y2="100" stroke="#78716C" strokeWidth="1" strokeDasharray="4 3"/>
+  <text x="564" y="104" fontSize="11" fill="#78716C" textAnchor="start">Résistance</text>
+  <line x1="90" y1="222" x2="510" y2="222" stroke="#C9A84C" strokeWidth="1" strokeDasharray="4 3"/>
+  <text x="564" y="226" fontSize="11" fill="#C9A84C" textAnchor="start">Fond</text>
+  <line x1="330" y1="2" x2="560" y2="2" stroke="#1B4332" strokeWidth="1" strokeDasharray="4 3" opacity="0.6"/>
+  <text x="564" y="6" fontSize="11" fill="#1B4332" textAnchor="start">Objectif</text>
+  <line x1="510" y1="222" x2="510" y2="100" stroke="#A8A29E" strokeWidth="0.8"/>
+  <line x1="510" y1="100" x2="510" y2="2" stroke="#1B4332" strokeWidth="0.8" strokeDasharray="2 2"/>
+  <text x="516" y="165" fontSize="10" fill="#A8A29E">H</text>
+  <text x="516" y="54" fontSize="10" fill="#1B4332">H</text>
+</svg>
+</div>
+
+
+---
+
+
+## Le cycle de Weinstein : les quatre phases du marché
+
+Le cycle de Weinstein est la méthode qui synthétise tout ce qu'on vient de voir — MM200, volume et psychologie de marché — en un cadre de décision pratique. Stan Weinstein l'a formalisé dans les années 80, mais il reste l'un des outils les plus efficaces pour savoir à quel stade se trouve un actif.
+
+Toute action, tout secteur, tout indice traverse cycliquement quatre phases. Les reconnaître permet de savoir quand entrer, quand tenir et quand sortir.
+
+**Phase 1 — Accumulation** : le prix se stabilise après une longue baisse. Il évolue latéralement autour de la MM200. Le volume est faible et irrégulier. Les "mains fortes" (institutionnels) commencent à accumuler discrètement. C'est la phase d'attente — pas encore le moment d'entrer.
+
+**Phase 2 — Progression (haussière)** : le prix casse la MM200 à la hausse avec un volume significatif. La MM200 commence à s'incliner vers le haut. C'est la phase d'achat idéale — la tendance est confirmée, le risque est maîtrisé. Les points d'entrée optimaux sont les retours sur la MM30 hebdomadaire lors des replis.
+
+**Phase 3 — Distribution** : le prix évolue à nouveau latéralement, mais cette fois au sommet. Le volume est élevé et chaotique — les institutionnels vendent à ceux qui arrivent en retard. La MM200 commence à s'aplatir. C'est le signal de sortie ou d'allègement.
+
+**Phase 4 — Déclin (baissière)** : le prix casse la MM200 à la baisse avec volume. La MM200 s'incline vers le bas. Phase à éviter absolument pour un acheteur. Les positions longues ouvertes doivent être fermées.
+
+
+<div style={{display:'flex',justifyContent:'center',margin:'1.5rem 0'}}>
+<svg width="100%" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" style={{fontFamily:'var(--font-sans)'}}>
+  <defs>
+    <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </marker>
+  </defs>
+  <path d="M40 178 C100 178 140 178 180 177 C230 175 280 168 340 165 C400 163 440 164 480 166 C530 170 580 176 630 179" fill="none" stroke="#C9A84C" strokeWidth="1.5" strokeDasharray="6 4"/>
+  <text x="636" y="182" fontSize="11" fill="#C9A84C" textAnchor="start">MM200</text>
+  <path d="M40 205 C80 205 120 205 160 203 C190 200 210 185 230 165 C255 140 285 100 320 78 C340 68 355 64 380 63 C420 62 450 63 480 65 C510 70 535 100 560 138 C578 162 595 182 615 200 C628 208 638 212 645 215" fill="none" stroke="#78716C" strokeWidth="2" strokeLinecap="round"/>
+  <path d="M160 203 C190 200 210 185 230 165 C255 140 285 100 320 78 C340 68 355 64 380 63" fill="none" stroke="#1B4332" strokeWidth="3.5" strokeLinecap="round"/>
+  <line x1="160" y1="50" x2="160" y2="240" stroke="#78716C" strokeWidth="0.8" strokeDasharray="4 3"/>
+  <line x1="380" y1="50" x2="380" y2="240" stroke="#78716C" strokeWidth="0.8" strokeDasharray="4 3"/>
+  <line x1="480" y1="50" x2="480" y2="240" stroke="#78716C" strokeWidth="0.8" strokeDasharray="4 3"/>
+  <text x="100" y="252" fontSize="12" fill="#78716C" textAnchor="middle">Phase 1</text>
+  <text x="100" y="266" fontSize="11" fill="#A8A29E" textAnchor="middle">Accumulation</text>
+  <text x="270" y="252" fontSize="12" fill="#1B4332" textAnchor="middle" fontWeight="600">Phase 2</text>
+  <text x="270" y="266" fontSize="11" fill="#1B4332" textAnchor="middle">Progression</text>
+  <text x="430" y="252" fontSize="12" fill="#78716C" textAnchor="middle">Phase 3</text>
+  <text x="430" y="266" fontSize="11" fill="#A8A29E" textAnchor="middle">Distribution</text>
+  <text x="563" y="252" fontSize="12" fill="#78716C" textAnchor="middle">Phase 4</text>
+  <text x="563" y="266" fontSize="11" fill="#A8A29E" textAnchor="middle">Déclin</text>
+  <circle cx="228" cy="165" r="4" fill="#C9A84C"/>
+  <line x1="225" y1="163" x2="95" y2="108" stroke="#C9A84C" strokeWidth="1" strokeDasharray="3 3"/>
+  <text x="92" y="103" fontSize="11" fill="#C9A84C" textAnchor="middle" fontWeight="500">Achat idéal</text>
+  <circle cx="462" cy="65" r="4" fill="#78716C"/>
+  <line x1="466" y1="62" x2="500" y2="48" stroke="#A8A29E" strokeWidth="0.5" strokeDasharray="3 3"/>
+  <text x="504" y="45" fontSize="11" fill="#A8A29E" textAnchor="start">Sortie</text>
+</svg>
+</div>
+
+La règle de Weinstein est simple : **n'achète qu'en Phase 2, vends en Phase 3.** Ne tente pas de rattraper une Phase 4.
+
+## AF vs AT : quel équilibre selon ta stratégie ?
+
+L'analyse technique n'a pas le même poids selon la stratégie adoptée.
+
+<div className="table-scroll">
+<table>
+  <thead>
+    <tr>
+      <th>Stratégie</th>
+      <th>Poids AF</th>
+      <th>Poids AT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Full ETF (passif)</td>
+      <td>99 %</td>
+      <td>1 %</td>
+    </tr>
+    <tr>
+      <td>Buy & Hold (actions)</td>
+      <td>90 %</td>
+      <td>10 %</td>
+    </tr>
+    <tr>
+      <td>Swing Trading</td>
+      <td>30 %</td>
+      <td>70 %</td>
+    </tr>
+    <tr>
+      <td>Day Trading</td>
+      <td>5 %</td>
+      <td>95 %</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+---
+
+## Les quatre règles d'entrée
+
+**La hiérarchie** : une figure chartiste construite sur plusieurs semaines est plus fiable qu'un pattern de bougie isolé. Ne prends pas de décision d'entrée sur une seule bougie.
+
+**Le filtre MM200** : en tendance baissière confirmée (prix sous la MM200), évite les positions longues — la tendance de fond joue contre toi. Exception notable : les rebonds sur support majeur ou les phases de retournement (Phase 1 du cycle de Weinstein) où l'entrée se fait précisément sous ou au niveau de la MM200.
+
+**La validation par le volume** : un breakout sans volume est un faux signal jusqu'à preuve du contraire. Attends la confirmation.
+
+**La patience** : l'analyse technique sert à attendre que le marché vienne à toi — sur un support, lors d'un rebond sur la MM50, à la sortie d'une figure. Pas à courir après une bougie verte.

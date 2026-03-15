@@ -6,7 +6,7 @@ export default function academiePage() {
     <main className="max-w-content mx-auto px-6 py-12">
       <p className="section-label mb-4">Académie</p>
       <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '36px', marginBottom: '0.5rem' }}>
-        academie
+        Académie
       </h1>
       <p style={{ fontFamily: 'var(--font-serif)', color: 'var(--color-ink-muted)', marginBottom: '3rem' }}>
         Trois parcours progressifs, du premier investissement aux stratégies avancées.
@@ -14,6 +14,7 @@ export default function academiePage() {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
 
+        {/* Bases — disponible */}
         <Link href="/academie/bases" style={{ display: 'block', padding: '1.5rem 0', borderBottom: '1px solid var(--color-stone-border)', textDecoration: 'none' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
@@ -25,12 +26,19 @@ export default function academiePage() {
           </div>
         </Link>
 
-        <div style={{ padding: '1.5rem 0', borderBottom: '1px solid var(--color-stone-border)', opacity: 0.4 }}>
-          <span className="level-badge level-badge--intermediaire" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>Intermédiaire</span>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--color-ink)', margin: '0.25rem 0' }}>Intermédiaire</h2>
-          <p style={{ fontFamily: 'var(--font-serif)', fontSize: '15px', color: 'var(--color-ink-muted)', margin: 0 }}>5 modules · Prérequis : Bases — bientôt disponible</p>
-        </div>
+        {/* Intermédiaire — disponible */}
+        <Link href="/academie/intermediaire" style={{ display: 'block', padding: '1.5rem 0', borderBottom: '1px solid var(--color-stone-border)', textDecoration: 'none' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <span className="level-badge level-badge--intermediaire" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>Intermédiaire</span>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--color-ink)', margin: '0.25rem 0' }}>Intermédiaire</h2>
+              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '15px', color: 'var(--color-ink-muted)', margin: 0 }}>5 modules · Prérequis : Bases</p>
+            </div>
+            <span style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', color: 'var(--color-accent)' }}>Commencer →</span>
+          </div>
+        </Link>
 
+        {/* Avancé — bientôt disponible */}
         <div style={{ padding: '1.5rem 0', opacity: 0.4 }}>
           <span className="level-badge level-badge--avance" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>Avancé</span>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--color-ink)', margin: '0.25rem 0' }}>Avancé</h2>
