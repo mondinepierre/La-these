@@ -37,7 +37,7 @@ export default function RevenueChart({ data, unit = 'Md$' }: Props) {
             domain={['auto', 'auto']}
           />
           <Tooltip
-            formatter={(value: number) => [`${value} ${unit}`, 'CA']}
+            formatter={(value) => [`${Number(value)} ${unit}`, 'CA']}
             contentStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}
           />
           <Area

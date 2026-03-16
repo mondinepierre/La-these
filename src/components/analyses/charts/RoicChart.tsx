@@ -33,7 +33,7 @@ export default function RoicChart({ data, wacc }: Props) {
             domain={[0, 'auto']}
           />
           <Tooltip
-            formatter={(value: number) => [`${value}%`, 'ROIC']}
+            formatter={(value) => [`${Number(value)}%`, 'ROIC']}
             contentStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}
           />
           {wacc && (

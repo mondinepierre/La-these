@@ -32,7 +32,7 @@ export default function MargesChart({ data }: Props) {
             domain={['auto', 'auto']}
           />
           <Tooltip
-            formatter={(value: number) => [`${value}%`]}
+            formatter={(value) => [`${Number(value)}%`]}
             contentStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}
           />
           <Legend wrapperStyle={{ fontFamily: 'DM Sans', fontSize: 12 }} />
