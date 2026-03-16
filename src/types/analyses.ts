@@ -9,6 +9,7 @@ export type Secteur =
   | 'Énergie'
   | 'Consommation'
   | 'Industrie'
+  | 'Défense'
   | 'Matériaux'
   | 'Immobilier'
   | 'Télécommunications'
@@ -23,83 +24,120 @@ export type ZoneGeo =
   | 'Monde'
   | 'Autre'
 
+export type Enveloppe      = 'PEA' | 'CTO' | 'PEA + CTO' | 'Aucun'
+export type Conviction     = 'forte' | 'moyenne' | 'surveillance'
+export type Tendance       = 'hausse' | 'stable' | 'baisse'
+export type MarginOfSafety = 'forte' | 'correcte' | 'faible' | 'indéterminée'
+
 // ─────────────────────────────────────────────
 // Analyse ponctuelle
 // ─────────────────────────────────────────────
 
 export type FrontmatterPonctuelle = {
-  type: 'ponctuelle'
-  title: string
-  date: string          // format ISO : "2025-02-26"
-  ticker?: string       // optionnel — une analyse macro n'a pas de ticker
+  type:    'ponctuelle'
+  title:   string
+  date:    string
+  ticker?: string
   secteur: Secteur
-  geo: ZoneGeo
-  excerpt: string       // résumé 1-2 phrases pour l'index
+  geo:     ZoneGeo
+  excerpt: string
+  statut:  'actif' | 'archive' | 'en-construction'
 }
 
 // ─────────────────────────────────────────────
-// Valeur suivie
+// Valeur suivie — sous-types
 // ─────────────────────────────────────────────
 
-export type Conviction = 'forte' | 'moyenne' | 'surveillance'
-
-// Points de données pour les graphiques Recharts
-
-export type MargePoint = {
-  year: number          // ex : 2020
-  net: number           // marge nette en %
-  operating: number     // marge opérationnelle en %
+export type Metrics = {
+  per:               number
+  evEbitda:          number
+  fcfYield:          number
+  roic:              number
+  wacc:              number
+  detteEbitda:       number
+  croissanceCA3ans:  number
+  croissanceBPA3ans: number
+  margeEbit:         number
+  margeBrute:        number
+  payoutRatio:       number
+  currentRatio:      number
+  dso:               number
 }
 
-export type RoicPoint = {
-  year: number
-  value: number         // ROIC en %
+export type Tendances = {
+  per:       Tendance
+  fcfYield:  Tendance
+  roic:      Tendance
+  margeEbit: Tendance
 }
 
-export type RevenuePoint = {
-  year: number
-  value: number         // chiffre d'affaires en milliards
+export type PrixCible = {
+  bas:    number
+  haut:   number
+  devise: string
 }
+
+export type UpdateEntry = {
+  date: string
+  note: string
+}
+
+// ─────────────────────────────────────────────
+// Graphiques Recharts
+// ─────────────────────────────────────────────
+
+export type MargePoint   = { year: number; net: number; operating: number }
+export type RoicPoint    = { year: number; value: number }
+export type RevenuePoint = { year: number; value: number }
+export type FcfPoint     = { year: number; value: number }
 
 export type ChartData = {
-  marges?: MargePoint[]
-  roic?: RoicPoint[]
+  marges?:  MargePoint[]
+  roic?:    RoicPoint[]
   revenue?: RevenuePoint[]
-}
-
-export type FrontmatterValeur = {
-  type: 'valeur'
-  title: string         // nom complet : "Microsoft Corporation"
-  ticker: string        // "MSFT"
-  secteur: Secteur
-  geo: ZoneGeo
-  conviction: Conviction
-  lastUpdated: string   // format ISO : "2025-03-10"
-  excerpt: string       // résumé 1-2 phrases pour l'index
-  chartData?: ChartData // absent = aucun graphique affiché
+  fcf?:     FcfPoint[]
 }
 
 // ─────────────────────────────────────────────
-// Type union — utilisé dans l'index et les utils
+// Valeur suivie — type principal
+// ─────────────────────────────────────────────
+
+export type FrontmatterValeur = {
+  type:           'valeur'
+  title:          string
+  ticker:         string
+  secteur:        Secteur
+  geo:            ZoneGeo
+  conviction:     Conviction
+  lastUpdated:    string
+  excerpt:        string
+  statut:         'actif' | 'archive' | 'en-construction'
+  portefeuille:   Enveloppe
+  horizon:        string
+  prixCible:      PrixCible
+  marginOfSafety: MarginOfSafety
+  metrics:        Metrics
+  tendances:      Tendances
+  updates:        UpdateEntry[]
+  chartData?:     ChartData
+}
+
+// ─────────────────────────────────────────────
+// Type union + type guards
 // ─────────────────────────────────────────────
 
 export type FrontmatterAnalyse = FrontmatterPonctuelle | FrontmatterValeur
 
-// Type guard
-export function isValeurSuivie(
-  fm: FrontmatterAnalyse
-): fm is FrontmatterValeur {
+export function isValeurSuivie(fm: FrontmatterAnalyse): fm is FrontmatterValeur {
   return fm.type === 'valeur'
 }
 
-export function isPonctuelle(
-  fm: FrontmatterAnalyse
-): fm is FrontmatterPonctuelle {
+export function isPonctuelle(fm: FrontmatterAnalyse): fm is FrontmatterPonctuelle {
   return fm.type === 'ponctuelle'
 }
 
 // ─────────────────────────────────────────────
-// Type enrichi pour l'index (frontmatter + slug)
+// Type enrichi pour l'index
 // ─────────────────────────────────────────────
 
 export type AnalyseCard = FrontmatterAnalyse & { slug: string }
