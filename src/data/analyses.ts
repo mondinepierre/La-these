@@ -12,7 +12,7 @@ export const ANALYSES: AnalyseCard[] = [
     geo:          'Europe',
     conviction:   'forte',
     lastUpdated:  '2026-03-16',
-    statut:       'actif',
+    statut:       'en-construction',
     portefeuille: 'CTO',
     horizon:      '5 ans minimum',
     excerpt:      "L'unique fournisseur de la lithographie EUV pour les puces IA",
@@ -142,7 +142,7 @@ export const ANALYSES: AnalyseCard[] = [
     ticker:  'NVDA',
     secteur: 'Technologie',
     geo:     'États-Unis',
-    statut:  'actif',
+    statut:  'en-construction',
     excerpt: "Des résultats records mais un marché qui n'applaudit plus.",
   },
 ]

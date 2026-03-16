@@ -16,7 +16,32 @@ export default function AnalysePonctuelleTemplate({ frontmatter, children }: Pro
 
   return (
     <article className="max-w-2xl mx-auto px-4 py-12">
-
+      
+      {frontmatter.statut === 'en-construction' && (
+        <div style={{
+          backgroundColor: 'var(--color-gold-muted)',
+          border:          '1px solid var(--color-gold)',
+          borderLeft:      '4px solid var(--color-gold)',
+          padding:         '12px 16px',
+          display:         'flex',
+          alignItems:      'center',
+          gap:             '10px',
+          marginBottom:    '2rem',
+          borderRadius:    'var(--radius-md)',
+        }}>
+          <span style={{ fontSize: '16px', flexShrink: 0 }}>🚧</span>
+          <p style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize:   '13px',
+            fontWeight: 500,
+            color:      'var(--color-ink)',
+            margin:     0,
+          }}>
+            Cette fiche est en cours de rédaction. Les données affichées sont partielles.
+          </p>
+        </div>
+      )}
+      
       {/* En-tête */}
       <header className="mb-10">
         <div className="flex items-center gap-3 mb-4">
