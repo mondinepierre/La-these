@@ -168,6 +168,19 @@ p, li, blockquote {
   margin: 1.5rem 0;
 }
 
+/* Liens inline — éditoriaux et brokers */
+.prose-editorial a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.prose-editorial a:hover {
+  text-decoration-color: var(--color-accent);
+}
+
 /* ============================================================
    UTILITAIRES
    ============================================================ */
