@@ -49,19 +49,19 @@ export type FrontmatterPonctuelle = {
 // ─────────────────────────────────────────────
 
 export type Metrics = {
-  per:               number
-  evEbitda:          number
-  fcfYield:          number
-  roic:              number
-  wacc:              number
-  detteEbitda:       number
-  croissanceCA3ans:  number
-  croissanceBPA3ans: number
-  margeEbit:         number
-  margeBrute:        number
-  payoutRatio:       number
-  currentRatio:      number
-  dso:               number
+  per:               number  // Price / Earnings
+  evEbitda:          number  // EV / EBITDA
+  fcfYield:          number  // FCF Yield en %
+  roic:              number  // Return on Invested Capital en %
+  wacc:              number  // Weighted Average Cost of Capital en %
+  detteEbitda:       number  // Dette nette / EBITDA — négatif = trésorerie nette
+  croissanceCA3ans:  number  // TCAC CA sur 3 ans en %
+  croissanceBPA3ans: number  // TCAC BPA sur 3 ans en %
+  margeEbit:         number  // Marge opérationnelle en %
+  margeBrute:        number  // Marge brute en %
+  payoutRatio:       number  // Dividendes / Résultat net en %
+  currentRatio:      number  // Actif court terme / Passif court terme
+  dso:               number  // Days Sales Outstanding en jours
 }
 
 export type Tendances = {
@@ -74,11 +74,11 @@ export type Tendances = {
 export type PrixCible = {
   bas:    number
   haut:   number
-  devise: string
+  devise: string  // 'EUR' | 'USD' | etc.
 }
 
 export type UpdateEntry = {
-  date: string
+  date: string  // format YYYY-MM-DD
   note: string
 }
 
@@ -95,7 +95,7 @@ export type ChartData = {
   marges?:  MargePoint[]
   roic?:    RoicPoint[]
   revenue?: RevenuePoint[]
-  fcf?:     FcfPoint[]
+  fcf?:     FcfPoint[]     // Free Cash Flow en milliards
 }
 
 // ─────────────────────────────────────────────

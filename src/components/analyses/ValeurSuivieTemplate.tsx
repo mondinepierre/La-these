@@ -5,6 +5,7 @@ import MentionLegale from './MentionLegale'
 import MargesChart from './charts/MargesChart'
 import RoicChart from './charts/RoicChart'
 import RevenueChart from './charts/RevenueChart'
+import FcfChart from './charts/FcfChart'
 import MetricsDashboard from './MetricsDashboard'
 
 type Props = {
@@ -74,16 +75,14 @@ export default function ValeurSuivieTemplate({ frontmatter, children }: Props) {
         </p>
       </header>
 
+      {/* Tableau de bord */}
       <MetricsDashboard metrics={frontmatter.metrics} tendances={frontmatter.tendances} />
 
+      {/* Graphiques — un seul bloc, chacun conditionnel */}
       {cd?.revenue && <RevenueChart data={cd.revenue} />}
       {cd?.marges  && <MargesChart  data={cd.marges}  />}
       {cd?.roic    && <RoicChart    data={cd.roic}    />}
-
-      {/* Graphiques — affichés seulement si les données sont présentes */}
-      {cd?.revenue && <RevenueChart data={cd.revenue} />}
-      {cd?.marges && <MargesChart data={cd.marges} />}
-      {cd?.roic && <RoicChart data={cd.roic} />}
+      {cd?.fcf     && <FcfChart     data={cd.fcf}     />}
 
       {/* Corps MDX */}
       <div className="prose prose-stone max-w-none mt-10
