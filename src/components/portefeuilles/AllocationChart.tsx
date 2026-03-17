@@ -32,19 +32,46 @@ function aggregateByTheme(allocation: LigneAllocation[]): { name: string; value:
 
 const RADIAN = Math.PI / 180
 
+// 1. On rend les propriétés optionnelles avec "?" 
+// car Recharts peut envoyer des valeurs "undefined" au premier cycle
 type LabelProps = {
-  cx: number; cy: number; midAngle: number
-  innerRadius: number; outerRadius: number; percent: number
+  cx?: number;
+  cy?: number;
+  midAngle?: number;
+  innerRadius?: number;
+  outerRadius?: number;
+  percent?: number;
 }
 
-function renderCustomLabel({ cx, cy, midAngle, innerRadius, outerRadius, percent }: LabelProps) {
+// 2. On ajoute des valeurs par défaut au destructuring pour éviter les erreurs de calcul (NaN)
+// et on précise que la fonction peut renvoyer un JSX.Element ou null
+function renderCustomLabel({ 
+  cx = 0, 
+  cy = 0, 
+  midAngle = 0, 
+  innerRadius = 0, 
+  outerRadius = 0, 
+  percent = 0 
+}: LabelProps): JSX.Element | null {
+  
   if (percent < 0.06) return null
+  
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5
+  // Note : x et y seront calculés proprement car on a mis des valeurs par défaut à 0
   const x = cx + radius * Math.cos(-midAngle * RADIAN)
   const y = cy + radius * Math.sin(-midAngle * RADIAN)
+  
   return (
-    <text x={x} y={y} fill="white" textAnchor="middle" dominantBaseline="central"
-      fontSize={12} fontWeight={600} fontFamily="DM Sans, sans-serif">
+    <text 
+      x={x} 
+      y={y} 
+      fill="white" 
+      textAnchor="middle" 
+      dominantBaseline="central"
+      fontSize={12} 
+      fontWeight={600} 
+      fontFamily="DM Sans, sans-serif"
+    >
       {`${(percent * 100).toFixed(0)} %`}
     </text>
   )
