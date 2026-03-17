@@ -10,39 +10,39 @@ export const ANALYSES: AnalyseCard[] = [
     ticker:       'ASML',
     secteur:      'Technologie',
     geo:          'Europe',
-    conviction:   'forte',
+    conviction:   'surveillance',
     lastUpdated:  '2026-03-16',
-    statut:       'en-construction',
+    statut:       'actif',
     portefeuille: 'CTO',
     horizon:      '5 ans minimum',
     excerpt:      "L'unique fournisseur de la lithographie EUV pour les puces IA",
 
     prixCible: {
-      bas:    700,
-      haut:   860,
+      bas:    1070,
+      haut:   1450,
       devise: 'EUR',
     },
 
-    marginOfSafety: 'correcte',
+    marginOfSafety: 'faible',
 
     metrics: {
-      per:               48.41,
-      evEbitda:          36.1,
-      fcfYield:          2.44,
-      roic:              26.3,
-      wacc:              8.5,
-      detteEbitda:       -1.2,  // trésorerie nette
-      croissanceCA3ans:  14.7,
-      croissanceBPA3ans: 11.2,
-      margeEbit:         32.1,
-      margeBrute:        51.3,
-      payoutRatio:       37.0,
-      currentRatio:      1.6,
-      dso:               64,
+      per:               48.46,
+      evEbitda:          36.06,
+      fcfYield:          2.39,
+      roic:              38.77,
+      wacc:              7.9,
+      detteEbitda:       -0.7,  // trésorerie nette
+      croissanceCA3ans:  18.3,
+      croissanceBPA3ans: 17.5,
+      margeEbit:         34.6,
+      margeBrute:        52.8,
+      payoutRatio:       30.3,
+      currentRatio:      1.26,
+      dso:               33,
     },
 
     tendances: {
-      per:       'baisse',   // compression multiple depuis 2023
+      per:       'hausse',   // compression multiple depuis 2023
       fcfYield:  'stable',
       roic:      'stable',
       margeEbit: 'stable',
@@ -86,6 +86,52 @@ export const ANALYSES: AnalyseCard[] = [
       ],
     },
   },
+
+  // ── Novo Nordisk ──
+  // {
+  //   slug:         'novo',
+  //   type:         'valeur',
+  //   title:        '',
+  //   ticker:       '',
+  //   secteur:      'Technologie',
+  //   geo:          'États-Unis',
+  //   conviction:   'surveillance',
+  //   lastUpdated:  '2026-03-16',
+  //   statut:       'en-construction',
+  //   portefeuille: 'Aucun',
+  //   horizon:      '',
+  //   excerpt:      '',
+  //   prixCible:      { bas: 0, haut: 0, devise: 'USD' },
+  //   marginOfSafety: 'indéterminée',
+  //   metrics: {
+  //     per:               0,
+  //     evEbitda:          0,
+  //     fcfYield:          0,
+  //     roic:              0,
+  //     wacc:              0,
+  //     detteEbitda:       0,
+  //     croissanceCA3ans:  0,
+  //     croissanceBPA3ans: 0,
+  //     margeEbit:         0,
+  //     margeBrute:        0,
+  //     payoutRatio:       0,
+  //     currentRatio:      0,
+  //     dso:               0,
+  //   },
+  //   tendances: {
+  //     per:       'stable',
+  //     fcfYield:  'stable',
+  //     roic:      'stable',
+  //     margeEbit: 'stable',
+  //   },
+  //   updates: [],
+  //   chartData: {
+  //     revenue: [],
+  //     marges:  [],
+  //     roic:    [],
+  //     fcf:     [],
+  //   },
+  // },
 
   // ── TEMPLATE valeur suivie — copier-coller pour chaque nouvelle fiche ──
   // {

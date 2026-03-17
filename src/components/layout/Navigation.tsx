@@ -8,6 +8,8 @@ import { cn } from '@/lib/utils'
 const NAV_LINKS = [
   { href: '/academie',  label: 'Académie' },
   { href: '/analyses',  label: 'Analyses' },
+  { href: '/portefeuilles', label: 'Portefeuilles' },
+  { href: '/blog',  label: 'Blog' },
   { href: '/glossaire', label: 'Glossaire' },
   { href: '/a-propos',  label: 'À propos' },
 ]

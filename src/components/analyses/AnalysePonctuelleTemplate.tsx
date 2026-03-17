@@ -67,7 +67,9 @@ export default function AnalysePonctuelleTemplate({ frontmatter, children }: Pro
         prose-headings:font-serif prose-headings:text-[#1B4332]
         prose-p:font-serif prose-p:text-stone-700 prose-p:leading-relaxed
         prose-strong:text-[#1B4332]
-        prose-a:text-[#C9A84C] prose-a:no-underline hover:prose-a:underline">
+        prose-a:text-[#C9A84C] prose-a:no-underline hover:prose-a:underline
+        prose-ul:font-serif prose-li:text-stone-700
+        prose-table:font-sans prose-th:text-[#1B4332] prose-td:text-stone-600">
         {children}
       </div>
 
