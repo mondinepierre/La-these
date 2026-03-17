@@ -14,10 +14,11 @@ export function AnalyseCiteeCard({ slug }: { slug: string }) {
     </Link>
   )
 
-const nom = 'nom' in analyse ? analyse.nom : analyse.title
-const secteur = 'secteur' in analyse ? analyse.secteur : null
-const zone = 'zone' in analyse ? analyse.zone : null
-const conviction = 'conviction' in analyse ? analyse.conviction : null
+// Force le type string pour ce qui doit être affiché
+const nom = (('nom' in analyse ? analyse.nom : analyse.title) as string);
+const secteur = ('secteur' in analyse ? analyse.secteur : null) as string | null;
+const zone = ('zone' in analyse ? analyse.zone : null) as string | null;
+const conviction = ('conviction' in analyse ? analyse.conviction : null) as any;
 
   return (
     <Link
