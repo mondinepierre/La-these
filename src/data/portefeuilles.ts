@@ -295,7 +295,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
         gics: 'Santé — Produits pharmaceutiques',
         geo: 'Europe (Danemark)',
         isin: 'DK0060534915',
-        analyseSlug: 'novo-nordisk',
+        analyseSlug: 'novo',
       },
       // ── Défense & Sécurité ────────────────────────────
       {

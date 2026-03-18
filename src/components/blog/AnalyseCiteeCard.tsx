@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ANALYSES } from '@/data/analyses'
 import ConvictionBadge from '@/components/analyses/ConvictionBadge'
+import PositionnementBadge from '../analyses/StatutBadge'
 
 export function AnalyseCiteeCard({ slug }: { slug: string }) {
   const analyse = ANALYSES.find(a => a.slug === slug)
@@ -19,6 +20,7 @@ const nom = (('nom' in analyse ? analyse.nom : analyse.title) as string);
 const secteur = ('secteur' in analyse ? analyse.secteur : null) as string | null;
 const zone = ('zone' in analyse ? analyse.zone : null) as string | null;
 const conviction = ('conviction' in analyse ? analyse.conviction : null) as any;
+const positionnement = ('positionnement' in analyse ? analyse.positionnement : null) as any;
 
   return (
     <Link
@@ -39,7 +41,10 @@ const conviction = ('conviction' in analyse ? analyse.conviction : null) as any;
             </span>
           </p>
         </div>
-        {conviction && <ConvictionBadge conviction={conviction} />}
+          <div className="flex flex-col items-end gap-1.5 shrink-0">
+          {conviction && <ConvictionBadge conviction={conviction} />}
+          {positionnement && <PositionnementBadge positionnement={positionnement} />}
+          </div>
       </div>
       <p className="text-xs text-[#78716C] mt-2">→ Voir la fiche analyse</p>
     </Link>

@@ -6,17 +6,21 @@ type Props = {
 
 export default function ConvictionBadge({ conviction }: Props) {
   const config: Record<Conviction, { label: string; className: string }> = {
+    exceptionnelle: {
+      label: 'Conviction Haute',
+      className: 'bg-[#1B4332] text-[#F7F4EF]',
+    },
     forte: {
       label: 'Conviction forte',
-      className: 'bg-[#1B4332] text-[#F7F4EF]',
+      className: 'bg-[#D6EDDF] text-[#1B4332]',
     },
     moyenne: {
       label: 'Conviction moyenne',
-      className: 'bg-[#C9A84C]/20 text-[#7a6330]',
+      className: 'bg-[#F0E4C0]/20 text-[#A07C35]',
     },
-    surveillance: {
-      label: 'En surveillance',
-      className: 'bg-stone-200 text-stone-600',
+    spéculative: {
+      label: 'Pari spéculatif',
+      className: 'bg-[#E0DBCF]/20 text-[#1C1917]',
     },
   }
 

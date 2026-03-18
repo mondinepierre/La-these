@@ -25,7 +25,8 @@ export type ZoneGeo =
   | 'Autre'
 
 export type Enveloppe      = 'PEA' | 'CTO' | 'PEA + CTO' | 'Aucun'
-export type Conviction     = 'forte' | 'moyenne' | 'surveillance'
+export type Conviction     = 'exceptionnelle' | 'forte' | 'moyenne' | 'spéculative'
+export type Positionnement = 'achat fort' | 'accumulation' | 'surveillance' | 'allégement'
 export type Tendance       = 'hausse' | 'stable' | 'baisse'
 export type MarginOfSafety = 'forte' | 'correcte' | 'faible' | 'indéterminée'
 
@@ -109,6 +110,7 @@ export type FrontmatterValeur = {
   secteur:        Secteur
   geo:            ZoneGeo
   conviction:     Conviction
+  positionnement: Positionnement
   lastUpdated:    string
   excerpt:        string
   statut:         'actif' | 'archive' | 'en-construction'

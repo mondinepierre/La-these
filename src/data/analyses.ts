@@ -4,18 +4,19 @@ export const ANALYSES: AnalyseCard[] = [
 
   // ── ASML ──────────────────────────────────────────────────
   {
-    slug:         'asml',
-    type:         'valeur',
-    title:        'ASML Holding',
-    ticker:       'ASML',
-    secteur:      'Technologie',
-    geo:          'Europe',
-    conviction:   'surveillance',
-    lastUpdated:  '2026-03-16',
-    statut:       'actif',
-    portefeuille: 'CTO',
-    horizon:      '5 ans minimum',
-    excerpt:      "L'unique fournisseur de la lithographie EUV pour les puces IA",
+    slug:           'asml',
+    type:           'valeur',
+    title:          'ASML Holding',
+    ticker:         'ASML',
+    secteur:        'Technologie',
+    geo:            'Europe',
+    conviction:     'exceptionnelle',
+    positionnement: 'surveillance',
+    lastUpdated:    '2026-03-16',
+    statut:         'actif',
+    portefeuille:   'PEA',
+    horizon:        '5 ans minimum',
+    excerpt:        "L'unique fournisseur de la lithographie EUV pour les puces IA",
 
     prixCible: {
       bas:    1070,
@@ -88,50 +89,80 @@ export const ANALYSES: AnalyseCard[] = [
   },
 
   // ── Novo Nordisk ──
-  // {
-  //   slug:         'novo',
-  //   type:         'valeur',
-  //   title:        '',
-  //   ticker:       '',
-  //   secteur:      'Technologie',
-  //   geo:          'États-Unis',
-  //   conviction:   'surveillance',
-  //   lastUpdated:  '2026-03-16',
-  //   statut:       'en-construction',
-  //   portefeuille: 'Aucun',
-  //   horizon:      '',
-  //   excerpt:      '',
-  //   prixCible:      { bas: 0, haut: 0, devise: 'USD' },
-  //   marginOfSafety: 'indéterminée',
-  //   metrics: {
-  //     per:               0,
-  //     evEbitda:          0,
-  //     fcfYield:          0,
-  //     roic:              0,
-  //     wacc:              0,
-  //     detteEbitda:       0,
-  //     croissanceCA3ans:  0,
-  //     croissanceBPA3ans: 0,
-  //     margeEbit:         0,
-  //     margeBrute:        0,
-  //     payoutRatio:       0,
-  //     currentRatio:      0,
-  //     dso:               0,
-  //   },
-  //   tendances: {
-  //     per:       'stable',
-  //     fcfYield:  'stable',
-  //     roic:      'stable',
-  //     margeEbit: 'stable',
-  //   },
-  //   updates: [],
-  //   chartData: {
-  //     revenue: [],
-  //     marges:  [],
-  //     roic:    [],
-  //     fcf:     [],
-  //   },
-  // },
+  {
+    slug:            'novo',
+    type:            'valeur',
+    title:           'Novo Nordisk A/S',
+    ticker:          'NOVO-B.CO',
+    secteur:         'Santé',
+    geo:             'Europe',
+    conviction:      'moyenne',
+    positionnement:  'surveillance',
+    lastUpdated:     '2026-03-19',
+    statut:          'en-construction',
+    portefeuille:    'PEA',
+    horizon:         '',
+    excerpt:         '',
+    prixCible:       { bas: 0, haut: 0, devise: 'DKK' },
+    marginOfSafety:  'indéterminée',
+    metrics: {
+      per:               9.22,
+      evEbitda:          7.20,
+      fcfYield:          2.62,
+      roic:              26.82,
+      wacc:              7.89,
+      detteEbitda:       63.76, 
+      croissanceCA3ans:  20.42,
+      croissanceBPA3ans: 27.52,
+      margeEbit:         41.30,
+      margeBrute:        81.00,
+      payoutRatio:       50.7,
+      currentRatio:      79.96,
+      dso:               83,
+    },
+    tendances: {
+      per:       'baisse',
+      fcfYield:  'baisse',
+      roic:      'baisse',
+      margeEbit: 'stable',
+    },
+    updates: [
+      {
+        date: '2026-03-18',
+        note: 'Création de la fiche. Conviction initiale : forte. Données FY2025.',
+      },
+    ],
+    chartData: {
+      revenue: [
+        { year: 2021, value: 140.8 },
+        { year: 2022, value: 176.9 },
+        { year: 2023, value: 232.2 },
+        { year: 2024, value: 290.4 },
+        { year: 2025, value: 309 },
+      ],
+      marges: [
+        { year: 2021, net: 31.6, operating: 41.7 },
+        { year: 2022, net: 26.6, operating: 42.3 },
+        { year: 2023, net: 28.4, operating: 44.2 },
+        { year: 2024, net: 26.8, operating: 44.2 },
+        { year: 2025, net: 29.2, operating: 41.3 },
+      ],
+      roic: [
+        { year: 2021, value: 27.3 },
+        { year: 2022, value: 27.3 },
+        { year: 2023, value: 30.5 },
+        { year: 2024, value: 29.7 },
+        { year: 2025, value: 26.8 },
+      ],
+      fcf: [
+        { year: 2021, value: 29.3 },
+        { year: 2022, value: 57.3 },
+        { year: 2023, value: 68.3 },
+        { year: 2024, value: -14.7 },
+        { year: 2025, value: 28.2 },
+      ],
+    },
+  },
 
   // ── TEMPLATE valeur suivie — copier-coller pour chaque nouvelle fiche ──
   // {
@@ -141,7 +172,8 @@ export const ANALYSES: AnalyseCard[] = [
   //   ticker:       '',
   //   secteur:      'Technologie',
   //   geo:          'États-Unis',
-  //   conviction:   'surveillance',
+  //   conviction:      'exceptionnelle / forte / moyenne / speculative',
+  //   positionnement:  'achat fort / accumulation / surveillance / prise de profit',
   //   lastUpdated:  '2026-03-16',
   //   statut:       'en-construction',
   //   portefeuille: 'Aucun',
@@ -150,19 +182,19 @@ export const ANALYSES: AnalyseCard[] = [
   //   prixCible:      { bas: 0, haut: 0, devise: 'USD' },
   //   marginOfSafety: 'indéterminée',
   //   metrics: {
-  //     per:               0,
-  //     evEbitda:          0,
-  //     fcfYield:          0,
-  //     roic:              0,
-  //     wacc:              0,
-  //     detteEbitda:       0,
-  //     croissanceCA3ans:  0,
-  //     croissanceBPA3ans: 0,
-  //     margeEbit:         0,
-  //     margeBrute:        0,
-  //     payoutRatio:       0,
-  //     currentRatio:      0,
-  //     dso:               0,
+  //     per:               0, Price / Earnings
+  //     evEbitda:          0, EV / EBITDA
+  //     fcfYield:          0, FCF Yield en % -> FCF / CA
+  //     roic:              0, Return on Invested Capital en % (NOPAT/capitaux investis) -> NOPAT = EBIT*(1-%imposition) / Capitaux investis = capitaux propres (equity) % dette court et long terme
+  //     wacc:              0, Weighted Average Cost of Capital en % -> GuruFocus
+  //     detteEbitda:       0, Dette nette / EBITDA — négatif = trésorerie nette
+  //     croissanceCA3ans:  0, TCAC CA sur 3 ans en %
+  //     croissanceBPA3ans: 0, TCAC BPA sur 3 ans en %
+  //     margeEbit:         0, Marge opérationnelle en %
+  //     margeBrute:        0, Marge brute en %
+  //     payoutRatio:       0, Dividendes / Résultat net en %
+  //     currentRatio:      0, Actif court terme / Passif court terme
+  //     dso:               0, Days Sales Outstanding en jours (créance / CA)
   //   },
   //   tendances: {
   //     per:       'stable',

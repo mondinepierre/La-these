@@ -11,6 +11,7 @@ import ValeurSuivieTemplate from './ValeurSuivieTemplate'
 const MDX: Record<string, React.ComponentType> = {
   // Valeurs suivies
   'asml': dynamic(() => import('@/content/analyses/valeurs/asml.mdx')),
+  'novo': dynamic(() => import('@/content/analyses/valeurs/novo.mdx')),
 
   // Analyses ponctuelles
   'nvidia-resultats-q4-2025': dynamic(

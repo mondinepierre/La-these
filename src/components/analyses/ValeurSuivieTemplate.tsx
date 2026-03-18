@@ -7,6 +7,7 @@ import RoicChart from './charts/RoicChart'
 import RevenueChart from './charts/RevenueChart'
 import FcfChart from './charts/FcfChart'
 import MetricsDashboard from './MetricsDashboard'
+import PositionnementBadge from './PositionnementBadge'
 
 type Props = {
   frontmatter: FrontmatterValeur
@@ -55,6 +56,7 @@ export default function ValeurSuivieTemplate({ frontmatter, children }: Props) {
         <div className="flex flex-wrap items-center gap-3 mb-4">
           <AnalyseTypeBadge type="valeur" />
           <ConvictionBadge conviction={frontmatter.conviction} />
+          <PositionnementBadge positionnement={frontmatter.positionnement} />
         </div>
 
         <div className="flex items-baseline gap-3 mb-2">
