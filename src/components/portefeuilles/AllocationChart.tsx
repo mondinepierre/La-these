@@ -52,7 +52,7 @@ function renderCustomLabel({
   innerRadius = 0, 
   outerRadius = 0, 
   percent = 0 
-}: LabelProps): JSX.Element | null {
+}: LabelProps): React.ReactElement | null {
   
   if (percent < 0.06) return null
   
