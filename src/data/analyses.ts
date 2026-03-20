@@ -99,12 +99,12 @@ export const ANALYSES: AnalyseCard[] = [
     conviction:      'moyenne',
     positionnement:  'surveillance',
     lastUpdated:     '2026-03-19',
-    statut:          'en-construction',
+    statut:          'actif',
     portefeuille:    'PEA',
-    horizon:         '',
-    excerpt:         '',
-    prixCible:       { bas: 0, haut: 0, devise: 'DKK' },
-    marginOfSafety:  'indéterminée',
+    horizon:         '2030',
+    excerpt:         "Le géant danois de l'obésité et du diabète, qui veut passer de l'aiguille à la pillule.",
+    prixCible:       { bas: 550, haut: 720, devise: 'DKK' },
+    marginOfSafety:  'faible',
     metrics: {
       per:               9.22,
       evEbitda:          7.20,
@@ -129,7 +129,7 @@ export const ANALYSES: AnalyseCard[] = [
     updates: [
       {
         date: '2026-03-18',
-        note: 'Création de la fiche. Conviction initiale : forte. Données FY2025.',
+        note: 'Création de la fiche. Conviction initiale : moyenne. Données FY2025.',
       },
     ],
     chartData: {
