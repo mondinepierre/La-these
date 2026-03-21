@@ -22,6 +22,10 @@ export default function StatutBadge({ positionnement }: Props) {
       label: 'Prise de Profits',
       className: 'bg-[#E0DBCF]/20 text-[#1C1917]',
     },
+    maintien: {
+    label: 'Maintien',
+    className: 'bg-stone-100 text-stone-600',
+    },
   }
 
   const { label, className } = config[positionnement]

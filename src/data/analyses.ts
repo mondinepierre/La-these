@@ -64,6 +64,13 @@ export const ANALYSES: AnalyseCard[] = [
         { year: 2024, value: 28 },
         { year: 2025, value: 33 },
       ],
+      geoRevenue: [
+        { region: 'Chine',           pct: 29 },
+        { region: 'Reste du monde',  pct: 8.1 },
+        { region: 'Corée du Sud',    pct: 24.9 },
+        { region: 'Taïwan',          pct: 25.5 },
+        { region: 'États-Unis',      pct:  12.5 },
+      ],
       marges: [
         { year: 2021, net: 31.6, operating: 35.1 },
         { year: 2022, net: 26.6, operating: 30.7 },
@@ -97,7 +104,7 @@ export const ANALYSES: AnalyseCard[] = [
     secteur:         'Santé',
     geo:             'Europe',
     conviction:      'moyenne',
-    positionnement:  'surveillance',
+    positionnement:  'maintien',
     lastUpdated:     '2026-03-19',
     statut:          'actif',
     portefeuille:    'PEA',
@@ -111,13 +118,13 @@ export const ANALYSES: AnalyseCard[] = [
       fcfYield:          2.62,
       roic:              26.82,
       wacc:              7.89,
-      detteEbitda:       63.76, 
+      detteEbitda:       0.69, 
       croissanceCA3ans:  20.42,
       croissanceBPA3ans: 27.52,
       margeEbit:         41.30,
       margeBrute:        81.00,
       payoutRatio:       50.7,
-      currentRatio:      79.96,
+      currentRatio:      0.8,
       dso:               83,
     },
     tendances: {
@@ -140,12 +147,19 @@ export const ANALYSES: AnalyseCard[] = [
         { year: 2024, value: 290.4 },
         { year: 2025, value: 309 },
       ],
+      geoRevenue: [
+        { region: 'Europe et Canada',   pct: 21 },
+        { region: 'Marché émergents',   pct: 10 },
+        { region: 'Asie et Pacifique',  pct: 7 },
+        { region: 'Chine',              pct: 6 },
+        { region: 'États-Unis',         pct: 56 },
+      ],
       marges: [
-        { year: 2021, net: 31.6, operating: 41.7 },
-        { year: 2022, net: 26.6, operating: 42.3 },
-        { year: 2023, net: 28.4, operating: 44.2 },
-        { year: 2024, net: 26.8, operating: 44.2 },
-        { year: 2025, net: 29.2, operating: 41.3 },
+        { year: 2021, net: 33.9, operating: 41.7 },
+        { year: 2022, net: 31.4, operating: 42.3 },
+        { year: 2023, net: 36, operating: 44.2 },
+        { year: 2024, net: 34.8, operating: 44.2 },
+        { year: 2025, net: 33.1, operating: 41.3 },
       ],
       roic: [
         { year: 2021, value: 27.3 },
@@ -163,17 +177,93 @@ export const ANALYSES: AnalyseCard[] = [
       ],
     },
   },
+  
 
+  // ── Totale ──
+  {
+    slug:         'totale',
+    type:         'valeur',
+    title:        'Totale Energies',
+    ticker:       'TTE.PA',
+    secteur:      'Énergie',
+    geo:          'France',
+    conviction:      'forte',
+    positionnement:  'allégement',
+    lastUpdated:  '2026-03-20',
+    statut:       'en-construction',
+    portefeuille: 'PEA',
+    horizon:      '15 ans',
+    excerpt:      'Le roi du pétrole mais pas que',
+    prixCible:      { bas: 0, haut: 0, devise: 'EUR' },
+    marginOfSafety: 'indéterminée',
+    metrics: {
+      per:               12.6, // Price / Earnings
+      evEbitda:          4.99, // EV / EBITDA
+      fcfYield:          6.51, // FCF Yield en % -> FCF / EV ou Cap
+      roic:              12.07, // Return on Invested Capital en % (NOPAT/capitaux investis) -> NOPAT = EBIT*(1-%imposition) / Capitaux investis = capitaux propres (equity) + dette court et long terme - trésorerie
+      wacc:              7.97, // Weighted Average Cost of Capital en % -> GuruFocus ou WACC = [(Capitalisation /EV)*cout des fonds propre (prendre 9% pour simplification, c'est le retour attendu sur la performance CAGR)]+[(Dette nette/EV) * taux sans risque (Intérets/Dette totale)*(1-Taux d'imposition)]
+      detteEbitda:       0.49, // Dette nette / EBITDA — négatif = trésorerie nette // Dette nette = Dette longue + courte - trésorerie
+      croissanceCA3ans:  -10.54, // TCAC CA sur 3 ans en %
+      croissanceBPA3ans: -9.7, // TCAC BPA sur 3 ans en %
+      margeEbit:         15.1, // Marge opérationnelle en %
+      margeBrute:        35.97, // Marge brute en %
+      payoutRatio:       55, // Dividendes / Résultat net en %
+      currentRatio:      17.2, // Actif court terme / Passif court terme
+      dso:               37, // Days Sales Outstanding en jours (créance (ou client si il y'a)/ CA)
+    },
+    tendances: {
+      per:       'hausse',
+      fcfYield:  'baisse',
+      roic:      'baisse',
+      margeEbit: 'stable',
+    },
+    updates: [      
+      {
+        date: '2026-03-20',
+        note: 'Création de la fiche. Conviction initiale : moyenne. Données FY2025.',
+      },],
+    chartData: {
+      revenue: [
+        { year: 2021, value: 205.9 },
+        { year: 2022, value: 281 },
+        { year: 2023, value: 237.1 },
+        { year: 2024, value: 214.5 },
+        { year: 2025, value: 201.2 },
+      ],
+      marges: [
+        { year: 2021, net: 8.7, operating: 15.8 },
+        { year: 2022, net: 7.8, operating: 22.4 },
+        { year: 2023, net: 9.7, operating: 17.1 },
+        { year: 2024, net: 8, operating: 15.9 },
+        { year: 2025, net: 7.2, operating: 15.1 },
+      ],
+      roic: [
+        { year: 2021, value: 13.34 },
+        { year: 2022, value: 28.22 },
+        { year: 2023, value: 18.7 },
+        { year: 2024, value: 14.36 },
+        { year: 2025, value: 12.07 },
+      ],
+      fcf: [
+        { year: 2021, value: 15.8 },
+        { year: 2022, value: 29.4 },
+        { year: 2023, value: 19.1 },
+        { year: 2024, value: 12.1 },
+        { year: 2025, value: 10.7 },
+      ],
+    },
+  },
+  
   // ── TEMPLATE valeur suivie — copier-coller pour chaque nouvelle fiche ──
   // {
   //   slug:         '',
   //   type:         'valeur',
   //   title:        '',
   //   ticker:       '',
-  //   secteur:      'Technologie',
+  //   secteur:      'Technologie / Énergie / Santé',
   //   geo:          'États-Unis',
   //   conviction:      'exceptionnelle / forte / moyenne / speculative',
-  //   positionnement:  'achat fort / accumulation / surveillance / prise de profit',
+  //   positionnement:  'achat fort / accumulation / surveillance / allégement',
   //   lastUpdated:  '2026-03-16',
   //   statut:       'en-construction',
   //   portefeuille: 'Aucun',
@@ -184,8 +274,8 @@ export const ANALYSES: AnalyseCard[] = [
   //   metrics: {
   //     per:               0, Price / Earnings
   //     evEbitda:          0, EV / EBITDA
-  //     fcfYield:          0, FCF Yield en % -> FCF / CA
-  //     roic:              0, Return on Invested Capital en % (NOPAT/capitaux investis) -> NOPAT = EBIT*(1-%imposition) / Capitaux investis = capitaux propres (equity) % dette court et long terme
+  //     fcfYield:          0, FCF Yield en % -> FCF / EV ou Cap
+  //     roic:              0, Return on Invested Capital en % (NOPAT/capitaux investis) -> NOPAT = EBIT*(1-%imposition) / Capitaux investis = capitaux propres (equity) + dette court et long terme - trésorerie
   //     wacc:              0, Weighted Average Cost of Capital en % -> GuruFocus
   //     detteEbitda:       0, Dette nette / EBITDA — négatif = trésorerie nette
   //     croissanceCA3ans:  0, TCAC CA sur 3 ans en %
@@ -210,6 +300,7 @@ export const ANALYSES: AnalyseCard[] = [
   //     fcf:     [],
   //   },
   // },
+
 
   // ── Nvidia — Analyse ponctuelle ────────────────────────────
   {

@@ -3,9 +3,9 @@ import { portefeuilles } from '@/data/portefeuilles'
 import PortefeuillesIndex from '@/components/portefeuilles/PortefeuillesIndex'
 
 export const metadata: Metadata = {
-  title: 'Portefeuilles — La Thèse',
+  title: 'Portefeuilles',
   description:
-    'Constructions pédagogiques qui montrent comment raisonner une allocation. Personnels, modèles ou thématiques — chaque portefeuille documente la thèse, le raisonnement et les règles de gestion.',
+    'Portefeuilles personnels et pédagogiques commentés : thèse macro, raisonnement par ligne, règles de gestion.',
 }
 
 export default function PortefeuillesPage() {

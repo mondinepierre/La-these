@@ -6,14 +6,10 @@ import { isValeurSuivie } from '@/types/analyses'
 import AnalysePonctuelleTemplate from './AnalysePonctuelleTemplate'
 import ValeurSuivieTemplate from './ValeurSuivieTemplate'
 
-// ── Registre des MDX ──────────────────────────────────────────
-// Une entrée par fichier MDX. Même pattern que BasesModuleClient.
-const MDX: Record<string, React.ComponentType> = {
-  // Valeurs suivies
-  'asml': dynamic(() => import('@/content/analyses/valeurs/asml.mdx')),
-  'novo': dynamic(() => import('@/content/analyses/valeurs/novo.mdx')),
-
-  // Analyses ponctuelles
+const MDX: Record<string, React.ComponentType<{ components?: Record<string, React.ComponentType> }>> = {
+  'asml':   dynamic(() => import('@/content/analyses/valeurs/asml.mdx')),
+  'novo':   dynamic(() => import('@/content/analyses/valeurs/novo.mdx')),
+  'totale': dynamic(() => import('@/content/analyses/valeurs/totale.mdx')),
   'nvidia-resultats-q4-2025': dynamic(
     () => import('@/content/analyses/ponctuelles/nvidia-resultats-q4-2025.mdx')
   ),
@@ -25,14 +21,11 @@ type Props = {
 
 export function AnalyseClient({ frontmatter }: Props) {
   const Content = MDX[frontmatter.slug]
-
   if (!Content) return null
 
   if (isValeurSuivie(frontmatter)) {
     return (
-      <ValeurSuivieTemplate frontmatter={frontmatter}>
-        <Content />
-      </ValeurSuivieTemplate>
+      <ValeurSuivieTemplate frontmatter={frontmatter} Content={Content} />
     )
   }
 

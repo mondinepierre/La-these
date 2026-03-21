@@ -1,10 +1,11 @@
 import { ANALYSES } from '@/data/analyses'
 import { AnalysesIndex } from '@/components/analyses/AnalysesIndex'
+import type { Metadata } from 'next'
 
-export const metadata = {
-  title: 'Analyses — La Thèse',
+export const metadata: Metadata = {
+  title: 'Analyses',
   description:
-    'Analyses de valeurs suivies et analyses ponctuelles. Investissement fondamental long terme.',
+    'Valeurs suivies et analyses ponctuelles : thèse d\'investissement, métriques financières, conviction et positionnement.',
 }
 
 export default function AnalysesPage() {

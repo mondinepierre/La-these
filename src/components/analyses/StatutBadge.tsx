@@ -4,7 +4,7 @@ type Props = {
   positionnement: Positionnement
 }
 
-export default function PositionnementBadge({ positionnement }: Props) {
+export default function StatutBadge({ positionnement }: Props) {
   const config: Record<Positionnement, { label: string; className: string }> = {
     "achat fort": {
       label: 'Achat Fort',
@@ -21,6 +21,10 @@ export default function PositionnementBadge({ positionnement }: Props) {
     allégement: {
       label: 'Prise de Profits',
       className: 'bg-[#E0DBCF]/20 text-[#1C1917]',
+    },
+    maintien: {
+      label: 'Maintien',
+      className: 'bg-stone-100 text-stone-600',
     },
   }
 

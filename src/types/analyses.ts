@@ -26,7 +26,7 @@ export type ZoneGeo =
 
 export type Enveloppe      = 'PEA' | 'CTO' | 'PEA + CTO' | 'Aucun'
 export type Conviction     = 'exceptionnelle' | 'forte' | 'moyenne' | 'spéculative'
-export type Positionnement = 'achat fort' | 'accumulation' | 'surveillance' | 'allégement'
+export type Positionnement = 'achat fort' | 'accumulation' | 'surveillance' | 'allégement' | 'maintien'
 export type Tendance       = 'hausse' | 'stable' | 'baisse'
 export type MarginOfSafety = 'forte' | 'correcte' | 'faible' | 'indéterminée'
 
@@ -91,12 +91,17 @@ export type MargePoint   = { year: number; net: number; operating: number }
 export type RoicPoint    = { year: number; value: number }
 export type RevenuePoint = { year: number; value: number }
 export type FcfPoint     = { year: number; value: number }
+export type GeoPoint = {
+  region: string  // ex : 'Europe' | 'Chine' | 'États-Unis' | 'Reste du monde'
+  pct:    number  // % du CA — la somme doit faire 100
+}
 
 export type ChartData = {
-  marges?:  MargePoint[]
-  roic?:    RoicPoint[]
-  revenue?: RevenuePoint[]
-  fcf?:     FcfPoint[]     // Free Cash Flow en milliards
+  marges?:      MargePoint[]
+  roic?:        RoicPoint[]
+  revenue?:     RevenuePoint[]
+  fcf?:         FcfPoint[]
+  geoRevenue?:  GeoPoint[]
 }
 
 // ─────────────────────────────────────────────

@@ -7,7 +7,7 @@ import type { Secteur, ZoneGeo, Conviction } from '@/types/analyses'
 import { isValeurSuivie } from '@/types/analyses'
 import AnalyseTypeBadge from './AnalyseTypeBadge'
 import ConvictionBadge from './ConvictionBadge'
-import PositionnementBadge from './PositionnementBadge'
+import StatutBadge from './StatutBadge'
 
 // ── Helpers ───────────────────────────────────────────────────
 
@@ -54,7 +54,7 @@ function AnalyseCard({ analyse }: { analyse: AnalyseCard }) {
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
           <AnalyseTypeBadge type={analyse.type} />
           {estValeur && <ConvictionBadge conviction={analyse.conviction} />}
-          {estValeur && <PositionnementBadge positionnement={analyse.positionnement} />}
+          {estValeur && <StatutBadge positionnement={analyse.positionnement} />}
         </div>
 
         {/* Titre + ticker */}

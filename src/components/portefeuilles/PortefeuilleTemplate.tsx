@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { PortefeuilleEntry } from '@/types/portefeuilles'
 import PortefeuilleTypeBadge from './PortefeuilleTypeBadge'
 import PortefeuilleStatutBadge from './PortefeuilleStatutBadge'
@@ -25,7 +26,6 @@ function formatDate(dateStr: string) {
   })
 }
 
-// Vérifie si au moins une ligne a une enveloppe PEA ou CTO
 function hasPeaCto(portefeuille: PortefeuilleEntry): boolean {
   return portefeuille.allocation.some(
     (l) => l.enveloppe === 'PEA' || l.enveloppe === 'CTO'
@@ -33,9 +33,18 @@ function hasPeaCto(portefeuille: PortefeuilleEntry): boolean {
 }
 
 export default function PortefeuilleTemplate({ portefeuille: p, children }: Props) {
+  // State centralisé ici — pilote chart + PeaCtoBlock + tableau
+  const [vue, setVue] = useState<'reel' | 'cible'>('reel')
+
   const isPersonnel = p.type === 'personnel'
   const isEnConstruction = p.statut === 'en-construction'
   const showPeaCto = hasPeaCto(p)
+  const hasVues = !!p.allocationCible
+
+  // L'allocation active change selon le switch
+  const activeAllocation = vue === 'cible' && p.allocationCible
+    ? p.allocationCible
+    : p.allocation
 
   return (
     <article style={{ maxWidth: 860, margin: '0 auto', padding: '40px 24px 80px' }}>
@@ -115,23 +124,63 @@ export default function PortefeuilleTemplate({ portefeuille: p, children }: Prop
         </div>
       </header>
 
-      {/* Allocation — donut */}
-      <section style={{ marginBottom: 32 }}>
-        <h2 style={{
-          fontFamily: 'Playfair Display, Georgia, serif', fontSize: 22,
-          fontWeight: 700, color: '#1B4332', marginBottom: 24,
+      {/* Section Allocation — titre + switch */}
+      <section style={{ marginBottom: 0 }}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: 12,
+          marginBottom: 24,
         }}>
-          Allocation
-        </h2>
-        <AllocationChart allocation={p.allocation} allocationCible={p.allocationCible} />
+          <h2 style={{
+            fontFamily: 'Playfair Display, Georgia, serif', fontSize: 22,
+            fontWeight: 700, color: '#1B4332', margin: 0,
+          }}>
+            Allocation
+          </h2>
+
+          {/* Switch Actuel / Cible — uniquement si une cible existe */}
+          {hasVues && (
+            <div style={{ display: 'flex', gap: 6 }}>
+              {(['reel', 'cible'] as const).map((v) => (
+                <button
+                  key={v}
+                  onClick={() => setVue(v)}
+                  style={{
+                    padding: '6px 16px',
+                    borderRadius: 6,
+                    border: '1px solid',
+                    borderColor: vue === v ? '#1B4332' : '#E0DBCF',
+                    background: vue === v ? '#1B4332' : 'transparent',
+                    color: vue === v ? 'white' : '#78716C',
+                    fontFamily: 'DM Sans, sans-serif',
+                    fontSize: 13,
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    transition: 'all 0.15s',
+                  }}
+                >
+                  {v === 'reel' ? 'Actuel' : 'Cible'}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Donut — reçoit l'allocation active */}
+        <AllocationChart allocation={activeAllocation} />
       </section>
 
-      {/* Répartition PEA / CTO — uniquement si pertinent */}
-      {showPeaCto && <PeaCtoBlock allocation={p.allocation} />}
+      {/* Bloc PEA / CTO — reçoit l'allocation active */}
+      {showPeaCto && (
+        <PeaCtoBlock allocation={activeAllocation} />
+      )}
 
-      {/* Tableau détail */}
+      {/* Tableau — reçoit l'allocation active */}
       <section style={{ marginBottom: 48 }}>
-        <AllocationTable allocation={p.allocation} />
+        <AllocationTable allocation={activeAllocation} />
       </section>
 
       {/* Contenu MDX */}
@@ -163,7 +212,10 @@ export default function PortefeuilleTemplate({ portefeuille: p, children }: Prop
           <div style={{ borderLeft: '2px solid #C9A84C', paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 16 }}>
             {[...p.updates].reverse().map((update, i) => (
               <div key={i} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 12, fontWeight: 600, color: '#78716C', whiteSpace: 'nowrap', paddingTop: 2 }}>
+                <span style={{
+                  fontFamily: 'DM Sans, sans-serif', fontSize: 12, fontWeight: 600,
+                  color: '#78716C', whiteSpace: 'nowrap', paddingTop: 2,
+                }}>
                   {formatDate(update.date)}
                 </span>
                 <p style={{ fontFamily: 'Lora, Georgia, serif', fontSize: 14, color: '#44403C', margin: 0, lineHeight: 1.6 }}>

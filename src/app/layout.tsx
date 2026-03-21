@@ -4,6 +4,7 @@ import { Footer } from '@/components/layout/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.lathese.fr'),
   title: {
     default: 'La Thèse — Penser long, investir juste',
     template: '%s — La Thèse',
@@ -21,6 +22,11 @@ export const metadata: Metadata = {
       'Des ressources claires pour comprendre les marchés et construire un patrimoine durable.',
     type: 'website',
     locale: 'fr_FR',
+    url: 'https://www.lathese.fr',
+    siteName: 'La Thèse',
+  },
+  verification: {
+    google: 'pTjovH43XcIvgKn9yB7sd-SIFYh5IJTpT7FbnfpJDfY',
   },
 }
 
