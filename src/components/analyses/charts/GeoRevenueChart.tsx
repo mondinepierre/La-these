@@ -3,8 +3,9 @@
 import type { GeoPoint } from '@/types/analyses'
 
 type Props = {
-  data:     GeoPoint[]
-  source?:  string   // ex : 'rapport annuel FY2024'
+  data:    GeoPoint[]
+  source?: string
+  title?:  string
 }
 
 const COULEURS: Record<string, string> = {
@@ -24,9 +25,10 @@ function getCouleur(region: string): string {
   return COULEURS[region] ?? '#C4BEB4'
 }
 
-export default function GeoRevenueChart({ data, source }: Props) {
-  const sorted = [...data].sort((a, b) => b.pct - a.pct)
-  const total  = sorted.reduce((sum, d) => sum + d.pct, 0)
+export default function GeoRevenueChart({ data, source, title }: Props) {
+  const sorted       = [...data].sort((a, b) => b.pct - a.pct)
+  const total        = sorted.reduce((sum, d) => sum + d.pct, 0)
+  const displayTitle = title ?? 'Répartition géographique du CA'
 
   return (
     <div className="my-8">
@@ -37,7 +39,7 @@ export default function GeoRevenueChart({ data, source }: Props) {
         color:        'var(--color-accent)',
         marginBottom: '1.25rem',
       }}>
-        Répartition géographique du CA
+        {displayTitle}
       </h3>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>

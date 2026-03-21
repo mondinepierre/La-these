@@ -28,7 +28,7 @@ export type Enveloppe      = 'PEA' | 'CTO' | 'PEA + CTO' | 'Aucun'
 export type Conviction     = 'exceptionnelle' | 'forte' | 'moyenne' | 'spéculative'
 export type Positionnement = 'achat fort' | 'accumulation' | 'surveillance' | 'allégement' | 'maintien'
 export type Tendance       = 'hausse' | 'stable' | 'baisse'
-export type MarginOfSafety = 'forte' | 'correcte' | 'faible' | 'indéterminée'
+export type MarginOfSafety = 'forte' | 'correcte' | 'faible' | 'indéterminée' | 'négative'
 
 // ─────────────────────────────────────────────
 // Analyse ponctuelle
@@ -95,13 +95,49 @@ export type GeoPoint = {
   region: string  // ex : 'Europe' | 'Chine' | 'États-Unis' | 'Reste du monde'
   pct:    number  // % du CA — la somme doit faire 100
 }
+// ── Graphiques flexibles ──────────────────────────────────────
+
+export type MetricPoint = {
+  year:   number
+  value:  number
+  wacc?:  number   // optionnel — uniquement pour ROIC vs WACC
+}
+
+export type CompetitorSerie = {
+  name:  string   // ex : 'Eli Lilly', 'TSMC'
+  color: string   // hex — ex : '#E05A2B'
+  data:  { year: number; value: number }[]
+}
+
+export type MetricSerie = {
+  label:        string           // titre du graphique — ex : 'PER'
+  name?:        string           // légende ligne principale — ex : 'TotalEnergies'
+  unit?:        string
+  data:         MetricPoint[]
+  competitors?: CompetitorSerie[]
+}
+
+export type SegmentPoint = {
+  year:     number
+  segments: { name: string; value: number }[]
+}
+
+export type ValuationPoint = {
+  label:   string   // 'PER' | 'EV/EBITDA' | 'P/B' | 'PEG' | 'FCF Yield'
+  valeur:  number   // valeur de l'action
+  secteur: number   // moyenne sectorielle
+}
 
 export type ChartData = {
-  marges?:      MargePoint[]
-  roic?:        RoicPoint[]
-  revenue?:     RevenuePoint[]
-  fcf?:         FcfPoint[]
-  geoRevenue?:  GeoPoint[]
+  marges?:        MargePoint[]
+  roic?:          RoicPoint[]
+  revenue?:       RevenuePoint[]
+  fcf?:           FcfPoint[]
+  geoRevenue?:    GeoPoint[]
+  valuationCompare?:  ValuationPoint[]
+  metricHistory?: MetricSerie[]    // graphiques libres — PER, EV/EBITDA, etc.
+  roicVsWacc?:    MetricPoint[]    // ROIC + WACC sur 5 ans
+  segmentRevenue?: SegmentPoint[]  // CA par segment sur 5 ans
 }
 
 // ─────────────────────────────────────────────

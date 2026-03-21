@@ -9,7 +9,12 @@ import RoicChart from './charts/RoicChart'
 import RevenueChart from './charts/RevenueChart'
 import FcfChart from './charts/FcfChart'
 import GeoRevenueMap from './charts/GeoRevenueMap'
+import MetricChart from './charts/MetricChart'
+import RoicWaccChart from './charts/RoicWaccChart'
+import SegmentRevenueChart from './charts/SegmentRevenueChart'
 import MetricsDashboard from './MetricsDashboard'
+import ValuationBarChart from './charts/ValuationBarChart'
+import ValuationRadarChart from './charts/ValuationRadarChart'
 
 type MDXContent = React.ComponentType<{ components?: Record<string, React.ComponentType> }>
 
@@ -27,29 +32,93 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
   const { prixCible: pc } = frontmatter
   const aPrixCible = pc.bas > 0 || pc.haut > 0
 
-  // ── Composants injectables dans le MDX ───────────────────
+  // ── Composants graphiques simples ────────────────────────────
   const RevenueGraph = cd?.revenue
-    ? () => <RevenueChart data={cd.revenue!} />
+    ? (props: { title?: string; unit?: string }) => (
+        <RevenueChart data={cd.revenue!} title={props.title} unit={props.unit} />
+      )
     : () => null
 
   const MargesGraph = cd?.marges
-    ? () => <MargesChart data={cd.marges!} />
+    ? (props: { title?: string }) => (
+        <MargesChart data={cd.marges!} title={props.title} />
+      )
     : () => null
 
   const RoicGraph = cd?.roic
-    ? () => <RoicChart data={cd.roic!} />
+    ? (props: { title?: string; wacc?: number }) => (
+        <RoicChart data={cd.roic!} title={props.title} wacc={props.wacc} />
+      )
     : () => null
 
   const FcfGraph = cd?.fcf
-    ? () => <FcfChart data={cd.fcf!} />
+    ? (props: { title?: string; unit?: string }) => (
+        <FcfChart data={cd.fcf!} title={props.title} unit={props.unit} />
+      )
     : () => null
 
   const GeoMap = cd?.geoRevenue
-    ? () => <GeoRevenueMap data={cd.geoRevenue!} source="rapport annuel" />
+    ? (props: { source?: string; title?: string }) => (
+        <GeoRevenueMap
+          data={cd.geoRevenue!}
+          source={props.source ?? 'rapport annuel'}
+          title={props.title}
+        />
+      )
     : () => null
 
+  // ── Composants graphiques comparaison des valeurs ─────────────────────────────   
+  const ValuationBar = cd?.valuationCompare
+  ? (props: { title?: string; name?: string }) => (
+      <ValuationBarChart
+        data={cd.valuationCompare!}
+        title={props.title}
+        name={props.name}
+      />
+    )
+  : () => null
+
+const ValuationRadar = cd?.valuationCompare
+  ? (props: { title?: string; name?: string }) => (
+      <ValuationRadarChart
+        data={cd.valuationCompare!}
+        title={props.title}
+        name={props.name}
+      />
+    )
+  : () => null
+
+  // ── Composants graphiques avancés ─────────────────────────────
+  const RoicWacc = cd?.roicVsWacc
+    ? (props: { title?: string }) => (
+        <RoicWaccChart data={cd.roicVsWacc!} title={props.title} />
+      )
+    : () => null
+
+  const SegmentGraph = cd?.segmentRevenue
+    ? (props: { title?: string; unit?: string }) => (
+        <SegmentRevenueChart
+          data={cd.segmentRevenue!}
+          title={props.title}
+          unit={props.unit}
+        />
+      )
+    : () => null
+
+  // ── Graphiques métriques libres (un composant par série) ──────
+  const MetricGraphs = cd?.metricHistory
+    ? Object.fromEntries(
+        cd.metricHistory.map(serie => [
+          `MetricGraph_${serie.label.replace(/[^a-zA-Z0-9]/g, '_')}`,
+          (props: { title?: string }) => (
+            <MetricChart serie={serie} title={props.title} />
+          ),
+        ])
+      )
+    : {}
+
   return (
-    <article className="max-w-2xl mx-auto px-4 py-12">
+    <article className="max-w-content mx-auto px-6 py-12">
 
       {/* Bandeau en construction */}
       {frontmatter.statut === 'en-construction' && (
@@ -120,7 +189,7 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
         </p>
       </header>
 
-      {/* Tableau de bord — toujours en haut */}
+      {/* Tableau de bord */}
       <MetricsDashboard metrics={frontmatter.metrics} tendances={frontmatter.tendances} />
 
       {/* Corps MDX — tous les graphiques injectés, positionnés librement */}
@@ -132,7 +201,18 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
         prose-a:text-[#C9A84C] prose-a:no-underline hover:prose-a:underline
         prose-ul:font-serif prose-li:text-stone-700
         prose-table:font-sans prose-th:text-[#1B4332] prose-td:text-stone-600">
-        <Content components={{ RevenueGraph, MargesGraph, RoicGraph, FcfGraph, GeoMap }} />
+        <Content components={{
+          RevenueGraph, 
+          MargesGraph, 
+          RoicGraph, 
+          FcfGraph,
+          GeoMap, 
+          RoicWacc, 
+          SegmentGraph,
+          ValuationBar,
+          ValuationRadar,
+          ...MetricGraphs,
+        }} />
       </div>
 
       <MentionLegale />

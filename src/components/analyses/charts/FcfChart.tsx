@@ -1,22 +1,20 @@
 'use client'
 
 import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
+  AreaChart, Area, XAxis, YAxis, CartesianGrid,
+  Tooltip, ResponsiveContainer,
 } from 'recharts'
 import type { FcfPoint } from '@/types/analyses'
 
 type Props = {
-  data: FcfPoint[]
-  unit?: string
+  data:   FcfPoint[]
+  unit?:  string
+  title?: string
 }
 
-export default function FcfChart({ data, unit = 'Md€' }: Props) {
+export default function FcfChart({ data, unit = 'Md€', title }: Props) {
+  const displayTitle = title ?? `Free Cash Flow sur ${data.length} ans (${unit})`
+
   return (
     <div className="my-8">
       <h3 style={{
@@ -26,7 +24,7 @@ export default function FcfChart({ data, unit = 'Md€' }: Props) {
         color:        'var(--color-accent)',
         marginBottom: '1rem',
       }}>
-        Free Cash Flow sur 5 ans ({unit})
+        {displayTitle}
       </h3>
       <ResponsiveContainer width="100%" height={260}>
         <AreaChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
