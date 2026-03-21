@@ -523,6 +523,115 @@ export const glossaire: GlossaireTerm[] = [
     ],
   },
 
+
+  {
+    slug: "roic",
+    label: "ROIC — Return on Invested Capital",
+    category: "Analyse fondamentale",
+    shortDef: "Le rendement généré par l'entreprise sur chaque euro de capital investi dans son activité.",
+    definition: `Le ROIC (Return on Invested Capital) mesure l'efficacité avec laquelle une entreprise utilise le capital qui lui est confié — fonds propres et dette — pour générer des bénéfices. Formule simplifiée : ROIC = Résultat opérationnel net après impôt (NOPAT) / Capital investi.\n\nC'est l'un des indicateurs les plus puissants de l'analyse fondamentale. Un ROIC supérieur au WACC signifie que l'entreprise crée de la valeur — chaque euro investi en rapporte davantage qu'il ne coûte. Un ROIC inférieur au WACC signifie que l'entreprise détruit de la valeur, même si elle est profitable.\n\nNiveaux de référence : ROIC < 8 % = performances médiocres, ROIC 10-15 % = bon, ROIC > 20 % = excellent (souvent signe d'un Moat solide). ASML affiche un ROIC > 30 %, Novo Nordisk > 25 % — des niveaux qui reflètent des avantages concurrentiels structurels.\n\nSuivre le ROIC sur 5 ans révèle si l'entreprise maintient ou érode son avantage concurrentiel dans le temps.`,
+    related: ["wacc", "moat", "free-cash-flow", "marge-nette", "capex"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "wacc",
+    label: "WACC — Coût Moyen Pondéré du Capital",
+    category: "Analyse fondamentale",
+    shortDef: "Le taux de rendement minimum qu'une entreprise doit générer pour satisfaire ses actionnaires et créanciers.",
+    definition: `Le WACC (Weighted Average Cost of Capital) représente le coût moyen de l'ensemble des financements d'une entreprise — fonds propres et dette — pondéré par leur poids respectif. C'est le taux de rendement minimum que l'entreprise doit générer pour ne pas détruire de valeur.\n\nPour un investisseur, le WACC sert de référence dans deux contextes clés : comparer au ROIC (si ROIC > WACC, l'entreprise crée de la valeur), et actualiser les flux de trésorerie futurs dans un modèle DCF (Discounted Cash Flow).\n\nUn WACC typique varie entre 6 % et 12 % selon le secteur et le profil de risque. Les entreprises technologiques à forte croissance ont souvent un WACC plus élevé. Les grandes entreprises industrielles stables ont un WACC plus bas. La règle d'or : un ROIC durablement supérieur au WACC est la signature d'une entreprise de qualité exceptionnelle.`,
+    related: ["roic", "free-cash-flow", "moat"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "capex",
+    label: "CAPEX — Dépenses d'investissement",
+    category: "Analyse fondamentale",
+    shortDef: "Les dépenses engagées pour acquérir ou maintenir des actifs physiques à long terme.",
+    definition: `Le CAPEX (Capital Expenditure) désigne les dépenses d'investissement qu'une entreprise engage pour acquérir, améliorer ou maintenir ses actifs physiques à long terme : usines, équipements, machines, infrastructures.\n\nOn distingue deux types : le CAPEX de maintenance (remplacer ce qui s'use — indispensable pour maintenir l'activité) et le CAPEX de croissance (investir dans de nouvelles capacités — signe d'ambition mais consommateur de cash).\n\nLe CAPEX est directement lié au Free Cash Flow : FCF = Cash-flow opérationnel − CAPEX. Une entreprise avec un CAPEX élevé génère moins de FCF disponible pour les actionnaires. Les entreprises à faible CAPEX (logiciels, plateformes, marques fortes) sont souvent les plus rentables sur le long terme — elles n'ont pas besoin de réinvestir massivement pour croître.`,
+    related: ["free-cash-flow", "roic", "dette-ebitda"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "marge-de-securite",
+    label: "Marge de sécurité (Margin of Safety)",
+    category: "Analyse fondamentale",
+    shortDef: "L'écart entre la valeur intrinsèque estimée d'une action et son prix de marché actuel.",
+    definition: `La marge de sécurité (Margin of Safety, MOS) est un concept fondamental de l'investissement value, popularisé par Benjamin Graham. Elle représente l'écart entre la valeur intrinsèque estimée d'une entreprise et son cours de bourse actuel.\n\nFormule : MOS = (Valeur intrinsèque − Prix actuel) / Valeur intrinsèque × 100. Une MOS positive signifie que l'action est décotée — tu achètes avec un coussin de sécurité. Une MOS négative signifie que l'action est surévaluée.\n\nPourquoi est-elle essentielle ? Parce que toute valorisation est une estimation, jamais une certitude. La marge de sécurité compense les erreurs d'analyse, les imprévus et la volatilité des marchés. Warren Buffett la résume ainsi : acheter un billet de 1 € pour 0,50 €.\n\nNiveaux pratiques : MOS < 15 % = faible (patience recommandée), MOS 15-30 % = correcte, MOS > 30 % = attractive pour un investisseur value. En bio-pharma ou technologie à forte incertitude, viser 25-35 % minimum.`,
+    related: ["per-valorisation", "ev-ebitda", "free-cash-flow", "roic"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "cagr",
+    label: "CAGR — Taux de croissance annuel composé",
+    category: "Analyse fondamentale",
+    shortDef: "Le taux de croissance annuel moyen d'une grandeur sur une période donnée, en supposant une croissance régulière.",
+    definition: `Le CAGR (Compound Annual Growth Rate) est le taux de croissance annuel moyen qui permettrait à une valeur d'atteindre son niveau final à partir de son niveau initial sur une période donnée. Il suppose une croissance régulière chaque année.\n\nFormule : CAGR = (Valeur finale / Valeur initiale)^(1/nombre d'années) − 1. Exemple : un chiffre d'affaires qui passe de 100 à 200 M€ en 5 ans affiche un CAGR de 14,9 % — même si la croissance réelle a été irrégulière.\n\nLe CAGR est très utilisé pour comparer la croissance du CA, des bénéfices, du FCF ou du cours d'une action sur des périodes différentes. Sa limite : il lisse la réalité et masque la volatilité interannuelle. Un CAGR de 20 % peut cacher une année à +80 % suivie de trois années plates.`,
+    related: ["chiffre-affaires", "free-cash-flow", "bpa"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "payout-ratio",
+    label: "Payout Ratio",
+    category: "Analyse fondamentale",
+    shortDef: "La part des bénéfices nets distribuée aux actionnaires sous forme de dividendes.",
+    definition: `Le Payout Ratio (taux de distribution) mesure la proportion du bénéfice net reversée aux actionnaires via les dividendes. Formule : Payout Ratio = Dividende par action / BPA × 100.\n\nInterprétation : un ratio de 40 % signifie que l'entreprise distribue 40 % de ses bénéfices et conserve 60 % pour réinvestir. Un ratio trop élevé (> 80-90 %) peut signaler un dividende fragile. Un ratio faible (< 30 %) indique une entreprise qui préfère réinvestir sa croissance.\n\nAttention : le Payout Ratio basé sur les bénéfices comptables peut être trompeur. Le ratio FCF Payout (dividende / Free Cash Flow) est plus fiable — il mesure si le dividende est réellement couvert par l'argent généré. TotalEnergies affiche un Payout Ratio de 55 % avec un dividende couvert 1,32× par le FCF — une couverture correcte mais à surveiller en bas de cycle.`,
+    related: ["dividende", "free-cash-flow", "bpa", "rachat-actions"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "rachat-actions",
+    label: "Rachat d'actions (Buyback)",
+    category: "Analyse fondamentale",
+    shortDef: "Quand une entreprise rachète ses propres actions sur le marché, réduisant mécaniquement le nombre de titres en circulation.",
+    definition: `Un rachat d'actions (share buyback) se produit quand une entreprise utilise sa trésorerie pour racheter ses propres titres sur le marché boursier. Les actions rachetées sont généralement annulées, ce qui réduit le nombre total de titres en circulation.\n\nEffet mécanique immédiat : en divisant le bénéfice net par un nombre d'actions plus faible, le BPA augmente mécaniquement — même si le bénéfice total n'a pas changé. C'est pourquoi les rachats sont souvent perçus comme un signal positif par le marché.\n\nQuand est-ce intelligent ? Quand l'action est sous-évaluée. Racheter ses propres titres décotés est la meilleure allocation de capital possible. Quand est-ce problématique ? Quand l'entreprise rachète à des prix élevés, s'endette pour financer les rachats, ou sacrifie ses investissements en CAPEX nécessaires à long terme.`,
+    related: ["bpa", "dividende", "payout-ratio", "free-cash-flow"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "pricing-power",
+    label: "Pricing Power",
+    category: "Analyse fondamentale",
+    shortDef: "La capacité d'une entreprise à augmenter ses prix sans perdre de clients.",
+    definition: `Le Pricing Power désigne la capacité d'une entreprise à augmenter ses prix sans provoquer de fuite significative de sa clientèle. C'est l'une des manifestations les plus directes d'un Moat solide.\n\nUne entreprise avec fort Pricing Power peut répercuter l'inflation sur ses clients, protéger ses marges en période de hausse des coûts, et extraire davantage de valeur de chaque client au fil du temps. ASML en est l'exemple le plus pur : ses clients (TSMC, Intel, Samsung) n'ont aucune alternative. Hermès, Apple, Visa disposent du même pouvoir.\n\nComment l'identifier : regarder si la marge nette reste stable ou s'améliore sur 5 ans malgré l'inflation. Si oui, l'entreprise a du Pricing Power. Si elle s'érode, elle en manque. C'est la différence entre une entreprise qui subit son marché et une entreprise qui le domine.`,
+    related: ["moat", "marge-nette", "roic", "marge-de-securite"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "p-fcf",
+    label: "P/FCF — Price to Free Cash Flow",
+    category: "Analyse fondamentale",
+    shortDef: "Le ratio qui compare le prix de l'action au Free Cash Flow généré par action.",
+    definition: `Le P/FCF (Price to Free Cash Flow) est un multiple de valorisation qui divise le cours de l'action par le Free Cash Flow par action. Il complète le PER en utilisant le FCF plutôt que le bénéfice comptable — ce qui le rend moins manipulable par les choix comptables d'amortissement.\n\nFormule : P/FCF = Prix de l'action / FCF par action. Un P/FCF de 15 signifie que tu paies 15 fois le cash réellement généré par action. C'est souvent préféré au PER dans les secteurs à fort CAPEX (énergie, industrie, télécoms) où les amortissements peuvent déformer le bénéfice net.\n\nGrille de lecture sectorielle : les entreprises énergétiques matures traitent souvent à P/FCF 8-12, les entreprises technologiques à 20-40. Comme tous les multiples, il n'a de sens qu'en comparaison sectorielle et dans la durée.`,
+    related: ["free-cash-flow", "per-valorisation", "ev-ebitda", "capex"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
   // ─── ANALYSE TECHNIQUE ────────────────────────────────────────────────────
 
   {
