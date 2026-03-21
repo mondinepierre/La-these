@@ -6,7 +6,7 @@ import { isValeurSuivie } from '@/types/analyses'
 import AnalysePonctuelleTemplate from './AnalysePonctuelleTemplate'
 import ValeurSuivieTemplate from './ValeurSuivieTemplate'
 
-const MDX: Record<string, React.ComponentType<{ components?: Record<string, React.ComponentType> }>> = {
+const MDX: Record<string, React.ComponentType<any>> = {
   'asml':   dynamic(() => import('@/content/analyses/valeurs/asml.mdx')),
   'novo':   dynamic(() => import('@/content/analyses/valeurs/novo.mdx')),
   'totale': dynamic(() => import('@/content/analyses/valeurs/totale.mdx')),
