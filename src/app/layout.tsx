@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Navigation } from '@/components/layout/Navigation'
 import { Footer } from '@/components/layout/Footer'
 import './globals.css'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.lathese.fr'),
@@ -42,6 +43,7 @@ export default function RootLayout({
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
