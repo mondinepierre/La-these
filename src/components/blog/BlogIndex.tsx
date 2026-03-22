@@ -5,33 +5,64 @@ import { ArticleMeta, Categorie, NiveauBlog } from '@/types/blog'
 import { BlogCard } from './BlogCard'
 
 const CATEGORIES: { value: Categorie | 'all'; label: string }[] = [
-  { value: 'all', label: 'Toutes' },
-  { value: 'pedagogie', label: 'Pédagogie' },
-  { value: 'macro', label: 'Macro' },
-  { value: 'methode', label: 'Méthode' },
-  { value: 'parcours', label: 'Parcours' },
+  { value: 'all',        label: 'Toutes'        },
+  { value: 'pedagogie',  label: 'Pédagogie'     },
+  { value: 'macro',      label: 'Macro'          },
+  { value: 'methode',    label: 'Méthode'        },
+  { value: 'parcours',   label: 'Parcours'       },
 ]
 
 const NIVEAUX: { value: NiveauBlog | 'all'; label: string }[] = [
-  { value: 'all', label: 'Tous niveaux' },
-  { value: 'debutant', label: 'Débutant' },
-  { value: 'intermediaire', label: 'Intermédiaire' },
-  { value: 'avance', label: 'Avancé' },
+  { value: 'all',            label: 'Tous niveaux'   },
+  { value: 'debutant',       label: 'Débutant'       },
+  { value: 'intermediaire',  label: 'Intermédiaire'  },
+  { value: 'avance',         label: 'Avancé'         },
 ]
+
+function FilterPill({
+  label,
+  active,
+  onClick,
+}: {
+  label:   string
+  active:  boolean
+  onClick: () => void
+}) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        fontFamily:      'var(--font-sans)',
+        fontSize:        '13px',
+        padding:         '4px 14px',
+        borderRadius:    '999px',
+        border:          '1px solid',
+        borderColor:     active ? '#1B4332' : '#D4CFC7',
+        backgroundColor: active ? '#1B4332' : 'transparent',
+        color:           active ? '#F7F4EF' : '#57534E',
+        cursor:          'pointer',
+        transition:      'all 0.15s',
+        whiteSpace:      'nowrap',
+      }}
+    >
+      {label}
+    </button>
+  )
+}
 
 export function BlogIndex({ articles }: { articles: ArticleMeta[] }) {
   const [category, setCategory] = useState<Categorie | 'all'>('all')
-  const [level, setLevel] = useState<NiveauBlog | 'all'>('all')
-  const [search, setSearch] = useState('')
+  const [level,    setLevel]    = useState<NiveauBlog | 'all'>('all')
+  const [search,   setSearch]   = useState('')
 
   const filtered = useMemo(() => {
     return articles.filter(a => {
       if (category !== 'all' && a.category !== category) return false
-      if (level !== 'all' && a.level !== level) return false
+      if (level    !== 'all' && a.level    !== level)    return false
       if (search) {
         const q = search.toLowerCase()
         const match =
-          a.title.toLowerCase().includes(q) ||
+          a.title.toLowerCase().includes(q)   ||
           a.summary.toLowerCase().includes(q) ||
           a.tags.some(t => t.toLowerCase().includes(q))
         if (!match) return false
@@ -40,53 +71,67 @@ export function BlogIndex({ articles }: { articles: ArticleMeta[] }) {
     })
   }, [articles, category, level, search])
 
-  const filterBtn = (active: boolean) =>
-    `px-3 py-1.5 rounded text-sm transition-colors duration-150 ${
-      active
-        ? 'bg-[#1B4332] text-[#F7F4EF]'
-        : 'bg-white border border-[#E0DBCF] text-[#78716C] hover:border-[#1B4332]'
-    }`
-
   return (
     <div>
       {/* Filtres */}
-      <div className="flex flex-col gap-4 mb-10">
-        <div className="flex flex-wrap gap-2">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2.5rem' }}>
+
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#A8A29E', minWidth: '60px' }}>
+            Catégorie
+          </span>
           {CATEGORIES.map(c => (
-            <button
+            <FilterPill
               key={c.value}
+              label={c.label}
+              active={category === c.value}
               onClick={() => setCategory(c.value as Categorie | 'all')}
-              className={filterBtn(category === c.value)}
-            >
-              {c.label}
-            </button>
+            />
           ))}
         </div>
-        <div className="flex flex-wrap gap-2 items-center">
+
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: '#A8A29E', minWidth: '60px' }}>
+            Niveau
+          </span>
           {NIVEAUX.map(n => (
-            <button
+            <FilterPill
               key={n.value}
+              label={n.label}
+              active={level === n.value}
               onClick={() => setLevel(n.value as NiveauBlog | 'all')}
-              className={filterBtn(level === n.value)}
-            >
-              {n.label}
-            </button>
+            />
           ))}
           <input
             type="text"
             placeholder="Rechercher..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="ml-auto border border-[#E0DBCF] rounded px-3 py-1.5 text-sm text-[#1B4332] placeholder:text-[#78716C] focus:outline-none focus:border-[#C9A84C] bg-white"
+            style={{
+              marginLeft:      'auto',
+              border:          '1px solid #E0DBCF',
+              borderRadius:    '999px',
+              padding:         '4px 14px',
+              fontSize:        '13px',
+              fontFamily:      'var(--font-sans)',
+              color:           '#1B4332',
+              background:      'transparent',
+              outline:         'none',
+            }}
+            onFocus={e  => (e.target.style.borderColor = '#C9A84C')}
+            onBlur={e   => (e.target.style.borderColor = '#E0DBCF')}
           />
         </div>
+
       </div>
 
       {/* Résultats */}
       {filtered.length === 0 ? (
-        <p className="text-[#78716C] text-sm">Aucun article ne correspond à ces critères.</p>
+        <p style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', color: '#A8A29E' }}>
+          Aucun article ne correspond à ces critères.
+        </p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem' }}>
           {filtered.map(a => (
             <BlogCard key={a.slug} article={a} />
           ))}
