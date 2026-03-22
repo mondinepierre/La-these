@@ -16,10 +16,14 @@ export async function generateMetadata({
   if (!analyse) return {}
 
   const suffix = analyse.type === 'valeur' ? 'Valeur suivie' : 'Analyse ponctuelle'
+  const enConstruction = analyse.statut === 'en-construction'
 
   return {
-    title: `${analyse.title} — ${suffix} · La Thèse`,
+    title:       `${analyse.title} — ${suffix} · La Thèse`,
     description: analyse.excerpt,
+    robots:      enConstruction
+      ? { index: false, follow: false }
+      : undefined,
   }
 }
 

@@ -87,7 +87,7 @@ export type UpdateEntry = {
 // Graphiques Recharts
 // ─────────────────────────────────────────────
 
-export type MargePoint   = { year: number; net: number; operating: number }
+export type MargePoint   = { year: number;  gross?: number; operating?: number; net?: number; }
 export type RoicPoint    = { year: number; value: number }
 export type RevenuePoint = { year: number; value: number }
 export type FcfPoint     = { year: number; value: number }
@@ -163,6 +163,7 @@ export type FrontmatterValeur = {
   tendances:      Tendances
   updates:        UpdateEntry[]
   chartData?:     ChartData
+  glossaire?:     string[]  // slugs des termes — ex: ['per', 'free-cash-flow', 'moat']
 }
 
 // ─────────────────────────────────────────────

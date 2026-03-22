@@ -1020,6 +1020,181 @@ export const glossaire: GlossaireTerm[] = [
       { label: "Pourquoi investir", href: "/academie/bases/pourquoi-investir" },
     ],
   },
+// ─────────────────────────────────────────────────────────────────────────────
+// NOUVEAUX TERMES — à insérer dans glossaire.ts juste avant le ]; final du tableau
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ─── TRANSVERSAL ─────────────────────────────────────────────────────────────
+
+  {
+    slug: "multiple-de-valorisation",
+    label: "Multiple de valorisation",
+    category: "Analyse fondamentale" as const,
+    shortDef: "Un ratio qui met en relation le prix d'un actif avec une mesure de sa valeur économique — PER, EV/EBITDA, P/FCF.",
+    definition: `Un multiple de valorisation compare le prix auquel le marché valorise une entreprise à une mesure de sa performance économique. Les plus courants : le PER (Prix / Bénéfice), l'EV/EBITDA (Valeur d'entreprise / EBITDA), le P/FCF (Prix / Free Cash Flow).\n\nLe niveau d'un multiple n'est jamais absolu — il n'a de sens qu'en comparaison : par rapport à l'historique de l'entreprise, par rapport à ses pairs sectoriels, et par rapport au taux sans risque. Un PER de 15 est cher pour une utility stable, raisonnable pour une entreprise technologique en croissance de 20 % par an.\n\nLa compression des multiples est l'un des principaux risques d'une action chère : si le marché accepte de payer 30 fois les bénéfices aujourd'hui mais n'en accepte plus que 20 demain, le cours peut baisser de 30 % même si les bénéfices progressent. C'est pourquoi la marge de sécurité est essentielle quand les multiples sont élevés.`,
+    related: ["per-valorisation", "ev-ebitda", "p-fcf", "marge-de-securite", "roic"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+// ─── SEMI-CONDUCTEURS & TECHNOLOGIE ──────────────────────────────────────────
+
+  {
+    slug: "semi-conducteurs",
+    label: "Semi-conducteurs",
+    category: "Fondamentaux" as const,
+    shortDef: "Composants électroniques à la base de toute l'industrie numérique — des smartphones aux data centers.",
+    definition: `Un semi-conducteur est un matériau (principalement le silicium) dont la conductivité électrique peut être modulée avec précision. Cette propriété en fait le matériau fondamental des circuits intégrés — les puces électroniques qui équipent tous les appareils numériques.\n\nL'industrie des semi-conducteurs est organisée en trois grandes chaînes : la conception (fabless), la fabrication (foundries) et l'équipement qui fournit les machines indispensables à la production. Ces trois maillons sont souvent assurés par des entreprises distinctes, ce qui crée une chaîne de dépendance et de spécialisation très forte.\n\nLes semi-conducteurs sont des actifs cycliques : la demande suit les grands cycles d'investissement technologique (smartphones, PC, data centers, automobiles électriques). Comprendre à quel stade du cycle se trouve le secteur est essentiel avant d'investir dans l'une de ses composantes.`,
+    related: ["lithographie-euv", "moat", "supply-chain"],
+    modules: [],
+  },
+
+  {
+    slug: "lithographie-euv",
+    label: "Lithographie EUV",
+    category: "Analyse fondamentale" as const,
+    shortDef: "Technologie de gravure de puces utilisant une lumière à 13,5 nm — seule capable de produire des semi-conducteurs inférieurs à 5 nm.",
+    definition: `La lithographie est le procédé qui grave les circuits électroniques sur une plaque de silicium. Elle consiste à projeter un motif lumineux à travers un masque sur une surface photosensible, reproduisant ainsi des milliers de transistors de quelques nanomètres.\n\nL'EUV (Extreme Ultraviolet) utilise une lumière à longueur d'onde de 13,5 nanomètres — bien plus courte que les technologies précédentes — ce qui permet de graver des structures beaucoup plus fines. C'est aujourd'hui la seule technique disponible pour fabriquer des puces en deçà de 5 nm.\n\nLa maîtrise de la lithographie EUV est le goulot d'étranglement de toute la chaîne de production des semi-conducteurs avancés. Sans accès à ces machines, aucun fabricant ne peut produire les puces les plus récentes.`,
+    related: ["semi-conducteurs", "high-na", "duv", "moat", "supply-chain"],
+    modules: [],
+  },
+
+  {
+    slug: "duv",
+    label: "DUV (Deep Ultraviolet)",
+    category: "Analyse fondamentale" as const,
+    shortDef: "Génération précédente de lithographie, encore utilisée pour les nœuds technologiques 10 nm et plus — représente la majorité du parc mondial installé.",
+    definition: `Le DUV (Deep Ultraviolet) est la technologie de lithographie qui précède l'EUV. Elle utilise une lumière à longueur d'onde de 193 nm et constitue encore la majorité du parc mondial de machines lithographiques.\n\nPour les nœuds technologiques 10 nm et plus — logique mature, mémoire, analogique, capteurs, composants automobiles — le DUV reste la solution standard et largement suffisante. La majeure partie de la production mondiale de semi-conducteurs utilise des équipements DUV.\n\nMalgré son ancienneté relative, le DUV reste stratégiquement sensible : les restrictions à l'exportation imposées sur certaines machines DUV avancées illustrent que même les technologies "matures" peuvent avoir une dimension géopolitique forte.`,
+    related: ["lithographie-euv", "semi-conducteurs", "high-na"],
+    modules: [],
+  },
+
+  {
+    slug: "high-na",
+    label: "High-NA EUV",
+    category: "Analyse fondamentale" as const,
+    shortDef: "Prochaine génération de lithographie EUV avec une ouverture numérique plus élevée (0,55 vs 0,33), permettant la gravure à 2 nm et en deçà.",
+    definition: `Le High-NA (High Numerical Aperture) désigne la prochaine génération de lithographie EUV. L'ouverture numérique — qui détermine la finesse des motifs gravables — passe de 0,33 à 0,55, permettant de graver des structures encore plus petites.\n\nCette évolution est nécessaire pour atteindre les nœuds technologiques 2 nm et moins, indispensables aux générations futures de puces. Elle prolonge ainsi la trajectoire de miniaturisation décrite par la loi de Moore.\n\nLes machines High-NA sont significativement plus complexes, plus coûteuses et plus longues à développer que leurs prédécesseurs. Leur déploiement conditionne la capacité des fabricants à rester à la frontière technologique dans la seconde moitié des années 2020.`,
+    related: ["lithographie-euv", "duv", "semi-conducteurs", "moat"],
+    modules: [],
+  },
+
+  {
+    slug: "supply-chain",
+    label: "Supply Chain (chaîne d'approvisionnement)",
+    category: "Fondamentaux" as const,
+    shortDef: "L'ensemble des acteurs, flux et processus reliant les fournisseurs de matières premières jusqu'au client final.",
+    definition: `La supply chain (chaîne d'approvisionnement) désigne l'ensemble des étapes, acteurs et flux — matières premières, composants, produits finis, informations, flux financiers — entre la source de production et le client final.\n\nPour un investisseur, la solidité de la supply chain d'une entreprise est un indicateur de risque opérationnel. Une dépendance excessive à un fournisseur unique, une exposition géographique à une zone instable, ou des délais de livraison très longs peuvent affecter sévèrement la capacité de production et les marges.\n\nÀ l'inverse, une supply chain maîtrisée — avec des fournisseurs diversifiés, des stocks tampon adaptés et une logistique robuste — contribue à la résilience du modèle économique. Sa solidité ou sa fragilité se lit souvent dans l'évolution des marges brutes sur plusieurs cycles.`,
+    related: ["moat", "semi-conducteurs", "marge-nette"],
+    modules: [],
+  },
+
+// ─── PHARMA ───────────────────────────────────────────────────────────────────
+
+  {
+    slug: "glp-1",
+    label: "GLP-1 (Glucagon-Like Peptide-1)",
+    category: "Analyse fondamentale" as const,
+    shortDef: "Classe de médicaments imitant une hormone naturelle pour traiter le diabète de type 2 et l'obésité — le marché pharmaceutique à la croissance la plus rapide des années 2020.",
+    definition: `Le GLP-1 (Glucagon-Like Peptide-1) est une hormone naturellement produite par l'intestin après un repas. Elle stimule la sécrétion d'insuline, ralentit la vidange gastrique et réduit l'appétit. Les médicaments agonistes du récepteur GLP-1 imitent cette hormone pour traiter le diabète de type 2 et l'obésité.\n\nCes traitements ont démontré des résultats cliniques inédits dans leur catégorie : réduction de poids de 15 à 22 % selon les molécules, diminution significative des risques cardiovasculaires, et pistes thérapeutiques explorées dans d'autres pathologies métaboliques.\n\nLe marché adressable est structurellement large : plusieurs centaines de millions de personnes concernées dans le monde. La bataille commerciale se joue principalement sur trois axes — l'accès au remboursement, la forme galénique (injectable vs oral) et l'efficacité différentielle entre molécules concurrentes.`,
+    related: ["moat", "pipeline-pharma", "net-price", "pbm", "multiple-de-valorisation"],
+    modules: [],
+  },
+
+  {
+    slug: "pbm",
+    label: "PBM (Pharmacy Benefit Manager)",
+    category: "Analyse fondamentale" as const,
+    shortDef: "Intermédiaires américains entre laboratoires pharmaceutiques, assureurs et pharmacies, qui négocient les prix et les remises.",
+    definition: `Les PBM (Pharmacy Benefit Managers) sont des entités qui gèrent les prestations pharmaceutiques pour le compte des assureurs aux États-Unis. Leurs trois fonctions principales : négocier les remises avec les laboratoires, établir les formulaires (liste des médicaments remboursés), et traiter les demandes de remboursement.\n\nQuelques grands acteurs concentrent une part très importante du marché américain. Leur pouvoir de négociation est considérable : en incluant ou excluant un médicament de leurs formulaires, ils peuvent orienter des millions de prescriptions et exercer une pression significative sur les prix nets encaissés par les laboratoires.\n\nPour un investisseur dans le secteur pharmaceutique, les PBM représentent un facteur de risque structurel sur les marges aux États-Unis. La pression politique croissante sur les prix des médicaments tend à renforcer leur rôle de négociateur, comprimant l'écart entre prix affiché et prix net réellement perçu.`,
+    related: ["glp-1", "net-price", "marge-nette"],
+    modules: [],
+  },
+
+  {
+    slug: "pipeline-pharma",
+    label: "Pipeline (pharmaceutique)",
+    category: "Analyse fondamentale" as const,
+    shortDef: "L'ensemble des médicaments en cours de développement clinique dans un laboratoire, à différentes phases d'essais.",
+    definition: `Le pipeline pharmaceutique désigne l'ensemble des molécules en cours de développement dans un laboratoire, classées selon leur stade clinique : Phase 1 (sécurité, premiers essais humains), Phase 2 (efficacité, dose), Phase 3 (comparaison avec un traitement de référence sur grande cohorte), puis soumission réglementaire.\n\nLe pipeline est l'actif fondamental d'une compagnie pharmaceutique. Un laboratoire sans pipeline solide est exposé à la "falaise des brevets" : quand ses médicaments phares tombent dans le domaine public, des génériques arrivent immédiatement sur le marché et effondrent les prix.\n\nÉvaluer un pipeline requiert de probabiliser les flux futurs de chaque candidat. La probabilité de succès en Phase 3 est d'environ 50-60 %. Une molécule en Phase 2 positive ne garantit pas l'approbation finale. Un pipeline riche en Phase 3 représente une optionnalité de valeur réelle — un pipeline vide est un signal d'alerte structurel.`,
+    related: ["glp-1", "moat", "multiple-de-valorisation", "marge-de-securite"],
+    modules: [],
+  },
+
+  {
+    slug: "net-price",
+    label: "Net Price (prix net)",
+    category: "Analyse fondamentale" as const,
+    shortDef: "Le prix réellement encaissé par un laboratoire pharmaceutique après déduction de toutes les remises accordées aux intermédiaires.",
+    definition: `Dans l'industrie pharmaceutique américaine, le "gross price" (prix affiché) et le "net price" (prix réel) sont radicalement différents. Le net price est ce que le laboratoire encaisse effectivement après avoir accordé les remises aux PBM, assureurs et pharmacies.\n\nL'écart entre les deux peut être très important — pour certains médicaments, les remises représentent 40 à 60 % du prix affiché. C'est pourquoi la croissance du chiffre d'affaires brut d'un laboratoire peut être trompeuse : si les remises augmentent, la croissance réelle encaissée est plus faible.\n\nLe net price est un indicateur clé à surveiller pour évaluer la santé commerciale d'un médicament sur le marché américain. Son évolution dans le temps révèle la dynamique concurrentielle et le rapport de force avec les intermédiaires.`,
+    related: ["pbm", "glp-1", "marge-nette"],
+    modules: [],
+  },
+
+// ─── ÉNERGIE ─────────────────────────────────────────────────────────────────
+
+  {
+    slug: "gnl",
+    label: "GNL (Gaz Naturel Liquéfié)",
+    category: "Fondamentaux" as const,
+    shortDef: "Gaz naturel refroidi à -162 °C pour être transporté sous forme liquide par tankers — énergie de transition entre le charbon et les renouvelables.",
+    definition: `Le Gaz Naturel Liquéfié (GNL) est du gaz naturel refroidi à -162 °C, ce qui réduit son volume d'un facteur 600 et permet son transport par méthaniers sur des routes intercontinentales. Il est ensuite regazéifié à destination pour être distribué dans les réseaux locaux.\n\nLe GNL est présenté comme une énergie de transition : il émet moins de CO₂ que le charbon et le pétrole, et peut remplacer des centrales à charbon dans les pays qui n'ont pas accès à un réseau de gazoducs. La demande mondiale de GNL a fortement progressé depuis 2022, notamment en Europe.\n\nPour un investisseur, le GNL expose à plusieurs risques simultanés : la volatilité du prix du gaz, les risques géopolitiques liés aux zones de production et de transit, et le risque de transition si les renouvelables se déploient plus vite que prévu.`,
+    related: ["integrated-power", "stranded-assets", "scope-3", "marge-brute-d-autofinancement"],
+    modules: [],
+  },
+
+  {
+    slug: "integrated-power",
+    label: "Integrated Power (puissance intégrée)",
+    category: "Analyse fondamentale" as const,
+    shortDef: "Segment de production d'électricité bas carbone — renouvelables, gaz et stockage — développé par les grandes compagnies énergétiques dans le cadre de leur transition.",
+    definition: `L'Integrated Power désigne la stratégie par laquelle des compagnies énergétiques historiquement fossiles développent des capacités de production d'électricité bas carbone : énergie solaire, éolien terrestre et offshore, centrales à gaz pour l'électricité, et solutions de stockage.\n\nCe modèle "intégré" vise à couvrir toute la chaîne de valeur électrique — production, transport et vente — plutôt que de se spécialiser sur un seul maillon. Il permet de sécuriser des revenus via des contrats long terme (Power Purchase Agreements, PPA) avec des industriels ou des États.\n\nPour un investisseur, l'Integrated Power représente une optionnalité de transformation : si la transition énergétique s'accélère, les compagnies ayant investi tôt dans ces capacités bénéficient d'un avantage concurrentiel. Si elle est plus lente, les CAPEX engagés pèsent sur le rendement à court terme.`,
+    related: ["gnl", "stranded-assets", "scope-3", "capex"],
+    modules: [],
+  },
+
+  {
+    slug: "stranded-assets",
+    label: "Stranded Assets (actifs échoués)",
+    category: "Gestion du risque" as const,
+    shortDef: "Actifs qui perdent de la valeur avant la fin de leur durée de vie économique prévue — risque majeur pour les entreprises exposées à la transition énergétique.",
+    definition: `Les stranded assets (actifs échoués ou dépréciés anticipés) sont des actifs inscrits au bilan d'une entreprise qui risquent de perdre tout ou partie de leur valeur avant d'avoir été entièrement amortis, en raison d'une évolution réglementaire, technologique ou de marché imprévue.\n\nLe terme s'est imposé dans le secteur énergétique pour désigner les réserves fossiles (pétrole, gaz, charbon) susceptibles de ne jamais être exploitées si les politiques climatiques contraignaient fortement l'usage des énergies carbonées avant leur amortissement comptable.\n\nCe risque affecte également d'autres secteurs : une usine automobile dimensionnée pour les moteurs thermiques peut devenir un stranded asset si l'électrique s'impose plus vite que prévu. Identifier les actifs les plus exposés dans un bilan est une étape clé de l'analyse des risques extra-financiers.`,
+    related: ["gnl", "scope-3", "integrated-power", "marge-de-securite"],
+    modules: [],
+  },
+
+  {
+    slug: "scope-3",
+    label: "Scope 3 (émissions indirectes)",
+    category: "Fondamentaux" as const,
+    shortDef: "Les émissions de CO₂ induites par l'utilisation des produits vendus — souvent la part la plus importante de l'empreinte carbone d'une entreprise.",
+    definition: `Le bilan carbone d'une entreprise se décompose en trois "scopes" selon le protocole GHG (Greenhouse Gas Protocol). Le Scope 1 couvre les émissions directes des installations propres. Le Scope 2 couvre les émissions liées à l'énergie achetée. Le Scope 3 couvre toutes les autres émissions indirectes — en amont (extraction des matières premières, transport) et en aval (utilisation des produits par les clients).\n\nPour la plupart des entreprises, le Scope 3 est de loin le plus significatif. Dans le secteur pétrolier, l'essentiel des émissions survient quand les clients brûlent le pétrole et le gaz achetés. Dans l'industrie automobile, elles surviennent pendant l'utilisation du véhicule.\n\nLa réglementation sur le Scope 3 est en cours de durcissement — notamment via la directive CSRD européenne. Son intégration croissante dans les bilans carbone représente un risque réglementaire et de réputation à anticiper dans l'analyse des entreprises à forte intensité carbone indirecte.`,
+    related: ["stranded-assets", "integrated-power", "gnl"],
+    modules: [],
+  },
+
+  {
+    slug: "marge-brute-d-autofinancement",
+    label: "Marge brute d'autofinancement (MBA)",
+    category: "Analyse fondamentale" as const,
+    shortDef: "Le cash généré par l'activité d'une entreprise avant investissements et charges financières — indicateur clé dans les secteurs à forte intensité capitalistique.",
+    definition: `La marge brute d'autofinancement (MBA), appelée "cash flow from operations" dans les rapports anglo-saxons, mesure la trésorerie générée par l'activité opérationnelle d'une entreprise avant le financement de ses investissements.\n\nContrairement au résultat net, la MBA n'est pas affectée par les amortissements, les dépréciations d'actifs ou certains effets comptables. Elle reflète le cash réellement produit par l'activité. C'est sur cette base que les directions allouent leur capital entre maintien des actifs, croissance et rémunération des actionnaires.\n\nCet indicateur est particulièrement utilisé dans les secteurs à forte intensité capitalistique — énergie, industrie lourde, télécoms, infrastructure — où les amortissements massifs peuvent masquer la génération réelle de trésorerie. La MBA segment par segment est souvent plus révélatrice que le résultat net consolidé pour comprendre où une entreprise crée ou détruit de la valeur.`,
+    related: ["free-cash-flow", "capex", "roic", "ebitda"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "tac",
+    label: "TAC (Total Acquisition Cost)",
+    category: "Analyse fondamentale" as const,
+    shortDef: "Coût complet d'acquisition d'une unité de réserve pétrolière ou gazière, incluant exploration, développement et acquisitions — exprimé en $/baril équivalent pétrole.",
+    definition: `Le TAC (Total Acquisition Cost) désigne le coût complet supporté par une compagnie pétrolière pour mettre en production une unité de réserve d'hydrocarbures. Il s'exprime généralement en dollars par baril d'équivalent pétrole ($/boe) et intègre trois composantes : les coûts d'exploration, les coûts de développement des puits et des infrastructures, et les éventuelles acquisitions de réserves sur le marché.\n\nUn TAC bas indique que la compagnie trouve et développe ses réserves à moindre coût — avantage concurrentiel direct dans un secteur où le prix de vente est dicté par le marché mondial. Un TAC élevé signifie que la rentabilité dépend fortement d'un prix du baril soutenu.\n\nComparer le TAC d'une compagnie à ses concurrents et au prix spot du pétrole ou du gaz permet d'évaluer sa marge de sécurité opérationnelle et sa capacité à rester rentable en bas de cycle.`,
+    related: ["marge-brute-d-autofinancement", "capex", "roic", "moat"],
+    modules: [],
+  },
 ];
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────

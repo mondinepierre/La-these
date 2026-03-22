@@ -1,6 +1,17 @@
 import Link from 'next/link'
 import { HeroSection } from '@/components/layout/HeroSection'
 import { ArticleCard } from '@/components/ui/ArticleCard'
+import { ANALYSES } from '@/data/analyses'
+
+// ─── Dernier article / analyse ───────────────────────────────────
+const derniersPublies = [...ANALYSES]
+  .filter(a => a.statut === 'actif')
+  .sort((a, b) => {
+    const dateA = 'lastUpdated' in a ? a.lastUpdated : 'date' in a ? a.date : ''
+    const dateB = 'lastUpdated' in b ? b.lastUpdated : 'date' in b ? b.date : ''
+    return new Date(dateB).getTime() - new Date(dateA).getTime()
+  })
+  .slice(0, 3)
 
 // ─── Modules mis en avant — Parcours Bases ───────────────────────────────────
 const FEATURED_MODULES = [
@@ -157,23 +168,25 @@ export default function Home() {
 
         <hr className="section-divider max-w-full-layout mx-auto px-6" />
 
-        {/* Articles — placeholder */}
+        {/* Articles — Derniers analyse et blog */}
         <section className="max-w-full-layout mx-auto px-6 py-10">
           <div className="flex items-baseline justify-between mb-6">
-            <p className="section-label">Derniers articles</p>
-            {/* Décommenter quand le blog sera alimenté :
-            <Link href="/blog" className="font-sans text-xs text-[#78716C] hover:text-[#1C1917] transition-colors">
-              Tous les articles →
+            <p className="section-label">Dernières publications</p>
+            <Link href="/analyses" className="font-sans text-xs text-[#78716C] hover:text-[#1C1917] transition-colors">
+              Toutes les analyses →
             </Link>
-            */}
           </div>
-          <div className="border border-dashed border-[#C4BEB4] rounded-lg px-8 py-10 text-center">
-            <p className="font-display text-lg font-medium text-[#A8A29E] mb-2">
-              Articles à venir
-            </p>
-            <p className="font-serif text-sm italic text-[#A8A29E] leading-relaxed max-w-sm mx-auto">
-              {"Des analyses de fond, des retours d'expérience et des mises à jour de marchés seront publiés ici prochainement."}
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {derniersPublies.map(a => (
+              <ArticleCard
+                key={a.slug}
+                title={a.title}
+                excerpt={a.excerpt}
+                href={`/analyses/${a.slug}`}
+                level="intermediaire"
+                category={`Analyse · ${'secteur' in a ? a.secteur : 'Marché'}`}
+              />
+            ))}
           </div>
         </section>
 

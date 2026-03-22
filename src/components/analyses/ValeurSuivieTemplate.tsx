@@ -32,6 +32,10 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
   const { prixCible: pc } = frontmatter
   const aPrixCible = pc.bas > 0 || pc.haut > 0
 
+  // Overlay actif en production uniquement
+  const isDev    = process.env.NODE_ENV === 'development'
+  const isLocked = frontmatter.statut === 'en-construction' && !isDev
+
   // ── Composants graphiques simples ────────────────────────────
   const RevenueGraph = cd?.revenue
     ? (props: { title?: string; unit?: string }) => (
@@ -67,28 +71,28 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
       )
     : () => null
 
-  // ── Composants graphiques comparaison des valeurs ─────────────────────────────   
+  // ── Composants graphiques comparaison des valeurs ────────────
   const ValuationBar = cd?.valuationCompare
-  ? (props: { title?: string; name?: string }) => (
-      <ValuationBarChart
-        data={cd.valuationCompare!}
-        title={props.title}
-        name={props.name}
-      />
-    )
-  : () => null
+    ? (props: { title?: string; name?: string }) => (
+        <ValuationBarChart
+          data={cd.valuationCompare!}
+          title={props.title}
+          name={props.name}
+        />
+      )
+    : () => null
 
-const ValuationRadar = cd?.valuationCompare
-  ? (props: { title?: string; name?: string }) => (
-      <ValuationRadarChart
-        data={cd.valuationCompare!}
-        title={props.title}
-        name={props.name}
-      />
-    )
-  : () => null
+  const ValuationRadar = cd?.valuationCompare
+    ? (props: { title?: string; name?: string }) => (
+        <ValuationRadarChart
+          data={cd.valuationCompare!}
+          title={props.title}
+          name={props.name}
+        />
+      )
+    : () => null
 
-  // ── Composants graphiques avancés ─────────────────────────────
+  // ── Composants graphiques avancés ────────────────────────────
   const RoicWacc = cd?.roicVsWacc
     ? (props: { title?: string }) => (
         <RoicWaccChart data={cd.roicVsWacc!} title={props.title} />
@@ -105,7 +109,7 @@ const ValuationRadar = cd?.valuationCompare
       )
     : () => null
 
-  // ── Graphiques métriques libres (un composant par série) ──────
+  // ── Graphiques métriques libres (un composant par série) ─────
   const MetricGraphs = cd?.metricHistory
     ? Object.fromEntries(
         cd.metricHistory.map(serie => [
@@ -120,8 +124,73 @@ const ValuationRadar = cd?.valuationCompare
   return (
     <article className="max-w-content mx-auto px-6 py-12">
 
-      {/* Bandeau en construction */}
-      {frontmatter.statut === 'en-construction' && (
+      {/* ── Overlay en-construction (production uniquement) ─── */}
+      {isLocked && (
+        <div style={{
+          position:             'fixed',
+          inset:                0,
+          zIndex:               50,
+          backdropFilter:       'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          backgroundColor:      'rgba(247, 244, 239, 0.85)',
+          display:              'flex',
+          flexDirection:        'column',
+          alignItems:           'center',
+          justifyContent:       'center',
+          padding:              '1.5rem',
+        }}>
+          <div style={{
+            backgroundColor: 'var(--color-gold-muted)',
+            border:          '1px solid var(--color-gold)',
+            borderRadius:    'var(--radius-md)',
+            padding:         '2.5rem 3rem',
+            textAlign:       'center',
+            maxWidth:        '480px',
+            boxShadow:       '0 8px 32px rgba(0,0,0,0.08)',
+          }}>
+            <p style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🚧</p>
+            <h2 style={{
+              fontFamily:   'var(--font-display)',
+              fontSize:     '22px',
+              fontWeight:   700,
+              color:        'var(--color-ink)',
+              marginBottom: '0.75rem',
+            }}>
+              Analyse en cours de rédaction
+            </h2>
+            <p style={{
+              fontFamily:   'var(--font-sans)',
+              fontSize:     '14px',
+              color:        'var(--color-ink-muted)',
+              lineHeight:   1.7,
+              marginBottom: '1.5rem',
+            }}>
+              Cette fiche est en cours de préparation.<br />
+              Elle sera publiée prochainement.
+            </p>
+            <a
+              href="/analyses"
+              style={{
+                display:         'inline-block',
+                fontFamily:      'var(--font-sans)',
+                fontSize:        '13px',
+                fontWeight:      600,
+                color:           'var(--color-accent)',
+                textDecoration:  'none',
+                padding:         '8px 20px',
+                border:          '1px solid var(--color-accent)',
+                borderRadius:    'var(--radius-sm)',
+                backgroundColor: 'transparent',
+              }}
+            >
+              ← Voir toutes les analyses
+            </a>
+          </div>
+        </div>
+      )}
+
+      {/* ── Bandeau dev visible uniquement en développement ── */}
+      {frontmatter.statut === 'en-construction' && isDev && (
         <div style={{
           backgroundColor: 'var(--color-gold-muted)',
           border:          '1px solid var(--color-gold)',
@@ -134,13 +203,20 @@ const ValuationRadar = cd?.valuationCompare
           borderRadius:    'var(--radius-md)',
         }}>
           <span style={{ fontSize: '16px', flexShrink: 0 }}>🚧</span>
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 500, color: 'var(--color-ink)', margin: 0 }}>
-            Cette fiche est en cours de rédaction. Les données affichées sont partielles.
+          <p style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize:   '13px',
+            fontWeight: 500,
+            color:      'var(--color-ink)',
+            margin:     0,
+          }}>
+            <strong>[DEV]</strong> Fiche en construction — overlay masqué en développement.
+            En production, cette page sera verrouillée.
           </p>
         </div>
       )}
 
-      {/* En-tête */}
+      {/* ── En-tête ───────────────────────────────────────────── */}
       <header className="mb-10">
         <div className="flex flex-wrap items-center gap-3 mb-4">
           <AnalyseTypeBadge type="valeur" />
@@ -189,10 +265,10 @@ const ValuationRadar = cd?.valuationCompare
         </p>
       </header>
 
-      {/* Tableau de bord */}
+      {/* ── Tableau de bord ───────────────────────────────────── */}
       <MetricsDashboard metrics={frontmatter.metrics} tendances={frontmatter.tendances} />
 
-      {/* Corps MDX — tous les graphiques injectés, positionnés librement */}
+      {/* ── Corps MDX ─────────────────────────────────────────── */}
       <div className="prose prose-stone max-w-none mt-10
         prose-headings:font-serif prose-headings:text-[#1B4332]
         prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-3 prose-h2:border-b prose-h2:border-stone-200 prose-h2:pb-2
@@ -202,18 +278,59 @@ const ValuationRadar = cd?.valuationCompare
         prose-ul:font-serif prose-li:text-stone-700
         prose-table:font-sans prose-th:text-[#1B4332] prose-td:text-stone-600">
         <Content components={{
-          RevenueGraph, 
-          MargesGraph, 
-          RoicGraph, 
+          RevenueGraph,
+          MargesGraph,
+          RoicGraph,
           FcfGraph,
-          GeoMap, 
-          RoicWacc, 
+          GeoMap,
+          RoicWacc,
           SegmentGraph,
           ValuationBar,
           ValuationRadar,
           ...MetricGraphs,
         }} />
       </div>
+
+      {/* ── Termes liés — glossaire ───────────────────────────── */}
+      {frontmatter.glossaire && frontmatter.glossaire.length > 0 && (
+        <div style={{
+          marginTop:  '3rem',
+          paddingTop: '1.25rem',
+          borderTop:  '1px solid var(--color-stone-border)',
+        }}>
+          <p style={{
+            fontFamily:    'var(--font-sans)',
+            fontSize:      '11px',
+            fontWeight:    500,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            color:         'var(--color-ink-faint)',
+            marginBottom:  '0.6rem',
+          }}>
+            Termes liés
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+            {frontmatter.glossaire.map(slug => (
+              <a
+                key={slug}
+                href={`/glossaire/${slug}`}
+                style={{
+                  fontFamily:      'var(--font-sans)',
+                  fontSize:        '13px',
+                  color:           'var(--color-accent)',
+                  textDecoration:  'none',
+                  padding:         '3px 10px',
+                  border:          '1px solid var(--color-accent-muted)',
+                  borderRadius:    '4px',
+                  backgroundColor: 'var(--color-accent-muted)',
+                }}
+              >
+                {slug.replace(/-/g, ' ')}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
 
       <MentionLegale />
     </article>

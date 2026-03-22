@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: '/analyses',  label: 'Analyses' },
   { href: '/portefeuilles', label: 'Portefeuilles' },
   { href: '/blog',  label: 'Blog' },
+  { href: '/bibliotheque-etf',    label: 'ETF' }, 
   { href: '/glossaire', label: 'Glossaire' },
   { href: '/a-propos',  label: 'À propos' },
 ]

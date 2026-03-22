@@ -7,9 +7,10 @@ import AnalysePonctuelleTemplate from './AnalysePonctuelleTemplate'
 import ValeurSuivieTemplate from './ValeurSuivieTemplate'
 
 const MDX: Record<string, React.ComponentType<any>> = {
-  'asml':   dynamic(() => import('@/content/analyses/valeurs/asml.mdx')),
-  'novo':   dynamic(() => import('@/content/analyses/valeurs/novo.mdx')),
-  'totale': dynamic(() => import('@/content/analyses/valeurs/totale.mdx')),
+  'asml':                     dynamic(() => import('@/content/analyses/valeurs/asml.mdx')),
+  'novo':                     dynamic(() => import('@/content/analyses/valeurs/novo.mdx')),
+  'totalenergies':            dynamic(() => import('@/content/analyses/valeurs/totalenergies.mdx')),
+  'alphabet':                 dynamic(() => import('@/content/analyses/valeurs/alphabet.mdx')),
   'nvidia-resultats-q4-2025': dynamic(
     () => import('@/content/analyses/ponctuelles/nvidia-resultats-q4-2025.mdx')
   ),

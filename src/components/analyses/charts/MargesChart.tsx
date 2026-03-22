@@ -55,6 +55,14 @@ export default function MargesChart({ data, title }: Props) {
             strokeWidth={2}
             dot={false}
           />
+          <Line
+            type="monotone"
+            dataKey="gross"
+            name="Marge brute"
+            stroke="#1C1917"
+            strokeWidth={2}
+            dot={false}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>
