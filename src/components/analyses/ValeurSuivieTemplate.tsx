@@ -23,7 +23,54 @@ type Props = {
   Content:     MDXContent
 }
 
+// ── Disclaimer verdict ────────────────────────────────────────
+// Composant injecté dans le MDX via <DisclaimerVerdict />
+// À placer juste avant les niveaux de prix personnels dans le Verdict
+function DisclaimerVerdictBlock() {
+  return (
+    <div style={{
+      backgroundColor: '#F7F4EF',
+      border:          '1px solid #E0DBCF',
+      borderLeft:      '3px solid #78716C',
+      borderRadius:    '4px',
+      padding:         '12px 16px',
+      margin:          '1.5rem 0',
+    }}>
+      <p style={{
+        fontFamily: 'var(--font-sans)',
+        fontSize:   '12px',
+        color:      '#78716C',
+        lineHeight: 1.65,
+        margin:     0,
+      }}>
+        <strong style={{ color: '#57534E' }}>Note personnelle.</strong>{' '}
+        Les niveaux de prix qui suivent sont les miens — ils reflètent ma propre analyse,
+        ma situation patrimoniale, mon horizon de détention et ma tolérance au risque personnels.
+        Ils ne constituent pas une recommandation d'achat ou de vente.
+        Chaque investisseur doit conduire sa propre analyse avant toute décision.
+      </p>
+    </div>
+  )
+}
+
+// ── Note d'analyse ────────────────────────────────────────────
+function NoteAnalyseBlock({ children }: { children?: React.ReactNode }) {
+  return (
+    <p style={{
+      fontFamily: 'var(--font-sans)',
+      fontSize:   '12px',
+      color:      'var(--color-ink-faint)',
+      fontStyle:  'italic',
+      marginTop:  '-2.5rem',   // ← remonte pour coller au graphique
+      marginBottom: '1.5rem',
+    }}>
+      {children}
+    </p>
+  )
+}
+
 export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
+
   const lastUpdated = new Date(frontmatter.lastUpdated).toLocaleDateString('fr-FR', {
     day: 'numeric', month: 'long', year: 'numeric',
   })
@@ -32,7 +79,6 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
   const { prixCible: pc } = frontmatter
   const aPrixCible = pc.bas > 0 || pc.haut > 0
 
-  // Overlay actif en production uniquement
   const isDev    = process.env.NODE_ENV === 'development'
   const isLocked = frontmatter.statut === 'en-construction' && !isDev
 
@@ -71,7 +117,6 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
       )
     : () => null
 
-  // ── Composants graphiques comparaison des valeurs ────────────
   const ValuationBar = cd?.valuationCompare
     ? (props: { title?: string; name?: string }) => (
         <ValuationBarChart
@@ -92,7 +137,6 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
       )
     : () => null
 
-  // ── Composants graphiques avancés ────────────────────────────
   const RoicWacc = cd?.roicVsWacc
     ? (props: { title?: string }) => (
         <RoicWaccChart data={cd.roicVsWacc!} title={props.title} />
@@ -109,7 +153,6 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
       )
     : () => null
 
-  // ── Graphiques métriques libres (un composant par série) ─────
   const MetricGraphs = cd?.metricHistory
     ? Object.fromEntries(
         cd.metricHistory.map(serie => [
@@ -189,7 +232,7 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
         </div>
       )}
 
-      {/* ── Bandeau dev visible uniquement en développement ── */}
+      {/* ── Bandeau dev ──────────────────────────────────────── */}
       {frontmatter.statut === 'en-construction' && isDev && (
         <div style={{
           backgroundColor: 'var(--color-gold-muted)',
@@ -249,7 +292,7 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
             borderRadius:    'var(--radius-sm)',
           }}>
             <span style={{ fontFamily: 'var(--font-sans)', fontSize: '11px', color: 'var(--color-ink-muted)' }}>
-              Prix cible
+              Mon prix cible personnel
             </span>
             <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 700, color: 'var(--color-ink)' }}>
               {pc.bas} – {pc.haut} {pc.devise}
@@ -287,6 +330,8 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
           SegmentGraph,
           ValuationBar,
           ValuationRadar,
+          DisclaimerVerdict: DisclaimerVerdictBlock,
+          NoteAnalyse: NoteAnalyseBlock,
           ...MetricGraphs,
         }} />
       </div>

@@ -104,15 +104,18 @@ export type MetricPoint = {
 }
 
 export type CompetitorSerie = {
-  name:  string   // ex : 'Eli Lilly', 'TSMC'
-  color: string   // hex — ex : '#E05A2B'
-  data:  { year: number; value: number }[]
+  name:   string
+  color:  string
+  dashed?: boolean  // ← false/absent = continu, true = pointillé
+  data:   { year: number; value: number }[]
 }
 
 export type MetricSerie = {
   label:        string           // titre du graphique — ex : 'PER'
   name?:        string           // légende ligne principale — ex : 'TotalEnergies'
   unit?:        string
+  color?:       string           // ← couleur personnalisée pour la ligne principale
+  dashed?:      boolean          // ← true = pointillé, false/absent = continu
   data:         MetricPoint[]
   competitors?: CompetitorSerie[]
 }

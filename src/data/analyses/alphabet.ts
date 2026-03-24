@@ -42,17 +42,17 @@ export const alphabet: AnalyseCard = {
   marginOfSafety: 'indéterminée', // forte | correcte | faible | négative | indéterminée
 
   metrics: {
-    per:               0,  // Price / Earnings
-    evEbitda:          0,  // EV / EBITDA
-    fcfYield:          0,  // FCF Yield en %
-    roic:              0,  // Return on Invested Capital en %
-    wacc:              0,  // Weighted Average Cost of Capital en %
-    detteEbitda:       0,  // Dette nette / EBITDA — négatif = trésorerie nette
-    croissanceCA3ans:  0,  // TCAC CA sur 3 ans en %
-    croissanceBPA3ans: 0,  // TCAC BPA sur 3 ans en %
+    per:               29.03,  // Price / Earnings
+    evEbitda:          25.04,  // EV / EBITDA
+    fcfYield:          1.95,  // FCF Yield en %
+    roic:              24.01,  // Return on Invested Capital en %
+    wacc:              9.18,  // Weighted Average Cost of Capital en %
+    detteEbitda:       -0.52,  // Dette nette / EBITDA — négatif = trésorerie nette
+    croissanceCA3ans:  12.5,  // TCAC CA sur 3 ans en %
+    croissanceBPA3ans: 33.3,  // TCAC BPA sur 3 ans en %
     margeEbit:         32,  // Marge opérationnelle en %
-    margeBrute:        0,  // Marge brute en %
-    payoutRatio:       0,  // Dividendes / Résultat net en %
+    margeBrute:        59.6,  // Marge brute en %
+    payoutRatio:       7.6,  // Dividendes / Résultat net en %
     currentRatio:      2,  // Actif courant / Passif courant
     dso:               57,  // Days Sales Outstanding en jours
   },
@@ -74,11 +74,11 @@ export const alphabet: AnalyseCard = {
   chartData: {
     // ── CA sur 5 ans ──────────────────────────────────────────
     revenue: [
-      { year: 2021, value: 0 },
-      { year: 2022, value: 0 },
-      { year: 2023, value: 307 },
+      { year: 2021, value: 257.6 },
+      { year: 2022, value: 282.8 },
+      { year: 2023, value: 307.3 },
       { year: 2024, value: 350 },
-      { year: 2025, value: 402 },
+      { year: 2025, value: 402.8 },
     ],
 
     // ── Répartition géographique du CA ────────────────────────
@@ -92,8 +92,8 @@ export const alphabet: AnalyseCard = {
 
     // ── Marges sur 5 ans ──────────────────────────────────────
     marges: [
-      { year: 2021, },
-      { year: 2022, },
+      { year: 2021, gross: 56.6, operating: 27.4, net: 24 },
+      { year: 2022, gross: 56.6, operating: 26.4, net: 21.2 },
       { year: 2023, gross: 56.6, operating: 27.4, net: 24 },
       { year: 2024, gross: 58.2, operating: 32.1, net: 28.6 },
       { year: 2025, gross: 59.6, operating: 32, net: 32.8 },
@@ -101,51 +101,228 @@ export const alphabet: AnalyseCard = {
 
     // ── ROIC simple sur 5 ans ─────────────────────────────────
     roic: [
-      { year: 2021, value: 0 },
-      { year: 2022, value: 0 },
-      { year: 2023, value: 0 },
-      { year: 2024, value: 0 },
-      { year: 2025, value: 0 },
+      { year: 2021, value: 24.02, },
+      { year: 2022, value: 22.08, },
+      { year: 2023, value: 23.22, },
+      { year: 2024, value: 26.21, },
+      { year: 2025, value: 24.01, },
     ],
 
     // ── ROIC vs WACC ──────────────────────────────────────────
     // Composant MDX : <RoicWacc />
     roicVsWacc: [
-      { year: 2021, value: 0, wacc: 0 },
-      { year: 2022, value: 0, wacc: 0 },
-      { year: 2023, value: 0, wacc: 0 },
-      { year: 2024, value: 0, wacc: 0 },
-      { year: 2025, value: 0, wacc: 0 },
+      { year: 2021, value: 24.02, wacc: 8.39 },
+      { year: 2022, value: 22.08, wacc: 8.15 },
+      { year: 2023, value: 23.22, wacc: 8.33 },
+      { year: 2024, value: 26.21, wacc: 8.52 },
+      { year: 2025, value: 24.01, wacc: 9.18 },
     ],
 
     // ── Free Cash Flow sur 5 ans ──────────────────────────────
     fcf: [
-      { year: 2021, value: 0 },
-      { year: 2022, value: 0 },
-      { year: 2023, value: 0 },
-      { year: 2024, value: 0 },
-      { year: 2025, value: 0 },
+      { year: 2021, value: 67.012 },
+      { year: 2022, value: 60.010 },
+      { year: 2023, value: 69.495 },
+      { year: 2024, value: 72.764 },
+      { year: 2025, value: 73.266 },
     ],
 
     //── CA par segment (optionnel) ────────────────────────────
     // Composant MDX : <SegmentGraph unit="Md$" />
-    segmentRevenue: [     
+    segmentRevenue: [
+      { year: 2021, segments: [
+        { name: 'Google Search & other',                        value: 148.951  },
+        { name: 'Google Cloud',                                 value: 19.206   },
+        { name: 'Google Network',                               value: 31.701   },
+        { name: 'Google subscriptions, platforms, and devices', value: 28.032   },
+        { name: 'YouTube ads',                                  value: 28.845   },
+        { name: 'Autres',                                       value: 0.753    },
+      ]},
+      { year: 2022, segments: [
+        { name: 'Google Search & other',                        value: 162.450  },
+        { name: 'Google Cloud',                                 value: 26.280   },
+        { name: 'Google Network',                               value: 32.780   },
+        { name: 'Google subscriptions, platforms, and devices', value: 29.055   },
+        { name: 'YouTube ads',                                  value: 29.243   },
+        { name: 'Autres',                                       value: 1.537    },
+      ]},
+      { year: 2023, segments: [
+        { name: 'Google Search & other',                        value: 175.033   },
+        { name: 'Google Cloud',                                 value: 33.088   },
+        { name: 'Google Network',                               value: 31.312   },
+        { name: 'Google subscriptions, platforms, and devices', value: 34.688   },
+        { name: 'YouTube ads',                                  value: 31.510   },
+        { name: 'Autres',                                       value: 1.068   },
+      ]},        
       { year: 2024, segments: [
         { name: 'Google Search & other',                        value: 198.084  },
-        { name: 'YouTube ads',                                  value: 36.147   },
+        { name: 'Google Cloud',                                 value: 43.229   },
         { name: 'Google Network',                               value: 30.359   },
         { name: 'Google subscriptions, platforms, and devices', value: 40.340   },
-        { name: 'Google Cloud',                                 value: 43.229   },
+        { name: 'YouTube ads',                                  value: 36.147   },
         { name: 'Autres',                                       value: 1.648    },
       ]},
       { year: 2025, segments: [
         { name: 'Google Search & other',                        value: 224.532  },
-        { name: 'YouTube ads',                                  value: 40.367   },
+        { name: 'Google Cloud',                                 value: 58.705   },
         { name: 'Google Network',                               value: 29.792   },
         { name: 'Google subscriptions, platforms, and devices', value: 48.030   },
-        { name: 'Google Cloud',                                 value: 58.705   },
+        { name: 'YouTube ads',                                  value: 40.367   },
         { name: 'Autres',                                       value: 1.537    },
       ]},
+    ],
+    //     ── Métriques libres (PER historique, dividende, etc.) ────
+    // Composant MDX : <MetricGraph_LABEL /> — LABEL = label sans tirets ni /
+    metricHistory: [
+      {
+        label: 'Croissance_par_secteur',
+        name:  'Google Services',
+        unit:  '%',
+        data: [
+          { year: 2022, value: 6.74 },
+          { year: 2023, value: 7.5 },
+          { year: 2024, value: 11.88 },
+          { year: 2025, value: 12.39 },
+        ],
+        competitors: [
+          {
+            name:  'Google Cloud',
+            color: '#C9A84C',
+            data: [
+              { year: 2022, value: 36.8 },
+              { year: 2023, value: 25.9 },
+              { year: 2024, value: 30.6 },
+              { year: 2025, value: 35.8 },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'MO_par_secteur',
+        name:  'Google Services',
+        unit:  '%',
+        data: [
+          { year: 2021, value: 38.67 },
+          { year: 2022, value: 32.62 },
+          { year: 2023, value: 35.17 },
+          { year: 2024, value: 39.77 },
+          { year: 2025, value: 40.68 },
+        ],
+        competitors: [
+          {
+            name:  'Google Cloud',
+            color: '#C9A84C',
+            data: [
+          { year: 2021, value: -16.14 },
+          { year: 2022, value: -7.31 },
+          { year: 2023, value: 5.19 },
+          { year: 2024, value: 14.14 },
+          { year: 2025, value: 23.69 },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Pourcentage_CA',
+        name:  'Google Cloud',
+        unit:  '%',
+        color: '#C9A84C',
+          data: [
+            { year: 2021, value: 7.45 },
+            { year: 2022, value: 9.29 },
+            { year: 2023, value: 10.76 },
+            { year: 2024, value: 12.35 },
+            { year: 2025, value: 14.57 },
+        ],
+        competitors: [
+          {
+            name:  'Google Services',
+            color: '#1B4332',
+            dashed: false,
+            data: [
+              { year: 2021, value: 92.20 },
+              { year: 2022, value: 89.64 },
+              { year: 2023, value: 88.66 },
+              { year: 2024, value: 87.12 },
+              { year: 2025, value: 85.08 },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Dette_EBITDA',
+        name:  'Dette nette / EBITDA',
+        unit:  'x',
+        data: [
+          { year: 2021, value: -1.4 },
+          { year: 2022, value: -1.12 },
+          { year: 2023, value: -1.01 },
+          { year: 2024, value: -0.66 },
+          { year: 2025, value: -0.52  },
+        ],
+      },
+                  {
+        label: 'CAPEX',
+        name:  'Investissement CAPEX',
+        unit:  'Mds $',
+        data: [
+          { year: 2021, value: 24.640 },
+          { year: 2022, value: 31.485 },
+          { year: 2023, value: 32.251 },
+          { year: 2024, value: 52.535 },
+          { year: 2025, value: 91.447  },
+        ],
+      },
+      {
+        label: 'FCF_OCF',
+        name:  'Opérating Cash Flow',
+        unit:  'Mds $',
+        data: [
+          { year: 2021, value: 91.652 },
+          { year: 2022, value: 91.495 },
+          { year: 2023, value: 101.746},
+          { year: 2024, value: 125.299},
+          { year: 2025, value: 164.713},
+        ],
+        competitors: [
+          {
+            name:  'Free Cash Flow',
+            color: '#C9A84C',
+            data: [
+              { year: 2021, value: 67.012 },
+              { year: 2022, value: 60.010 },
+              { year: 2023, value: 69.495 },
+              { year: 2024, value: 72.764 },
+              { year: 2025, value: 73.266 },
+            ],
+          },
+        ]        
+      },
+      {
+        label: 'FCFy',
+        name:  'Free Cash Flow Yield',
+        unit:  '%',
+        data: [
+          { year: 2021, value: 3.65 },
+          { year: 2022, value: 5.62 },
+          { year: 2023, value: 4.10 },
+          { year: 2024, value: 3.18 },
+          { year: 2025, value: 1.95 },
+        ],
+        competitors: [
+          {
+            name:  'US 10 ans',
+            color: '#52B788',
+            data: [
+              { year: 2021, value: 0.916 },
+              { year: 2022, value: 3.879 },
+              { year: 2023, value: 3.866 },
+              { year: 2024, value: 4.572 },
+              { year: 2025, value: 4.153 },
+            ],
+          },
+        ]        
+      },
     ],
 
     // ── Comparaison sectorielle ───────────────────────────────
@@ -160,7 +337,7 @@ export const alphabet: AnalyseCard = {
     // ],
 
     // ── Métriques libres (PER historique, dividende, etc.) ────
-    // Composant MDX : <MetricGraph_LABEL /> — LABEL = label sans tirets ni /
+    // Composant MDX : <MetricGraph_LABEL title="Titre"/> — LABEL = label sans tirets ni / 
     // metricHistory: [
     //   {
     //     label: 'PER',

@@ -2,7 +2,7 @@
 
 [Secteur, géographie, modèle économique, segments de revenus]
 <SegmentGraph unit="Md$" />
-
+<NoteAnalyse>**Pour la suite de cette analyse, on regroupera Google Search & other, Google Network, Google subscriptions, platforms, and devices, YouTube ads et autres dans "Google services" dans un souci de lisibilité*</NoteAnalyse> 
 ## Moat
 
 [Nature et solidité de l'avantage concurrentiel]
@@ -23,25 +23,94 @@
 
 [PER, EV/EBITDA, P/B, PEG, FCF yield — comparaison sectorielle]
 
+<MetricGraph_FCFy title="Free Cash Flow Yield vs US 10 ans" />
+<NoteAnalyse>**FCF Yield calculé avec EV pour neutraliser l'effet de la trésorerire nette de Alphabet*</NoteAnalyse>
+
+Le FCFy se comprime de plus de 3,5 points depuis 2022 et passe sous le taux sans risque américain en 2025.  
+Le marché price une croissance élevée et durable du FCF. Si cette croissance se matérialise, la prime payée aujourd'hui sera justifiée.  
+Dans le cas contraire, un investisseur aurait obtenu un meilleur rendement sans risque avec une obligation d'État américaine.
+
+On notera que l'inversion des courbes se fait courant 2024.  
+Cela peut s'expliquer facilement par l'investissement massifs de CAPEX (+62.8% soit une augmentation de 20,284 Mds $), ce qui a impacté le FCF le faisant stagné.  
+Durant la même période, l'euphorie autour de l'IA à enflammé les marchés et le cours d'Alphabet à atteint des plus haut faisant monter sa capitalisation et donc son EV.  
+Alphabet est en train d'investir massivement pour générer son FCF futur quitte à impacter le FCF actuel.
+
+<MetricGraph_CAPEX title="CAPEX sur 5 ans" />
+
 ## Rentabilité et qualité
 
 [ROIC vs WACC, marges sur 5 ans, FCF]
 
-<RoicGraph />
+<RoicWacc title="Évolution du ROIC et du WACC sur les 5 dernières années" />
+<NoteAnalyse>**ROIC calculé avec dette nette = 0 si négative et incluant les goodwills*</NoteAnalyse>
+
+Bien que largement positif, le ROIC a perdu 2,86 points entre 2024 et 2025.
+Cela s'explique indirectement par les investissements CAPEX 2024, qui auront besoin de 18 à 36 mois avant d'atteindre leur rendement et donc d'impacter positivement, ou pas, le FCF et la marge opérationnelle.  
+
+Mais l'explication principale se situe ailleurs et peut nous éclairer sur ces investissements.
+<MetricGraph_Croissance_par_secteur title="Croissance annuelle sectorielle en % sur 5 ans" />
+
+Suite à une très forte croissance du cloud, le mix du CA à changé.  
+Ce secteur est passé de 7,45% du CA en 2021 à 14.75% en 2025.
+<MetricGraph_Pourcentage_CA title="Evolution du mix CA sur 5 ans" />
+
+Les CAPEX déployés par le géant américain, ont pour but de rendre plus efficient et rentable ce secteur. 
+On peut noter que la marge opérationnelle, négative en 2021 atteint désormais 23.69%. Ce qui est mieux, mais encore loin des 40.68% de google services.
+
+<MetricGraph_MO_par_secteur title="Marge opérationnelle sectorielle sur 5 ans" />
+
+Quand on connait la formule du ROIC (NOPAT / Capitaux investis) on comprend que le ROIC s'effrite à mesure que le cloud progresse. En effet, NOPAT = Marge opérationnelle * (1-le taux d'imposition).
+La marge étant moins bonne, le résultat se dégrade mécaniquement.
+La question à se poser désormais, c'est quel est l'objectif d'Alphabet pour la marge opérationnelle du Cloud, et, est il atteignable?
 
 <MargesGraph />
+
+on peut noter qu'en 2025, la marge nette dépasse la marge opérationnelle. Cela s'explique par un gain exceptionnel de 24 Mds$ sur le portefeuille de participations d'Alphabet (titres non cotés), non récurrent et non-cash
 
 ## Croissance
 
 [CA, BPA, FCF sur 3 et 5 ans]
 
+CAGR 5 ans = 
+CAGR 3 ans =
+CAGR Search = 10.8%
+CAGR Youtube = 8.7%
+CAGR Network = -1.2%
+CAGR Subscriptions = 14.4%
+CAGR CLOUD = 32.2 %
+CAGR Autre = 19.5 %
+
+                2021    |   2025
+Search          57      |   56
+Youtube         11      |   10
+Network         12      |   7
+Subscriptions   10      |   12
+CLOUD           7       |   14.5
+
+
+
+
+
+
 <RevenueGraph />
+
+<FcfGraph title="Free Cash Flow sur 5 ans (Mds $)"/>
 
 ## Solidité financière
 
 [Dette nette/EBITDA, current ratio, DSO, dilution, payout ratio]
 
-<FcfGraph />
+<MetricGraph_Dette_EBITDA title="Dette nette / EBITDA sur 5 ans" />
+Le rapport dette nette sur EBITDA reste négatif, ce qui montre une solidité financière forte.  
+Attention cependant, le ratio passe de -1.4x à -0.52x en 5 ans. Cette compression s'explique par des CAPEX qui ont plus que triplé sur la période absorbant une part croissante du cash généré.  
+
+
+Malgré un cash flow opérationnel qui fait 1,7x en 5 ans, le FCF pendant ce temps n'a pu croître que de 9 points.  
+C'est le prix pour rester dans la course à l'innovation.
+
+<MetricGraph_FCF_OCF title="Operating Cash Flow versus Free Cash Flow sur 5 ans" />
+
+
 
 ## Répartition géographique
 

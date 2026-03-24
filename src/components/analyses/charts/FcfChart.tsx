@@ -15,6 +15,11 @@ type Props = {
 export default function FcfChart({ data, unit = 'Md€', title }: Props) {
   const displayTitle = title ?? `Free Cash Flow sur ${data.length} ans (${unit})`
 
+const minValue = Math.min(...data.map(d => d.value))
+const maxValue = Math.max(...data.map(d => d.value))
+const padding  = (maxValue - minValue) * 0.15
+const floor    = Math.floor(minValue - padding)
+
   return (
     <div className="my-8">
       <h3 style={{
@@ -36,7 +41,10 @@ export default function FcfChart({ data, unit = 'Md€', title }: Props) {
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--color-stone-border)" />
           <XAxis dataKey="year" tick={{ fontSize: 12, fontFamily: 'DM Sans' }} />
-          <YAxis tick={{ fontSize: 12, fontFamily: 'DM Sans' }} domain={['auto', 'auto']} />
+          <YAxis
+            tick={{ fontSize: 12, fontFamily: 'DM Sans' }}
+            domain={[floor, 'auto']}
+          />
           <Tooltip
             formatter={(value) => [`${Number(value)} ${unit}`, 'FCF']}
             contentStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}

@@ -16,12 +16,16 @@ const COULEUR_PRINCIPALE = '#1B4332'
 export default function MetricChart({ serie, title }: Props) {
   const unit = serie.unit ?? ''
   const displayTitle = title ?? `${serie.label} sur ${serie.data.length} ans${unit ? ` (${unit.trim()})` : ''}`
+  const couleurPrincipale = serie.color ?? COULEUR_PRINCIPALE
+  const dashArray         = serie.dashed ? '5 3' : undefined
+  
 
   // Fusionner données principales + concurrents dans un seul tableau Recharts
   const allYears = [...new Set([
     ...serie.data.map(d => d.year),
     ...(serie.competitors ?? []).flatMap(c => c.data.map(d => d.year)),
   ])].sort()
+
 
   const merged = allYears.map(year => {
     const main = serie.data.find(d => d.year === year)
@@ -33,6 +37,17 @@ export default function MetricChart({ serie, title }: Props) {
     })
     return row
   })
+
+  const allValues = merged.flatMap(row =>
+    Object.entries(row)
+      .filter(([key]) => key !== 'year')
+      .map(([, val]) => val)
+      .filter((v): v is number => typeof v === 'number')
+  )
+  const minValue = Math.min(...allValues)
+  const maxValue = Math.max(...allValues)
+  const padding  = (maxValue - minValue) * 0.15
+  const floor    = Math.floor(minValue - padding)
 
   return (
     <div className="my-8">
@@ -52,7 +67,7 @@ export default function MetricChart({ serie, title }: Props) {
           <YAxis
             unit={unit}
             tick={{ fontSize: 12, fontFamily: 'DM Sans' }}
-            domain={['auto', 'auto']}
+            domain={[floor, 'auto']}
           />
           <Tooltip
             formatter={(value) => [`${Number(value)}${unit}`]}
@@ -64,26 +79,27 @@ export default function MetricChart({ serie, title }: Props) {
           <Line
             type="monotone"
             dataKey={serie.label}
-            name={serie.name ?? serie.label}   // ← utilise name si fourni, sinon label
-            stroke={COULEUR_PRINCIPALE}
+            name={serie.name ?? serie.label}
+            stroke={couleurPrincipale}
             strokeWidth={2.5}
+            strokeDasharray={dashArray}
             dot={false}
             connectNulls
           />
 
           {/* Lignes concurrentes — pointillées avec leur couleur */}
           {serie.competitors?.map(c => (
-            <Line
-              key={c.name}
-              type="monotone"
-              dataKey={c.name}
-              stroke={c.color}
-              strokeWidth={1.5}
-              strokeDasharray="5 3"
-              dot={false}
-              connectNulls
-            />
-          ))}
+          <Line
+            key={c.name}
+            type="monotone"
+            dataKey={c.name}
+            stroke={c.color}
+            strokeWidth={1.5}
+            strokeDasharray={c.dashed ? '5 3' : undefined}
+            dot={false}
+            connectNulls
+          />
+        ))}
         </LineChart>
       </ResponsiveContainer>
     </div>

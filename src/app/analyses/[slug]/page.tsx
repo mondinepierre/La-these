@@ -15,7 +15,7 @@ export async function generateMetadata({
   const analyse = ANALYSES.find((a) => a.slug === slug)
   if (!analyse) return {}
 
-  const suffix = analyse.type === 'valeur' ? 'Valeur suivie' : 'Analyse ponctuelle'
+  const suffix         = analyse.type === 'valeur' ? 'Valeur suivie' : 'Analyse ponctuelle'
   const enConstruction = analyse.statut === 'en-construction'
 
   return {

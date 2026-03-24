@@ -14,6 +14,12 @@ type Props = {
 export default function MargesChart({ data, title }: Props) {
   const displayTitle = title ?? `Marges sur ${data.length} ans (%)`
 
+const allValues = data.flatMap(d => [d.net, d.operating, d.gross]).filter((v): v is number => v !== undefined)
+const minValue  = Math.min(...allValues)
+const maxValue  = Math.max(...allValues)
+const padding   = (maxValue - minValue) * 0.15
+const floor     = Math.floor(minValue - padding)
+
   return (
     <div className="my-8">
       <h3 style={{
@@ -30,9 +36,8 @@ export default function MargesChart({ data, title }: Props) {
           <CartesianGrid strokeDasharray="3 3" stroke="var(--color-stone-border)" />
           <XAxis dataKey="year" tick={{ fontSize: 12, fontFamily: 'DM Sans' }} />
           <YAxis
-            unit="%"
             tick={{ fontSize: 12, fontFamily: 'DM Sans' }}
-            domain={['auto', 'auto']}
+            domain={[floor, 'auto']}
           />
           <Tooltip
             formatter={(value) => [`${Number(value)}%`]}
