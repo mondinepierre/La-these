@@ -98,7 +98,7 @@ export type GeoPoint = {
 // ── Graphiques flexibles ──────────────────────────────────────
 
 export type MetricPoint = {
-  year:   number
+  year:   number | string
   value:  number
   wacc?:  number   // optionnel — uniquement pour ROIC vs WACC
 }
@@ -107,7 +107,7 @@ export type CompetitorSerie = {
   name:   string
   color:  string
   dashed?: boolean  // ← false/absent = continu, true = pointillé
-  data:   { year: number; value: number }[]
+  data:   { year: number | string; value: number }[]
 }
 
 export type MetricSerie = {
@@ -126,9 +126,11 @@ export type SegmentPoint = {
 }
 
 export type ValuationPoint = {
-  label:   string   // 'PER' | 'EV/EBITDA' | 'P/B' | 'PEG' | 'FCF Yield'
-  valeur:  number   // valeur de l'action
-  secteur: number   // moyenne sectorielle
+  label:        string
+  valeur:       number
+  secteur?:     number   // valeur du secteur
+  concurrent1?: number   // valeur du premier concurrent
+  concurrent2?: number   // valeur du second concurrent
 }
 
 export type ChartData = {
@@ -137,7 +139,11 @@ export type ChartData = {
   revenue?:       RevenuePoint[]
   fcf?:           FcfPoint[]
   geoRevenue?:    GeoPoint[]
-  valuationCompare?:  ValuationPoint[]
+  valuationCompare?: ValuationPoint[]
+  valuationConcurrents?: {           // ← noms des concurrents pour la légende
+    concurrent1?: string
+    concurrent2?: string
+  }
   metricHistory?: MetricSerie[]    // graphiques libres — PER, EV/EBITDA, etc.
   roicVsWacc?:    MetricPoint[]    // ROIC + WACC sur 5 ans
   segmentRevenue?: SegmentPoint[]  // CA par segment sur 5 ans

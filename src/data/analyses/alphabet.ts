@@ -111,10 +111,10 @@ export const alphabet: AnalyseCard = {
     // ── ROIC vs WACC ──────────────────────────────────────────
     // Composant MDX : <RoicWacc />
     roicVsWacc: [
-      { year: 2021, value: 24.02, wacc: 8.39 },
-      { year: 2022, value: 22.08, wacc: 8.15 },
-      { year: 2023, value: 23.22, wacc: 8.33 },
-      { year: 2024, value: 26.21, wacc: 8.52 },
+      { year: 2021, value: 24.02, wacc: 9.48 },
+      { year: 2022, value: 22.08, wacc: 9.65 },
+      { year: 2023, value: 23.22, wacc: 9.40 },
+      { year: 2024, value: 26.21, wacc: 9.14 },
       { year: 2025, value: 24.01, wacc: 9.18 },
     ],
 
@@ -189,10 +189,31 @@ export const alphabet: AnalyseCard = {
             name:  'Google Cloud',
             color: '#C9A84C',
             data: [
-              { year: 2022, value: 36.8 },
-              { year: 2023, value: 25.9 },
-              { year: 2024, value: 30.6 },
+              { year: 2022, value: 36.83 },
+              { year: 2023, value: 25.91 },
+              { year: 2024, value: 30.65 },
               { year: 2025, value: 35.8 },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Levier_Cloud',
+        name:  'Revenues Google Cloud',
+        unit:  'MDs $',
+        data: [
+          { year: 2023, value: 33.088 },
+          { year: 2024, value: 43.229 },
+          { year: 2025, value: 58.705 },
+        ],
+        competitors: [
+          {
+            name:  'Dépenses Google Cloud',
+            color: '#C9A84C',
+            data: [
+          { year: 2023, value: 31.372 },
+          { year: 2024, value: 37.117 },
+          { year: 2025, value: 44.795 },
             ],
           },
         ],
@@ -219,6 +240,52 @@ export const alphabet: AnalyseCard = {
           { year: 2024, value: 14.14 },
           { year: 2025, value: 23.69 },
             ],
+          },
+        ],
+      },
+      {
+        label: 'MO_par_secteur_8Q',
+        name:  'Google Services',
+        unit:  '%',
+        data: [
+          { year: '2024 Q1', value: 39.63 },
+          { year: '2024 Q2', value: 40.14 },
+          { year: '2024 Q3', value: 40.33 },
+          { year: '2024 Q4', value: 39.05 },
+          { year: '2025 Q1', value: 42.30 },
+          { year: '2025 Q2', value: 40.06 },
+          { year: '2025 Q3', value: 38.51 },
+          { year: '2025 Q4', value: 41.86 },
+        ],
+        competitors: [
+          {
+            name:  'Google Cloud',
+            color: '#C9A84C',
+            data: [
+          { year: '2024 Q1', value: 9.40 },
+          { year: '2024 Q2', value: 11.33 },
+          { year: '2024 Q3', value: 17.15 },
+          { year: '2024 Q4', value: 17.51 },
+          { year: '2025 Q1', value: 17.76 },
+          { year: '2025 Q2', value: 20.74 },
+          { year: '2025 Q3', value: 23.71 },
+          { year: '2025 Q4', value: 30.08 },
+        ],
+          },
+                    {
+            name:  'Google Cloud tendances',
+            color: '#A8A29E',
+            dashed : true,
+            data: [
+          { year: '2024 Q1', value: 9.49 },
+          { year: '2024 Q2', value: 12.06 },
+          { year: '2024 Q3', value: 14.62 },
+          { year: '2024 Q4', value: 17.18 },
+          { year: '2025 Q1', value: 19.74 },
+          { year: '2025 Q2', value: 22.30 },
+          { year: '2025 Q3', value: 24.86 },
+          { year: '2025 Q4', value: 27.43 },
+                  ],
           },
         ],
       },
@@ -261,7 +328,7 @@ export const alphabet: AnalyseCard = {
           { year: 2025, value: -0.52  },
         ],
       },
-                  {
+      {
         label: 'CAPEX',
         name:  'Investissement CAPEX',
         unit:  'Mds $',
@@ -323,6 +390,25 @@ export const alphabet: AnalyseCard = {
           },
         ]        
       },
+      {
+        label: 'EPS',
+        name:  'Evolution EPS',
+        unit:  '$',
+        data: [
+          { year: 2021, value: 5.61   },
+          { year: 2022, value: 4.56   },
+          { year: 2023, value: 5.8    },
+          { year: 2024, value: 8.04   },
+          { year: 2025, value: 10.81  },
+        ],
+      },
+    ],
+  valuationCompare: [
+      { label: 'PER',                  valeur: 26.76, concurrent1 : 23.32, concurrent2 : 25.24},
+      { label: 'P/FCF',                valeur: 48.02, concurrent1 : 35.75, concurrent2 : 32.53},
+      { label: 'EV/EBITDA',            valeur: 22.47, concurrent1 : 15.16, concurrent2 : 14.75},
+      { label: 'Marge opérationnelle', valeur: 32.94, concurrent1 : 46.67, concurrent2 : 41.44},
+      { label: 'ROIC',                 valeur: 27.73, concurrent1 : 23.85, concurrent2 : 20.17},
     ],
 
     // ── Comparaison sectorielle ───────────────────────────────

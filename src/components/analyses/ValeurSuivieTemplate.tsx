@@ -128,11 +128,13 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
     : () => null
 
   const ValuationRadar = cd?.valuationCompare
-    ? (props: { title?: string; name?: string }) => (
+    ? (props: { title?: string; name?: string; concurrent1?: string; concurrent2?: string }) => (
         <ValuationRadarChart
           data={cd.valuationCompare!}
           title={props.title}
           name={props.name}
+          concurrent1={props.concurrent1}
+          concurrent2={props.concurrent2}
         />
       )
     : () => null
