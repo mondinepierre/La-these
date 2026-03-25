@@ -20,6 +20,8 @@ import { asml          } from './asml'
 import { novo          } from './novo'
 import { totalenergies } from './totalenergies'
 import { alphabet      } from './alphabet'
+import { microsoft     } from './microsoft'
+
 
 // ── Analyses ponctuelles ──────────────────────────────────────────────────────
 import { nvidiaQ42025  } from './nvidia-q4-2025'
@@ -34,6 +36,7 @@ export const ANALYSES: AnalyseCard[] = [
   asml,
   novo,
   totalenergies,
+  microsoft,
 
   // Analyses ponctuelles
   nvidiaQ42025,

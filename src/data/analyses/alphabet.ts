@@ -29,25 +29,25 @@ export const alphabet: AnalyseCard = {
   ticker:         'GOOG',
   secteur:        'Technologie',  // voir union Secteur dans types/analyses.ts
   geo:            'États-Unis',   // voir union ZoneGeo
-  conviction:     'moyenne',      // exceptionnelle | forte | moyenne | spéculative
+  conviction:     'exceptionnelle',      // exceptionnelle | forte | moyenne | spéculative
   positionnement: 'surveillance', // achat fort | accumulation | surveillance | maintien | allégement
-  lastUpdated:    '2026-03-22',
-  statut:         'en-construction', // en-construction | actif | archivé
+  lastUpdated:    '2026-03-26',
+  statut:         'actif', // en-construction | actif | archivé
   portefeuille:   'CTO',          // PEA | CTO | PEA + CTO | Aucun
-  horizon:        '18 mois',
-  excerpt:        '',
+  horizon:        '36 mois',
+  excerpt:        'L\'entreprise qui veut contrôler l\'IA de A à Z.',
   glossaire:      ['per', 'free-cash-flow', 'moat', 'roic'], // slugs glossaire liés
 
-  prixCible:      { bas: 0, haut: 0, devise: 'USD' },
-  marginOfSafety: 'indéterminée', // forte | correcte | faible | négative | indéterminée
+  prixCible:      { bas: 326.8, haut: 384.5, devise: 'USD' },
+  marginOfSafety: 'négative', // forte | correcte | faible | négative | indéterminée
 
   metrics: {
-    per:               29.03,  // Price / Earnings
-    evEbitda:          25.04,  // EV / EBITDA
+    per:               29.04,  // Price / Earnings
+    evEbitda:          25.02,  // EV / EBITDA
     fcfYield:          1.95,  // FCF Yield en %
-    roic:              24.01,  // Return on Invested Capital en %
-    wacc:              9.18,  // Weighted Average Cost of Capital en %
-    detteEbitda:       -0.52,  // Dette nette / EBITDA — négatif = trésorerie nette
+    roic:              25.85,  // Return on Invested Capital en %
+    wacc:              9.22,  // Weighted Average Cost of Capital en %
+    detteEbitda:       -0.53,  // Dette nette / EBITDA — négatif = trésorerie nette
     croissanceCA3ans:  12.5,  // TCAC CA sur 3 ans en %
     croissanceBPA3ans: 33.3,  // TCAC BPA sur 3 ans en %
     margeEbit:         32,  // Marge opérationnelle en %
@@ -58,15 +58,15 @@ export const alphabet: AnalyseCard = {
   },
 
   tendances: {
-    per:       'stable', // hausse | stable | baisse
-    fcfYield:  'stable',
+    per:       'hausse', // hausse | stable | baisse
+    fcfYield:  'baisse',
     roic:      'stable',
     margeEbit: 'stable',
   },
 
   updates: [
     {
-      date: '2026-01-01',
+      date: '2026-03-26',
       note: 'Création de la fiche.',
     },
   ],
@@ -101,21 +101,21 @@ export const alphabet: AnalyseCard = {
 
     // ── ROIC simple sur 5 ans ─────────────────────────────────
     roic: [
-      { year: 2021, value: 24.02, },
-      { year: 2022, value: 22.08, },
-      { year: 2023, value: 23.22, },
-      { year: 2024, value: 26.21, },
-      { year: 2025, value: 24.01, },
+      { year: 2021, value: 26.21, },
+      { year: 2022, value: 24.57, },
+      { year: 2023, value: 25.61, },
+      { year: 2024, value: 28.9, },
+      { year: 2025, value: 25.85, },
     ],
 
     // ── ROIC vs WACC ──────────────────────────────────────────
     // Composant MDX : <RoicWacc />
     roicVsWacc: [
-      { year: 2021, value: 24.02, wacc: 9.48 },
-      { year: 2022, value: 22.08, wacc: 9.65 },
-      { year: 2023, value: 23.22, wacc: 9.40 },
-      { year: 2024, value: 26.21, wacc: 9.14 },
-      { year: 2025, value: 24.01, wacc: 9.18 },
+      { year: 2021, value: 26.21, wacc: 9.76 },
+      { year: 2022, value: 24.57, wacc: 10.03 },
+      { year: 2023, value: 25.61, wacc: 9.64 },
+      { year: 2024, value: 28.9, wacc: 9.41 },
+      { year: 2025, value: 25.85, wacc: 9.22 },
     ],
 
     // ── Free Cash Flow sur 5 ans ──────────────────────────────
@@ -317,6 +317,62 @@ export const alphabet: AnalyseCard = {
         ],
       },
       {
+        label: 'PER',
+        name:  'PER',
+        unit:  'x',
+        data: [
+          { year: 2021, value: 25.79 },
+          { year: 2022, value: 19.47 },
+          { year: 2023, value: 24.3 },
+          { year: 2024, value: 23.43 },
+          { year: 2025, value: 29.04  },
+        ],
+      },
+      {
+        label: 'CR',
+        name:  'Current Ratio',
+        unit:  'x',
+        data: [
+          { year: 2021, value: 2.93 },
+          { year: 2022, value: 2.38 },
+          { year: 2023, value: 2.1 },
+          { year: 2024, value: 1.84 },
+          { year: 2025, value: 2.01  },
+        ],
+      },
+      {
+        label: 'Dilution',
+        name:  'Dilution/Concentration',
+        unit:  '%',
+        data: [
+          { year: 2022, value: 2.91 },
+          { year: 2023, value: 3.32 },
+          { year: 2024, value: 3.17 },
+          { year: 2025, value: 0.72  },
+        ],
+      },
+      {
+        label: 'Payout',
+        name:  'Payout ratio',
+        unit:  '%',
+        data: [
+          { year: 2024, value: 7.35 },
+          { year: 2025, value: 7.6  },
+        ],
+      },
+      {
+        label: 'DSO',
+        name:  'Days Sales Oustanding',
+        unit:  ' jours',
+        data: [
+          { year: 2021, value: 56 },
+          { year: 2022, value: 52 },
+          { year: 2023, value: 57 },
+          { year: 2024, value: 55 },
+          { year: 2025, value: 57  },
+        ],
+      },
+      {
         label: 'Dette_EBITDA',
         name:  'Dette nette / EBITDA',
         unit:  'x',
@@ -325,7 +381,7 @@ export const alphabet: AnalyseCard = {
           { year: 2022, value: -1.12 },
           { year: 2023, value: -1.01 },
           { year: 2024, value: -0.66 },
-          { year: 2025, value: -0.52  },
+          { year: 2025, value: -0.53  },
         ],
       },
       {
@@ -373,7 +429,7 @@ export const alphabet: AnalyseCard = {
           { year: 2021, value: 3.65 },
           { year: 2022, value: 5.62 },
           { year: 2023, value: 4.10 },
-          { year: 2024, value: 3.18 },
+          { year: 2024, value: 3.22 },
           { year: 2025, value: 1.95 },
         ],
         competitors: [
@@ -410,6 +466,8 @@ export const alphabet: AnalyseCard = {
       { label: 'Marge opérationnelle', valeur: 32.94, concurrent1 : 46.67, concurrent2 : 41.44},
       { label: 'ROIC',                 valeur: 27.73, concurrent1 : 23.85, concurrent2 : 20.17},
     ],
+  },
+}
 
     // ── Comparaison sectorielle ───────────────────────────────
     // Composant MDX : <ValuationRadar name="Nom" /> ou <ValuationBar name="Nom" />
@@ -448,8 +506,6 @@ export const alphabet: AnalyseCard = {
     //     ],
     //   },
     // ],
-  },
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // TEMPLATE — Analyse ponctuelle
