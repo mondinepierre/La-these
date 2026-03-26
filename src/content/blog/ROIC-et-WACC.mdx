@@ -1,0 +1,90 @@
+Dans l'article précédent, nous avons abordé le <Terme id="roic" /> et son rôle de juge de paix quant à la qualité d'un business.
+
+Mais ce serait oublier qu'un chiffre seul ne raconte jamais toute l'histoire. Si je vous disais qu'un ROIC de 18 % sur une start-up technologique est parfois moins intéressant qu'un ROIC de 12 % sur une entreprise mature comme TotalEnergies ? 
+
+Sans connaître le coût de la performance, impossible de se benchmarker. 
+ 
+Bienvenue dans le duel entre le ROIC et le <Terme id="wacc" />.
+
+## ROIC — Quelle capacité à valoriser ses investissements ?
+
+Commençons par un petit rappel :
+
+<div className="my-8 py-6 border-y border-stone-border"><span className="block text-center text-2xl font-display italic text-gold tracking-tight">ROIC = NOPAT / Capital investi</span></div>
+  
+
+- **NOPAT** (**N**et **O**perating **P**rofit **A**fter **T**axes) : C'est le résultat opérationnel après imposition. On le calcule ainsi :  
+  `Résultat opérationnel * (1 - taux d'imposition)`
+- **Capital investi** : Il correspond aux fonds propres auxquels on ajoute la dette financière nette.
+    - Les fonds propres se trouvent dans les rapports sous le nom de *"Equity"*.
+    - **Dette financière nette** = Dette totale - Trésorerie.
+
+**Pourquoi ajouter la dette aux fonds propres ?**  
+Car elle sert de levier pour financer la performance de l'entreprise. C'est l'intégralité de l'argent "misé" dans la machine.
+
+Le ROIC peut être calculé de trois manières différentes selon le besoin, avec trois dénominations précises :
+1. **Invested Capital** (Académique)
+2. **Cash-Adjusted** (Global)
+3. **Tangible** (Opérationnel)
+
+## Choix du ROIC — Quelles différences et lequel utiliser ?
+
+Tout se joue au dénominateur. Nous allons adapter la formule du capital investi de trois façons :
+
+- **Le ROIC Invested Capital** : Utilise le capital investi **classique**. C'est la lecture brute du bilan.
+- **Le ROIC Cash-Adjusted** : On fixe la **dette nette à 0 si elle est négative**. Cela permet de neutraliser la trésorerie excédentaire qui "dort" et fausse le calcul. On inclut ici le <Terme id="goodwill" />.
+- **Le ROIC Tangible** : On fixe également la dette nette à 0, mais on **soustrait le goodwill**.
+
+### Exemple comparatif avec Alphabet (Google)
+
+| Type de ROIC | Valeur | Avantages | Inconvénients |
+| :--- | :--- | :--- | :--- |
+| **Invested Capital** | 32,05 % | Lecture brute du bilan consolidé. | Faussé par la trésorerie excédentaire massive. |
+| **Cash-Adjusted** | 25,85 % | Standard : exclut le cash inutile et juge l'allocation de capital. | Impacté si les actifs acquis perdent de leur valeur. |
+| **Tangible** | 28,11 % | Mesure la performance brute du "moteur" (produits/services). | Peut masquer des erreurs de gestion (acquisitions surpayées). |
+
+Alors, **lequel utiliser ?** La réalité est qu'il faut s'adapter au dossier :
+- Le **Cash-Adjusted** est focalisé sur l'allocation du capital : il permet de juger si les rachats d'autres entités ont été des réussites.
+- Le **Tangible** est utile pour isoler la performance opérationnelle pure, en faisant abstraction du prix payé pour les acquisitions passées.
+- Le **Invested Capital** sert à observer la solidité financière globale, incluant l'impact du cash.
+
+Pour Alphabet, je privilégie le **Cash-Adjusted**, car le groupe croît énormément via ses rachats (YouTube, Android). À l'inverse, pour une entreprise comme Novo Nordisk (dépendante de rachats de brevets), comparer le Tangible et le Cash-Adjusted permet de distinguer la performance de la recherche interne de celle du management.
+
+> Dans la majorité des cas sur *La Thèse*, vous verrez le **ROIC Cash-Adjusted**. Le type utilisé sera toujours précisé.
+
+## WACC — Tout se paie
+
+Le <Terme id="wacc" /> répond à une question simple : **Combien coûte l'argent utilisé par l'entreprise ?**
+
+Il inclut les intérêts de la dette et le coût des fonds propres. Ce dernier point est crucial : lorsqu'un actionnaire investit, il attend un rendement (le coût d'opportunité). S'il ne l'obtient pas, il déplace ses capitaux ailleurs. 
+
+Sur *La Thèse*, je fixerai arbitrairement cette attente de rendement à **9 %**.
+
+## Le spread — Le véritable moteur de valeur
+
+C'est ici que nous fusionnons les deux indicateurs :
+
+<div className="my-8 py-6 border-y border-stone-border"><span className="block text-center text-2xl font-display italic text-gold tracking-tight">ROIC - WACC = Spread</span></div>
+
+Le Spread est la véritable mesure de la création de richesse. Si le ROIC est de 15 % et le WACC de 9 %, l'entreprise crée **6 %** de valeur nette.
+
+## Combiner le Spread avec l'EV/EBITDA
+
+Coupler l'EV/EBITDA avec le Spread offre une lecture bien plus fine de la valorisation :
+
+| Profil | Spread | EV/EBITDA | Interprétation |
+| :--- | :--- | :--- | :--- |
+| **Compounder de qualité** | Large et stable (>15 %) | Élevé | Prime justifiée : la valeur croît plus vite que le temps. |
+| **Valeur décotée** | Positif (5-10 %) | Faible - Moyen | Opportunité potentielle : le marché sous-évalue la création de valeur. |
+| **Le Piège (Value Trap)** | Nul ou négatif | Faible | Pas cher pour une bonne raison : l'entreprise détruit de la valeur. |
+| **L'Espoir (Growth)** | Négatif | Très élevé | Pari sur le futur et l'effet d'échelle à venir. |
+
+<span className="block text-sm text-ink-muted italic">*Les valeurs de spread et d'EV/EBITDA doivent toujours être comparées à l'historique et au secteur.</span>
+
+## Trois limites à garder en tête
+
+1. **Le spread justifie le multiple** : Payer un EV/EBITDA élevé pour un spread faible, c'est acheter une bulle.
+2. **La stabilité avant tout** : Un spread de 8 % sur 10 ans est bien plus précieux qu'un pic de 20 % sans lendemain.
+3. **Le rétroviseur** : Le ROIC mesure le passé. Comme toujours en finance, les performances passées ne présument pas des performances futures.
+
+Dans le **prochain article**, nous découvrirons le **ROIIC** (**R**eturn **O**n **I**ncremental **I**nvested **C**apital), l'outil ultime pour anticiper la rentabilité de la croissance future.

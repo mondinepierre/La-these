@@ -1195,6 +1195,16 @@ export const glossaire: GlossaireTerm[] = [
     related: ["marge-brute-d-autofinancement", "capex", "roic", "moat"],
     modules: [],
   },
+
+  {
+    slug: "goodwill",
+    label: "Goodwill — Écart d'acquisition",
+    category: "Analyse fondamentale" as const,
+    shortDef: "L'excédent de prix payé lors d'un rachat par rapport à la valeur réelle des actifs nets.",
+    definition: `Le Goodwill (ou écart d'acquisition) désigne la valeur immatérielle qu'une entreprise accepte de payer au-delà de la valeur de marché des actifs identifiables d'une cible (usines, stocks, brevets) lors d'une acquisition. Il représente tout ce qui ne figure pas au bilan comptable : la force d'une marque, la fidélité des clients, le talent des équipes ou les synergies futures espérées.\n\nOn distingue deux aspects de sa gestion :\n\n— L'inscription au bilan : Contrairement aux actifs physiques, le Goodwill est un actif incorporel qui reste au bilan tant que sa valeur est justifiée.\n\n— Le test de dépréciation (Impairment) : Il ne s'amortit pas chaque année. En revanche, si l'acquisition ne tient pas ses promesses, l'entreprise doit « déprécier » son Goodwill, ce qui impacte lourdement le résultat net (sans toucher à la trésorerie).\n\nLe Goodwill est un pari sur l'avenir : c'est un levier de puissance si les synergies se concrétisent, mais une « bombe à retardement » comptable si le prix payé était trop élevé.`,
+    related: ["wacc", "roic"],
+    modules: [],
+  },
 ];
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────

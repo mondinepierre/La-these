@@ -2,16 +2,7 @@ import Link from 'next/link'
 import { HeroSection } from '@/components/layout/HeroSection'
 import { ArticleCard } from '@/components/ui/ArticleCard'
 import { ANALYSES } from '@/data/analyses'
-
-// ─── Dernier article / analyse ───────────────────────────────────
-const derniersPublies = [...ANALYSES]
-  .filter(a => a.statut === 'actif')
-  .sort((a, b) => {
-    const dateA = 'lastUpdated' in a ? a.lastUpdated : 'date' in a ? a.date : ''
-    const dateB = 'lastUpdated' in b ? b.lastUpdated : 'date' in b ? b.date : ''
-    return new Date(dateB).getTime() - new Date(dateA).getTime()
-  })
-  .slice(0, 3)
+import { articles } from '@/data/blog' // Import de ton nouveau fichier
 
 // ─── Modules mis en avant — Parcours Bases ───────────────────────────────────
 const FEATURED_MODULES = [
@@ -22,27 +13,40 @@ const FEATURED_MODULES = [
     href: '/academie/bases/pourquoi-investir',
     level: 'debutant' as const,
     category: 'Bases · Leçon 1',
-    readingTime: 4,
-  },
-  {
-    title: 'Analyse fondamentale',
-    excerpt:
-      "PER, marges, dette, flux de trésorerie — les indicateurs qui permettent de distinguer une belle entreprise d'une belle histoire.",
-    href: '/academie/intermediaire/analyse-fondamentale',
-    level: 'intermediaire' as const,
-    category: 'Intermédiaire · Leçon 2',
-    readingTime: 8,
-  },
-  {
-    title: 'Gérer le risque',
-    excerpt:
-      "Position sizing, stop-loss, diversification — les principes qui permettent de rester dans le jeu sur le long terme.",
-    href: '/academie/intermediaire/gerer-le-risque',
-    level: 'intermediaire' as const,
-    category: 'Intermédiaire · Leçon 4',
     readingTime: 7,
   },
+  {
+    title: 'Choisir sa stratégie',
+    excerpt:
+      "Investissement passif, actif, DCA — comprendre les grandes approches avant de choisir celle qui correspond à votre situation.",
+    href: '/academie/bases/choisir-sa-strategie',
+    level: 'debutant' as const,
+    category: 'Bases · Leçon 2',
+    readingTime: 12,
+  },
+  {
+    title: 'Choisir son broker',
+    excerpt:
+      "Frais, sécurité, interface, fiscalité : les quatre axes pour ne pas se tromper dès la première étape.",
+    href: '/academie/bases/choisir-son-broker',
+    level: 'debutant' as const,
+    category: 'Bases · Leçon 4',
+    readingTime: 8,
+  },
 ]
+
+// Fusion des deux sources
+const tousLesContenus = [...ANALYSES, ...articles]
+
+const derniersPublies = tousLesContenus
+  .filter(a => ('statut' in a ? a.statut === 'actif' : true)) // On garde les actifs (ou tout si pas de statut)
+  .sort((a, b) => {
+    // On récupère la date la plus récente disponible
+    const dateA = 'lastUpdated' in a ? a.lastUpdated : a.date
+    const dateB = 'lastUpdated' in b ? b.lastUpdated : b.date
+    return new Date(dateB).getTime() - new Date(dateA).getTime()
+  })
+  .slice(0, 3)
 
 // ─── Piliers du site ─────────────────────────────────────────────────────────
 const PILLARS = [
@@ -51,7 +55,7 @@ const PILLARS = [
     label: 'Académie',
     description:
       "Cinq leçons fondamentales pour poser les bases avant d'investir votre premier euro.",
-    href: '/academie',
+    href: '/academie/bases',
     cta: 'Commencer →',
   },
   {
@@ -97,7 +101,7 @@ export default function Home() {
           <div className="flex items-baseline justify-between mb-6">
             <p className="section-label">Par où commencer ?</p>
             <Link
-              href="/academie"
+              href="/academie/bases"
               className="font-sans text-xs text-[#78716C] hover:text-[#1C1917] transition-colors"
             >
               Voir le parcours complet →
@@ -168,7 +172,7 @@ export default function Home() {
 
         <hr className="section-divider max-w-full-layout mx-auto px-6" />
 
-        {/* Articles — Derniers analyse et blog */}
+        {/* ─── SECTION DERNIÈRES PUBLICATIONS ─── */}
         <section className="max-w-full-layout mx-auto px-6 py-10">
           <div className="flex items-baseline justify-between mb-6">
             <p className="section-label">Dernières publications</p>
@@ -176,21 +180,41 @@ export default function Home() {
               Toutes les analyses →
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {derniersPublies.map(a => (
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {derniersPublies.map((a) => {
+            // 1. Déterminer le type
+            const isBlogArticle = 'summary' in a;
+
+            // 2. Extraire les données avec des fallbacks (valeurs par défaut) pour les analyses
+            const title = a.title;
+            const excerpt = isBlogArticle ? a.summary : a.excerpt;
+            const href = isBlogArticle ? `/blog/${a.slug}` : `/analyses/${a.slug}`;
+            
+            // Correction ici : on vérifie si readingTime existe, sinon on met 5 (ou undefined)
+            const readingTime = 'readingTime' in a ? a.readingTime : 5; 
+
+            const category = isBlogArticle 
+              ? `Pédagogie · ${a.category}` 
+              : `Analyse · ${'secteur' in a ? a.secteur : 'Marché'}`;
+
+            // Le niveau n'existe pas non plus sur les analyses, on met 'intermediaire' par défaut
+            const level = 'level' in a ? a.level : 'intermediaire';
+
+            return (
               <ArticleCard
                 key={a.slug}
-                title={a.title}
-                excerpt={a.excerpt}
-                href={`/analyses/${a.slug}`}
-                level="intermediaire"
-                category={`Analyse · ${'secteur' in a ? a.secteur : 'Marché'}`}
+                title={title}
+                excerpt={excerpt}
+                href={href}
+                level={level}
+                category={category}
+                readingTime={readingTime}
               />
-            ))}
-          </div>
+            );
+          })}
+        </div>
         </section>
-
-        <hr className="section-divider max-w-full-layout mx-auto px-6" />
 
         {/* CTA communauté */}
         <section className="max-w-full-layout mx-auto px-6 py-10 pb-16">

@@ -7,7 +7,7 @@ type Props = {
 export default function ConvictionBadge({ conviction }: Props) {
   const config: Record<Conviction, { label: string; className: string }> = {
     exceptionnelle: {
-      label: 'Conviction Haute',
+      label: 'Conviction Exceptionnelle',
       className: 'bg-[#1B4332] text-[#F7F4EF]',
     },
     forte: {

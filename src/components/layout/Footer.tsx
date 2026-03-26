@@ -3,6 +3,9 @@ import Link from 'next/link'
 const FOOTER_LINKS = [
   { href: '/academie',  label: 'Académie' },
   { href: '/analyses',  label: 'Analyses' },
+  { href: '/portefeuilles', label: 'Portefeuilles' },
+  { href: '/blog',  label: 'Blog' },
+  { href: '/bibliotheque-etf',    label: 'ETF' }, 
   { href: '/glossaire', label: 'Glossaire' },
   { href: '/discord',   label: 'Discord' },
   { href: '/a-propos',  label: 'À propos' },
