@@ -23,7 +23,7 @@ export const totalenergies: AnalyseCard = {
     'multiple-de-valorisation',
     'moat',
   ],
-
+  readingTime:    10,
   prixCible:      { bas: 46.6, haut: 68.9, devise: 'EUR' },
   marginOfSafety: 'négative',
 

@@ -173,6 +173,7 @@ export type FrontmatterValeur = {
   updates:        UpdateEntry[]
   chartData?:     ChartData
   glossaire?:     string[]  // slugs des termes — ex: ['per', 'free-cash-flow', 'moat']
+  readingTime?: number   // ← en minutes — affiché si renseigné, absent sinon
 }
 
 // ─────────────────────────────────────────────

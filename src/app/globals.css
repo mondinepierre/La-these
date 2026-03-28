@@ -391,3 +391,53 @@ tbody tr:nth-child(even) td {
 .verdict-block strong {
   color: var(--color-ink);
 }
+
+/* ============================================================
+ GESTION TAILLE TABLEAUX
+   ============================================================ */
+
+.prose table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .prose table,
+  .prose thead,
+  .prose tbody,
+  .prose th,
+  .prose td,
+  .prose tr {
+    display: block;
+  }
+
+  .prose thead {
+    display: none;
+  }
+
+  .prose tr {
+    border: 1px solid #E0DBCF;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: white;
+  }
+
+  .prose td {
+    padding: 0.25rem 0;
+    border: none;
+    white-space: normal;
+  }
+
+  .prose td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #78716C;
+    margin-bottom: 2px;
+  }
+}

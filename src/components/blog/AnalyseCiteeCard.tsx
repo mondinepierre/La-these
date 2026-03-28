@@ -27,8 +27,8 @@ const positionnement = ('positionnement' in analyse ? analyse.positionnement : n
       href={`/analyses/${slug}`}
       className="group block p-4 bg-[#F7F4EF] border border-[#E0DBCF] rounded-lg hover:border-[#C9A84C] transition-colors duration-200"
     >
-      <div className="flex items-start justify-between gap-3">
-        <div>
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
           {secteur && (
             <p className="text-xs font-medium tracking-widest uppercase text-[#78716C] mb-1">
               {secteur}{zone ? ` · ${zone}` : ''}
@@ -41,10 +41,10 @@ const positionnement = ('positionnement' in analyse ? analyse.positionnement : n
             </span>
           </p>
         </div>
-          <div className="flex flex-col items-end gap-1.5 shrink-0">
+        <div className="flex flex-row flex-wrap gap-1.5 sm:flex-col sm:items-end sm:shrink-0">
           {conviction && <ConvictionBadge conviction={conviction} />}
           {positionnement && <PositionnementBadge positionnement={positionnement} />}
-          </div>
+        </div>
       </div>
       <p className="text-xs text-[#78716C] mt-2">→ Voir la fiche analyse</p>
     </Link>

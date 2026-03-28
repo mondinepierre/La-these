@@ -37,11 +37,7 @@ Tout se joue au dénominateur. Nous allons adapter la formule du capital investi
 
 ### Exemple comparatif avec Alphabet (Google)
 
-| Type de ROIC | Valeur | Avantages | Inconvénients |
-| :--- | :--- | :--- | :--- |
-| **Invested Capital** | 32,05 % | Lecture brute du bilan consolidé. | Faussé par la trésorerie excédentaire massive. |
-| **Cash-Adjusted** | 25,85 % | Standard : exclut le cash inutile et juge l'allocation de capital. | Impacté si les actifs acquis perdent de leur valeur. |
-| **Tangible** | 28,11 % | Mesure la performance brute du "moteur" (produits/services). | Peut masquer des erreurs de gestion (acquisitions surpayées). |
+<Tableau id="roic-variantes-alphabet" />
 
 Alors, **lequel utiliser ?** La réalité est qu'il faut s'adapter au dossier :
 - Le **Cash-Adjusted** est focalisé sur l'allocation du capital : il permet de juger si les rachats d'autres entités ont été des réussites.
@@ -56,9 +52,9 @@ Pour Alphabet, je privilégie le **Cash-Adjusted**, car le groupe croît énorm�
 
 Le <Terme id="wacc" /> répond à une question simple : **Combien coûte l'argent utilisé par l'entreprise ?**
 
-Il inclut les intérêts de la dette et le coût des fonds propres. Ce dernier point est crucial : lorsqu'un actionnaire investit, il attend un rendement (le coût d'opportunité). S'il ne l'obtient pas, il déplace ses capitaux ailleurs. 
+Il inclut les intérêts de la dette et le coût des fonds propres. Ce dernier point est crucial : lorsqu'un actionnaire investit, il attend un rendement (le coût d'opportunité). S'il ne l'obtient pas, il déplace ses capitaux ailleurs.
 
-Sur *La Thèse*, je fixerai arbitrairement cette attente de rendement à **9 %**.
+Sur *La Thèse*, je fixerai arbitrairement cette attente de rendement à **9 %**. À titre de repère : les entreprises industrielles se situent généralement entre 7 et 10 %, les valeurs technologiques entre 9 et 13 % — le marché exige davantage en échange d'un risque plus élevé.
 
 ## Le spread — Le véritable moteur de valeur
 
@@ -72,19 +68,16 @@ Le Spread est la véritable mesure de la création de richesse. Si le ROIC est d
 
 Coupler l'EV/EBITDA avec le Spread offre une lecture bien plus fine de la valorisation :
 
-| Profil | Spread | EV/EBITDA | Interprétation |
-| :--- | :--- | :--- | :--- |
-| **Compounder de qualité** | Large et stable (>15 %) | Élevé | Prime justifiée : la valeur croît plus vite que le temps. |
-| **Valeur décotée** | Positif (5-10 %) | Faible - Moyen | Opportunité potentielle : le marché sous-évalue la création de valeur. |
-| **Le Piège (Value Trap)** | Nul ou négatif | Faible | Pas cher pour une bonne raison : l'entreprise détruit de la valeur. |
-| **L'Espoir (Growth)** | Négatif | Très élevé | Pari sur le futur et l'effet d'échelle à venir. |
+<Tableau id="spread-ev-ebitda" />
 
 <span className="block text-sm text-ink-muted italic">*Les valeurs de spread et d'EV/EBITDA doivent toujours être comparées à l'historique et au secteur.</span>
 
-## Trois limites à garder en tête
+C'est aussi ce tableau qui répond à la question posée en ouverture : un ROIC de 18 % sur une start-up avec un WACC à 15 % produit un spread de 3 %. Un ROIC de 12 % sur TotalEnergies avec un WACC à 7 % en produit 5 %. Le second crée davantage de valeur nette — même si son ROIC brut est inférieur.
 
-1. **Le spread justifie le multiple** : Payer un EV/EBITDA élevé pour un spread faible, c'est acheter une bulle.
-2. **La stabilité avant tout** : Un spread de 8 % sur 10 ans est bien plus précieux qu'un pic de 20 % sans lendemain.
-3. **Le rétroviseur** : Le ROIC mesure le passé. Comme toujours en finance, les performances passées ne présument pas des performances futures.
+## Deux limites à garder en tête
+
+**La stabilité avant tout** : Un spread de 8 % maintenu sur 10 ans est bien plus précieux qu'un pic de 20 % sans lendemain. Payer un EV/EBITDA élevé pour un spread structurellement large est justifié — payer le même multiple pour un spread ponctuel, c'est acheter une bulle.
+
+**Le rétroviseur** : Le ROIC mesure le passé. Comme toujours en finance, les performances passées ne présument pas des performances futures.
 
 Dans le **prochain article**, nous découvrirons le **ROIIC** (**R**eturn **O**n **I**ncremental **I**nvested **C**apital), l'outil ultime pour anticiper la rentabilité de la croissance future.

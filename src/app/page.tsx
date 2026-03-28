@@ -194,8 +194,15 @@ export default function Home() {
             // Correction ici : on vérifie si readingTime existe, sinon on met 5 (ou undefined)
             const readingTime = 'readingTime' in a ? a.readingTime : 5; 
 
-            const category = isBlogArticle 
-              ? `Pédagogie · ${a.category}` 
+            const CATEGORY_LABELS: Record<string, string> = {
+              pedagogie: 'Pédagogie',
+              macro:     'Macro',
+              methode:   'Méthode',
+              parcours:  'Parcours',
+            }
+
+            const category = isBlogArticle
+              ? `Blog · ${CATEGORY_LABELS[a.category] ?? a.category}`
               : `Analyse · ${'secteur' in a ? a.secteur : 'Marché'}`;
 
             // Le niveau n'existe pas non plus sur les analyses, on met 'intermediaire' par défaut

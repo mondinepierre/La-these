@@ -37,7 +37,7 @@ export const alphabet: AnalyseCard = {
   horizon:        '36 mois',
   excerpt:        'L\'entreprise qui veut contrôler l\'IA de A à Z.',
   glossaire:      ['per', 'free-cash-flow', 'moat', 'roic'], // slugs glossaire liés
-
+  readingTime:    14,
   prixCible:      { bas: 326.8, haut: 384.5, devise: 'USD' },
   marginOfSafety: 'négative', // forte | correcte | faible | négative | indéterminée
 

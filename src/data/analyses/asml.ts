@@ -22,7 +22,7 @@ export const asml: AnalyseCard = {
     'pricing-power',
     'marge-de-securite',
   ],
-
+  readingTime:    11,
   prixCible: {
     bas:    1070,
     haut:   1450,

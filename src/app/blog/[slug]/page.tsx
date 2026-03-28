@@ -10,6 +10,7 @@ import { LevelBadge } from '@/components/ui/LevelBadge'
 import { BlogCard } from '@/components/blog/BlogCard'
 import { Terme } from '@/components/ui/Terme'
 import { AnalyseCiteeCard } from '@/components/blog/AnalyseCiteeCard'
+import { Tableau } from '@/components/ui/Tableau'
 
 export async function generateStaticParams() {
   return articles.map(a => ({ slug: a.slug }))
@@ -43,7 +44,7 @@ export default async function BlogArticlePage({
     options: {
       mdxOptions: { remarkPlugins: [remarkGfm] },
     },
-    components: { Terme },
+    components: { Terme, Tableau },
   })
 
   const dateFormatted = new Date(article.date).toLocaleDateString('fr-FR', {

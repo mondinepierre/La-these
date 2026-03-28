@@ -22,7 +22,7 @@ export const novo: AnalyseCard = {
     'moat',
     'marge-de-securite',
   ],
-
+  readingTime:    10,
   prixCible:      { bas: 550, haut: 720, devise: 'DKK' },
   marginOfSafety: 'faible',
 

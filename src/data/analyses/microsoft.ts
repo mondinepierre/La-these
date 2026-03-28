@@ -31,7 +31,7 @@ export const microsoft: AnalyseCard = {
   geo:            'États-Unis',   // voir union ZoneGeo
   conviction:     'moyenne',      // exceptionnelle | forte | moyenne | spéculative
   positionnement: 'surveillance', // achat fort | accumulation | surveillance | maintien | allégement
-  lastUpdated:    '2026-01-01',
+  lastUpdated:    '2026-03-28',
   statut:         'en-construction', // en-construction | actif | archivé
   portefeuille:   'CTO',          // PEA | CTO | PEA + CTO | Aucun
   horizon:        '',
@@ -42,31 +42,31 @@ export const microsoft: AnalyseCard = {
   marginOfSafety: 'indéterminée', // forte | correcte | faible | négative | indéterminée
 
   metrics: {
-    per:               0,  // Price / Earnings
-    evEbitda:          0,  // EV / EBITDA
-    fcfYield:          0,  // FCF Yield en %
-    roic:              0,  // Return on Invested Capital en %
-    wacc:              0,  // Weighted Average Cost of Capital en %
-    detteEbitda:       0,  // Dette nette / EBITDA — négatif = trésorerie nette
-    croissanceCA3ans:  0,  // TCAC CA sur 3 ans en %
-    croissanceBPA3ans: 0,  // TCAC BPA sur 3 ans en %
-    margeEbit:         0,  // Marge opérationnelle en %
-    margeBrute:        0,  // Marge brute en %
-    payoutRatio:       0,  // Dividendes / Résultat net en %
-    currentRatio:      0,  // Actif courant / Passif courant
-    dso:               0,  // Days Sales Outstanding en jours
+    per:               30.25,  // Price / Earnings
+    evEbitda:          19.27,  // EV / EBITDA
+    fcfYield:          2.17,  // FCF Yield en %
+    roic:              17.44,  // Return on Invested Capital en %
+    wacc:              9.2,  // Weighted Average Cost of Capital en %
+    detteEbitda:       -0.27,  // Dette nette / EBITDA — négatif = trésorerie nette
+    croissanceCA3ans:  14.39,  // TCAC CA sur 3 ans en %
+    croissanceBPA3ans: 21.12,  // TCAC BPA sur 3 ans en %
+    margeEbit:         57.85,  // Marge opérationnelle en %
+    margeBrute:        68.59,  // Marge brute en %
+    payoutRatio:       21.19,  // Dividendes / Résultat net en %
+    currentRatio:      1.52,  // Actif courant / Passif courant
+    dso:               107,  // Days Sales Outstanding en jours
   },
 
   tendances: {
     per:       'stable', // hausse | stable | baisse
-    fcfYield:  'stable',
-    roic:      'stable',
-    margeEbit: 'stable',
+    fcfYield:  'baisse',
+    roic:      'baisse',
+    margeEbit: 'hausse',
   },
 
   updates: [
     {
-      date: '2026-01-01',
+      date: '2026-03-28',
       note: 'Création de la fiche.',
     },
   ],
@@ -91,11 +91,11 @@ export const microsoft: AnalyseCard = {
 
     // ── Marges sur 5 ans ──────────────────────────────────────
     marges: [
-      { year: 2021, net: 0, operating: 0 },
-      { year: 2022, net: 0, operating: 0 },
-      { year: 2023, net: 0, operating: 0 },
-      { year: 2024, net: 0, operating: 0 },
-      { year: 2025, net: 0, operating: 0 },
+      { year: 2021, gross: 68.83, operating: 48.84, net: 38.5 },
+      { year: 2022, gross: 68.16, operating: 47.66, net: 33.05 },
+      { year: 2023, gross: 69.75, operating: 50.26, net: 36.27 },
+      { year: 2024, gross: 69.41, operating: 53.47, net: 35.43 },
+      { year: 2025, gross: 68.59, operating: 57.85, net: 39.04 },
     ],
 
     // ── ROIC simple sur 5 ans ─────────────────────────────────

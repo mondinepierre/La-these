@@ -306,7 +306,9 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
         )}
 
         <p className="text-stone-400 font-sans text-xs mt-3">
-          Horizon : {frontmatter.horizon} · Mise à jour : {lastUpdated}
+          Horizon : {frontmatter.horizon}
+          {frontmatter.readingTime && ` · ${frontmatter.readingTime} min de lecture`}
+          {` · Mise à jour : ${lastUpdated}`}
         </p>
       </header>
 
