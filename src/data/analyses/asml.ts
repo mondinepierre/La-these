@@ -23,6 +23,7 @@ export const asml: AnalyseCard = {
     'marge-de-securite',
   ],
   readingTime:    11,
+  logo:          '/analyse/ASML.png',
   prixCible: {
     bas:    1070,
     haut:   1450,

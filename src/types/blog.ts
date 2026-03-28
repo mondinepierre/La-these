@@ -1,4 +1,4 @@
-export type Categorie = 'pedagogie' | 'macro' | 'methode' | 'parcours'
+export type Categorie = 'pedagogie' | 'macro' | 'methode' | 'parcours' 
 export type NiveauBlog = 'debutant' | 'intermediaire' | 'avance'
 
 export interface ArticleMeta {
@@ -13,4 +13,5 @@ export interface ArticleMeta {
   related: string[]            // slugs /blog
   analyses: string[]           // slugs /analyses
   portefeuilles: string[]      // slugs /portefeuilles
+  publishedAt?: string  // ISO date — si absent, publié immédiatement
 }

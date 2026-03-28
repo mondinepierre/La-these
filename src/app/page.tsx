@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { HeroSection } from '@/components/layout/HeroSection'
 import { ArticleCard } from '@/components/ui/ArticleCard'
 import { ANALYSES } from '@/data/analyses'
-import { articles } from '@/data/blog' // Import de ton nouveau fichier
+import { getPublishedArticles } from '@/data/blog'
 
 // ─── Modules mis en avant — Parcours Bases ───────────────────────────────────
 const FEATURED_MODULES = [
@@ -36,12 +36,11 @@ const FEATURED_MODULES = [
 ]
 
 // Fusion des deux sources
-const tousLesContenus = [...ANALYSES, ...articles]
+const tousLesContenus = [...ANALYSES, ...getPublishedArticles()]
 
 const derniersPublies = tousLesContenus
-  .filter(a => ('statut' in a ? a.statut === 'actif' : true)) // On garde les actifs (ou tout si pas de statut)
+  .filter(a => ('statut' in a ? a.statut === 'actif' : true))
   .sort((a, b) => {
-    // On récupère la date la plus récente disponible
     const dateA = 'lastUpdated' in a ? a.lastUpdated : a.date
     const dateB = 'lastUpdated' in b ? b.lastUpdated : b.date
     return new Date(dateB).getTime() - new Date(dateA).getTime()
@@ -181,46 +180,41 @@ export default function Home() {
             </Link>
           </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {derniersPublies.map((a) => {
-            // 1. Déterminer le type
-            const isBlogArticle = 'summary' in a;
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {derniersPublies.map((a) => {
+              const isBlogArticle = 'summary' in a
 
-            // 2. Extraire les données avec des fallbacks (valeurs par défaut) pour les analyses
-            const title = a.title;
-            const excerpt = isBlogArticle ? a.summary : a.excerpt;
-            const href = isBlogArticle ? `/blog/${a.slug}` : `/analyses/${a.slug}`;
-            
-            // Correction ici : on vérifie si readingTime existe, sinon on met 5 (ou undefined)
-            const readingTime = 'readingTime' in a ? a.readingTime : 5; 
+              const title = a.title
+              const excerpt = isBlogArticle ? a.summary : a.excerpt
+              const href = isBlogArticle ? `/blog/${a.slug}` : `/analyses/${a.slug}`
+              const readingTime = 'readingTime' in a ? a.readingTime : 5
 
-            const CATEGORY_LABELS: Record<string, string> = {
-              pedagogie: 'Pédagogie',
-              macro:     'Macro',
-              methode:   'Méthode',
-              parcours:  'Parcours',
-            }
+              const CATEGORY_LABELS: Record<string, string> = {
+                pedagogie: 'Pédagogie',
+                macro:     'Macro',
+                methode:   'Méthode',
+                parcours:  'Parcours',
+              }
 
-            const category = isBlogArticle
-              ? `Blog · ${CATEGORY_LABELS[a.category] ?? a.category}`
-              : `Analyse · ${'secteur' in a ? a.secteur : 'Marché'}`;
+              const category = isBlogArticle
+                ? `Blog · ${CATEGORY_LABELS[a.category] ?? a.category}`
+                : `Analyse · ${'secteur' in a ? a.secteur : 'Marché'}`
 
-            // Le niveau n'existe pas non plus sur les analyses, on met 'intermediaire' par défaut
-            const level = 'level' in a ? a.level : 'intermediaire';
+              const level = 'level' in a ? a.level : 'intermediaire'
 
-            return (
-              <ArticleCard
-                key={a.slug}
-                title={title}
-                excerpt={excerpt}
-                href={href}
-                level={level}
-                category={category}
-                readingTime={readingTime}
-              />
-            );
-          })}
-        </div>
+              return (
+                <ArticleCard
+                  key={a.slug}
+                  title={title}
+                  excerpt={excerpt}
+                  href={href}
+                  level={level}
+                  category={category}
+                  readingTime={readingTime}
+                />
+              )
+            })}
+          </div>
         </section>
 
         {/* CTA communauté */}

@@ -15,6 +15,7 @@ import SegmentRevenueChart from './charts/SegmentRevenueChart'
 import MetricsDashboard from './MetricsDashboard'
 import ValuationBarChart from './charts/ValuationBarChart'
 import ValuationRadarChart from './charts/ValuationRadarChart'
+import GeoRevenueChart from './charts/GeoRevenueChart'
 
 type MDXContent = React.ComponentType<{ components?: Record<string, React.ComponentType> }>
 
@@ -116,6 +117,16 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
         />
       )
     : () => null
+
+  const GeoChart = cd?.geoRevenue
+  ? (props: { source?: string; title?: string }) => (
+      <GeoRevenueChart
+        data={cd.geoRevenue!}
+        source={props.source}
+        title={props.title}
+      />
+    )
+  : () => null
 
   const ValuationBar = cd?.valuationCompare
     ? (props: { title?: string; name?: string }) => (
@@ -269,18 +280,35 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
           <PositionnementBadge positionnement={frontmatter.positionnement} />
         </div>
 
-        <div className="flex items-baseline gap-3 mb-2">
-          <h1 className="font-serif text-3xl font-bold text-[#1B4332] leading-snug">
-            {frontmatter.title}
-          </h1>
-          <span className="text-lg font-sans text-stone-400 font-medium">
-            {frontmatter.ticker}
-          </span>
-        </div>
+        <div className="flex items-start justify-between mb-2">
+          <div>
+            <div className="flex items-baseline gap-3">
+              <h1 className="font-serif text-3xl font-bold text-[#1B4332] leading-snug">
+                {frontmatter.title}
+              </h1>
+              <span className="text-lg font-sans text-stone-400 font-medium">
+                {frontmatter.ticker}
+              </span>
+            </div>
 
-        <p className="text-stone-500 font-sans text-sm">
-          {frontmatter.secteur} · {frontmatter.geo} · {frontmatter.portefeuille}
-        </p>
+            <p className="text-stone-500 font-sans text-sm mt-1">
+              {frontmatter.secteur} · {frontmatter.geo} · {frontmatter.portefeuille}
+            </p>
+          </div>
+
+          {frontmatter.logo && (
+            <img
+              src={frontmatter.logo}
+              alt={`Logo ${frontmatter.title}`}
+              style={{
+                maxHeight:  '60px',
+                objectFit:  'contain',
+                objectPosition: 'right center',
+                flexShrink: 0,
+              }}
+            />
+          )}
+        </div>
 
         {aPrixCible && (
           <div style={{
@@ -330,6 +358,7 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
           RoicGraph,
           FcfGraph,
           GeoMap,
+          GeoChart,
           RoicWacc,
           SegmentGraph,
           ValuationBar,

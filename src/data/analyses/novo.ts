@@ -23,6 +23,7 @@ export const novo: AnalyseCard = {
     'marge-de-securite',
   ],
   readingTime:    10,
+  logo:          '/analyse/Novo_Nordisk.png',
   prixCible:      { bas: 550, haut: 720, devise: 'DKK' },
   marginOfSafety: 'faible',
 

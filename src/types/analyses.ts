@@ -172,8 +172,9 @@ export type FrontmatterValeur = {
   tendances:      Tendances
   updates:        UpdateEntry[]
   chartData?:     ChartData
-  glossaire?:     string[]  // slugs des termes — ex: ['per', 'free-cash-flow', 'moat']
-  readingTime?: number   // ← en minutes — affiché si renseigné, absent sinon
+  glossaire?:     string[]        // slugs des termes — ex: ['per', 'free-cash-flow', 'moat']
+  readingTime?: number            // ← en minutes — affiché si renseigné, absent sinon
+  logo?: string                   // chemin relatif — ex: '/images/analyses/asml/logo.png'
 }
 
 // ─────────────────────────────────────────────

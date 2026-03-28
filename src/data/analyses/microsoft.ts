@@ -37,7 +37,7 @@ export const microsoft: AnalyseCard = {
   horizon:        '',
   excerpt:        '',
   glossaire:      ['per', 'free-cash-flow', 'moat', 'roic'], // slugs glossaire liés
-
+  logo:          '/analyse/MSFT.png',
   prixCible:      { bas: 0, haut: 0, devise: 'USD' },
   marginOfSafety: 'indéterminée', // forte | correcte | faible | négative | indéterminée
 
@@ -84,9 +84,8 @@ export const microsoft: AnalyseCard = {
     // ── Répartition géographique du CA ────────────────────────
     // Régions disponibles : voir REGION_TO_CODES dans GeoRevenueMap.tsx
     geoRevenue: [
-      { region: 'États-Unis', pct: 0 },
-      { region: 'Europe',     pct: 0 },
-      { region: 'Asie',       pct: 0 },
+      { region: 'États-Unis', pct: 51.4 },
+      { region: 'Reste du monde',     pct: 48.6 },
     ],
 
     // ── Marges sur 5 ans ──────────────────────────────────────
@@ -128,13 +127,103 @@ export const microsoft: AnalyseCard = {
 
     // ── CA par segment (optionnel) ────────────────────────────
     // Composant MDX : <SegmentGraph unit="Md$" />
-    // segmentRevenue: [
-    //   { year: 2025, segments: [
-    //     { name: 'Segment A', value: 0 },
-    //     { name: 'Segment B', value: 0 },
-    //   ]},
-    // ],
-
+    segmentRevenue: [
+      { year: 2021, segments: [
+        { name: 'Productivity and Business Processes',  value: 59.2 },
+        { name: 'Intelligent Cloud',                    value: 67.6 },
+        { name: 'More Personal Computing',              value: 58 },
+      ]
+    },
+    { year: 2022, segments: [
+        { name: 'Productivity and Business Processes',  value: 77 },
+        { name: 'Intelligent Cloud',                    value: 74.6 },
+        { name: 'More Personal Computing',              value: 52.4 },
+      ]
+    },
+    { year: 2023, segments: [
+        { name: 'Productivity and Business Processes',  value: 100.5 },
+        { name: 'Intelligent Cloud',                    value: 79.6 },
+        { name: 'More Personal Computing',              value: 47.3 },
+      ]
+    },
+    { year: 2024, segments: [
+        { name: 'Productivity and Business Processes',  value: 113.4 },
+        { name: 'Intelligent Cloud',                    value: 72.5 },
+        { name: 'More Personal Computing',              value: 52.7 },
+      ]
+    },
+    { year: 2025, segments: [
+        { name: 'Productivity and Business Processes',  value: 130.1 },
+        { name: 'Intelligent Cloud',                    value: 120.4 },
+        { name: 'More Personal Computing',              value: 54.8 },
+      ]
+    },
+    ],
+      metricHistory: [
+        {
+          label: 'CA_MIX',
+          name:  'Productivity and Business Processes',
+          unit:  '%',
+          data: [
+            { year: 2021, value: 32.03 },
+            { year: 2022, value: 35.02 },
+            { year: 2023, value: 32.36 },
+            { year: 2024, value: 40.89 },
+            { year: 2025, value: 42.62 },
+          ],
+          competitors: [
+            {
+              name:  'Intelligent Cloud',
+              color: '#C9A84C',
+              data: [
+                { year: 2021, value: 36.60 },
+                { year: 2022, value: 38.31 },
+                { year: 2023, value: 42.28 },
+                { year: 2024, value: 34.28 },
+                { year: 2025, value: 39.43 },
+              ],
+            },
+            {
+              name:  'More Personal Computing',
+              color: '#2D6A4F',
+              data: [
+                { year: 2021, value: 31.38 },
+                { year: 2022, value: 26.68 },
+                { year: 2023, value: 25.36 },
+                { year: 2024, value: 24.83 },
+                { year: 2025, value: 17.95 },
+              ],
+            },
+          ],
+        },
+        {
+          label: 'CA_MI',
+          name:  'États-Unis',
+          unit:  '%',
+          data: [
+            { year: 2021, value: 32.03 },
+            { year: 2022, value: 35.02 },
+            { year: 2023, value: 32.36 },
+            { year: 2024, value: 40.89 },
+            { year: 2025, value: 42.62 },
+          ],
+          competitors: [
+            {
+              name:  'Intelligent Cloud',
+              color: '#C9A84C',
+              data: [
+                { year: 2021, value: 36.60 },
+                { year: 2022, value: 38.31 },
+                { year: 2023, value: 42.28 },
+                { year: 2024, value: 34.28 },
+                { year: 2025, value: 39.43 },
+              ],
+            },
+          ],
+        },
+      ]
+    }
+  }
     // ── Comparaison sectorielle ───────────────────────────────
     // Composant MDX : <ValuationRadar name="Nom" /> ou <ValuationBar name="Nom" />
     // Pairs : moyenne tronquée sur 6 pairs — source Finviz
@@ -172,9 +261,6 @@ export const microsoft: AnalyseCard = {
     //     ],
     //   },
     // ],
-  },
-}
-
 // ─────────────────────────────────────────────────────────────────────────────
 // TEMPLATE — Analyse ponctuelle
 // Copier ce bloc, renommer la variable, compléter.
@@ -190,4 +276,4 @@ export const microsoft: AnalyseCard = {
 //   geo:     'États-Unis',
 //   statut:  'en-construction',
 //   excerpt: '',
-// }
+// 

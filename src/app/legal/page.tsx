@@ -28,7 +28,7 @@ export default function Legal() {
           <div className="prose-editorial">
 
             <p className="font-sans text-sm text-[#78716C] mb-8">
-              Mis à jour le 16 février 2026
+              Mis à jour le 28 mars 2026
             </p>
 
             <p>
@@ -87,11 +87,23 @@ export default function Legal() {
               sans lien commercial.
             </p>
 
-            <h2>5. Données personnelles</h2>
+            <h2>5. Cookies et données personnelles</h2>
             <p>
-              Ce site ne collecte pas de données personnelles au-delà de ce qui
-              est strictement nécessaire au bon fonctionnement technique
-              (hébergement Vercel). Aucun traceur publicitaire n'est utilisé.
+              Ce site n'utilise pas de cookies. Aucun traceur publicitaire,
+              aucune régie publicitaire, aucun pixel de suivi n'est installé.
+            </p>
+            <p>
+              Les statistiques de fréquentation sont collectées via Vercel
+              Analytics, un outil sans cookie qui ne stocke aucune donnée
+              personnelle identifiable dans votre navigateur. Aucun bandeau de
+              consentement n'est donc nécessaire.
+            </p>
+            <p>
+              L'hébergement du site est assuré par Vercel (San Francisco, USA).
+              Des données techniques anonymes — adresse IP tronquée, type de
+              navigateur, page visitée — peuvent transiter par leurs serveurs
+              dans le cadre normal du fonctionnement technique. Ces données ne
+              sont pas utilisées à des fins commerciales.
             </p>
 
             <h2>6. Propriété intellectuelle</h2>
@@ -123,6 +135,7 @@ export default function Legal() {
                   "Investir comporte des risques réels",
                   "Vous restez seul décisionnaire",
                   "Aucun lien commercial avec les tiers cités",
+                  "Aucun cookie — analytics anonyme uniquement",
                   "Contenu informatif et pédagogique uniquement",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5">

@@ -25,5 +25,13 @@ export function getArticle(slug: string): ArticleMeta | undefined {
 }
 
 export function getAllSlugs(): string[] {
-  return articles.map(a => a.slug)
+  return getPublishedArticles().map(a => a.slug)
+}
+
+export function getPublishedArticles(): ArticleMeta[] {
+  const now = new Date()
+  return articles.filter(a => {
+    if (!a.publishedAt) return true
+    return new Date(a.publishedAt) <= now
+  })
 }

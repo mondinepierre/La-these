@@ -24,6 +24,7 @@ export const totalenergies: AnalyseCard = {
     'moat',
   ],
   readingTime:    10,
+  logo:          '/analyse/totalenergies.png',
   prixCible:      { bas: 46.6, haut: 68.9, devise: 'EUR' },
   marginOfSafety: 'négative',
 

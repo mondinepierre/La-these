@@ -1,4 +1,4 @@
-import { articles } from '@/data/blog'
+import { getPublishedArticles } from '@/data/blog'
 import { BlogIndex } from '@/components/blog/BlogIndex'
 
 export const metadata = {
@@ -7,7 +7,7 @@ export const metadata = {
 }
 
 export default function BlogPage() {
-  const sorted = [...articles].sort(
+  const sorted = [...getPublishedArticles()].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   )
 
