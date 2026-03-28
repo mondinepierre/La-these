@@ -6,6 +6,8 @@ const FOOTER_LINKS = [
   { href: '/portefeuilles', label: 'Portefeuilles' },
   { href: '/blog',  label: 'Blog' },
   { href: '/bibliotheque-etf',    label: 'ETF' }, 
+  { href: '/fiscalite',           label: 'Fiscalité' },
+  { href: '/declaration-fiscale', label: 'Déclaration fiscale' },
   { href: '/glossaire', label: 'Glossaire' },
   { href: '/discord',   label: 'Discord' },
   { href: '/a-propos',  label: 'À propos' },

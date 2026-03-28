@@ -151,29 +151,42 @@ export default function Discord() {
 
         {/* ── CTA principal ────────────────────────────────────────────── */}
         <section>
-          <div className="bg-[#1B4332] rounded-lg px-8 py-10 text-center md:text-left md:flex md:items-center md:justify-between gap-10">
+          <div 
+            className="rounded-lg px-8 py-10 text-center md:text-left md:flex md:items-center md:justify-between gap-10"
+            style={{ backgroundColor: 'var(--color-accent)' }}
+          >
             <div>
-              <h2 className="font-display text-2xl font-medium text-[#F7F4EF] leading-snug mb-3">
+              <h2 
+                className="font-display text-2xl font-medium leading-snug mb-3"
+                style={{ color: 'var(--color-stone-warm)' }}
+              >
                 Prêt à rejoindre la communauté ?
               </h2>
-              <p className="font-serif text-sm italic text-white/60 leading-relaxed max-w-md">
+              <p 
+                className="font-serif text-sm italic leading-relaxed max-w-md"
+                style={{ color: 'color-mix(in srgb, var(--color-stone-warm), transparent 40%)' }}
+              >
                 Le serveur est gratuit et ouvert. Prenez le temps de lire les
                 règles avant de participer — c'est court.
               </p>
             </div>
             <div className="mt-6 md:mt-0 shrink-0 flex flex-col sm:flex-row md:flex-col gap-3 items-center md:items-start">
-              {/* Remplacez href par votre lien d'invitation Discord */}
               <a
-                href="https://discord.gg/tVJr4kWj6V"
+                href="https://discord.gg/GmacKFg2fp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-sans text-sm font-medium bg-[#C9A84C] text-[#1B4332] px-6 py-3 rounded hover:bg-[#C9A84C]/90 transition-colors duration-150 whitespace-nowrap"
+                className="inline-flex items-center gap-2 font-sans text-sm font-medium px-6 py-3 rounded hover:opacity-90 transition-colors duration-150 whitespace-nowrap"
+                style={{ backgroundColor: 'var(--color-gold)', color: 'var(--color-accent)' }}
               >
                 Rejoindre le Discord →
               </a>
               <Link
                 href="/academie"
-                className="inline-flex items-center font-sans text-sm text-white/70 px-6 py-3 rounded border border-white/20 hover:text-white hover:border-white/40 transition-colors duration-150 whitespace-nowrap"
+                className="inline-flex items-center font-sans text-sm px-6 py-3 rounded border transition-colors duration-150 whitespace-nowrap"
+                style={{ 
+                  color: 'color-mix(in srgb, var(--color-stone-warm), transparent 30%)',
+                  borderColor: 'color-mix(in srgb, var(--color-stone-warm), transparent 80%)'
+                }}
               >
                 D'abord, voir l'académie
               </Link>

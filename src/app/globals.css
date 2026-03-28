@@ -143,6 +143,14 @@ p, li, blockquote {
   max-width: 680px;
 }
 
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-body {
+  font-family: var(--font-serif);
+}
+
 .prose-editorial h2 {
   font-family: var(--font-display);
   font-size: 24px;

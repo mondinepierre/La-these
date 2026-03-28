@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: '/blog',  label: 'Blog' },
   { href: '/bibliotheque-etf',    label: 'ETF' }, 
   { href: '/glossaire', label: 'Glossaire' },
+  { href: '/fiscalite',           label: 'Fiscalité' },
   { href: '/a-propos',  label: 'À propos' },
 ]
 
@@ -85,7 +86,7 @@ export function Navigation() {
           {/* CTA desktop */}
           {isDesktop && (
             <Link
-              href="/rejoindre"
+              href="/discord"
               style={{ fontFamily: '"DM Sans", system-ui, sans-serif', fontSize: '13px', fontWeight: 500, color: '#1B4332', backgroundColor: '#C9A84C', padding: '7px 16px', borderRadius: '5px', textDecoration: 'none' }}
             >
               Rejoindre
@@ -127,7 +128,7 @@ export function Navigation() {
             })}
             <li style={{ paddingTop: '12px' }}>
               <Link
-                href="/rejoindre"
+                href="/Discord"
                 style={{ display: 'flex', justifyContent: 'center', fontFamily: '"DM Sans", system-ui, sans-serif', fontSize: '14px', fontWeight: 500, color: '#1B4332', backgroundColor: '#C9A84C', padding: '12px', borderRadius: '5px', textDecoration: 'none' }}
               >
                 Rejoindre la communauté
