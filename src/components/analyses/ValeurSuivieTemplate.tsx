@@ -301,9 +301,11 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
               src={frontmatter.logo}
               alt={`Logo ${frontmatter.title}`}
               style={{
+                maxWidth:   '120px',
                 maxHeight:  '60px',
+                width:      'auto',
+                height:     'auto',
                 objectFit:  'contain',
-                objectPosition: 'right center',
                 flexShrink: 0,
               }}
             />
