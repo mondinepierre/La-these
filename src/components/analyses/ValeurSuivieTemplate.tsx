@@ -9,13 +9,13 @@ import RoicChart from './charts/RoicChart'
 import RevenueChart from './charts/RevenueChart'
 import FcfChart from './charts/FcfChart'
 import GeoRevenueMap from './charts/GeoRevenueMap'
+import GeoRevenueChart from './charts/GeoRevenueChart'
 import MetricChart from './charts/MetricChart'
 import RoicWaccChart from './charts/RoicWaccChart'
 import SegmentRevenueChart from './charts/SegmentRevenueChart'
 import MetricsDashboard from './MetricsDashboard'
 import ValuationBarChart from './charts/ValuationBarChart'
 import ValuationRadarChart from './charts/ValuationRadarChart'
-import GeoRevenueChart from './charts/GeoRevenueChart'
 
 type MDXContent = React.ComponentType<{ components?: Record<string, React.ComponentType> }>
 
@@ -25,8 +25,6 @@ type Props = {
 }
 
 // ── Disclaimer verdict ────────────────────────────────────────
-// Composant injecté dans le MDX via <DisclaimerVerdict />
-// À placer juste avant les niveaux de prix personnels dans le Verdict
 function DisclaimerVerdictBlock() {
   return (
     <div style={{
@@ -58,11 +56,11 @@ function DisclaimerVerdictBlock() {
 function NoteAnalyseBlock({ children }: { children?: React.ReactNode }) {
   return (
     <p style={{
-      fontFamily: 'var(--font-sans)',
-      fontSize:   '12px',
-      color:      'var(--color-ink-faint)',
-      fontStyle:  'italic',
-      marginTop:  '-2.5rem',   // ← remonte pour coller au graphique
+      fontFamily:   'var(--font-sans)',
+      fontSize:     '12px',
+      color:        'var(--color-ink-faint)',
+      fontStyle:    'italic',
+      marginTop:    '-2.5rem',
       marginBottom: '1.5rem',
     }}>
       {children}
@@ -83,28 +81,47 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
   const isDev    = process.env.NODE_ENV === 'development'
   const isLocked = frontmatter.statut === 'en-construction' && !isDev
 
-  // ── Composants graphiques simples ────────────────────────────
+  // ── Composants graphiques — chacun reçoit ses propres breaks ─
   const RevenueGraph = cd?.revenue
     ? (props: { title?: string; unit?: string }) => (
-        <RevenueChart data={cd.revenue!} title={props.title} unit={props.unit} />
+        <RevenueChart
+          data={cd.revenue!}
+          title={props.title}
+          unit={props.unit}
+          dataBreaks={cd.revenueBreaks}
+        />
       )
     : () => null
 
   const MargesGraph = cd?.marges
     ? (props: { title?: string }) => (
-        <MargesChart data={cd.marges!} title={props.title} />
+        <MargesChart
+          data={cd.marges!}
+          title={props.title}
+          dataBreaks={cd.margesBreaks}
+        />
       )
     : () => null
 
   const RoicGraph = cd?.roic
     ? (props: { title?: string; wacc?: number }) => (
-        <RoicChart data={cd.roic!} title={props.title} wacc={props.wacc} />
+        <RoicChart
+          data={cd.roic!}
+          title={props.title}
+          wacc={props.wacc}
+          dataBreaks={cd.roicBreaks}
+        />
       )
     : () => null
 
   const FcfGraph = cd?.fcf
     ? (props: { title?: string; unit?: string }) => (
-        <FcfChart data={cd.fcf!} title={props.title} unit={props.unit} />
+        <FcfChart
+          data={cd.fcf!}
+          title={props.title}
+          unit={props.unit}
+          dataBreaks={cd.fcfBreaks}
+        />
       )
     : () => null
 
@@ -119,14 +136,14 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
     : () => null
 
   const GeoChart = cd?.geoRevenue
-  ? (props: { source?: string; title?: string }) => (
-      <GeoRevenueChart
-        data={cd.geoRevenue!}
-        source={props.source}
-        title={props.title}
-      />
-    )
-  : () => null
+    ? (props: { source?: string; title?: string }) => (
+        <GeoRevenueChart
+          data={cd.geoRevenue!}
+          source={props.source}
+          title={props.title}
+        />
+      )
+    : () => null
 
   const ValuationBar = cd?.valuationCompare
     ? (props: { title?: string; name?: string }) => (
@@ -150,9 +167,25 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
       )
     : () => null
 
+  const ValuationRadar2 = cd?.valuationCompare2
+  ? (props: { title?: string; name?: string; concurrent1?: string; concurrent2?: string }) => (
+      <ValuationRadarChart
+        data={cd.valuationCompare2!}
+        title={props.title}
+        name={props.name}
+        concurrent1={props.concurrent1}
+        concurrent2={props.concurrent2}
+      />
+    )
+  : () => null
+
   const RoicWacc = cd?.roicVsWacc
     ? (props: { title?: string }) => (
-        <RoicWaccChart data={cd.roicVsWacc!} title={props.title} />
+        <RoicWaccChart
+          data={cd.roicVsWacc!}
+          title={props.title}
+          dataBreaks={cd.roicWaccBreaks}
+        />
       )
     : () => null
 
@@ -162,6 +195,7 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
           data={cd.segmentRevenue!}
           title={props.title}
           unit={props.unit}
+          dataBreaks={cd.segmentBreaks}
         />
       )
     : () => null
@@ -290,7 +324,6 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
                 {frontmatter.ticker}
               </span>
             </div>
-
             <p className="text-stone-500 font-sans text-sm mt-1">
               {frontmatter.secteur} · {frontmatter.geo} · {frontmatter.portefeuille}
             </p>
@@ -365,8 +398,9 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
           SegmentGraph,
           ValuationBar,
           ValuationRadar,
+          ValuationRadar2,
           DisclaimerVerdict: DisclaimerVerdictBlock,
-          NoteAnalyse: NoteAnalyseBlock,
+          NoteAnalyse:       NoteAnalyseBlock,
           ...MetricGraphs,
         }} />
       </div>

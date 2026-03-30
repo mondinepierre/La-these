@@ -2,7 +2,7 @@
 
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid,
-  Tooltip, Legend, ResponsiveContainer,
+  Tooltip, Legend, ResponsiveContainer, ReferenceLine,
 } from 'recharts'
 import type { MetricSerie } from '@/types/analyses'
 
@@ -14,18 +14,15 @@ type Props = {
 const COULEUR_PRINCIPALE = '#1B4332'
 
 export default function MetricChart({ serie, title }: Props) {
-  const unit = serie.unit ?? ''
-  const displayTitle = title ?? `${serie.label} sur ${serie.data.length} ans${unit ? ` (${unit.trim()})` : ''}`
+  const unit             = serie.unit ?? ''
+  const displayTitle     = title ?? `${serie.label} sur ${serie.data.length} ans${unit ? ` (${unit.trim()})` : ''}`
   const couleurPrincipale = serie.color ?? COULEUR_PRINCIPALE
   const dashArray         = serie.dashed ? '5 3' : undefined
-  
 
-  // Fusionner données principales + concurrents dans un seul tableau Recharts
   const allYears = [...new Set([
     ...serie.data.map(d => d.year),
     ...(serie.competitors ?? []).flatMap(c => c.data.map(d => d.year)),
   ])].sort()
-
 
   const merged = allYears.map(year => {
     const main = serie.data.find(d => d.year === year)
@@ -49,6 +46,8 @@ export default function MetricChart({ serie, title }: Props) {
   const padding  = (maxValue - minValue) * 0.15
   const floor    = Math.floor(minValue - padding)
 
+  const hasRightBreak = serie.dataBreaks?.some(b => b.year === allYears[allYears.length - 1])
+
   return (
     <div className="my-8">
       <h3 style={{
@@ -61,7 +60,7 @@ export default function MetricChart({ serie, title }: Props) {
         {displayTitle}
       </h3>
       <ResponsiveContainer width="100%" height={260}>
-        <LineChart data={merged} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+        <LineChart data={merged} margin={{ top: 20, right: hasRightBreak ? 120 : 20, left: 0, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--color-stone-border)" />
           <XAxis dataKey="year" tick={{ fontSize: 12, fontFamily: 'DM Sans' }} />
           <YAxis
@@ -74,8 +73,16 @@ export default function MetricChart({ serie, title }: Props) {
             contentStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}
           />
           <Legend wrapperStyle={{ fontFamily: 'DM Sans', fontSize: 12 }} />
-
-          {/* Ligne principale — toujours en vert plein */}
+            {serie.dataBreaks?.map(b => (
+              <ReferenceLine
+                key={String(b.year)}
+                x={b.year}
+                stroke="#78716C"
+                strokeDasharray="4 4"
+                strokeWidth={1.5}
+                label={{ value: b.label, position: 'top', fontSize: 12, fontFamily: 'DM Sans', fill: '#78716C' }}
+              />
+            ))}
           <Line
             type="monotone"
             dataKey={serie.label}
@@ -86,20 +93,18 @@ export default function MetricChart({ serie, title }: Props) {
             dot={false}
             connectNulls
           />
-
-          {/* Lignes concurrentes — pointillées avec leur couleur */}
           {serie.competitors?.map(c => (
-          <Line
-            key={c.name}
-            type="monotone"
-            dataKey={c.name}
-            stroke={c.color}
-            strokeWidth={1.5}
-            strokeDasharray={c.dashed ? '5 3' : undefined}
-            dot={false}
-            connectNulls
-          />
-        ))}
+            <Line
+              key={c.name}
+              type="monotone"
+              dataKey={c.name}
+              stroke={c.color}
+              strokeWidth={1.5}
+              strokeDasharray={c.dashed ? '5 3' : undefined}
+              dot={false}
+              connectNulls
+            />
+          ))}
         </LineChart>
       </ResponsiveContainer>
     </div>

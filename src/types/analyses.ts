@@ -50,19 +50,19 @@ export type FrontmatterPonctuelle = {
 // ─────────────────────────────────────────────
 
 export type Metrics = {
-  per:               number  // Price / Earnings
-  evEbitda:          number  // EV / EBITDA
-  fcfYield:          number  // FCF Yield en %
-  roic:              number  // Return on Invested Capital en %
-  wacc:              number  // Weighted Average Cost of Capital en %
-  detteEbitda:       number  // Dette nette / EBITDA — négatif = trésorerie nette
-  croissanceCA3ans:  number  // TCAC CA sur 3 ans en %
-  croissanceBPA3ans: number  // TCAC BPA sur 3 ans en %
-  margeEbit:         number  // Marge opérationnelle en %
-  margeBrute:        number  // Marge brute en %
-  payoutRatio:       number  // Dividendes / Résultat net en %
-  currentRatio:      number  // Actif court terme / Passif court terme
-  dso:               number  // Days Sales Outstanding en jours
+  per:               number
+  evEbitda:          number
+  fcfYield:          number
+  roic:              number
+  wacc:              number
+  detteEbitda:       number
+  croissanceCA3ans:  number
+  croissanceBPA3ans: number
+  margeEbit:         number
+  margeBrute:        number
+  payoutRatio:       number
+  currentRatio:      number
+  dso:               number
 }
 
 export type Tendances = {
@@ -75,49 +75,61 @@ export type Tendances = {
 export type PrixCible = {
   bas:    number
   haut:   number
-  devise: string  // 'EUR' | 'USD' | etc.
+  devise: string
 }
 
 export type UpdateEntry = {
-  date: string  // format YYYY-MM-DD
+  date: string
   note: string
+}
+
+// ─────────────────────────────────────────────
+// Rupture de données — ligne verticale pointillée
+// Utiliser par graphique pour marquer un événement
+// ex: reclassification de segments, acquisition, changement de méthode
+// ─────────────────────────────────────────────
+
+export type DataBreak = {
+  year:  number
+  label: string
 }
 
 // ─────────────────────────────────────────────
 // Graphiques Recharts
 // ─────────────────────────────────────────────
 
-export type MargePoint   = { year: number;  gross?: number; operating?: number; net?: number; }
+export type MargePoint   = { year: number; gross?: number; operating?: number; net?: number }
 export type RoicPoint    = { year: number; value: number }
 export type RevenuePoint = { year: number; value: number }
 export type FcfPoint     = { year: number; value: number }
+
 export type GeoPoint = {
-  region: string  // ex : 'Europe' | 'Chine' | 'États-Unis' | 'Reste du monde'
-  pct:    number  // % du CA — la somme doit faire 100
+  region: string
+  pct:    number
 }
-// ── Graphiques flexibles ──────────────────────────────────────
 
 export type MetricPoint = {
   year:   number | string
   value:  number
-  wacc?:  number   // optionnel — uniquement pour ROIC vs WACC
+  wacc?:  number
 }
 
 export type CompetitorSerie = {
-  name:   string
-  color:  string
-  dashed?: boolean  // ← false/absent = continu, true = pointillé
-  data:   { year: number | string; value: number }[]
+  name:    string
+  color:   string
+  dashed?: boolean
+  data:    { year: number | string; value: number }[]
 }
 
 export type MetricSerie = {
-  label:        string           // titre du graphique — ex : 'PER'
-  name?:        string           // légende ligne principale — ex : 'TotalEnergies'
+  label:        string
+  name?:        string
   unit?:        string
-  color?:       string           // ← couleur personnalisée pour la ligne principale
-  dashed?:      boolean          // ← true = pointillé, false/absent = continu
+  color?:       string
+  dashed?:      boolean
   data:         MetricPoint[]
   competitors?: CompetitorSerie[]
+  dataBreaks?:  DataBreak[]
 }
 
 export type SegmentPoint = {
@@ -128,25 +140,35 @@ export type SegmentPoint = {
 export type ValuationPoint = {
   label:        string
   valeur:       number
-  secteur?:     number   // valeur du secteur
-  concurrent1?: number   // valeur du premier concurrent
-  concurrent2?: number   // valeur du second concurrent
+  secteur?:     number
+  concurrent1?: number
+  concurrent2?: number
 }
 
 export type ChartData = {
-  marges?:        MargePoint[]
-  roic?:          RoicPoint[]
-  revenue?:       RevenuePoint[]
-  fcf?:           FcfPoint[]
-  geoRevenue?:    GeoPoint[]
+  marges?:           MargePoint[]
+  roic?:             RoicPoint[]
+  revenue?:          RevenuePoint[]
+  fcf?:              FcfPoint[]
+  geoRevenue?:       GeoPoint[]
   valuationCompare?: ValuationPoint[]
-  valuationConcurrents?: {           // ← noms des concurrents pour la légende
+  valuationCompare2?: ValuationPoint[]   // nouveau  — <ValuationRadar2 />
+  valuationConcurrents?: {
     concurrent1?: string
     concurrent2?: string
   }
-  metricHistory?: MetricSerie[]    // graphiques libres — PER, EV/EBITDA, etc.
-  roicVsWacc?:    MetricPoint[]    // ROIC + WACC sur 5 ans
-  segmentRevenue?: SegmentPoint[]  // CA par segment sur 5 ans
+  metricHistory?:  MetricSerie[]
+  roicVsWacc?:     MetricPoint[]
+  segmentRevenue?: SegmentPoint[]
+
+  // ── Ruptures par graphique — indépendantes ────────────────
+  // N'ajouter que les clés nécessaires pour chaque fiche
+  revenueBreaks?:  DataBreak[]   // <RevenueGraph />
+  margesBreaks?:   DataBreak[]   // <MargesGraph />
+  fcfBreaks?:      DataBreak[]   // <FcfGraph />
+  roicBreaks?:     DataBreak[]   // <RoicGraph />
+  roicWaccBreaks?: DataBreak[]   // <RoicWacc />
+  segmentBreaks?:  DataBreak[]   // <SegmentGraph />
 }
 
 // ─────────────────────────────────────────────
@@ -172,9 +194,9 @@ export type FrontmatterValeur = {
   tendances:      Tendances
   updates:        UpdateEntry[]
   chartData?:     ChartData
-  glossaire?:     string[]        // slugs des termes — ex: ['per', 'free-cash-flow', 'moat']
-  readingTime?: number            // ← en minutes — affiché si renseigné, absent sinon
-  logo?: string                   // chemin relatif — ex: '/images/analyses/asml/logo.png'
+  glossaire?:     string[]
+  readingTime?:   number
+  logo?:          string
 }
 
 // ─────────────────────────────────────────────

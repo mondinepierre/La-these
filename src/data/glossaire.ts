@@ -1205,6 +1205,81 @@ export const glossaire: GlossaireTerm[] = [
     related: ["wacc", "roic"],
     modules: [],
   },
+
+  // ─── MICROSOFT & ALPHABET ─────────────────────────────────────────────────
+
+  {
+    slug: "roiic",
+    label: "ROIIC — Return on Incremental Invested Capital",
+    category: "Analyse fondamentale",
+    shortDef: "Le rendement généré par les nouveaux capitaux investis sur une période donnée, distinct du ROIC historique.",
+    definition: `Le ROIIC (Return on Incremental Invested Capital) mesure l\'efficacité des nouveaux investissements réalisés sur une période donnée, contrairement au ROIC qui reflète le rendement de l\'ensemble du capital accumulé historiquement. Formule : ROIIC = Variation du NOPAT / Variation du Capital investi.\n\nC\'est un indicateur avancé particulièrement utile pour évaluer si les Capex actuels vont créer de la valeur. Un ROIIC > WACC sur les investissements récents signifie que l\'entreprise alloue bien son capital marginal. Un ROIIC < WACC sur les nouveaux Capex est un signal d\'alerte.\n\nLa comparaison ROIIC sur plusieurs fenêtres temporelles (1 an, 2 ans, 4 ans) révèle le délai de maturation des investissements. Microsoft affiche un ROIIC > 14 % sur toutes les fenêtres et un pic à 2 ans — ce qui indique que ses Capex mettent environ 2 ans à générer leur plein rendement.`,
+    related: ["roic", "wacc", "capex", "free-cash-flow"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "saas",
+    label: "SaaS — Software as a Service",
+    category: "Analyse fondamentale",
+    shortDef: "Modèle de distribution logicielle par abonnement via le cloud, sans installation locale.",
+    definition: `Le SaaS (Software as a Service) est un modèle de distribution où le logiciel est hébergé dans le cloud et accessible par abonnement, sans installation ni maintenance locale. L\'utilisateur paie un abonnement mensuel ou annuel plutôt qu\'une licence unique.\n\nPour l\'investisseur, le modèle SaaS présente des caractéristiques financières attractives : revenus récurrents et prévisibles, coûts marginaux faibles (une copie supplémentaire du logiciel coûte quasi-rien), marges qui s\'améliorent structurellement à mesure que la base d\'abonnés croît sans coûts proportionnels.\n\nMicrosoft a opéré sa transition de licences perpétuelles vers le SaaS sous Satya Nadella — transformant un revenu ponctuel en flux récurrents. Cette transformation explique en grande partie l\'expansion des marges opérationnelles de Productivity (passées à 58 %) et la visibilité accrue sur les revenus futurs.`,
+    related: ["capex", "marge-nette", "free-cash-flow", "pricing-power"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "dso",
+    label: "DSO — Days Sales Outstanding",
+    category: "Analyse fondamentale",
+    shortDef: "Le délai moyen en jours entre la facturation et l\'encaissement effectif du paiement.",
+    definition: `Le DSO (Days Sales Outstanding), ou délai moyen de recouvrement, mesure combien de jours en moyenne une entreprise attend entre l\'émission d\'une facture et la réception du paiement. Formule : DSO = (Créances clients / Chiffre d\'affaires) × Nombre de jours.\n\nUn DSO faible est généralement positif : l\'entreprise encaisse rapidement, ce qui améliore son cash-flow opérationnel et réduit le risque de créances irrécouvrables. Un DSO élevé peut signaler une clientèle lente à payer, un pouvoir de négociation faible, ou un mix B2B lourd (les contrats entreprises paient souvent à 60-90 jours).\n\nLe contexte sectoriel est essentiel : un DSO de 100 jours est attendu pour une entreprise B2B avec des contrats annuels facturés d\'avance, tandis qu\'un DSO de 100 jours dans la distribution alimentaire serait alarmant. Microsoft a fortement amélioré son DSO entre 2021 et 2023 notamment grâce à l\'acquisition d\'Activision (B2C) qui encaisse quasi-instantanément.`,
+    related: ["free-cash-flow", "current-ratio", "chiffre-affaires"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "dcf",
+    label: "DCF — Discounted Cash Flow",
+    category: "Analyse fondamentale",
+    shortDef: "Méthode de valorisation qui actualise les flux de trésorerie futurs estimés au coût du capital.",
+    definition: `Le DCF (Discounted Cash Flow — actualisation des flux de trésorerie) est l\'une des méthodes de valorisation intrinsèque les plus rigoureuses. Elle consiste à estimer les Free Cash Flows futurs d\'une entreprise sur un horizon donné (typiquement 5 à 10 ans), puis à les ramener à leur valeur actuelle en appliquant un taux d\'actualisation (généralement le WACC).\n\nFormule simplifiée : Valeur = Σ (FCF_n / (1 + WACC)^n) + Valeur terminale actualisée. La valeur terminale représente la valeur de l\'entreprise au-delà de l\'horizon explicite de prévision — elle pèse souvent 60 à 80 % de la valeur totale, ce qui souligne la sensibilité du modèle aux hypothèses de croissance long terme.\n\nLimite importante : un DCF est aussi fiable que ses hypothèses. Une petite variation du taux de croissance terminal ou du WACC peut faire varier la valorisation de 20 à 30 %. C\'est pourquoi un DCF s\'utilise avec une marge de sécurité et en scénarios (conservateur, central, optimiste) plutôt qu\'en valeur unique.`,
+    related: ["wacc", "free-cash-flow", "marge-de-securite", "fcf-yield"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "levier-operationnel",
+    label: "Levier opérationnel",
+    category: "Analyse fondamentale",
+    shortDef: "La capacité d\'une entreprise à augmenter ses bénéfices plus vite que son chiffre d\'affaires grâce à une base de coûts fixes.",
+    definition: `Le levier opérationnel mesure la sensibilité du résultat opérationnel aux variations du chiffre d\'affaires. Une entreprise avec un fort levier opérationnel voit ses bénéfices croître beaucoup plus vite que ses revenus quand elle monte en charge — et baisser beaucoup plus vite en cas de repli.\n\nMécanique : si les coûts fixes représentent une large part de la structure de coûts, chaque euro de revenus supplémentaire contribue presque entièrement au bénéfice (les coûts variables étant faibles). C\'est le modèle du cloud et du SaaS : construire l\'infrastructure coûte cher, mais servir un client supplémentaire coûte presque rien.\n\nAlphabet l\'illustre parfaitement sur Google Cloud : entre 2022 et 2025, le CA cloud a progressé de 77 % pendant que les dépenses ne montaient que de 43 % — un écart de 34 points qui révèle le levier opérationnel en action. L\'implication pour l\'investisseur : à mesure qu\'un segment cloud mature, sa marge s\'améliore structurellement sans effort proportionnel.`,
+    related: ["marge-nette", "capex", "saas", "roic"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "fcf-yield",
+    label: "FCF Yield — Rendement du Free Cash Flow",
+    category: "Analyse fondamentale",
+    shortDef: "Le Free Cash Flow rapporté à la capitalisation boursière ou à l\'Enterprise Value — indicateur de rendement réel.",
+    definition: `Le FCF Yield (rendement du Free Cash Flow) compare le Free Cash Flow généré par une entreprise à sa valeur de marché. Deux formules existent selon le contexte : FCF Yield = FCF / Capitalisation boursière (point de vue actionnaire), ou FCF Yield = FCF / Enterprise Value (point de vue global, neutralise l\'effet de la trésorerie nette).\n\nC\'est un indicateur de valorisation inverse du P/FCF : un FCF Yield de 5 % correspond à un P/FCF de 20. Plus le FCF Yield est élevé, plus l\'action est potentiellement bon marché par rapport au cash qu\'elle génère.\n\nComparaison avec le taux sans risque : si le FCF Yield d\'une action passe en dessous du taux des obligations d\'État américaines à 10 ans, cela signifie que l\'investisseur prend un risque actions sans être compensé par un rendement supérieur à l\'actif sans risque. Microsoft et Alphabet ont tous deux vu leur FCF Yield passer sous le taux US 10 ans en 2024-2025 — signal que le marché price une forte croissance future du FCF pour justifier la prime.`,
+    related: ["free-cash-flow", "p-fcf", "wacc", "dcf", "marge-de-securite"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
 ];
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────

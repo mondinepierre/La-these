@@ -36,8 +36,8 @@ export const alphabet: AnalyseCard = {
   portefeuille:   'CTO',          // PEA | CTO | PEA + CTO | Aucun
   horizon:        '36 mois',
   excerpt:        'L\'entreprise qui veut contrôler l\'IA de A à Z.',
-  glossaire:      ['per', 'free-cash-flow', 'moat', 'roic'], // slugs glossaire liés
-  readingTime:    14,
+  glossaire:      ['roic', 'moat', 'per-valorisation', 'capex', 'fcf-yield', 'levier-operationnel'],
+  readingTime:    20,
   logo:          '/analyse/alphabet.png',
   prixCible:      { bas: 326.8, haut: 384.5, devise: 'USD' },
   marginOfSafety: 'négative', // forte | correcte | faible | négative | indéterminée

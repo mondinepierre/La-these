@@ -2,14 +2,15 @@
 
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid,
-  Tooltip, Legend, ResponsiveContainer,
+  Tooltip, Legend, ResponsiveContainer, ReferenceArea,
 } from 'recharts'
-import type { SegmentPoint } from '@/types/analyses'
+import type { SegmentPoint, DataBreak } from '@/types/analyses'
 
 type Props = {
-  data:   SegmentPoint[]
-  unit?:  string
-  title?: string
+  data:        SegmentPoint[]
+  unit?:       string
+  title?:      string
+  dataBreaks?: DataBreak[]
 }
 
 // Palette segments — vert → or → intermédiaires
@@ -22,11 +23,11 @@ const COULEURS_SEGMENTS = [
   '#A8A29E',
 ]
 
-export default function SegmentRevenueChart({ data, unit = 'Md$', title }: Props) {
-  const segments = data.length > 0 ? data[0].segments.map(s => s.name) : []
+export default function SegmentRevenueChart({ data, unit = 'Md$', title, dataBreaks }: Props) {
+  const segments     = data.length > 0 ? data[0].segments.map(s => s.name) : []
   const displayTitle = title ?? `CA par segment sur ${data.length} ans (${unit})`
+  const dataYears = data.map(d => d.year).sort((a, b) => a - b)
 
-  // Aplatir les données pour Recharts
   const flat = data.map(({ year, segments: segs }) => {
     const row: Record<string, number | string> = { year }
     segs.forEach(s => { row[s.name] = s.value })
@@ -45,7 +46,7 @@ export default function SegmentRevenueChart({ data, unit = 'Md$', title }: Props
         {displayTitle}
       </h3>
       <ResponsiveContainer width="100%" height={280}>
-        <BarChart data={flat} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+        <BarChart data={flat} margin={{ top: 30, right: 20, left: 0, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--color-stone-border)" />
           <XAxis dataKey="year" tick={{ fontSize: 12, fontFamily: 'DM Sans' }} />
           <YAxis tick={{ fontSize: 12, fontFamily: 'DM Sans' }} />
@@ -54,6 +55,34 @@ export default function SegmentRevenueChart({ data, unit = 'Md$', title }: Props
             contentStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}
           />
           <Legend wrapperStyle={{ fontFamily: 'DM Sans', fontSize: 12 }} />
+
+          {/* Zones de rupture — entre deux barres sur axe catégoriel */}
+            {dataBreaks?.map(b => {
+              const idx     = dataYears.indexOf(b.year)
+              const nextYear = idx >= 0 && idx < dataYears.length - 1
+                ? dataYears[idx + 1]
+                : b.year   // dernier year — x1 === x2, simple ligne verticale
+              return (
+                <ReferenceArea
+                  key={b.year}
+                  x1={b.year}
+                  x2={nextYear}
+                  fill="transparent"
+                  stroke="#78716C"
+                  strokeDasharray="4 4"
+                  strokeWidth={1}
+                  label={{
+                    value:      b.label,
+                    position:   'top',
+                    fontSize:   12,
+                    fontFamily: 'DM Sans',
+                    fill:       '#78716C',
+                    offset:     4,
+                  }}
+                />
+              )
+            })}
+
           {segments.map((seg, i) => (
             <Bar
               key={seg}
