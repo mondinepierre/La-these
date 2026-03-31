@@ -381,7 +381,8 @@ export const portefeuilles: PortefeuilleEntry[] = [
     ],
 
     updates: [
-      { date: '2026-03-17', note: 'Initialisation du portefeuille sur La Thèse — allocation réelle actuelle, avant arbitrage.' },
+      { date: '2026-03-31', note: 'Mise à jour fin mars - Prise de profit sur 50% de la position TotalEnergies, et Achat d\'une action Microsoft.' },
+      { date: '2026-03-17', note: 'Initialisation du portefeuille sur La Thèse - allocation réelle actuelle, avant arbitrage.' },
     ],
   },
 
