@@ -17,7 +17,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       enveloppe: 'PEA + CTO',
       capitalDepart: 'Variable',
     },
-    updatedAt: '2026-03-17',
+    updatedAt: '2026-03-31',
     allocationCible : [
       // ── IA & Technologie ──────────────────────────────
       {
@@ -199,7 +199,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       // ── IA & Technologie ──────────────────────────────
       {
         label: 'Alphabet (C)',
-        pct: 13,
+        pct: 11.8,
         theme: 'IA & Technologie',
         enveloppe: 'CTO',
         gics: 'Comm. Services — Internet & Direct Marketing',
@@ -209,7 +209,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'Microsoft',
-        pct: 5,
+        pct: 10.2,
         theme: 'IA & Technologie',
         enveloppe: 'CTO',
         gics: 'Technologies — Logiciels',
@@ -219,7 +219,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'Rockwell Automation',
-        pct: 5,
+        pct: 4.9,
         theme: 'IA & Technologie',
         enveloppe: 'CTO',
         gics: 'Industrie — Équipements électriques',
@@ -229,7 +229,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'ASML',
-        pct: 19,
+        pct: 18.1,
         theme: 'IA & Technologie',
         enveloppe: 'PEA',
         gics: 'Technologies — Semi-conducteurs',
@@ -249,7 +249,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'GTT',
-        pct: 6,
+        pct: 6.4,
         theme: 'Énergie & Transition',
         enveloppe: 'PEA',
         gics: 'Industrie — Ingénierie & Construction',
@@ -259,7 +259,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'Air Liquide',
-        pct: 3,
+        pct: 2.8,
         theme: 'Énergie & Transition',
         enveloppe: 'PEA',
         gics: 'Matériaux — Chimie spécialisée',
@@ -269,7 +269,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'TotalEnergies',
-        pct: 9,
+        pct: 5.1,
         theme: 'Énergie & Transition',
         enveloppe: 'PEA',
         gics: 'Énergie — Pétrole & Gaz intégré',
@@ -279,17 +279,27 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'Cameco',
-        pct: 5,
+        pct: 5.2,
         theme: 'Énergie & Transition',
         enveloppe: 'CTO',
         gics: 'Énergie — Uranium',
         geo: 'Amérique du Nord (Canada)',
         analyseSlug: 'cameco',
       },
+            {
+        label: "Vicat",
+        pct: 0.9,
+        theme: 'Énergie & Transition',
+        enveloppe: 'PEA',
+        gics: 'Utilities',
+        geo: 'Europe (France)',
+        isin: '',
+        analyseSlug: 'Vicat',
+      },
       // ── Santé ─────────────────────────────────────────
       {
         label: 'Novo Nordisk',
-        pct: 4,
+        pct: 3.9,
         theme: 'Santé',
         enveloppe: 'PEA',
         gics: 'Santé — Produits pharmaceutiques',
@@ -300,7 +310,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       // ── Défense & Sécurité ────────────────────────────
       {
         label: 'Thales',
-        pct: 4,
+        pct: 4.1,
         theme: 'Défense & Sécurité',
         enveloppe: 'PEA',
         gics: 'Industrie — Aéronautique & Défense',
@@ -321,7 +331,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       // ── Finance & Data ────────────────────────────────
       {
         label: 'Visa',
-        pct: 4,
+        pct: 4.2,
         theme: 'Finance & Data',
         enveloppe: 'CTO',
         gics: 'Finance — Réseaux de paiement',
@@ -342,7 +352,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       // ── Consommation & Marques ────────────────────────
       {
         label: "L'Oréal",
-        pct: 5,
+        pct: 5.5,
         theme: 'Consommation & Marques',
         enveloppe: 'PEA',
         gics: 'Conso. courante — Produits personnels',
@@ -353,7 +363,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       // ── Actifs réels ──────────────────────────────────
       {
         label: 'Or physique (ETC)',
-        pct: 5,
+        pct: 4.2,
         theme: 'Actifs réels',
         enveloppe: 'CTO',
         gics: 'Matières premières — Métaux précieux',
@@ -362,7 +372,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'Bitcoin (ETC)',
-        pct: 3,
+        pct: 2.7,
         theme: 'Actifs réels',
         enveloppe: 'CTO',
         gics: 'Crypto-actifs',

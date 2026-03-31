@@ -5,8 +5,15 @@ type Props = {
 }
 
 export default function PeaCtoBlock({ allocation }: Props) {
-  const pea = allocation.filter((l) => l.enveloppe === 'PEA').reduce((s, l) => s + l.pct, 0)
-  const cto = allocation.filter((l) => l.enveloppe === 'CTO').reduce((s, l) => s + l.pct, 0)
+const pea = allocation
+  .filter((l) => l.enveloppe === 'PEA')
+  .reduce((s, l) => s + l.pct, 0)
+  .toFixed(2);
+
+const cto = allocation
+  .filter((l) => l.enveloppe === 'CTO')
+  .reduce((s, l) => s + l.pct, 0)
+  .toFixed(2);
 
   const lignesPea = allocation.filter((l) => l.enveloppe === 'PEA')
   const lignesCto = allocation.filter((l) => l.enveloppe === 'CTO')

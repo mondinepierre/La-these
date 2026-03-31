@@ -14,10 +14,13 @@ import type { ArticleMeta } from '@/types/blog'
 
 import { evEbitdaEtRoic } from './ev-ebitda-et-roic'
 import { roicEtWacc     } from './ROIC-et-WACC'
+import { leRoiic       } from './le-roiic'
+import { mvMsftEtRachat      } from './mv-msft-et-rachat'
 
 export const articles: ArticleMeta[] = [
   evEbitdaEtRoic,
   roicEtWacc,
+  mvMsftEtRachat,
 ]
 
 export function getArticle(slug: string): ArticleMeta | undefined {

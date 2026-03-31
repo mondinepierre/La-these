@@ -1,0 +1,95 @@
+Dans l'article précédent, nous avons vu que le ROIIC permet de qualifier la rentabilité de la croissance. Mais même une entreprise au ROIIC excellent peut sembler chère ou bon marché selon l'environnement de taux dans lequel on l'évalue.
+
+Le <Terme id="per" /> est l'indicateur de valorisation le plus utilisé. Il est aussi l'un des plus mal interprétés — parce qu'on le compare souvent à des références historiques sans ajuster pour les taux d'intérêt.
+
+## Pourquoi le PER historique reste utile
+
+Le PER mesure combien d'années de bénéfices vous payez pour acquérir une entreprise. Un PER de 20x signifie : à ce niveau de bénéfice, vous récupérez votre investissement en 20 ans.
+
+Son utilité principale : la comparaison. Un PER de 25x est-il cher ? Ça dépend du secteur, de la croissance, et — surtout — des taux.
+
+## Le problème : le PER de 2021 était gonflé par les taux zéro
+
+Entre 2020 et 2022, les taux directeurs des banques centrales étaient proches de zéro. Dans cet environnement, les investisseurs acceptaient de payer des multiples très élevés pour des flux de trésorerie futurs, parce que le coût d'opportunité (placer son argent sans risque) était quasi nul.
+
+Le S&P 500 a affiché des PER moyens de 30 à 35x sur cette période. Ce n'était pas une anomalie — c'était une conséquence mécanique des taux.
+
+Quand les taux remontent, deux effets jouent simultanément :
+
+1. **L'actualisation** : les flux futurs valent moins aujourd'hui quand le taux d'actualisation augmente
+2. **La concurrence du sans-risque** : un bon du Trésor américain à 4,5 % devient une alternative crédible aux actions
+
+Le résultat : les multiples se compriment. Un PER qui semblait "normal" à 30x en 2021 peut être "cher" à 20x en 2024 — même si les bénéfices de l'entreprise n'ont pas changé.
+
+## La mécanique : intuition DCF
+
+Sans entrer dans les détails d'un modèle DCF complet, l'intuition est la suivante.
+
+La valeur d'une action est la somme actualisée de ses flux futurs. Le taux d'actualisation inclut le taux sans risque (typiquement l'US10Y) plus une prime de risque.
+
+<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-xl font-display italic text-gold tracking-tight">Valeur = Σ (Flux futur / (1 + taux)ⁿ)</span></div>
+
+Si le taux d'actualisation monte de 1,5 % à 4,5 %, chaque flux futur vaut mécaniquement moins aujourd'hui. Le multiple que vous êtes prêt à payer baisse en conséquence.
+
+## La formule d'ajustement
+
+Une règle empirique largement utilisée en gestion :
+
+<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-xl font-display italic text-gold tracking-tight">Décote = (US10Y actuel − US10Y base) × 2,5</span></div>
+
+Le coefficient **2,5** est une approximation de la sensibilité des multiples aux taux — il reflète le fait qu'une hausse de 1 % des taux longs comprime historiquement les PER d'environ 2 à 3 points.
+
+**Exemple :**
+- US10Y base (moyenne 2015-2019) : **2,2 %**
+- US10Y actuel : **4,5 %**
+- Δ = 2,3 % × 2,5 = **5,75 points de décote**
+- PER sectoriel observé en 2021 : **28x**
+- PER ajusté : 28 − 5,75 = **≈ 22x**
+
+Ce PER de 22x est votre référence de travail dans l'environnement actuel.
+
+## Comment choisir la base de taux
+
+Le choix de la période de référence change le résultat — il faut être conscient de ce que l'on fait.
+
+**2 ans** : trop court, capture un régime de taux anormal (2020-2022 = taux zéro)
+
+**5 ans** : encore biaisé si la période inclut les années de QE massif
+
+**10-15 ans** : référence plus neutre, intègre un cycle complet de politique monétaire. C'est la fenêtre que j'utilise sur *La Thèse*.
+
+**Plancher à observer** : les taux ne reviennent probablement pas à zéro structurellement. Un plancher à 2 % sur l'US10Y est une hypothèse raisonnable pour un scénario optimiste. En dessous, la formule d'ajustement perd de sa pertinence.
+
+## Construire un PER sectoriel ajusté
+
+L'ajustement aux taux ne suffit pas si votre PER de référence est lui-même biaisé. Voici la méthode pour construire un multiple sectoriel propre.
+
+**1. Sélectionner les pairs.** Entreprises du même secteur, taille comparable, modèle économique similaire. En général 5 à 10 comparables suffisent — au-delà, les différences de qualité diluent la référence.
+
+**2. Nettoyer les outliers.** Exclure les valeurs avec un PER négatif (pertes) ou supérieur à 60x (distorsion par bénéfices exceptionnellement bas). Utiliser la médiane plutôt que la moyenne — plus robuste aux extrêmes.
+
+**3. Calculer sur une moyenne glissante de 20 trimestres.** Cinq ans de données trimestrielles lissent les effets de cycle tout en restant dans une période raisonnablement comparable.
+
+**4. Appliquer la décote de taux** calculée selon la formule ci-dessus.
+
+### Exemple d'application
+
+| Étape | Valeur |
+|---|---|
+| PER médian sectoriel (20 trimestres) | 24x |
+| US10Y base (15 ans) | 2,4 % |
+| US10Y actuel | 4,5 % |
+| Décote calculée | (4,5 − 2,4) × 2,5 = 5,25 pts |
+| **PER sectoriel ajusté** | **≈ 18-19x** |
+
+Ce multiple est votre ancre de valorisation dans l'environnement actuel. Si l'entreprise analysée cote à 22x, elle est au-dessus du pair ajusté — soit elle mérite une prime (meilleure qualité, croissance supérieure), soit elle est chère.
+
+## Les limites à garder en tête
+
+**C'est une règle empirique, pas une loi.** Le coefficient 2,5 est une approximation historique. Il varie selon les secteurs (les valeurs de croissance sont plus sensibles aux taux que les valeurs cycliques) et selon les régimes de marché.
+
+**Elle ne capture pas la prime de risque individuelle.** Deux entreprises du même secteur peuvent mériter des multiples très différents selon leur qualité de bilan, leur visibilité de revenus, et leur track record.
+
+**Elle est rétrospective.** Elle dit ce que le marché *aurait dû* payer compte tenu des taux — pas ce qu'il *paiera* demain.
+
+Utilisée correctement, cette méthode évite l'erreur la plus commune en valorisation : comparer des PER actuels à des références historiques sans tenir compte du contexte de taux qui les a produits.
