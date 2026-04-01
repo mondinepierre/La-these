@@ -21,6 +21,7 @@ export const articles: ArticleMeta[] = [
   evEbitdaEtRoic,
   roicEtWacc,
   mvMsftEtRachat,
+  leRoiic,
 ]
 
 export function getArticle(slug: string): ArticleMeta | undefined {

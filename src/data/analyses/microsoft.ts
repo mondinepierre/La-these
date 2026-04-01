@@ -212,10 +212,10 @@ export const microsoft: AnalyseCard = {
             { year: 2023, label: 'Acquisition activision' },
             ],
           data: [
-            { year: 2022, value: -10.8 },
-            { year: 2023, value: 13.54 },
-            { year: 2024, value: 22.27 },
-            { year: 2025, value: 15.16 },
+            { year: 2022, value: -7.2 },
+            { year: 2023, value: 59.41 },
+            { year: 2024, value: 13.31 },
+            { year: 2025, value: 31.46},
           ],
           competitors: [
             {
@@ -336,10 +336,10 @@ export const microsoft: AnalyseCard = {
           name:  'ROIIC',
           unit:  '%',
           data: [
-            { year: 1, value: 15.16 },
-            { year: 2, value: 17.48 },
-            { year: 3, value: 16.09 },
-            { year: 4, value: 14.09 },
+            { year: 1, value: 31.46 },
+            { year: 2, value: 20.1 },
+            { year: 3, value: 25.01 },
+            { year: 4, value: 19.92 },
           ],
         },
         {

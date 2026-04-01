@@ -12,7 +12,7 @@ const MDX: Record<string, React.ComponentType<any>> = {
   'microsoft':                dynamic(() => import('@/content/analyses/valeurs/microsoft.mdx')),
   'novo':                     dynamic(() => import('@/content/analyses/valeurs/novo.mdx')),
   'totalenergies':            dynamic(() => import('@/content/analyses/valeurs/totalenergies.mdx')),
-  'visa':                dynamic(() => import('@/content/analyses/valeurs/visa.mdx')),
+  'visa':                     dynamic(() => import('@/content/analyses/valeurs/visa.mdx')),
   'nvidia-resultats-q4-2025': dynamic(
     () => import('@/content/analyses/ponctuelles/nvidia-resultats-q4-2025.mdx')
   ),

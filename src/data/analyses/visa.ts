@@ -37,9 +37,10 @@ export const visa: AnalyseCard = {
   horizon:        '',
   excerpt:        '',
   glossaire:      ['per', 'free-cash-flow', 'moat', 'roic'], // slugs glossaire liés
-
+  logo:          '/analyse/visa.png',
   prixCible:      { bas: 0, haut: 0, devise: 'USD' },
   marginOfSafety: 'indéterminée', // forte | correcte | faible | négative | indéterminée
+  readingTime:    25,
 
   metrics: {
     per:               0,  // Price / Earnings
