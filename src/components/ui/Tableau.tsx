@@ -94,8 +94,6 @@ const TABLEAUX: Record<string, TableauData> = {
       },
     ],
   },
-  // ─── À coller dans TABLEAUX dans src/components/ui/Tableau.tsx ───────────────
-// Insérer avant la fermeture `}` de l'objet TABLEAUX (après la dernière entrée existante)
 
   'fiscalite-pfu-decomposition': {
     colonnes: [
@@ -317,6 +315,47 @@ const TABLEAUX: Record<string, TableauData> = {
         utilite:  "Référence pour les reports de moins-values et les calculs d'acompte",
         _headerBg:   '#E0DBCF',
         _headerText: '#1C1917',
+      },
+    ],
+  },
+
+  'exemple-roiic-nopat': {
+    colonnes: [
+      { key: 'annee',         label: 'Année',               primary: true },
+      { key: 'nopat',         label: 'NOPAT (M€)'                         },
+      { key: 'capital',       label: 'Capital Investi (M€)'               },
+      { key: 'roiic',         label: 'ROIIC CaLculé'                       },
+    ],
+    lignes: [
+      {
+        annee:         'N-2',
+        nopat:         '80',
+        capital:       '400',
+        _headerBg:   '#2D6A4F',
+        _headerText: '#F7F4EF',
+      },
+      {
+        annee:         'N-1',
+        nopat:         '100',
+        capital:       '500',
+        _headerBg:   '#2D6A4F',
+        _headerText: '#F7F4EF',
+      },
+      {
+        annee:         'N',
+        nopat:         '130',
+        capital:       '620',
+        roiic:         "(130-100) / (500-400) = 30 %",
+        _headerBg:   '#2D6A4F',
+        _headerText: '#F7F4EF',
+      },
+      {
+        annee:         "N+1",
+        nopat:         '150',
+        capital:       '750',
+        roiic:        "(150-130) / (620-500) = 17 %",
+        _headerBg:   '#2D6A4F',
+        _headerText: '#F7F4EF',
       },
     ],
   },

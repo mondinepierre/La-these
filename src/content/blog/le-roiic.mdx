@@ -1,6 +1,7 @@
-Dans l'article précédent, nous avons vu que le <Terme id="roic" /> mesure la rentabilité du capital déjà investi dans une entreprise. C'est un indicateur puissant — mais il a une limite importante quand on évalue une entreprise en croissance.
+Dans l'article précédent, nous avons vu que le <Terme id="roic" /> mesure la rentabilité du capital déjà investi dans une entreprise. C'est un indicateur puissant, mais il a une limite importante quand on évalue une entreprise en croissance.
 
 Il mesure le **stock**, pas le **flux**.
+En d'autre terme, c'est une photo, pas une vidéo.
 
 ## Ce que le ROIC historique ne voit pas
 
@@ -14,39 +15,75 @@ C'est la question à laquelle le ROIIC répond.
 
 Le **ROIIC** (Return On Incremental Invested Capital) mesure la rentabilité du **capital nouveau** déployé par l'entreprise sur une période donnée.
 
-<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-2xl font-display italic text-gold tracking-tight">ROIIC = ΔNOPAT / ΔCapital investi</span></div>
+<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-2xl font-display italic text-gold tracking-tight">ROIIC = Delta NOPAT / Delta Capital investi</span></div>
 
-- **ΔNOPAT** : la variation du résultat opérationnel net d'impôts entre deux périodes
-- **ΔCapital investi** : la variation du capital investi entre ces mêmes périodes
+- **Delta NOPAT** : la variation du résultat opérationnel net d'impôts entre deux périodes
+- **Delta Capital investi** : la variation du capital investi entre ces mêmes périodes
 
 L'intuition est simple : si une entreprise investit 100 € de capital supplémentaire et que son NOPAT augmente de 20 €, son ROIIC est de 20 %. Elle crée 20 € de profit pour chaque 100 € de croissance financée.
 
 ## Comment le calculer
 
 La formule brute :
+<div className="my-10 p-4 md:p-4 border-y border-stone-border rounded-xl shadow-sm flex items-center justify-center overflow-x-auto">
+  <div className="flex items-center gap-2 font-display text-xl text-gold min-w-max">
+    
+    {/* Terme de gauche */}
+    <div className="flex items-baseline">
+      <span className="italic font-medium">ROIIC</span>
+      <sub className="font-sans text-xs ml-0.5 text-accent tracking-wide">N</sub>
+    </div>
 
-```
-ROIIC (année N) = (NOPAT N − NOPAT N-1) / (Capital investi N-1 − Capital investi N-2)
-```
+    {/* Signe Égal */}
+    <span className="text-accent text-gold font-medium">=</span>
 
-Le **décalage d'un an** est délibéré. Les investissements réalisés en N-1 produisent leurs effets en N. Sans ce décalage, on divise un flux (la variation de profit) par un stock qui vient d'être constitué — le résultat est biaisé.
+    {/* Fraction */}
+    <div className="flex flex-col items-center">
+      {/* Numérateur */}
+      <div className="border-b border-accent-muted pb-2 mb-2 px-4 flex items-baseline gap-2">
+        <div>
+          <span className="italic">NOPAT</span>
+          <sub className="font-sans text-xs ml-0.5 text-accent tracking-wide">N</sub>
+        </div>
+        <span className="text-gold-faint">−</span>
+        <div>
+          <span className="italic">NOPAT</span>
+          <sub className="font-sans text-xs ml-0.5 text-accent tracking-wide">N-1</sub>
+        </div>
+      </div>
+      
+      {/* Dénominateur */}
+      <div className="flex items-baseline gap-2 px-4">
+        <div>
+          <span className="italic">Capital investi</span>
+          <sub className="font-sans text-xs ml-0.5 text-accent tracking-wide">N-1</sub>
+        </div>
+        <span className="text-gold-faint">−</span>
+        <div>
+          <span className="italic">Capital investi</span>
+          <sub className="font-sans text-xs ml-0.5 text-accent tracking-wide">N-2</sub>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+Le **décalage d'un an** est délibéré. Les investissements réalisés en N-1 produisent leurs effets en N. Sans ce décalage, on divise un flux (la variation de profit) par un stock qui vient d'être constitué, le résultat est biaisé.
 
 ### Exemple chiffré
 
-| Année | NOPAT (M€) | Capital investi (M€) | ROIIC calculé |
-|---|---|---|---|
-| N-2 | 80 | 400 | — |
-| N-1 | 100 | 500 | — |
-| N | 130 | 620 | (130−100) / (500−400) = **30 %** |
-| N+1 | 150 | 750 | (150−130) / (620−500) = **17 %** |
+<Tableau id="exemple-roiic-nopat" />
 
-En N, l'entreprise a investi 100 M€ de capital supplémentaire en N-1 et en a tiré 30 M€ de NOPAT additionnel — un ROIIC de 30 %. En N+1, les 120 M€ investis en N n'ont généré que 20 M€ additionnels — le ROIIC tombe à 17 %.
+En N, l'entreprise a investi 100 M€ de capital supplémentaire en N-1 et en a tiré 30 M€ de NOPAT additionnel, un ROIIC de 30 %. En N+1, les 120 M€ investis en N n'ont généré que 20 M€ additionnels, le ROIIC tombe à 17 %.
 
 Ce signal compte. La rentabilité marginale se dégrade.
 
 ## Les pièges à éviter
 
-**Les acquisitions faussent la lecture.** Quand une entreprise rachète une autre, le capital investi bondit, mais le NOPAT ne suit pas immédiatement — les synergies prennent du temps. Le ROIIC sera mécaniquement écrasé l'année de l'acquisition, sans que cela reflète la rentabilité réelle de l'activité organique.
+**Les acquisitions faussent la lecture.** Quand une entreprise rachète une autre, le capital investi bondit, mais le NOPAT ne suit pas immédiatement, les synergies prennent du temps. Le ROIIC sera mécaniquement écrasé l'année de l'acquisition, sans que cela reflète la rentabilité réelle de l'activité organique.
 
 Pour les entreprises acquisitives, il vaut mieux calculer le ROIIC en excluant les années d'acquisition significatives, ou en utilisant un périmètre organique.
 
@@ -72,12 +109,12 @@ La règle d'interprétation centrale :
 >
 > **ROIIC < WACC** = la croissance détruit de la valeur. Chaque euro réinvesti rapporte moins que son coût.
 
-Le cas idéal : un ROIIC supérieur au ROIC historique sur plusieurs années, lui-même supérieur au <Terme id="wacc" />. C'est la signature d'un <Terme id="moat" /> qui s'étend avec la taille — les entreprises les plus rares et les plus précieuses.
+Le cas idéal : un ROIIC supérieur au ROIC historique sur plusieurs années, lui-même supérieur au <Terme id="wacc" />. C'est la signature d'un <Terme id="moat" /> qui s'étend avec la taille, les entreprises les plus rares et les plus précieuses.
 
 ## Un outil, pas un oracle
 
-Le ROIIC est un indicateur rétrospectif parmi d'autres. Il ne prédit pas le futur — il qualifie le passé récent et permet de poser les bonnes questions sur l'avenir.
+Le ROIIC est un indicateur rétrospectif parmi d'autres. Il ne prédit pas le futur, il qualifie le passé récent et permet de poser les bonnes questions sur l'avenir.
 
 Une entreprise avec un ROIIC structurellement élevé mérite qu'on se demande : *pourquoi ce niveau tient-il ?* Est-ce un avantage concurrentiel durable, ou une phase de croissance sur un marché encore peu concurrentiel ?
 
-C'est cette question — la durabilité du spread — qui ouvre la voie à la valorisation rigoureuse. Dans le prochain article, nous verrons comment ajuster le PER historique à l'environnement de taux pour ne pas comparer des multiples de 2021 avec ceux d'aujourd'hui.
+Comprendre cette constance nous permet de savoir si l'entreprise crée de la valeur de manière pérenne. Dans le prochain article, nous verrons comment utiliser le PER ajusté en fonction des taux (obligations d’État comme le US 10 ans). C’est l’un des indicateurs qui permet de déterminer combien nous devrions payer pour cette création de valeur.
