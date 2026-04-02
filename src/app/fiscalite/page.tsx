@@ -103,13 +103,13 @@ export default function FiscalitePage() {
       </Callout>
 
       <Callout type="warning">
-        <strong>Attention — nouveau taux depuis le 1er janvier 2026.</strong> Le PFU est passé
+        <strong>Attention - nouveau taux depuis le 1er janvier 2026.</strong> Le PFU est passé
         de 30 % à <strong>31,4 %</strong> pour la majorité des revenus du capital. Cette page
         intègre les nouveaux taux en vigueur.
       </Callout>
 
       {/* ── 1. PFU ────────────────────────────────────────────────────────── */}
-      <SectionTitle>Le PFU — Prélèvement Forfaitaire Unique</SectionTitle>
+      <SectionTitle>Le PFU - Prélèvement Forfaitaire Unique</SectionTitle>
 
       <p className="mb-4 leading-relaxed">
         La Flat Tax, instaurée en 2018, est le régime d'imposition par défaut de la grande
@@ -130,31 +130,44 @@ export default function FiscalitePage() {
 
       <SubTitle>Ce que le PFU ne touche pas</SubTitle>
       <ul className="list-disc pl-6 space-y-2 mb-6">
-        <li>Livrets réglementés (Livret A, LDDS, LEP) — totalement exonérés</li>
-        <li>Revenus fonciers — soumis au barème progressif de l'IR</li>
-        <li>Plus-values immobilières — régime spécifique avec abattements pour durée de détention</li>
-        <li>Salaires et pensions — imposés au barème progressif</li>
+        <li>Livrets réglementés (Livret A, LDDS, LEP) - totalement exonérés</li>
+        <li>Revenus fonciers - soumis au barème progressif de l'IR</li>
+        <li>Plus-values immobilières - régime spécifique avec abattements pour durée de détention</li>
+        <li>Salaires et pensions - imposés au barème progressif</li>
       </ul>
 
       <SubTitle>Option barème progressif</SubTitle>
       <p className="mb-4 leading-relaxed">
         À chaque déclaration annuelle, vous pouvez renoncer au PFU et opter pour l'imposition au
         barème progressif de l'impôt sur le revenu. Ce choix s'applique alors à l'ensemble de vos
-        revenus du capital de l'année — dividendes, intérêts, plus-values. Il ne peut pas être
+        revenus du capital de l'année - dividendes, intérêts, plus-values. Il ne peut pas être
         sélectif.
       </p>
       <Tableau id="fiscalite-tmi" />
 
       <Callout type="info">
-        La règle générale : si votre tranche marginale d'imposition est à 0 % ou 11 %, le barème
-        progressif est souvent plus avantageux, notamment pour les dividendes (abattement de 40 %).
-        Pour les TMI à 30 % et au-delà, le PFU est habituellement préférable. La bonne réponse
-        dépend de votre situation complète — consultez un professionnel si les montants sont
-        significatifs.
+        <strong>La règle générale :</strong> si votre tranche marginale d'imposition est de 0 % ou 11 %, le barème
+        progressif est souvent plus avantageux, notamment pour les dividendes (abattement de 40 %).<br /><br />
+
+        À partir d'une TMI de 30 %, la situation devient plus nuancée. Le barème peut rester intéressant
+        si vos revenus sont majoritairement composés de dividendes, tandis que le PFU est généralement
+        préférable pour les plus-values et intérêts.<br /><br />
+
+        Pour les TMI de 41 % et plus, le PFU est le plus souvent avantageux.<br /><br />
+
+        La bonne réponse dépend de votre situation complète (revenus, composition, effets de seuil) -
+        <strong>faites des simulations et/ou consultez un professionnel</strong>.
+      </Callout>
+
+      <Callout type="warning">
+        <strong>Le risque :</strong> l'option pour le barème est globale. Des revenus du capital plus élevés
+        peuvent vous faire franchir un seuil d'imposition (par exemple de 11 % à 30 %), ce qui augmente
+        la fiscalité sur une partie de vos revenus et peut rendre l'imposition globale moins avantageuse
+        que le PFU.
       </Callout>
 
       {/* ── 2. Comparatif enveloppes ──────────────────────────────────────── */}
-      <SectionTitle>PEA, CTO, Assurance-vie — comparatif fiscal</SectionTitle>
+      <SectionTitle>PEA, CTO, Assurance-vie - comparatif fiscal</SectionTitle>
 
       <p className="mb-4 leading-relaxed">
         Le choix de l'enveloppe est l'une des décisions les plus structurantes pour un
@@ -172,7 +185,7 @@ export default function FiscalitePage() {
 
       <Callout type="key">
         <strong>Le PEA est l'enveloppe de référence pour un investisseur actions de long terme.</strong>{' '}
-        Après 5 ans, seuls les prélèvements sociaux à 18,6 % s'appliquent sur les gains — contre
+        Après 5 ans, seuls les prélèvements sociaux à 18,6 % s'appliquent sur les gains - contre
         31,4 % pour un CTO. Sur un horizon de 15 à 20 ans, cet écart représente des dizaines de
         milliers d'euros sur un portefeuille significatif.
       </Callout>
@@ -199,14 +212,14 @@ export default function FiscalitePage() {
       <Callout type="info">
         <strong>Abattement de 40 % sur les dividendes si option barème.</strong> Si vous optez
         pour le barème progressif, un abattement de 40 % s'applique sur les dividendes d'entreprises
-        françaises ou européennes (soumises à l'IS). Cet abattement n'existe pas avec le PFU — c'est
+        françaises ou européennes (soumises à l'IS). Cet abattement n'existe pas avec le PFU - c'est
         l'une des raisons pour lesquelles le barème peut être avantageux pour les contribuables dans
         les premières tranches.
       </Callout>
 
       <SubTitle>Intérêts sur la trésorerie du compte broker</SubTitle>
       <p className="mb-4 leading-relaxed">
-        Certains brokers rémunèrent les liquidités non investies sur votre compte — c'est le cas
+        Certains brokers rémunèrent les liquidités non investies sur votre compte - c'est le cas
         de Trade Republic, IBKR ou Degiro sur les soldes en euros. Ces intérêts sont des{' '}
         <strong>revenus de placement imposables</strong>, au même titre que les intérêts d'un
         compte à terme. Ils sont soumis au PFU à 31,4 % (ou au barème progressif sur option).
@@ -214,7 +227,7 @@ export default function FiscalitePage() {
       <Callout type="warning">
         Ces intérêts apparaissent sur votre IFU annuel, en général dans la rubrique
         "Intérêts et produits assimilés". Ils ne sont pas toujours pré-remplis correctement
-        par l'administration si votre broker est étranger (IBKR, Degiro…) — vérifiez systématiquement
+        par l'administration si votre broker est étranger (IBKR, Degiro…) - vérifiez systématiquement
         votre IFU avant de valider votre déclaration.
       </Callout>
 
@@ -232,7 +245,7 @@ export default function FiscalitePage() {
       <p className="mb-4 leading-relaxed">
         Une plus-value ou une moins-value mobilière est réalisée au moment de la{' '}
         <strong>vente</strong> d'un titre. Tant que vous détenez un titre, aucune imposition
-        n'est déclenchée, même si la valeur a fortement augmenté — c'est le principe fondamental
+        n'est déclenchée, même si la valeur a fortement augmenté - c'est le principe fondamental
         qui rend les enveloppes capitalisantes si puissantes sur le long terme.
       </p>
 
@@ -255,7 +268,7 @@ export default function FiscalitePage() {
 
       <Callout type="warning">
         <strong>Les moins-values ne se compensent pas entre PEA et CTO.</strong> Les pertes
-        réalisées dans un PEA restent dans le PEA — elles ne peuvent pas être imputées sur des
+        réalisées dans un PEA restent dans le PEA - elles ne peuvent pas être imputées sur des
         plus-values réalisées dans un CTO, et réciproquement. De même, les moins-values ne
         s'imputent pas sur des dividendes ou intérêts.
       </Callout>

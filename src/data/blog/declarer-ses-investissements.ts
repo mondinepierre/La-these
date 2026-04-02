@@ -3,9 +3,9 @@ import type { ArticleMeta } from '@/types/blog'
 
 export const declarerSesInvestissements: ArticleMeta = {
   slug: 'declarer-ses-investissements',
-  title: "Déclarer ses investissements boursiers : le guide pratique 2025",
-  date: '2026-03-31',
-  publishedAt: '2026-04-07',
+  title: "Déclarer ses investissements boursiers : le guide pratique 2026",
+  date: '2026-04-03',
+  publishedAt: '2026-04-02',
   category: 'parcours',
   level: 'debutant',
   readingTime: 7,
