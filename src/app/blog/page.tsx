@@ -1,4 +1,4 @@
-import { getPublishedArticles } from '@/data/blog'
+import { getPublishedArticles, getNextArticle } from '@/data/blog'
 import { BlogIndex } from '@/components/blog/BlogIndex'
 
 export const metadata = {
@@ -10,6 +10,7 @@ export default function BlogPage() {
   const sorted = [...getPublishedArticles()].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   )
+  const nextArticle = getNextArticle()
 
   return (
     <main className="max-w-content mx-auto px-6 py-12">
@@ -24,7 +25,7 @@ export default function BlogPage() {
           .
         </p>
       </div>
-      <BlogIndex articles={sorted} />
+      <BlogIndex articles={sorted} nextArticle={nextArticle} />
     </main>
   )
 }

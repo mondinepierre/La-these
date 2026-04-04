@@ -75,11 +75,11 @@ export const visa: AnalyseCard = {
   chartData: {
     // ── CA sur 5 ans ──────────────────────────────────────────
     revenue: [
-      { year: 2021, value: 0 },
-      { year: 2022, value: 0 },
-      { year: 2023, value: 0 },
-      { year: 2024, value: 0 },
-      { year: 2025, value: 0 },
+      { year: 2021, value: 24.1 },
+      { year: 2022, value: 29.3 },
+      { year: 2023, value: 32.6 },
+      { year: 2024, value: 35.9 },
+      { year: 2025, value: 40 },
     ],
 
     // ── Répartition géographique du CA ────────────────────────

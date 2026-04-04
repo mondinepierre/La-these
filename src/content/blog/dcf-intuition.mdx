@@ -1,0 +1,67 @@
+Dans l'article précédent, nous avons vu comment ajuster le PER à l'environnement de taux. Cette méthode repose sur une intuition simple : les flux futurs valent moins quand les taux montent. C'est précisément ce que modélise le DCF — Discounted Cash Flow, ou actualisation des flux de trésorerie.
+
+Le DCF est souvent présenté comme un outil de précision réservé aux analystes professionnels. C'est une erreur de cadrage. C'est avant tout un outil de pensée, utile pour tester des hypothèses et comprendre ce que le marché price — pas pour sortir un prix à deux décimales près.
+
+## L'intuition centrale : 1 € demain ne vaut pas 1 € aujourd'hui
+
+Pourquoi ? Parce que 1 € aujourd'hui peut être investi et produire un rendement. Si votre taux d'exigence est de 10 %, 1 € aujourd'hui vaut 1,10 € dans un an. À l'inverse, 1 € reçu dans un an ne vaut que 1 / 1,10 = **0,91 €** aujourd'hui.
+
+C'est le principe d'actualisation. Plus un flux est lointain, plus il est dilué par le temps. Une entreprise qui promet de générer 100 € dans 20 ans vaut beaucoup moins que 100 € reçus aujourd'hui — même si les 100 € sont certains.
+
+<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-xl font-display italic text-gold tracking-tight">Valeur actuelle = Flux / (1 + taux)ⁿ</span></div>
+
+La valeur d'une entreprise est la somme de tous ces flux actualisés sur sa durée de vie.
+
+## Les deux variables qui font tout
+
+Dans un modèle DCF, des dizaines de paramètres peuvent être ajustés. En pratique, deux variables dominent le résultat et méritent toute l'attention.
+
+La première est le taux d'actualisation. Il représente le rendement minimum exigé par les apporteurs de capitaux — c'est le <Terme id="wacc" />. Plus il est élevé, moins les flux futurs valent aujourd'hui et plus la valorisation est comprimée. C'est pourquoi la hausse des taux de 2022-2023 a mécaniquement fait baisser les valorisations boursières, même pour des entreprises dont les bénéfices progressaient.
+
+La seconde est le taux de croissance terminal, c'est-à-dire l'hypothèse sur le rythme auquel l'entreprise croîtra après la période de projection explicite (en général 5 à 10 ans). C'est la variable la plus spéculative et la plus influente. Une différence de 0,5 % sur ce seul taux peut changer la valorisation finale de 20 à 30 %.
+
+## Exemple pas à pas
+
+Prenons une entreprise fictive qui génère 100 M€ de free cash flow cette année, avec une croissance projetée de 10 % par an pendant 5 ans, un taux d'actualisation de 9 % et un taux de croissance terminal de 3 % au-delà.
+
+Pour chaque année, on projette le FCF puis on l'actualise :
+
+<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-xl font-display italic text-gold tracking-tight">Valeur actuelle = FCF projeté / (1 + 9 %)ⁿ</span></div>
+
+Le FCF de l'année 1 est de 100 × 1,10 = 110 M€. Actualisé sur 1 an : 110 / 1,09 = **101 M€**. Le FCF de l'année 2 est de 110 × 1,10 = 121 M€. Actualisé sur 2 ans : 121 / (1,09)² = **102 M€**. Et ainsi de suite jusqu'à l'année 5.
+
+<Tableau id="dcf-exemple-simplifie" />
+
+Au-delà de l'année 5, on ne projette plus année par année — on calcule une **valeur terminale** qui représente la valeur de tous les flux futurs à partir de l'année 6. Pour une suite infinie de flux croissant à taux constant, la somme converge vers la formule de Gordon :
+
+<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-xl font-display italic text-gold tracking-tight">Valeur terminale = FCF année 5 × (1 + 3 %) / (9 % − 3 %)</span></div>
+
+Le dénominateur (9 % − 3 %) représente l'écart entre le rendement exigé et le taux de croissance perpétuel. Plus cet écart est faible, plus les flux lointains pèsent lourd et plus la valeur terminale est élevée. C'est pourquoi une variation de 0,5 % sur le taux terminal change autant le résultat final.
+
+Dans notre cas : 161 × 1,03 / 0,06 = **2 763 M€**. Mais cette valeur est calculée en fin d'année 5 — c'est une valeur future. Pour la ramener à aujourd'hui, on l'actualise sur 5 ans comme les autres flux : 2 763 / (1,09)⁵ = **1 795 M€**.
+
+La valeur totale est donc 514 M€ (flux des 5 premières années) + 1 795 M€ (valeur terminale actualisée) = **≈ 2 300 M€**.
+
+## Qu'est-ce qu'on en fait ?
+
+On compare cette valeur à la capitalisation boursière actuelle de l'entreprise.
+
+Si elle cote à 1 800 M€ en bourse, elle est sous-évaluée selon nos hypothèses — la <Terme id="marge-de-securite" /> est positive. Si elle cote à 3 000 M€, nos hypothèses ne justifient pas le prix demandé, sauf à réviser à la hausse la croissance ou le taux terminal.
+
+La lecture inverse est souvent encore plus utile : on part de la capitalisation boursière actuelle et on cherche le taux de croissance terminal implicite que le marché suppose. Si l'entreprise cote à 2 800 M€, quel taux terminal le marché intègre-t-il ? La réponse dit si le marché est optimiste ou pessimiste par rapport à votre propre estimation. C'est souvent plus parlant qu'un prix cible calculé sur des hypothèses fragiles.
+
+## Pourquoi c'est un outil de scénarios, pas de précision
+
+Un DCF ne dit pas "l'action vaut exactement 142 €". Il dit "si mes hypothèses sont correctes, l'action vaut environ 142 €". La valeur réelle est un intervalle, pas un point.
+
+C'est pourquoi la bonne pratique est de construire au moins trois scénarios : conservateur (croissance basse, taux élevé), central (hypothèses médianes) et optimiste (croissance forte, re-rating des multiples). L'écart entre les trois donne une idée de la sensibilité du modèle — et donc du risque d'erreur.
+
+Si dans le scénario conservateur la valorisation est déjà au-dessus du cours actuel, la marge de sécurité est solide. Si même le scénario optimiste peine à justifier le cours, il faut s'interroger sérieusement.
+
+## Les limites à ne pas oublier
+
+Le DCF est aussi fiable que ses hypothèses — et les hypothèses de long terme sont par nature incertaines. Une entreprise dans un secteur en disruption peut voir son taux terminal s'effondrer du jour au lendemain, rendant tout le modèle caduque.
+
+Les manipulations comptables sur le free cash flow sont aussi un angle mort. Une entreprise qui capitalise des dépenses d'exploitation en Capex peut afficher un FCF flatté que le modèle absorbera sans broncher si on ne l'a pas vérifié en amont. Enfin, le DCF ne capture pas les asymétries de valeur : une option de croissance non encore monétisée, un catalyseur réglementaire ou une restructuration en cours peuvent justifier une prime que le modèle ne verra pas.
+
+C'est pour cela qu'on ne l'utilise jamais seul. Le DCF est un garde-fou, pas un oracle. Il dit si le prix demandé est cohérent avec une trajectoire raisonnable — la conviction sur la trajectoire, elle, vient de l'analyse fondamentale.

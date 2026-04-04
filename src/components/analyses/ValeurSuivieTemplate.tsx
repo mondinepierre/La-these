@@ -1,5 +1,5 @@
 import React from 'react'
-import type { FrontmatterValeur } from '@/types/analyses'
+import type { FrontmatterValeur, FrontmatterPonctuelle, OrigineAnalyse } from '@/types/analyses'
 import AnalyseTypeBadge from './AnalyseTypeBadge'
 import ConvictionBadge from './ConvictionBadge'
 import PositionnementBadge from './PositionnementBadge'
@@ -20,8 +20,17 @@ import ValuationRadarChart from './charts/ValuationRadarChart'
 type MDXContent = React.ComponentType<{ components?: Record<string, React.ComponentType> }>
 
 type Props = {
-  frontmatter: FrontmatterValeur
+  frontmatter: FrontmatterValeur | FrontmatterPonctuelle
   Content:     MDXContent
+  origine?:    OrigineAnalyse
+}
+
+// ── Icône origine ─────────────────────────────────────────────
+const ORIGINE_ICONS: Record<string, string> = {
+  sondage:   '🗳️',
+  actualite: '📰',
+  suivi:     '🔭',
+  autre:     '📌',
 }
 
 // ── Disclaimer verdict ────────────────────────────────────────
@@ -68,11 +77,18 @@ function NoteAnalyseBlock({ children }: { children?: React.ReactNode }) {
   )
 }
 
-export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
+export default function ValeurSuivieTemplate({ frontmatter, Content, origine }: Props) {
 
-  const lastUpdated = new Date(frontmatter.lastUpdated).toLocaleDateString('fr-FR', {
-    day: 'numeric', month: 'long', year: 'numeric',
-  })
+  const isPonctuelle = frontmatter.type === 'ponctuelle'
+
+  // Date affichée selon le type
+  const dateLabel = isPonctuelle
+    ? `Analyse du ${new Date((frontmatter as FrontmatterPonctuelle).date).toLocaleDateString('fr-FR', {
+        day: 'numeric', month: 'long', year: 'numeric',
+      })}`
+    : `Mise à jour : ${new Date((frontmatter as FrontmatterValeur).lastUpdated).toLocaleDateString('fr-FR', {
+        day: 'numeric', month: 'long', year: 'numeric',
+      })}`
 
   const cd = frontmatter.chartData
   const { prixCible: pc } = frontmatter
@@ -168,16 +184,16 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
     : () => null
 
   const ValuationRadar2 = cd?.valuationCompare2
-  ? (props: { title?: string; name?: string; concurrent1?: string; concurrent2?: string }) => (
-      <ValuationRadarChart
-        data={cd.valuationCompare2!}
-        title={props.title}
-        name={props.name}
-        concurrent1={props.concurrent1}
-        concurrent2={props.concurrent2}
-      />
-    )
-  : () => null
+    ? (props: { title?: string; name?: string; concurrent1?: string; concurrent2?: string }) => (
+        <ValuationRadarChart
+          data={cd.valuationCompare2!}
+          title={props.title}
+          name={props.name}
+          concurrent1={props.concurrent1}
+          concurrent2={props.concurrent2}
+        />
+      )
+    : () => null
 
   const RoicWacc = cd?.roicVsWacc
     ? (props: { title?: string }) => (
@@ -308,8 +324,35 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
 
       {/* ── En-tête ───────────────────────────────────────────── */}
       <header className="mb-10">
+
+        {/* Bandeau origine — sondage / actualité / suivi */}
+        {origine && (
+          <div style={{
+            display:         'inline-flex',
+            alignItems:      'center',
+            gap:             '8px',
+            marginBottom:    '1rem',
+            padding:         '6px 14px',
+            backgroundColor: 'var(--color-stone-border)',
+            borderRadius:    'var(--radius-sm)',
+            borderLeft:      '3px solid var(--color-ink-muted)',
+          }}>
+            <span style={{ fontSize: '13px' }}>
+              {ORIGINE_ICONS[origine.type] ?? '📌'}
+            </span>
+            <span style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize:   '12px',
+              color:      'var(--color-ink-muted)',
+              fontStyle:  'italic',
+            }}>
+              {origine.label}
+            </span>
+          </div>
+        )}
+
         <div className="flex flex-wrap items-center gap-3 mb-4">
-          <AnalyseTypeBadge type="valeur" />
+          <AnalyseTypeBadge type={isPonctuelle ? 'ponctuelle' : 'valeur'} />
           <ConvictionBadge conviction={frontmatter.conviction} />
           <PositionnementBadge positionnement={frontmatter.positionnement} />
         </div>
@@ -371,7 +414,12 @@ export default function ValeurSuivieTemplate({ frontmatter, Content }: Props) {
         <p className="text-stone-400 font-sans text-xs mt-3">
           Horizon : {frontmatter.horizon}
           {frontmatter.readingTime && ` · ${frontmatter.readingTime} min de lecture`}
-          {` · Mise à jour : ${lastUpdated}`}
+          {` · ${dateLabel}`}
+          {isPonctuelle && (
+            <span style={{ marginLeft: '6px', color: 'var(--color-ink-faint)' }}>
+              — analyse ponctuelle, non mise à jour
+            </span>
+          )}
         </p>
       </header>
 

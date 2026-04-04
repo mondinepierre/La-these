@@ -32,11 +32,15 @@ export default async function BlogArticlePage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const article = getArticle(slug)
-  if (!article) notFound()
+const article = getArticle(slug)
+if (!article) notFound()
 
-  const filePath = path.join(process.cwd(), 'src/content/blog', `${slug}.mdx`)
-  if (!fs.existsSync(filePath)) notFound()
+const filePath = path.join(process.cwd(), 'src/content/blog', `${slug}.mdx`)
+if (!fs.existsSync(filePath)) notFound()
+
+// Ajouter ici :
+const isUpcoming = article.publishedAt && new Date(article.publishedAt) > new Date()
+if (isUpcoming && process.env.NODE_ENV !== 'development') notFound()
 
   const source = fs.readFileSync(filePath, 'utf-8')
   const { content } = await compileMDX({
@@ -91,6 +95,24 @@ export default async function BlogArticlePage({
           </div>
         )}
       </div>
+
+      {isUpcoming && (
+        <div className="mb-8 px-5 py-4 bg-[#F0E4C0] border-l-4 border-[#C9A84C] rounded-r-lg">
+          <p className="font-sans text-sm font-semibold text-[#8B6914] mb-1">
+            Article non publié — aperçu développement
+          </p>
+          <p className="font-sans text-xs text-[#A07C35]">
+            Publication prévue le{' '}
+            {new Date(article.publishedAt!).toLocaleDateString('fr-FR', {
+              weekday: 'long',
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+            })}{' '}
+            à 18h30
+          </p>
+        </div>
+      )}
 
       <hr className="border-[#E0DBCF] mb-10" />
 

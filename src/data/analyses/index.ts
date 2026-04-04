@@ -25,7 +25,7 @@ import { visa          } from './visa'
 
 
 // ── Analyses ponctuelles ──────────────────────────────────────────────────────
-import { nvidiaQ42025  } from './nvidia-q4-2025'
+import { sondage  } from './sondage'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Ordre d'affichage dans l'index /analyses
@@ -41,5 +41,5 @@ export const ANALYSES: AnalyseCard[] = [
   visa,
 
   // Analyses ponctuelles
-  nvidiaQ42025,
+  sondage,
 ]

@@ -319,6 +319,90 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+'per-ajuste-exemple': {
+  colonnes: [
+    { key: 'etape',  label: 'Étape',  primary: true },
+    { key: 'valeur', label: 'Valeur'                },
+  ],
+  lignes: [
+    { etape: 'PER médian sectoriel (20 trimestres)', valeur: '24x' },
+    { etape: 'US10Y base (15 ans)',                  valeur: '2,4 %' },
+    { etape: 'US10Y actuel',                         valeur: '4,5 %' },
+    { etape: 'Décote calculée',                      valeur: '(4,5 − 2,4) × 2,5 = 5,25 pts' },
+    {
+      etape:  'PER sectoriel ajusté',
+      valeur: '≈ 18-19x',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'dcf-exemple-simplifie': {
+  colonnes: [
+    { key: 'annee',   label: 'Année',              primary: true },
+    { key: 'fcf',     label: 'FCF projeté (M€)'                 },
+    { key: 'calcul',  label: 'Actualisation'                     },
+    { key: 'va',      label: 'Valeur actuelle (M€)'             },
+  ],
+  lignes: [
+    {
+      annee:  'Année 1',
+      fcf:    '110',
+      calcul: '110 / (1,09)¹',
+      va:     '101',
+    },
+    {
+      annee:  'Année 2',
+      fcf:    '121',
+      calcul: '121 / (1,09)²',
+      va:     '102',
+    },
+    {
+      annee:  'Année 3',
+      fcf:    '133',
+      calcul: '133 / (1,09)³',
+      va:     '103',
+    },
+    {
+      annee:  'Année 4',
+      fcf:    '146',
+      calcul: '146 / (1,09)⁴',
+      va:     '103',
+    },
+    {
+      annee:  'Année 5',
+      fcf:    '161',
+      calcul: '161 / (1,09)⁵',
+      va:     '105',
+    },
+    {
+      annee:   'Sous-total flux (années 1-5)',
+      fcf:     '—',
+      calcul:  '—',
+      va:      '514',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      annee:   'Valeur terminale actualisée',
+      fcf:     '—',
+      calcul:  '(161 × 1,03 / 0,06) / (1,09)⁵',
+      va:      '1 797',
+      _headerBg:   '#C9A84C',
+      _headerText: '#44300A',
+    },
+    {
+      annee:   'Valeur totale',
+      fcf:     '—',
+      calcul:  '514 + 1 797',
+      va:      '≈ 2 311',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
   'exemple-roiic-nopat': {
     colonnes: [
       { key: 'annee',         label: 'Année',               primary: true },

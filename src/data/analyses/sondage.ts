@@ -19,18 +19,19 @@
 //   Exemple : 'EV_EBITDA' → composant MDX <MetricGraph_EV_EBITDA />
 //
 // ─────────────────────────────────────────────────────────────────────────────
+import type { AnalyseCard } from '@/types/analyses'
 
-export const nvidiaSondage: AnalyseCard = {
-  slug:           'nvidia-sondage',
+export const sondage: AnalyseCard = {
+  slug:           'sondage',
   type:           'ponctuelle',
   date:           '2026-02-05',
-  title:          'Microsoft — Résultats Q2 2026',
-  ticker:         'MSFT',
+  title:          ' - Sondage communautaire',
+  ticker:         'sondage',
   secteur:        'Technologie',
   geo:            'États-Unis',
   conviction:     'forte',
   positionnement: 'accumulation',
-  statut:         'actif',
+  statut:         'en-construction',
   portefeuille:   'CTO',
   horizon:        '18 mois',
   excerpt:        '...',
@@ -38,7 +39,7 @@ export const nvidiaSondage: AnalyseCard = {
   readingTime:    12,
   origine: {
     type:  'actualite',
-    label: 'Résultats Q2 FY2026 publiés le 29 janvier 2026',
+    label: 'Analyse de Nvidia suite à un sondage communautaire',
   },
   prixCible:      { bas: 380, haut: 440, devise: 'USD' },
   marginOfSafety: 'correcte',
@@ -66,12 +67,6 @@ export const nvidiaSondage: AnalyseCard = {
     margeEbit: 'stable',
   },
 
-  updates: [
-    {
-      date: '2026-01-01',
-      note: 'Création de la fiche.',
-    },
-  ],
 
   chartData: {
     // ── CA sur 5 ans ──────────────────────────────────────────

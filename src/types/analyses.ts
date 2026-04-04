@@ -34,15 +34,34 @@ export type MarginOfSafety = 'forte' | 'correcte' | 'faible' | 'indéterminée' 
 // Analyse ponctuelle
 // ─────────────────────────────────────────────
 
+export type OrigineAnalyse = {
+  type:  'sondage' | 'actualite' | 'suivi' | 'autre'
+  label: string   // ex: "Demandé par la communauté Discord" | "Résultats Q2 2026"
+}
+
 export type FrontmatterPonctuelle = {
-  type:    'ponctuelle'
-  title:   string
-  date:    string
-  ticker?: string
-  secteur: Secteur
-  geo:     ZoneGeo
-  excerpt: string
-  statut:  'actif' | 'archive' | 'en-construction'
+  type:           'ponctuelle'
+  title:          string
+  ticker:         string
+  date:           string           // date de l'analyse — arrêt des données
+  secteur:        Secteur
+  geo:            ZoneGeo
+  conviction:     Conviction
+  positionnement: Positionnement
+  statut:         'actif' | 'archive' | 'en-construction'
+  portefeuille:   Enveloppe        // enveloppe recommandée pour ce profil
+  horizon:        string
+  excerpt:        string
+  prixCible:      PrixCible
+  marginOfSafety: MarginOfSafety
+  metrics:        Metrics
+  tendances:      Tendances
+  glossaire?:     string[]
+  readingTime?:   number
+  logo?:          string
+  chartData?:     ChartData
+  origine?:       OrigineAnalyse   // ← seul ajout par rapport à FrontmatterValeur
+  // Pas de lastUpdated ni updates[] — analyse figée dans le temps
 }
 
 // ─────────────────────────────────────────────

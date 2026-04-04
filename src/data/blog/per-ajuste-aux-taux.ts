@@ -4,7 +4,8 @@ import type { ArticleMeta } from '@/types/blog'
 export const perAjusteAuxTaux: ArticleMeta = {
   slug: 'per-ajuste-aux-taux',
   title: "Comment ajuster le PER à l'environnement de taux",
-  date: '2026-03-31',
+  date: '2026-04-06',
+  publishedAt: '2026-04-06',
   category: 'methode',
   level: 'intermediaire',
   readingTime: 7,

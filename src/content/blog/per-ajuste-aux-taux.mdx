@@ -2,94 +2,50 @@ Dans l'article précédent, nous avons vu que le ROIIC permet de qualifier la re
 
 Le <Terme id="per" /> est l'indicateur de valorisation le plus utilisé. Il est aussi l'un des plus mal interprétés — parce qu'on le compare souvent à des références historiques sans ajuster pour les taux d'intérêt.
 
-## Pourquoi le PER historique reste utile
+## Ce que les taux font aux multiples
 
-Le PER mesure combien d'années de bénéfices vous payez pour acquérir une entreprise. Un PER de 20x signifie : à ce niveau de bénéfice, vous récupérez votre investissement en 20 ans.
+Commençons par un exemple concret. En 2021, le S&P 500 se traitait à des PER de 30 à 35x. En 2024, ces mêmes entreprises — avec des bénéfices souvent plus élevés — se traitaient à 20 à 25x. Qu'est-ce qui avait changé ? Pas les fondamentaux. Les taux.
 
-Son utilité principale : la comparaison. Un PER de 25x est-il cher ? Ça dépend du secteur, de la croissance, et — surtout — des taux.
+La logique est simple : quand les taux sans risque sont proches de zéro, un investisseur accepte de payer très cher des bénéfices futurs, parce qu'il n'a pas d'alternative. Quand le bon du Trésor américain rapporte 4,5 %, il devient une alternative crédible aux actions — et les investisseurs exigent davantage de rendement pour justifier le risque pris. Les multiples se compriment mécaniquement.
 
-## Le problème : le PER de 2021 était gonflé par les taux zéro
-
-Entre 2020 et 2022, les taux directeurs des banques centrales étaient proches de zéro. Dans cet environnement, les investisseurs acceptaient de payer des multiples très élevés pour des flux de trésorerie futurs, parce que le coût d'opportunité (placer son argent sans risque) était quasi nul.
-
-Le S&P 500 a affiché des PER moyens de 30 à 35x sur cette période. Ce n'était pas une anomalie — c'était une conséquence mécanique des taux.
-
-Quand les taux remontent, deux effets jouent simultanément :
-
-1. **L'actualisation** : les flux futurs valent moins aujourd'hui quand le taux d'actualisation augmente
-2. **La concurrence du sans-risque** : un bon du Trésor américain à 4,5 % devient une alternative crédible aux actions
-
-Le résultat : les multiples se compriment. Un PER qui semblait "normal" à 30x en 2021 peut être "cher" à 20x en 2024 — même si les bénéfices de l'entreprise n'ont pas changé.
-
-## La mécanique : intuition DCF
-
-Sans entrer dans les détails d'un modèle DCF complet, l'intuition est la suivante.
-
-La valeur d'une action est la somme actualisée de ses flux futurs. Le taux d'actualisation inclut le taux sans risque (typiquement l'US10Y) plus une prime de risque.
-
-<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-xl font-display italic text-gold tracking-tight">Valeur = Σ (Flux futur / (1 + taux)ⁿ)</span></div>
-
-Si le taux d'actualisation monte de 1,5 % à 4,5 %, chaque flux futur vaut mécaniquement moins aujourd'hui. Le multiple que vous êtes prêt à payer baisse en conséquence.
+Un PER de 28x en 2021 et un PER de 22x en 2024 peuvent tous les deux être "justes" — dans leur contexte de taux respectif. Comparer les deux sans ajustement, c'est comparer des pommes et des oranges.
 
 ## La formule d'ajustement
 
-Une règle empirique largement utilisée en gestion :
+Pour corriger cet écart, on utilise une règle empirique simple :
 
 <div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-xl font-display italic text-gold tracking-tight">Décote = (US10Y actuel − US10Y base) × 2,5</span></div>
 
-Le coefficient **2,5** est une approximation de la sensibilité des multiples aux taux — il reflète le fait qu'une hausse de 1 % des taux longs comprime historiquement les PER d'environ 2 à 3 points.
+L'US10Y est le taux des obligations d'État américaines à 10 ans — la référence mondiale du taux sans risque. Le coefficient 2,5 reflète le fait qu'une hausse de 1 % des taux longs comprime historiquement les PER d'environ 2 à 3 points. Ce n'est pas une loi, c'est une approximation suffisamment stable pour construire une boussole.
 
-**Exemple :**
-- US10Y base (moyenne 2015-2019) : **2,2 %**
-- US10Y actuel : **4,5 %**
-- Δ = 2,3 % × 2,5 = **5,75 points de décote**
-- PER sectoriel observé en 2021 : **28x**
-- PER ajusté : 28 − 5,75 = **≈ 22x**
+Sur un exemple concret : avec un US10Y de base à 2,2 % (moyenne 2015-2019, avant les politiques monétaires exceptionnelles) et un US10Y actuel à 4,5 %, la décote est de 2,3 × 2,5 = **5,75 points**. Un PER sectoriel de 28x observé en 2021 devient une référence ajustée de **22x** aujourd'hui. C'est cette valeur qui sert d'ancre de travail.
 
-Ce PER de 22x est votre référence de travail dans l'environnement actuel.
+## Comment choisir la période de référence
 
-## Comment choisir la base de taux
+La fenêtre du PER historique et la fenêtre de la base de taux doivent toujours être identiques — c'est la cohérence minimale. Le PER historique a été produit dans un certain environnement de taux. La décote mesure l'écart entre cet environnement passé et l'environnement actuel. Si les deux fenêtres diffèrent, on compare des choses qui ne sont pas comparables.
 
-Le choix de la période de référence change le résultat — il faut être conscient de ce que l'on fait.
+La longueur de cette fenêtre dépend ensuite du profil de l'entreprise. Pour une entreprise au modèle économique stable sur dix ans ou plus, une fenêtre longue est préférable — elle dilue l'impact des années de taux anormaux et donne un multiple de référence plus propre. Pour une entreprise en transformation dont le profil a changé — pivot stratégique, changement de mix revenus, amélioration structurelle des marges — une fenêtre plus courte est plus représentative du profil actuel, mais avec une exigence de marge de sécurité plus élevée pour compenser le biais résiduel des années à taux zéro.
 
-**2 ans** : trop court, capture un régime de taux anormal (2020-2022 = taux zéro)
+Un plancher est aussi à définir. Les taux ne reviendront probablement pas à zéro structurellement. Un plancher à 2 % sur l'US10Y est une hypothèse raisonnable pour un scénario optimiste. En dessous, la formule perd de sa pertinence.
 
-**5 ans** : encore biaisé si la période inclut les années de QE massif
-
-**10-15 ans** : référence plus neutre, intègre un cycle complet de politique monétaire. C'est la fenêtre que j'utilise sur *La Thèse*.
-
-**Plancher à observer** : les taux ne reviennent probablement pas à zéro structurellement. Un plancher à 2 % sur l'US10Y est une hypothèse raisonnable pour un scénario optimiste. En dessous, la formule d'ajustement perd de sa pertinence.
+Un garde-fou supplémentaire : vérifier que le PER ajusté est cohérent avec le FCF Yield actuel de l'entreprise. Si les deux indicateurs convergent vers la même conclusion, la conviction est plus solide. S'ils divergent, il faut comprendre pourquoi avant de conclure — nous y reviendrons dans l'article sur le FCF Yield.
 
 ## Construire un PER sectoriel ajusté
 
-L'ajustement aux taux ne suffit pas si votre PER de référence est lui-même biaisé. Voici la méthode pour construire un multiple sectoriel propre.
+L'ajustement aux taux ne suffit pas si le PER de référence est lui-même biaisé. Avant d'appliquer la décote, il faut construire un multiple sectoriel propre.
 
-**1. Sélectionner les pairs.** Entreprises du même secteur, taille comparable, modèle économique similaire. En général 5 à 10 comparables suffisent — au-delà, les différences de qualité diluent la référence.
-
-**2. Nettoyer les outliers.** Exclure les valeurs avec un PER négatif (pertes) ou supérieur à 60x (distorsion par bénéfices exceptionnellement bas). Utiliser la médiane plutôt que la moyenne — plus robuste aux extrêmes.
-
-**3. Calculer sur une moyenne glissante de 20 trimestres.** Cinq ans de données trimestrielles lissent les effets de cycle tout en restant dans une période raisonnablement comparable.
-
-**4. Appliquer la décote de taux** calculée selon la formule ci-dessus.
+On sélectionne d'abord 5 à 10 entreprises comparables — même secteur, taille comparable, modèle économique similaire. On exclut les valeurs avec un PER négatif (pertes) ou supérieur à 60x (bénéfices exceptionnellement bas), et on utilise la médiane plutôt que la moyenne, plus robuste aux valeurs extrêmes. Le calcul se fait sur une moyenne glissante de 20 trimestres — cinq ans de données trimestrielles qui lissent les effets de cycle. On applique ensuite la décote calculée selon la formule.
 
 ### Exemple d'application
 
-| Étape | Valeur |
-|---|---|
-| PER médian sectoriel (20 trimestres) | 24x |
-| US10Y base (15 ans) | 2,4 % |
-| US10Y actuel | 4,5 % |
-| Décote calculée | (4,5 − 2,4) × 2,5 = 5,25 pts |
-| **PER sectoriel ajusté** | **≈ 18-19x** |
+<Tableau id="per-ajuste-exemple" />
 
-Ce multiple est votre ancre de valorisation dans l'environnement actuel. Si l'entreprise analysée cote à 22x, elle est au-dessus du pair ajusté — soit elle mérite une prime (meilleure qualité, croissance supérieure), soit elle est chère.
+Ce multiple est votre ancre de valorisation dans l'environnement actuel. Si l'entreprise analysée cote à 22x, elle est au-dessus du pair ajusté — soit elle mérite une prime pour une qualité supérieure, soit elle est chère.
 
 ## Les limites à garder en tête
 
-**C'est une règle empirique, pas une loi.** Le coefficient 2,5 est une approximation historique. Il varie selon les secteurs (les valeurs de croissance sont plus sensibles aux taux que les valeurs cycliques) et selon les régimes de marché.
+C'est une règle empirique, pas une loi. La sensibilité aux taux varie selon les secteurs : les valeurs de croissance — dont les bénéfices sont surtout dans le futur — sont plus comprimées par la hausse des taux que les valeurs cycliques dont les bénéfices sont plus immédiats. Le coefficient 2,5 est une moyenne, pas une vérité universelle.
 
-**Elle ne capture pas la prime de risque individuelle.** Deux entreprises du même secteur peuvent mériter des multiples très différents selon leur qualité de bilan, leur visibilité de revenus, et leur track record.
+La méthode ne capture pas non plus la prime de risque individuelle. Deux entreprises du même secteur peuvent mériter des multiples très différents selon la qualité de leur bilan, la visibilité de leurs revenus et leur track record. Elle est aussi rétrospective : elle dit ce que le marché aurait dû payer compte tenu des taux passés, pas ce qu'il paiera demain.
 
-**Elle est rétrospective.** Elle dit ce que le marché *aurait dû* payer compte tenu des taux — pas ce qu'il *paiera* demain.
-
-Utilisée correctement, cette méthode évite l'erreur la plus commune en valorisation : comparer des PER actuels à des références historiques sans tenir compte du contexte de taux qui les a produits.
+Utilisée correctement, cette méthode évite l'erreur la plus commune en valorisation : prendre un multiple de 2021 comme référence sans tenir compte du contexte qui l'a produit. Dans le prochain article, nous allons aller plus loin avec le DCF — l'outil qui permet de tester des scénarios complets plutôt que de s'appuyer sur un multiple sectoriel.
