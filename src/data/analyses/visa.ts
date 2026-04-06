@@ -30,13 +30,13 @@ export const visa: AnalyseCard = {
   secteur:        'Finance',  // voir union Secteur dans types/analyses.ts
   geo:            'États-Unis',   // voir union ZoneGeo
   conviction:     'forte',      // exceptionnelle | forte | moyenne | spéculative
-  positionnement: 'surveillance', // achat fort | accumulation | surveillance | maintien | allégement
-  lastUpdated:    '2026-01-01',
-  statut:         'en-construction', // en-construction | actif | archivé
+  positionnement: 'accumulation', // achat fort | accumulation | surveillance | maintien | allégement
+  lastUpdated:    '2026-04-07',
+  statut:         'actif', // en-construction | actif | archivé
   portefeuille:   'CTO',          // PEA | CTO | PEA + CTO | Aucun
-  horizon:        '',
-  excerpt:        '',
-  glossaire:      ['per', 'free-cash-flow', 'moat', 'roic'], // slugs glossaire liés
+  horizon:        '5 ans',
+  excerpt:        'Les avantages du système bancaire, les inconvénients en moins.',
+  glossaire:      ['moat', 'free-cash-flow', 'roic', 'dcf', 'asset-light', 'interchange'], // slugs glossaire liés
   logo:          '/analyse/visa.png',
   prixCible:      { bas: 0, haut: 0, devise: 'USD' },
   marginOfSafety: 'indéterminée', // forte | correcte | faible | négative | indéterminée
@@ -67,7 +67,7 @@ export const visa: AnalyseCard = {
 
   updates: [
     {
-      date: '2026-04-05',
+      date: '2026-04-07',
       note: 'Création de la fiche.',
     },
   ],
@@ -198,6 +198,301 @@ export const visa: AnalyseCard = {
               ],
             }   
           ]
+        },
+        {
+        label: 'FCF_OCF_Capex',
+        name:  'Opérating Cash Flow',
+        unit:  'Mds $',
+        yMin:  0,
+        data: [
+          { year: 2021, value: 15.9 },
+          { year: 2022, value: 18.7 },
+          { year: 2023, value: 20.1 },
+          { year: 2024, value: 21.7 },
+          { year: 2025, value: 24.4 },
+        ],
+        competitors: [
+          {
+            name:  'Free Cash Flow',
+            color: '#C9A84C',
+            data: [
+              { year: 2021, value: 15.2 },
+              { year: 2022, value: 17.7 },
+              { year: 2023, value: 19.1 },
+              { year: 2024, value: 20.3 },
+              { year: 2025, value: 22.9 },
+            ],
+          },
+          {
+            name:  'Capex',
+            color: '#A8A29E',
+            dashed: true,
+            data: [
+              { year: 2021, value: 0.718 },
+              { year: 2022, value: 1.046 },
+              { year: 2023, value: 1.077 },
+              { year: 2024, value: 1.335 },
+              { year: 2025, value: 1.515 },
+            ],
+          },
+        ]        
+        },
+        {
+          label: 'DETTE_EBITDA',
+          name:  'Dette nette / EBITDA',
+          unit:  'x',
+          yMin: 0.15,
+          data: [
+            { year: 2021, value: 0.35 },
+            { year: 2022, value: 0.36 },
+            { year: 2023, value: 0.18 },
+            { year: 2024, value: 0.33 },
+            { year: 2025, value: 0.25 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 0.29 },
+                { year: 2022, value: 0.29 },
+                { year: 2023, value: 0.29 },
+                { year: 2024, value: 0.29 },
+                { year: 2025, value: 0.29 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'CR',
+          name:  'Current Ratio',
+          unit:  'x',
+          data: [
+            { year: 2021, value: 1.4 },
+            { year: 2022, value: 1.44 },
+            { year: 2023, value: 1.45 },
+            { year: 2024, value: 1.12 },
+            { year: 2025, value: 1.11 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 1.30 },
+                { year: 2022, value: 1.30 },
+                { year: 2023, value: 1.30 },
+                { year: 2024, value: 1.30 },
+                { year: 2025, value: 1.30 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'DSO',
+          name:  'Days Sales Oustanding',
+          unit:  'x',
+          data: [
+            { year: 2021, value: 16 },
+            { year: 2022, value: 21 },
+            { year: 2023, value: 19 },
+            { year: 2024, value: 31 },
+            { year: 2025, value: 29 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 23 },
+                { year: 2022, value: 23 },
+                { year: 2023, value: 23 },
+                { year: 2024, value: 23 },
+                { year: 2025, value: 23 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'AT',
+          name:  'Asset turnover',
+          unit:  'x',
+          yMin: 0.25,
+          data: [
+            { year: 2021, value: 0.31 },
+            { year: 2022, value: 0.35 },
+            { year: 2023, value: 0.37 },
+            { year: 2024, value: 0.40 },
+            { year: 2025, value: 0.43 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 0.37 },
+                { year: 2022, value: 0.37 },
+                { year: 2023, value: 0.37 },
+                { year: 2024, value: 0.37 },
+                { year: 2025, value: 0.37 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'Dilution',
+          name:  'Dilution / Concentration (année civile)',
+          unit:  '%',
+          yMin: 2.0,
+          data: [
+            { year: 2022, value: 2.5 },
+            { year: 2023, value: 2.4 },
+            { year: 2024, value: 2.7 },
+            { year: 2025, value: 3 },
+          ],
+          competitors: [
+            {
+              name:  'Dilution / Concentration (année fiscale)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2022, value: 2.4 },
+                { year: 2023, value: 2.4  },
+                { year: 2024, value: 2.7 },
+                { year: 2025, value: 3.1 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'Payout',
+          name:  'Payout Ratio',
+          unit:  '%',
+          data: [
+            { year: 2021, value: 22.1 },
+            { year: 2022, value: 22.2 },
+            { year: 2023, value: 21.3 },
+            { year: 2024, value: 21.7 },
+            { year: 2025, value: 22.9 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 22 },
+                { year: 2022, value: 22 },
+                { year: 2023, value: 22 },
+                { year: 2024, value: 22 },
+                { year: 2025, value: 22 },
+              ], 
+            },
+          ]
+        },  
+        {
+        label: 'Capex_Action',
+        name:  'Dividendes',
+        unit:  'Mds $',
+        yMin:  0,
+        data: [
+            { year: 2021, value: 2.904 },
+            { year: 2022, value: 3.339 },
+            { year: 2023, value: 3.866 },
+            { year: 2024, value: 4.327 },
+            { year: 2025, value: 4.757 },
+        ],
+        competitors: [
+          {
+            name:  'Rachat d\'action',
+            color: '#2D6A4F',
+            data: [
+              { year: 2021, value: 10.984 },
+              { year: 2022, value: 10.600 },
+              { year: 2023, value: 12.566 },
+              { year: 2024, value: 17.144 },
+              { year: 2025, value: 18.030 },
+            ],
+          },
+          {
+            name:  'Capex',
+            color: '#A8A29E',
+            dashed: true,
+            data: [
+              { year: 2021, value: 0.718 },
+              { year: 2022, value: 1.046 },
+              { year: 2023, value: 1.077 },
+              { year: 2024, value: 1.335 },
+              { year: 2025, value: 1.515 },
+            ],
+          },
+        ]        
+        },
+        {
+          label: 'EPS',
+          name:  'EPS',
+          unit:  '$',
+          data: [
+            { year: 2021, value: 6.04 },
+            { year: 2022, value: 7.15 },
+            { year: 2023, value: 8.69 },
+            { year: 2024, value: 9.92 },
+            { year: 2025, value: 10.66 },
+          ],
+        },
+        {
+          label: 'Dividendes',
+          name:  'Dividendes annuelle',
+          unit:  '$',
+          data: [
+            { year: 2021, value: 1.28 },
+            { year: 2022, value: 1.5 },
+            { year: 2023, value: 1.8 },
+            { year: 2024, value: 2.08 },
+            { year: 2025, value: 2.36 },
+          ],
+        },
+        {
+          label: 'ROCE',
+          name:  'ROCE',
+          unit:  '%',
+          yMin:  0,
+          data: [
+            { year: 2021, value: 31.1 },
+            { year: 2022, value: 33.3 },
+            { year: 2023, value: 36.9 },
+            { year: 2024, value: 43.4 },
+            { year: 2025, value: 42},
+          ],
+          competitors: [
+            {
+              name:  'WACC',
+              color: '#C9A84C',
+              data: [
+                { year: 2021, value: 5.9 },
+                { year: 2022, value: 9.4 },
+                { year: 2023, value: 7.2 },
+                { year: 2024, value: 7 },
+                { year: 2025, value: 7.3 },
+              ],
+            },
+            {
+              name:  'ROIC',
+              color: '#2D6A4F',
+              dashed: true,
+              data: [
+                { year: 2021, value: 30.1 },
+                { year: 2022, value: 35.9 },
+                { year: 2023, value: 41.9 },
+                { year: 2024, value: 42.6 },
+                { year: 2025, value: 45.6 },
+              ],
+            },
+          ],
         },
         {
           label: 'PER',

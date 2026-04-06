@@ -146,6 +146,7 @@ export type MetricSerie = {
   data:         MetricPoint[]
   competitors?: CompetitorSerie[]
   dataBreaks?:  DataBreak[]
+  yMin? :       number
 }
 
 export type SegmentPoint = {

@@ -66,7 +66,7 @@ export default function MetricChart({ serie, title }: Props) {
           <YAxis
             unit={unit}
             tick={{ fontSize: 12, fontFamily: 'DM Sans' }}
-            domain={[floor, 'auto']}
+            domain={[serie.yMin !== undefined ? serie.yMin : floor, 'auto']}
           />
           <Tooltip
             formatter={(value) => [`${Number(value)}${unit}`]}

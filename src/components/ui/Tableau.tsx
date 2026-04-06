@@ -13,6 +13,7 @@ interface LigneDef {
 interface TableauData {
   colonnes: ColonneDef[]
   lignes: LigneDef[]
+  compact?: boolean
 }
 
 const TABLEAUX: Record<string, TableauData> = {
@@ -436,6 +437,7 @@ const TABLEAUX: Record<string, TableauData> = {
   ],
 },
 'visa-dcf-parametres': {
+  compact: true,
   colonnes: [
     { key: 'parametre', label: 'Paramètre',       primary: true },
     { key: 'valeur',    label: 'Valeur retenue'                 },
@@ -466,6 +468,7 @@ const TABLEAUX: Record<string, TableauData> = {
   ],
 },
 'visa-dcf-flux': {
+  compact: true,
   colonnes: [
     { key: 'element', label: 'Élément (M$)',    primary: true },
     { key: 'a1',      label: 'Année 1'                       },
@@ -494,6 +497,7 @@ const TABLEAUX: Record<string, TableauData> = {
 },
 
 'visa-dcf-synthese': {
+  compact: true,
   colonnes: [
     { key: 'element', label: 'Élément',   primary: true },
     { key: 'valeur',  label: 'Valeur (M$)'              },
@@ -599,20 +603,20 @@ export function Tableau({ id }: { id: string }) {
   const data = TABLEAUX[id]
   if (!data) return null
 
-  const { colonnes, lignes } = data
+  const { colonnes, lignes, compact } = data
   const colonnesData = colonnes.filter(c => !c.key.startsWith('_'))
 
   return (
     <>
       {/* Desktop */}
-      <div className="hidden sm:block overflow-x-auto my-6">
-        <table className="w-full text-sm border-collapse">
+      <div className="hidden sm:block my-6">
+        <table className="w-full text-sm border-collapse table-fixed">
           <thead>
             <tr className="border-b border-[#E0DBCF]">
               {colonnesData.map(col => (
                 <th
                   key={col.key}
-                  className="text-left py-2 pr-4 text-xs font-semibold uppercase tracking-widest text-[#78716C]"
+                  className={`text-left py-2 pr-2 text-xs font-semibold uppercase tracking-widest text-[#78716C] ${compact ? 'text-[10px]' : ''}`}
                 >
                   {col.label}
                 </th>
@@ -628,7 +632,7 @@ export function Tableau({ id }: { id: string }) {
                 {colonnesData.map(col => (
                   <td
                     key={col.key}
-                    className={`py-3 pr-4 text-[#44403C] align-top ${col.primary ? 'font-semibold text-[#1B4332]' : ''}`}
+                    className={`py-2 pr-2 text-[#44403C] align-top break-words ${compact ? 'text-xs' : 'text-sm'} ${col.primary ? 'font-semibold text-[#1B4332]' : ''}`}
                   >
                     {ligne[col.key]}
                   </td>

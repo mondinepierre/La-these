@@ -1280,6 +1280,45 @@ export const glossaire: GlossaireTerm[] = [
     ],
   },
 
+
+  // ─── VISA ─────────────────────────────────────────────────────────────────
+
+  {
+    slug: "asset-light",
+    label: "Modèle asset-light",
+    category: "Analyse fondamentale",
+    shortDef: "Un modèle économique qui génère des revenus élevés sans immobiliser de capital physique important.",
+    definition: `Un modèle asset-light est un modèle économique dans lequel l\'entreprise génère des revenus et des bénéfices sans détenir ni investir massivement dans des actifs physiques — usines, équipements, stocks, créances.\n\nLa conséquence directe est une conversion exceptionnelle du résultat en cash : avec peu de Capex nécessaire, la quasi-totalité du résultat opérationnel se retrouve en Free Cash Flow disponible pour les actionnaires. C\'est la caractéristique financière la plus précieuse d\'une entreprise asset-light.\n\nVisa en est l\'exemple canonique : le réseau est construit, les transactions transitent dessus sans que Visa n\'immobilise de capital pour les financer. En 2025, Visa a généré 22,9 Md$ de FCF pour seulement 1,5 Md$ de Capex — soit 15 fois plus de cash redistribué aux actionnaires que de capital réinvesti dans l\'outil industriel. À l\'inverse, une banque classique comme American Express doit immobiliser du capital pour couvrir le risque de crédit de ses porteurs, ce qui comprime mécaniquement son ROIC.`,
+    related: ["free-cash-flow", "roic", "capex", "pricing-power", "moat"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "interchange",
+    label: "Frais d\'interchange",
+    category: "Analyse fondamentale",
+    shortDef: "Les frais perçus par la banque émettrice de la carte à chaque transaction, au cœur du modèle de paiement par carte.",
+    definition: `Les frais d\'interchange sont les commissions versées par la banque du marchand (banque acquéreuse) à la banque qui a émis la carte utilisée (banque émettrice) à chaque transaction par carte. Ils constituent l\'une des principales sources de revenus du système de paiement par carte.\n\nLa chaîne de valeur d\'une transaction : le porteur paie chez un marchand → la banque du marchand verse une commission d\'interchange à la banque du porteur → Visa ou Mastercard perçoivent des frais de réseau sur la transaction. Visa lui-même ne perçoit pas directement les frais d\'interchange — ce sont les banques qui les encaissent. Visa perçoit des frais de service et de traitement sur les volumes.\n\nPourquoi c\'est un risque majeur pour Visa : les régulateurs européens et américains considèrent que ces frais, fixés collectivement par les réseaux de paiement, sont potentiellement anticoncurrentiels. La pression réglementaire sur leur plafonnement représente le risque systémique principal pour le modèle économique du duopole Visa/Mastercard.`,
+    related: ["moat", "pricing-power", "marge-nette", "free-cash-flow"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "roce",
+    label: "ROCE — Return on Capital Employed",
+    category: "Analyse fondamentale",
+    shortDef: "Le rendement du capital effectivement employé dans l\'exploitation, incluant la trésorerie et les actifs non financiers.",
+    definition: `Le ROCE (Return on Capital Employed) mesure la rentabilité d\'une entreprise par rapport au capital total qu\'elle emploie dans son activité. Formule : ROCE = Résultat opérationnel (EBIT) / Capital employé, où capital employé = Total actifs − Passifs courants.\n\nDifférence avec le ROIC : le ROIC se concentre sur le capital investi (fonds propres + dette nette), en excluant la trésorerie excédentaire. Le ROCE intègre l\'ensemble des actifs employés, trésorerie comprise. Pour une entreprise qui détient une trésorerie massive comme Visa, le ROCE est mécaniquement plus faible que le ROIC, car la trésorerie gonfle le dénominateur sans nécessairement contribuer au résultat opérationnel.\n\nLes deux métriques sont complémentaires : le ROIC mesure l\'efficacité du capital alloué par les actionnaires et créanciers, le ROCE mesure l\'efficacité de l\'ensemble de l\'appareil productif. Quand les deux divergent significativement, cela révèle souvent une trésorerie importante ou des actifs peu productifs dans le bilan.`,
+    related: ["roic", "wacc", "free-cash-flow", "marge-nette"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
 ];
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────
