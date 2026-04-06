@@ -16,6 +16,8 @@ import SegmentRevenueChart from './charts/SegmentRevenueChart'
 import MetricsDashboard from './MetricsDashboard'
 import ValuationBarChart from './charts/ValuationBarChart'
 import ValuationRadarChart from './charts/ValuationRadarChart'
+import type { SegmentPoint, SegmentConfig } from '@/types/analyses'
+import { Tableau } from '@/components/ui/Tableau'
 
 type MDXContent = React.ComponentType<{ components?: Record<string, React.ComponentType> }>
 
@@ -205,16 +207,33 @@ export default function ValeurSuivieTemplate({ frontmatter, Content, origine }: 
       )
     : () => null
 
-  const SegmentGraph = cd?.segmentRevenue
-    ? (props: { title?: string; unit?: string }) => (
+// Type guard — détecte si c'est le nouveau format objet ou l'ancien tableau
+function isSegmentConfig(val: SegmentPoint[] | SegmentConfig): val is SegmentConfig {
+  return !Array.isArray(val)
+}
+
+const SegmentGraph = cd?.segmentRevenue
+  ? (props: { title?: string; note?: string }) => {
+      const seg        = cd.segmentRevenue!
+      const data       = isSegmentConfig(seg) ? seg.data            : seg
+      const unit       = isSegmentConfig(seg) ? (seg.unit ?? 'Md$') : 'Md$'
+      const showTotal  = isSegmentConfig(seg) ? (seg.total?.show ?? false) : false
+      const totalLabel = isSegmentConfig(seg) ? (seg.total?.label ?? 'CA net') : 'CA net'
+      const barSize    = isSegmentConfig(seg) ? seg.barSize : undefined
+      return (
         <SegmentRevenueChart
-          data={cd.segmentRevenue!}
+          data={data}
           title={props.title}
-          unit={props.unit}
+          unit={unit}
           dataBreaks={cd.segmentBreaks}
+          note={props.note}
+          showTotal={showTotal}
+          totalLabel={totalLabel}
+          barSize={barSize}
         />
       )
-    : () => null
+    }
+  : () => null
 
   const MetricGraphs = cd?.metricHistory
     ? Object.fromEntries(
@@ -449,6 +468,7 @@ export default function ValeurSuivieTemplate({ frontmatter, Content, origine }: 
           ValuationRadar2,
           DisclaimerVerdict: DisclaimerVerdictBlock,
           NoteAnalyse:       NoteAnalyseBlock,
+          Tableau: Tableau as React.ComponentType<any>,
           ...MetricGraphs,
         }} />
       </div>

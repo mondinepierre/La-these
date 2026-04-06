@@ -5,8 +5,8 @@ import type { ArticleMeta as ArticleMeta3 } from '@/types/blog'
 export const declarationRetourExperience: ArticleMeta3 = {
   slug: 'declaration-retour-experience',
   title: "Ce que j'ai appris en déclarant mes investissements pour la première fois",
-  date: '2026-04-10',
-  publishedAt: '2026-04-10',
+  date: '2026-05-14',
+  publishedAt: '2026-05-14',
   category: 'parcours',
   level: 'debutant',
   readingTime: 6,

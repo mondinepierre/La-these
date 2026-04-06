@@ -5,8 +5,8 @@ import type { ArticleMeta as ArticleMeta2 } from '@/types/blog'
 export const fcfYield: ArticleMeta2 = {
   slug: 'fcf-yield',
   title: "Le Free Cash Flow Yield — la boussole de valorisation que le PER ne donne pas",
-  date: '2026-04-17',
-  publishedAt: '2026-04-17',
+  date: '2026-04-20',
+  publishedAt: '2026-04-20',
   category: 'methode',
   level: 'intermediaire',
   readingTime: 7,

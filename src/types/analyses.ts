@@ -36,20 +36,20 @@ export type MarginOfSafety = 'forte' | 'correcte' | 'faible' | 'indéterminée' 
 
 export type OrigineAnalyse = {
   type:  'sondage' | 'actualite' | 'suivi' | 'autre'
-  label: string   // ex: "Demandé par la communauté Discord" | "Résultats Q2 2026"
+  label: string
 }
 
 export type FrontmatterPonctuelle = {
   type:           'ponctuelle'
   title:          string
   ticker:         string
-  date:           string           // date de l'analyse — arrêt des données
+  date:           string
   secteur:        Secteur
   geo:            ZoneGeo
   conviction:     Conviction
   positionnement: Positionnement
   statut:         'actif' | 'archive' | 'en-construction'
-  portefeuille:   Enveloppe        // enveloppe recommandée pour ce profil
+  portefeuille:   Enveloppe
   horizon:        string
   excerpt:        string
   prixCible:      PrixCible
@@ -60,8 +60,7 @@ export type FrontmatterPonctuelle = {
   readingTime?:   number
   logo?:          string
   chartData?:     ChartData
-  origine?:       OrigineAnalyse   // ← seul ajout par rapport à FrontmatterValeur
-  // Pas de lastUpdated ni updates[] — analyse figée dans le temps
+  origine?:       OrigineAnalyse
 }
 
 // ─────────────────────────────────────────────
@@ -103,9 +102,7 @@ export type UpdateEntry = {
 }
 
 // ─────────────────────────────────────────────
-// Rupture de données — ligne verticale pointillée
-// Utiliser par graphique pour marquer un événement
-// ex: reclassification de segments, acquisition, changement de méthode
+// Rupture de données
 // ─────────────────────────────────────────────
 
 export type DataBreak = {
@@ -156,6 +153,21 @@ export type SegmentPoint = {
   segments: { name: string; value: number }[]
 }
 
+// ─────────────────────────────────────────────
+// Configuration graphique segments
+// Rétrocompatible : accepte SegmentPoint[] (ancien format) ou SegmentConfig (nouveau)
+// ─────────────────────────────────────────────
+
+export type SegmentConfig = {
+  unit?:    string    // unité (défaut: 'Md$')
+  barSize?: number    // largeur des barres en px (défaut: 26 avec total, 40 sans)
+  total?: {
+    show:   boolean   // affiche colonne CA net à droite
+    label?: string    // libellé légende (défaut: 'CA net')
+  }
+  data: SegmentPoint[]
+}
+
 export type ValuationPoint = {
   label:        string
   valeur:       number
@@ -170,24 +182,25 @@ export type ChartData = {
   revenue?:          RevenuePoint[]
   fcf?:              FcfPoint[]
   geoRevenue?:       GeoPoint[]
-  valuationCompare?: ValuationPoint[]
-  valuationCompare2?: ValuationPoint[]   // nouveau  — <ValuationRadar2 />
+  valuationCompare?:  ValuationPoint[]
+  valuationCompare2?: ValuationPoint[]
   valuationConcurrents?: {
     concurrent1?: string
     concurrent2?: string
   }
   metricHistory?:  MetricSerie[]
   roicVsWacc?:     MetricPoint[]
-  segmentRevenue?: SegmentPoint[]
 
-  // ── Ruptures par graphique — indépendantes ────────────────
-  // N'ajouter que les clés nécessaires pour chaque fiche
-  revenueBreaks?:  DataBreak[]   // <RevenueGraph />
-  margesBreaks?:   DataBreak[]   // <MargesGraph />
-  fcfBreaks?:      DataBreak[]   // <FcfGraph />
-  roicBreaks?:     DataBreak[]   // <RoicGraph />
-  roicWaccBreaks?: DataBreak[]   // <RoicWacc />
-  segmentBreaks?:  DataBreak[]   // <SegmentGraph />
+  // Accepte l'ancien format tableau OU le nouveau format objet avec config
+  segmentRevenue?: SegmentPoint[] | SegmentConfig
+
+  // ── Ruptures par graphique ─────────────────────────────────
+  revenueBreaks?:  DataBreak[]
+  margesBreaks?:   DataBreak[]
+  fcfBreaks?:      DataBreak[]
+  roicBreaks?:     DataBreak[]
+  roicWaccBreaks?: DataBreak[]
+  segmentBreaks?:  DataBreak[]
 }
 
 // ─────────────────────────────────────────────

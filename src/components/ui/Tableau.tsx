@@ -403,6 +403,155 @@ const TABLEAUX: Record<string, TableauData> = {
   ],
 },
 
+'visa-allocation-capital': {
+  colonnes: [
+    { key: 'destination', label: 'Destination', primary: true },
+    { key: 'montant',     label: 'Montant'                    },
+  ],
+  lignes: [
+    {
+      destination: 'Rachats d\'actions',
+      montant:     '18,3 Md$',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+    {
+      destination: 'Dividendes',
+      montant:     '4,6 Md$',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      destination: 'Capex',
+      montant:     '1,5 Md$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      destination: 'Acquisition Featurespace',
+      montant:     '0,9 Md$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+  ],
+},
+'visa-dcf-parametres': {
+  colonnes: [
+    { key: 'parametre', label: 'Paramètre',       primary: true },
+    { key: 'valeur',    label: 'Valeur retenue'                 },
+    { key: 'justif',    label: 'Justification'                  },
+  ],
+  lignes: [
+    {
+      parametre: 'WACC',
+      valeur:    '7,25 %',
+      justif:    'US 10Y + prime de risque marché ajustée au bêta du titre',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'Croissance (années 1–5)',
+      valeur:    '8,92 %',
+      justif:    'CAGR FCF 2022–2025, normalisé hors rebond post-Covid',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'Croissance perpétuelle',
+      valeur:    '1,50 %',
+      justif:    'Hypothèse de maturité basse — scénario conservateur',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+  ],
+},
+'visa-dcf-flux': {
+  colonnes: [
+    { key: 'element', label: 'Élément (M$)',    primary: true },
+    { key: 'a1',      label: 'Année 1'                       },
+    { key: 'a2',      label: 'Année 2'                       },
+    { key: 'a3',      label: 'Année 3'                       },
+    { key: 'a4',      label: 'Année 4'                       },
+    { key: 'a5',      label: 'Année 5'                       },
+    { key: 'tv',      label: 'Val. Terminale'                },
+  ],
+  lignes: [
+    {
+      element: 'FCF projeté',
+      a1: '24 974', a2: '27 202', a3: '29 630', a4: '32 274', a5: '35 154',
+      tv: '620 332',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      element: 'FCF actualisé',
+      a1: '23 285', a2: '23 648', a3: '24 017', a4: '24 391', a5: '24 771',
+      tv: '437 118',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'visa-dcf-synthese': {
+  colonnes: [
+    { key: 'element', label: 'Élément',   primary: true },
+    { key: 'valeur',  label: 'Valeur (M$)'              },
+    { key: 'detail',  label: 'Détail'                   },
+  ],
+  lignes: [
+    {
+      element: 'Somme FCF actualisés (5 ans)',
+      valeur:  '120 112',
+      detail:  'Cumul des flux annuels ramenés en valeur actuelle',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur Terminale actualisée',
+      valeur:  '437 118',
+      detail:  'TV / (1 + WACC)^5',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur d\'Entreprise (EV)',
+      valeur:  '557 230',
+      detail:  'Somme FCF actualisés + TV actualisée',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      element: 'Dette nette',
+      valeur:  '6 421',
+      detail:  'Dette totale − trésorerie',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur des capitaux propres',
+      valeur:  '550 809',
+      detail:  'EV − dette nette',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Nombre d\'actions',
+      valeur:  '1 953 M',
+      detail:  'Actions diluted CY2025',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Fair Value par action',
+      valeur:  '282,07 $',
+      detail:  'Valeur capitaux propres / nombre d\'actions',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
   'exemple-roiic-nopat': {
     colonnes: [
       { key: 'annee',         label: 'Année',               primary: true },
@@ -444,6 +593,7 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 }
+
 
 export function Tableau({ id }: { id: string }) {
   const data = TABLEAUX[id]

@@ -5,8 +5,8 @@ import type { ArticleMeta } from '@/types/blog'
 export const dcfIntuition: ArticleMeta = {
   slug: 'dcf-intuition',
   title: "L'intuition du DCF — valoriser sans se noyer dans le tableur",
-  date: '2026-04-14',
-  publishedAt: '2026-04-14',
+  date: '2026-04-13',
+  publishedAt: '2026-04-13',
   category: 'methode',
   level: 'intermediaire',
   readingTime: 8,

@@ -20,7 +20,7 @@ import { dcfIntuition                } from './dcf-intuition'
 import { fcfYield                    } from './fcf-yield'
 import { portefeuilleParThemes       } from './portefeuille-par-themes'
 import { lireUnRapportAnnuel         } from './lire-un-rapport-annuel'
-
+import { novoOrionEtude         } from './novo-orion-etude'
 export const articles: ArticleMeta[] = [
   evEbitdaEtRoic,
   roicEtWacc,
@@ -33,6 +33,7 @@ export const articles: ArticleMeta[] = [
   fcfYield,
   portefeuilleParThemes,
   lireUnRapportAnnuel,
+  novoOrionEtude,
 ]
 
 export function getPublishedArticles(): ArticleMeta[] {
