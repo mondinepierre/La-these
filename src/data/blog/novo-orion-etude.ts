@@ -5,7 +5,7 @@ export const novoOrionEtude: ArticleMeta = {
   slug: 'novo-orion-etude',
   title: "Novo Nordisk — Wegovy pill confirme son avantage face à l'orforglipron",
   date: '2026-04-06',
-  publishedAt: '2026-04-06',
+  publishedAt: '2026-04-06T16:00:00Z',
   category: 'macro',
   level: 'debutant',
   readingTime: 7,
