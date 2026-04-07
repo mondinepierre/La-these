@@ -176,7 +176,7 @@ if (isUpcoming && process.env.NODE_ENV !== 'development') notFound()
       <hr className="border-[#E0DBCF] mt-12 mb-6" />
 
       <Link
-        href="/Reflexions"
+        href="/reflexions"
         className="text-sm text-[#78716C] hover:text-[#1B4332] transition-colors"
       >
         ← Retour au Reflexions
