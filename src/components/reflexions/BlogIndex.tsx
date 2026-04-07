@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { ArticleMeta, Categorie, NiveauReflexions } from '@/types/reflexions'
-import { ReflexionsCard} from './reflexionsCard'
+import { ReflexionsCard} from './ReflexionsCard'
 import { CategoryBadge } from './CategoryBadge'
 import { LevelBadge } from '@/components/ui/LevelBadge'
 
