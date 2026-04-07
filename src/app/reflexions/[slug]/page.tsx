@@ -35,7 +35,7 @@ export default async function ReflexionsArticlePage({
 const article = getArticle(slug)
 if (!article) notFound()
 
-const filePath = path.join(process.cwd(), 'src/content/Reflexions', `${slug}.mdx`)
+const filePath = path.join(process.cwd(), 'src/content/reflexions', `${slug}.mdx`)
 if (!fs.existsSync(filePath)) notFound()
 
 // Ajouter ici :
