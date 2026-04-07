@@ -1,6 +1,6 @@
 // ─── lire-un-rapport-annuel.ts ────────────────────────────────────────────────
-// src/data/blog/lire-un-rapport-annuel.ts
-import type { ArticleMeta as ArticleMeta5 } from '@/types/blog'
+// src/data/reflexions/lire-un-rapport-annuel.ts
+import type { ArticleMeta as ArticleMeta5 } from '@/types/reflexions'
 
 export const lireUnRapportAnnuel: ArticleMeta5 = {
   slug: 'lire-un-rapport-annuel',

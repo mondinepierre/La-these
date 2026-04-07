@@ -1,12 +1,13 @@
-import { getPublishedArticles, getNextArticle } from '@/data/blog'
-import { BlogIndex } from '@/components/blog/BlogIndex'
+import { getPublishedArticles, getNextArticle } from '@/data/reflexions'
+// 1. On donne une majuscule au composant (ici via un alias "as ReflexionsIndex")
+import { reflexionsIndex as ReflexionsIndex } from '@/components/reflexions/ReflexionsIndex'
 
 export const metadata = {
-  title: 'Blog — La Thèse',
+  title: 'Réflexions — La Thèse',
   description: "Pédagogie, macro, méthode et réflexions sur l'investissement long terme.",
 }
 
-export default function BlogPage() {
+export default function ReflexionsPage() {
   const sorted = [...getPublishedArticles()].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   )
@@ -15,7 +16,7 @@ export default function BlogPage() {
   return (
     <main className="max-w-content mx-auto px-6 py-12">
       <div className="mb-12">
-        <h1 className="font-playfair text-4xl text-[#1B4332] mb-4">Blog</h1>
+        <h1 className="font-playfair text-4xl text-[#1B4332] mb-4">Réflexions</h1>
         <p className="text-[#78716C] text-lg max-w-2xl">
           Concepts, méthode, macro et réflexions sur l&apos;investissement long terme.
           Pas d&apos;entreprises spécifiques ici — elles ont leur section{' '}
@@ -25,7 +26,8 @@ export default function BlogPage() {
           .
         </p>
       </div>
-      <BlogIndex articles={sorted} nextArticle={nextArticle} />
+      {/* 2. On utilise la version avec la majuscule */}
+      <ReflexionsIndex articles={sorted} nextArticle={nextArticle} />
     </main>
   )
 }

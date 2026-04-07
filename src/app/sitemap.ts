@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next'
 import { glossaire } from '@/data/glossaire'
 import { ANALYSES } from '@/data/analyses'
 import { portefeuilles } from '@/data/portefeuilles'
-import { articles } from '@/data/blog'
+import { articles } from '@/data/reflexions'
 
 const BASE_URL = 'https://www.lathese.fr'
 
@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/portefeuilles`,           priority: 0.7, changeFrequency: 'weekly',  lastModified: now },
     { url: `${BASE_URL}/glossaire`,               priority: 0.7, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/bibliotheque-etf`,        priority: 0.7, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE_URL}/blog`,                    priority: 0.8, changeFrequency: 'weekly',  lastModified: now },
+    { url: `${BASE_URL}/reflexions`,                    priority: 0.8, changeFrequency: 'weekly',  lastModified: now },
     { url: `${BASE_URL}/fiscalite`,               priority: 0.6, changeFrequency: 'yearly',  lastModified: now },
     { url: `${BASE_URL}/declaration-fiscale`,     priority: 0.6, changeFrequency: 'yearly',  lastModified: now },
     { url: `${BASE_URL}/a-propos`,                priority: 0.5, changeFrequency: 'yearly',  lastModified: now },
@@ -83,8 +83,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
   }))
 
-  const blogRoutes: MetadataRoute.Sitemap = articles.map((article) => ({
-    url: `${BASE_URL}/blog/${article.slug}`,
+  const reflexionsRoutes: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: `${BASE_URL}/reflexions/${article.slug}`,
     priority: 0.7,
     changeFrequency: 'monthly' as const,
     lastModified: new Date(article.date),
@@ -96,6 +96,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...glossaireRoutes,
     ...analysesRoutes,
     ...portefeuillesRoutes,
-    ...blogRoutes,
+    ...reflexionsRoutes,
   ]
 }

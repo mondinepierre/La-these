@@ -1,5 +1,5 @@
-// src/data/blog/declarer-ses-investissements.ts
-import type { ArticleMeta } from '@/types/blog'
+// src/data/reflexions/declarer-ses-investissements.ts
+import type { ArticleMeta } from '@/types/reflexions'
 
 export const declarerSesInvestissements: ArticleMeta = {
   slug: 'declarer-ses-investissements',

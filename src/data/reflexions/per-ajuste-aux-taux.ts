@@ -1,5 +1,5 @@
-// src/data/blog/per-ajuste-aux-taux.ts
-import type { ArticleMeta } from '@/types/blog'
+// src/data/reflexions/per-ajuste-aux-taux.ts
+import type { ArticleMeta } from '@/types/reflexions'
 
 export const perAjusteAuxTaux: ArticleMeta = {
   slug: 'per-ajuste-aux-taux',

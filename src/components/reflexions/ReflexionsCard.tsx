@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { ArticleMeta } from '@/types/blog'
+import { ArticleMeta } from '@/types/reflexions'
 import { CategoryBadge } from './CategoryBadge'
 import { LevelBadge } from '@/components/ui/LevelBadge'
 
-export function BlogCard({ article }: { article: ArticleMeta }) {
+export function ReflexionsCard({ article }: { article: ArticleMeta }) {
   const dateFormatted = new Date(article.date).toLocaleDateString('fr-FR', {
     day: 'numeric',
     month: 'long',
@@ -12,7 +12,7 @@ export function BlogCard({ article }: { article: ArticleMeta }) {
 
   return (
     <Link
-      href={`/blog/${article.slug}`}
+      href={`/reflexions/${article.slug}`}
       className="group block bg-white border border-[#E0DBCF] rounded-lg p-6 hover:border-[#C9A84C] hover:shadow-sm transition-all duration-200"
     >
       <div className="flex flex-wrap gap-2 mb-3">

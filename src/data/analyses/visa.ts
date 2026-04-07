@@ -29,7 +29,7 @@ export const visa: AnalyseCard = {
   ticker:         'V',
   secteur:        'Finance',  // voir union Secteur dans types/analyses.ts
   geo:            'États-Unis',   // voir union ZoneGeo
-  conviction:     'forte',      // exceptionnelle | forte | moyenne | spéculative
+  conviction:     'exceptionnelle',      // exceptionnelle | forte | moyenne | spéculative
   positionnement: 'accumulation', // achat fort | accumulation | surveillance | maintien | allégement
   lastUpdated:    '2026-04-07',
   statut:         'actif', // en-construction | actif | archivé

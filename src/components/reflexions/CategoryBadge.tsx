@@ -1,4 +1,4 @@
-import { Categorie } from '@/types/blog'
+import { Categorie } from '@/types/reflexions'
 
 const config: Record<Categorie, { label: string; className: string }> = {
   pedagogie: {

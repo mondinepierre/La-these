@@ -1,6 +1,6 @@
 // ─── declaration-retour-experience.ts ────────────────────────────────────────
-// src/data/blog/declaration-retour-experience.ts
-import type { ArticleMeta as ArticleMeta3 } from '@/types/blog'
+// src/data/reflexions/declaration-retour-experience.ts
+import type { ArticleMeta as ArticleMeta3 } from '@/types/reflexions'
 
 export const declarationRetourExperience: ArticleMeta3 = {
   slug: 'declaration-retour-experience',

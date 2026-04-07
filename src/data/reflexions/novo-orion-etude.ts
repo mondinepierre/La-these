@@ -1,5 +1,5 @@
-// src/data/blog/novo-orion-etude.ts
-import type { ArticleMeta } from '@/types/blog'
+// src/data/reflexions/novo-orion-etude.ts
+import type { ArticleMeta } from '@/types/reflexions'
 
 export const novoOrionEtude: ArticleMeta = {
   slug: 'novo-orion-etude',

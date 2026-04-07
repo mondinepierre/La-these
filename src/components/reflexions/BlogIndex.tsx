@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { ArticleMeta, Categorie, NiveauBlog } from '@/types/blog'
-import { BlogCard } from './BlogCard'
+import { ArticleMeta, Categorie, NiveauReflexions } from '@/types/reflexions'
+import { ReflexionsCard} from './reflexionsCard'
 import { CategoryBadge } from './CategoryBadge'
 import { LevelBadge } from '@/components/ui/LevelBadge'
 
@@ -14,7 +14,7 @@ const CATEGORIES: { value: Categorie | 'all'; label: string }[] = [
   { value: 'parcours',  label: 'Parcours'  },
 ]
 
-const NIVEAUX: { value: NiveauBlog | 'all'; label: string }[] = [
+const NIVEAUX: { value: NiveauReflexions | 'all'; label: string }[] = [
   { value: 'all',           label: 'Tous niveaux'  },
   { value: 'debutant',      label: 'Débutant'      },
   { value: 'intermediaire', label: 'Intermédiaire' },
@@ -52,7 +52,7 @@ function FilterPill({
   )
 }
 
-export function BlogIndex({
+export function reflexionsIndex({
   articles,
   nextArticle,
 }: {
@@ -60,7 +60,7 @@ export function BlogIndex({
   nextArticle?: ArticleMeta
 }) {
   const [category, setCategory] = useState<Categorie | 'all'>('all')
-  const [level,    setLevel]    = useState<NiveauBlog | 'all'>('all')
+  const [level,    setLevel]    = useState<NiveauReflexions | 'all'>('all')
   const [search,   setSearch]   = useState('')
 
   const filtered = useMemo(() => {
@@ -134,7 +134,7 @@ export function BlogIndex({
               key={n.value}
               label={n.label}
               active={level === n.value}
-              onClick={() => setLevel(n.value as NiveauBlog | 'all')}
+              onClick={() => setLevel(n.value as NiveauReflexions | 'all')}
             />
           ))}
           <input
@@ -168,7 +168,7 @@ export function BlogIndex({
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem' }}>
           {filtered.map(a => (
-            <BlogCard key={a.slug} article={a} />
+            <ReflexionsCard key={a.slug} article={a} />
           ))}
         </div>
       )}

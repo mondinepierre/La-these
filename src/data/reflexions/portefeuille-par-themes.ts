@@ -1,6 +1,6 @@
 // ─── portefeuille-par-themes.ts ───────────────────────────────────────────────
-// src/data/blog/portefeuille-par-themes.ts
-import type { ArticleMeta as ArticleMeta4 } from '@/types/blog'
+// src/data/reflexions/portefeuille-par-themes.ts
+import type { ArticleMeta as ArticleMeta4 } from '@/types/reflexions'
 
 export const portefeuilleParThemes: ArticleMeta4 = {
   slug: 'portefeuille-par-themes',

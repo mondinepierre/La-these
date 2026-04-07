@@ -1,13 +1,13 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// src/data/blog/index.ts
+// src/data/reflexions/index.ts
 //
 // AJOUTER UN ARTICLE :
-//   1. Créer src/data/blog/[slug].ts (copier _template.ts)
+//   1. Créer src/data/reflexions/[slug].ts (copier _template.ts)
 //   2. Importer ici et ajouter dans articles
-//   3. Créer le fichier MDX dans src/content/blog/
+//   3. Créer le fichier MDX dans src/content/reflexions/
 // ─────────────────────────────────────────────────────────────────────────────
 
-import type { ArticleMeta } from '@/types/blog'
+import type { ArticleMeta } from '@/types/reflexions'
 
 import { evEbitdaEtRoic              } from './ev-ebitda-et-roic'
 import { roicEtWacc                  } from './ROIC-et-WACC'

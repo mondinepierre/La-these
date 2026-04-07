@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { HeroSection } from '@/components/layout/HeroSection'
 import { ArticleCard } from '@/components/ui/ArticleCard'
 import { ANALYSES } from '@/data/analyses'
-import { getPublishedArticles } from '@/data/blog'
+import { getPublishedArticles } from '@/data/reflexions'
 
 // ─── Modules mis en avant — Parcours Bases ───────────────────────────────────
 const FEATURED_MODULES = [
@@ -182,11 +182,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {derniersPublies.map((a) => {
-              const isBlogArticle = 'summary' in a
+              const isreflexionsArticle = 'summary' in a
 
               const title = a.title
-              const excerpt = isBlogArticle ? a.summary : a.excerpt
-              const href = isBlogArticle ? `/blog/${a.slug}` : `/analyses/${a.slug}`
+              const excerpt = isreflexionsArticle ? a.summary : a.excerpt
+              const href = isreflexionsArticle ? `/reflexions/${a.slug}` : `/analyses/${a.slug}`
               const readingTime = 'readingTime' in a ? a.readingTime : 5
 
               const CATEGORY_LABELS: Record<string, string> = {
@@ -196,8 +196,8 @@ export default function Home() {
                 parcours:  'Parcours',
               }
 
-              const category = isBlogArticle
-                ? `Blog · ${CATEGORY_LABELS[a.category] ?? a.category}`
+              const category = isreflexionsArticle
+                ? `Réflexions · ${CATEGORY_LABELS[a.category] ?? a.category}`
                 : `Analyse · ${'secteur' in a ? a.secteur : 'Marché'}`
 
               const level = 'level' in a ? a.level : 'intermediaire'

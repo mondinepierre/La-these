@@ -1,6 +1,6 @@
 // ─── dcf-intuition.ts ────────────────────────────────────────────────────────
-// src/data/blog/dcf-intuition.ts
-import type { ArticleMeta } from '@/types/blog'
+// src/data/reflexions/dcf-intuition.ts
+import type { ArticleMeta } from '@/types/reflexions'
 
 export const dcfIntuition: ArticleMeta = {
   slug: 'dcf-intuition',

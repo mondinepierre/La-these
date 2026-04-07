@@ -1,4 +1,4 @@
-import type { ArticleMeta } from '@/types/blog'
+import type { ArticleMeta } from '@/types/reflexions'
 
 export const roicEtWacc: ArticleMeta = {
   slug: 'ROIC-et-WACC',

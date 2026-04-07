@@ -1,4 +1,4 @@
-import type { ArticleMeta } from '@/types/blog'
+import type { ArticleMeta } from '@/types/reflexions'
 
 export const _template: ArticleMeta = {
   slug: '',
@@ -9,7 +9,7 @@ export const _template: ArticleMeta = {
   readingTime: 0,
   summary: '',
   tags: [],
-  related: [],            // slugs /blog
+  related: [],            // slugs /reflexions
   analyses: [],           // slugs /analyses
   portefeuilles: [],      // slugs /portefeuilles
 }

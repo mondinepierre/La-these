@@ -4,12 +4,12 @@ import remarkGfm from 'remark-gfm'
 import fs from 'fs'
 import path from 'path'
 import Link from 'next/link'
-import { getArticle, articles } from '@/data/blog'
-import { CategoryBadge } from '@/components/blog/CategoryBadge'
+import { getArticle, articles } from '@/data/reflexions'
+import { CategoryBadge } from '@/components/reflexions/CategoryBadge'
 import { LevelBadge } from '@/components/ui/LevelBadge'
-import { BlogCard } from '@/components/blog/BlogCard'
+import { ReflexionsCard } from '@/components/reflexions/ReflexionsCard'
 import { Terme } from '@/components/ui/Terme'
-import { AnalyseCiteeCard } from '@/components/blog/AnalyseCiteeCard'
+import { AnalyseCiteeCard } from '@/components/reflexions/AnalyseCiteeCard'
 import { Tableau } from '@/components/ui/Tableau'
 
 export async function generateStaticParams() {
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-export default async function BlogArticlePage({
+export default async function ReflexionsArticlePage({
   params,
 }: {
   params: Promise<{ slug: string }>
@@ -35,7 +35,7 @@ export default async function BlogArticlePage({
 const article = getArticle(slug)
 if (!article) notFound()
 
-const filePath = path.join(process.cwd(), 'src/content/blog', `${slug}.mdx`)
+const filePath = path.join(process.cwd(), 'src/content/Reflexions', `${slug}.mdx`)
 if (!fs.existsSync(filePath)) notFound()
 
 // Ajouter ici :
@@ -167,7 +167,7 @@ if (isUpcoming && process.env.NODE_ENV !== 'development') notFound()
           <h3 className="font-playfair text-xl text-[#1B4332] mb-6">À lire aussi</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {relatedArticles.map(a => (
-              <BlogCard key={a.slug} article={a} />
+              <ReflexionsCard key={a.slug} article={a} />
             ))}
           </div>
         </div>
@@ -176,10 +176,10 @@ if (isUpcoming && process.env.NODE_ENV !== 'development') notFound()
       <hr className="border-[#E0DBCF] mt-12 mb-6" />
 
       <Link
-        href="/blog"
+        href="/Reflexions"
         className="text-sm text-[#78716C] hover:text-[#1B4332] transition-colors"
       >
-        ← Retour au blog
+        ← Retour au Reflexions
       </Link>
     </main>
   )

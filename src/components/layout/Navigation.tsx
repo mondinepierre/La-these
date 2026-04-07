@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { href: '/academie',      label: 'Académie' },
   { href: '/analyses',      label: 'Analyses' },
   { href: '/portefeuilles', label: 'Portefeuilles' },
-  { href: '/blog',          label: 'Blog' },
+  { href: '/reflexions',          label: 'Réflexions' },
   { href: '/bibliotheque-etf', label: 'ETF' }, 
   { href: '/glossaire',     label: 'Glossaire' },
   { href: '/fiscalite',     label: 'Fiscalité' },

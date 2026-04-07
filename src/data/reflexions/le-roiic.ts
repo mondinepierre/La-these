@@ -1,5 +1,5 @@
-// src/data/blog/le-roiic.ts
-import type { ArticleMeta } from '@/types/blog'
+// src/data/reflexions/le-roiic.ts
+import type { ArticleMeta } from '@/types/reflexions'
 
 export const leRoiic: ArticleMeta = {
   slug: 'le-roiic',

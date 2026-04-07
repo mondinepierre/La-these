@@ -1,6 +1,6 @@
 // ─── fcf-yield.ts ─────────────────────────────────────────────────────────────
-// src/data/blog/fcf-yield.ts
-import type { ArticleMeta as ArticleMeta2 } from '@/types/blog'
+// src/data/reflexions/fcf-yield.ts
+import type { ArticleMeta as ArticleMeta2 } from '@/types/reflexions'
 
 export const fcfYield: ArticleMeta2 = {
   slug: 'fcf-yield',

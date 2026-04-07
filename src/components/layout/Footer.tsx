@@ -4,7 +4,7 @@ const FOOTER_LINKS = [
   { href: '/academie',  label: 'Académie' },
   { href: '/analyses',  label: 'Analyses' },
   { href: '/portefeuilles', label: 'Portefeuilles' },
-  { href: '/blog',  label: 'Blog' },
+  { href: '/reflexions',  label: 'Réflexions' },
   { href: '/bibliotheque-etf',    label: 'ETF' }, 
   { href: '/fiscalite',           label: 'Fiscalité' },
   { href: '/declaration-fiscale', label: 'Déclaration fiscale' },
