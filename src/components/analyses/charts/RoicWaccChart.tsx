@@ -91,13 +91,14 @@ export default function RoicWaccChart({ data, title, dataBreaks }: Props) {
             }}
             contentStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}
           />
-          <Legend
-            payload={[
-              { value: 'ROIC', type: 'line', color: COLOR_ROIC },
-              { value: 'WACC', type: 'line', color: COLOR_WACC },
-            ]}
-            wrapperStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}
-          />
+            <Legend
+              formatter={(value) => {
+                if (value === 'roic') return 'ROIC'
+                if (value === 'wacc') return 'WACC'
+                return value
+              }}
+              wrapperStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}
+            />
 
           {dataBreaks?.map(b => {
             const idx      = dataYears.indexOf(Number(b.year))
