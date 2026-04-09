@@ -38,8 +38,8 @@ export const visa: AnalyseCard = {
   excerpt:        'Les avantages du système bancaire, les inconvénients en moins.',
   glossaire:      ['moat', 'free-cash-flow', 'roic', 'dcf', 'asset-light', 'interchange'], // slugs glossaire liés
   logo:          '/analyse/visa.png',
-  prixCible:      { bas: 0, haut: 0, devise: 'USD' },
-  marginOfSafety: 'indéterminée', // forte | correcte | faible | négative | indéterminée
+  prixCible:      { bas: 498, haut: 578, devise: 'USD' },
+  marginOfSafety: 'faible', // forte | correcte | faible | négative | indéterminée
   readingTime:    25,
 
   metrics: {
