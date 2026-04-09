@@ -22,6 +22,7 @@ import { totalenergies } from './totalenergies'
 import { alphabet      } from './alphabet'
 import { microsoft     } from './microsoft'
 import { visa          } from './visa'
+import { loreal          } from './loreal'
 
 
 // ── Analyses ponctuelles ──────────────────────────────────────────────────────
@@ -39,6 +40,7 @@ export const ANALYSES: AnalyseCard[] = [
   novo,
   totalenergies,
   visa,
+  loreal,
 
   // Analyses ponctuelles
   sondage,
