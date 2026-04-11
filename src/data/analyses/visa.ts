@@ -45,7 +45,7 @@ export const visa: AnalyseCard = {
   metrics: {
     per:               32.9,  // Price / Earnings
     evEbitda:          26.8,  // EV / EBITDA
-    fcfYield:          3.35,  // FCF Yield en %
+    fcfYield:          3.32,  // FCF Yield en %
     roic:              45.6,  // Return on Invested Capital en %
     wacc:              7.3,  // Weighted Average Cost of Capital en %
     detteEbitda:       0.25,  // Dette nette / EBITDA — négatif = trésorerie nette
@@ -537,11 +537,11 @@ export const visa: AnalyseCard = {
           name:  'Free-Cash-Flow Yield',
           unit:  '%',
           data: [
-            { year: 2021, value: 3.42 },
-            { year: 2022, value: 4.18 },
-            { year: 2023, value: 3.64 },
-            { year: 2024, value: 3.20 },
-            { year: 2025, value: 3.35 },
+            { year: 2021, value: 3.18 },
+            { year: 2022, value: 3.97 },
+            { year: 2023, value: 3.54 },
+            { year: 2024, value: 3.16 },
+            { year: 2025, value: 3.32 },
           ],
           competitors: [
             {
@@ -549,11 +549,11 @@ export const visa: AnalyseCard = {
               color: '#C9A84C',
               dashed: true,
               data: [
-                { year: 2021, value: 3.6 },
-                { year: 2022, value: 3.6 },
-                { year: 2023, value: 3.6 },
-                { year: 2024, value: 3.6 },
-                { year: 2025, value: 3.6 },
+                { year: 2021, value: 3.43 },
+                { year: 2022, value: 3.43 },
+                { year: 2023, value: 3.43 },
+                { year: 2024, value: 3.43 },
+                { year: 2025, value: 3.43 },
               ],
             },
            {

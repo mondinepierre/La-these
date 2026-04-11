@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/portefeuilles`,           priority: 0.7, changeFrequency: 'weekly',  lastModified: now },
     { url: `${BASE_URL}/glossaire`,               priority: 0.7, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/bibliotheque-etf`,        priority: 0.7, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE_URL}/reflexions`,                    priority: 0.8, changeFrequency: 'weekly',  lastModified: now },
+    { url: `${BASE_URL}/reflexions`,              priority: 0.8, changeFrequency: 'weekly',  lastModified: now },
     { url: `${BASE_URL}/fiscalite`,               priority: 0.6, changeFrequency: 'yearly',  lastModified: now },
     { url: `${BASE_URL}/declaration-fiscale`,     priority: 0.6, changeFrequency: 'yearly',  lastModified: now },
     { url: `${BASE_URL}/a-propos`,                priority: 0.5, changeFrequency: 'yearly',  lastModified: now },

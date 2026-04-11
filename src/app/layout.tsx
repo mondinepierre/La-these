@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'Des ressources claires pour comprendre les marchés et construire un patrimoine durable. Investissement fondamental long terme, sans jargon ni promesse de rendement.',
   keywords: [
     'investissement', 'bourse', 'ETF', 'analyse fondamentale',
-    'long terme', 'patrimoine', 'débutant', 'pédagogie',
+    'long terme', 'patrimoine', 'débutant', 'pédagogie', 'réflexions',
   ],
   authors: [{ name: 'La Thèse' }],
 

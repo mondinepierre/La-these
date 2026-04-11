@@ -1,6 +1,6 @@
 import { getPublishedArticles, getNextArticle } from '@/data/reflexions'
 // 1. On donne une majuscule au composant (ici via un alias "as ReflexionsIndex")
-import { reflexionsIndex as ReflexionsIndex } from '@/components/reflexions/ReflexionsIndex'
+import { ReflexionsIndex } from '@/components/reflexions/ReflexionsIndex'
 
 export const metadata = {
   title: 'Réflexions — La Thèse',

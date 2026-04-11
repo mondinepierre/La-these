@@ -179,7 +179,7 @@ if (isUpcoming && process.env.NODE_ENV !== 'development') notFound()
         href="/reflexions"
         className="text-sm text-[#78716C] hover:text-[#1B4332] transition-colors"
       >
-        ← Retour au Reflexions
+        ← Retour aux Réflexions
       </Link>
     </main>
   )

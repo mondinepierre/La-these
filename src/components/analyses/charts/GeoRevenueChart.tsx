@@ -8,24 +8,19 @@ type Props = {
   title?:  string
 }
 
-const COULEURS: Record<string, string> = {
-  'Europe':           '#1B4332',
-  'France':           '#4A7C5F',
-  'États-Unis':       '#2D6A4F',
-  'Amérique du Nord': '#2D6A4F',
-  'Chine':            '#C9A84C',
-  'Asie':             '#E0A030',
-  'Corée du Sud':     '#B8892A',
-  'Taïwan':           '#D4A040',
-  'Japon':            '#78716C',
-  'Reste du monde':   '#A8A29E',
-}
+// Couleurs attribuées selon le classement (index de 0 à 4)
+const RANK_COLORS = [
+  '#C9A84C', // 1er : Doré
+  '#1B4332', // 2ème : Vert très foncé
+  '#2D6A4F', // 3ème : Vert foncé
+  '#40916C', // 4ème : Vert moyen
+  '#52B788', // 5ème : Vert clair
+]
 
-function getCouleur(region: string): string {
-  return COULEURS[region] ?? '#C4BEB4'
-}
+const DEFAULT_COLOR = '#A8A29E' // Au-delà (6ème et +) : Gris
 
 export default function GeoRevenueChart({ data, source, title }: Props) {
+  // Les données sont triées ici (du plus grand % au plus petit)
   const sorted       = [...data].sort((a, b) => b.pct - a.pct)
   const total        = sorted.reduce((sum, d) => sum + d.pct, 0)
   const displayTitle = title ?? 'Répartition géographique du CA'
@@ -43,8 +38,10 @@ export default function GeoRevenueChart({ data, source, title }: Props) {
       </h3>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        {sorted.map(({ region, pct }) => {
-          const couleur = getCouleur(region)
+        {/* On récupère 'index' pour déterminer le rang de chaque région */}
+        {sorted.map(({ region, pct }, index) => {
+          // Si l'index dépasse la taille du tableau RANK_COLORS, on utilise le gris
+          const couleur = RANK_COLORS[index] ?? DEFAULT_COLOR
           const largeur = `${(pct / total) * 100}%`
 
           return (

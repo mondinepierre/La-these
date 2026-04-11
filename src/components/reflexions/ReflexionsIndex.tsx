@@ -52,7 +52,7 @@ function FilterPill({
   )
 }
 
-export function reflexionsIndex({
+export function ReflexionsIndex({
   articles,
   nextArticle,
 }: {

@@ -130,47 +130,41 @@ export const loreal: AnalyseCard = {
     ],
 
     segmentRevenue: {
-      unit:  'Md$',
-      total: { show: true, label: 'CA' },
+      unit:  'Md€',
       data: [
       { year: 2021, segments: [
-          { name: 'Service',                            value: 11.4 },
-          { name: 'Data processing',                    value: 12.7 },
-          { name: 'International transaction',          value: 6.5   },
-          { name: 'Other',                              value: 1.6 },
-          { name: 'Client incentives',                  value: -8.3   },
+          { name: 'Produits Professionnels',    value: 3.784  },
+          { name: 'Produits Grand Public',      value: 12.234 },
+          { name: 'Luxe',                       value: 12.346 },
+          { name: 'Beauté Dermatologique',      value: 3.924  },
         ]
       },
       { year: 2022, segments: [
-          { name: 'Service',                            value: 13.3 },
-          { name: 'Data processing',                    value: 14.4 },
-          { name: 'International transaction',          value: 9.8   },
-          { name: 'Other',                              value: 1.9 },
-          { name: 'Client incentives',                  value: -10.2   },
+          { name: 'Produits Professionnels',    value: 4.477  },
+          { name: 'Produits Grand Public',      value: 14.021 },
+          { name: 'Luxe',                       value: 14.638 },
+          { name: 'Beauté Dermatologique',      value: 5.125  },
         ]
       },
       { year: 2023, segments: [
-          { name: 'Service',                            value: 14.8 },
-          { name: 'Data processing',                    value: 16 },
-          { name: 'International transaction',          value: 11.6   },
-          { name: 'Other',                              value: 2.4 },
-          { name: 'Client incentives',                  value: -12.2   },
+          { name: 'Produits Professionnels',    value: 4.654  },
+          { name: 'Produits Grand Public',      value: 15.173 },
+          { name: 'Luxe',                       value: 14.924 },
+          { name: 'Beauté Dermatologique',      value: 6.432  },
         ]
       },
       { year: 2024, segments: [
-          { name: 'Service',                            value: 16.1 },
-          { name: 'Data processing',                    value: 17.7 },
-          { name: 'International transaction',          value: 12.6   },
-          { name: 'Other',                              value: 3.1 },
-          { name: 'Client incentives',                  value: -13.7   },
+          { name: 'Produits Professionnels',    value: 4.886  },
+          { name: 'Produits Grand Public',      value: 15.982 },
+          { name: 'Luxe',                       value: 15.591 },
+          { name: 'Beauté Dermatologique',      value: 7.027  },
         ]
       },
       { year: 2025, segments: [
-          { name: 'Service',                            value: 17.5 },
-          { name: 'Data processing',                    value: 19.9 },
-          { name: 'International transaction',          value: 14.1   },
-          { name: 'Other',                              value: 4 },
-          { name: 'Client incentives',                  value: -15.5   },
+          { name: 'Produits Professionnels',    value: 5.163  },
+          { name: 'Produits Grand Public',      value: 16.090 },
+          { name: 'Luxe',                       value: 15.595 },
+          { name: 'Beauté Dermatologique',      value: 7.204  },
         ]
       },
     ],
