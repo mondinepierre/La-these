@@ -12,13 +12,15 @@ type Props = {
   name?:        string   // nom de la valeur analysée
   concurrent1?: string   // nom du 1er concurrent
   concurrent2?: string   // nom du 2e concurrent
+  concurrent3?: string   // nom du 3e concurrent
 }
 
 // ── Palette ───────────────────────────────────────────────────
 const COULEURS = {
-  valeur:      { stroke: '#1B4332', fill: '#1B4332', opacity: 0.25 },
-  concurrent1: { stroke: '#C9A84C', fill: '#C9A84C', opacity: 0.15 },
-  concurrent2: { stroke: '#78716C', fill: '#78716C', opacity: 0.12 },
+  valeur:      { stroke: '#1B4332', fill: '#1B4332', opacity: 0.35 },
+  concurrent1: { stroke: '#C9A84C', fill: '#C9A84C', opacity: 0.25 },
+  concurrent2: { stroke: '#2D6A4F', fill: '#78716C', opacity: 0.15 },
+  concurrent3: { stroke: '#78716C', fill: '#78716C', opacity: 0.10 },
 }
 
 export default function ValuationRadarChart({
@@ -27,16 +29,18 @@ export default function ValuationRadarChart({
   name        = 'Valeur',
   concurrent1,
   concurrent2,
+  concurrent3,
 }: Props) {
   const displayTitle   = title ?? 'Profil de valorisation vs secteur'
   const hasConcurrent1 = data.some(d => d.concurrent1 !== undefined) && !!concurrent1
   const hasConcurrent2 = data.some(d => d.concurrent2 !== undefined) && !!concurrent2
+  const hasConcurrent3 = data.some(d => d.concurrent3 !== undefined) && !!concurrent3
 
   // ── Normalisation ─────────────────────────────────────────
   // Base = moyenne de toutes les valeurs présentes sur chaque axe
   // Normalisation — base sur les valeurs présentes uniquement
   const normalized = data.map(d => {
-    const values = [d.valeur, d.secteur, d.concurrent1, d.concurrent2]
+    const values = [d.valeur, d.secteur, d.concurrent1, d.concurrent2, d.concurrent3,]
       .filter((v): v is number => v !== undefined)
     const base = values.reduce((a, b) => a + b, 0) / values.length || 1
 
@@ -46,10 +50,12 @@ export default function ValuationRadarChart({
       secteur:      d.secteur !== undefined ? parseFloat((d.secteur / base).toFixed(2)) : undefined,
       concurrent1:  d.concurrent1 !== undefined ? parseFloat((d.concurrent1 / base).toFixed(2)) : undefined,
       concurrent2:  d.concurrent2 !== undefined ? parseFloat((d.concurrent2 / base).toFixed(2)) : undefined,
+      concurrent3:  d.concurrent3 !== undefined ? parseFloat((d.concurrent3 / base).toFixed(2)) : undefined,
       valeurBrute:     d.valeur,
       secteurBrut:     d.secteur,
       concurrent1Brut: d.concurrent1,
       concurrent2Brut: d.concurrent2,
+      concurrent3Brut: d.concurrent3,
     }
   })
 
@@ -79,6 +85,9 @@ export default function ValuationRadarChart({
         )}
         {hasConcurrent2 && item.concurrent2Brut !== undefined && (
           <><br />{concurrent2} : {item.concurrent2Brut.toFixed(1)}</>
+        )}
+         {hasConcurrent3 && item.concurrent3Brut !== undefined && (
+          <><br />{concurrent3} : {item.concurrent3Brut.toFixed(1)}</>
         )}
       </div>
     )
@@ -157,7 +166,7 @@ export default function ValuationRadarChart({
               fill={COULEURS.concurrent1.fill}
               fillOpacity={COULEURS.concurrent1.opacity}
               strokeWidth={1.5}
-              strokeDasharray="4 2"
+              strokeDasharray="6 3"
             />
           )}
 
@@ -169,6 +178,18 @@ export default function ValuationRadarChart({
               stroke={COULEURS.concurrent2.stroke}
               fill={COULEURS.concurrent2.fill}
               fillOpacity={COULEURS.concurrent2.opacity}
+              strokeWidth={1.5}
+              strokeDasharray="4 2"
+            />
+          )}
+          {/* Concurrent 3 — affiché si données présentes */}
+          {hasConcurrent3 && (
+            <Radar
+              name={concurrent3}
+              dataKey="concurrent3"
+              stroke={COULEURS.concurrent3.stroke}
+              fill={COULEURS.concurrent3.fill}
+              fillOpacity={COULEURS.concurrent3.opacity}
               strokeWidth={1.5}
               strokeDasharray="2 2"
             />

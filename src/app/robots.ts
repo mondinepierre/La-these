@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: '/blog/',
       },
     ],
     sitemap: 'https://www.lathese.fr/sitemap.xml',

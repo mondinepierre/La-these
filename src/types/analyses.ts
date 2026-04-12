@@ -175,6 +175,7 @@ export type ValuationPoint = {
   secteur?:     number
   concurrent1?: number
   concurrent2?: number
+  concurrent3?: number
 }
 
 export type ChartData = {
@@ -188,6 +189,7 @@ export type ChartData = {
   valuationConcurrents?: {
     concurrent1?: string
     concurrent2?: string
+    concurrent3?: string
   }
   metricHistory?:  MetricSerie[]
   roicVsWacc?:     MetricPoint[]
