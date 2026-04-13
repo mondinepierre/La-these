@@ -36,11 +36,12 @@ export const ANALYSES: AnalyseCard[] = [
   // Valeurs suivies
   alphabet,
   asml,
+  loreal,
   microsoft,
   novo,
   totalenergies,
   visa,
-  loreal,
+
 
   // Analyses ponctuelles
   sondage,
