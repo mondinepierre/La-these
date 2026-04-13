@@ -293,7 +293,7 @@ export const visa: AnalyseCard = {
         {
           label: 'DSO',
           name:  'Days Sales Oustanding',
-          unit:  'x',
+          unit:  'J',
           data: [
             { year: 2021, value: 16 },
             { year: 2022, value: 21 },

@@ -1281,27 +1281,123 @@ export const glossaire: GlossaireTerm[] = [
   },
 
 
-  // ─── VISA ─────────────────────────────────────────────────────────────────
+  // ─── L'ORÉAL + VISA ───────────────────────────────────────────────────────
 
   {
-    slug: "asset-light",
-    label: "Modèle asset-light",
+    slug: "universalisation",
+    label: "Universalisation",
     category: "Analyse fondamentale",
-    shortDef: "Un modèle économique qui génère des revenus élevés sans immobiliser de capital physique important.",
-    definition: `Un modèle asset-light est un modèle économique dans lequel l\'entreprise génère des revenus et des bénéfices sans détenir ni investir massivement dans des actifs physiques — usines, équipements, stocks, créances.\n\nLa conséquence directe est une conversion exceptionnelle du résultat en cash : avec peu de Capex nécessaire, la quasi-totalité du résultat opérationnel se retrouve en Free Cash Flow disponible pour les actionnaires. C\'est la caractéristique financière la plus précieuse d\'une entreprise asset-light.\n\nVisa en est l\'exemple canonique : le réseau est construit, les transactions transitent dessus sans que Visa n\'immobilise de capital pour les financer. En 2025, Visa a généré 22,9 Md$ de FCF pour seulement 1,5 Md$ de Capex — soit 15 fois plus de cash redistribué aux actionnaires que de capital réinvesti dans l\'outil industriel. À l\'inverse, une banque classique comme American Express doit immobiliser du capital pour couvrir le risque de crédit de ses porteurs, ce qui comprime mécaniquement son ROIC.`,
-    related: ["free-cash-flow", "roic", "capex", "pricing-power", "moat"],
+    shortDef: "Stratégie visant à couvrir l\'intégralité de la pyramide de prix d\'un marché, du bas de gamme au luxe.",
+    definition: `L\'universalisation désigne la stratégie consistant à adresser simultanément tous les niveaux de prix d\'un marché, du produit d\'entrée de gamme à l\'article de luxe, via un portefeuille de marques positionnées à chaque étage.\n\nC\'est le modèle de L\'Oréal : contrairement à un conglomérat qui diversifie par secteur, le groupe diversifie par niveau de prix et par canal, capturant la même consommatrice à différents moments de sa vie et de son budget sans cannibalisation entre divisions — d\'un shampoing Garnier en grande surface à un soin CeraVe prescrit par un dermatologue, en passant par un parfum Lancôme.\n\nL\'intérêt de ce modèle pour l\'investisseur est sa résilience cyclique : en période de croissance, les divisions Luxe et Grand Public captent la premiumisation ; en période de ralentissement, la Beauté Dermatologique, portée par la prescription médicale, résiste mieux. La diversification est intrinsèque au modèle, pas ajoutée artificiellement.`,
+    related: ["moat", "pricing-power", "marge-nette", "cagr"],
     modules: [
       { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
     ],
   },
 
   {
-    slug: "interchange",
-    label: "Frais d\'interchange",
+    slug: "bfr",
+    label: "BFR — Besoin en Fonds de Roulement",
     category: "Analyse fondamentale",
-    shortDef: "Les frais perçus par la banque émettrice de la carte à chaque transaction, au cœur du modèle de paiement par carte.",
-    definition: `Les frais d\'interchange sont les commissions versées par la banque du marchand (banque acquéreuse) à la banque qui a émis la carte utilisée (banque émettrice) à chaque transaction par carte. Ils constituent l\'une des principales sources de revenus du système de paiement par carte.\n\nLa chaîne de valeur d\'une transaction : le porteur paie chez un marchand → la banque du marchand verse une commission d\'interchange à la banque du porteur → Visa ou Mastercard perçoivent des frais de réseau sur la transaction. Visa lui-même ne perçoit pas directement les frais d\'interchange — ce sont les banques qui les encaissent. Visa perçoit des frais de service et de traitement sur les volumes.\n\nPourquoi c\'est un risque majeur pour Visa : les régulateurs européens et américains considèrent que ces frais, fixés collectivement par les réseaux de paiement, sont potentiellement anticoncurrentiels. La pression réglementaire sur leur plafonnement représente le risque systémique principal pour le modèle économique du duopole Visa/Mastercard.`,
-    related: ["moat", "pricing-power", "marge-nette", "free-cash-flow"],
+    shortDef: "Le capital nécessaire pour financer le décalage entre les encaissements et les décaissements du cycle d\'exploitation.",
+    definition: `Le Besoin en Fonds de Roulement (BFR) mesure le capital qu\'une entreprise doit mobiliser pour financer son cycle d\'exploitation : elle achète des matières premières, les transforme, les stocke et attend d\'être payée avant d\'encaisser. Formule : BFR = Stocks + Créances clients − Dettes fournisseurs.\n\nUn BFR positif signifie que l\'entreprise doit financer elle-même ce décalage — elle avance de la trésorerie avant d\'être remboursée. Un BFR négatif est une situation favorable : l\'entreprise encaisse ses clients et/ou paye ses fournisseurs plus tard, utilisant le cycle d\'exploitation comme source de financement gratuite.\n\nPour un investisseur, la variation du BFR d\'une année à l\'autre est un signal clé : une dégradation soudaine (BFR qui augmente fortement) absorbe la trésorerie et comprime le Free Cash Flow, même si les bénéfices comptables restent élevés. C\'est ce qui s\'est produit pour L\'Oréal en 2022, où une variation exceptionnelle de -1 011 M€ du BFR a comprimé le FCF.`,
+    related: ["ccc", "dso", "dio", "dpo", "free-cash-flow"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "nopat",
+    label: "NOPAT — Résultat opérationnel net après impôt",
+    category: "Analyse fondamentale",
+    shortDef: "Le bénéfice opérationnel d\'une entreprise après impôt, hors effet de sa structure de financement.",
+    definition: `Le NOPAT (Net Operating Profit After Tax) est le résultat opérationnel de l\'entreprise après application du taux d\'imposition théorique, indépendamment de la façon dont l\'entreprise est financée (dette ou fonds propres). Formule simplifiée : NOPAT = EBIT × (1 − taux d\'imposition).\n\nC\'est le numérateur du ROIC : ROIC = NOPAT / Capital investi. En excluant les charges et produits financiers, le NOPAT mesure la rentabilité pure de l\'activité opérationnelle, sans l\'effet de levier de la dette.\n\nUne entreprise dont le NOPAT croît régulièrement démontre que son activité opérationnelle crée de la valeur indépendamment de ses choix de financement. Une stagnation du NOPAT avec une progression du bénéfice net peut signaler que la croissance est portée par des éléments financiers non récurrents.`,
+    related: ["roic", "ebitda", "marge-operationnelle", "capital-investi"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "capital-investi",
+    label: "Capital investi",
+    category: "Analyse fondamentale",
+    shortDef: "Le total des ressources financières mobilisées dans l\'exploitation d\'une entreprise — fonds propres plus dette nette.",
+    definition: `Le capital investi représente les ressources financières effectivement engagées dans l\'activité opérationnelle de l\'entreprise. Formule standard : Capital investi = Fonds propres + Dette nette (ou, en approche actif : Actifs immobilisés nets + BFR).\n\nC\'est le dénominateur du ROIC : ROIC = NOPAT / Capital investi. Plus le capital investi est faible pour un niveau de NOPAT donné, plus le ROIC est élevé. C\'est pourquoi les modèles asset-light — où l\'entreprise n\'immobilise pas de capital physique — affichent des ROIC structurellement élevés.\n\nLors d\'acquisitions, le goodwill s\'ajoute au capital investi et dilue mécaniquement le ROIC : si l\'entreprise acquise n\'a pas encore contribué au NOPAT à la même hauteur que le prix payé, le ratio se dégrade temporairement. C\'est la signature des phases post-acquisition.`,
+    related: ["roic", "nopat", "goodwill", "asset-light", "bfr"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "marge-brute",
+    label: "Marge brute",
+    category: "Analyse fondamentale",
+    shortDef: "Le pourcentage du chiffre d\'affaires restant après déduction des coûts directs de production ou d\'achat.",
+    definition: `La marge brute est le premier niveau de rentabilité d\'une entreprise. Elle mesure ce qui reste du chiffre d\'affaires après avoir soustrait le coût des marchandises vendues (CMV) ou le coût de production. Formule : Marge brute = (CA − Coût des ventes) / CA × 100.\n\nElle révèle le pricing power fondamental d\'une activité : une marge brute élevée signifie que l\'entreprise vend nettement au-dessus de ses coûts directs, qu\'elle contrôle bien ses achats, ou que ses produits ont une valeur perçue forte. Une marge brute stable ou croissante dans un contexte d\'inflation sur les matières premières est le signe d\'un vrai pouvoir de fixation des prix.\n\nImportant : la marge brute n\'est pas universellement comparable entre secteurs. Un groupe comme Visa n\'a pas de "coût des ventes" au sens industriel (marge brute proche de 97 %), quand une entreprise de distribution alimentaire peut tourner à 25-30 %. La comparaison n\'a de sens qu\'entre pairs directs.`,
+    related: ["marge-nette", "marge-operationnelle", "pricing-power", "ebitda"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "marge-operationnelle",
+    label: "Marge opérationnelle",
+    category: "Analyse fondamentale",
+    shortDef: "Le pourcentage du chiffre d\'affaires restant après toutes les charges opérationnelles, avant intérêts et impôts.",
+    definition: `La marge opérationnelle (ou marge EBIT) mesure la rentabilité de l\'exploitation d\'une entreprise après déduction de tous ses coûts opérationnels : coûts de production, frais de personnel, dépenses marketing, R&D, amortissements. Elle exclut les charges financières (intérêts) et l\'impôt. Formule : Marge opérationnelle = EBIT / CA × 100.\n\nC\'est l\'indicateur de rentabilité le plus utilisé pour comparer des entreprises d\'un même secteur, car il est indépendant de leur structure de financement (dette ou fonds propres) et de leur environnement fiscal. Une marge opérationnelle en progression signifie que l\'entreprise améliore son efficacité ou son pricing power plus vite qu\'elle ne supporte de nouvelles charges.\n\nLa distance entre marge brute et marge opérationnelle révèle le poids des coûts de structure : marketing, R&D, administration. Pour L\'Oréal, une marge brute de 74 % et une marge opérationnelle de 20 % signifient que 54 points sont absorbés par ces postes — principalement les dépenses publicitaires et la R&D, deux moteurs du moat.`,
+    related: ["marge-brute", "marge-nette", "ebitda", "roic", "nopat"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "dio",
+    label: "DIO — Days Inventory Outstanding",
+    category: "Analyse fondamentale",
+    shortDef: "Le nombre de jours moyen qu\'une entreprise met à vendre ses stocks.",
+    definition: `Le DIO (Days Inventory Outstanding), ou délai moyen d\'écoulement des stocks, mesure combien de jours en moyenne une entreprise détient ses stocks avant de les vendre. Formule : DIO = (Stocks / Coût des ventes) × 365.\n\nUn DIO faible signifie que les stocks tournent vite — signe d\'une forte demande ou d\'une gestion logistique efficace. Un DIO élevé peut indiquer des ventes plus lentes que prévu, un risque d\'obsolescence, ou simplement la nature du secteur (vins millésimés, produits saisonniers, cosmétiques haut de gamme avec de longs cycles de formulation).\n\nLe DIO est le second composant du CCC (Cash Conversion Cycle) : CCC = DSO + DIO − DPO. Il doit être interprété en contexte sectoriel : un DIO de 147 jours est structurel dans le secteur cosmétique (formulations complexes, cycles de validation clinique, stocks de sécurité sur 157 pays), alors qu\'il serait alarmant dans la distribution alimentaire.`,
+    related: ["ccc", "dso", "dpo", "bfr", "free-cash-flow"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "dpo",
+    label: "DPO — Days Payable Outstanding",
+    category: "Analyse fondamentale",
+    shortDef: "Le nombre de jours moyen qu\'une entreprise prend pour payer ses fournisseurs.",
+    definition: `Le DPO (Days Payable Outstanding), ou délai moyen de règlement fournisseurs, mesure combien de jours en moyenne une entreprise met à payer ses fournisseurs après réception de la marchandise ou de la prestation. Formule : DPO = (Dettes fournisseurs / Coût des ventes) × 365.\n\nUn DPO élevé est généralement favorable : l\'entreprise utilise la trésorerie de ses fournisseurs comme financement de son exploitation, gratuitement. C\'est un indicateur direct du rapport de force commercial — seules les entreprises avec un pouvoir de négociation fort peuvent imposer des délais de paiement longs sans perdre leurs fournisseurs.\n\nC\'est le troisième composant du CCC, en position négative : CCC = DSO + DIO − DPO. Un DPO de 210 jours comme celui de L\'Oréal (7 mois) traduit un rapport de force structurellement favorable avec les fournisseurs, dépendants des volumes et de la visibilité mondiale du groupe.`,
+    related: ["ccc", "dso", "dio", "bfr", "pricing-power"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "ccc",
+    label: "CCC — Cash Conversion Cycle",
+    category: "Analyse fondamentale",
+    shortDef: "Le nombre de jours entre le décaissement pour l\'achat de matières premières et l\'encaissement des ventes.",
+    definition: `Le Cash Conversion Cycle (cycle de conversion du cash) mesure le temps qui s\'écoule entre le moment où une entreprise paie ses fournisseurs et le moment où elle encaisse ses clients. Formule : CCC = DSO + DIO − DPO.\n\nUn CCC positif signifie que l\'entreprise doit financer elle-même le décalage — elle avance de la trésorerie. Un CCC négatif est une situation rare et précieuse : l\'entreprise encaisse avant de payer, utilisant le cycle d\'exploitation comme source de financement gratuite. C\'est la signature des entreprises avec un fort pouvoir de négociation des deux côtés (clients et fournisseurs).\n\nExemples contrastés : L\'Oréal affiche un CCC de -33 jours (DPO de 210 jours, DIO de 147 jours, DSO de 38 jours) — financement gratuit de l\'exploitation. Une start-up qui doit payer ses fournisseurs rapidement et attend 60 jours pour être payée peut avoir un CCC de +80 jours, mobilisant beaucoup de trésorerie dans son exploitation. Pour un investisseur, un CCC négatif et stable est un signal de qualité opérationnelle fort.`,
+    related: ["dso", "dio", "dpo", "bfr", "free-cash-flow", "pricing-power"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "asset-turnover",
+    label: "Asset Turnover (rotation des actifs)",
+    category: "Analyse fondamentale",
+    shortDef: "Le chiffre d\'affaires généré pour chaque euro d\'actif détenu par l\'entreprise.",
+    definition: `L\'asset turnover (rotation des actifs) mesure l\'efficacité avec laquelle une entreprise utilise ses actifs pour générer des revenus. Formule : Asset Turnover = Chiffre d\'affaires / Total des actifs.\n\nUn asset turnover de 0,8x signifie qu\'un euro d\'actif génère 0,80 € de CA. Plus ce ratio est élevé, plus les actifs "travaillent" efficacement. Il est directement lié au ROIC via la décomposition DuPont : ROIC = Marge opérationnelle × Asset Turnover (× effet de levier).\n\nDeux business models opposés : un groupe comme Visa avec un asset turnover élevé (actifs légers, revenus forts) vs une industrie lourde avec un asset turnover bas (actifs immobilisés importants, CA proportionnellement plus faible). La dégradation de l\'asset turnover lors d\'acquisitions est normale et attendue : le goodwill gonfle les actifs avant que les nouvelles entités contribuent pleinement au CA.`,
+    related: ["roic", "goodwill", "capital-investi", "asset-light"],
     modules: [
       { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
     ],
@@ -1312,8 +1408,32 @@ export const glossaire: GlossaireTerm[] = [
     label: "ROCE — Return on Capital Employed",
     category: "Analyse fondamentale",
     shortDef: "Le rendement du capital effectivement employé dans l\'exploitation, incluant la trésorerie et les actifs non financiers.",
-    definition: `Le ROCE (Return on Capital Employed) mesure la rentabilité d\'une entreprise par rapport au capital total qu\'elle emploie dans son activité. Formule : ROCE = Résultat opérationnel (EBIT) / Capital employé, où capital employé = Total actifs − Passifs courants.\n\nDifférence avec le ROIC : le ROIC se concentre sur le capital investi (fonds propres + dette nette), en excluant la trésorerie excédentaire. Le ROCE intègre l\'ensemble des actifs employés, trésorerie comprise. Pour une entreprise qui détient une trésorerie massive comme Visa, le ROCE est mécaniquement plus faible que le ROIC, car la trésorerie gonfle le dénominateur sans nécessairement contribuer au résultat opérationnel.\n\nLes deux métriques sont complémentaires : le ROIC mesure l\'efficacité du capital alloué par les actionnaires et créanciers, le ROCE mesure l\'efficacité de l\'ensemble de l\'appareil productif. Quand les deux divergent significativement, cela révèle souvent une trésorerie importante ou des actifs peu productifs dans le bilan.`,
-    related: ["roic", "wacc", "free-cash-flow", "marge-nette"],
+    definition: `Le ROCE (Return on Capital Employed) mesure la rentabilité d\'une entreprise par rapport au capital total qu\'elle emploie dans son activité. Formule : ROCE = Résultat opérationnel (EBIT) / Capital employé, où capital employé = Total actifs − Passifs courants.\n\nDifférence avec le ROIC : le ROIC se concentre sur le capital investi (fonds propres + dette nette), en excluant la trésorerie excédentaire. Le ROCE intègre l\'ensemble des actifs employés, trésorerie comprise. Pour une entreprise qui détient une trésorerie massive, le ROCE est mécaniquement plus faible que le ROIC, car la trésorerie gonfle le dénominateur sans nécessairement contribuer au résultat opérationnel.\n\nLes deux métriques sont complémentaires : le ROIC mesure l\'efficacité du capital alloué par les actionnaires et créanciers, le ROCE mesure l\'efficacité de l\'ensemble de l\'appareil productif. Quand les deux divergent significativement, cela révèle souvent une trésorerie importante ou des actifs peu productifs dans le bilan.`,
+    related: ["roic", "wacc", "free-cash-flow", "marge-operationnelle"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "travel-retail",
+    label: "Travel Retail",
+    category: "Analyse fondamentale",
+    shortDef: "Le canal de distribution qui regroupe les ventes effectuées dans les zones hors-taxes des aéroports, ports et frontières.",
+    definition: `Le Travel Retail désigne l\'ensemble des points de vente situés dans les zones hors-taxes des aéroports internationaux, des ports maritimes, des frontières terrestres et à bord des compagnies aériennes. Les produits y sont vendus en franchise de droits de douane et souvent de TVA, ce qui permet des prix inférieurs à ceux des boutiques classiques pour les mêmes produits premium.\n\nC\'est un canal stratégique pour les marques de luxe, parfums, cosmétiques et alcools : il combine une clientèle captive (voyageurs en attente) à fort pouvoir d\'achat, une exposition internationale aux marques et un prix perçu comme attractif malgré les marges élevées du canal. Le Travel Retail asiatique, notamment les aéroports de Singapour, Hong Kong, Dubaï et les duty-free coréens, représente une part significative des revenus des grands groupes cosmétiques.\n\nRisque spécifique : ce canal est structurellement volatil. Il dépend directement du volume de trafic aérien international, des politiques douanières (la Chine a modifié ses règles sur le duty-free à Hainan), et de la propension à la dépense des voyageurs selon le contexte économique. Le ralentissement du Travel Retail asiatique en 2025 est l\'un des facteurs du repli de L\'Oréal en Asie du Nord.`,
+    related: ["marge-brute", "pricing-power", "chiffre-affaires"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "greenwashing",
+    label: "Greenwashing",
+    category: "Analyse fondamentale",
+    shortDef: "La pratique consistant à exagérer ou falsifier des engagements environnementaux pour améliorer son image.",
+    definition: `Le greenwashing (littéralement "verdissement") désigne la pratique consistant pour une entreprise à communiquer sur des engagements ou des pratiques environnementales de façon trompeuse, exagérée ou non vérifiable, dans le but d\'améliorer son image sans nécessairement changer ses pratiques réelles.\n\nPour un investisseur, le greenwashing est un risque opérationnel et réputationnel concret : les régulateurs européens (directive CSRD, règlement Green Claims) ont durci les exigences de preuve sur les allégations environnementales. Une entreprise dont les engagements ESG ne résistent pas à l\'audit indépendant s\'expose à des amendes, des procédures judiciaires et un dommage d\'image potentiellement durable.\n\nC\'est particulièrement sensible dans la cosmétique et la grande consommation, secteurs où les allégations "naturel", "bio", "durable" sont au cœur du positionnement produit. La multiplication des engagements ESG publics par L\'Oréal (SBTi, programme Sciences Vertes) crée une exposition réputationnelle accrue si les résultats ne suivent pas à la même vitesse que les promesses.`,
+    related: ["marge-nette", "pricing-power"],
     modules: [
       { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
     ],

@@ -17,8 +17,8 @@ type Props = {
 
 // ── Palette ───────────────────────────────────────────────────
 const COULEURS = {
-  valeur:      { stroke: '#1B4332', fill: '#1B4332', opacity: 0.35 },
-  concurrent1: { stroke: '#C9A84C', fill: '#C9A84C', opacity: 0.25 },
+  valeur:      { stroke: '#1B4332', fill: '#1B4332', opacity: 0.25 },
+  concurrent1: { stroke: '#C9A84C', fill: '#C9A84C', opacity: 0.20 },
   concurrent2: { stroke: '#2D6A4F', fill: '#78716C', opacity: 0.15 },
   concurrent3: { stroke: '#78716C', fill: '#78716C', opacity: 0.10 },
 }
@@ -151,7 +151,7 @@ export default function ValuationRadarChart({
               dataKey="secteur"
               stroke="#A8A29E"
               fill="#A8A29E"
-              fillOpacity={0.08}
+              fillOpacity={0.3}
               strokeWidth={1.5}
               strokeDasharray="5 3"
             />

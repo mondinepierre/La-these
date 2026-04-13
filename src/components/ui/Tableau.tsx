@@ -556,6 +556,122 @@ const TABLEAUX: Record<string, TableauData> = {
   ],
 },
 
+'loreal-dcf-parametres': {
+  compact: true,
+  colonnes: [
+    { key: 'parametre', label: 'Paramètre',       primary: true },
+    { key: 'valeur',    label: 'Valeur retenue'                 },
+    { key: 'justif',    label: 'Justification'                  },
+  ],
+  lignes: [
+    {
+      parametre: 'WACC',
+      valeur:    '6.56 %',
+      justif:    'Bunds 10 ans + prime de risque marché ajustée au bêta du titre',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'Croissance (années 1-5)',
+      valeur:    '6.09%',
+      justif:    'CAGR FCF 2021-2025',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'Croissance perpétuelle',
+      valeur:    '2 %',
+      justif:    'Hypothèse de maturité, scénario pondéré',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+  ],
+},
+'loreal-dcf-flux': {
+  compact: true,
+  colonnes: [
+    { key: 'element', label: 'Élément (M€)',    primary: true },
+    { key: 'a5',      label: 'Année 5'                       },
+    { key: 'tv',      label: 'Val. Terminale'                },
+  ],
+  lignes: [
+    {
+      element: 'FCF projeté',
+      a5: '9625.3',
+      tv: '215 429,0',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      element: 'FCF actualisé',
+      a5: '7 006.4',
+      tv: '156 814.9',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'loreal-dcf-synthese': {
+  compact: true,
+  colonnes: [
+    { key: 'element', label: 'Élément',   primary: true },
+    { key: 'valeur',  label: 'Valeur (M€)'              },
+    { key: 'detail',  label: 'Détail'                   },
+  ],
+  lignes: [
+    {
+      element: 'Somme FCF actualisés (5 ans)',
+      valeur:  '35 341.2',
+      detail:  'Cumul des flux annuels ramenés en valeur actuelle',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur Terminale actualisée',
+      valeur:  '156 814.9',
+      detail:  'TV / (1 + WACC)^5',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur d\'Entreprise (EV)',
+      valeur:  '192 156.1',
+      detail:  'Somme FCF actualisés + TV actualisée',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      element: 'Dette nette',
+      valeur:  '2 051',
+      detail:  'Dette totale - trésorerie',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur des capitaux propres',
+      valeur:  '190 105.1',
+      detail:  'EV - dette nette',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Nombre d\'actions',
+      valeur:  '535 M',
+      detail:  'Actions diluted FY2025',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Fair Value par action',
+      valeur:  '355.09 €',
+      detail:  'Valeur capitaux propres / nombre d\'actions',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
   'exemple-roiic-nopat': {
     colonnes: [
       { key: 'annee',         label: 'Année',               primary: true },

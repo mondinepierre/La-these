@@ -29,17 +29,17 @@ export const loreal: AnalyseCard = {
   ticker:         'OR.PA',
   secteur:        'Consommation',  // voir union Secteur dans types/analyses.ts
   geo:            'France',   // voir union ZoneGeo
-  conviction:     'moyenne',      // exceptionnelle | forte | moyenne | spéculative
-  positionnement: 'allégement', // achat fort | accumulation | surveillance | maintien | allégement
-  lastUpdated:    '2026-04-14',
-  statut:         'en-construction', // en-construction | actif | archivé
+  conviction:     'forte',      // exceptionnelle | forte | moyenne | spéculative
+  positionnement: 'maintien', // achat fort | accumulation | surveillance | maintien | allégement
+  lastUpdated:    '2026-04-13',
+  statut:         'actif', // en-construction | actif | archivé
   portefeuille:   'PEA',          // PEA | CTO | PEA + CTO | Aucun
   horizon:        '5 ans',
   excerpt:        'Est ce que le titre le vaux bien?',
-  glossaire:      ['moat', 'free-cash-flow', 'roic', 'dcf', 'asset-light', 'interchange'], // slugs glossaire liés
+  glossaire:      ['moat', 'free-cash-flow', 'roic', 'pricing-power', 'cagr', 'payout-ratio'],
   logo:          '/analyse/loreal.png',
-  prixCible:      { bas: 0, haut: 0, devise: 'EUR' },
-  marginOfSafety: 'indéterminée', // forte | correcte | faible | négative | indéterminée
+  prixCible:      { bas: 435, haut: 564, devise: 'EUR' },
+  marginOfSafety: 'négative', // forte | correcte | faible | négative | indéterminée
   readingTime:    25,
 
   metrics: {
@@ -67,7 +67,7 @@ export const loreal: AnalyseCard = {
 
   updates: [
     {
-      date: '2026-04-14',
+      date: '2026-04-13',
       note: 'Création de la fiche.',
     },
   ],
@@ -75,11 +75,11 @@ export const loreal: AnalyseCard = {
   chartData: {
     // ── CA sur 5 ans ──────────────────────────────────────────
     revenue: [
-      { year: 2021, value: 44.05 },
-      { year: 2022, value: 43.48 },
+      { year: 2021, value: 32.28 },
+      { year: 2022, value: 38.26 },
       { year: 2023, value: 41.18 },
-      { year: 2024, value: 38.26 },
-      { year: 2025, value: 32.28 },
+      { year: 2024, value: 43.48 },
+      { year: 2025, value: 44.05 },
     ],
 
     // ── Répartition géographique du CA ────────────────────────
@@ -103,30 +103,30 @@ export const loreal: AnalyseCard = {
 
     // ── ROIC simple sur 5 ans ─────────────────────────────────
     roic: [
-      { year: 2021, value: 30.1 },
-      { year: 2022, value: 35.9 },
-      { year: 2023, value: 41.9 },
-      { year: 2024, value: 42.6 },
-      { year: 2025, value: 45.6 },
+      { year: 2021, value: 17.2 },
+      { year: 2022, value: 18.5 },
+      { year: 2023, value: 18.8 },
+      { year: 2024, value: 17.6 },
+      { year: 2025, value: 17.3 },
     ],
 
     // ── ROIC vs WACC ──────────────────────────────────────────
     // Composant MDX : <RoicWacc />
     roicVsWacc: [
-      { year: 2021, value: 30.1, wacc: 5.9 },
-      { year: 2022, value: 35.9, wacc: 9.4 },
-      { year: 2023, value: 41.9, wacc: 7.2 },
-      { year: 2024, value: 42.6, wacc: 7 },
-      { year: 2025, value: 45.6, wacc: 7.3 },
+      { year: 2021, value: 17.2, wacc: -1 },
+      { year: 2022, value: 18.5, wacc: 5.2 },
+      { year: 2023, value: 18.8, wacc: 6.8 },
+      { year: 2024, value: 17.6, wacc: 7.4 },
+      { year: 2025, value: 17.3, wacc: 6.6 },
     ],
 
     // ── Free Cash Flow sur 5 ans ──────────────────────────────
     fcf: [
-      { year: 2021, value: 15.2 },
-      { year: 2022, value: 17.7 },
-      { year: 2023, value: 19.1 },
-      { year: 2024, value: 20.3 },
-      { year: 2025, value: 22.9 },
+      { year: 2021, value: 5.653 },
+      { year: 2022, value: 4.935 },
+      { year: 2023, value: 6.116 },
+      { year: 2024, value: 6.644 },
+      { year: 2025, value: 7.162 },
     ],
 
     segmentRevenue: {
@@ -175,11 +175,11 @@ export const loreal: AnalyseCard = {
           name:  'EV/EBITDA',
           unit:  'x',
           data: [
-            { year: 2021, value: 25.8 },
-            { year: 2022, value: 21.5 },
-            { year: 2023, value: 23.2 },
-            { year: 2024, value: 25.8 },
-            { year: 2025, value: 26.8 },
+            { year: 2021, value: 29.8 },
+            { year: 2022, value: 20.3 },
+            { year: 2023, value: 25.0 },
+            { year: 2024, value: 17.8 },
+            { year: 2025, value: 18.5 },
           ],
           competitors: [
             {
@@ -187,11 +187,11 @@ export const loreal: AnalyseCard = {
               color: '#C9A84C',
               dashed: true,
               data: [
-                { year: 2021, value: 24.6 },
-                { year: 2022, value: 24.6 },
-                { year: 2023, value: 24.6 },
-                { year: 2024, value: 24.6 },
-                { year: 2025, value: 24.6 },
+                { year: 2021, value: 22.3},
+                { year: 2022, value: 22.3},
+                { year: 2023, value: 22.3},
+                { year: 2024, value: 22.3},
+                { year: 2025, value: 22.3},
               ],
             }   
           ]
@@ -199,25 +199,25 @@ export const loreal: AnalyseCard = {
         {
         label: 'FCF_OCF_Capex',
         name:  'Opérating Cash Flow',
-        unit:  'Mds $',
+        unit:  'Mds €',
         yMin:  0,
         data: [
-          { year: 2021, value: 15.9 },
-          { year: 2022, value: 18.7 },
-          { year: 2023, value: 20.1 },
-          { year: 2024, value: 21.7 },
-          { year: 2025, value: 24.4 },
+          { year: 2021, value: 6.728 },
+          { year: 2022, value: 6.278 },
+          { year: 2023, value: 7.605 },
+          { year: 2024, value: 8.286 },
+          { year: 2025, value: 8.657 },
         ],
         competitors: [
           {
             name:  'Free Cash Flow',
             color: '#C9A84C',
             data: [
-              { year: 2021, value: 15.2 },
-              { year: 2022, value: 17.7 },
-              { year: 2023, value: 19.1 },
-              { year: 2024, value: 20.3 },
-              { year: 2025, value: 22.9 },
+              { year: 2021, value: 5.653 },
+              { year: 2022, value: 4.935 },
+              { year: 2023, value: 6.116 },
+              { year: 2024, value: 6.644 },
+              { year: 2025, value: 7.162 },
             ],
           },
           {
@@ -225,11 +225,11 @@ export const loreal: AnalyseCard = {
             color: '#A8A29E',
             dashed: true,
             data: [
-              { year: 2021, value: 0.718 },
-              { year: 2022, value: 1.046 },
-              { year: 2023, value: 1.077 },
-              { year: 2024, value: 1.335 },
-              { year: 2025, value: 1.515 },
+              { year: 2021, value: 1.075 },
+              { year: 2022, value: 1.343 },
+              { year: 2023, value: 1.489 },
+              { year: 2024, value: 1.642 },
+              { year: 2025, value: 1.495 },
             ],
           },
         ]        
@@ -240,90 +240,11 @@ export const loreal: AnalyseCard = {
           unit:  'x',
           yMin: 0.15,
           data: [
-            { year: 2021, value: 0.35 },
-            { year: 2022, value: 0.36 },
-            { year: 2023, value: 0.18 },
-            { year: 2024, value: 0.33 },
-            { year: 2025, value: 0.25 },
-          ],
-          competitors: [
-            {
-              name:  'Moyenne historique (5ans)',
-              color: '#C9A84C',
-              dashed: true,
-              data: [
-                { year: 2021, value: 0.29 },
-                { year: 2022, value: 0.29 },
-                { year: 2023, value: 0.29 },
-                { year: 2024, value: 0.29 },
-                { year: 2025, value: 0.29 },
-              ],
-            }   
-          ]
-        },
-        {
-          label: 'CR',
-          name:  'Current Ratio',
-          unit:  'x',
-          data: [
-            { year: 2021, value: 1.4 },
-            { year: 2022, value: 1.44 },
-            { year: 2023, value: 1.45 },
-            { year: 2024, value: 1.12 },
-            { year: 2025, value: 1.11 },
-          ],
-          competitors: [
-            {
-              name:  'Moyenne historique (5ans)',
-              color: '#C9A84C',
-              dashed: true,
-              data: [
-                { year: 2021, value: 1.30 },
-                { year: 2022, value: 1.30 },
-                { year: 2023, value: 1.30 },
-                { year: 2024, value: 1.30 },
-                { year: 2025, value: 1.30 },
-              ],
-            }   
-          ]
-        },
-        {
-          label: 'DSO',
-          name:  'Days Sales Oustanding',
-          unit:  'x',
-          data: [
-            { year: 2021, value: 16 },
-            { year: 2022, value: 21 },
-            { year: 2023, value: 19 },
-            { year: 2024, value: 31 },
-            { year: 2025, value: 29 },
-          ],
-          competitors: [
-            {
-              name:  'Moyenne historique (5ans)',
-              color: '#C9A84C',
-              dashed: true,
-              data: [
-                { year: 2021, value: 23 },
-                { year: 2022, value: 23 },
-                { year: 2023, value: 23 },
-                { year: 2024, value: 23 },
-                { year: 2025, value: 23 },
-              ],
-            }   
-          ]
-        },
-        {
-          label: 'AT',
-          name:  'Asset turnover',
-          unit:  'x',
-          yMin: 0.25,
-          data: [
-            { year: 2021, value: 0.31 },
-            { year: 2022, value: 0.35 },
-            { year: 2023, value: 0.37 },
-            { year: 2024, value: 0.40 },
-            { year: 2025, value: 0.43 },
+            { year: 2021, value: 0.45 },
+            { year: 2022, value: 0.34 },
+            { year: 2023, value: 0.45 },
+            { year: 2024, value: 0.42 },
+            { year: 2025, value: 0.19 },
           ],
           competitors: [
             {
@@ -341,40 +262,15 @@ export const loreal: AnalyseCard = {
           ]
         },
         {
-          label: 'Dilution',
-          name:  'Dilution / Concentration (année civile)',
-          unit:  '%',
-          yMin: 2.0,
+          label: 'CR',
+          name:  'Current Ratio',
+          unit:  'x',
           data: [
-            { year: 2022, value: 2.5 },
-            { year: 2023, value: 2.4 },
-            { year: 2024, value: 2.7 },
-            { year: 2025, value: 3 },
-          ],
-          competitors: [
-            {
-              name:  'Dilution / Concentration (année fiscale)',
-              color: '#C9A84C',
-              dashed: true,
-              data: [
-                { year: 2022, value: 2.4 },
-                { year: 2023, value: 2.4  },
-                { year: 2024, value: 2.7 },
-                { year: 2025, value: 3.1 },
-              ],
-            }   
-          ]
-        },
-        {
-          label: 'Payout',
-          name:  'Payout Ratio',
-          unit:  '%',
-          data: [
-            { year: 2021, value: 22.1 },
-            { year: 2022, value: 22.2 },
-            { year: 2023, value: 21.3 },
-            { year: 2024, value: 21.7 },
-            { year: 2025, value: 22.9 },
+            { year: 2021, value: 0.73 },
+            { year: 2022, value: 1.02 },
+            { year: 2023, value: 1.10 },
+            { year: 2024, value: 1.13 },
+            { year: 2025, value: 1.44 },
           ],
           competitors: [
             {
@@ -382,11 +278,180 @@ export const loreal: AnalyseCard = {
               color: '#C9A84C',
               dashed: true,
               data: [
-                { year: 2021, value: 22 },
-                { year: 2022, value: 22 },
-                { year: 2023, value: 22 },
-                { year: 2024, value: 22 },
-                { year: 2025, value: 22 },
+                { year: 2021, value: 1.08 },
+                { year: 2022, value: 1.08 },
+                { year: 2023, value: 1.08 },
+                { year: 2024, value: 1.08 },
+                { year: 2025, value: 1.08 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'DSO',
+          name:  'Days Sales Oustanding',
+          unit:  'J',
+          data: [
+            { year: 2021, value: 36 },
+            { year: 2022, value: 39 },
+            { year: 2023, value: 40 },
+            { year: 2024, value: 39 },
+            { year: 2025, value: 38 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 38 },
+                { year: 2022, value: 38 },
+                { year: 2023, value: 38 },
+                { year: 2024, value: 38 },
+                { year: 2025, value: 38 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'DIO',
+          name:  'Days Inventory Oustanding',
+          unit:  'J',
+          data: [
+            { year: 2021, value: 137 },
+            { year: 2022, value: 141 },
+            { year: 2023, value: 152 },
+            { year: 2024, value: 151 },
+            { year: 2025, value: 147 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 145 },
+                { year: 2022, value: 145 },
+                { year: 2023, value: 145 },
+                { year: 2024, value: 145 },
+                { year: 2025, value: 145 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'DPO',
+          name:  'Days Payable Oustanding',
+          unit:  'J',
+          data: [
+            { year: 2021, value: 263 },
+            { year: 2022, value: 219 },
+            { year: 2023, value: 215 },
+            { year: 2024, value: 210 },
+            { year: 2025, value: 217 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 225 },
+                { year: 2022, value: 225 },
+                { year: 2023, value: 225 },
+                { year: 2024, value: 225 },
+                { year: 2025, value: 225 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'CCC',
+          name:  'Cash Conversion Cycle',
+          unit:  'J',
+          data: [
+            { year: 2021, value: -90 },
+            { year: 2022, value: -39 },
+            { year: 2023, value: -23 },
+            { year: 2024, value: -21 },
+            { year: 2025, value: -33 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: -41 },
+                { year: 2022, value: -41 },
+                { year: 2023, value: -41 },
+                { year: 2024, value: -41 },
+                { year: 2025, value: -41 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'AT',
+          name:  'Asset turnover',
+          unit:  'x',
+          yMin: 0.25,
+          data: [
+            { year: 2021, value: 0.75 },
+            { year: 2022, value: 0.82 },
+            { year: 2023, value: 0.79 },
+            { year: 2024, value: 0.77 },
+            { year: 2025, value: 0.71 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 0.77 },
+                { year: 2022, value: 0.77 },
+                { year: 2023, value: 0.77 },
+                { year: 2024, value: 0.77 },
+                { year: 2025, value: 0.77 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'Dilution',
+          name:  'Dilution / Concentration',
+          unit:  '%',
+          yMin: 2.0,
+          data: [
+            { year: 2022, value: 4   },
+            { year: 2023, value: 0.1 },
+            { year: 2024, value: 0.2 },
+            { year: 2025, value: 0.1 },
+          ],
+        },
+        {
+          label: 'Payout',
+          name:  'Payout Ratio',
+          unit:  '%',
+          data: [
+            { year: 2021, value: 51.1 },
+            { year: 2022, value: 47.1 },
+            { year: 2023, value: 55.3 },
+            { year: 2024, value: 56.3 },
+            { year: 2025, value: 63.9 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 54.7 },
+                { year: 2022, value: 54.7 },
+                { year: 2023, value: 54.7 },
+                { year: 2024, value: 54.7 },
+                { year: 2025, value: 54.7 },
               ], 
             },
           ]
@@ -394,25 +459,25 @@ export const loreal: AnalyseCard = {
         {
         label: 'Capex_Action',
         name:  'Dividendes',
-        unit:  'Mds $',
+        unit:  'Mds €',
         yMin:  0,
         data: [
-            { year: 2021, value: 2.904 },
-            { year: 2022, value: 3.339 },
-            { year: 2023, value: 3.866 },
-            { year: 2024, value: 4.327 },
-            { year: 2025, value: 4.757 },
+            { year: 2021, value: 2.352 },
+            { year: 2022, value: 2.690 },
+            { year: 2023, value: 3.426 },
+            { year: 2024, value: 3.615 },
+            { year: 2025, value: 3.917 },
         ],
         competitors: [
           {
             name:  'Rachat d\'action',
             color: '#2D6A4F',
             data: [
-              { year: 2021, value: 10.984 },
-              { year: 2022, value: 10.600 },
-              { year: 2023, value: 12.566 },
-              { year: 2024, value: 17.144 },
-              { year: 2025, value: 18.030 },
+              { year: 2021, value: 10.061 },
+              { year: 2022, value: 0.502 },
+              { year: 2023, value: 0.503 },
+              { year: 2024, value: 0.498 },
+              { year: 2025, value: 0.502 },
             ],
           },
           {
@@ -420,11 +485,11 @@ export const loreal: AnalyseCard = {
             color: '#A8A29E',
             dashed: true,
             data: [
-              { year: 2021, value: 0.718 },
-              { year: 2022, value: 1.046 },
-              { year: 2023, value: 1.077 },
-              { year: 2024, value: 1.335 },
-              { year: 2025, value: 1.515 },
+              { year: 2021, value: 1.075 },
+              { year: 2022, value: 1.343 },
+              { year: 2023, value: 1.489 },
+              { year: 2024, value: 1.642 },
+              { year: 2025, value: 1.495 },
             ],
           },
         ]        
@@ -432,25 +497,25 @@ export const loreal: AnalyseCard = {
         {
           label: 'EPS',
           name:  'EPS',
-          unit:  '$',
+          unit:  '€',
           data: [
-            { year: 2021, value: 6.04 },
-            { year: 2022, value: 7.15 },
-            { year: 2023, value: 8.69 },
-            { year: 2024, value: 9.92 },
-            { year: 2025, value: 10.66 },
+            { year: 2021, value: 8.21 },
+            { year: 2022, value: 10.61 },
+            { year: 2023, value: 11.52 },
+            { year: 2024, value: 11.95 },
+            { year: 2025, value: 11.44 },
           ],
         },
         {
           label: 'Dividendes',
           name:  'Dividendes annuelle',
-          unit:  '$',
+          unit:  '€',
           data: [
-            { year: 2021, value: 1.28 },
-            { year: 2022, value: 1.5 },
-            { year: 2023, value: 1.8 },
-            { year: 2024, value: 2.08 },
-            { year: 2025, value: 2.36 },
+            { year: 2021, value: 4.80 },
+            { year: 2022, value: 6.00 },
+            { year: 2023, value: 6.60 },
+            { year: 2024, value: 7.00 },
+            { year: 2025, value: 7.20 },
           ],
         },
         {
@@ -459,36 +524,46 @@ export const loreal: AnalyseCard = {
           unit:  '%',
           yMin:  0,
           data: [
-            { year: 2021, value: 31.1 },
-            { year: 2022, value: 33.3 },
-            { year: 2023, value: 36.9 },
-            { year: 2024, value: 43.4 },
-            { year: 2025, value: 42},
+            { year: 2021, value: 24.8 },
+            { year: 2022, value: 23.7 },
+            { year: 2023, value: 23.1 },
+            { year: 2024, value: 21.8 },
+            { year: 2025, value: 20.0 },
           ],
           competitors: [
             {
-              name:  'WACC',
-              color: '#C9A84C',
+              name:  'ROIC',
+              color: '#2D6A4F',
               data: [
-                { year: 2021, value: 5.9 },
-                { year: 2022, value: 9.4 },
-                { year: 2023, value: 7.2 },
-                { year: 2024, value: 7 },
-                { year: 2025, value: 7.3 },
+                { year: 2021, value: 17.2 },
+                { year: 2022, value: 18.5 },
+                { year: 2023, value: 18.8 },
+                { year: 2024, value: 17.6 },
+                { year: 2025, value: 17.3 },
               ],
             },
             {
-              name:  'ROIC',
-              color: '#2D6A4F',
+              name:  'ROIIC',
+              color: '#78716C',
               dashed: true,
               data: [
-                { year: 2021, value: 30.1 },
-                { year: 2022, value: 35.9 },
-                { year: 2023, value: 41.9 },
-                { year: 2024, value: 42.6 },
-                { year: 2025, value: 45.6 },
+                { year: 2022, value: -49.9 },
+                { year: 2023, value: 23.18 },
+                { year: 2024, value: 9.52 },
+                { year: 2025, value: -4.7 },
               ],
             },
+          ],
+        },
+        {
+          label: 'ROIIC',
+          name:  'ROIIC',
+          unit:  '%',
+          data: [
+            { year: 1, value: -4.7 },
+            { year: 2, value: 1.6 },
+            { year: 3, value: 7.9 },
+            { year: 4, value: 20.2 },
           ],
         },
         {
@@ -496,11 +571,11 @@ export const loreal: AnalyseCard = {
           name:  'PER',
           unit:  'x',
           data: [
-            { year: 2021, value: 33.9 },
-            { year: 2022, value: 28.2 },
-            { year: 2023, value: 28.9 },
-            { year: 2024, value: 31.9 },
-            { year: 2025, value: 32.9 },
+                { year: 2021, value: 50.7 },
+                { year: 2022, value: 31.4 },
+                { year: 2023, value: 39.1 },
+                { year: 2024, value: 28.6 },
+                { year: 2025, value: 32.0 },
           ],
           competitors: [
             {
@@ -508,11 +583,11 @@ export const loreal: AnalyseCard = {
               color: '#C9A84C',
               dashed: true,
               data: [
-                { year: 2021, value: 31.2 },
-                { year: 2022, value: 31.2 },
-                { year: 2023, value: 31.2 },
-                { year: 2024, value: 31.2 },
-                { year: 2025, value: 31.2 },
+                { year: 2021, value: 36.4 },
+                { year: 2022, value: 36.4 },
+                { year: 2023, value: 36.4 },
+                { year: 2024, value: 36.4 },
+                { year: 2025, value: 36.4 },
               ],
             },
             {
@@ -520,11 +595,11 @@ export const loreal: AnalyseCard = {
               color: '#52B788',
               dashed: true,
               data: [
-                { year: 2021, value: 31.2 },
-                { year: 2022, value: 25.4 },
-                { year: 2023, value: 23.5 },
-                { year: 2024, value: 25.5 },
-                { year: 2025, value: 24.5 },
+                { year: 2021, value: 56.2 },
+                { year: 2022, value: 30.0 },
+                { year: 2023, value: 39.0 },
+                { year: 2024, value: 27.7 },
+                { year: 2025, value: 29.8 },
               ],
             }      
           ]
@@ -534,11 +609,11 @@ export const loreal: AnalyseCard = {
           name:  'Free-Cash-Flow Yield',
           unit:  '%',
           data: [
-            { year: 2021, value: 3.42 },
-            { year: 2022, value: 4.18 },
-            { year: 2023, value: 3.64 },
-            { year: 2024, value: 3.20 },
-            { year: 2025, value: 3.35 },
+            { year: 2021, value: 2.39 },
+            { year: 2022, value: 2.71 },
+            { year: 2023, value: 2.48 },
+            { year: 2024, value: 3.54 },
+            { year: 2025, value: 3.61 },
           ],
           competitors: [
             {
@@ -546,45 +621,45 @@ export const loreal: AnalyseCard = {
               color: '#C9A84C',
               dashed: true,
               data: [
-                { year: 2021, value: 3.6 },
-                { year: 2022, value: 3.6 },
-                { year: 2023, value: 3.6 },
-                { year: 2024, value: 3.6 },
-                { year: 2025, value: 3.6 },
+                { year: 2021, value: 2.94 },
+                { year: 2022, value: 2.94 },
+                { year: 2023, value: 2.94 },
+                { year: 2024, value: 2.94 },
+                { year: 2025, value: 2.94 },
               ],
             },
            {
-              name:  'US 10 ans',
+              name:  'Bunds 10 ans',
               color: '#52B788',
               data: [
-                { year: 2021, value: 0.916 },
-                { year: 2022, value: 3.879 },
-                { year: 2023, value: 3.866 },
-                { year: 2024, value: 4.572 },
-                { year: 2025, value: 4.153 },
+                { year: 2021, value: -0.179 },
+                { year: 2022, value: 2.565 },
+                { year: 2023, value: 2.028 },
+                { year: 2024, value: 2.362 },
+                { year: 2025, value: 2.862 },
               ],
             },  
           ]
         },
     ],
         valuationCompare: [
-      { label: 'PER',                  valeur: 28.5,  concurrent1 : 29.87, concurrent2 : 19.51, concurrent3 : 19.51  },
-      { label: 'P/FCF',                valeur: 25.01, concurrent1 : 26.02, concurrent2 : 12.82, concurrent3 : 19.51  },
-      { label: 'EV/EBITDA',            valeur: 19.75, concurrent1 : 21.46, concurrent2 : 9.14, concurrent3 : 19.51  },
-      { label: 'Marge opérationnelle', valeur: 67.16, concurrent1 : 60.13, concurrent2 : 20.63, concurrent3 : 19.51  },
-      { label: 'ROIC',                 valeur: 35.28, concurrent1 : 56.14, concurrent2 : 12.78, concurrent3 : 19.51  },
+      { label: 'PER',                  valeur: 31.34,  concurrent1 : 19.32, concurrent3 : 22.12  },
+      { label: 'P/FCF',                valeur: 26.8, concurrent1 : 18.9, concurrent2 : 39.2, concurrent3 : 16.9  },
+      { label: 'EV/EBITDA',            valeur: 19.57, concurrent1 : 14.05, concurrent2 : 14.78,  concurrent3 : 12.86  },
+      { label: 'Marge opérationnelle', valeur: 19.2, concurrent1 : 20.1, concurrent2 : 14.3, concurrent3 : 21.2  },
+      { label: 'ROIC',                 valeur: 12.5, concurrent1 : 12.7, concurrent2 : 8.3, concurrent3 : 10.4  },
     ],
         valuationCompare2: [
-      { label: 'PER',                  valeur: 28.5,  secteur: 15.53, },
-      { label: 'P/FCF',                valeur: 25.01, secteur: 12.38, },
-      { label: 'EV/EBITDA',            valeur: 19.75, secteur: 14.18, },
-      { label: 'Marge opérationnelle', valeur: 67.16, secteur: 19.24, },
-      { label: 'ROIC',                 valeur: 35.28, secteur: 7.45,  },
+      { label: 'PER',                  valeur: 31.34,   secteur: 21.5  },
+      { label: 'P/FCF',                valeur: 26.8,    secteur: 18.6  },
+      { label: 'EV/EBITDA',            valeur: 19.57,   secteur: 12.6  },
+      { label: 'Marge opérationnelle', valeur: 19.2,    secteur: 17.8  },
+      { label: 'ROIC',                 valeur: 12.5,    secteur: 10.4  },
     ],
   
 
     // ── CA par segment (optionnel) ────────────────────────────
-    // Composant MDX : <SegmentGraph unit="Md$" />
+    // Composant MDX : <SegmentGraph unit="Md€" />
     // segmentRevenue: [
     //   { year: 2025, segments: [
     //     { name: 'Segment A', value: 0 },
