@@ -55,7 +55,7 @@ export const loreal: AnalyseCard = {
     margeBrute:        74.3,  // Marge brute en %
     payoutRatio:       63.9,  // Dividendes / Résultat net en %
     currentRatio:      1.44,  // Actif courant / Passif courant
-    dso:               38,  // Days Sales Outstanding en jours
+    dso:               46,  // Days Sales Outstanding en jours
   },
 
   tendances: {
@@ -292,11 +292,11 @@ export const loreal: AnalyseCard = {
           name:  'Days Sales Oustanding',
           unit:  'J',
           data: [
-            { year: 2021, value: 36 },
-            { year: 2022, value: 39 },
-            { year: 2023, value: 40 },
-            { year: 2024, value: 39 },
-            { year: 2025, value: 38 },
+            { year: 2021, value: 45 },
+            { year: 2022, value: 45 },
+            { year: 2023, value: 45 },
+            { year: 2024, value: 47 },
+            { year: 2025, value: 46 },
           ],
           competitors: [
             {
@@ -304,11 +304,11 @@ export const loreal: AnalyseCard = {
               color: '#C9A84C',
               dashed: true,
               data: [
-                { year: 2021, value: 38 },
-                { year: 2022, value: 38 },
-                { year: 2023, value: 38 },
-                { year: 2024, value: 38 },
-                { year: 2025, value: 38 },
+                { year: 2021, value: 46 },
+                { year: 2022, value: 46 },
+                { year: 2023, value: 46 },
+                { year: 2024, value: 46 },
+                { year: 2025, value: 46 },
               ],
             }   
           ]
@@ -370,11 +370,11 @@ export const loreal: AnalyseCard = {
           name:  'Cash Conversion Cycle',
           unit:  'J',
           data: [
-            { year: 2021, value: -90 },
-            { year: 2022, value: -39 },
-            { year: 2023, value: -23 },
-            { year: 2024, value: -21 },
-            { year: 2025, value: -33 },
+            { year: 2021, value: -80 },
+            { year: 2022, value: -33 },
+            { year: 2023, value: -18 },
+            { year: 2024, value: -13 },
+            { year: 2025, value: -25 },
           ],
           competitors: [
             {
@@ -382,11 +382,11 @@ export const loreal: AnalyseCard = {
               color: '#C9A84C',
               dashed: true,
               data: [
-                { year: 2021, value: -41 },
-                { year: 2022, value: -41 },
-                { year: 2023, value: -41 },
-                { year: 2024, value: -41 },
-                { year: 2025, value: -41 },
+                { year: 2021, value: -34 },
+                { year: 2022, value: -34 },
+                { year: 2023, value: -34 },
+                { year: 2024, value: -34 },
+                { year: 2025, value: -34 },
               ],
             }   
           ]
