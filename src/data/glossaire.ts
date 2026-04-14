@@ -1439,6 +1439,18 @@ export const glossaire: GlossaireTerm[] = [
     ],
   },
 
+  {
+  slug: "marge-operationnelle",
+  label: "Marge opérationnelle",
+  category: "Analyse fondamentale",
+  shortDef: "Le pourcentage du chiffre d'affaires restant après toutes les charges opérationnelles, avant intérêts et impôts.",
+  definition: `La marge opérationnelle (ou marge EBIT) mesure la rentabilité de l'exploitation d'une entreprise après déduction de tous ses coûts opérationnels : coûts de production, frais de personnel, dépenses marketing, R&D, amortissements. Elle exclut les charges financières (intérêts) et l'impôt. Formule : Marge opérationnelle = EBIT / CA × 100.\n\nC'est l'indicateur de rentabilité le plus utilisé pour comparer des entreprises d'un même secteur, car il est indépendant de leur structure de financement (dette ou fonds propres) et de leur environnement fiscal. Une marge opérationnelle en progression signifie que l'entreprise améliore son efficacité ou son pricing power plus vite qu'elle ne supporte de nouvelles charges.\n\nLa distance entre marge brute et marge opérationnelle révèle le poids des coûts de structure : marketing, R&D, administration. Pour L'Oréal, une marge brute de 74 % et une marge opérationnelle de 20 % signifient que 54 points sont absorbés par ces postes — principalement les dépenses publicitaires et la R&D, deux moteurs du moat.`,
+  related: ["marge-brute", "marge-nette", "ebitda", "roic", "nopat"],
+  modules: [
+    { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+  ],
+},
+
 ];
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────

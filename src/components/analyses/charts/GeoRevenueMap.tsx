@@ -51,6 +51,7 @@ const REGION_TO_CODES: Record<string, string[]> = {
   'Brésil':           ['076'],
   'US':               ['840'],
   'USA':              ['840'],
+  'Pays-Bas':         ['528'],
 
   'Europe': [
     '008', '020', '040', '056', '070', '100', '112', '191', '196', '203', '208', '233',
@@ -339,7 +340,7 @@ export default function GeoRevenueMap({ data, source, title }: Props) {
             boxShadow:       '0 2px 8px rgba(0,0,0,0.2)',
             pointerEvents:   'none',
           }}>
-            {tooltip.region} — {tooltip.pct.toFixed(0)} %
+            {tooltip.region} — {tooltip.pct.toFixed(2)} %
           </div>
         )}
       </div>

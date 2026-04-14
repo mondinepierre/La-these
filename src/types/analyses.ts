@@ -21,6 +21,7 @@ export type ZoneGeo =
   | 'Europe'
   | 'Asie'
   | 'France'
+  | 'Pays-Bas'
   | 'Monde'
   | 'Autre'
 

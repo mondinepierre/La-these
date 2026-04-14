@@ -15,6 +15,8 @@ const RANK_COLORS = [
   '#2D6A4F', // 3ème : Vert foncé
   '#40916C', // 4ème : Vert moyen
   '#52B788', // 5ème : Vert clair
+  '#93b493', // 6ème : Vert clair+
+  '#c1d4ca', // 7ème : Vert clair++
 ]
 
 const DEFAULT_COLOR = '#A8A29E' // Au-delà (6ème et +) : Gris
@@ -65,7 +67,7 @@ export default function GeoRevenueChart({ data, source, title }: Props) {
                   fontWeight: 600,
                   color:      couleur,
                 }}>
-                  {pct.toFixed(0)} %
+                  {pct.toFixed(2)} %
                 </span>
               </div>
 

@@ -5,8 +5,8 @@ import type { ArticleMeta as ArticleMeta5 } from '@/types/reflexions'
 export const lireUnRapportAnnuel: ArticleMeta5 = {
   slug: 'lire-un-rapport-annuel',
   title: "Lire un rapport annuel en 45 minutes",
-  date: '2026-04-27',
-  publishedAt: '2026-04-27',
+  date: '2026-04-16',
+  publishedAt: '2026-04-16',
   category: 'methode',
   level: 'intermediaire',
   readingTime: 7,

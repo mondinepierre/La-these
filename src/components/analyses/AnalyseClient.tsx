@@ -10,12 +10,13 @@ import ValeurSuivieTemplate from './ValeurSuivieTemplate'
 const MDX: Record<string, React.ComponentType<any>> = {
   'alphabet':      dynamic(() => import('@/content/analyses/valeurs/alphabet.mdx')),
   'asml':          dynamic(() => import('@/content/analyses/valeurs/asml.mdx')),
+  'asml_maj':      dynamic(() => import('@/content/analyses/valeurs/asml_maj.mdx')),
   'novo':          dynamic(() => import('@/content/analyses/valeurs/novo.mdx')),
   'totalenergies': dynamic(() => import('@/content/analyses/valeurs/totalenergies.mdx')),
   'microsoft':     dynamic(() => import('@/content/analyses/valeurs/microsoft.mdx')),
   'visa':          dynamic(() => import('@/content/analyses/valeurs/visa.mdx')),
-  'loreal':          dynamic(() => import('@/content/analyses/valeurs/loreal.mdx')),
-  'sondage': dynamic(() => import('@/content/analyses/ponctuelles/sondage.mdx')),
+  'loreal':        dynamic(() => import('@/content/analyses/valeurs/loreal.mdx')),
+  'sondage':       dynamic(() => import('@/content/analyses/ponctuelles/sondage.mdx')),
 }
 
 type Props = {
