@@ -712,7 +712,123 @@ const TABLEAUX: Record<string, TableauData> = {
       },
     ],
   },
+  'asml-allocation-capital': {
+    colonnes: [
+      { key: 'destination', label: 'Destination', primary: true },
+      { key: 'montant',     label: 'Montant 2025'           },
+    ],
+    lignes: [
+      {
+        destination: 'Rachats d\'actions',
+        montant:     '5 950 M€',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+      {
+        destination: 'Dividendes versés',
+        montant:     '2 550 M€',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+      {
+        destination: 'Total restitué aux actionnaires',
+        montant:     '8 500 M€',
+        _headerBg:   '#C9A84C',
+        _headerText: '#F7F4EF',
+      },
+      {
+        destination: 'Capex (immobilisations)',
+        montant:     '1 574 M€',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        destination: 'Free Cash Flow',
+        montant:     '11 085 M€',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+    ],
+  },
+'asml-dcf-scenarios': {
+  colonnes: [
+    { key: 'scenario',  label: 'Scénario',        primary: true },
+    { key: 'cagr',      label: 'CAGR FCF retenu'               },
+    { key: 'base',      label: 'Base de calcul'                 },
+    { key: 'cours',     label: 'Cours DCF'                      },
+  ],
+  lignes: [
+    {
+      scenario:  'Conservateur',
+      cagr:      '2,75 %',
+      base:      '2021-2025 (série complète)',
+      cours:     '~521 €',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      scenario:  'Optimiste',
+      cagr:      '15,44 %',
+      base:      '2022-2025 (rebond post-correction)',
+      cours:     '~871 €',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+  ],
+},
+
+'asml-zone-juste': {
+  colonnes: [
+    { key: 'taux',       label: 'Taux exigé',              primary: true },
+    { key: 'zone',       label: 'Zone juste centrale'                    },
+    { key: 'mos10',      label: 'Point d\'entrée (MoS 10 %)'             },
+    { key: 'diagnostic', label: 'Prime / décote vs 1 284 €'              },
+  ],
+  lignes: [
+    {
+      taux:       '7,0 %',
+      zone:       '1 340 €',
+      mos10:      '1 206 €',
+      diagnostic: 'Décote de 4,4 %',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      taux:       '8,5 %',
+      zone:       '1 250 €',
+      mos10:      '1 125 €',
+      diagnostic: 'Prime de 2,6 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      taux:       '10,0 %',
+      zone:       '1 167 €',
+      mos10:      '1 051 €',
+      diagnostic: 'Prime de 9,1 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      taux:       '12,0 %',
+      zone:       '1 067 €',
+      mos10:      '960 €',
+      diagnostic: 'Prime de 16,9 %',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+    {
+      taux:       '15,0 %',
+      zone:       '935 €',
+      mos10:      '855 €',
+      diagnostic: 'Prime de 27,2 %',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
 }
+
 
 
 export function Tableau({ id }: { id: string }) {

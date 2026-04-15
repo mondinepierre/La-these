@@ -106,38 +106,38 @@ export const asml_maj: AnalyseCard = {
 
     // ── Marges sur 5 ans ──────────────────────────────────────────────────
     marges: [
-      { year: 2021, net: 0, operating: 0 },
-      { year: 2022, net: 0, operating: 0 },
-      { year: 2023, net: 0, operating: 0 },
-      { year: 2024, net: 0, operating: 0 },
-      { year: 2025, net: 0, operating: 0 },
+      { year: 2021, gross: 52.7, operating: 36.3, net: 31.6 },
+      { year: 2022, gross: 50.5, operating: 30.7, net: 26.6 },
+      { year: 2023, gross: 51.3, operating: 32.8, net: 28.4 },
+      { year: 2024, gross: 51.3, operating: 31.9, net: 26.8 },
+      { year: 2025, gross: 52.8, operating: 34.6, net: 29.4 },
     ],
 
     // ── ROIC simple sur 5 ans ─────────────────────────────────────────────
     roic: [
-      { year: 2021, value: 0 },
-      { year: 2022, value: 0 },
-      { year: 2023, value: 0 },
-      { year: 2024, value: 0 },
-      { year: 2025, value: 0 },
+      { year: 2021, value: 56.4 },
+      { year: 2022, value: 62.7 },
+      { year: 2023, value: 56.6 },
+      { year: 2024, value: 39.8 },
+      { year: 2025, value: 47.5 },
     ],
 
     // ── ROIC vs WACC ──────────────────────────────────────────────────────
     roicVsWacc: [
-      { year: 2021, value: 0, wacc: 0 },
-      { year: 2022, value: 0, wacc: 0 },
-      { year: 2023, value: 0, wacc: 0 },
-      { year: 2024, value: 0, wacc: 0 },
-      { year: 2025, value: 0, wacc: 0 },
+      { year: 2021, value: 56.4, wacc: 5.8 },
+      { year: 2022, value: 62.7, wacc: 11 },
+      { year: 2023, value: 56.6, wacc: 7 },
+      { year: 2024, value: 39.8, wacc: 8.4 },
+      { year: 2025, value: 47.5, wacc: 8 },
     ],
 
     // ── Free Cash Flow sur 5 ans ──────────────────────────────────────────
     fcf: [
-      { year: 2021, value: 0 },
-      { year: 2022, value: 0 },
-      { year: 2023, value: 0 },
-      { year: 2024, value: 0 },
-      { year: 2025, value: 0 },
+      { year: 2021, value: 9.945 },
+      { year: 2022, value: 7.205 },
+      { year: 2023, value: 3.288 },
+      { year: 2024, value: 9.099 },
+      { year: 2025, value: 11.085 },
     ],
 
     // ── CA par segment (optionnel) ────────────────────────────────────────
@@ -182,51 +182,111 @@ export const asml_maj: AnalyseCard = {
     // ── Comparaison pairs directs ─────────────────────────────────────────
     // Composant : <ValuationBar name="Entreprise" concurrent1="X" concurrent2="Y" />
     valuationCompare: [
-      { label: 'PER',                  valeur: 0, concurrent1: 0, concurrent2: 0 },
-      { label: 'P/FCF',                valeur: 0, concurrent1: 0, concurrent2: 0 },
-      { label: 'EV/EBITDA',            valeur: 0, concurrent1: 0, concurrent2: 0 },
-      { label: 'Marge opérationnelle', valeur: 0, concurrent1: 0, concurrent2: 0 },
-      { label: 'ROIC',                 valeur: 0, concurrent1: 0, concurrent2: 0 },
+      { label: 'PER',                  valeur: 53.05, concurrent1: 40.10, concurrent2: 50.55 },
+      { label: 'P/FCF',                valeur: 45.50, concurrent1: 50.16, concurrent2: 52.10 },
+      { label: 'EV/EBITDA',            valeur: 40.26, concurrent1: 34.96, concurrent2: 39.42 },
+      { label: 'Marge opérationnelle', valeur: 34.58, concurrent1: 29.74, concurrent2: 42.54 },
+      { label: 'ROIC',                 valeur: 41.08, concurrent1: 27.31, concurrent2: 39.55 },
     ],
 
     // ── Comparaison moyenne secteur ───────────────────────────────────────
     // Composant : <ValuationBar2 name="Entreprise" />
     valuationCompare2: [
-      { label: 'PER',                  valeur: 0, secteur: 0 },
-      { label: 'P/FCF',                valeur: 0, secteur: 0 },
-      { label: 'EV/EBITDA',            valeur: 0, secteur: 0 },
-      { label: 'Marge opérationnelle', valeur: 0, secteur: 0 },
-      { label: 'ROIC',                 valeur: 0, secteur: 0 },
+      { label: 'PER',                  valeur: 53.05, secteur: 50.55 },
+      { label: 'P/FCF',                valeur: 45.50, secteur: 50.16 },
+      { label: 'EV/EBITDA',            valeur: 40.26, secteur: 39.42 },
+      { label: 'Marge opérationnelle', valeur: 34.58, secteur: 21.25 },
+      { label: 'ROIC',                 valeur: 41.08, secteur: 6.48 },
     ],
 
     // ── Métriques libres sur 5 ans ────────────────────────────────────────
     // Composant : <MetricGraph_LABEL /> — LABEL = champ label ci-dessous
     metricHistory: [
       {
-        label: 'EV_EBITDA',
+        label: 'EV_EBIDTA',
         name:  'EV/EBITDA',
         unit:  'x',
         data: [
-          { year: 2021, value: 0 },
-          { year: 2022, value: 0 },
-          { year: 2023, value: 0 },
-          { year: 2024, value: 0 },
-          { year: 2025, value: 0 },
+          { year: 2021, value: 40.2 },
+          { year: 2022, value: 28.3 },
+          { year: 2023, value: 27.5 },
+          { year: 2024, value: 26.9 },
+          { year: 2025, value: 29.1 },
         ],
         competitors: [
           {
-            name:   'Moyenne historique (5 ans)',
-            color:  '#C9A84C',
+            name:  'Moyenne historique (5ans)',
+            color: '#C9A84C',
             dashed: true,
             data: [
-              { year: 2021, value: 0 },
-              { year: 2022, value: 0 },
-              { year: 2023, value: 0 },
-              { year: 2024, value: 0 },
-              { year: 2025, value: 0 },
+              { year: 2021, value: 30.4 },
+              { year: 2022, value: 30.4 },
+              { year: 2023, value: 30.4 },
+              { year: 2024, value: 30.4 },
+              { year: 2025, value: 30.4 },
+            ],
+          }   
+        ]
+      },
+      {
+        label: 'ROCE',
+        name:  'ROCE',
+        unit:  '%',
+        yMin:  0,
+        data: [
+          { year: 2021, value: 37.6 },
+          { year: 2022, value: 35.5 },
+          { year: 2023, value: 38.2 },
+          { year: 2024, value: 31.6 },
+          { year: 2025, value: 43.0 },
+        ],
+        competitors: [
+          {
+            name:  'ROIC',
+            color: '#2D6A4F',
+            data: [
+              { year: 2021, value: 56.4 },
+              { year: 2022, value: 62.7 },
+              { year: 2023, value: 56.6 },
+              { year: 2024, value: 39.8 },
+              { year: 2025, value: 47.5 },
+            ],
+          },
+          {
+            name:  'WACC',
+            color: '#C9A84C',
+            dashed : true,
+            data: [
+              { year: 2021, value: 5.8  },
+              { year: 2022, value: 11   },
+              { year: 2023, value: 7    },
+              { year: 2024, value: 8.4  },
+              { year: 2025, value: 8    },
             ],
           },
         ],
+      },
+      {
+          label: 'ROIIC_YoY',
+          name:  'ROIIC',
+          unit:  '%',
+          data: [
+              { year: 2022, value: 5.31     },
+              { year: 2023, value: -157.08  },
+              { year: 2024, value: -5.76    },
+              { year: 2025, value: 39       },
+          ],
+      },
+      {
+          label: 'ROIIC',
+          name:  'ROIIC',
+          unit:  '%',
+          data: [
+            { year: 1, value: 39 },
+            { year: 2, value: 17.5 },
+            { year: 3, value: 45.4 },
+            { year: 4, value: 77.7 },
+          ],
       },
       {
         label: 'FCF_OCF_Capex',
@@ -291,53 +351,15 @@ export const asml_maj: AnalyseCard = {
         ],
       },
       {
-        label: 'ROCE',
-        name:  'ROCE',
-        unit:  '%',
-        yMin:  0,
-        data: [
-          { year: 2021, value: 0 },
-          { year: 2022, value: 0 },
-          { year: 2023, value: 0 },
-          { year: 2024, value: 0 },
-          { year: 2025, value: 0 },
-        ],
-        competitors: [
-          {
-            name:  'WACC',
-            color: '#C9A84C',
-            data: [
-              { year: 2021, value: 0 },
-              { year: 2022, value: 0 },
-              { year: 2023, value: 0 },
-              { year: 2024, value: 0 },
-              { year: 2025, value: 0 },
-            ],
-          },
-          {
-            name:   'ROIC',
-            color:  '#2D6A4F',
-            dashed: true,
-            data: [
-              { year: 2021, value: 0 },
-              { year: 2022, value: 0 },
-              { year: 2023, value: 0 },
-              { year: 2024, value: 0 },
-              { year: 2025, value: 0 },
-            ],
-          },
-        ],
-      },
-      {
         label: 'PER',
         name:  'PER',
         unit:  'x',
         data: [
-          { year: 2021, value: 0 },
-          { year: 2022, value: 0 },
-          { year: 2023, value: 0 },
-          { year: 2024, value: 0 },
-          { year: 2025, value: 0 },
+          { year: 2021, value: 49.3 },
+          { year: 2022, value: 35.7 },
+          { year: 2023, value: 34.3 },
+          { year: 2024, value: 35.3 },
+          { year: 2025, value: 37.3 },
         ],
         competitors: [
           {
@@ -345,11 +367,11 @@ export const asml_maj: AnalyseCard = {
             color:  '#C9A84C',
             dashed: true,
             data: [
-              { year: 2021, value: 0 },
-              { year: 2022, value: 0 },
-              { year: 2023, value: 0 },
-              { year: 2024, value: 0 },
-              { year: 2025, value: 0 },
+              { year: 2021, value: 38.4 },
+              { year: 2022, value: 38.4 },
+              { year: 2023, value: 38.4 },
+              { year: 2024, value: 38.4 },
+              { year: 2025, value: 38.4 },
             ],
           },
           {
@@ -357,11 +379,11 @@ export const asml_maj: AnalyseCard = {
             color:  '#52B788',
             dashed: true,
             data: [
-              { year: 2021, value: 0 },
-              { year: 2022, value: 0 },
-              { year: 2023, value: 0 },
-              { year: 2024, value: 0 },
-              { year: 2025, value: 0 },
+              { year: 2021, value: 54.7 },
+              { year: 2022, value: 34.2 },
+              { year: 2023, value: 34.2 },
+              { year: 2024, value: 34.4 },
+              { year: 2025, value: 35.1 },
             ],
           },
         ],
@@ -371,11 +393,11 @@ export const asml_maj: AnalyseCard = {
         name:  'Free-Cash-Flow Yield',
         unit:  '%',
         data: [
-          { year: 2021, value: 0 },
-          { year: 2022, value: 0 },
-          { year: 2023, value: 0 },
-          { year: 2024, value: 0 },
-          { year: 2025, value: 0 },
+          { year: 2021, value: 3.43 },
+          { year: 2022, value: 3.59 },
+          { year: 2023, value: 1.22 },
+          { year: 2024, value: 3.41 },
+          { year: 2025, value: 3.09 },
         ],
         competitors: [
           {
@@ -383,24 +405,24 @@ export const asml_maj: AnalyseCard = {
             color:  '#C9A84C',
             dashed: true,
             data: [
-              { year: 2021, value: 0 },
-              { year: 2022, value: 0 },
-              { year: 2023, value: 0 },
-              { year: 2024, value: 0 },
-              { year: 2025, value: 0 },
+              { year: 2021, value: 2.95 },
+              { year: 2022, value: 2.95 },
+              { year: 2023, value: 2.95 },
+              { year: 2024, value: 2.95 },
+              { year: 2025, value: 2.95 },
             ],
           },
           {
-            name:  'Taux sans risque',  // OAT 10 ans (€) ou US 10 ans ($) selon l'entreprise
+            name:  'Bunds 10 ans',
             color: '#52B788',
             data: [
-              { year: 2021, value: 0 },
-              { year: 2022, value: 0 },
-              { year: 2023, value: 0 },
-              { year: 2024, value: 0 },
-              { year: 2025, value: 0 },
+              { year: 2021, value: -0.179 },
+              { year: 2022, value: 2.565 },
+              { year: 2023, value: 2.028 },
+              { year: 2024, value: 2.362 },
+              { year: 2025, value: 2.862 },
             ],
-          },
+          },  
         ],
       },
     ],
