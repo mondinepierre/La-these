@@ -47,6 +47,7 @@ export default function MetricChart({ serie, title }: Props) {
   const floor    = Math.floor(minValue - padding)
 
   const hasRightBreak = serie.dataBreaks?.some(b => b.year === allYears[allYears.length - 1])
+  const chartHeight   = Math.round(260 * (serie.heightMultiplier ?? 1))
 
   return (
     <div className="my-8">
@@ -59,7 +60,7 @@ export default function MetricChart({ serie, title }: Props) {
       }}>
         {displayTitle}
       </h3>
-      <ResponsiveContainer width="100%" height={260}>
+      <ResponsiveContainer width="100%" height={chartHeight}>
         <LineChart data={merged} margin={{ top: 20, right: hasRightBreak ? 120 : 20, left: 0, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--color-stone-border)" />
           <XAxis dataKey="year" tick={{ fontSize: 12, fontFamily: 'DM Sans' }} />

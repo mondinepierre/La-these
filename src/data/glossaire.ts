@@ -1451,6 +1451,138 @@ export const glossaire: GlossaireTerm[] = [
   ],
 },
 
+// ─── SEMI-CONDUCTEURS — NOUVEAUX ──────────────────────────────────────────
+
+  {
+    slug: "fonderie",
+    label: "Fonderie (Foundry)",
+    category: "Analyse fondamentale",
+    shortDef: "Usine spécialisée dans la fabrication de puces conçues par d'autres entreprises — modèle dominant de l'industrie des semi-conducteurs.",
+    definition: `Une fonderie (foundry) est une usine de fabrication de semi-conducteurs qui produit des puces pour le compte d'entreprises tierces, appelées "fabless" (sans usine propre). La fonderie ne conçoit pas les puces — elle les fabrique selon les spécifications de ses clients.\n\nCe modèle de séparation conception/fabrication s'est imposé dans les années 1990. Il permet aux concepteurs (Apple, AMD, Nvidia, Qualcomm) de se concentrer sur la R&D sans investir des dizaines de milliards dans des usines. Les fonderies assument à leur tour l'intégralité du risque industriel.\n\nL'industrie est extrêmement concentrée aux nœuds les plus avancés : TSMC (Taiwan) fabrique la quasi-totalité des puces en deçà de 5 nm. Samsung et Intel Foundry tentent de les concurrencer, mais avec un retard technologique et de rendement significatif. Cette concentration géographique à Taïwan est l'un des risques géopolitiques les plus souvent cités dans l'industrie technologique.`,
+    related: ["semi-conducteurs", "lithographie-euv", "noeud-technologique", "wafer", "supply-chain"],
+    modules: [],
+  },
+
+  {
+    slug: "wafer",
+    label: "Wafer (tranche de silicium)",
+    category: "Analyse fondamentale",
+    shortDef: "Disque de silicium ultra-pur sur lequel sont gravées des centaines de puces en parallèle lors de la fabrication.",
+    definition: `Un wafer est un disque de silicium monocristallin taillé en tranches très fines (moins d'un millimètre d'épaisseur), sur lequel sont gravés simultanément des centaines ou des milliers de circuits intégrés lors du processus de fabrication. Les formats standards sont 200 mm et 300 mm de diamètre — plus le wafer est grand, plus le nombre de puces produites par cycle est élevé, réduisant le coût unitaire.\n\nLe rendement (yield) — le pourcentage de puces fonctionnelles par wafer — est l'un des indicateurs clés de la santé opérationnelle d'une fonderie. Un rendement faible lors du lancement d'un nouveau nœud technologique fait exploser les coûts de production. Améliorer ce rendement est l'un des enjeux industriels majeurs lors de chaque nouvelle génération.\n\nLe coût du wafer augmente considérablement à chaque nouveau nœud technologique, du fait de la complexité croissante des équipements requis. Un wafer 300 mm en nœud 3 nm chez TSMC coûte plusieurs fois plus qu'un wafer au même format en nœud 28 nm.`,
+    related: ["fonderie", "lithographie-euv", "noeud-technologique", "semi-conducteurs"],
+    modules: [],
+  },
+
+  {
+    slug: "noeud-technologique",
+    label: "Nœud technologique",
+    category: "Analyse fondamentale",
+    shortDef: "Génération de fabrication d'une puce semi-conducteur, conventionnellement exprimée en nanomètres — plus le chiffre est petit, plus la puce est avancée.",
+    definition: `Le nœud technologique (technology node) désigne une génération de processus de fabrication de semi-conducteurs. Il est conventionnellement exprimé en nanomètres (nm) : 28 nm, 7 nm, 3 nm, 2 nm. Plus le chiffre est petit, plus les transistors sont miniaturisés, plus la puce est performante et économe en énergie.\n\nAttention : depuis environ 10 nm, les chiffres sont devenus des labels marketing plus que des mesures physiques exactes. Un "3 nm" de TSMC et un "3 nm" de Samsung ne correspondent pas aux mêmes dimensions réelles — ce qui complique les comparaisons directes entre fonderies.\n\nChaque nouveau nœud représente un investissement colossal (plusieurs dizaines de milliards de dollars pour une nouvelle usine) et un défi technique croissant. C'est la raison pour laquelle le nombre d'acteurs capables de rester à la frontière technologique se réduit à chaque génération : seuls TSMC, Samsung et Intel Foundry visent encore les nœuds les plus avancés.`,
+    related: ["fonderie", "lithographie-euv", "high-na", "wafer", "semi-conducteurs"],
+    modules: [],
+  },
+
+  {
+    slug: "multi-patterning",
+    label: "Multi-patterning",
+    category: "Analyse fondamentale",
+    shortDef: "Technique de lithographie utilisant plusieurs passes d'exposition pour graver des structures plus fines que ce qu'un seul passage permet.",
+    definition: `Le multi-patterning est une technique de fabrication semi-conducteur qui consiste à réaliser plusieurs expositions lithographiques successives sur le même wafer pour graver des structures plus fines que la résolution physique d'une seule passe. Les variantes principales sont le Double Patterning, le Quadruple Patterning (SAQP), et le Self-Aligned Patterning.\n\nCette approche a permis de continuer à miniaturiser les puces entre 2010 et 2020 sans disposer de l'EUV — en multipliant les passes de lithographie DUV. Mais chaque passe supplémentaire augmente la complexité du processus, le nombre d'étapes, la probabilité d'erreurs, et le coût de fabrication.\n\nL'adoption de la lithographie EUV a précisément pour objectif de remplacer plusieurs passes de multi-patterning par une seule exposition, réduisant ainsi la complexité et les coûts tout en améliorant la précision. La transition DUV multi-patterning → EUV est l'un des basculements technologiques les plus importants de la dernière décennie dans la fabrication de puces.`,
+    related: ["lithographie-euv", "duv", "fonderie", "noeud-technologique"],
+    modules: [],
+  },
+
+  {
+    slug: "dram",
+    label: "DRAM (Dynamic Random Access Memory)",
+    category: "Analyse fondamentale",
+    shortDef: "Mémoire vive volatile utilisée comme mémoire principale dans les ordinateurs et serveurs — marché cyclique dominé par trois acteurs mondiaux.",
+    definition: `La DRAM (Dynamic Random Access Memory) est le type de mémoire vive utilisée comme mémoire principale (RAM) dans tous les appareils informatiques : PC, serveurs, smartphones, équipements réseau. Elle est "dynamique" car chaque cellule doit être rafraîchie en permanence pour conserver les données — ce qui implique une consommation d'énergie continue.\n\nLe marché de la DRAM est structurellement oligopolistique : Samsung, SK Hynix et Micron contrôlent ensemble plus de 95 % de la production mondiale. Cette concentration résulte des barrières à l'entrée massives : investissements en R&D et en usines de plusieurs dizaines de milliards, cycles longs de qualification client, et courbe d'apprentissage protectrice.\n\nC'est un marché fortement cyclique : les prix de la DRAM peuvent varier de 50 à 80 % sur un cycle, en fonction des déséquilibres offre/demande. Un investisseur dans ce secteur doit impérativement positionner son entrée en fonction du cycle — acheter en bas de cycle quand les capacités sont excédentaires, pas au sommet quand la demande et les prix sont au plus haut.`,
+    related: ["nand", "hbm", "semi-conducteurs", "fonderie", "supply-chain"],
+    modules: [],
+  },
+
+  {
+    slug: "hbm",
+    label: "HBM (High Bandwidth Memory)",
+    category: "Analyse fondamentale",
+    shortDef: "Mémoire haute performance empilée en 3D, conçue pour les GPU d'IA et les accélérateurs — à la croissance la plus forte du secteur mémoire.",
+    definition: `Le HBM (High Bandwidth Memory) est une architecture mémoire haute performance qui empile plusieurs couches de mémoire DRAM verticalement (en 3D), connectées via des microfils traversant chaque couche (TSV — Through Silicon Via). Cette architecture multiplie par 10 à 20 la bande passante mémoire par rapport à la DRAM standard, au prix d'un coût unitaire bien plus élevé.\n\nLe HBM est devenu indispensable pour les GPU de calcul IA (Nvidia H100, H200, Blackwell) et les accélérateurs spécialisés (Google TPU, AMD MI300X). La quantité de HBM embarquée dans un GPU détermine directement ses performances pour l'entraînement de grands modèles de langage — c'est pourquoi la disponibilité du HBM est devenue un goulot d'étranglement dans la course à l'infrastructure IA.\n\nSK Hynix est le leader du marché HBM, fournisseur privilégié de Nvidia. Samsung et Micron accélèrent leurs capacités. La qualification HBM chez un client majeur comme Nvidia est un processus long et technique — ce qui crée des avantages de premier entrant durables.`,
+    related: ["dram", "nand", "semi-conducteurs", "fonderie", "supply-chain"],
+    modules: [],
+  },
+
+  {
+    slug: "nand",
+    label: "NAND Flash",
+    category: "Analyse fondamentale",
+    shortDef: "Mémoire non volatile utilisée dans les SSD, smartphones et clés USB — marché cyclique distinct de la DRAM.",
+    definition: `La NAND Flash est un type de mémoire non volatile — elle conserve les données sans alimentation électrique continue. C'est la technologie de stockage utilisée dans les SSD (disques à état solide), les smartphones, les cartes mémoire et les clés USB. Elle a progressivement remplacé les disques durs mécaniques (HDD) dans la plupart des applications.\n\nComme la DRAM, le marché NAND est dominé par quelques acteurs : Samsung, SK Hynix (avec Solidigm), Micron, Kioxia et Western Digital. La structure est moins concentrée que la DRAM, ce qui crée des cycles prix/volumes encore plus prononcés.\n\nL'évolution technologique de la NAND se mesure en nombre de "couches" empilées verticalement (3D NAND) : de 64 couches il y a quelques années à 200+ couches aujourd'hui. Plus les couches sont nombreuses, plus la densité de stockage est élevée, réduisant le coût par gigaoctet. La transition vers la NAND 3D haute couche est l'enjeu technologique et de coût principal du secteur.`,
+    related: ["dram", "hbm", "semi-conducteurs", "fonderie"],
+    modules: [],
+  },
+
+  // ─── MÉTRIQUES FINANCIÈRES — NOUVEAUX ─────────────────────────────────────
+
+  {
+    slug: "bund",
+    label: "Bund (obligation d'État allemande)",
+    category: "Analyse fondamentale",
+    shortDef: "L'obligation souveraine de référence de la zone euro, émise par l'Allemagne — son taux sert de taux sans risque européen.",
+    definition: `Le Bund est l'obligation d'État émise par la République Fédérale d'Allemagne. Il est considéré comme l'actif sans risque de référence en zone euro, équivalent européen des Treasuries américains. Son taux à 10 ans (Bund 10 ans) est le taux sans risque utilisé dans les modèles de valorisation européens.\n\nLe niveau du Bund impacte mécaniquement les valorisations boursières via deux canaux : il entre dans le calcul du WACC (taux sans risque + prime de risque), et il détermine l'attractivité relative des actions par rapport aux obligations. Quand le Bund monte, les multiples de valorisation (PER, EV/EBITDA) se compriment — les flux futurs actualisés à un taux plus élevé valent moins aujourd'hui.\n\nEntre 2014 et 2021, le Bund à 10 ans était négatif, situation historiquement exceptionnelle qui a gonflé les multiples boursiers européens. La remontée à partir de 2022 a déclenché une compression des valorisations, particulièrement marquée sur les valeurs de croissance à long terme.`,
+    related: ["wacc", "dcf", "fcf-yield", "per-valorisation", "marge-de-securite"],
+    modules: [],
+  },
+
+  {
+    slug: "beta",
+    label: "Bêta (β)",
+    category: "Gestion du risque",
+    shortDef: "La sensibilité d'une action aux mouvements du marché — mesure du risque systématique non diversifiable.",
+    definition: `Le bêta (β) mesure la sensibilité d'une action aux variations d'un indice de référence (généralement le marché dans son ensemble). Un bêta de 1 signifie que l'action évolue en ligne avec le marché. Un bêta de 1,5 signifie que si le marché monte de 10 %, l'action tend à monter de 15 % — et à baisser de 15 % si le marché perd 10 %.\n\nBêta < 1 : action défensive, moins volatile que le marché (utilities, consommation de base, santé). Bêta > 1 : action cyclique ou de croissance, plus amplificatrice des mouvements de marché (technologie, industrie). Bêta négatif : rare, désigne des actifs qui montent quand le marché baisse (or parfois, certains volatility products).\n\nLimite importante : le bêta est calculé sur des données historiques et peut varier significativement selon la période retenue. Il mesure uniquement le risque systématique (risque de marché) et non le risque spécifique à l'entreprise. Un faible bêta ne garantit pas un faible risque fondamental — une entreprise peut avoir un bêta faible et un bilan fragile.`,
+    related: ["volatilite", "drawdown", "diversification", "wacc"],
+    modules: [
+      { label: "Gestion du risque", href: "/academie/intermediaire/gerer-le-risque" },
+    ],
+  },
+
+  {
+    slug: "working-capital",
+    label: "Working Capital (Fonds de roulement)",
+    category: "Analyse fondamentale",
+    shortDef: "Le capital disponible pour financer les opérations courantes — actifs courants moins passifs courants.",
+    definition: `Le working capital (fonds de roulement net global) désigne l'excédent des actifs courants sur les passifs courants : Working Capital = Actifs courants − Passifs courants. C'est la mesure de la liquidité à court terme disponible pour financer l'exploitation.\n\nUn working capital positif signifie que l'entreprise dispose d'un coussin de liquidité pour faire face à ses obligations à court terme. Un working capital négatif signifie que les passifs courants dépassent les actifs courants — situation qui peut être parfaitement viable (grande distribution, modèles à encaissement rapide) ou préoccupante (entreprise sous tension de liquidité).\n\nÀ ne pas confondre avec le BFR (Besoin en Fonds de Roulement), qui exclut la trésorerie et la dette court terme pour se concentrer sur le cycle opérationnel seul. Le working capital est une vue plus large intégrant tous les postes courants. En pratique, les deux termes sont parfois utilisés de façon interchangeable dans les rapports anglophones, ce qui peut créer des confusions.`,
+    related: ["bfr", "current-ratio", "ccc", "free-cash-flow", "dette-nette"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "dette-nette",
+    label: "Dette nette",
+    category: "Analyse fondamentale",
+    shortDef: "La dette financière totale d'une entreprise, diminuée de sa trésorerie disponible — indicateur réel de l'endettement.",
+    definition: `La dette nette est la mesure d'endettement la plus utilisée en analyse fondamentale. Formule : Dette nette = Dette financière totale (court et long terme) − Trésorerie et équivalents.\n\nElle mesure l'endettement réel : une entreprise avec 5 Md€ de dette et 4 Md€ de trésorerie a une dette nette de seulement 1 Md€ — très différente d'une entreprise avec 5 Md€ de dette et 100 M€ de trésorerie. Quand la trésorerie excède la dette, la dette nette est négative : l'entreprise est en position de "cash net", comme Alphabet ou Microsoft.\n\nLa dette nette est le numérateur du ratio Dette nette / EBITDA, l'un des indicateurs de solvabilité les plus utilisés. Elle entre aussi dans le calcul de l'Enterprise Value (EV = capitalisation boursière + dette nette), qui est le dénominateur des multiples EV/EBITDA et EV/FCF. Une dette nette négative réduit mécaniquement l'EV par rapport à la capitalisation, ce qui comprime ces multiples.`,
+    related: ["dette-ebitda", "ev-ebitda", "free-cash-flow", "working-capital", "current-ratio"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "backlog",
+    label: "Backlog (carnet de commandes)",
+    category: "Analyse fondamentale",
+    shortDef: "L'ensemble des commandes reçues et contractuellement engagées mais pas encore livrées ni facturées.",
+    definition: `Le backlog (carnet de commandes) désigne le montant total des commandes qu'une entreprise a reçues, contractuellement confirmées, mais qui n'ont pas encore été livrées ni reconnues en chiffre d'affaires. C'est un indicateur avancé de la croissance future du revenu.\n\nUn backlog en forte croissance signifie que la demande dépasse la capacité de livraison actuelle — signal positif pour les trimestres à venir. Un backlog qui se réduit peut indiquer un ralentissement de la demande ou une accélération des livraisons. Dans les industries à cycles longs (défense, aérospatial, équipements industriels, énergies), le backlog peut représenter plusieurs années de chiffre d'affaires.\n\nRheinmetall, par exemple, affiche un backlog de plusieurs dizaines de milliards d'euros sous l'effet du réarmement européen — une visibilité pluriannuelle sur ses revenus qui justifie en partie la prime de valorisation accordée par le marché. Le backlog est publié trimestriellement par la plupart des industriels et des équipementiers.`,
+    related: ["chiffre-affaires", "cagr", "moat", "pricing-power"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
 ];
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────

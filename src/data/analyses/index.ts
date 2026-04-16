@@ -23,7 +23,7 @@ import { alphabet      } from './alphabet'
 import { microsoft     } from './microsoft'
 import { visa          } from './visa'
 import { loreal        } from './loreal'
-import { asml_maj      } from './asml_maj'
+
 
 
 // ── Analyses ponctuelles ──────────────────────────────────────────────────────
@@ -42,7 +42,6 @@ export const ANALYSES: AnalyseCard[] = [
   novo,
   totalenergies,
   visa,
-  // asml_maj,
 
 
   // Analyses ponctuelles

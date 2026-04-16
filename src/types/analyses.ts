@@ -139,15 +139,16 @@ export type CompetitorSerie = {
 }
 
 export type MetricSerie = {
-  label:        string
-  name?:        string
-  unit?:        string
-  color?:       string
-  dashed?:      boolean
-  data:         MetricPoint[]
-  competitors?: CompetitorSerie[]
-  dataBreaks?:  DataBreak[]
-  yMin? :       number
+  label:              string
+  name?:              string
+  unit?:              string
+  color?:             string
+  dashed?:            boolean
+  data:               MetricPoint[]
+  competitors?:       CompetitorSerie[]
+  dataBreaks?:        DataBreak[]
+  yMin? :             number
+  heightMultiplier?:  number
 }
 
 export type SegmentPoint = {

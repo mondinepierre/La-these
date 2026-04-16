@@ -294,22 +294,22 @@ export const asml_maj: AnalyseCard = {
         unit:  'Md$',
         yMin:  0,
         data: [
-          { year: 2021, value: 0 },
-          { year: 2022, value: 0 },
-          { year: 2023, value: 0 },
-          { year: 2024, value: 0 },
-          { year: 2025, value: 0 },
+          { year: 2021, value: 10.845 },
+          { year: 2022, value: 8.486 },
+          { year: 2023, value: 5.443 },
+          { year: 2024, value: 11.166 },
+          { year: 2025, value: 12.658 },
         ],
         competitors: [
           {
             name:  'Free Cash Flow',
             color: '#C9A84C',
             data: [
-              { year: 2021, value: 0 },
-              { year: 2022, value: 0 },
-              { year: 2023, value: 0 },
-              { year: 2024, value: 0 },
-              { year: 2025, value: 0 },
+              { year: 2021, value: 9.945 },
+              { year: 2022, value: 7.205 },
+              { year: 2023, value: 3.288 },
+              { year: 2024, value: 9.099 },
+              { year: 2025, value: 11.085 },
             ],
           },
           {
@@ -317,25 +317,63 @@ export const asml_maj: AnalyseCard = {
             color:  '#A8A29E',
             dashed: true,
             data: [
-              { year: 2021, value: 0 },
-              { year: 2022, value: 0 },
-              { year: 2023, value: 0 },
-              { year: 2024, value: 0 },
-              { year: 2025, value: 0 },
+              { year: 2021, value: 0.9 },
+              { year: 2022, value: 1.281 },
+              { year: 2023, value: 2.155 },
+              { year: 2024, value: 2.067 },
+              { year: 2025, value: 1.573 },
             ],
           },
         ],
       },
       {
+        label: 'Capex_Action',
+        name:  'Dividendes',
+        unit:  'Mds €',
+        yMin:  0,
+        data: [
+            { year: 2021, value: 1.368 },
+            { year: 2022, value: 2.559 },
+            { year: 2023, value: 2.348 },
+            { year: 2024, value: 2.452 },
+            { year: 2025, value: 2.550 },
+        ],
+        competitors: [
+          {
+            name:  'Rachat d\'action',
+            color: '#2D6A4F',
+            data: [
+              { year: 2021, value: 8.560 },
+              { year: 2022, value: 4.639 },
+              { year: 2023, value: 1.000 },
+              { year: 2024, value: 0.500 },
+              { year: 2025, value: 5.950 },
+            ],
+          },
+          {
+            name:  'Capex',
+            color: '#A8A29E',
+            dashed: true,
+            data: [
+              { year: 2021, value: 0.9 },
+              { year: 2022, value: 1.281 },
+              { year: 2023, value: 2.155 },
+              { year: 2024, value: 2.067 },
+              { year: 2025, value: 1.573 },
+            ],
+          },
+        ]        
+        },
+      {
         label: 'EPS',
-        name:  'BPA ajusté',
+        name:  'Diluted EPS',
         unit:  '$',
         data: [
-          { year: 2021, value: 0 },
-          { year: 2022, value: 0 },
-          { year: 2023, value: 0 },
-          { year: 2024, value: 0 },
-          { year: 2025, value: 0 },
+          { year: 2021, value: 14.34 },
+          { year: 2022, value: 14.13 },
+          { year: 2023, value: 19.89 },
+          { year: 2024, value: 19.24 },
+          { year: 2025, value: 24.71 },
         ],
       },
       {
@@ -343,11 +381,11 @@ export const asml_maj: AnalyseCard = {
         name:  'Dividende annuel',
         unit:  '$',
         data: [
-          { year: 2021, value: 0 },
-          { year: 2022, value: 0 },
-          { year: 2023, value: 0 },
-          { year: 2024, value: 0 },
-          { year: 2025, value: 0 },
+          { year: 2021, value: 5.5 },
+          { year: 2022, value: 5.8 },
+          { year: 2023, value: 6.1 },
+          { year: 2024, value: 6.4 },
+          { year: 2025, value: 7.5 },
         ],
       },
       {
@@ -425,6 +463,288 @@ export const asml_maj: AnalyseCard = {
           },  
         ],
       },
+      {
+          label: 'DETTE_EBITDA',
+          name:  'Dette nette / EBITDA',
+          unit:  'x',
+          yMin: 0.15,
+          data: [
+            { year: 2021, value: -0.33 },
+            { year: 2022, value: -0.42 },
+            { year: 2023, value: -0.24 },
+            { year: 2024, value: -0.81 },
+            { year: 2025, value: -0.69 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: -0.50 },
+                { year: 2022, value: -0.50 },
+                { year: 2023, value: -0.50 },
+                { year: 2024, value: -0.50 },
+                { year: 2025, value: -0.50 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'CR',
+          name:  'Current Ratio',
+          unit:  'x',
+          data: [
+            { year: 2021, value: 1.48 },
+            { year: 2022, value: 1.28 },
+            { year: 2023, value: 1.50 },
+            { year: 2024, value: 1.53 },
+            { year: 2025, value: 1.26 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 1.41 },
+                { year: 2022, value: 1.41 },
+                { year: 2023, value: 1.41 },
+                { year: 2024, value: 1.41 },
+                { year: 2025, value: 1.41 },
+              ],
+            }   
+          ]
+        },
+         {
+          label: 'DSO',
+          name:  'Days Sales Oustanding',
+          unit:  'J',
+          data: [
+            { year: 2021, value: 59 },
+            { year: 2022, value: 92 },
+            { year: 2023, value: 57 },
+            { year: 2024, value: 58 },
+            { year: 2025, value: 34 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 60 },
+                { year: 2022, value: 60 },
+                { year: 2023, value: 60 },
+                { year: 2024, value: 60 },
+                { year: 2025, value: 60 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'DIO',
+          name:  'Days Inventory Oustanding',
+          unit:  'J',
+          data: [
+            { year: 2021, value: 215 },
+            { year: 2022, value: 251 },
+            { year: 2023, value: 241 },
+            { year: 2024, value: 289 },
+            { year: 2025, value: 271 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 253 },
+                { year: 2022, value: 253 },
+                { year: 2023, value: 253 },
+                { year: 2024, value: 253 },
+                { year: 2025, value: 253 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'DPO',
+          name:  'Days Payable Oustanding',
+          unit:  'J',
+          data: [
+            { year: 2021, value: 88 },
+            { year: 2022, value: 89 },
+            { year: 2023, value: 64 },
+            { year: 2024, value: 93 },
+            { year: 2025, value: 83 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 83 },
+                { year: 2022, value: 83 },
+                { year: 2023, value: 83 },
+                { year: 2024, value: 83 },
+                { year: 2025, value: 83 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'CCC',
+          name:  'Cash Conversion Cycle',
+          unit:  'J',
+          data: [
+            { year: 2021, value: 186 },
+            { year: 2022, value: 253 },
+            { year: 2023, value: 234 },
+            { year: 2024, value: 254 },
+            { year: 2025, value: 221 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 230 },
+                { year: 2022, value: 230 },
+                { year: 2023, value: 230 },
+                { year: 2024, value: 230 },
+                { year: 2025, value: 230 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'CCC_resume',
+          name:  'Days Sales Oustanding',
+          unit:  'J',
+          heightMultiplier : 1.5,
+          yMin: 0,
+          data: [
+            { year: 2021, value: 59 },
+            { year: 2022, value: 92 },
+            { year: 2023, value: 57 },
+            { year: 2024, value: 58 },
+            { year: 2025, value: 34 },
+          ],
+          competitors: [
+            {
+              name:  'Days Inventory Oustanding',
+              color: '#2D6A4F',
+              data: [
+                { year: 2021, value: 215 },
+                { year: 2022, value: 251 },
+                { year: 2023, value: 241 },
+                { year: 2024, value: 289 },
+                { year: 2025, value: 271 },
+              ],
+            },
+            {
+              name:  'Days Payable Oustanding',
+              color: '#77bd92',
+              data: [
+                { year: 2021, value: 88 },
+                { year: 2022, value: 89 },
+                { year: 2023, value: 64 },
+                { year: 2024, value: 93 },
+                { year: 2025, value: 83 },
+              ],
+            },
+            { name:  'Cash Conversion Cycle',
+            color: '#C9A84C',
+            data: [
+              { year: 2021, value: 186 },
+              { year: 2022, value: 253 },
+              { year: 2023, value: 234 },
+              { year: 2024, value: 254 },
+              { year: 2025, value: 221 },
+            ],
+          },
+          {
+              name:  'Moyenne historique CCC (5ans)',
+              color: '#917939',
+              dashed: true,
+              data: [
+                { year: 2021, value: 230 },
+                { year: 2022, value: 230 },
+                { year: 2023, value: 230 },
+                { year: 2024, value: 230 },
+                { year: 2025, value: 230 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'AT',
+          name:  'Asset turnover',
+          unit:  'x',
+          yMin: 0.25,
+          data: [
+            { year: 2021, value: 0.62 },
+            { year: 2022, value: 0.58 },
+            { year: 2023, value: 0.69 },
+            { year: 2024, value: 0.58 },
+            { year: 2025, value: 0.65 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 0.62 },
+                { year: 2022, value: 0.62 },
+                { year: 2023, value: 0.62 },
+                { year: 2024, value: 0.62 },
+                { year: 2025, value: 0.62 },
+              ],
+            }   
+          ]
+        },
+        {
+          label: 'Dilution',
+          name:  'Dilution / Concentration',
+          unit:  '%',
+          yMin: 0,
+          data: [
+            { year: 2022, value: 3   },
+            { year: 2023, value: 1 },
+            { year: 2024, value: 0.1 },
+            { year: 2025, value: 1.2 },
+          ],
+        },
+        {
+          label: 'Payout',
+          name:  'Payout Ratio',
+          unit:  '%',
+          data: [
+            { year: 2021, value: 23.3 },
+            { year: 2022, value: 45.5 },
+            { year: 2023, value: 30.0 },
+            { year: 2024, value: 32.4 },
+            { year: 2025, value: 26.5 },
+          ],
+          competitors: [
+            {
+              name:  'Moyenne historique (5ans)',
+              color: '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 31.5 },
+                { year: 2022, value: 31.5 },
+                { year: 2023, value: 31.5 },
+                { year: 2024, value: 31.5 },
+                { year: 2025, value: 31.5 },
+              ], 
+            },
+          ]
+        },  
     ],
   },
 }
