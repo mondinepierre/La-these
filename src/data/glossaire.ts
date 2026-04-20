@@ -683,18 +683,6 @@ export const glossaire: GlossaireTerm[] = [
   },
 
   {
-    slug: "cycle-weinstein",
-    label: "Cycle de Weinstein (4 phases)",
-    category: "Analyse technique",
-    shortDef: "Un modèle qui découpe le cycle de vie d'une action en quatre phases distinctes avec des règles d'entrée et de sortie précises.",
-    definition: `Stan Weinstein a formalisé dans les années 1980 un modèle cyclique qui décrit comment les actions évoluent en quatre phases successives, basé principalement sur la MM30 hebdomadaire (équivalente à la MM150 journalière).\n\nPhase 1 — Consolidation : l'action évolue en range horizontal autour de la MM30. Ni acheteurs ni vendeurs ne dominent. Attendre.\nPhase 2 — Avancée : l'action casse le range à la hausse, la MM30 monte. C'est la seule phase où acheter est pertinent.\nPhase 3 — Distribution : l'action atteint des sommets mais la MM30 commence à s'aplatir. Les "mains fortes" distribuent leurs positions. Vendre ou ne pas acheter.\nPhase 4 — Déclin : l'action est en dessous d'une MM30 baissière. Ne pas acheter, même si l'action semble "pas chère".\n\nRègle centrale : n'acheter qu'en Phase 2, sortir en Phase 3. La Phase 4 est le cimetière des investisseurs qui "moyennent à la baisse".`,
-    related: ['moyenne-mobile', 'support-resistance', 'stop-loss'],
-    modules: [
-      { label: "Analyse technique", href: "/academie/intermediaire/analyse-technique" },
-    ],
-  },
-
-  {
     slug: "double-bottom",
     label: "Double Bottom (double creux)",
     category: "Analyse technique",
@@ -1582,6 +1570,18 @@ export const glossaire: GlossaireTerm[] = [
       { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
     ],
   },
+
+{
+  slug: "cycle-weinstein",
+  label: "Cycle de Weinstein (4 phases)",
+  category: "Analyse technique",
+  shortDef: "Un modèle qui découpe le cycle de vie d'une action en quatre phases successives, avec des règles d'entrée et de sortie précises basées sur la moyenne mobile 30 semaines.",
+  definition: `Stan Weinstein a formalisé dans les années 1980 un modèle cyclique décrivant comment toute action traverse quatre phases successives et répétables. L'outil central est la moyenne mobile à 30 semaines (MM30), équivalente à la MM150 en données journalières.\n\nPhase 1 — Consolidation : l'action évolue en range horizontal, sans tendance claire. La MM30 s'aplatit, les volumes sont faibles et irréguliers. C'est une phase d'accumulation discrète par les "mains fortes". Entrer en Phase 1 revient à immobiliser du capital sans direction. Attitude : attendre.\n\nPhase 2 — Avancée : l'action casse le range à la hausse avec un volume significativement supérieur à la moyenne. La MM30 s'incurve à la hausse. C'est la seule phase où acheter est pertinent. Les corrections restent peu profondes et se font en volume faible — signe de santé. Plus la Phase 1 précédente a duré longtemps, plus la Phase 2 a de potentiel. Attitude : acheter à la cassure, renforcer sur les pullbacks.\n\nPhase 3 — Distribution : l'action plafonne et la MM30 commence à s'aplatir après une longue avancée. Le cours oscille de part et d'autre de la MM30 avec des volumes élevés mais sans nouvelle hausse franche. C'est la phase où les "mains fortes" distribuent leurs positions aux acheteurs tardifs. Attitude : vendre ou alléger. Ne pas acheter même si l'action semble encore solide.\n\nPhase 4 — Déclin : l'action casse le support de Phase 3 à la baisse avec du volume. La MM30 s'incurve à la baisse, les rebonds échouent sous elle. C'est le cimetière des acheteurs qui "moyennent à la baisse". Attitude : ne jamais acheter en Phase 4, même si l'action semble bon marché.\n\nLa règle centrale : n'acheter qu'en Phase 2 confirmée — cassure de résistance, volume en hausse, MM30 ascendante. Sortir en Phase 3 naissante — MM30 qui s'aplatit, volumes de distribution. La durée des phases est variable, quelques mois à plusieurs années. La séquence, elle, ne change pas.`,
+  related: ["moyenne-mobile", "support-resistance", "golden-cross", "momentum", "stop-loss"],
+  modules: [
+    { label: "Analyse technique", href: "/academie/intermediaire/analyse-technique" },
+  ],
+},
 
 ];
 

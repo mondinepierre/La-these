@@ -10,7 +10,6 @@ import ValeurSuivieTemplate from './ValeurSuivieTemplate'
 const MDX: Record<string, React.ComponentType<any>> = {
   'alphabet':      dynamic(() => import('@/content/analyses/valeurs/alphabet.mdx')),
   'asml':          dynamic(() => import('@/content/analyses/valeurs/asml.mdx')),
-  'asml_maj':      dynamic(() => import('@/content/analyses/valeurs/asml_maj.mdx')),
   'novo':          dynamic(() => import('@/content/analyses/valeurs/novo.mdx')),
   'totalenergies': dynamic(() => import('@/content/analyses/valeurs/totalenergies.mdx')),
   'microsoft':     dynamic(() => import('@/content/analyses/valeurs/microsoft.mdx')),

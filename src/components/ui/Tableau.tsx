@@ -827,6 +827,343 @@ const TABLEAUX: Record<string, TableauData> = {
     },
   ],
 },
+// À ajouter dans TABLEAUX dans src/components/ui/Tableau.tsx
+
+'novo-dcf-parametres': {
+  compact: true,
+  colonnes: [
+    { key: 'parametre', label: 'Paramètre',       primary: true },
+    { key: 'valeur',    label: 'Valeur retenue'                 },
+    { key: 'justif',    label: 'Justification'                  },
+  ],
+  lignes: [
+    {
+      parametre: 'WACC',
+      valeur:    '7,23 %',
+      justif:    'Rf 2,86 % (Bund 10 ans) + Beta 1,14 × ERP 4,23 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'FCF de base (FY2025)',
+      valeur:    '58 962 M DKK',
+      justif:    'Cash opérationnel 119 102 M - investissements industriels (usines, équipements) 60 140 M',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'Croissance perpétuelle',
+      valeur:    '2,0 %',
+      justif:    'Plancher conservateur, 5.23 points sous le WACC',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'Dette nette',
+      valeur:    '104 494 M DKK',
+      justif:    'Bilan FY2025 — inclut dette Catalent',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'Actions diluées',
+      valeur:    '4 448 M',
+      justif:    'Rapport annuel FY2025',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+  ],
+},
+
+'novo-dcf-scenarios': {
+  colonnes: [
+    { key: 'scenario',  label: 'Scénario',        primary: true },
+    { key: 'cagr',      label: 'CAGR FCF'                      },
+    { key: 'hypothese', label: 'Hypothèse'                     },
+    { key: 'cours5',    label: 'Cours DCF (5 ans)'             },
+    { key: 'cours10',   label: 'Cours DCF (10 ans)'            },
+  ],
+  lignes: [
+    {
+      scenario:  'Pessimiste',
+      cagr:      '0 %',
+      hypothese: 'FCF comprimé stable, pas de normalisation',
+      cours5:    '~213 DKK',
+      cours10:   '~251 DKK',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      scenario:  'Central',
+      cagr:      '3,9 %',
+      hypothese: 'CAGR 2021-2025, continuité sans redressement',
+      cours5:    '~258 DKK',
+      cours10:   '~356 DKK',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      scenario:  'Optimiste',
+      cagr:      '10,0 %',
+      hypothese: 'Normalisation capex + volume oral en croissance',
+      cours5:    '~340 DKK',
+      cours10:   '~602 DKK',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+  ],
+},
+
+'novo-dcf-synthese': {
+  compact: true,
+  colonnes: [
+    { key: 'element', label: 'Élément',          primary: true },
+    { key: 'valeur',  label: 'Valeur (M DKK)'                 },
+    { key: 'detail',  label: 'Détail'                         },
+  ],
+  lignes: [
+    {
+      element: 'Somme FCF actualisés (5 ans)',
+      valeur:  '265 100',
+      detail:  'FCF base 58 962 M × CAGR 3,9 % sur 5 ans, actualisés à 7,23 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur terminale actualisée',
+      valeur:  '976 800',
+      detail:  'FCF5 × (1 + 2 %) / (7,23 % - 2 %), actualisée sur 5 ans',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Enterprise Value',
+      valeur:  '1 241 900',
+      detail:  'Somme FCF actualisés + valeur terminale actualisée',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      element: 'Dette nette',
+      valeur:  '104 494',
+      detail:  'Bilan FY2025',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur des capitaux propres',
+      valeur:  '1 137 400',
+      detail:  'EV - dette nette',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Cours DCF implicite',
+      valeur:  '~258 DKK',
+      detail:  'Valeur capitaux propres / 4 448 M actions',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+
+'novo-per-scenarios-v2': {
+  colonnes: [
+    { key: 'element',  label: 'Élément',            primary: true },
+    { key: 'conserv',  label: 'Conservateur (19,3×)'              },
+    { key: 'central',  label: 'Central (21,8×)'                   },
+  ],
+  lignes: [
+    {
+      element:  'Hypothèse multiple',
+      conserv:  'PER ajusté 2021-2022 — diabète pur',
+      central:  'Moyenne PER historique et sectoriel',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element:  'CAGR BPA retenu',
+      conserv:  '8 % (guidance FY2026)',
+      central:  '8 % (guidance FY2026)',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element:  'BPA projeté (5 ans)',
+      conserv:  '33,83 DKK',
+      central:  '33,83 DKK',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element:  'Prix cible central',
+      conserv:  '653 DKK',
+      central:  '738 DKK',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      element:  'Prix cible bas',
+      conserv:  '540 DKK',
+      central:  '611 DKK',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element:  'Prix cible haut',
+      conserv:  '765 DKK',
+      central:  '865 DKK',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element:  'MoS au cours actuel (259,70 DKK)',
+      conserv:  '36 %',
+      central:  '43 %',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'novo-per-zone-v2': {
+  colonnes: [
+    { key: 'taux',    label: 'Rendement exigé',              primary: true },
+    { key: 'conserv', label: 'Zone juste — Conservateur (DKK)'             },
+    { key: 'central', label: 'Zone juste — Central (DKK)'                  },
+  ],
+  lignes: [
+    {
+      taux:    '7,0 %',
+      conserv: '465',
+      central: '526',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      taux:    '8,5 %',
+      conserv: '434',
+      central: '491',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      taux:    '10,0 %',
+      conserv: '405',
+      central: '458',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      taux:    '12,0 %',
+      conserv: '370',
+      central: '419',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      taux:    '15,0 %',
+      conserv: '325',
+      central: '367',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+  ],
+},
+
+'novo-per-entree-conservateur-v2': {
+  compact: true,
+  colonnes: [
+    { key: 'mos',    label: 'Marge de sécurité',    primary: true },
+    { key: 'prix',   label: 'Prix d\'entrée (DKK)'               },
+    { key: 'upside', label: 'Upside vs prix cible'               },
+  ],
+  lignes: [
+    {
+      mos:    '10 %',
+      prix:   '365',
+      upside: '+79 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '15 %',
+      prix:   '344',
+      upside: '+90 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '20 % ← norme dossier',
+      prix:   '324',
+      upside: '+101 %',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      mos:    '25 %',
+      prix:   '304',
+      upside: '+115 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '36 % ← cours actuel',
+      prix:   '260',
+      upside: '+151 %',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'novo-per-entree-central-v2': {
+  compact: true,
+  colonnes: [
+    { key: 'mos',    label: 'Marge de sécurité',    primary: true },
+    { key: 'prix',   label: 'Prix d\'entrée (DKK)'               },
+    { key: 'upside', label: 'Upside vs prix cible'               },
+  ],
+  lignes: [
+    {
+      mos:    '10 %',
+      prix:   '412',
+      upside: '+79 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '15 %',
+      prix:   '389',
+      upside: '+90 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '20 % ← norme dossier',
+      prix:   '366',
+      upside: '+101 %',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      mos:    '25 %',
+      prix:   '344',
+      upside: '+115 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '43 % ← cours actuel',
+      prix:   '260',
+      upside: '+184 %',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
 }
 
 

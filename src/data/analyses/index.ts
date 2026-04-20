@@ -25,7 +25,6 @@ import { visa          } from './visa'
 import { loreal        } from './loreal'
 
 
-
 // ── Analyses ponctuelles ──────────────────────────────────────────────────────
 import { sondage  } from './sondage'
 
