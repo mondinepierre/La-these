@@ -1582,6 +1582,103 @@ export const glossaire: GlossaireTerm[] = [
     { label: "Analyse technique", href: "/academie/intermediaire/analyse-technique" },
   ],
 },
+// ─── VISA ─────────────────────────────────────────────────────────────────
+
+  {
+    slug: "duopole",
+    label: "Duopole",
+    category: "Analyse fondamentale",
+    shortDef: "Un marché dominé par deux acteurs qui se partagent l'essentiel des parts, sans qu'aucun ne parvienne à éliminer l'autre.",
+    definition: `Un duopole est une structure de marché où deux entreprises concentrent la quasi-totalité de l'offre. Contrairement au monopole, les deux acteurs se font concurrence — mais cette concurrence est encadrée par une interdépendance structurelle : les décisions de l'un contraignent celles de l'autre.\n\nPour un investisseur, le duopole est l'une des structures les plus attractives : les deux acteurs bénéficient de barrières à l'entrée quasi infranchissables, d'un pricing power structurel et d'une visibilité de long terme sur leurs revenus. La concurrence existe, mais elle est prévisible et disciplinée — les deux acteurs ont plus à perdre à une guerre des prix totale qu'à maintenir un équilibre stable.\n\nVisa et Mastercard en sont l'exemple le plus documenté : plus de cinquante ans de coexistence stable, aucun des deux n'a éliminé l'autre malgré une compétition réelle sur les contrats bancaires. Cette stabilité est elle-même une preuve de la solidité du modèle.`,
+    related: ["moat", "pricing-power", "effet-de-reseau", "interchange"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "asset-light",
+    label: "Modèle asset-light",
+    category: "Analyse fondamentale",
+    shortDef: "Un modèle économique qui génère des revenus élevés sans immobiliser de capital physique important.",
+    definition: `Un modèle asset-light est un modèle économique dans lequel l'entreprise génère des revenus et des bénéfices sans détenir ni investir massivement dans des actifs physiques — usines, équipements, stocks, créances.\n\nLa conséquence directe est une conversion exceptionnelle du résultat en cash : avec peu de Capex nécessaire, la quasi-totalité du résultat opérationnel se retrouve en Free Cash Flow disponible pour les actionnaires. C'est la caractéristique financière la plus précieuse d'une entreprise asset-light.\n\nVisa en est l'exemple canonique : le réseau est construit, les transactions transitent dessus sans que Visa n'immobilise de capital pour les financer. En 2025, Visa a généré 22,9 Md$ de FCF pour seulement 1,5 Md$ de Capex — soit 15 fois plus de cash redistribué aux actionnaires que de capital réinvesti dans l'outil industriel. À l'inverse, une banque classique comme American Express doit immobiliser du capital pour couvrir le risque de crédit de ses porteurs, ce qui comprime mécaniquement son ROIC.`,
+    related: ["free-cash-flow", "roic", "capex", "pricing-power", "moat"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "risque-de-credit",
+    label: "Risque de crédit",
+    category: "Gestion du risque",
+    shortDef: "Le risque qu'un emprunteur ou une contrepartie ne rembourse pas sa dette ou n'honore pas ses engagements.",
+    definition: `Le risque de crédit est le risque de perte financière lié à la défaillance d'une contrepartie — qu'il s'agisse d'un emprunteur qui ne rembourse pas un prêt, d'un client qui ne paie pas ses factures, ou d'un émetteur d'obligations qui fait défaut.\n\nDans le secteur des paiements, le risque de crédit est structurellement absent du modèle Visa : l'entreprise traite les transactions mais ne prête pas d'argent. Ce sont les banques émettrices qui portent le risque de crédit des porteurs de carte. C'est cette caractéristique qui distingue fondamentalement Visa d'American Express, qui est à la fois réseau et émetteur.\n\nPour un investisseur, l'absence de risque de crédit dans un modèle économique est un avantage structurel majeur : elle supprime le risque de pertes sur créances, réduit le besoin en capital réglementaire, et améliore la prévisibilité des résultats. Les modèles sans risque de crédit affichent structurellement des marges et des ROIC plus élevés que les modèles bancaires traditionnels.`,
+    related: ["asset-light", "moat", "free-cash-flow", "roic"],
+    modules: [
+      { label: "Gestion du risque", href: "/academie/intermediaire/gerer-le-risque" },
+    ],
+  },
+
+  {
+    slug: "client-incentives",
+    label: "Client Incentives",
+    category: "Analyse fondamentale",
+    shortDef: "Remises contractuelles versées par Visa à ses partenaires bancaires et marchands pour stimuler les volumes et l'adoption du réseau.",
+    definition: `Les client incentives sont des remises et rabais que Visa accorde contractuellement à ses partenaires — banques émettrices, marchands, processeurs de paiement — en échange de l'adoption ou du maintien du réseau Visa sur leurs plateformes et cartes.\n\nComptablement, ils viennent en déduction du chiffre d'affaires brut pour donner le revenu net. En 2025, ils représentaient 35,9 % du CA brut de Visa et progressaient à +14 %, soit plus vite que le CA net. C'est un signe que la compétition avec Mastercard sur chaque renouvellement de contrat bancaire oblige Visa à "acheter" sa position dominante.\n\nPour un investisseur, les client incentives sont un indicateur de tension concurrentielle : leur progression plus rapide que le CA net comprime mécaniquement les marges à long terme. Ils ne constituent pas un moat — c'est précisément l'opposé : une dépense structurelle que Visa ne peut pas unilatéralement réduire sans risquer de perdre des contrats au profit de Mastercard.`,
+    related: ["duopole", "interchange", "moat", "marge-nette", "pricing-power"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "effet-de-reseau",
+    label: "Effet de réseau",
+    category: "Analyse fondamentale",
+    shortDef: "Le mécanisme par lequel un produit ou service devient plus utile à mesure que le nombre de ses utilisateurs augmente.",
+    definition: `L'effet de réseau désigne la propriété d'un produit ou d'un service dont la valeur croît à mesure que le nombre d'utilisateurs augmente. Chaque nouvel utilisateur améliore l'expérience de tous les utilisateurs existants — créant une dynamique auto-renforçante difficile à contester une fois établie.\n\nIl existe deux grandes formes. L'effet de réseau direct : chaque utilisateur supplémentaire apporte directement de la valeur aux autres (téléphonie, messagerie). L'effet de réseau indirect ou biface : deux groupes distincts se renforcent mutuellement via la plateforme — plus il y a de porteurs de carte Visa, plus les marchands l'acceptent, ce qui attire de nouveaux porteurs, qui convainquent de nouveaux marchands.\n\nL'effet de réseau est l'une des formes les plus puissantes de moat : une fois qu'il atteint une masse critique, il crée une barrière à l'entrée quasi infranchissable. Répliquer le réseau de Visa — 5 milliards d'identifiants de paiement, 175 millions de commerçants, 14 500 institutions financières — nécessiterait des décennies et des capitaux considérables, avec aucune garantie d'atteindre la même adoption.`,
+    related: ["moat", "duopole", "asset-light", "pricing-power"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "tokenisation",
+    label: "Tokenisation (paiement)",
+    category: "Analyse fondamentale",
+    shortDef: "Technologie qui remplace le numéro de carte réel par un identifiant unique et éphémère lors d'une transaction, sécurisant les paiements sans contact et numériques.",
+    definition: `Dans le secteur des paiements, la tokenisation désigne le processus qui substitue le numéro de carte bancaire réel (PAN — Primary Account Number) par un jeton numérique unique, appelé token, généré spécifiquement pour chaque transaction ou chaque canal de paiement.\n\nConcrètement : quand tu paies avec Apple Pay ou Google Pay, ce n'est pas ton numéro de carte qui transite — c'est un token à usage limité, valable pour cette transaction uniquement. Même si ce token est intercepté, il ne peut pas être réutilisé ailleurs. C'est ce mécanisme qui rend les paiements sans contact et les portefeuilles numériques intrinsèquement plus sécurisés que la carte physique.\n\nPour Visa, la tokenisation est à la fois un actif intangible et un relais de croissance : le réseau de tokens représente des milliards d'identifiants de paiement sécurisés déployés dans les écosystèmes Apple, Google, Samsung et les applications marchandes. Chaque nouveau canal digital qui adopte la tokenisation Visa renforce l'ancrage du réseau dans l'infrastructure de paiement mondiale.`,
+    related: ["effet-de-reseau", "moat", "asset-light", "interchange"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "antitrust",
+    label: "Antitrust (droit de la concurrence)",
+    category: "Analyse fondamentale",
+    shortDef: "Corpus juridique visant à prévenir les abus de position dominante et les pratiques anticoncurrentielles — risque réglementaire majeur pour les entreprises en situation de quasi-monopole.",
+    definition: `Le droit antitrust (ou droit de la concurrence) regroupe l'ensemble des règles qui encadrent le comportement des entreprises pour prévenir les abus de position dominante, les ententes sur les prix, et les pratiques qui fausseraient la concurrence au détriment des consommateurs ou des acteurs du marché.\n\nAux États-Unis, les principales lois antitrust sont le Sherman Act (1890) et le Clayton Act (1914), appliqués par le Department of Justice (DOJ) et la Federal Trade Commission (FTC). En Europe, c'est la Direction générale de la concurrence de la Commission européenne qui instruit les dossiers, avec des amendes pouvant atteindre 10 % du chiffre d'affaires mondial.\n\nPour un investisseur, l'exposition antitrust est un risque structurel pour les entreprises en situation de domination de marché. Elle peut se matérialiser sous trois formes : une amende significative, une contrainte comportementale imposée par le régulateur (obligation de partager l'infrastructure, interdiction de certaines pratiques tarifaires), ou dans les cas extrêmes une scission forcée. Visa fait face à une procédure DOJ ouverte en 2024 sur le marché du débit américain — un risque réglementaire à surveiller sur plusieurs années.`,
+    related: ["duopole", "interchange", "moat", "pricing-power"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "interchange",
+    label: "Frais d'interchange",
+    category: "Analyse fondamentale",
+    shortDef: "Les frais perçus par la banque émettrice de la carte à chaque transaction, au cœur du modèle de paiement par carte.",
+    definition: `Les frais d'interchange sont les commissions versées par la banque du marchand (banque acquéreuse) à la banque qui a émis la carte utilisée (banque émettrice) à chaque transaction par carte. Ils constituent l'une des principales sources de revenus du système de paiement par carte.\n\nLa chaîne de valeur d'une transaction : le porteur paie chez un marchand, la banque du marchand verse une commission d'interchange à la banque du porteur, Visa ou Mastercard perçoivent des frais de réseau sur la transaction. Visa lui-même ne perçoit pas directement les frais d'interchange — ce sont les banques qui les encaissent. Visa perçoit des frais de service et de traitement sur les volumes.\n\nPourquoi c'est un risque majeur pour Visa : les régulateurs européens et américains considèrent que ces frais, fixés collectivement par les réseaux de paiement, sont potentiellement anticoncurrentiels. La pression réglementaire sur leur plafonnement représente le risque systémique principal pour le modèle économique du duopole Visa/Mastercard.`,
+    related: ["duopole", "antitrust", "moat", "pricing-power", "client-incentives"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
 
 ];
 
