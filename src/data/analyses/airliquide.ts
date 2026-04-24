@@ -31,7 +31,7 @@ export const airliquide: AnalyseCard = {
   statut:         'actif',
   portefeuille:   'PEA',
   horizon:        '5 ans',
-  excerpt:        'à venir',
+  excerpt:        'Le leader français des gaz industriels au modèle contractuel ultra-résilient, entre normalisation post-crise énergétique et pari sur la conversion du backlog en cash-flow.',
   glossaire:      ['moat', 'roic', 'free-cash-flow', 'wacc', 'per', 'ev-ebitda'],
   logo:           '/analyse/air_liquide.png',
   prixCible:      { bas: 153, haut: 213, devise: 'EUR' },
