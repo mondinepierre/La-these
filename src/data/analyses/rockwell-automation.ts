@@ -1,0 +1,30 @@
+import type { AnalyseCard } from '@/types/analyses'
+
+export const rockwellAutomation: AnalyseCard = {
+  slug:           'rockwell-automation',
+  type:           'valeur',
+  title:          'Rockwell Automation',
+  ticker:         'ROK',
+  secteur:        'Industrie',
+  geo:            'États-Unis',
+  conviction:     'forte',
+  positionnement: 'surveillance',
+  lastUpdated:    '2026-04-23',
+  statut:         'en-construction',
+  portefeuille:   'CTO',
+  horizon:        '5 ans',
+  excerpt:        'Analyse en préparation.',
+  glossaire:      [],
+  logo:           '/analyse/MSFT.png',
+  readingTime:    12,
+  prixCible:      { bas: 0, haut: 0, devise: 'USD' },
+  marginOfSafety: 'indéterminée',
+  metrics: {
+    per: 0, evEbitda: 0, fcfYield: 0, roic: 0, wacc: 0,
+    detteEbitda: 0, croissanceCA3ans: 0, croissanceBPA3ans: 0,
+    margeEbit: 0, margeBrute: 0, payoutRatio: 0, currentRatio: 0, dso: 0,
+  },
+  tendances: { per: 'stable', fcfYield: 'stable', roic: 'stable', margeEbit: 'stable' },
+  updates: [{ date: '2026-04-23', note: 'Création du stub.' }],
+  chartData: {},
+}

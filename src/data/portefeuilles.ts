@@ -88,7 +88,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
         gics: 'Matériaux — Chimie spécialisée',
         geo: 'Europe (France)',
         isin: 'FR0000120073',
-        analyseSlug: 'air-liquide',
+        analyseSlug: 'airliquide',
       },
       {
         label: 'TotalEnergies',
@@ -118,7 +118,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
         gics: 'Santé — Produits pharmaceutiques',
         geo: 'Europe (Danemark)',
         isin: 'DK0060534915',
-        analyseSlug: 'novo-nordisk',
+        analyseSlug: 'novo',
       },
       // ── Défense & Sécurité ────────────────────────────
       {
@@ -265,7 +265,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
         gics: 'Matériaux — Chimie spécialisée',
         geo: 'Europe (France)',
         isin: 'FR0000120073',
-        analyseSlug: 'air-liquide',
+        analyseSlug: 'airliquide',
       },
       {
         label: 'TotalEnergies',
@@ -294,7 +294,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
         gics: 'Utilities',
         geo: 'Europe (France)',
         isin: '',
-        analyseSlug: 'Vicat',
+        analyseSlug: 'vicat',
       },
       // ── Santé ─────────────────────────────────────────
       {

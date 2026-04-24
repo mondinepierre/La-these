@@ -86,6 +86,13 @@ export default function Legal() {
               produits ou de courtiers reflètent uniquement un avis personnel,
               sans lien commercial.
             </p>
+            <p>
+              La rédaction de certains contenus bénéficie d'une assistance IA
+              pour la structuration et la mise en forme. Les données utilisées,
+              les analyses et les convictions exprimées sont vérifiées et
+              assumées personnellement — l'IA n'intervient pas de façon autonome
+              sur le fond.
+            </p>
 
             <h2>5. Cookies et données personnelles</h2>
             <p>
@@ -135,6 +142,7 @@ export default function Legal() {
                   "Investir comporte des risques réels",
                   "Vous restez seul décisionnaire",
                   "Aucun lien commercial avec les tiers cités",
+                  "Assistance IA à la rédaction — données et convictions vérifiées personnellement",
                   "Aucun cookie — analytics anonyme uniquement",
                   "Contenu informatif et pédagogique uniquement",
                 ].map((item) => (

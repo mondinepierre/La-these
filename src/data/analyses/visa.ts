@@ -570,19 +570,31 @@ export const visa: AnalyseCard = {
           ]
         },
     ],
-        valuationCompare: [
-      { label: 'PER',                  valeur: 28.5,  concurrent1 : 29.87, concurrent2 : 19.51  },
-      { label: 'P/FCF',                valeur: 25.01, concurrent1 : 26.02, concurrent2 : 12.82  },
-      { label: 'EV/EBITDA',            valeur: 19.75, concurrent1 : 21.46, concurrent2 : 9.14   },
-      { label: 'Marge opérationnelle', valeur: 67.16, concurrent1 : 60.13, concurrent2 : 20.63  },
-      { label: 'ROIC',                 valeur: 35.28, concurrent1 : 56.14, concurrent2 : 12.78  },
-    ],
-        valuationCompare2: [
-      { label: 'PER',                  valeur: 28.5,  secteur: 15.53, },
-      { label: 'P/FCF',                valeur: 25.01, secteur: 12.38, },
-      { label: 'EV/EBITDA',            valeur: 19.75, secteur: 14.18, },
-      { label: 'Marge opérationnelle', valeur: 67.16, secteur: 19.24, },
-      { label: 'ROIC',                 valeur: 35.28, secteur: 7.45,  },
+    // Composants : <ValuationChart_vs_secteur /> <ValuationChart_vs_pairs />
+    valuationCharts: [
+      {
+        id: 'vs_secteur', type: 'radar',
+        title: 'Valorisation comparée - Visa vs Finances',
+        data: [
+          { label: 'PER',                  valeur: 28.5,  secteur: 15.53 },
+          { label: 'P/FCF',                valeur: 25.01, secteur: 12.38 },
+          { label: 'EV/EBITDA',            valeur: 19.75, secteur: 14.18 },
+          { label: 'Marge opérationnelle', valeur: 67.16, secteur: 19.24 },
+          { label: 'ROIC',                 valeur: 35.28, secteur: 7.45  },
+        ],
+      },
+      {
+        id: 'vs_pairs', type: 'radar',
+        title: 'Valorisation comparée - Visa vs MasterCard et American Express',
+        concurrent1: 'MasterCard', concurrent2: 'American Express',
+        data: [
+          { label: 'PER',                  valeur: 28.5,  concurrent1: 29.87, concurrent2: 19.51 },
+          { label: 'P/FCF',                valeur: 25.01, concurrent1: 26.02, concurrent2: 12.82 },
+          { label: 'EV/EBITDA',            valeur: 19.75, concurrent1: 21.46, concurrent2: 9.14  },
+          { label: 'Marge opérationnelle', valeur: 67.16, concurrent1: 60.13, concurrent2: 20.63 },
+          { label: 'ROIC',                 valeur: 35.28, concurrent1: 56.14, concurrent2: 12.78 },
+        ],
+      },
     ],
   
 

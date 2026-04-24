@@ -15,25 +15,36 @@
 
 import type { AnalyseCard } from '@/types/analyses'
 
-// ── Valeurs suivies ───────────────────────────────────────────────────────────
-import { asml          } from './asml'
-import { novo          } from './novo'
-import { totalenergies } from './totalenergies'
-import { alphabet      } from './alphabet'
-import { microsoft     } from './microsoft'
-import { visa          } from './visa'
-import { loreal        } from './loreal'
+// ── Valeurs suivies — actives ─────────────────────────────────────────────────
+import { asml               } from './asml'
+import { alphabet           } from './alphabet'
+import { microsoft          } from './microsoft'
+import { novo               } from './novo'
+import { totalenergies      } from './totalenergies'
+import { visa               } from './visa'
+import { loreal             } from './loreal'
+import { airliquide         } from './airliquide'
 
+// ── Valeurs suivies — en construction ────────────────────────────────────────
+import { rockwellAutomation  } from './rockwell-automation'
+import { constellationEnergy } from './constellation-energy'
+import { gtt                 } from './gtt'
+import { cameco              } from './cameco'
+import { thales              } from './thales'
+import { exailTechnologies   } from './exail-technologies'
+import { msciInc             } from './msci-inc'
+import { schneiderElectric   } from './schneider-electric'
+import { vicat               } from './vicat'
 
 // ── Analyses ponctuelles ──────────────────────────────────────────────────────
 import { sondage  } from './sondage'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Ordre d'affichage dans l'index /analyses
-// Les valeurs suivies actives en premier, ponctuelles ensuite
+// Valeurs actives en premier, en construction ensuite, ponctuelles à la fin
 // ─────────────────────────────────────────────────────────────────────────────
 export const ANALYSES: AnalyseCard[] = [
-  // Valeurs suivies
+  // Actives
   alphabet,
   asml,
   loreal,
@@ -41,7 +52,18 @@ export const ANALYSES: AnalyseCard[] = [
   novo,
   totalenergies,
   visa,
+  airliquide,
 
+  // En construction
+  rockwellAutomation,
+  constellationEnergy,
+  gtt,
+  cameco,
+  thales,
+  exailTechnologies,
+  msciInc,
+  schneiderElectric,
+  vicat,
 
   // Analyses ponctuelles
   sondage,

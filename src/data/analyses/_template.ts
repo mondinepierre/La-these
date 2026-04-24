@@ -22,8 +22,7 @@
 //   <FcfGraph />                 → chartData.fcf
 //   <GeoMap />                   → chartData.geoRevenue
 //   <SegmentGraph unit="..." />  → chartData.segmentRevenue   (décommenter si pertinent)
-//   <ValuationBar name="..." />  → chartData.valuationCompare  (pairs directs)
-//   <ValuationBar2 name="..." /> → chartData.valuationCompare2 (vs moyenne secteur)
+//   <ValuationChart_{id} />      → chartData.valuationCharts[].id  (autant que nécessaire)
 //   <MetricGraph_LABEL />        → chartData.metricHistory — LABEL = label sans tirets ni /
 //
 // ─────────────────────────────────────────────────────────────────────────────
@@ -164,24 +163,34 @@ export const NOUVEAU_TICKER: AnalyseCard = {
     //   ],
     // },
 
-    // ── Comparaison pairs directs ─────────────────────────────────────────
-    // Composant : <ValuationBar name="Entreprise" concurrent1="X" concurrent2="Y" />
-    valuationCompare: [
-      { label: 'PER',                  valeur: 0, concurrent1: 0, concurrent2: 0 },
-      { label: 'P/FCF',                valeur: 0, concurrent1: 0, concurrent2: 0 },
-      { label: 'EV/EBITDA',            valeur: 0, concurrent1: 0, concurrent2: 0 },
-      { label: 'Marge opérationnelle', valeur: 0, concurrent1: 0, concurrent2: 0 },
-      { label: 'ROIC',                 valeur: 0, concurrent1: 0, concurrent2: 0 },
-    ],
-
-    // ── Comparaison moyenne secteur ───────────────────────────────────────
-    // Composant : <ValuationBar2 name="Entreprise" />
-    valuationCompare2: [
-      { label: 'PER',                  valeur: 0, secteur: 0 },
-      { label: 'P/FCF',                valeur: 0, secteur: 0 },
-      { label: 'EV/EBITDA',            valeur: 0, secteur: 0 },
-      { label: 'Marge opérationnelle', valeur: 0, secteur: 0 },
-      { label: 'ROIC',                 valeur: 0, secteur: 0 },
+    // ── Comparaison valorisation (autant de graphiques que nécessaire) ──────
+    // Composants MDX : <ValuationChart_vs_secteur /> <ValuationChart_vs_pairs /> etc.
+    // id = suffixe du composant MDX (ValuationChart_{id}), type = 'bar' | 'radar'
+    // concurrent1/2/3 facultatifs — ne pas mettre si non utilisés dans data
+    valuationCharts: [
+      {
+        id: 'vs_secteur', type: 'radar',
+        title: 'Valorisation comparée — Entreprise vs secteur',
+        data: [
+          { label: 'PER',                  valeur: 0, secteur: 0 },
+          { label: 'P/FCF',                valeur: 0, secteur: 0 },
+          { label: 'EV/EBITDA',            valeur: 0, secteur: 0 },
+          { label: 'Marge opérationnelle', valeur: 0, secteur: 0 },
+          { label: 'ROIC',                 valeur: 0, secteur: 0 },
+        ],
+      },
+      {
+        id: 'vs_pairs', type: 'radar',
+        title: 'Valorisation comparée — Entreprise vs pairs',
+        concurrent1: 'Concurrent A', concurrent2: 'Concurrent B',
+        data: [
+          { label: 'PER',                  valeur: 0, concurrent1: 0, concurrent2: 0 },
+          { label: 'P/FCF',                valeur: 0, concurrent1: 0, concurrent2: 0 },
+          { label: 'EV/EBITDA',            valeur: 0, concurrent1: 0, concurrent2: 0 },
+          { label: 'Marge opérationnelle', valeur: 0, concurrent1: 0, concurrent2: 0 },
+          { label: 'ROIC',                 valeur: 0, concurrent1: 0, concurrent2: 0 },
+        ],
+      },
     ],
 
     // ── Métriques libres sur 5 ans ────────────────────────────────────────

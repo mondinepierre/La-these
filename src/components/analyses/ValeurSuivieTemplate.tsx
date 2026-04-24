@@ -163,40 +163,30 @@ export default function ValeurSuivieTemplate({ frontmatter, Content, origine }: 
       )
     : () => null
 
-  const ValuationBar = cd?.valuationCompare
-    ? (props: { title?: string; name?: string }) => (
-        <ValuationBarChart
-          data={cd.valuationCompare!}
-          title={props.title}
-          name={props.name}
-        />
+  // ── Composants valorisation — un par entrée valuationCharts ─
+  // Nommage : ValuationChart_{id} → <ValuationChart_vs_pairs /> dans le MDX
+  const ValuationCharts = cd?.valuationCharts
+    ? Object.fromEntries(
+        cd.valuationCharts.map(cfg => [
+          `ValuationChart_${cfg.id}`,
+          (props: { title?: string }) =>
+            cfg.type === 'bar'
+              ? <ValuationBarChart
+                  data={cfg.data}
+                  title={props.title ?? cfg.title}
+                  name={cfg.name ?? frontmatter.title}
+                />
+              : <ValuationRadarChart
+                  data={cfg.data}
+                  title={props.title ?? cfg.title}
+                  name={cfg.name ?? frontmatter.title}
+                  concurrent1={cfg.concurrent1}
+                  concurrent2={cfg.concurrent2}
+                  concurrent3={cfg.concurrent3}
+                />,
+        ])
       )
-    : () => null
-
-  const ValuationRadar = cd?.valuationCompare
-    ? (props: { title?: string; name?: string; concurrent1?: string; concurrent2?: string; concurrent3?: string}) => (
-        <ValuationRadarChart
-          data={cd.valuationCompare!}
-          title={props.title}
-          name={props.name}
-          concurrent1={props.concurrent1}
-          concurrent2={props.concurrent2}
-          concurrent3={props.concurrent3}
-        />
-      )
-    : () => null
-
-  const ValuationRadar2 = cd?.valuationCompare2
-    ? (props: { title?: string; name?: string; concurrent1?: string; concurrent2?: string }) => (
-        <ValuationRadarChart
-          data={cd.valuationCompare2!}
-          title={props.title}
-          name={props.name}
-          concurrent1={props.concurrent1}
-          concurrent2={props.concurrent2}
-        />
-      )
-    : () => null
+    : {}
 
   const RoicWacc = cd?.roicVsWacc
     ? (props: { title?: string }) => (
@@ -464,9 +454,7 @@ const SegmentGraph = cd?.segmentRevenue
           GeoChart,
           RoicWacc,
           SegmentGraph,
-          ValuationBar,
-          ValuationRadar,
-          ValuationRadar2,
+          ...ValuationCharts,
           DisclaimerVerdict: DisclaimerVerdictBlock,
           NoteAnalyse:       NoteAnalyseBlock,
           Tableau: Tableau as React.ComponentType<any>,

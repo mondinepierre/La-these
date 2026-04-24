@@ -36,21 +36,37 @@ export default function ValuationRadarChart({
   const hasConcurrent2 = data.some(d => d.concurrent2 !== undefined) && !!concurrent2
   const hasConcurrent3 = data.some(d => d.concurrent3 !== undefined) && !!concurrent3
 
-  // ── Normalisation ─────────────────────────────────────────
-  // Base = moyenne de toutes les valeurs présentes sur chaque axe
-  // Normalisation — base sur les valeurs présentes uniquement
+// ── Normalisation ─────────────────────────────────────────
+  // Base = moyenne des valeurs POSITIVES présentes sur chaque axe.
+  // Si toutes les valeurs sont négatives ou nulles, on replie sur 1 pour éviter 
+  // une division par zéro. Les valeurs normalisées négatives sont clampées à 0
+  // (affiché au centre du radar = "hors échelle, cas extrême").
   const normalized = data.map(d => {
-    const values = [d.valeur, d.secteur, d.concurrent1, d.concurrent2, d.concurrent3,]
+    // 1. Récupérer toutes les valeurs définies pour cet axe
+    const allValues = [d.valeur, d.secteur, d.concurrent1, d.concurrent2, d.concurrent3]
       .filter((v): v is number => v !== undefined)
-    const base = values.reduce((a, b) => a + b, 0) / values.length || 1
+    
+    // 2. Ne conserver que les valeurs strictement positives pour le calcul de la base
+    const positiveValues = allValues.filter(v => v > 0)
+
+    // 3. Calculer la moyenne uniquement sur ces valeurs positives
+    const avg = positiveValues.length > 0 
+      ? positiveValues.reduce((a, b) => a + b, 0) / positiveValues.length 
+      : 1 // Si tout est négatif/zéro, on met la base à 1 pour éviter NaN/Infinity
+      
+    const base = avg
+
+    // 4. Normalisation (les valeurs négatives d'origine donneront 0 grâce au Math.max)
+    const norm = (v: number | undefined) =>
+      v !== undefined ? Math.max(0, parseFloat((v / base).toFixed(2))) : undefined
 
     return {
-      label:        d.label,
-      valeur:       parseFloat((d.valeur / base).toFixed(2)),
-      secteur:      d.secteur !== undefined ? parseFloat((d.secteur / base).toFixed(2)) : undefined,
-      concurrent1:  d.concurrent1 !== undefined ? parseFloat((d.concurrent1 / base).toFixed(2)) : undefined,
-      concurrent2:  d.concurrent2 !== undefined ? parseFloat((d.concurrent2 / base).toFixed(2)) : undefined,
-      concurrent3:  d.concurrent3 !== undefined ? parseFloat((d.concurrent3 / base).toFixed(2)) : undefined,
+      label:           d.label,
+      valeur:          norm(d.valeur)!,
+      secteur:         norm(d.secteur),
+      concurrent1:     norm(d.concurrent1),
+      concurrent2:     norm(d.concurrent2),
+      concurrent3:     norm(d.concurrent3),
       valeurBrute:     d.valeur,
       secteurBrut:     d.secteur,
       concurrent1Brut: d.concurrent1,
@@ -112,7 +128,7 @@ export default function ValuationRadarChart({
         fontStyle:    'italic',
       }}>
         Valeurs normalisées — chaque axe est relatif à la moyenne des valeurs comparées.
-        En dessous de 1 = moins cher / moins performant que la moyenne sur ce critère.
+        En dessous de 1 = inférieur à la moyenne sur ce critère. Valeurs négatives affichées au centre (cas extrême).
       </p>
       <ResponsiveContainer width="100%" height={520}>
         <RadarChart

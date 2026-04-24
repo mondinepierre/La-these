@@ -165,24 +165,32 @@ updates: [
       ],
     },
 
-    // ── Comparaison pairs directs ─────────────────────────────────────────
-    // Composant : <ValuationBar name="Entreprise" concurrent1="X" concurrent2="Y" />
-    valuationCompare: [
-      { label: 'PER',                  valeur: 53.05, concurrent1: 40.10, concurrent2: 50.55 },
-      { label: 'P/FCF',                valeur: 45.50, concurrent1: 50.16, concurrent2: 52.10 },
-      { label: 'EV/EBITDA',            valeur: 40.26, concurrent1: 34.96, concurrent2: 39.42 },
-      { label: 'Marge opérationnelle', valeur: 34.58, concurrent1: 29.74, concurrent2: 42.54 },
-      { label: 'ROIC',                 valeur: 41.08, concurrent1: 27.31, concurrent2: 39.55 },
-    ],
-
-    // ── Comparaison moyenne secteur ───────────────────────────────────────
-    // Composant : <ValuationBar2 name="Entreprise" />
-    valuationCompare2: [
-      { label: 'PER',                  valeur: 53.05, secteur: 50.55 },
-      { label: 'P/FCF',                valeur: 45.50, secteur: 50.16 },
-      { label: 'EV/EBITDA',            valeur: 40.26, secteur: 39.42 },
-      { label: 'Marge opérationnelle', valeur: 34.58, secteur: 21.25 },
-      { label: 'ROIC',                 valeur: 41.08, secteur: 6.48 },
+    // ── Comparaison valorisation ──────────────────────────────────────────
+    // Composants : <ValuationChart_vs_secteur /> <ValuationChart_vs_pairs />
+    valuationCharts: [
+      {
+        id: 'vs_secteur', type: 'radar',
+        title: 'Valorisation comparée - ASML vs secteur semi-conducteurs',
+        data: [
+          { label: 'PER',                  valeur: 53.05, secteur: 50.55 },
+          { label: 'P/FCF',                valeur: 45.50, secteur: 50.16 },
+          { label: 'EV/EBITDA',            valeur: 40.26, secteur: 39.42 },
+          { label: 'Marge opérationnelle', valeur: 34.58, secteur: 21.25 },
+          { label: 'ROIC',                 valeur: 41.08, secteur: 6.48  },
+        ],
+      },
+      {
+        id: 'vs_pairs', type: 'radar',
+        title: 'Valorisation comparée - ASML vs pairs directs',
+        concurrent1: 'Applied Materials', concurrent2: 'KLA Corp',
+        data: [
+          { label: 'PER',                  valeur: 53.05, concurrent1: 40.10, concurrent2: 50.55 },
+          { label: 'P/FCF',                valeur: 45.50, concurrent1: 50.16, concurrent2: 52.10 },
+          { label: 'EV/EBITDA',            valeur: 40.26, concurrent1: 34.96, concurrent2: 39.42 },
+          { label: 'Marge opérationnelle', valeur: 34.58, concurrent1: 29.74, concurrent2: 42.54 },
+          { label: 'ROIC',                 valeur: 41.08, concurrent1: 27.31, concurrent2: 39.55 },
+        ],
+      },
     ],
 
     // ── Métriques libres sur 5 ans ────────────────────────────────────────

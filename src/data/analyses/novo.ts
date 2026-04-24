@@ -170,24 +170,32 @@ export const novo: AnalyseCard = {
       ],
     },
 
-    // ── Comparaison pairs directs ─────────────────────────────────────────
-    // Composant : <ValuationBar name="Entreprise" concurrent1="X" concurrent2="Y" />  Eli Lilly, Pfizer, AstraZeneca
-    valuationCompare: [
-      { label: 'PER',                  valeur: 11.68, concurrent1: 41.04, concurrent2: 20.34, concurrent3: 31.27 }, 
-      { label: 'P/FCF',                valeur: 15.25, concurrent1: 97.62, concurrent2: 17.27, concurrent3: 26.12 }, 
-      { label: 'EV/EBITDA',            valeur: 6.76,  concurrent1: 28.79, concurrent2: 8.75,  concurrent3: 17.66 }, 
-      { label: 'Marge opérationnelle', valeur: 41.17, concurrent1: 45.56, concurrent2: 27.99, concurrent3: 23.16 }, 
-      { label: 'ROIC',                 valeur: 31.38, concurrent1: 30.11, concurrent2: 5.15,  concurrent3: 13.66 }, 
-    ],
-
-    // ── Comparaison moyenne secteur ───────────────────────────────────────
-    // Composant : <ValuationBar2 name="Entreprise" />
-    valuationCompare2: [
-      { label: 'PER',                  valeur: 11.68, secteur: 20.22  },
-      { label: 'P/FCF',                valeur: 15.25, secteur: 15.79  },
-      { label: 'EV/EBITDA',            valeur: 6.76,  secteur: 9.81   },
-      { label: 'Marge opérationnelle', valeur: 41.17, secteur: 27.96  },
-      { label: 'ROIC',                 valeur: 31.38, secteur: 13.33  },
+    // ── Comparaison valorisation ──────────────────────────────────────────
+    // Composants : <ValuationChart_vs_secteur /> <ValuationChart_vs_pairs />
+    valuationCharts: [
+      {
+        id: 'vs_secteur', type: 'radar',
+        title: 'Valorisation comparée - Novo Nordisk vs secteur fabricants de médicaments',
+        data: [
+          { label: 'PER',                  valeur: 11.68, secteur: 20.22 },
+          { label: 'P/FCF',                valeur: 15.25, secteur: 15.79 },
+          { label: 'EV/EBITDA',            valeur: 6.76,  secteur: 9.81  },
+          { label: 'Marge opérationnelle', valeur: 41.17, secteur: 27.96 },
+          { label: 'ROIC',                 valeur: 31.38, secteur: 13.33 },
+        ],
+      },
+      {
+        id: 'vs_pairs', type: 'radar',
+        title: 'Valorisation comparée - Novo Nordisk vs pairs directs',
+        concurrent1: 'Eli Lilly', concurrent2: 'Pfizer', concurrent3: 'AstraZeneca',
+        data: [
+          { label: 'PER',                  valeur: 11.68, concurrent1: 41.04, concurrent2: 20.34, concurrent3: 31.27 },
+          { label: 'P/FCF',                valeur: 15.25, concurrent1: 97.62, concurrent2: 17.27, concurrent3: 26.12 },
+          { label: 'EV/EBITDA',            valeur: 6.76,  concurrent1: 28.79, concurrent2: 8.75,  concurrent3: 17.66 },
+          { label: 'Marge opérationnelle', valeur: 41.17, concurrent1: 45.56, concurrent2: 27.99, concurrent3: 23.16 },
+          { label: 'ROIC',                 valeur: 31.38, concurrent1: 30.11, concurrent2: 5.15,  concurrent3: 13.66 },
+        ],
+      },
     ],
 
     // ── Métriques libres sur 5 ans ────────────────────────────────────────

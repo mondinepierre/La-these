@@ -1680,6 +1680,114 @@ export const glossaire: GlossaireTerm[] = [
     ],
   },
 
+  {
+    slug: "oligopole",
+    label: "Oligopole",
+    category: "Marchés",
+    shortDef: "Structure de marché dominée par un petit nombre d'acteurs qui concentrent l'essentiel de l'offre et exercent une influence significative sur les prix.",
+    definition: `Un oligopole est une structure de marché dans laquelle quelques entreprises — en général 2 à 5 — produisent la totalité ou la quasi-totalité de l'offre d'un bien ou d'un service. Les acteurs sont suffisamment peu nombreux pour que les décisions de l'un influencent les autres : chaque acteur tient compte des réactions probables de ses concurrents avant d'ajuster ses prix ou sa production.\n\nContrairement au monopole (un seul acteur) ou à la concurrence parfaite (multitude d'acteurs), l'oligopole occupe un espace intermédiaire caractérisé par une forte interdépendance stratégique. Les barrières à l'entrée y sont en général élevées — économies d'échelle, intensité capitalistique, réseaux physiques, réglementations — ce qui protège la position des acteurs en place.\n\nPour un investisseur, un oligopole est une structure favorable : la rationalité collective des acteurs (éviter une guerre des prix destructrice), les barrières à l'entrée et la concentration de la demande sur peu d'acteurs génèrent des marges et des retours sur capital supérieurs à la moyenne. Le secteur des gaz industriels (Air Liquide, Linde, Air Products) en est un exemple emblématique : trois acteurs concentrent plus de 60 % de la production mondiale, avec des actifs physiques irréplicables qui rendent toute entrée économiquement irrationnelle.`,
+    related: ["duopole", "moat", "pricing-power"],
+    modules: [
+      { label: "Marchés", href: "/academie/debutant/marches" },
+    ],
+  },
+
+  {
+    slug: "take-or-pay",
+    label: "Clause take-or-pay",
+    category: "Analyse fondamentale",
+    shortDef: "Clause contractuelle obligeant l'acheteur à payer un volume minimum qu'il consomme ou non — mécanisme clé de protection des revenus dans les contrats industriels de long terme.",
+    definition: `Une clause take-or-pay (littéralement "prends ou paye") est une disposition contractuelle par laquelle un acheteur s'engage à payer un volume minimum d'un bien ou d'un service, qu'il en ait besoin ou non sur la période contractuelle. Si l'acheteur ne "prend" pas le volume prévu, il doit quand même "payer" pour ce volume.\n\nCette clause est caractéristique des contrats d'approvisionnement en énergie (gaz naturel, électricité), en matières premières industrielles (gaz industriels, produits chimiques) et dans les infrastructures (terminaux GNL, pipelines, réseaux ferroviaires). Elle transfère le risque de volume du fournisseur vers l'acheteur : le producteur est assuré d'un revenu minimum indépendamment de la demande réelle.\n\nPour un investisseur, les take-or-pay sont un indicateur de qualité du modèle économique. Une entreprise dont les revenus sont majoritairement couverts par des clauses take-or-pay bénéficie d'une visibilité sur ses cash flows qui justifie généralement une prime de valorisation. Air Liquide applique cette structure à ses contrats Grande Industrie de 15 à 20 ans : le client signe un engagement ferme sur un volume minimum, ce qui sécurise le retour sur le capex de construction dès la signature.`,
+    related: ["capex", "free-cash-flow", "backlog", "moat"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "cogeneration",
+    label: "Cogénération",
+    category: "Fondamentaux",
+    shortDef: "Production simultanée de chaleur (vapeur) et d'électricité à partir d'une même source d'énergie, optimisant le rendement énergétique d'un site industriel.",
+    definition: `La cogénération (ou production combinée chaleur-force) désigne un procédé technique dans lequel une installation unique produit simultanément de l'électricité et de la chaleur utile (vapeur industrielle, eau chaude) à partir d'une même source d'énergie — généralement du gaz naturel, de la biomasse ou des gaz industriels de récupération.\n\nContrairement à une centrale électrique classique qui dissipe la chaleur excédentaire dans l'atmosphère, une installation de cogénération récupère cette énergie thermique pour des usages industriels ou de chauffage. Le rendement global d'une cogénération peut atteindre 80-90 %, contre 35-45 % pour une centrale électrique seule.\n\nDans le cadre d'Air Liquide, les centrales de cogénération font partie intégrante des installations Grande Industrie : le groupe construit et opère ces centrales sur les sites clients pour fournir simultanément les gaz industriels nécessaires au process et la vapeur ou électricité dont l'installation a besoin. Ce modèle intégré renforce la dépendance du client vis-à-vis du fournisseur et consolide les barrières au changement.`,
+    related: ["capex", "take-or-pay", "moat"],
+    modules: [
+      { label: "Fondamentaux", href: "/academie/debutant/fondamentaux" },
+    ],
+  },
+
+  {
+    slug: "points-de-base",
+    label: "Points de base (bps)",
+    category: "Fondamentaux",
+    shortDef: "Unité de mesure de variation de taux ou de pourcentage : 1 point de base = 0,01 %. Utilisée en finance pour exprimer les variations de taux d'intérêt, de marges ou de spreads.",
+    definition: `Un point de base (abréviation : pb ou bps, de l'anglais basis point) est une unité de mesure financière qui vaut 0,01 %, soit un centième de point de pourcentage.\n\nCette unité est utilisée systématiquement en finance pour éviter toute ambiguïté dans l'expression des variations de taux ou de pourcentages :\n- 100 bps = 1 %\n- 25 bps = 0,25 %\n- 50 bps = 0,5 %\n\nPourquoi utiliser des points de base plutôt que des pourcentages ? Pour éviter la confusion entre variation absolue et variation relative. Si un taux passe de 2 % à 3 %, on dit qu'il a augmenté de 100 bps (variation absolue de 1 point) — et non "d'un pour cent" (qui pourrait être interprété comme une hausse relative de 50 %).\n\nEn pratique, les points de base s'utilisent pour :\n- Les variations de taux directeurs des banques centrales ("la Fed a remonté de 25 bps")\n- Les spreads de crédit ("le spread obligataire est de 40 bps au-dessus du Bund")\n- Les améliorations de marges opérationnelles ("la marge EBIT a progressé de 160 bps sur l'exercice")\n- Les frais de gestion des fonds ("le TER est de 15 bps par an")`,
+    related: ["bund", "wacc", "marge-operationnelle"],
+    modules: [
+      { label: "Fondamentaux", href: "/academie/debutant/fondamentaux" },
+    ],
+  },
+
+  {
+    slug: "lti",
+    label: "LTI - Long-Term Incentive",
+    category: "Analyse fondamentale",
+    shortDef: "Mécanisme de rémunération différée des dirigeants lié à la performance à long terme de l'entreprise, généralement sous forme d'actions soumises à des conditions sur 3 à 5 ans.",
+    definition: `Les Long-Term Incentives (LTI), ou rémunérations à long terme, désignent la composante différée de la rémunération des dirigeants et cadres supérieurs, conçue pour aligner leurs intérêts sur ceux des actionnaires sur une période multi-annuelle — typiquement 3 à 5 ans.\n\nContrairement à la part variable annuelle (bonus) liée aux résultats de l'exercice précédent, les LTI sont attribués sous condition de performance et ne se matérialisent qu'au terme d'une période de vesting. Les formes principales :\n- **Actions de performance** (Performance Shares) : actions attribuées si certains critères sont atteints au terme de la période\n- **Stock-options** : droit d'acheter des actions à un prix fixé d'avance\n- **Unités de performance** (PSU, RSU) : unités convertibles en actions selon la performance réalisée\n\nLes conditions attachées aux LTI peuvent porter sur des indicateurs financiers (ROCE, TSR relatif, croissance du BPA, génération de FCF) ou extra-financiers (critères ESG, réduction des émissions CO2). La présence d'un LTI significatif dans la rémunération du dirigeant est généralement considérée comme un signal d'alignement avec les actionnaires — à condition que les critères retenus soient pertinents et non manipulables.`,
+    related: ["tsr", "roce", "dividende", "bpa"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "tsr",
+    label: "TSR - Total Shareholder Return",
+    category: "Fondamentaux",
+    shortDef: "Rendement total pour l'actionnaire : variation du cours de bourse plus dividendes perçus sur une période donnée, exprimé en pourcentage du prix d'entrée.",
+    definition: `Le Total Shareholder Return (TSR), ou rendement total de l'actionnaire, mesure le gain total obtenu par un investisseur qui détient une action sur une période donnée. Il combine deux composantes :\n\n1. **La plus-value ou moins-value en capital** : variation du cours de bourse entre le début et la fin de la période\n2. **Les revenus perçus** : dividendes versés, auxquels s'ajoutent les attributions gratuites d'actions ou les droits préférentiels de souscription\n\nFormule simplifiée : TSR = (Prix final - Prix initial + Dividendes) / Prix initial\n\nLe TSR est fréquemment utilisé comme critère de performance dans les LTI des dirigeants, souvent sous la forme de **TSR relatif** : la performance de l'action est comparée à celle d'un indice ou d'un groupe de pairs sur la même période. Si l'action surperforme son groupe de référence, le dirigeant perçoit tout ou partie des actions de performance attribuées.\n\nL'avantage du TSR comme indicateur : il est objectif, mesurable et aligne directement le management sur la création de valeur pour l'actionnaire. Sa limite : il est sensible aux conditions de marché et peut récompenser une performance boursière non liée aux décisions opérationnelles du management.`,
+    related: ["dividende", "lti", "attribution-gratuite", "bpa"],
+    modules: [
+      { label: "Fondamentaux", href: "/academie/debutant/fondamentaux" },
+    ],
+  },
+
+  {
+    slug: "peg",
+    label: "PEG - Price/Earnings to Growth",
+    category: "Analyse fondamentale",
+    shortDef: "Ratio qui met en regard le PER d'une action et son taux de croissance attendu des bénéfices — un PEG inférieur à 1 signale une action potentiellement sous-évaluée par rapport à sa croissance.",
+    definition: `Le PEG ratio (Price-to-Earnings-to-Growth) est un indicateur de valorisation qui rapporte le PER (Price-to-Earnings) d'une action à son taux de croissance attendu des bénéfices par action sur une période donnée.\n\nFormule : PEG = PER / Taux de croissance annuel du BPA (en %)\n\nExemple : une action avec un PER de 25x et une croissance du BPA de 12,5 % par an affiche un PEG de 2,0x. Une action avec un PER de 15x et une croissance de 15 % par an affiche un PEG de 1,0x.\n\nRègle empirique popularisée par Peter Lynch :\n- PEG < 1 : l'action est potentiellement sous-évaluée par rapport à sa croissance\n- PEG = 1 : valorisation alignée sur la croissance\n- PEG > 1 : prime de valorisation, justifiée ou non par des facteurs qualitatifs\n\nLimites du PEG : le ratio est très sensible au taux de croissance retenu (consensus, historique, normalisé). Une croissance de faible qualité ou non soutenable peut conduire à un PEG apparemment attractif. De plus, le PEG ignore la structure financière et peut être trompeur pour des entreprises avec des effets de levier très différents.`,
+    related: ["per-valorisation", "bpa", "dcf"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "atr",
+    label: "ATR - Average True Range",
+    category: "Analyse technique",
+    shortDef: "Indicateur de volatilité mesurant l'amplitude moyenne des mouvements de prix sur une période donnée — utilisé pour calibrer les stop loss ou les objectifs de cours.",
+    definition: `L'Average True Range (ATR) est un indicateur de volatilité développé par J. Welles Wilder. Il mesure l'amplitude moyenne des variations de prix d'un actif sur une période de référence — généralement 14 périodes (jours, semaines, etc.).\n\nLe True Range (TR) d'une période est le maximum entre :\n- La distance entre le plus haut et le plus bas de la période\n- La distance entre le plus haut et la clôture précédente\n- La distance entre le plus bas et la clôture précédente\n\nL'ATR est la moyenne mobile de ces True Range sur N périodes. Il ne donne pas de direction (haussière ou baissière) : il mesure l'intensité du mouvement.\n\nUtilisations pratiques :\n- **Placement de stop loss** : "2 ATR sous le cours" est une règle commune pour positionner un stop en tenant compte de la volatilité réelle du titre, évitant les arrêts sur bruit\n- **Calibrage d'objectifs** : les objectifs de cours sont parfois exprimés en multiples d'ATR\n- **Gestion de position** : un ATR plus élevé signale une période de volatilité accrue qui peut justifier une réduction de la taille de position\n\nL'ATR hebdomadaire lisse les variations journalières et donne une mesure de la volatilité structurelle du titre, plus adaptée aux décisions d'investissement à moyen terme.`,
+    related: ["stop-loss", "beta"],
+    modules: [
+      { label: "Analyse technique", href: "/academie/intermediaire/analyse-technique" },
+    ],
+  },
+
+  {
+    slug: "attribution-gratuite",
+    label: "Attribution gratuite d'actions",
+    category: "Fondamentaux",
+    shortDef: "Opération par laquelle une société distribue gratuitement de nouvelles actions à ses actionnaires existants au prorata de leur participation — mécanisme de fidélisation sans impact sur la trésorerie.",
+    definition: `Une attribution gratuite d'actions est une opération par laquelle une société émet de nouvelles actions et les distribue à titre gratuit à ses actionnaires existants, au prorata de leur détention. Elle est financée par le transfert de réserves au capital social, sans apport de liquidités extérieur.\n\nMécanisme : si une société procède à une attribution "1 pour 10", chaque actionnaire détenant 10 actions reçoit 1 action supplémentaire, soit 11 actions au final. Le nombre d'actions en circulation augmente de 10 %, tandis que le cours de bourse s'ajuste mécaniquement à la baisse (prix ex-attribution). Économiquement, une attribution gratuite est neutre : la valeur totale de l'actionnaire reste la même juste après l'opération.\n\nPourquoi en émettre :\n- Récompenser les actionnaires fidèles (Air Liquide réserve les attributions aux détenteurs depuis au moins 2 ans)\n- Améliorer la liquidité du titre en augmentant le flottant\n- Abaisser le cours unitaire pour le rendre plus accessible\n\nPour l'analyse du BPA : chaque attribution crée une dilution mécanique du BPA (plus d'actions pour le même résultat net). Chez Air Liquide, les attributions 1-pour-10 de 2022 et 2024 ont dilué le BPA reporté, masquant la croissance réelle du résultat net de 8,1 % par an.`,
+    related: ["dividende", "tsr", "bpa", "payout-ratio"],
+    modules: [
+      { label: "Fondamentaux", href: "/academie/debutant/fondamentaux" },
+    ],
+  },
+
 ];
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────

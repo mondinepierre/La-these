@@ -1164,6 +1164,298 @@ const TABLEAUX: Record<string, TableauData> = {
   ],
 },
 
+'al-dcf-parametres': {
+  compact: true,
+  colonnes: [
+    { key: 'parametre', label: 'Paramètre',      primary: true },
+    { key: 'valeur',    label: 'Valeur retenue'               },
+    { key: 'justif',    label: 'Justification'                },
+  ],
+  lignes: [
+    {
+      parametre: 'WACC',
+      valeur:    '6,3 %',
+      justif:    'Rf 2,86 % (Bund 10 ans) + Beta 0,78 x ERP 5,28 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'FCF de base (FY2025)',
+      valeur:    '2 675 M€',
+      justif:    'OCF 6 518 M€ - Capex industriel 3 843 M€',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'CAGR FCF retenu',
+      valeur:    '0,2 %',
+      justif:    'CAGR FCF observé 2021-2025. Note : CAGR OCF = 4 % - le capex absorbe la croissance',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      parametre: 'Croissance perpétuelle',
+      valeur:    '2,0 %',
+      justif:    'Plancher conservateur, 4,3 points sous le WACC',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'Dette nette',
+      valeur:    '8 416 M€',
+      justif:    'Bilan FY2025 - hors dettes de loyers IFRS 16',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'Actions diluées',
+      valeur:    '578 millions',
+      justif:    'Rapport annuel FY2025',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+  ],
+},
+
+'al-dcf-scenarios': {
+  colonnes: [
+    { key: 'scenario',  label: 'Scénario',        primary: true },
+    { key: 'cagr',      label: 'CAGR FCF (5 ans)'              },
+    { key: 'hypothese', label: 'Hypothèse'                     },
+    { key: 'cours',     label: 'Valeur intrinsèque'            },
+  ],
+  lignes: [
+    {
+      scenario:  'Conservateur',
+      cagr:      '0 %',
+      hypothese: 'FCF stagne - pas de conversion du backlog',
+      cours:     '~86 €',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      scenario:  'Central',
+      cagr:      '0,2 %',
+      hypothese: 'CAGR FCF observé sur 5 ans - continuité sans accélération',
+      cours:     '~87 €',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      scenario:  'Optimiste',
+      cagr:      '5 %',
+      hypothese: 'Conversion partielle du backlog à partir de 2026-2027',
+      cours:     '~111 €',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      scenario:  'Pour justifier 186 €',
+      cagr:      '~14-15 %',
+      hypothese: 'FCF triple en 5 ans - scénario bull maximal',
+      cours:     '186 €',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'al-dcf-synthese': {
+  compact: true,
+  colonnes: [
+    { key: 'element', label: 'Élément',   primary: true },
+    { key: 'valeur',  label: 'Valeur (M€)'              },
+    { key: 'detail',  label: 'Détail'                   },
+  ],
+  lignes: [
+    {
+      element: 'Somme FCF actualisés (5 ans)',
+      valeur:  '11 241',
+      detail:  'FCF base 2 675 M€ x CAGR 0,2 % sur 5 ans, actualisés à 6,3 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur terminale actualisée',
+      valeur:  '47 220',
+      detail:  'FCF5 x (1 + 2 %) / (6,3 % - 2 %), actualisée sur 5 ans',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Enterprise Value',
+      valeur:  '58 461',
+      detail:  'Somme FCF actualisés + valeur terminale actualisée',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      element: 'Dette nette',
+      valeur:  '8 416',
+      detail:  'Bilan FY2025 - hors IFRS 16',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur des capitaux propres',
+      valeur:  '50 045',
+      detail:  'EV - dette nette',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur intrinsèque par action',
+      valeur:  '~87 €',
+      detail:  '50 045 M€ / 578 M actions',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'al-per-zone': {
+  colonnes: [
+    { key: 'taux',     label: 'Rendement exigé',   primary: true },
+    { key: 'zone',     label: 'Zone juste centrale'              },
+    { key: 'entrees',  label: 'Points d\'entrée (MoS)'          },
+    { key: 'prime',    label: 'Prime cours actuel (~186 €)'      },
+  ],
+  lignes: [
+    {
+      taux:    'r = 10 %',
+      zone:    '107 €',
+      entrees: '86 € (20 %) - 80 € (25 %) - 75 € (30 %)',
+      prime:   '+73 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      taux:    'r = 12 %',
+      zone:    '98 €',
+      entrees: '83 € (15 %) - 78 € (20 %) - 74 € (25 %)',
+      prime:   '+90 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      taux:    'r = 15 %',
+      zone:    '86 €',
+      entrees: '77 € (10 %) - 73 € (15 %) - 69 € (20 %)',
+      prime:   '+117 %',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'al-per-zone-analystes': {
+  colonnes: [
+    { key: 'taux',    label: 'Rendement exigé',   primary: true },
+    { key: 'zone',    label: 'Zone juste centrale'              },
+    { key: 'entrees', label: "Points d'entrée (MoS)"           },
+    { key: 'prime',   label: 'Prime cours actuel (~186 €)'      },
+  ],
+  lignes: [
+    {
+      taux:    'r = 10 %',
+      zone:    '157 €',
+      entrees: '125 € (20 %) - 117 € (25 %) - 110 € (30 %)',
+      prime:   '+19 %',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      taux:    'r = 12 %',
+      zone:    '143 €',
+      entrees: '122 € (15 %) - 114 € (20 %) - 107 € (25 %)',
+      prime:   '+30 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      taux:    'r = 15 %',
+      zone:    '125 €',
+      entrees: '113 € (10 %) - 100 € (20 %) - 88 € (30 %)',
+      prime:   '+48 %',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+'al-per-trois-scenarios': {
+  colonnes: [
+    { key: 'scenario',   label: 'Scénario',          primary: true },
+    { key: 'cagr',       label: 'Base de calcul'                    },
+    { key: 'bpa2030',    label: 'BPA 2030'                          },
+    { key: 'cible',      label: 'Prix cible (24,6x)'                },
+    { key: 'zone10',     label: 'Zone juste r=10 %'                 },
+  ],
+  lignes: [
+    {
+      scenario: 'Bear - EPS reporté',
+      cagr:     'CAGR EPS observé 2021-2025 : +2,9 %',
+      bpa2030:  '7,02 €',
+      cible:    '172,8 €',
+      zone10:   '107 €',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      scenario: 'Normalisé - NI réel + attributions',
+      cagr:     'CAGR NI 8,1 % + 2 attributions 2026 et 2028',
+      bpa2030:  '7,42 €',
+      cible:    '182,7 €',
+      zone10:   '113 €',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      scenario: 'Bull - Consensus analystes',
+      cagr:     'CAGR BPA 11 % (conversion backlog)',
+      bpa2030:  '10,25 €',
+      cible:    '252,2 €',
+      zone10:   '157 €',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+  ],
+},
+
+'al-per-zone-normalise': {
+  colonnes: [
+    { key: 'taux',    label: 'Rendement exigé',   primary: true },
+    { key: 'zone',    label: 'Zone juste centrale'              },
+    { key: 'entrees', label: "Points d'entrée (MoS)"           },
+    { key: 'prime',   label: 'Prime cours actuel (~186 €)'      },
+  ],
+  lignes: [
+    {
+      taux:    'r = 10 %',
+      zone:    '113 €',
+      entrees: '91 € (20 %) - 85 € (25 %) - 79 € (30 %)',
+      prime:   '+64 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      taux:    'r = 12 %',
+      zone:    '104 €',
+      entrees: '83 € (20 %) - 78 € (25 %) - 73 € (30 %)',
+      prime:   '+79 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      taux:    'r = 15 %',
+      zone:    '91 €',
+      entrees: '82 € (10 %) - 77 € (15 %) - 73 € (20 %)',
+      prime:   '+105 %',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
 }
 
 

@@ -642,19 +642,34 @@ export const loreal: AnalyseCard = {
           ]
         },
     ],
-        valuationCompare: [
-      { label: 'PER',                  valeur: 31.34,  concurrent1 : 19.32, concurrent3 : 22.12  },
-      { label: 'P/FCF',                valeur: 26.8, concurrent1 : 18.9, concurrent2 : 39.2, concurrent3 : 16.9  },
-      { label: 'EV/EBITDA',            valeur: 19.57, concurrent1 : 14.05, concurrent2 : 14.78,  concurrent3 : 12.86  },
-      { label: 'Marge opérationnelle', valeur: 19.2, concurrent1 : 20.1, concurrent2 : 14.3, concurrent3 : 21.2  },
-      { label: 'ROIC',                 valeur: 12.5, concurrent1 : 12.7, concurrent2 : 8.3, concurrent3 : 10.4  },
-    ],
-        valuationCompare2: [
-      { label: 'PER',                  valeur: 31.34,   secteur: 21.5  },
-      { label: 'P/FCF',                valeur: 26.8,    secteur: 18.6  },
-      { label: 'EV/EBITDA',            valeur: 19.57,   secteur: 12.6  },
-      { label: 'Marge opérationnelle', valeur: 19.2,    secteur: 17.8  },
-      { label: 'ROIC',                 valeur: 12.5,    secteur: 10.4  },
+        valuationCharts: [
+      {
+        id:    'vs_secteur',
+        type:  'radar',
+        title: "Valorisation comparée — L'Oréal vs secteur Personal Care",
+        data: [
+          { label: 'PER',                  valeur: 31.34, secteur: 21.5  },
+          { label: 'P/FCF',                valeur: 26.8,  secteur: 18.6  },
+          { label: 'EV/EBITDA',            valeur: 19.57, secteur: 12.6  },
+          { label: 'Marge opérationnelle', valeur: 19.2,  secteur: 17.8  },
+          { label: 'ROIC',                 valeur: 12.5,  secteur: 10.4  },
+        ],
+      },
+      {
+        id:          'vs_pairs',
+        type:        'radar',
+        title:       "Valorisation comparée — L'Oréal vs pairs directs",
+        concurrent1: 'Unilever',
+        concurrent2: 'Estée Lauder',
+        concurrent3: 'LVMH',
+        data: [
+          { label: 'PER',                  valeur: 31.34, concurrent1: 19.32,                       concurrent3: 22.12 },
+          { label: 'P/FCF',                valeur: 26.8,  concurrent1: 18.9,  concurrent2: 39.2,    concurrent3: 16.9  },
+          { label: 'EV/EBITDA',            valeur: 19.57, concurrent1: 14.05, concurrent2: 14.78,   concurrent3: 12.86 },
+          { label: 'Marge opérationnelle', valeur: 19.2,  concurrent1: 20.1,  concurrent2: 14.3,    concurrent3: 21.2  },
+          { label: 'ROIC',                 valeur: 12.5,  concurrent1: 12.7,  concurrent2: 8.3,     concurrent3: 10.4  },
+        ],
+      },
     ],
   
 

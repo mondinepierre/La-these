@@ -106,12 +106,19 @@ export const totalenergies: AnalyseCard = {
       ]},
     ],
 
-    valuationCompare: [
-      { label: 'PER',                  valeur: 15.14, secteur: 25.2  },
-      { label: 'P/FCF',                valeur: 17.6,  secteur: 19.2  },
-      { label: 'EV/EBITDA',            valeur: 6.5,   secteur: 8.38  },
-      { label: 'Marge opérationnelle', valeur: 11.49, secteur: 12.97 },
-      { label: 'ROIC',                 valeur: 8.01,  secteur: 6.69  },
+    // Composant : <ValuationChart_vs_secteur />
+    valuationCharts: [
+      {
+        id: 'vs_secteur', type: 'radar',
+        title: 'PER, P/FCF, EV/EBITDA, Marge opérationnelle, ROIC — comparaison sectorielle',
+        data: [
+          { label: 'PER',                  valeur: 15.14, secteur: 25.2  },
+          { label: 'P/FCF',                valeur: 17.6,  secteur: 19.2  },
+          { label: 'EV/EBITDA',            valeur: 6.5,   secteur: 8.38  },
+          { label: 'Marge opérationnelle', valeur: 11.49, secteur: 12.97 },
+          { label: 'ROIC',                 valeur: 8.01,  secteur: 6.69  },
+        ],
+      },
     ],
 
     metricHistory: [

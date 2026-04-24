@@ -602,22 +602,33 @@ export const microsoft: AnalyseCard = {
           ]
         },
       ],
-    valuationCompare: [
-      { label: 'PER',                  valeur: 22.32, concurrent1 : 25.07, concurrent2 : 25.33  },
-      { label: 'P/FCF',                valeur: 34.22, concurrent2 : 45.25                       },
-      { label: 'EV/EBITDA',            valeur: 14.52, concurrent1 : 18.4, concurrent2 : 21.15   },
-      { label: 'Marge opérationnelle', valeur: 46.67, concurrent1 : 32.27, concurrent2 : 32.94  },
-      { label: 'ROIC',                 valeur: 23.85, concurrent1 : 8.64, concurrent2 : 27.73   },
-    ],
-        valuationCompare2: [
-      { label: 'PER',                  valeur: 22.32, secteur: 32.6,  },
-      { label: 'P/FCF',                valeur: 34.22, secteur: 30.77, },
-      { label: 'EV/EBITDA',            valeur: 14.52, secteur: 22.43, },
-      { label: 'Marge opérationnelle', valeur: 46.67, secteur: 32.94, },
-      { label: 'ROIC',                 valeur: 23.85, secteur: 11.28, },
+    // Composants : <ValuationChart_vs_secteur /> <ValuationChart_vs_pairs />
+    valuationCharts: [
+      {
+        id: 'vs_secteur', type: 'radar',
+        title: 'Valorisation comparée - Microsoft vs Technologies - Infrastructures',
+        data: [
+          { label: 'PER',                  valeur: 22.32, secteur: 32.6  },
+          { label: 'P/FCF',                valeur: 34.22, secteur: 30.77 },
+          { label: 'EV/EBITDA',            valeur: 14.52, secteur: 22.43 },
+          { label: 'Marge opérationnelle', valeur: 46.67, secteur: 32.94 },
+          { label: 'ROIC',                 valeur: 23.85, secteur: 11.28 },
+        ],
+      },
+      {
+        id: 'vs_pairs', type: 'radar',
+        title: 'Valorisation comparée - Microsoft vs Oracle et Alphabet',
+        concurrent1: 'Oracle', concurrent2: 'Alphabet',
+        data: [
+          { label: 'PER',                  valeur: 22.32, concurrent1: 25.07, concurrent2: 25.33 },
+          { label: 'P/FCF',                valeur: 34.22, concurrent2: 45.25                    },
+          { label: 'EV/EBITDA',            valeur: 14.52, concurrent1: 18.4,  concurrent2: 21.15 },
+          { label: 'Marge opérationnelle', valeur: 46.67, concurrent1: 32.27, concurrent2: 32.94 },
+          { label: 'ROIC',                 valeur: 23.85, concurrent1: 8.64,  concurrent2: 27.73 },
+        ],
+      },
     ],
   }
-  
 }
 
 

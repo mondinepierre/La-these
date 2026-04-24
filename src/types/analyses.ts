@@ -181,19 +181,24 @@ export type ValuationPoint = {
   concurrent3?: number
 }
 
+export type ValuationChartConfig = {
+  id:           string      // Identifiant MDX : <ValuationChart_{id} />
+  type:         'bar' | 'radar'
+  title?:       string
+  name?:        string      // Nom de la valeur (défaut : frontmatter.title)
+  concurrent1?: string
+  concurrent2?: string
+  concurrent3?: string
+  data:         ValuationPoint[]
+}
+
 export type ChartData = {
   marges?:           MargePoint[]
   roic?:             RoicPoint[]
   revenue?:          RevenuePoint[]
   fcf?:              FcfPoint[]
   geoRevenue?:       GeoPoint[]
-  valuationCompare?:  ValuationPoint[]
-  valuationCompare2?: ValuationPoint[]
-  valuationConcurrents?: {
-    concurrent1?: string
-    concurrent2?: string
-    concurrent3?: string
-  }
+  valuationCharts?: ValuationChartConfig[]
   metricHistory?:  MetricSerie[]
   roicVsWacc?:     MetricPoint[]
 

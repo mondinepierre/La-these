@@ -89,6 +89,15 @@ export default function APropos() {
               réflexion personnelle.
             </p>
 
+            <h2>Méthodologie</h2>
+            <p>
+            Les analyses sont construites à partir de sources primaires —
+              rapports annuels, SEC filings, documents AMF, publications
+              trimestrielles. La rédaction et la structuration bénéficient d'une
+              assistance IA. Les convictions, les chiffres retenus et les
+              décisions éditoriales restent entièrement les miennes.
+            </p>
+
             <blockquote>
               "L'investissement est une course de fond, pas un sprint. Formez-vous
               avant d'agir."

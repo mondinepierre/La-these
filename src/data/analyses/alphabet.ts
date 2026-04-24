@@ -460,12 +460,20 @@ export const alphabet: AnalyseCard = {
         ],
       },
     ],
-  valuationCompare: [
-      { label: 'PER',                  valeur: 26.76, concurrent1 : 23.32, concurrent2 : 25.24},
-      { label: 'P/FCF',                valeur: 48.02, concurrent1 : 35.75, concurrent2 : 32.53},
-      { label: 'EV/EBITDA',            valeur: 22.47, concurrent1 : 15.16, concurrent2 : 14.75},
-      { label: 'Marge opérationnelle', valeur: 32.94, concurrent1 : 46.67, concurrent2 : 41.44},
-      { label: 'ROIC',                 valeur: 27.73, concurrent1 : 23.85, concurrent2 : 20.17},
+    // Composant : <ValuationChart_vs_pairs />
+    valuationCharts: [
+      {
+        id: 'vs_pairs', type: 'radar',
+        title: 'Valorisation comparée - Alphabet vs pairs',
+        concurrent1: 'Microsoft', concurrent2: 'Meta',
+        data: [
+          { label: 'PER',                  valeur: 26.76, concurrent1: 23.32, concurrent2: 25.24 },
+          { label: 'P/FCF',                valeur: 48.02, concurrent1: 35.75, concurrent2: 32.53 },
+          { label: 'EV/EBITDA',            valeur: 22.47, concurrent1: 15.16, concurrent2: 14.75 },
+          { label: 'Marge opérationnelle', valeur: 32.94, concurrent1: 46.67, concurrent2: 41.44 },
+          { label: 'ROIC',                 valeur: 27.73, concurrent1: 23.85, concurrent2: 20.17 },
+        ],
+      },
     ],
   },
 }
