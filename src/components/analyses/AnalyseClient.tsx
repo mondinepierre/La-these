@@ -8,7 +8,7 @@ import AnalysePonctuelleTemplate from './AnalysePonctuelleTemplate'
 import ValeurSuivieTemplate from './ValeurSuivieTemplate'
 
 const MDX: Record<string, React.ComponentType<any>> = {
-  'airliquide':        dynamic(() => import('@/content/analyses/valeurs/airliquide.mdx')),
+  'airliquide':         dynamic(() => import('@/content/analyses/valeurs/airliquide.mdx')),
   'alphabet':           dynamic(() => import('@/content/analyses/valeurs/alphabet.mdx')),
   'asml':               dynamic(() => import('@/content/analyses/valeurs/asml.mdx')),
   'novo':               dynamic(() => import('@/content/analyses/valeurs/novo.mdx')),
@@ -16,7 +16,20 @@ const MDX: Record<string, React.ComponentType<any>> = {
   'microsoft':          dynamic(() => import('@/content/analyses/valeurs/microsoft.mdx')),
   'visa':               dynamic(() => import('@/content/analyses/valeurs/visa.mdx')),
   'loreal':             dynamic(() => import('@/content/analyses/valeurs/loreal.mdx')),
-  'sondage':            dynamic(() => import('@/content/analyses/ponctuelles/sondage.mdx')),
+
+  // en construction
+  'cameco':               dynamic(() => import('@/content/analyses/valeurs/cameco.mdx')),
+  'constellation-energy': dynamic(() => import('@/content/analyses/valeurs/constellation-energy.mdx')),
+  'exail-technologies':   dynamic(() => import('@/content/analyses/valeurs/exail-technologies.mdx')),
+  'gtt':                  dynamic(() => import('@/content/analyses/valeurs/gtt.mdx')),
+  'msci-inc':             dynamic(() => import('@/content/analyses/valeurs/msci-inc.mdx')),
+  'rockwell-automation':  dynamic(() => import('@/content/analyses/valeurs/rockwell-automation.mdx')),
+  'schneider-electric':   dynamic(() => import('@/content/analyses/valeurs/schneider-electric.mdx')),
+  'thales':               dynamic(() => import('@/content/analyses/valeurs/thales.mdx')),
+  'vicat':                dynamic(() => import('@/content/analyses/valeurs/vicat.mdx')),
+
+  // Ponctuelles
+  'sondage':              dynamic(() => import('@/content/analyses/ponctuelles/sondage.mdx')),
 }
 
 type Props = {

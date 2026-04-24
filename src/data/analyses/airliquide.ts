@@ -43,7 +43,7 @@ export const airliquide: AnalyseCard = {
     evEbitda:          12.4,   // EV 101 068 M€ / EBITDA 8 145 M€ - FY2025
     fcfYield:           2.9,   // FCF 2 675 M€ / Capitalisation 92 653 M€ - FY2025
     roic:              11.8,   // NOPAT 4 175 M€ / IC 35 363 M€ - méthodologie La Thèse
-    wacc:               6.3,   // CAPM : Rf 2,86 % + β 0,78 × ERP 5,28 % - coût dette 1,4 % après impôt
+    wacc:               5.91,  // CAPM : Rf 2,86 % + β 0,78 × ERP 4,73 % - coût dette 1,1 % après impôt - ERP Damodaran corrigé
     detteEbitda:        1.03,  // Dette nette 8 416 M€ / EBITDA 8 145 M€
     croissanceCA3ans:  -3.5,   // TCAC 2022-2025 - distordu par normalisation énergie (pic 2022)
     croissanceBPA3ans:  4.9,   // TCAC BPA dilué 2022-2025 : 5,27€ → 6,08€
@@ -112,11 +112,11 @@ export const airliquide: AnalyseCard = {
     // ── ROIC vs WACC ──────────────────────────────────────────────────────
     // WACC 2021 non représentatif (Rf négatif - taux zéro BCE)
     roicVsWacc: [
-      { year: 2021, value:  9.6, wacc: 2.8 },
-      { year: 2022, value: 10.4, wacc: 7.2 },
-      { year: 2023, value: 11.3, wacc: 5.9 },
-      { year: 2024, value: 11.1, wacc: 6.7 },
-      { year: 2025, value: 11.8, wacc: 6.3 },
+      { year: 2021, value:  9.6, wacc: 2.47 },
+      { year: 2022, value: 10.4, wacc: 6.83 },
+      { year: 2023, value: 11.3, wacc: 5.53 },
+      { year: 2024, value: 11.1, wacc: 6.26 },
+      { year: 2025, value: 11.8, wacc: 5.91 },
     ],
 
     // ── Free Cash Flow sur 5 ans (M€) ─────────────────────────────────────
@@ -332,11 +332,11 @@ export const airliquide: AnalyseCard = {
             name:  'WACC',
             color: '#C9A84C',
             data: [
-              { year: 2021, value: 2.8 },
-              { year: 2022, value: 7.2 },
-              { year: 2023, value: 5.9 },
-              { year: 2024, value: 6.7 },
-              { year: 2025, value: 6.3 },
+              { year: 2021, value: 2.47 },
+              { year: 2022, value: 6.83 },
+              { year: 2023, value: 5.53 },
+              { year: 2024, value: 6.26 },
+              { year: 2025, value: 5.91 },
             ],
           },
           {
