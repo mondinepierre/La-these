@@ -16,6 +16,7 @@
 import type { AnalyseCard } from '@/types/analyses'
 
 // ── Valeurs suivies — actives ─────────────────────────────────────────────────
+import { airliquide         } from './airliquide'
 import { asml               } from './asml'
 import { alphabet           } from './alphabet'
 import { microsoft          } from './microsoft'
@@ -23,7 +24,7 @@ import { novo               } from './novo'
 import { totalenergies      } from './totalenergies'
 import { visa               } from './visa'
 import { loreal             } from './loreal'
-import { airliquide         } from './airliquide'
+
 
 // ── Valeurs suivies — en construction ────────────────────────────────────────
 import { rockwellAutomation  } from './rockwell-automation'
@@ -45,6 +46,7 @@ import { sondage  } from './sondage'
 // ─────────────────────────────────────────────────────────────────────────────
 export const ANALYSES: AnalyseCard[] = [
   // Actives
+  airliquide,
   alphabet,
   asml,
   loreal,
@@ -52,7 +54,7 @@ export const ANALYSES: AnalyseCard[] = [
   novo,
   totalenergies,
   visa,
-  airliquide,
+
 
   // En construction
   rockwellAutomation,
