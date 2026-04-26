@@ -197,7 +197,7 @@ updates: [
     // Composant : <MetricGraph_LABEL /> — LABEL = champ label ci-dessous
     metricHistory: [
       {
-        label: 'EV_EBIDTA',
+        label: 'EV_EBITDA',
         name:  'EV/EBITDA',
         unit:  'x',
         data: [

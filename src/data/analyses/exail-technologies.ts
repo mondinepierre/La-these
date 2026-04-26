@@ -15,7 +15,7 @@ export const exailTechnologies: AnalyseCard = {
   horizon:        '5 ans',
   excerpt:        'Analyse en préparation.',
   glossaire:      [],
-  logo:           '/analyse/MSFT.png',
+  logo:           '/analyse/exail.png',
   readingTime:    12,
   prixCible:      { bas: 0, haut: 0, devise: 'EUR' },
   marginOfSafety: 'indéterminée',

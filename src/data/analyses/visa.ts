@@ -174,7 +174,7 @@ export const visa: AnalyseCard = {
   },
      metricHistory: [
             {
-          label: 'EV_EBIDTA',
+          label: 'EV_EBITDA',
           name:  'EV/EBITDA',
           unit:  'x',
           data: [

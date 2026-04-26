@@ -71,7 +71,7 @@ function NoteAnalyseBlock({ children }: { children?: React.ReactNode }) {
       fontSize:     '12px',
       color:        'var(--color-ink-faint)',
       fontStyle:    'italic',
-      marginTop:    '-2.5rem',
+      marginTop:    '-1.5rem',
       marginBottom: '1.5rem',
     }}>
       {children}

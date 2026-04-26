@@ -15,7 +15,7 @@ export const gtt: AnalyseCard = {
   horizon:        '5 ans',
   excerpt:        'Analyse en préparation.',
   glossaire:      [],
-  logo:           '/analyse/MSFT.png',
+  logo:           '/analyse/gtt.png',
   readingTime:    12,
   prixCible:      { bas: 0, haut: 0, devise: 'EUR' },
   marginOfSafety: 'indéterminée',

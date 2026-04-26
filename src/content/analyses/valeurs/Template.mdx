@@ -1,140 +1,464 @@
 ## Présentation
 
-[Secteur, géographie, modèle économique, segments de revenus]
+[Nom complet, pays d'origine, année de fondation. CA total et effectifs sur le dernier exercice. Position dans l'industrie — oligopole, leader, challenger. Une phrase sur ce que l'entreprise fait concrètement.]
+
+[Modèle économique en une phrase : comment l'argent rentre, pourquoi il revient.]
+
+[Structure du groupe : nombre de segments, logique de chaque pôle, poids relatif dans le CA consolidé.]
+
+<SegmentGraph unit="Md$" />
+
+### [Nom du segment 1] — [accroche en une ligne]
+
+[Taille du segment, part du CA consolidé, variation publiée sur l'exercice.]
+
+[Mécanisme économique du segment : comment fonctionne la relation client, quelle est la structure tarifaire, quelle est la durée des engagements.]
+
+[Barrières à l'entrée spécifiques à ce segment. Ce qui empêche un entrant de répliquer l'offre.]
+
+[Dynamiques récentes : croissance organique, événements de l'exercice, points d'attention.]
+
+### [Nom du segment 2] — [accroche en une ligne]
+
+[Même structure que ci-dessus.]
+
+### [Nom du segment 3 si pertinent]
+
+[Même structure. Supprimer si l'entreprise n'a que deux segments.]
+
+---
 
 ## Moat — [Titre synthétique en une ligne]
 
-**Type de moat identifié :** [Effets de réseau / Coûts de changement / Actifs intangibles / Avantage de coût / Niche dominante]
+**Type de [moat](/glossaire/moat) identifié :** [Effets de réseau / Coûts de changement / Actifs intangibles / Avantage de coût / Niche dominante — choisir le ou les types dominants]
 
 **Les piliers de l'avantage concurrentiel**
 
-[Pilier 1 — nom]. [Explication en 2-3 phrases. Pourquoi c'est structurel, pas conjoncturel.]
+**Pilier 1 — [nom].** [Explication en 2-3 phrases. Pourquoi c'est structurel, pas conjoncturel. Ce qui rend cet avantage durable dans le temps.]
 
-[Pilier 2 — nom]. [Idem.]
+**Pilier 2 — [nom].** [Idem.]
 
-[Pilier 3 — nom si pertinent.]
+**Pilier 3 — [nom si pertinent].** [Idem. Supprimer si deux piliers suffisent.]
 
-**Ce qui n'est pas un moat.** [Identifier explicitement un ou deux éléments souvent cités comme avantages mais qui n'en sont pas — contrats clients, notoriété, taille. Ça montre la rigueur de l'analyse.]
+**Ce qui n'est pas un moat.** [Identifier explicitement un ou deux éléments souvent cités comme avantages mais qui n'en sont pas — contrats clients, notoriété, taille, part de marché. La rigueur de l'analyse se mesure aussi à ce qu'elle exclut.]
 
-**Intensité estimée :** Large / Narrow / None — [une phrase de justification]
+**Intensité estimée :** Large / Narrow / None — [une phrase de justification factuelle]
+
+---
 
 ## Management
 
-[Track record, allocation du capital, historique des décisions]
+**[Nom du CEO].** [Ancienneté au poste, parcours, profil — opérationnel, financier, fondateur. Interne ou externe ? Une phrase sur ce que ça dit de la culture de l'entreprise.]
+
+**[Nom du CFO si pertinent].** [Idem, ou supprimer si le CEO suffit à camper la direction.]
+
+**Structure de rémunération et alignement.** [Part fixe, part variable, LTI. Les KPIs de la rémunération variable sont-ils alignés avec la création de valeur à long terme ?]
+
+**Actionnariat salarié.** [Politique d'intéressement, fonds dédiés, part de l'épargne investie en actions. Signal d'alignement ou simple conformité ?]
+
+**Qualité de communication.** [Guidance publiée ou non. Les prévisions passées ont-elles été tenues ? Le management sous-promet et sur-délivre, ou l'inverse ?]
+
+**Signaux négatifs à surveiller.** [Turnover élevé, dilution excessive, acquisitions destructrices de valeur, divergence entre discours et actes.]
+
+---
 
 ## Thèse d'investissement
 
-[Pourquoi cette entreprise, pourquoi maintenant, quel horizon]
+[Synthèse en 3-4 phrases : pourquoi cette entreprise mérite d'être analysée, quel est le moteur de création de valeur identifié, et dans quel contexte de marché cette thèse s'applique.]
 
-**Pourquoi maintenant :**
+**Pourquoi maintenant :** [Catalyseur ou contexte spécifique qui rend le timing pertinent — valorisation comprimée, rupture sectorielle, changement réglementaire, cycle, etc.]
 
-**Horizon :**
+**Horizon :** [Durée cible et logique associée — 3 ans si thèse de normalisation, 5-7 ans si thèse de croissance structurelle, etc.]
 
-## Valorisation
-### Comparatif
+**Ce qui doit se produire pour que la thèse fonctionne.** [2-3 conditions nécessaires — pas suffisantes. Ce sont les hypothèses sur lesquelles la thèse repose.]
 
-### Multiples
+**Ce qui invaliderait la thèse.** [2-3 signaux d'alerte concrets qui conduiraient à revoir la position.]
 
-### Discount Cash Flow
-
-[PER, EV/EBITDA, FCF yield — comparaison sectorielle]
-
-<ValuationRadar name="[Nom]" />
-
-## Rentabilité et qualité
-
-[ROIC vs WACC, ROIIC? marges sur 5 ans, FCF]
-
-<RoicGraph />
-
-<MargesGraph />
+---
 
 ## Croissance
 
-[CA, BPA, FCF sur 3 et 5 ans]
+[Cadrage : quel moteur de croissance est dominant — volume, prix, mix, acquisitions ? La croissance est-elle organique ou dopée par des effets non-récurrents ? Ancrer le lecteur sur le rythme réel avant les graphiques.]
+
+### Chiffre d'affaires
 
 <RevenueGraph />
 
+[Lecture : tendance du CA sur 5 ans. Identifier les ruptures de série — acquisitions, cessions, effets change, retraitements. La croissance comparable est-elle supérieure ou inférieure à la croissance publiée ?]
+
+<SegmentGraph unit="Md$" />
+
+[Lecture segment par segment : quelles trajectoires divergent ? Quels segments portent la croissance, lesquels la plombent, et pour quelle raison structurelle ou conjoncturelle ?]
+
+### Bénéfice par action
+
+<MetricGraph_EPS />
+
+[Lecture : le BPA croît-il plus vite ou moins vite que le CA ? L'écart s'explique par le levier opérationnel, les rachats d'actions ou la dilution. Valider la cohérence avec le payout ratio et la politique de rachats.]
+
+---
+
+## Rentabilité et qualité
+
+[Cadrage : quel est le niveau de rentabilité structurelle de l'entreprise ? Est-il en progression, en compression ou stable ? Un paragraphe qui pose le niveau avant les graphiques.]
+
+### Marges
+
+<MargesGraph />
+
+[Lecture : tendances des trois marges sur 5 ans. La marge brute est-elle stable (signe de pricing power) ou érodée (pression concurrentielle ou input costs) ? Y a-t-il un levier opérationnel visible entre marge brute et marge EBIT ?]
+
+<MetricGraph_AT />
+
+[Lecture : l'asset turnover complète la lecture des marges — c'est la seconde composante du ROIC (ROIC = marge nette × AT). Une marge stable avec un AT en baisse signale que les actifs grossissent plus vite que le CA. Lire en combinaison avec le RoicWacc ci-dessous.]
+
+### Retour sur capital investi
+
+<RoicGraph />
+
+[Lecture : tendance du ROIC sur 5 ans — en progression, stable ou en érosion ? Comparer au WACC ci-dessous pour qualifier la création de valeur.]
+
+<RoicWacc />
+
+[Lecture : le ROIC dépasse-t-il le WACC de façon constante ? Quel est le spread moyen sur 5 ans, est-il en expansion ou en contraction ? C'est le test central de la qualité du modèle économique — sans spread positif durable, la croissance détruit de la valeur.]
+
+<MetricGraph_ROCE />
+
+[Lecture : ROCE vs WACC vs ROIC — les trois métriques racontent-elles la même histoire ? Expliquer les divergences éventuelles entre ROIC et ROCE (traitement du goodwill, structure de financement).]
+
+### Rentabilité des investissements incrémentaux
+
+<MetricGraph_ROIIC_YoY />
+
+[Lecture : le ROIIC annuel est volatil par construction — ce qui compte est la direction générale. Un ROIIC structurellement supérieur au WACC signale une allocation disciplinée. Annoter les valeurs aberrantes et leurs causes.]
+
+<MetricGraph_ROIIC />
+
+[Lecture : le lissage sur 1 à 4 ans confirme-t-il l'histoire racontée par le ROIIC annuel ? La convergence entre les deux graphiques renforce la conclusion ; la divergence invite à creuser.]
+
+<MetricGraph_FCF_OCF_Capex />
+
+[Lecture : le FCF est-il croissant ? Le ratio Capex/OCF progresse-t-il ou se stabilise-t-il ? La lecture croisée avec le ROIIC glissant donne le diagnostic complet : si le ROIIC est bon (>WACC dès l'année 2) mais que le FCF stagne, c'est un problème de timing et de volume de projets simultanés, pas de qualité des investissements.]
+
+---
+
 ## Solidité financière
 
-[Dette nette/EBITDA, current ratio, DSO, CCC, dilution, payout ratio]
+[Cadrage : l'entreprise génère-t-elle plus de cash qu'elle n'en consomme ? La structure du bilan lui donne-t-elle de la flexibilité stratégique ou la contraint-elle dans ses décisions ?]
 
-<FcfGraph />
+### Dette et levier
+
+<MetricGraph_DETTE_EBITDA />
+
+[Lecture : la dette est-elle en progression ou en réduction ? Quel est le niveau cible annoncé par le management ? Une dette élevée est-elle structurelle (modèle capital-intense) ou conjoncturelle (acquisition récente) ?]
+
+### Liquidité à court terme
+
+<MetricGraph_CR />
+
+[Lecture : le current ratio est-il supérieur à 1 ? Un ratio structurellement inférieur à 1 peut signaler de la fragilité ou, à l'inverse, un BFR négatif efficacement géré — lire en contexte avec le CCC ci-dessous.]
+
+### Cycle de conversion du cash
+
+<MetricGraph_CCC_resume />
+
+[Lecture : le CCC est-il positif (l'entreprise finance son BFR) ou négatif (les fournisseurs financent le BFR) ? Un CCC négatif stable est un signe de pouvoir de négociation structurel. Lire les composantes DSO, DIO, DPO séparément — la compression d'un seul des trois peut fausser la lecture globale.]
+
+### Retour aux actionnaires
+
+<MetricGraph_Dilution />
+
+[Lecture : le nombre d'actions augmente ou diminue dans le temps ? Les rachats compensent-ils la dilution par stock-options ? Annoter les événements non-récurrents — splits, attributions gratuites, augmentations de capital — qui rendent la comparaison trompeuse.]
+
+<MetricGraph_Dividendes />
+
+[Lecture : le dividende est-il en croissance régulière ou irrégulier ? Un dividende stable en période de résultat dégradé est un signal de confiance du management — ou de politique de distribution déconnectée de la réalité du FCF. Croiser avec le payout ratio ci-dessous.]
+
+<MetricGraph_Payout />
+
+[Lecture : le payout ratio est-il soutenable ? Un ratio au-dessus de 80 % mérite attention — soit le résultat net est sous-estimé (ajustements non-récurrents), soit la politique de distribution est agressive. Valider avec le FCF Yield en section Valorisation.]
+
+<MetricGraph_Capex_Action />
+
+[Lecture : quelle part du cash va à la croissance (capex) vs aux actionnaires (dividendes + rachats) ? L'entreprise privilégie-t-elle le réinvestissement, la rémunération de l'actionnaire, ou une gestion mixte ? Un shift vers les rachats en phase de faible croissance organique peut signaler un manque d'opportunités de réinvestissement rentable.]
+
+---
 
 ## Répartition géographique
 
-[Mix géographique du CA, concentration, risques géopolitiques]
+[Contexte : quelle est la logique géographique du modèle — présence locale nécessaire, concentration sur quelques marchés, expansion en cours ? La diversification géographique est-elle un atout structurel ou une complexité opérationnelle ?]
 
 <GeoMap />
+
+[Lecture : y a-t-il une surexposition à une zone géopolitiquement risquée ? La répartition est-elle cohérente avec la thèse — marchés en croissance vs marchés matures ? Une concentration supérieure à 60 % sur une seule zone est un facteur de risque à qualifier explicitement.]
+
+---
 
 ## Forces et risques
 
 **Forces**
--
--
--
+
+[Force 1 — titre en gras.] [Développement en 2-3 phrases. Factuel, pas de superlatif. Lien avec les données de la fiche.]
+
+[Force 2 — idem.]
+
+[Force 3 — idem.]
+
+[Force 4 si pertinente.]
 
 **Risques**
--
--
--
+
+[Risque 1 — titre en gras.] [Développement en 2-3 phrases. Probabilité et impact estimés. Lien avec les données de la fiche.]
+
+[Risque 2 — idem.]
+
+[Risque 3 — idem.]
+
+[Risque 4 si pertinent.]
+
+---
 
 ## Catalyseurs
 
-[Ce qui pourrait débloquer de la valeur à court et moyen terme]
+**Court terme (0-3 mois)**
+
+[Événement 1 — date précise si connue. Mécanisme de transmission sur le cours. Ce qu'on cherche à observer.]
+
+[Événement 2 si pertinent.]
+
+**Moyen terme (6-18 mois)**
+
+[Événement 1 — nature, timing estimé, scénario bull vs bear selon le résultat.]
+
+[Événement 2 si pertinent.]
+
+**Long terme (2-5 ans)**
+
+[Test ultime de la thèse — la condition nécessaire dont dépend la valorisation cible.]
+
+---
 
 ## Position dans le cycle
 
-[Début, milieu ou fin de cycle — implications sur le timing]
+**[Label du cycle macro — ex. Milieu de cycle / Début de cycle / Fin de cycle]**
 
-### Pourquoi [XXX] plutôt que ses pairs
+[Secteurs servis et leur position dans le cycle économique. Décalage temporel entre le cycle macro et les revenus de l'entreprise. Niveau de protection contra-cyclique du modèle.]
 
-Contre pair 1
+**[Label du cycle d'investissement propre à l'entreprise — ex. Fin de phase capex / Phase de conversion]**
 
-Contre pair 2
+[Phase du cycle d'investissement interne : l'entreprise est-elle en phase de déploiement (FCF comprimé, capex élevé) ou de collecte (FCF en expansion, capex qui se normalise) ? Implications sur le timing d'entrée.]
 
-Ce qui différencie [XXX]
+---
 
-Conclusion
+## Valorisation
+
+### Comparatif
+
+<ValuationChart_vs_secteur />
+
+<NoteAnalyse>*[Source des données. Composition du panel sectoriel. Date de relevé. Signaler toute métrique non comparable.]*</NoteAnalyse>
+
+**Rentabilité.** [Comparaison sur marges, ROIC, FCF Yield. L'entreprise surperforme ou sous-performe le secteur, et pourquoi ?]
+
+**Solidité et croissance.** [Dette, TCAC CA. Nuancer les effets non-récurrents qui faussent le TCAC publié.]
+
+**Valorisation.** [Multiples vs secteur. La prime ou la décote est-elle justifiée par les fondamentaux ?]
+
+<ValuationChart_vs_pair1 />
+
+<NoteAnalyse>*[Source. Signaler toute métrique non comparable — FCF négatif, exercice décalé, retraitement non-GAAP.]*</NoteAnalyse>
+
+**Rentabilité.** [Comparaison directe sur marges, ROIC, FCF.]
+
+**Solidité et croissance.** [Dette, TCAC CA, profil de croissance.]
+
+**Valorisation.** [Multiples comparés. La prime ou la décote est-elle justifiée par les fondamentaux ?]
+
+---
+
+**Synthèse comparative.** [Résumé en 2-3 phrases — où l'entreprise surperforme, où elle sous-performe, et ce que ça signifie pour la valorisation actuelle. Les sections suivantes quantifient à quel prix cette promesse est déjà intégrée dans le cours.]
+
+### Multiples historiques
+
+<MetricGraph_PER />
+
+[Lecture : PER actuel vs historique vs PER ajusté taux. L'ajustement de taux modifie-t-il matériellement la conclusion ? Le contexte de taux actuel rend-il le multiple plus ou moins attractif qu'il n'y paraît ?]
+
+<MetricGraph_EV_EBITDA />
+
+[Lecture : le multiple actuel est-il au-dessus ou en dessous de la moyenne historique ? L'écart est-il justifié par une amélioration des fondamentaux ou par de l'exubérance ?]
+
+<MetricGraph_FCFy />
+
+[Lecture : FCF Yield vs historique et vs taux sans risque. Le spread de rémunération par rapport à l'actif sans risque est-il positif ? Quelle prime de risque l'investisseur obtient-il au cours actuel ?]
+
+### Discount Cash Flow
+
+[Contexte préalable : quelle est la base de cash à modéliser — OCF, FCF, FCF normalisé ? Y a-t-il une distorsion structurelle entre l'OCF et le FCF (capex intense, cycle d'investissement) qui rend le DCF sensible à une seule hypothèse ?]
+
+**Paramètres du modèle :**
+
+<Tableau id="[slug]-dcf-parametres" />
+
+<span className="text-sm text-ink-muted">*[WACC X %, croissance perpétuelle X %, dette nette X M€/M$, X M actions diluées.]*</span>
+
+[Lecture de la valeur terminale : quelle part de l'EV représente-t-elle ? Au-dessus de 75 %, le DCF est structurellement très sensible au taux de croissance perpétuelle — signaler la fourchette de sensibilité explicitement.]
+
+**Scénarios :**
+
+<Tableau id="[slug]-dcf-scenarios" />
+
+[Description du scénario conservateur : hypothèse de croissance, logique retenue.]
+
+[Description du scénario central : hypothèse de croissance, lien avec l'historique observable.]
+
+[Description du scénario optimiste : hypothèse de croissance, conditions nécessaires pour y croire.]
+
+[Quel CAGR faudrait-il pour justifier le cours actuel ? Est-ce plausible ou déjà intégralement pricé ?]
+
+**Synthèse :**
+
+<Tableau id="[slug]-dcf-synthese" />
+
+---
+
+### Calculateur PER — Zone juste et points d'entrée
+
+**Paramètres communs**
+
+[BPA](/glossaire/bpa) dilué FY[année] : **[X] [devise]** — PER central : **[X]x** — Marge d'erreur : **[X] %**
+(Beta [X] × 15 %)
+
+**Les trois scénarios**
+
+<Tableau id="[slug]-per-trois-scenarios" />
+
+---
+
+<NoteAnalyse>*Zone juste = prix auquel l'investisseur obtient le rendement exigé sur 5 ans en achetant aujourd'hui et en revendant au prix cible. PER central = moyenne des PER ajustés aux taux sur 5 ans.*</NoteAnalyse>
+
+---
+
+**Scénario bear — [description courte, ex. CAGR EPS reporté X %]**
+
+[Contexte : quelle base de BPA ce scénario retient-il ? Pourquoi c'est le plancher — c'est ce que voit un investisseur qui achète aujourd'hui sans bénéficier des éléments passés.]
+
+BPA projeté [année+5] : **[X] [devise]** — Prix cible : **[X] [devise]**
+
+<Tableau id="[slug]-per-zone-bear" />
+
+---
+
+**Scénario central — [description courte, ex. croissance normalisée X %]**
+
+[Contexte : quelle est l'hypothèse de croissance retenue ? Pourquoi c'est le scénario le plus honnête analytiquement — lien avec l'historique, ajustements éventuels (dilution, non-récurrents).]
+
+BPA projeté [année+5] : **[X] [devise]** — Prix cible : **[X] [devise]**
+
+<Tableau id="[slug]-per-zone-central" />
+
+---
+
+**Scénario bull — [description courte, ex. consensus analystes X %]**
+
+[Contexte : sur quelle hypothèse repose le scénario optimiste ? Quelle condition doit se réaliser pour que ce scénario soit valide ?]
+
+BPA projeté [année+5] : **[X] [devise]** — Prix cible : **[X] [devise]**
+
+<Tableau id="[slug]-per-zone-bull" />
+
+---
+
+<NoteAnalyse>*[Préciser si le consensus inclut ou exclut des éléments non-récurrents. Signaler toute hypothèse particulière sur la dilution ou les attributions.]*</NoteAnalyse>
+
+---
+
+### Lecture croisée des méthodes
+
+Au cours de rédaction **(~[prix] [devise])**, les méthodes convergent-elles ou divergent-elles ? Identifier l'hypothèse sur laquelle repose l'écart.
+
+Le **DCF** sort à **[X] [devise]** dans le scénario central. La valeur terminale représente **[X] %** de l'EV : [commentaire sur la sensibilité — si >75 %, signaler que le modèle repose essentiellement sur la croissance terminale]. La fourchette de conviction est **[bas]-[haut] [devise]** selon le scénario.
+
+Le **calculateur PER** produit trois lectures selon la base de croissance retenue. Le scénario bear donne une zone juste de **[X] [devise]** à r=10 %. Le scénario central donne **[X] [devise]**. Le scénario bull donne **[X] [devise]** — il suppose [condition X] et [condition Y].
+
+**Le point analytique central**
+
+[Quelle est la tension principale entre les méthodes ? Le DCF et le PER convergent-ils sur la même zone, ou divergent-ils — et pourquoi ? Identifier l'hypothèse déterminante : taux de croissance du FCF, compression ou expansion du multiple, dilution, taux d'actualisation.]
+
+[À quel cours le titre serait-il correctement valorisé dans le scénario le plus honnête ? Quelle prime ou décote offre-t-il au cours actuel ?]
+
+**En synthèse :** [Conclusion en 2-3 phrases. Ne pas répéter les chiffres — conclure sur ce que l'investisseur achète réellement au cours actuel : certitude, espoir ou exubérance.]
+
+---
+
+## Pourquoi [XXX] plutôt que [Pair 1]
+
+[Description factuelle de [Pair 1] en 2-3 phrases : modèle, métriques clés, valorisation.]
+
+**Rentabilité.** [Comparaison directe sur marges, ROIC, FCF.]
+
+**Solidité et croissance.** [Dette, TCAC CA, profil de croissance.]
+
+**Valorisation.** [Multiples comparés. La prime ou la décote est-elle justifiée par les fondamentaux ?]
+
+**Ce qui différencie [XXX].** [1-2 éléments structurels que [Pair 1] n'a pas ou n'a pas au même niveau.]
+
+## Pourquoi [XXX] plutôt que [Pair 2]
+
+[Même structure. Supprimer si un seul pair majeur.]
+
+---
+
+**Synthèse comparative.** [XXX] présente [résumé en 2-3 phrases — où il surperforme, où il sous-performe, et ce que ça signifie pour le point d'entrée actuel.]
+
+---
 
 <div className="verdict-block">
 
 ## Mon analyse — ce que j'en fais
 
-[Synthèse personnelle — conviction, timing, ce que je fais concrètement]
+[Synthèse personnelle en 3-5 phrases. Résoudre la tension entre qualité du business et niveau de valorisation. Formuler une conclusion sur l'attractivité du point d'entrée actuel.]
+
+[Ce que je fais concrètement : renforcement, maintien, allègement, surveillance. Les conditions qui me feraient changer de posture.]
 
 ---
 
-**Mon cours de référence au moment de la rédaction :**
+**Mon cours de référence au moment de la rédaction : ~[prix] [devise] ([mois] [année])**
 
 <DisclaimerVerdict />
 
-**Mon prix cible personnel ([horizon] mois)**
+**Mon prix cible personnel ([horizon])**
 
 # <span className="text-gold">[bas] – [haut] [devise]</span>
 
-*[Méthode de calcul — BPA projeté, PER cible, croissance retenue]*
+<span className="text-sm text-ink-muted">*[Méthode : BPA projeté × PER cible retenu. Fourchette calculée avec ±X % (Beta × Y %). Hypothèses : croissance BPA X %/an sur N ans.]*</span>
 
 ---
 
 ### Mes niveaux de suivi personnels
 
-Ces niveaux sont ceux auxquels **j'**envisage de réintervenir, en fonction de ma propre situation. Ils ne valent que pour moi.
+Ces niveaux sont ceux auxquels j'envisage de réintervenir, en fonction de ma propre situation. Ils ne valent que pour moi.
 
-#### <span className="text-gold">[prix] [devise] — [label]</span>
+#### <span className="text-gold">[prix] [devise] — [label : ex. Premier renforcement]</span>
 
-[Description du niveau — MoS, rendement, ce que j'envisage de faire]
+[Description du niveau : marge de sécurité à ce prix, FCF Yield correspondant, ce que j'envisage de faire, conditions d'activation si la thèse doit être confirmée par un événement.]
 
-#### <span className="text-gold">[prix] [devise] — [label]</span>
+#### <span className="text-gold">[prix] [devise] — [label : ex. Achat]</span>
 
-[Description du niveau — MoS, rendement, ce que j'envisage de faire]
+[Idem.]
+
+#### <span className="text-gold">[prix] [devise] — [label : ex. Achat fort / Correction macro]</span>
+
+[Idem. Ajouter ou supprimer des niveaux selon la structure de la thèse.]
 
 ---
 
-**Ma marge de sécurité actuelle :** [valeur] — [commentaire]
+**Ma marge de sécurité actuelle :** [valeur en %] — [commentaire : positif = décote, négatif = prime par rapport à la valeur estimée]
 
 </div>
 
+---
+
 ## Historique des mises à jour
 
-- **[date]** — [note]
+- **[Mois Année]** — Création de la fiche. Données FY[année]. [Contexte spécifique au moment de la rédaction.]

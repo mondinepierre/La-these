@@ -556,6 +556,42 @@ const TABLEAUX: Record<string, TableauData> = {
   ],
 },
 
+'visa-per-scenarios': {
+  colonnes: [
+    { key: 'scenario', label: 'Scénario',       primary: true },
+    { key: 'r',        label: 'Rendement exigé'              },
+    { key: 'zone',     label: 'Zone juste ($)'               },
+    { key: 'mos',      label: 'MoS actuelle'                 },
+  ],
+  lignes: [
+    {
+      scenario: 'Bear — taux hauts durables',
+      r:        '12 %',
+      zone:     '305,30 $',
+      mos:      '1,5 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      scenario: 'Neutre — rendement standard compounder',
+      r:        '10 %',
+      zone:     '334,06 $',
+      mos:      '10,0 %',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      scenario: 'Bull — détente modérée des taux',
+      r:        '8,5 %',
+      zone:     '357,78 $',
+      mos:      '15,9 %',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+
+  ],
+},
+
 'loreal-dcf-parametres': {
   compact: true,
   colonnes: [
@@ -1455,6 +1491,256 @@ const TABLEAUX: Record<string, TableauData> = {
     },
   ],
 },
+
+// ─────────────────────────────────────────────────────────────────────────────
+// À AJOUTER dans TABLEAUX dans src/components/ui/Tableau.tsx
+// Insérer avant la dernière accolade fermante } du Record TABLEAUX
+// ─────────────────────────────────────────────────────────────────────────────
+
+'loreal-per-trois-scenarios': {
+  colonnes: [
+    { key: 'scenario',  label: 'Scénario',         primary: true },
+    { key: 'r',         label: 'Rendement exigé'                 },
+    { key: 'bpa2030',   label: 'BPA 2030 (€)'                    },
+    { key: 'cible',     label: 'Prix cible (€)'                  },
+    { key: 'zone',      label: 'Zone juste (€)'                  },
+  ],
+  lignes: [
+    {
+      scenario: 'Bear',
+      r:        '10,0 %',
+      bpa2030:  '17,32',
+      cible:    '499,52',
+      zone:     '310',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      scenario: 'Central',
+      r:        '8,5 %',
+      bpa2030:  '17,32',
+      cible:    '499,52',
+      zone:     '332',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      scenario: 'Bull',
+      r:        '7,0 %',
+      bpa2030:  '17,32',
+      cible:    '499,52',
+      zone:     '356',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+  ],
+},
+
+'loreal-per-zone-bear': {
+  compact: true,
+  colonnes: [
+    { key: 'mos',    label: 'Marge de sécurité',    primary: true },
+    { key: 'prix',   label: "Prix d'entrée (€)"                   },
+    { key: 'upside', label: 'Upside vs prix cible'                },
+  ],
+  lignes: [
+    {
+      mos:    '5 %',
+      prix:   '295',
+      upside: '+70 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '10 %',
+      prix:   '279',
+      upside: '+79 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '15 %',
+      prix:   '264',
+      upside: '+89 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '20 %',
+      prix:   '248',
+      upside: '+101 %',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'loreal-per-zone-central': {
+  compact: true,
+  colonnes: [
+    { key: 'mos',    label: 'Marge de sécurité',    primary: true },
+    { key: 'prix',   label: "Prix d'entrée (€)"                   },
+    { key: 'upside', label: 'Upside vs prix cible'                },
+  ],
+  lignes: [
+    {
+      mos:    '5 %',
+      prix:   '316',
+      upside: '+58 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '10 %',
+      prix:   '299',
+      upside: '+67 %',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      mos:    '15 %',
+      prix:   '282',
+      upside: '+77 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '20 %',
+      prix:   '266',
+      upside: '+88 %',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'loreal-per-zone-bull': {
+  compact: true,
+  colonnes: [
+    { key: 'mos',    label: 'Marge de sécurité',    primary: true },
+    { key: 'prix',   label: "Prix d'entrée (€)"                   },
+    { key: 'upside', label: 'Upside vs prix cible'                },
+  ],
+  lignes: [
+    {
+      mos:    '0 % — cours actuel (~357 €)',
+      prix:   '357',
+      upside: '+40 %',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      mos:    '5 %',
+      prix:   '338',
+      upside: '+48 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '10 %',
+      prix:   '320',
+      upside: '+56 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:    '15 %',
+      prix:   '303',
+      upside: '+65 %',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+// ── Nouvelles entrées à ajouter dans Tableau.tsx après 'asml-zone-juste' ──
+
+  'asml-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario',   label: 'Scénario',               primary: true },
+      { key: 'cagr',       label: 'CAGR BPA'                              },
+      { key: 'bpa2030',    label: 'BPA 2030'                              },
+      { key: 'cible',      label: 'Prix cible 5 ans'                      },
+      { key: 'zone10',     label: 'Zone juste r=10 %'                     },
+      { key: 'diag',       label: 'Prime vs 1 284 €'                      },
+    ],
+    lignes: [
+      {
+        scenario: 'Bear — Chine + mémoire',
+        cagr:     '7 %',
+        bpa2030:  '34,66 €',
+        cible:    '1 088 - 1 582 €',
+        zone10:   '829 €',
+        diag:     '+54,9 % (prime)',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+      {
+        scenario: 'Central — CAGR historique',
+        cagr:     '14,57 %',
+        bpa2030:  '48,78 €',
+        cible:    '1 532 - 2 228 €',
+        zone10:   '1 167 €',
+        diag:     '+10,0 % (prime)',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        scenario: 'Bull — High-NA plein régime',
+        cagr:     '20 %',
+        bpa2030:  '61,49 €',
+        cible:    '1 931 - 2 807 €',
+        zone10:   '1 471 €',
+        diag:     '-12,7 % (décote)',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'asml-per-zone-bear': {
+    colonnes: [
+      { key: 'taux',   label: 'Taux exigé',             primary: true },
+      { key: 'zone',   label: 'Zone juste (prix cible 1 335 €)'       },
+      { key: 'mos10',  label: "Point d'entrée (MoS 10 %)"             },
+      { key: 'diag',   label: 'Prime vs 1 284 €'                      },
+    ],
+    lignes: [
+      { taux: '7,0 %',  zone: '951 €',   mos10: '856 €',   diag: '+34,9 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { taux: '10,0 %', zone: '829 €',   mos10: '746 €',   diag: '+54,9 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { taux: '12,0 %', zone: '757 €',   mos10: '681 €',   diag: '+69,6 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { taux: '15,0 %', zone: '663 €',   mos10: '597 €',   diag: '+93,7 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
+  'asml-per-zone-central': {
+    colonnes: [
+      { key: 'taux',   label: 'Taux exigé',             primary: true },
+      { key: 'zone',   label: 'Zone juste (prix cible 1 880 €)'       },
+      { key: 'mos10',  label: "Point d'entrée (MoS 10 %)"             },
+      { key: 'diag',   label: 'Prime / décote vs 1 284 €'             },
+    ],
+    lignes: [
+      { taux: '7,0 %',  zone: '1 340 €', mos10: '1 206 €', diag: '-4,2 % (décote)',  _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '10,0 %', zone: '1 167 €', mos10: '1 051 €', diag: '+10,0 % (prime)',  _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '12,0 %', zone: '1 067 €', mos10: '960 €',   diag: '+20,3 % (prime)',  _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { taux: '15,0 %', zone: '935 €',   mos10: '841 €',   diag: '+37,3 % (prime)',  _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
+  'asml-per-zone-bull': {
+    colonnes: [
+      { key: 'taux',   label: 'Taux exigé',             primary: true },
+      { key: 'zone',   label: 'Zone juste (prix cible 2 369 €)'       },
+      { key: 'mos10',  label: "Point d'entrée (MoS 10 %)"             },
+      { key: 'diag',   label: 'Prime / décote vs 1 284 €'             },
+    ],
+    lignes: [
+      { taux: '7,0 %',  zone: '1 689 €', mos10: '1 520 €', diag: '-24,0 % (décote)', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '10,0 %', zone: '1 471 €', mos10: '1 324 €', diag: '-12,7 % (décote)', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '12,0 %', zone: '1 344 €', mos10: '1 210 €', diag: '-4,5 % (décote)',  _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '15,0 %', zone: '1 178 €', mos10: '1 060 €', diag: '+8,9 % (prime)',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    ],
+  },
 
 }
 

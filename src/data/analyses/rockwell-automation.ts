@@ -15,7 +15,7 @@ export const rockwellAutomation: AnalyseCard = {
   horizon:        '5 ans',
   excerpt:        'Analyse en préparation.',
   glossaire:      [],
-  logo:           '/analyse/MSFT.png',
+  logo:           '/analyse/rockwell.png',
   readingTime:    12,
   prixCible:      { bas: 0, haut: 0, devise: 'USD' },
   marginOfSafety: 'indéterminée',
