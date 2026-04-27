@@ -35,7 +35,7 @@ export const alphabet: AnalyseCard = {
   statut:         'actif', // en-construction | actif | archivé
   portefeuille:   'CTO',          // PEA | CTO | PEA + CTO | Aucun
   horizon:        '36 mois',
-  excerpt:        'L\'entreprise qui veut contrôler l\'IA de A à Z.',
+  excerpt:        "L'empire publicitaire qui restructure son identité autour de l'IA, entre défense d'un monopole de 25 ans sur la recherche et intégration verticale de Gemini à chaque couche du groupe.",
   glossaire:      ['roic', 'moat', 'per-valorisation', 'capex', 'fcf-yield', 'levier-operationnel'],
   readingTime:    20,
   logo:          '/analyse/alphabet.png',

@@ -35,7 +35,7 @@ export const loreal: AnalyseCard = {
   statut:         'actif', // en-construction | actif | archivé
   portefeuille:   'PEA',          // PEA | CTO | PEA + CTO | Aucun
   horizon:        '5 ans',
-  excerpt:        'Est ce que le titre le vaux bien?',
+  excerpt:        "Le leader mondial des cosmétiques au pricing power structurel, entre ralentissement du premium en Chine et redéploiement vers les marchés émergents à fort potentiel.",
   glossaire:      ['moat', 'free-cash-flow', 'roic', 'pricing-power', 'cagr', 'payout-ratio'],
   logo:          '/analyse/loreal.png',
   prixCible:      { bas: 435, haut: 564, devise: 'EUR' },

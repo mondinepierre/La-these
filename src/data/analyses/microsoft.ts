@@ -18,6 +18,14 @@
 //   Utiliser uniquement lettres, chiffres et _ (pas de tirets ni /
 //   Exemple : 'EV_EBITDA' → composant MDX <MetricGraph_EV_EBITDA />
 //
+// NOTE DONNÉES — Toutes les séries utilisent l'Année Civile (CY) sauf mention
+//   contraire. CY = agrégation des 4 rapports trimestriels (Jan-Déc).
+//   Microsoft ayant une année fiscale juil-juin, FY et CY divergent.
+//   Les séries CCC_resume, AT et ROCE utilisent des valeurs FY pour 2021-2023
+//   (données CY non disponibles) et CY pour 2024-2025.
+//   La série Dividendes affiche CY (principale) et FY (comparateur) pour
+//   illustrer le décalage dû à l'année fiscale décalée.
+//
 // ─────────────────────────────────────────────────────────────────────────────
 
 import type { AnalyseCard } from '@/types/analyses'
@@ -35,34 +43,38 @@ export const microsoft: AnalyseCard = {
   statut:         'actif', // en-construction | actif | archivé
   portefeuille:   'CTO',          // PEA | CTO | PEA + CTO | Aucun
   horizon:        '5 ans',
-  excerpt:        'Bureautique, cloud et IA - le seul à maîtriser les trois à la fois.',
+  excerpt:        "L'infrastructure de la productivité d'entreprise, entre monétisation accélérée de Copilot sur une base installée de 400 millions d'utilisateurs et montée en puissance d'Azure comme colonne vertébrale de l'IA.",
   glossaire:      ['per', 'free-cash-flow', 'moat', 'roic', 'roiic', 'saas'],
   logo:          '/analyse/MSFT.png',
-  prixCible:      { bas: 770, haut: 870, devise: 'USD' },
+  prixCible:      { bas: 939, haut: 1149, devise: 'USD' },
   marginOfSafety: 'forte', // forte | correcte | faible | négative | indéterminée
   readingTime:    25,
 
+  // ── Métriques snapshot — CY2025 TTM, cours clôture 31/12/2025 ────────────────
+  // Valeurs issues directement de l'onglet Indicateurs Excel, colonne TTM/CY2025.
+  // roic = ROIC Cash Adjusted La Thèse (goodwill inclus dans CP, dette plancher 0).
+  // margeEbit = marge EBIT CONSOLIDÉE CY2025 (46,7 %) — source : CR agrégé.
   metrics: {
-    per:               30.25,  // Price / Earnings
-    evEbitda:          19.27,  // EV / EBITDA
-    fcfYield:          2.17,  // FCF Yield en %
-    roic:              17.44,  // Return on Invested Capital en %
-    wacc:              9.2,  // Weighted Average Cost of Capital en %
-    detteEbitda:       -0.27,  // Dette nette / EBITDA — négatif = trésorerie nette
-    croissanceCA3ans:  14.39,  // TCAC CA sur 3 ans en %
-    croissanceBPA3ans: 21.12,  // TCAC BPA sur 3 ans en %
-    margeEbit:         57.85,  // Marge opérationnelle en %
-    margeBrute:        68.59,  // Marge brute en %
-    payoutRatio:       21.19,  // Dividendes / Résultat net en %
-    currentRatio:      1.52,  // Actif courant / Passif courant
-    dso:               107,  // Days Sales Outstanding en jours
+    per:               30.26,  // CY2025 — 30,3x affiché
+    evEbitda:          19.53,  // CY2025 — 19,5x affiché
+    fcfYield:          2.15,   // CY2025 — FCF Yield (Cap) = 2,15 %
+    roic:              29.68,  // CY2025 — ROIC Cash Adjusted = 29,7 %
+    wacc:              8.23,   // CY2025 — WACC CAPM = 8,2 %
+    detteEbitda:       -0.27,  // CY2025 — négatif = trésorerie nette
+    croissanceCA3ans:  14.39,  // CY2025 — CAGR CA 3 ans = 14,4 %
+    croissanceBPA3ans: 21.12,  // CY2025 — CAGR EPS 3 ans = 21,1 %
+    margeEbit:         46.67,  // CY2025 — Marge EBIT consolidée = 46,7 %
+    margeBrute:        68.59,  // CY2025 — Marge brute = 68,6 %
+    payoutRatio:       21.19,  // CY2025 — Payout Ratio = 21,2 %
+    currentRatio:      1.39,   // CY2025 — Current Ratio = 1,39x
+    dso:               79,     // CY2025 — DSO = 79 j
   },
 
   tendances: {
-    per:       'stable', // hausse | stable | baisse
-    fcfYield:  'baisse',
-    roic:      'baisse',
-    margeEbit: 'hausse',
+    per:       'baisse',  // 35,8x (CY2021) → 30,3x (CY2025)
+    fcfYield:  'baisse',  // 2,38 % (CY2021) → 2,15 % (CY2025)
+    roic:      'baisse',  // 43,9 % (CY2021) → 29,7 % (CY2025)
+    margeEbit: 'hausse',  // 42,5 % (CY2021) → 46,7 % (CY2025)
   },
 
   updates: [
@@ -77,7 +89,7 @@ export const microsoft: AnalyseCard = {
     segmentBreaks: [
     { year: 2025, label: 'Reclassification segments' },
     ],
-    // ── CA sur 5 ans ──────────────────────────────────────────
+    // ── CA sur 5 ans (CY) ─────────────────────────────────────
     revenue: [
       { year: 2021, value: 184.9  },
       { year: 2022, value: 204.0 },
@@ -93,7 +105,7 @@ export const microsoft: AnalyseCard = {
       { region: 'Reste du monde',     pct: 48.6 },
     ],
 
-    // ── Marges sur 5 ans ──────────────────────────────────────
+    // ── Marges sur 5 ans (CY) ─────────────────────────────────
     marges: [
       { year: 2021, gross: 68.83, operating: 48.84, net: 38.5 },
       { year: 2022, gross: 68.16, operating: 47.66, net: 33.05 },
@@ -102,26 +114,26 @@ export const microsoft: AnalyseCard = {
       { year: 2025, gross: 68.59, operating: 57.85, net: 39.04 },
     ],
 
-    // ── ROIC simple sur 5 ans ─────────────────────────────────
+    // ── ROIC simple sur 5 ans (CY) ────────────────────────────
     roic: [
-      { year: 2021, value: 20.6, },
-      { year: 2022, value: 18.55, },
-      { year: 2023, value: 17.42, },
-      { year: 2024, value: 18,  },
-      { year: 2025, value: 17.44, },
+      { year: 2021, value: 43.9, },
+      { year: 2022, value: 36.9, },
+      { year: 2023, value: 34.4, },
+      { year: 2024, value: 31.7,  },
+      { year: 2025, value: 29.7, },
     ],
 
-    // ── ROIC vs WACC ──────────────────────────────────────────
+    // ── ROIC vs WACC (CY) ─────────────────────────────────────
     // Composant MDX : <RoicWacc />
     roicVsWacc: [
-      { year: 2021, value: 20.6, wacc: 9.37 },
-      { year: 2022, value: 18.55, wacc: 9.36 },
-      { year: 2023, value: 17.42, wacc: 9.03 },
-      { year: 2024, value: 18, wacc: 9.12 },
-      { year: 2025, value: 17.44, wacc: 9.2 },
+      { year: 2021, value: 43.9, wacc: 5.61 },
+      { year: 2022, value: 36.9, wacc: 9.61 },
+      { year: 2023, value: 34.4, wacc: 8.31 },
+      { year: 2024, value: 31.7, wacc: 8.75 },
+      { year: 2025, value: 29.7, wacc: 8.23 },
     ],
 
-    // ── Free Cash Flow sur 5 ans ──────────────────────────────
+    // ── Free Cash Flow sur 5 ans (CY) ────────────────────────
     fcf: [
       { year: 2021, value: 60.6 },
       { year: 2022, value: 59.6 },
@@ -130,7 +142,7 @@ export const microsoft: AnalyseCard = {
       { year: 2025, value: 77.4 },
     ],
 
-    // ── CA par segment (optionnel) ────────────────────────────
+    // ── CA par segment (FY) ───────────────────────────────────
     // Composant MDX : <SegmentGraph unit="Md$" />
     segmentRevenue: [
       { year: 2021, segments: [
@@ -286,11 +298,11 @@ export const microsoft: AnalyseCard = {
           name:  'PER',
           unit:  'x',
           data: [
-            { year: 2021, value: 35.82 },
-            { year: 2022, value: 26.65 },
-            { year: 2023, value: 34 },
-            { year: 2024, value: 33.94 },
-            { year: 2025, value: 30.25 },
+            { year: 2021, value: 35.79 },
+            { year: 2022, value: 26.63 },
+            { year: 2023, value: 33.54 },
+            { year: 2024, value: 33.95 },
+            { year: 2025, value: 30.26 },
           ],
           competitors: [
             {
@@ -298,11 +310,11 @@ export const microsoft: AnalyseCard = {
               color: '#C9A84C',
               dashed: true,
               data: [
-                { year: 2021, value: 32.13 },
-                { year: 2022, value: 32.13 },
-                { year: 2023, value: 32.13 },
-                { year: 2024, value: 32.13 },
-                { year: 2025, value: 32.13 },
+                { year: 2021, value: 32.03 },
+                { year: 2022, value: 32.03 },
+                { year: 2023, value: 32.03 },
+                { year: 2024, value: 32.03 },
+                { year: 2025, value: 32.03 },
               ],
             },
             {
@@ -310,11 +322,11 @@ export const microsoft: AnalyseCard = {
               color: '#52B788',
               dashed: true,
               data: [
-                { year: 2021, value: 25 },
-                { year: 2022, value: 25 },
-                { year: 2023, value: 25 },
-                { year: 2024, value: 25 },
-                { year: 2025, value: 25 },
+                { year: 2021, value: 40.79 },
+                { year: 2022, value: 27.85 },
+                { year: 2023, value: 28.85 },
+                { year: 2024, value: 29.28 },
+                { year: 2025, value: 23.83 },
               ],
             }      
           ]
@@ -601,6 +613,205 @@ export const microsoft: AnalyseCard = {
             },  
           ]
         },
+
+        // ── Asset Turnover CY (2024-2025) / FY proxy (2021-2023) ───────────────
+        // AT = CA / Total actifs. Source : Excel Indicateurs, onglet Capital.
+        // CY disponible depuis 2024 uniquement. 2021-2023 = valeurs FY (bilan juin).
+        {
+          label: 'AT',
+          name:  'Asset Turnover',
+          unit:  'x',
+          data: [
+            { year: 2021, value: 0.50 },  // FY proxy
+            { year: 2022, value: 0.54 },  // FY proxy
+            { year: 2023, value: 0.51 },  // FY proxy
+            { year: 2024, value: 0.49 },  // CY
+            { year: 2025, value: 0.46 },  // CY
+          ],
+          competitors: [
+            {
+              name:   'Moyenne historique (5 ans)',
+              color:  '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 0.50 },
+                { year: 2022, value: 0.50 },
+                { year: 2023, value: 0.50 },
+                { year: 2024, value: 0.50 },
+                { year: 2025, value: 0.50 },
+              ],
+            },
+          ],
+        },
+
+        // ── ROCE vs WACC vs ROIC CY (2024-2025) / FY proxy (2021-2023) ─────────
+        // ROCE = NOPAT / (CP + dette totale − trésorerie). Source : Excel Indicateurs.
+        {
+          label: 'ROCE',
+          name:  'ROCE',
+          unit:  '%',
+          yMin:  0,
+          data: [
+            { year: 2021, value: 36.4 },  // FY proxy
+            { year: 2022, value: 39.0 },  // FY proxy
+            { year: 2023, value: 35.7 },  // FY proxy
+            { year: 2024, value: 34.4 },  // CY
+            { year: 2025, value: 33.4 },  // CY
+          ],
+          competitors: [
+            {
+              name:  'WACC',
+              color: '#C9A84C',
+              data: [
+                { year: 2021, value: 9.37 },
+                { year: 2022, value: 9.36 },
+                { year: 2023, value: 9.03 },
+                { year: 2024, value: 9.12 },
+                { year: 2025, value: 9.20 },
+              ],
+            },
+            {
+              name:   'ROIC',
+              color:  '#2D6A4F',
+              dashed: true,
+              data: [
+                { year: 2021, value: 20.64 },
+                { year: 2022, value: 18.55 },
+                { year: 2023, value: 17.42 },
+                { year: 2024, value: 18.00 },
+                { year: 2025, value: 17.44 },
+              ],
+            },
+          ],
+        },
+
+        // ── CCC — DSO / DIO / DPO / Cash Conversion Cycle (FY) ─────────────────
+        // FY = données au 30 juin (bilan Microsoft). CY disponible uniquement 2025
+        // (CCC CY2025 = −86,5 j vs FY2025 = −21 j — écart expliqué dans le MDX).
+        // Source : Excel Indicateurs, onglet Solidité.
+        {
+          label: 'CCC_resume',
+          name:  'Days Sales Outstanding (FY)',
+          unit:  'J',
+          heightMultiplier: 1.5,
+          data: [
+            { year: 2021, value: 83 },
+            { year: 2022, value: 81 },
+            { year: 2023, value: 84 },
+            { year: 2024, value: 85 },
+            { year: 2025, value: 91 },
+          ],
+          competitors: [
+            {
+              name:  'Days Inventory Outstanding',
+              color: '#2D6A4F',
+              data: [
+                { year: 2021, value: 18 },
+                { year: 2022, value: 22 },
+                { year: 2023, value: 14 },
+                { year: 2024, value: 6  },
+                { year: 2025, value: 4  },
+              ],
+            },
+            {
+              name:  'Days Payable Outstanding',
+              color: '#77bd92',
+              data: [
+                { year: 2021, value: 106 },
+                { year: 2022, value: 111 },
+                { year: 2023, value: 100 },
+                { year: 2024, value: 108 },
+                { year: 2025, value: 115 },
+              ],
+            },
+            {
+              name:  'Cash Conversion Cycle',
+              color: '#C9A84C',
+              data: [
+                { year: 2021, value: -5  },
+                { year: 2022, value: -7  },
+                { year: 2023, value: -3  },
+                { year: 2024, value: -17 },
+                { year: 2025, value: -21 },
+              ],
+            },
+          ],
+        },
+
+        // ── Dividende par action — CY (principal) + FY (comparateur) ───────────
+        // CY = dividendes versés jan-déc / actions diluées CY.
+        // FY = dividendes versés juil-juin / actions diluées FY.
+        // Le décalage CY/FY reflète l'année fiscale microsoft (juil-juin).
+        // Source : Excel CF + Indicateurs.
+        {
+          label: 'Dividendes',
+          name:  'Dividende par action (CY)',
+          unit:  '$',
+          data: [
+            { year: 2021, value: 2.36 },
+            { year: 2022, value: 2.60 },
+            { year: 2023, value: 2.86 },
+            { year: 2024, value: 3.16 },
+            { year: 2025, value: 3.48 },
+          ],
+          competitors: [
+            {
+              name:   'Dividende par action (FY)',
+              color:  '#C9A84C',
+              dashed: true,
+              data: [
+                { year: 2021, value: 2.24 },
+                { year: 2022, value: 2.48 },
+                { year: 2023, value: 2.72 },
+                { year: 2024, value: 3.00 },
+                { year: 2025, value: 3.32 },
+              ],
+            },
+          ],
+        },
+
+        // ── Allocation du capital — retour actionnaires vs Capex (FY) ──────────
+        // Retour total = dividendes versés + rachats d'actions nets.
+        // Capex = additions to PP&E (valeur absolue). Source : Excel CF (FY).
+        {
+          label: 'Capex_Action',
+          name:  'Retour aux actionnaires (FY)',
+          unit:  'Mds $',
+          yMin:  0,
+          data: [
+            { year: 2021, value: 43.9 },
+            { year: 2022, value: 50.8 },
+            { year: 2023, value: 42.0 },
+            { year: 2024, value: 39.0 },
+            { year: 2025, value: 42.5 },
+          ],
+          competitors: [
+            {
+              name:  'Rachats d\'actions (FY)',
+              color: '#2D6A4F',
+              data: [
+                { year: 2021, value: 27.4 },
+                { year: 2022, value: 32.7 },
+                { year: 2023, value: 22.2 },
+                { year: 2024, value: 17.3 },
+                { year: 2025, value: 18.4 },
+              ],
+            },
+            {
+              name:   'Capex (FY)',
+              color:  '#A8A29E',
+              dashed: true,
+              data: [
+                { year: 2021, value: 20.6 },
+                { year: 2022, value: 23.9 },
+                { year: 2023, value: 28.1 },
+                { year: 2024, value: 44.5 },
+                { year: 2025, value: 64.6 },
+              ],
+            },
+          ],
+        },
+
       ],
     // Composants : <ValuationChart_vs_secteur /> <ValuationChart_vs_pairs />
     valuationCharts: [
@@ -630,59 +841,3 @@ export const microsoft: AnalyseCard = {
     ],
   }
 }
-
-
-  
-    // ── Comparaison sectorielle ───────────────────────────────
-    // Composant MDX : <ValuationRadar name="Nom" /> ou <ValuationBar name="Nom" />
-    // Pairs : moyenne tronquée sur 6 pairs — source Finviz
-    // valuationCompare: [
-    //   { label: 'PER',                  valeur: 0, secteur: 0 },
-    //   { label: 'P/FCF',                valeur: 0, secteur: 0 },
-    //   { label: 'EV/EBITDA',            valeur: 0, secteur: 0 },
-    //   { label: 'Marge opérationnelle', valeur: 0, secteur: 0 },
-    //   { label: 'ROIC',                 valeur: 0, secteur: 0 },
-    // ],
-
-    // ── Métriques libres (PER historique, dividende, etc.) ────
-    // Composant MDX : <MetricGraph_LABEL /> — LABEL = label sans tirets ni /
-    // metricHistory: [
-    //   {
-    //     label: 'PER',
-    //     name:  'Nom entreprise',
-    //     unit:  '×',
-    //     data: [
-    //       { year: 2021, value: 0 },
-    //       { year: 2022, value: 0 },
-    //       { year: 2023, value: 0 },
-    //       { year: 2024, value: 0 },
-    //       { year: 2025, value: 0 },
-    //     ],
-    //     competitors: [
-    //       {
-    //         name:  'Concurrent A',
-    //         color: '#2D6A4F',
-    //         data: [
-    //           { year: 2021, value: 0 },
-    //           { year: 2025, value: 0 },
-    //         ],
-    //       },
-    //     ],
-    //   },
-    // ],
-// ─────────────────────────────────────────────────────────────────────────────
-// TEMPLATE — Analyse ponctuelle
-// Copier ce bloc, renommer la variable, compléter.
-// ─────────────────────────────────────────────────────────────────────────────
-
-// export const SLUG_PONCTUELLE: AnalyseCard = {
-//   slug:    '',           // ex: 'nvidia-resultats-q1-2026'
-//   type:    'ponctuelle',
-//   title:   '',
-//   date:    '2026-01-01',
-//   ticker:  '',
-//   secteur: 'Technologie',
-//   geo:     'États-Unis',
-//   statut:  'en-construction',
-//   excerpt: '',
-//

@@ -13,7 +13,7 @@ export const totalenergies: AnalyseCard = {
   statut:         'actif',
   portefeuille:   'PEA',
   horizon:        '15 ans',
-  excerpt:        'Le roi du pétrole mais pas que',
+  excerpt:        "La major la mieux positionnée sur la transition énergétique, entre génération de cash robuste sur les hydrocarbures et construction d'un pilier Puissance intégrée, moteur de sa diversification vers un modèle multi-énergies.",
   glossaire: [
     'gnl',
     'integrated-power',

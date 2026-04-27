@@ -13,7 +13,7 @@ export const asml: AnalyseCard = {
   statut:         'actif',
   portefeuille:   'PEA',
   horizon:        '5 ans',
-  excerpt:        "L'unique fournisseur de la lithographie EUV pour les puces IA",
+  excerpt:        "Le monopole absolu de la lithographie EUV, en position de fournisseur irremplaçable de toute la chaîne des semi-conducteurs, entre normalisation du cycle de commandes et montée en puissance des machines High-NA.",
   glossaire: [
     'lithographie-euv',
     'semi-conducteurs',

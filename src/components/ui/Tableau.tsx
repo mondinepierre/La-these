@@ -1741,6 +1741,347 @@ const TABLEAUX: Record<string, TableauData> = {
       { taux: '15,0 %', zone: '1 178 €', mos10: '1 060 €', diag: '+8,9 % (prime)',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
     ],
   },
+  // ─────────────────────────────────────────────────────────────────────────────
+// ENTRÉES TABLEAU — Microsoft (MSFT)
+// À coller dans TABLEAUX dans src/components/ui/Tableau.tsx
+// Cours de référence : 358,96 $ (30/03/2026) | BPA CY TTM : 15,99 $
+// PER central CY : 30,12x (moyenne PER ajusté 5 ans CY)
+// ─────────────────────────────────────────────────────────────────────────────
+
+  'microsoft-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',   primary: true },
+      { key: 'valeur',    label: 'Valeur'                     },
+      { key: 'source',    label: 'Source / Note'              },
+    ],
+    lignes: [
+      {
+        parametre: 'WACC',
+        valeur:    '8,23 %',
+        source:    'CAPM — Rf 4,15 % (UST 10 ans) + β 0,97 × ERP 4,23 % (Damodaran)',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Croissance perpétuelle',
+        valeur:    '2,0 %',
+        source:    'Plancher conservateur (sous la croissance nominale US long terme)',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#1C1917',
+      },
+      {
+        parametre: 'FCF base CY2025 (TTM)',
+        valeur:    '77 412 M$',
+        source:    'OCF 160 506 M$ − Capex 83 094 M$ — Source : CF CY agrégé',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '7 462 M',
+        source:    'Moyenne pondérée CY2025 — Source : CR trimestriel',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Dette nette',
+        valeur:    '−49 200 M$',
+        source:    'Négatif = trésorerie nette excédentaire — Source : Bilan CY2025',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Horizon de projection',
+        valeur:    '5 ans',
+        source:    '—',
+        _headerBg:   '#C9A84C',
+        _headerText: '#1C1917',
+      },
+    ],
+  },
+
+  'microsoft-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario',  label: 'Scénario',     primary: true },
+      { key: 'cagr',      label: 'CAGR FCF'                    },
+      { key: 'fcf5',      label: 'FCF an 5'                    },
+      { key: 'ev',        label: 'EV'                          },
+      { key: 'prix',      label: 'Prix implicite'              },
+      { key: 'ecart',     label: 'Écart vs cours 359 $'        },
+    ],
+    lignes: [
+      {
+        scenario: 'Conservateur — CAGR historique',
+        cagr:     '6,28 %',
+        fcf5:     '97 Mds$',
+        ev:       '1 409 Mds$',
+        prix:     '~196 $',
+        ecart:    '−45 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+      {
+        scenario: 'Central — normalisation partielle du Capex',
+        cagr:     '10 %',
+        fcf5:     '125 Mds$',
+        ev:       '1 780 Mds$',
+        prix:     '~245 $',
+        ecart:    '−32 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        scenario: 'Optimiste — Azure s\'accélère + Capex normalisé',
+        cagr:     '16 %',
+        fcf5:     '163 Mds$',
+        ev:       '2 270 Mds$',
+        prix:     '~311 $',
+        ecart:    '−13 %',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+      {
+        scenario: 'Seuil — justifie le cours de rédaction',
+        cagr:     '~20 %',
+        fcf5:     '~193 Mds$',
+        ev:       '~2 656 Mds$',
+        prix:     '~362 $',
+        ecart:    '+0 %',
+        _headerBg:   '#C9A84C',
+        _headerText: '#1C1917',
+      },
+    ],
+  },
+
+  'microsoft-dcf-synthese': {
+    colonnes: [
+      { key: 'composante', label: 'Composante',   primary: true },
+      { key: 'montant',    label: 'Montant (Mds$)'              },
+      { key: 'part',       label: '% de l\'EV'                  },
+    ],
+    lignes: [
+      {
+        composante: 'Somme FCF actualisés (5 ans)',
+        montant:    '406',
+        part:       '22,8 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#1C1917',
+      },
+      {
+        composante: 'Valeur terminale actualisée',
+        montant:    '1 373',
+        part:       '77,2 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#1C1917',
+      },
+      {
+        composante: 'Enterprise Value',
+        montant:    '1 779',
+        part:       '100 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+      {
+        composante: '+ Trésorerie nette',
+        montant:    '+49',
+        part:       '—',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#1C1917',
+      },
+      {
+        composante: 'Equity Value',
+        montant:    '1 828',
+        part:       '—',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#1C1917',
+      },
+      {
+        composante: 'Prix implicite (7 462 M actions)',
+        montant:    '245 $',
+        part:       '—',
+        _headerBg:   '#C9A84C',
+        _headerText: '#1C1917',
+      },
+    ],
+  },
+
+  'microsoft-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',          primary: true },
+      { key: 'cagr',     label: 'CAGR EPS'                         },
+      { key: 'bpa',      label: 'BPA 2031'                         },
+      { key: 'cible',    label: 'Prix cible'                       },
+      { key: 'zone10',   label: 'Zone juste r=10 %'                },
+      { key: 'mos',      label: 'MoS vs 358,96 $'                  },
+    ],
+    lignes: [
+      {
+        scenario: 'Bear — décélération (Azure < 25 %)',
+        cagr:     '9 %',
+        bpa:      '24,60 $',
+        cible:    '741 $',
+        zone10:   '460 $',
+        mos:      '22 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+      {
+        scenario: 'Central — CAGR historique CY',
+        cagr:     '14,2 %',
+        bpa:      '31,14 $',
+        cible:    '938 $',
+        zone10:   '582 $',
+        mos:      '38 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        scenario: 'Bull — accélération Azure + Copilot',
+        cagr:     '19 %',
+        bpa:      '38,16 $',
+        cible:    '1 149 $',
+        zone10:   '713 $',
+        mos:      '50 %',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // ── Scénario Bear — CAGR EPS 9 % | Prix cible 741 $ ──────────────────────
+  'microsoft-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'taux',  label: 'Taux exigé (r)', primary: true },
+      { key: 'zone',  label: 'Zone juste'                    },
+      { key: 'mos',   label: 'MoS vs 358,96 $'              },
+      { key: 'diag',  label: 'Interprétation'               },
+    ],
+    lignes: [
+      {
+        taux:  '7 %',
+        zone:  '528 $',
+        mos:   '32 %',
+        diag:  'Modéré',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        taux:  '10 %',
+        zone:  '460 $',
+        mos:   '22 %',
+        diag:  'Standard',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        taux:  '12 %',
+        zone:  '420 $',
+        mos:   '15 %',
+        diag:  'Élevé',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        taux:  '15 %',
+        zone:  '368 $',
+        mos:   '2 %',
+        diag:  'Agressif — quasi au cours',
+        _headerBg:   '#F7F4EF',
+        _headerText: '#78716C',
+      },
+    ],
+  },
+
+  // ── Scénario Central — CAGR EPS 14,2 % | Prix cible 938 $ ────────────────
+  'microsoft-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'taux',  label: 'Taux exigé (r)', primary: true },
+      { key: 'zone',  label: 'Zone juste'                    },
+      { key: 'mos',   label: 'MoS vs 358,96 $'              },
+      { key: 'diag',  label: 'Interprétation'               },
+    ],
+    lignes: [
+      {
+        taux:  '7 %',
+        zone:  '669 $',
+        mos:   '46 %',
+        diag:  'Modéré',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+      {
+        taux:  '10 %',
+        zone:  '582 $',
+        mos:   '38 %',
+        diag:  'Standard',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+      {
+        taux:  '12 %',
+        zone:  '532 $',
+        mos:   '33 %',
+        diag:  'Élevé',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        taux:  '15 %',
+        zone:  '466 $',
+        mos:   '23 %',
+        diag:  'Agressif',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // ── Scénario Bull — CAGR EPS 19 % | Prix cible 1 149 $ ───────────────────
+  'microsoft-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'taux',  label: 'Taux exigé (r)', primary: true },
+      { key: 'zone',  label: 'Zone juste'                    },
+      { key: 'mos',   label: 'MoS vs 358,96 $'              },
+      { key: 'diag',  label: 'Interprétation'               },
+    ],
+    lignes: [
+      {
+        taux:  '7 %',
+        zone:  '819 $',
+        mos:   '56 %',
+        diag:  'Modéré',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+      {
+        taux:  '10 %',
+        zone:  '713 $',
+        mos:   '50 %',
+        diag:  'Standard',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+      {
+        taux:  '12 %',
+        zone:  '652 $',
+        mos:   '45 %',
+        diag:  'Élevé',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+      {
+        taux:  '15 %',
+        zone:  '571 $',
+        mos:   '37 %',
+        diag:  'Agressif',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+    ],
+  },
 
 }
 

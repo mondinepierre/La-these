@@ -35,7 +35,7 @@ export const visa: AnalyseCard = {
   statut:         'actif', // en-construction | actif | archivé
   portefeuille:   'CTO',          // PEA | CTO | PEA + CTO | Aucun
   horizon:        '5 ans',
-  excerpt:        'Les avantages du système bancaire, les inconvénients en moins.',
+  excerpt:        "Le duopole des réseaux de paiement au modèle asset-light structurellement protégé, entre ralentissement des dépenses consommateurs aux États-Unis et expansion vers les flux B2B et les marchés émergents.",
   glossaire:      ['moat', 'free-cash-flow', 'roic', 'dcf', 'asset-light', 'interchange'], // slugs glossaire liés
   logo:          '/analyse/visa.png',
   prixCible:      { bas: 498, haut: 578, devise: 'USD' },
