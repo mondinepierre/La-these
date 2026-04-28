@@ -1788,6 +1788,54 @@ export const glossaire: GlossaireTerm[] = [
     ],
   },
 
+  {
+    slug: "brent",
+    label: "Prix du Brent",
+    category: "Marchés",
+    shortDef: "Le prix de référence mondial du pétrole brut, coté sur le marché ICE à Londres — benchmark pour environ 70 % du pétrole commercialisé dans le monde.",
+    definition: `Le Brent est la principale référence mondiale de prix du pétrole brut. Il tire son nom du champ pétrolifère Brent de la mer du Nord, découvert par Shell dans les années 1970. Aujourd'hui, le "Brent" désigne un panier de plusieurs bruts de mer du Nord (BFOET : Brent, Forties, Oseberg, Ekofisk, Troll), coté sur le marché ICE (Intercontinental Exchange) à Londres.\n\nEnviron 70 % du pétrole commercialisé dans le monde est indexé sur le Brent — c'est pourquoi son prix est le thermomètre principal de l'industrie pétrolière mondiale. L'autre benchmark majeur est le WTI (West Texas Intermediate), principalement utilisé pour les flux nord-américains. L'écart entre les deux (le "spread Brent-WTI") reflète des différences de qualité du brut et de logistique.\n\nPour un investisseur dans les majors pétrolières intégrées comme TotalEnergies, le Brent est la variable macro dominante : une variation de ±10 dollars par baril se traduit directement par ±2,3 milliards de dollars de résultat net. À Brent 60 dollars (bas de cycle), les majors couvrent à peine leurs investissements et dividendes. À Brent 85-90 dollars (haut de cycle), elles génèrent des cash-flows exceptionnels. La prime géopolitique — comme celle liée aux tensions Iran/US de mars 2026 qui a poussé le Brent à 107 dollars — peut temporairement déconnecter le prix des fondamentaux de l'offre et de la demande.`,
+    related: ["stranded-assets", "scope-3", "gnl", "integrated-power", "free-cash-flow"],
+    modules: [
+      { label: "Marchés", href: "/academie/debutant/marches" },
+    ],
+  },
+
+  {
+    slug: "ocf",
+    label: "OCF - Operating Cash Flow",
+    category: "Analyse fondamentale",
+    shortDef: "Le cash généré par les opérations courantes de l'entreprise avant investissements et financements — mesure brute de la puissance de génération de trésorerie.",
+    definition: `L'Operating Cash Flow (OCF), ou cash-flow opérationnel, mesure le montant de trésorerie généré par les activités opérationnelles d'une entreprise sur une période donnée. C'est la ligne de départ du tableau des flux de trésorerie.\n\nFormule simplifiée : OCF = Résultat net + Amortissements et dépréciations ± Variations du besoin en fonds de roulement ± Autres éléments non-cash.\n\nL'OCF est la mesure brute de la capacité de génération de trésorerie avant les décisions d'investissement (capex) et de financement (dette, dividendes, rachats). Il est supérieur au résultat net pour les entreprises à forte base d'actifs amortissables (les amortissements sont une charge non-cash réintégrée), et peut lui être inférieur pour des entreprises à fort besoin en fonds de roulement.\n\nLa relation OCF → FCF est décisive pour l'analyste : FCF = OCF − Capex. Pour Alphabet en 2025, l'OCF de 165 milliards de dollars était impressionnant, mais le capex de 91 milliards le réduisait à un FCF de seulement 73 milliards — le ratio Capex/OCF de 55 % explique à lui seul l'essentiel de la compression du FCF Yield.`,
+    related: ["free-cash-flow", "capex", "fcf-yield", "bfr", "ebitda"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "rsu",
+    label: "RSU - Restricted Stock Unit",
+    category: "Analyse fondamentale",
+    shortDef: "Unité de rémunération différée convertible en actions après une période de vesting, conditionnée au maintien dans l'entreprise — principal outil de fidélisation des talents dans la tech.",
+    definition: `Une Restricted Stock Unit (RSU) est une promesse d'attribution d'actions à un salarié, soumise à une période de vesting — en général 3 à 4 ans. Contrairement à une stock-option, la RSU a une valeur dès l'attribution (même si le cours baisse, l'action garde une valeur positive), ce qui en fait un outil de fidélisation plus lisible pour le bénéficiaire.\n\nMécanisme : à l'attribution, l'entreprise promet X RSUs. Chaque année, une fraction se débloque ("veste") selon un calendrier prédéfini — souvent 25 % par an sur 4 ans. Au moment du vesting, les RSUs se convertissent en actions ordinaires et la valeur est imposée comme revenu du travail. Pour le salarié, la valeur perçue dépend directement du cours de bourse au moment du vesting.\n\nImpact comptable pour l'analyste : les RSUs génèrent une charge de Stock-Based Compensation (SBC) enregistrée en résultat opérationnel sur la durée du vesting. Cette charge est non-cash mais crée une dilution réelle du bénéfice par action. En 2025, Alphabet avait 42,9 milliards de dollars de charges RSU non encore comptabilisées (durée résiduelle 2,6 ans) — un engagement significatif qui pèse sur le BPA futur mais reflète aussi l'attraction des talents clés liée à la performance du cours.`,
+    related: ["bpa", "payout-ratio", "rachat-actions", "lti"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "ppa",
+    label: "PPA - Power Purchase Agreement",
+    category: "Analyse fondamentale",
+    shortDef: "Contrat d'achat d'électricité à long terme entre un producteur et un acheteur, fixant un prix garanti sur 10 à 25 ans — mécanisme fondamental de financement des énergies renouvelables.",
+    definition: `Un Power Purchase Agreement (PPA), ou contrat d'achat d'électricité à long terme, est un accord commercial par lequel un producteur d'électricité s'engage à livrer de l'électricité à un acheteur (entreprise industrielle, utility, gestionnaire de réseau) à un prix fixe ou indexé sur une durée généralement comprise entre 10 et 25 ans.\n\nStructure typique : le développeur construit et opère la centrale, l'acheteur s'engage à acheter tout ou partie de la production à un tarif contractuel. Ce mécanisme transfère le risque de prix de marché de l'électricité du producteur vers l'acheteur — en échange d'un prix prédictible qui permet au producteur d'accéder au financement bancaire et d'optimiser le rendement du capital investi.\n\nPour TotalEnergies (branche Puissance Intégrée), les PPAs signés avec des grands acteurs technologiques (Microsoft, Amazon, Google) et industriels sur 15 à 20 ans remplissent deux fonctions : sécuriser des revenus prévisibles qui réduisent l'exposition au marché spot volatile de l'électricité, et permettre le financement des parcs à des conditions optimales. C'est l'équivalent pour l'électricité renouvelable des clauses take-or-pay dans le gaz — la structure contractuelle qui permet à Puissance Intégrée de viser un retour sur capitaux employés de 12 % à horizon 2028.`,
+    related: ["integrated-power", "stranded-assets", "capex", "take-or-pay", "moat"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
 ];
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────
