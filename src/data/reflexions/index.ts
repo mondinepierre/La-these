@@ -20,7 +20,8 @@ import { dcfIntuition                } from './dcf-intuition'
 import { fcfYield                    } from './fcf-yield'
 import { portefeuilleParThemes       } from './portefeuille-par-themes'
 import { lireUnRapportAnnuel         } from './lire-un-rapport-annuel'
-import { novoOrionEtude         } from './novo-orion-etude'
+import { novoOrionEtude              } from './novo-orion-etude'
+import { airLiquideTapisRoulant              } from './air-liquide-tapis-roulant'
 export const articles: ArticleMeta[] = [
   evEbitdaEtRoic,
   roicEtWacc,
@@ -34,6 +35,7 @@ export const articles: ArticleMeta[] = [
   portefeuilleParThemes,
   lireUnRapportAnnuel,
   novoOrionEtude,
+  airLiquideTapisRoulant,
 ]
 
 export function getPublishedArticles(): ArticleMeta[] {
