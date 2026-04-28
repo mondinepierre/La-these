@@ -27,7 +27,7 @@ export const airliquide: AnalyseCard = {
   geo:            'France',
   conviction:     'forte',
   positionnement: 'allégement',
-  lastUpdated:    '2026-04-22',
+  lastUpdated:    '2026-04-28',
   statut:         'actif',
   portefeuille:   'PEA',
   horizon:        '5 ans',
