@@ -5,8 +5,8 @@ import type { ArticleMeta as ArticleMeta4 } from '@/types/reflexions'
 export const portefeuilleParThemes: ArticleMeta4 = {
   slug: 'portefeuille-par-themes',
   title: "Construire un portefeuille par thèmes macro",
-  date: '2026-04-29',
-  publishedAt: '2026-04-29',
+  date: '2026-05-10',
+  publishedAt: '2026-05-10',
   category: 'parcours',
   level: 'intermediaire',
   readingTime: 8,

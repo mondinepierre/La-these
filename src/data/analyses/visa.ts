@@ -31,38 +31,38 @@ export const visa: AnalyseCard = {
   geo:            'États-Unis',   // voir union ZoneGeo
   conviction:     'exceptionnelle',      // exceptionnelle | forte | moyenne | spéculative
   positionnement: 'accumulation', // achat fort | accumulation | surveillance | maintien | allégement
-  lastUpdated:    '2026-04-07',
+  lastUpdated:    '2026-04-28',
   statut:         'actif', // en-construction | actif | archivé
   portefeuille:   'CTO',          // PEA | CTO | PEA + CTO | Aucun
   horizon:        '5 ans',
   excerpt:        "Le duopole des réseaux de paiement au modèle asset-light structurellement protégé, entre ralentissement des dépenses consommateurs aux États-Unis et expansion vers les flux B2B et les marchés émergents.",
   glossaire:      ['moat', 'free-cash-flow', 'roic', 'dcf', 'asset-light', 'interchange'], // slugs glossaire liés
   logo:          '/analyse/visa.png',
-  prixCible:      { bas: 498, haut: 578, devise: 'USD' },
+  prixCible:      { bas: 595, haut: 670, devise: 'USD' },
   marginOfSafety: 'faible', // forte | correcte | faible | négative | indéterminée
   readingTime:    25,
 
   metrics: {
-    per:               32.9,  // Price / Earnings
-    evEbitda:          26.8,  // EV / EBITDA
-    fcfYield:          3.32,  // FCF Yield en %
-    roic:              45.6,  // Return on Invested Capital en %
-    wacc:              7.3,  // Weighted Average Cost of Capital en %
-    detteEbitda:       0.25,  // Dette nette / EBITDA — négatif = trésorerie nette
+    per:               28.5,  // Price / Earnings
+    evEbitda:          21.7,  // EV / EBITDA
+    fcfYield:          3.55,  // FCF Yield en %
+    roic:              46.8,  // Return on Invested Capital en %
+    wacc:              7.8,  // Weighted Average Cost of Capital en %
+    detteEbitda:       0.42,  // Dette nette / EBITDA — négatif = trésorerie nette
     croissanceCA3ans:  11.1,  // TCAC CA sur 3 ans en %
     croissanceBPA3ans: 14.2,  // TCAC BPA sur 3 ans en %
-    margeEbit:         59.2,  // Marge opérationnelle en %
+    margeEbit:         61.1,  // Marge opérationnelle en %
     margeBrute:        97.8,  // Marge brute en %
-    payoutRatio:       22.9,  // Dividendes / Résultat net en %
-    currentRatio:      1.11,  // Actif courant / Passif courant
+    payoutRatio:       21.9,  // Dividendes / Résultat net en %
+    currentRatio:      1.09,  // Actif courant / Passif courant
     dso:               29,  // Days Sales Outstanding en jours
   },
 
   tendances: {
-    per:       'hausse', // hausse | stable | baisse
-    fcfYield:  'baisse',
+    per:       'baisse', // hausse | stable | baisse
+    fcfYield:  'hausse',
     roic:      'hausse',
-    margeEbit: 'baisse',
+    margeEbit: 'stable',
   },
 
   updates: [

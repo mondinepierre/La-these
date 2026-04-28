@@ -21,7 +21,8 @@ import { fcfYield                    } from './fcf-yield'
 import { portefeuilleParThemes       } from './portefeuille-par-themes'
 import { lireUnRapportAnnuel         } from './lire-un-rapport-annuel'
 import { novoOrionEtude              } from './novo-orion-etude'
-import { airLiquideTapisRoulant              } from './air-liquide-tapis-roulant'
+import { airLiquideTapisRoulant      } from './air-liquide-tapis-roulant'
+import { visaQ2Fy2026      } from './visa-q2-fy2026'
 export const articles: ArticleMeta[] = [
   evEbitdaEtRoic,
   roicEtWacc,
@@ -36,6 +37,7 @@ export const articles: ArticleMeta[] = [
   lireUnRapportAnnuel,
   novoOrionEtude,
   airLiquideTapisRoulant,
+  visaQ2Fy2026,
 ]
 
 export function getPublishedArticles(): ArticleMeta[] {
