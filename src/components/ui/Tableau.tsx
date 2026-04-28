@@ -2082,7 +2082,596 @@ const TABLEAUX: Record<string, TableauData> = {
       },
     ],
   },
+  
+// ─────────────────────────────────────────────────────────────────────────────
+// TABLEAU ENTRIES — TotalEnergies v2
+// À coller dans le record TABLEAUX de src/components/ui/Tableau.tsx
+//
+// BASE : BPA ajusté FY2025 = résultat net ajusté 15 600 M$ / 2 214 M actions = 7,05 $
+// (résultat net ajusté publié dans le DEU 2025 — hors effets de stock et éléments
+// non récurrents. Les analystes buy-side utilisent cette base.)
+//
+// Multiple central : 8,57× (moyenne des multiples ajustés aux taux sur 5 ans)
+// Marge d'erreur   : 14,2 % (bêta 0,947 × 15 %)
+// r retenu         : 10 % (défensif haut de fourchette — cyclique intégrée à dividende)
+// Dividende annuel : 3,92 $/action (3,40 € × taux de change 1,153 au 20/03/2026)
+// Cours de rédaction : 88,75 $ = 76,96 € (20/03/2026)
+//
+// ZONE JUSTE CENTRALE à r = 10 % :
+//   Prix cible central = 8,58 $ × 8,57 = 73,5 $
+//   Zone juste = 73,5 / (1,10)^5 + PV dividendes (3,92 $ × 3,791) = 45,6 + 14,9 = 60,5 $
+//   Soit 60,5 / 1,153 = 52,5 € — correspond à la MM200 hebdomadaire (52 €)
+//
+// DCF : inchangé — basé sur le cash-flow libre, pas le résultat net
+// ─────────────────────────────────────────────────────────────────────────────
 
+  // ── 1. DCF — Paramètres ────────────────────────────────────────────────────
+  'totalenergies-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',      primary: true },
+      { key: 'valeur',    label: 'Valeur'                        },
+      { key: 'source',    label: 'Source / Note'                 },
+    ],
+    lignes: [
+      {
+        parametre: 'Cash-flow libre de base (FY2025)',
+        valeur:    '10 390 M$',
+        source:    'Cash-flow opérationnel 27 343 − Investissements industriels 16 953 — DEU 2025',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'Coût moyen pondéré du capital',
+        valeur:    '6,08 %',
+        source:    'CAPM — Rf OAT 2,86 % + bêta 0,947 × prime de risque 4,78 % — coût de la dette après impôt 2,97 %',
+      },
+      {
+        parametre: 'Taux de croissance perpétuelle',
+        valeur:    '2,0 %',
+        source:    'Croissance nominale long terme — en ligne avec cible inflation BCE',
+      },
+      {
+        parametre: 'Horizon de projection',
+        valeur:    '5 ans',
+        source:    '2026 – 2030',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '2 214 M',
+        source:    'FY2025 — DEU 2025',
+      },
+      {
+        parametre: 'Dette nette déduite',
+        valeur:    '34 831 M$',
+        source:    'Bilan consolidé 31/12/2025',
+      },
+      {
+        parametre: 'Part valeur terminale / valeur d\'entreprise',
+        valeur:    '80 – 84 %',
+        source:    'Selon le scénario — ±0,5 pt sur le taux de croissance perpétuelle = ±15 $ sur le cours implicite',
+      },
+    ],
+  },
+
+  // ── 2. DCF — Scénarios ─────────────────────────────────────────────────────
+  'totalenergies-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',                          primary: true },
+      { key: 'brent',    label: 'Brent retenu'                                     },
+      { key: 'cagr',     label: 'Croissance cash-flow libre / an'                  },
+      { key: 'fcf2030',  label: 'Cash-flow libre 2030'                             },
+      { key: 'sommefcf', label: 'Somme flux actualisés'                            },
+      { key: 'vt',       label: 'Valeur terminale actualisée'                      },
+      { key: 'ev',       label: 'Valeur d\'entreprise'                             },
+    ],
+    lignes: [
+      {
+        scenario:  'Conservateur',
+        brent:     '60 – 65 $',
+        cagr:      '−5 %/an',
+        fcf2030:   '8 040 M$',
+        sommefcf:  '37 765 M$',
+        vt:        '149 545 M$',
+        ev:        '187 310 M$',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        scenario:  'Central',
+        brent:     '72 – 75 $',
+        cagr:      '+3 %/an',
+        fcf2030:   '12 045 M$',
+        sommefcf:  '47 600 M$',
+        vt:        '224 120 M$',
+        ev:        '271 720 M$',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        scenario:  'Optimiste',
+        brent:     '82 – 85 $',
+        cagr:      '+8 %/an',
+        fcf2030:   '15 266 M$',
+        sommefcf:  '54 837 M$',
+        vt:        '284 150 M$',
+        ev:        '338 987 M$',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // ── 3. DCF — Synthèse ──────────────────────────────────────────────────────
+  'totalenergies-dcf-synthese': {
+    colonnes: [
+      { key: 'scenario',  label: 'Scénario',          primary: true },
+      { key: 'equity',    label: 'Valeur des fonds propres'         },
+      { key: 'cours',     label: 'Cours implicite'                  },
+      { key: 'reference', label: 'Cours 20/03/2026'                 },
+      { key: 'ecart',     label: 'Prime / Décote'                   },
+    ],
+    lignes: [
+      {
+        scenario:  'Conservateur',
+        equity:    '152 479 M$',
+        cours:     '68,9 $',
+        reference: '88,75 $',
+        ecart:     '−22,4 %',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        scenario:  'Central',
+        equity:    '236 889 M$',
+        cours:     '107,0 $',
+        reference: '88,75 $',
+        ecart:     '+20,6 %',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        scenario:  'Optimiste',
+        equity:    '304 156 M$',
+        cours:     '137,4 $',
+        reference: '88,75 $',
+        ecart:     '+54,8 %',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // ── 4. Calculateur de multiples — Synthèse des trois scénarios ─────────────
+  // Base : BPA ajusté FY2025 = 7,05 $ (résultat net ajusté DEU 2025 / actions diluées)
+  // Le BPA consolidé IFRS (5,78 $) intègre des éléments non récurrents (effets de
+  // stock, dépréciations ponctuelles) que le marché exclut de sa valorisation.
+  'totalenergies-per-trois-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'bear',      label: 'Conservateur'              },
+      { key: 'central',   label: 'Central'                   },
+      { key: 'bull',      label: 'Optimiste'                 },
+    ],
+    lignes: [
+      {
+        parametre:  'Brent retenu',
+        bear:       '60 – 65 $',
+        central:    '72 – 75 $',
+        bull:       '82 – 85 $',
+        _headerBg:  '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre:  'Croissance BPA par an',
+        bear:       '−3 %',
+        central:    '+4 %',
+        bull:       '+9 %',
+      },
+      {
+        parametre:  'BPA ajusté projeté FY2031',
+        bear:       '6,05 $',
+        central:    '8,58 $',
+        bull:       '10,85 $',
+      },
+      {
+        parametre:  'Multiple central retenu',
+        bear:       '8,57×',
+        central:    '8,57×',
+        bull:       '8,57×',
+      },
+      {
+        parametre:  'Prix cible',
+        bear:       '51,8 $',
+        central:    '73,5 $',
+        bull:       '93,0 $',
+        _headerBg:  '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre:  'Fourchette basse (−14,2 %)',
+        bear:       '44,4 $',
+        central:    '63,1 $',
+        bull:       '79,8 $',
+      },
+      {
+        parametre:  'Fourchette haute (+14,2 %)',
+        bear:       '59,2 $',
+        central:    '83,9 $',
+        bull:       '106,2 $',
+      },
+      {
+        parametre:  'Cours 20/03/2026 (position)',
+        bear:       '↑ au-dessus',
+        central:    '↑ au-dessus',
+        bull:       '→ dans la fourchette haute',
+        _headerBg:  '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // ── 5. Zone juste — Scénario conservateur ──────────────────────────────────
+  // Zone juste = prix cible / (1+r)^5 + valeur actuelle des dividendes sur 5 ans
+  // Prix cible conservateur = 51,8 $ | Dividende annuel = 3,92 $/action
+  'totalenergies-per-zone-bear': {
+    colonnes: [
+      { key: 'signal',       label: 'Signal',            primary: true },
+      { key: 'mos',          label: 'Marge de sécurité'                },
+      { key: 'zonejuste',    label: 'Zone juste ($)'                   },
+      { key: 'fourchette',   label: 'Fourchette d\'achat (€)'          },
+    ],
+    lignes: [
+      {
+        signal:       'Surveillance active',
+        mos:          '5 – 10 %',
+        zonejuste:    '42,2 $',
+        fourchette:   '32 – 34 €',
+        _headerBg:    '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        signal:       'Premier renforcement',
+        mos:          '15 – 20 %',
+        zonejuste:    '42,2 $',
+        fourchette:   '29 – 32 €',
+      },
+      {
+        signal:       'Achat fort',
+        mos:          '25 – 30 %',
+        zonejuste:    '42,2 $',
+        fourchette:   '25 – 28 €',
+      },
+    ],
+  },
+
+  // ── 6. Zone juste — Scénario central ───────────────────────────────────────
+  // Zone juste = 73,5 / (1,10)^5 + PV dividendes = 45,6 + 14,9 = 60,5 $
+  // 60,5 / 1,153 = 52,5 € — correspond à la MM200 hebdomadaire (52 €)
+  'totalenergies-per-zone-central': {
+    colonnes: [
+      { key: 'signal',       label: 'Signal',            primary: true },
+      { key: 'mos',          label: 'Marge de sécurité'                },
+      { key: 'zonejuste',    label: 'Zone juste ($)'                   },
+      { key: 'fourchette',   label: 'Fourchette d\'achat (€)'          },
+    ],
+    lignes: [
+      {
+        signal:       'Surveillance active',
+        mos:          '5 – 10 %',
+        zonejuste:    '60,5 $',
+        fourchette:   '47 – 50 €',
+        _headerBg:    '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        signal:       'Premier renforcement',
+        mos:          '15 – 20 %',
+        zonejuste:    '60,5 $',
+        fourchette:   '42 – 45 €',
+      },
+      {
+        signal:       'Achat fort',
+        mos:          '25 – 30 %',
+        zonejuste:    '60,5 $',
+        fourchette:   '37 – 40 €',
+      },
+    ],
+  },
+
+  // ── 7. Zone juste — Scénario optimiste ─────────────────────────────────────
+  // Zone juste = 93,0 / (1,10)^5 + PV dividendes = 57,8 + 14,9 = 72,7 $
+  // Le cours de rédaction (88,75 $) est 22 % au-dessus de cette zone juste.
+  'totalenergies-per-zone-bull': {
+    colonnes: [
+      { key: 'signal',       label: 'Signal',            primary: true },
+      { key: 'mos',          label: 'Marge de sécurité'                },
+      { key: 'zonejuste',    label: 'Zone juste ($)'                   },
+      { key: 'fourchette',   label: 'Fourchette d\'achat (€)'          },
+    ],
+    lignes: [
+      {
+        signal:       'Surveillance active',
+        mos:          '5 – 10 %',
+        zonejuste:    '72,7 $',
+        fourchette:   '56 – 60 €',
+        _headerBg:    '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        signal:       'Premier renforcement',
+        mos:          '15 – 20 %',
+        zonejuste:    '72,7 $',
+        fourchette:   '50 – 54 €',
+      },
+      {
+        signal:       'Achat fort',
+        mos:          '25 – 30 %',
+        zonejuste:    '72,7 $',
+        fourchette:   '44 – 48 €',
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────────
+// ALPHABET — 7 blocs à insérer dans le Record TABLEAUX de src/components/ui/Tableau.tsx
+// Insérer avant la dernière accolade fermante } du Record TABLEAUX
+// ─────────────────────────────────────────────────────────────────────────────
+
+'goog-dcf-parametres': {
+  compact: true,
+  colonnes: [
+    { key: 'parametre', label: 'Paramètre',      primary: true },
+    { key: 'valeur',    label: 'Valeur retenue'               },
+    { key: 'justif',    label: 'Justification'                },
+  ],
+  lignes: [
+    {
+      parametre: 'WACC',
+      valeur:    '8,78 %',
+      justif:    'Rf 4,15 % (UST 10 ans) + Beta 1,118 × ERP 4,23 % (Damodaran jan. 2026)',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'FCF de base (FY2025)',
+      valeur:    '73 266 M$',
+      justif:    'OCF 164 713 M$ − Capex industriel 91 447 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'CAGR FCF retenu',
+      valeur:    '2,3 %',
+      justif:    'CAGR FCF observé 2021-2025. Note : CAGR OCF = 15,7 % — le capex ×3,7 absorbe la croissance',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      parametre: 'Croissance perpétuelle',
+      valeur:    '2,0 %',
+      justif:    'Plancher conservateur, 6,8 points sous le WACC',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'Trésorerie nette',
+      valeur:    '80 296 M$',
+      justif:    'Cash + marketable securities 126 843 M$ − dette brute 46 547 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre: 'Actions diluées',
+      valeur:    '12 230 millions',
+      justif:    '10-K FY2025, Note 12 — diluted shares weighted average',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+  ],
+},
+
+'goog-dcf-scenarios': {
+  colonnes: [
+    { key: 'scenario',  label: 'Scénario',        primary: true },
+    { key: 'cagr',      label: 'CAGR FCF (5 ans)'              },
+    { key: 'hypothese', label: 'Hypothèse'                     },
+    { key: 'cours',     label: 'Valeur intrinsèque'            },
+  ],
+  lignes: [
+    {
+      scenario:  'Conservateur',
+      cagr:      '0 %',
+      hypothese: 'FCF stagne — capex massif maintenu sans conversion',
+      cours:     '~89 $',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      scenario:  'Central',
+      cagr:      '2,3 %',
+      hypothese: 'CAGR FCF observé 2021-2025 — continuité sans normalisation',
+      cours:     '~98 $',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      scenario:  'Optimiste',
+      cagr:      '5 %',
+      hypothese: 'Légère amélioration du ratio FCF/OCF à partir de 2027',
+      cours:     '~109 $',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      scenario:  'Pour justifier 313,80 $ (31/12/2025)',
+      cagr:      '~25-30 %',
+      hypothese: 'FCF triple en 5 ans — capex normalisé + explosion Cloud',
+      cours:     '313,80 $',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'goog-dcf-synthese': {
+  compact: true,
+  colonnes: [
+    { key: 'element', label: 'Élément',   primary: true },
+    { key: 'valeur',  label: 'Valeur (M$)'              },
+    { key: 'detail',  label: 'Détail'                   },
+  ],
+  lignes: [
+    {
+      element: 'Somme FCF actualisés (5 ans)',
+      valeur:  '305 488',
+      detail:  'FCF base 73 266 M$ × CAGR 2,3 % sur 5 ans, actualisés à 8,78 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur terminale actualisée',
+      valeur:  '809 659',
+      detail:  'FCF₅ × (1 + 2 %) / (8,78 % − 2 %), actualisée sur 5 ans — 72,6 % de l\'EV',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Enterprise Value',
+      valeur:  '1 115 147',
+      detail:  'Somme FCF actualisés + valeur terminale actualisée',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      element: 'Trésorerie nette (à ajouter)',
+      valeur:  '80 296',
+      detail:  'Cash 30 708 + titres 96 135 − dette LT 46 547 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur des capitaux propres',
+      valeur:  '1 195 443',
+      detail:  'EV + trésorerie nette',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      element: 'Valeur intrinsèque par action',
+      valeur:  '~97,75 $',
+      detail:  '1 195 443 M$ / 12 230 M actions diluées',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'goog-per-trois-scenarios': {
+  colonnes: [
+    { key: 'scenario',  label: 'Scénario',          primary: true },
+    { key: 'cagr',      label: 'Base de calcul'                    },
+    { key: 'bpa2030',   label: 'BPA 2030'                          },
+    { key: 'cible',     label: 'Prix cible (20,41x)'               },
+    { key: 'zone10',    label: 'Zone juste r=10 %'                 },
+  ],
+  lignes: [
+    {
+      scenario: 'Bear — ralentissement',
+      cagr:     'CAGR EPS 12 % (base prudente)',
+      bpa2030:  '19,05 $',
+      cible:    '388,8 $',
+      zone10:   '241 $',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      scenario: 'Central — continuité historique',
+      cagr:     'CAGR EPS observé 2021-2025 : +17,8 %',
+      bpa2030:  '24,52 $',
+      cible:    '500,4 $',
+      zone10:   '311 $',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      scenario: 'Bull — accélération IA',
+      cagr:     'CAGR EPS 22 % (Cloud + Search IA)',
+      bpa2030:  '29,22 $',
+      cible:    '596,5 $',
+      zone10:   '370 $',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+  ],
+},
+
+'goog-per-zone-bear': {
+  colonnes: [
+    { key: 'taux',    label: 'Rendement exigé',   primary: true },
+    { key: 'zone',    label: 'Zone juste centrale'              },
+    { key: 'entrees', label: "Points d'entrée (MoS)"           },
+    { key: 'prime',   label: 'Rapport cours rédaction (~291 $)' },
+  ],
+  lignes: [
+    {
+      taux:    'r = 10 %',
+      zone:    '241 $',
+      entrees: '205 $ (15 %) — 193 $ (20 %) — 181 $ (25 %)',
+      prime:   '+21 % (cours au-dessus de la zone)',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      taux:    'r = 12 %',
+      zone:    '221 $',
+      entrees: '188 $ (15 %) — 177 $ (20 %) — 165 $ (25 %)',
+      prime:   '+32 % (cours au-dessus de la zone)',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+  ],
+},
+
+'goog-per-zone-central': {
+  colonnes: [
+    { key: 'taux',    label: 'Rendement exigé',   primary: true },
+    { key: 'zone',    label: 'Zone juste centrale'              },
+    { key: 'entrees', label: "Points d'entrée (MoS)"           },
+    { key: 'mos',     label: 'MoS cours rédaction (~291 $)'    },
+  ],
+  lignes: [
+    {
+      taux:    'r = 10 %',
+      zone:    '311 $',
+      entrees: '264 $ (15 %) — 249 $ (20 %) — 233 $ (25 %)',
+      mos:     '+6,8 % de MoS — insuffisant (seuil 15 %)',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      taux:    'r = 12 %',
+      zone:    '284 $',
+      entrees: '241 $ (15 %) — 227 $ (20 %) — 213 $ (25 %)',
+      mos:     '−2,4 % (cours légèrement au-dessus de la zone)',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+  ],
+},
+
+'goog-per-zone-bull': {
+  colonnes: [
+    { key: 'taux',    label: 'Rendement exigé',   primary: true },
+    { key: 'zone',    label: 'Zone juste centrale'              },
+    { key: 'entrees', label: "Points d'entrée (MoS)"           },
+    { key: 'mos',     label: 'MoS cours rédaction (~291 $)'    },
+  ],
+  lignes: [
+    {
+      taux:    'r = 10 %',
+      zone:    '370 $',
+      entrees: '315 $ (15 %) — 296 $ (20 %) — 277 $ (25 %)',
+      mos:     '+21,4 % de MoS au cours actuel',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      taux:    'r = 12 %',
+      zone:    '338 $',
+      entrees: '287 $ (15 %) — 270 $ (20 %) — 253 $ (25 %)',
+      mos:     '+13,9 % de MoS au cours actuel',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+  ],
+},
 }
 
 
