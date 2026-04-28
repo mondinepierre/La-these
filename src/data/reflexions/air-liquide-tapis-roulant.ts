@@ -5,7 +5,6 @@ export const airLiquideTapisRoulant: ArticleMeta = {
   slug: 'air-liquide-tapis-roulant',
   title: "Air Liquide T1 2026 : quand les bénéfices progressent mais que le cash stagne",
   date: '2026-04-28',
-  publishedAt: '2026-04-28T10:00:00Z',
   category: 'methode',
   level: 'intermediaire',
   readingTime: 7,
