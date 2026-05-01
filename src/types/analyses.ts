@@ -18,6 +18,7 @@ export type Secteur =
 
 export type ZoneGeo =
   | 'États-Unis'
+  | 'Canada'
   | 'Europe'
   | 'Asie'
   | 'France'

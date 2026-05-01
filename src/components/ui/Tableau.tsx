@@ -2671,7 +2671,374 @@ const TABLEAUX: Record<string, TableauData> = {
     },
   ],
 },
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CAMECO — Entrées à ajouter dans TABLEAUX dans Tableau.tsx
+//
+// Convention devise :
+//   - Tableaux d'analyse (DCF, PER trois scénarios) : $CA (données primaires 40-F)
+//   - Tableaux de zone juste / points d'entrée (per-zone-*) : $US (NYSE CCJ)
+//     -> cohérence avec PRU Pierre (70,92 $US) et les niveaux de suivi du Verdict
+//   - Taux de conversion retenu : 1 USD = 1,40 CAD
+// ─────────────────────────────────────────────────────────────────────────────
+
+  'cameco-dcf-parametres': {
+    compact: true,
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',       primary: true },
+      { key: 'valeur',    label: 'Valeur retenue'                 },
+      { key: 'justif',    label: 'Justification'                  },
+    ],
+    lignes: [
+      {
+        parametre: 'WACC',
+        valeur:    '7,42 %',
+        justif:    'CAPM : Rf 3,44 % (UST 10Y), Beta 0,955, ERP 4,23 %, Rd après impôt 4,19 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        parametre: 'FCF base normalisé',
+        valeur:    '835 M$CA',
+        justif:    'FCF publié 1 075 M$CA - distribution exceptionnelle Westinghouse/Dukovany (~240 M$CA, non récurrente)',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        parametre: 'Horizon de projection',
+        valeur:    '5 ans',
+        justif:    'Standard La Thèse — cohérent avec la durée visible du repricing contractuel',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '435 458 k',
+        justif:    'Dilution quasi nulle depuis 2023 (0,03 % en FY2025)',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        parametre: 'Trésorerie nette',
+        valeur:    '+118 M$CA',
+        justif:    'Dette nette négative — ajoutée à l\'EV pour calculer l\'equity value',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+    ],
+  },
+
+  'cameco-dcf-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',           primary: true },
+      { key: 'bear',      label: 'Bear'                              },
+      { key: 'central',   label: 'Central'                           },
+      { key: 'bull',      label: 'Bull'                              },
+    ],
+    lignes: [
+      {
+        parametre: 'CAGR FCF (5 ans)',
+        bear:      '5 %',
+        central:   '8 %',
+        bull:      '12 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        parametre: 'Croissance perpétuelle',
+        bear:      '1,5 %',
+        central:   '2,0 %',
+        bull:      '2,5 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        parametre: 'Hypothèse centrale',
+        bear:      'Repricing partiel — spot uranium ~60-65 $US/lb, WH se normalise sans accélération',
+        central:   'Repricing conforme au MD&A — spot ~73-80 $US/lb, WH +12 %/an',
+        bull:      'Repricing accéléré — spot >80 $US/lb durable, WH gagne contrats new build additionnels',
+        _headerBg:   '#F7F4EF',
+        _headerText: '#78716C',
+      },
+      {
+        parametre: 'FCF année 5 (k$CA)',
+        bear:      '1 065 695',
+        central:   '1 226 889',
+        bull:      '1 471 555',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'cameco-dcf-synthese': {
+    colonnes: [
+      { key: 'element',  label: 'Élément (k$CA)',   primary: true },
+      { key: 'bear',     label: 'Bear'                            },
+      { key: 'central',  label: 'Central'                         },
+      { key: 'bull',     label: 'Bull'                            },
+    ],
+    lignes: [
+      {
+        element:  'Somme FCF actualisés',
+        bear:     '3 901 418',
+        central:  '4 243 395',
+        bull:     '4 740 686',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        element:  'Valeur Terminale actualisée',
+        bear:     '12 781 195',
+        central:  '16 151 624',
+        bull:     '21 446 901',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        element:  '% VT dans l\'EV',
+        bear:     '77 %',
+        central:  '79 %',
+        bull:     '82 %',
+        _headerBg:   '#F7F4EF',
+        _headerText: '#78716C',
+      },
+      {
+        element:  'Enterprise Value',
+        bear:     '16 682 613',
+        central:  '20 395 020',
+        bull:     '26 187 587',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+      {
+        element:  'Equity Value',
+        bear:     '16 801 125',
+        central:  '20 513 532',
+        bull:     '26 306 099',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+      {
+        element:  'Cours implicite ($CA)',
+        bear:     '38,58',
+        central:  '47,11',
+        bull:     '60,41',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  'cameco-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',             primary: true },
+      { key: 'cagr',     label: 'CAGR BPA'                           },
+      { key: 'bpa2030',  label: 'BPA 2030 ($CA)'                     },
+      { key: 'cible',    label: 'Prix cible ($CA)'                   },
+      { key: 'zone',     label: 'Zone juste $CA (r=10 %)'            },
+    ],
+    lignes: [
+      {
+        scenario: 'Bear',
+        cagr:     '5 %',
+        bpa2030:  '1,72',
+        cible:    '110,20',
+        zone:     '68,42',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        scenario: 'Central',
+        cagr:     '8 %',
+        bpa2030:  '1,98',
+        cible:    '126,86',
+        zone:     '78,77',
+        _headerBg:   '#C9A84C',
+        _headerText: '#1C1917',
+      },
+      {
+        scenario: 'Bull',
+        cagr:     '12 %',
+        bpa2030:  '2,38',
+        cible:    '152,16',
+        zone:     '94,48',
+        _headerBg:   '#D6EDDF',
+        _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // ── Tableaux de zone juste : prix d'entrée en $US (NYSE CCJ, cohérence avec PRU) ──
+
+  'cameco-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'mos',    label: 'Marge de sécurité', primary: true },
+      { key: 'prix',   label: "Prix d'entrée ($US)"              },
+      { key: 'upside', label: 'Upside vs prix cible'             },
+    ],
+    lignes: [
+      {
+        mos:    '5 %',
+        prix:   '46,43',
+        upside: '+69,5 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '10 %',
+        prix:   '43,99',
+        upside: '+78,9 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '15 %',
+        prix:   '41,54',
+        upside: '+89,5 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '20 %',
+        prix:   '39,10',
+        upside: '+101,3 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '25 %',
+        prix:   '36,66',
+        upside: '+114,7 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+      {
+        mos:    '30 %',
+        prix:   '34,21',
+        upside: '+130,1 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  'cameco-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'mos',    label: 'Marge de sécurité', primary: true },
+      { key: 'prix',   label: "Prix d'entrée ($US)"              },
+      { key: 'upside', label: 'Upside vs prix cible'             },
+    ],
+    lignes: [
+      {
+        mos:    '5 %',
+        prix:   '53,45',
+        upside: '+69,5 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '10 %',
+        prix:   '50,64',
+        upside: '+78,9 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '15 %',
+        prix:   '47,83',
+        upside: '+89,5 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '20 %',
+        prix:   '45,01',
+        upside: '+101,3 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '25 %',
+        prix:   '42,20',
+        upside: '+114,7 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+      {
+        mos:    '30 %',
+        prix:   '39,39',
+        upside: '+130,1 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  'cameco-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'mos',    label: 'Marge de sécurité', primary: true },
+      { key: 'prix',   label: "Prix d'entrée ($US)"              },
+      { key: 'upside', label: 'Upside vs prix cible'             },
+    ],
+    lignes: [
+      {
+        mos:    '0 % - cours actuel CCJ (~122,82 $US)',
+        prix:   '122,82',
+        upside: '-11,4 %',
+        _headerBg:   '#C9A84C',
+        _headerText: '#1C1917',
+      },
+      {
+        mos:    '5 %',
+        prix:   '64,11',
+        upside: '+69,5 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '10 %',
+        prix:   '60,74',
+        upside: '+78,9 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '15 %',
+        prix:   '57,36',
+        upside: '+89,5 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '20 %',
+        prix:   '53,99',
+        upside: '+101,3 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '25 %',
+        prix:   '50,62',
+        upside: '+114,7 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+      {
+        mos:    '30 %',
+        prix:   '47,24',
+        upside: '+130,1 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+    ],
+  },
 }
+
+
 
 
 

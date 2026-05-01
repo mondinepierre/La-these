@@ -1836,6 +1836,36 @@ export const glossaire: GlossaireTerm[] = [
     ],
   },
 
+  {
+  slug: 'equity-method',
+  label: 'Méthode de mise en équivalence',
+  category: 'Analyse fondamentale',
+  shortDef: "Méthode comptable pour les participations minoritaires : seule la quote-part du résultat net est consolidée, pas le chiffre d'affaires.",
+  definition: "La méthode de mise en équivalence s'applique lorsqu'une entreprise détient une participation significative (généralement entre 20% et 50%) dans une autre entité sans en avoir le contrôle.\n\nSeule la quote-part du résultat net de l'entité détenue est inscrite dans le compte de résultat de l'entreprise mère. Le chiffre d'affaires et le bilan de l'entité ne sont pas consolidés ligne par ligne. Au bilan, la participation est inscrite à sa valeur d'acquisition, ajustée chaque année de la quote-part des résultats et des dividendes reçus.\n\nExemple : Cameco détient 49% de Westinghouse. Le chiffre d'affaires de Westinghouse n'apparaît pas dans les revenus de Cameco. En revanche, 49% du résultat net de Westinghouse est inscrit dans le compte de résultat de Cameco sous la ligne 'Quote-part des résultats des sociétés mises en équivalence'.",
+  related: ['goodwill', 'roic'],
+  modules: [],
+},
+
+{
+  slug: 'marche-spot',
+  label: 'Marché spot',
+  category: 'Marchés',
+  shortDef: "Marché sur lequel une matière première ou un actif est acheté et livré immédiatement, au prix du moment.",
+  definition: "Le marché spot désigne le marché au comptant, par opposition aux marchés à terme ou aux contrats longs. Sur un marché spot, la transaction est conclue et livrée quasi immédiatement au prix courant du marché.\n\nPour les matières premières comme l'uranium, le marché spot représente une fraction de l'activité totale : la majeure partie des transactions se fait via des contrats longs (2 à 10 ans) signés entre producteurs et utilities. Le prix spot sert néanmoins de référence pour les nouvelles signatures et pour évaluer la rentabilité des mines.\n\nLe marché spot uranium est publié chaque semaine par des courtiers spécialisés (UxC, TradeTech). Un prix spot bas (sous 40 $US/lb) peut rendre non rentable la production de mines à coût élevé. Un prix spot élevé crée une incitation à signer de nouveaux contrats à des prix plus favorables, ce qui se répercute progressivement dans les prix réalisés au fil du renouvellement du carnet.",
+  related: ['oligopole', 'backlog'],
+  modules: [],
+},
+
+{
+  slug: 'isr',
+  label: 'In-Situ Recovery (ISR)',
+  category: 'Analyse fondamentale',
+  shortDef: "Méthode d'extraction minière qui dissout le minerai directement dans le sous-sol, sans extraction physique de la roche.",
+  definition: "L'In-Situ Recovery (ISR), aussi appelée In-Situ Leaching (ISL), est une technique d'extraction minière utilisée principalement pour l'uranium. Elle consiste à injecter une solution chimique (eau avec bicarbonate ou acide sulfurique) directement dans le gisement souterrain pour dissoudre l'uranium, puis à pomper la solution enrichie en surface pour en extraire le métal.\n\nL'ISR présente des coûts opérationnels structurellement plus bas que l'extraction minière conventionnelle (pas d'excavation, pas de transport de roche, pas de concassage). Elle convient aux gisements poreux et perméables, souvent peu profonds. Le Kazakhstan, premier producteur mondial d'uranium, exploite la quasi-totalité de sa production via l'ISR.\n\nEn revanche, l'ISR ne convient pas aux gisements à très haute teneur comme ceux du bassin de l'Athabasca (McArthur River, Cigar Lake), qui nécessitent une extraction minière souterraine spécialisée mais offrent des grades 50 à 100 fois supérieurs. La comparaison des coûts entre ISR kazakh et extraction souterraine canadienne doit donc intégrer le grade : un minerai 100 fois plus concentré produit beaucoup plus d'uranium par tonne extraite.",
+  related: ['roic', 'marge-brute'],
+  modules: [],
+},
+
 ];
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────
