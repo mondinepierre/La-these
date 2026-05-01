@@ -61,7 +61,7 @@ export const cameco: AnalyseCard = {
   logo:           '/analyse/cameco.png',
   prixCible:      { bas: 0, haut: 0, devise: 'CAD' },   // à compléter après la section Valorisation
   marginOfSafety: 'indéterminée',                         // méthodes divergentes — voir section Valorisation
-  readingTime:    0,                                      // à compléter à la fin de rédaction
+  readingTime:    40,                                      // à compléter à la fin de rédaction
 
   // ── Métriques snapshot FY2025 ──────────────────────────────────────────────
   // Cours de référence : 125,68 $CA (clôture 31/12/2025, CCO.TO)
