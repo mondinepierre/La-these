@@ -3036,6 +3036,368 @@ const TABLEAUX: Record<string, TableauData> = {
       },
     ],
   },
+  // ─────────────────────────────────────────────────────────────────────────────
+// TABLEAUX CEG — à coller dans le Record<string, TableauData> de Tableau.tsx
+// juste avant la dernière accolade fermante `}`
+// ─────────────────────────────────────────────────────────────────────────────
+
+  // ── DCF Paramètres ──────────────────────────────────────────────────────────
+  'ceg-dcf-parametres': {
+    compact: true,
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',       primary: true },
+      { key: 'valeur',    label: 'Valeur retenue'                 },
+      { key: 'justif',    label: 'Justification'                  },
+    ],
+    lignes: [
+      {
+        parametre: 'WACC',
+        valeur:    '9,0 %',
+        justif:    'UST 10Y (4,4 %) + prime de risque marché ajustée au bêta (0,85)',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        parametre: 'Croissance (années 1-5)',
+        valeur:    '18 % (scénario central)',
+        justif:    'Normalisation FCF post-Calpine et post-Crane — voir scénarios',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        parametre: 'Croissance perpétuelle',
+        valeur:    '2,0 %',
+        justif:    'Ancré sur la croissance nominale long terme de l\'économie américaine',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        parametre: 'FCF base FY2025 (GAAP)',
+        valeur:    '1 288 M$',
+        justif:    'OCF 4 237 M$ – Capex 2 949 M$ — première année positive post-distorsions DPP',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        parametre: 'Dette nette (31/12/2025)',
+        valeur:    '3 594 M$',
+        justif:    'Hors dette Calpine consolidée à partir de janvier 2026',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '314 M',
+        justif:    'Post-rachats 2022-2025 (329 M en 2022 → 314 M en 2025)',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // ── DCF Scénarios ────────────────────────────────────────────────────────────
+  'ceg-dcf-scenarios': {
+    compact: true,
+    colonnes: [
+      { key: 'scenario',   label: 'Scénario',     primary: true },
+      { key: 'cagr',       label: 'CAGR FCF'                   },
+      { key: 'fcf2030',    label: 'FCF FY2030'                 },
+      { key: 'vtPct',      label: 'VT (% EV)'                  },
+      { key: 'prixAction', label: 'Equity/action'              },
+    ],
+    lignes: [
+      {
+        scenario:   'Bear',
+        cagr:       '10 %',
+        fcf2030:    '2 074 M$',
+        vtPct:      '75 %',
+        prixAction: '72 $',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        scenario:   'Central',
+        cagr:       '18 %',
+        fcf2030:    '2 946 M$',
+        vtPct:      '77 %',
+        prixAction: '104 $',
+        _headerBg:   '#C9A84C',
+        _headerText: '#1C1917',
+      },
+      {
+        scenario:   'Bull',
+        cagr:       '25 %',
+        fcf2030:    '3 930 M$',
+        vtPct:      '79 %',
+        prixAction: '139 $',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── DCF Synthèse (scénario central) ─────────────────────────────────────────
+  'ceg-dcf-synthese': {
+    compact: true,
+    colonnes: [
+      { key: 'element', label: 'Élément',    primary: true },
+      { key: 'valeur',  label: 'Valeur (M$)'               },
+      { key: 'detail',  label: 'Détail'                    },
+    ],
+    lignes: [
+      {
+        element: 'Somme FCF actualisés (5 ans)',
+        valeur:  '8 024',
+        detail:  'Cumul des flux annuels ramenés en valeur actuelle (WACC 9,0 %)',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        element: 'Valeur Terminale actualisée',
+        valeur:  '28 088',
+        detail:  'TV / (1 + WACC)^5 — représente 77 % de l\'EV',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        element: 'Valeur d\'Entreprise (EV)',
+        valeur:  '36 112',
+        detail:  'Somme FCF actualisés + TV actualisée',
+        _headerBg:   '#C9A84C',
+        _headerText: '#1C1917',
+      },
+      {
+        element: 'Dette nette',
+        valeur:  '3 594',
+        detail:  'Au 31/12/2025 — hors dette Calpine (janvier 2026)',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        element: 'Valeur des capitaux propres',
+        valeur:  '32 518',
+        detail:  'EV - dette nette',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        element: 'Nombre d\'actions',
+        valeur:  '314 M',
+        detail:  'Actions diluées FY2025',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        element: 'Fair Value par action',
+        valeur:  '103,56 $',
+        detail:  'Valeur capitaux propres / nombre d\'actions',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── PER — Trois scénarios résumé ────────────────────────────────────────────
+  'ceg-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario',  label: 'Scénario',              primary: true },
+      { key: 'cagr',      label: 'CAGR BPA'                            },
+      { key: 'bpa2030',   label: 'BPA FY2030'                          },
+      { key: 'cible',     label: 'Prix cible (PER × BPA)'              },
+      { key: 'zoneJuste', label: 'Zone juste (r=10 %)'                 },
+    ],
+    lignes: [
+      {
+        scenario:  'Bear',
+        cagr:      '8 %',
+        bpa2030:   '13,80 $',
+        cible:     '331 $',
+        zoneJuste: '206 $',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        scenario:  'Central',
+        cagr:      '12 %',
+        bpa2030:   '16,55 $',
+        cible:     '397 $',
+        zoneJuste: '247 $',
+        _headerBg:   '#C9A84C',
+        _headerText: '#1C1917',
+      },
+      {
+        scenario:  'Bull',
+        cagr:      '16 %',
+        bpa2030:   '19,72 $',
+        cible:     '473 $',
+        zoneJuste: '294 $',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── PER Zone Bear ────────────────────────────────────────────────────────────
+  'ceg-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'mos',    label: 'Marge de sécurité', primary: true },
+      { key: 'prix',   label: 'Prix d\'entrée ($)'               },
+      { key: 'upside', label: 'Upside vs prix cible (331 $)'     },
+    ],
+    lignes: [
+      {
+        mos:    '0 % - cours actuel (~353 $)',
+        prix:   '353',
+        upside: '-6,3 %',
+        _headerBg:   '#C9A84C',
+        _headerText: '#1C1917',
+      },
+      {
+        mos:    '5 %',
+        prix:   '314',
+        upside: '+5,4 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '10 %',
+        prix:   '298',
+        upside: '+11,1 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '15 %',
+        prix:   '281',
+        upside: '+17,8 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '20 %',
+        prix:   '265',
+        upside: '+25,0 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '25 % — zone juste r=10 %',
+        prix:   '206',
+        upside: '+60,7 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── PER Zone Central ─────────────────────────────────────────────────────────
+  'ceg-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'mos',    label: 'Marge de sécurité', primary: true },
+      { key: 'prix',   label: 'Prix d\'entrée ($)'               },
+      { key: 'upside', label: 'Upside vs prix cible (397 $)'     },
+    ],
+    lignes: [
+      {
+        mos:    '0 % - cours actuel (~353 $)',
+        prix:   '353',
+        upside: '+12,5 %',
+        _headerBg:   '#C9A84C',
+        _headerText: '#1C1917',
+      },
+      {
+        mos:    '5 %',
+        prix:   '377',
+        upside: '+5,3 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '10 %',
+        prix:   '357',
+        upside: '+11,2 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '15 %',
+        prix:   '337',
+        upside: '+17,8 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '20 %',
+        prix:   '318',
+        upside: '+24,8 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '25 % — zone juste r=10 %',
+        prix:   '247',
+        upside: '+60,7 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── PER Zone Bull ─────────────────────────────────────────────────────────────
+  'ceg-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'mos',    label: 'Marge de sécurité', primary: true },
+      { key: 'prix',   label: 'Prix d\'entrée ($)'               },
+      { key: 'upside', label: 'Upside vs prix cible (473 $)'     },
+    ],
+    lignes: [
+      {
+        mos:    '0 % - cours actuel (~353 $)',
+        prix:   '353',
+        upside: '+34,0 %',
+        _headerBg:   '#C9A84C',
+        _headerText: '#1C1917',
+      },
+      {
+        mos:    '5 %',
+        prix:   '449',
+        upside: '+5,3 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '10 %',
+        prix:   '426',
+        upside: '+11,0 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '15 %',
+        prix:   '402',
+        upside: '+17,7 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '20 %',
+        prix:   '378',
+        upside: '+25,1 %',
+        _headerBg:   '#E0DBCF',
+        _headerText: '#44403C',
+      },
+      {
+        mos:    '25 % — zone juste r=10 %',
+        prix:   '294',
+        upside: '+60,9 %',
+        _headerBg:   '#1B4332',
+        _headerText: '#F7F4EF',
+      },
+    ],
+  },
 }
 
 

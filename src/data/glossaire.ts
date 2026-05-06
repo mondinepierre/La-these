@@ -1866,6 +1866,73 @@ export const glossaire: GlossaireTerm[] = [
   modules: [],
 },
 
+// ─────────────────────────────────────────────────────────────────────────────
+// NOUVEAUX TERMES à intégrer dans le tableau `termes` de glossaire.ts
+// Catégories utilisées : "Fondamentaux" | "Marchés" | "Analyse fondamentale"
+// ─────────────────────────────────────────────────────────────────────────────
+
+  {
+    slug: "spin-off",
+    label: "Spin-off (scission)",
+    category: "Fondamentaux",
+    shortDef: "Opération par laquelle une entreprise détache une filiale ou une division pour en faire une entité cotée indépendante, distribuant les nouvelles actions à ses propres actionnaires.",
+    definition: `Un spin-off est une opération de restructuration par laquelle une société mère sépare une partie de ses activités pour créer une nouvelle entité juridique et boursière indépendante. Les actionnaires de la société mère reçoivent généralement des actions de la nouvelle entité proportionnellement à leur participation initiale.\n\nContrairement à une cession (vente à un tiers), le spin-off ne génère pas de liquidités immédiates pour la maison mère : il répond plutôt à une logique de simplification du portefeuille, d'amélioration de la lisibilité boursière, ou de création de valeur en permettant à chaque entité d'être valorisée selon ses propres métriques sectorielles.\n\nPour l'analyste, un spin-off présente plusieurs caractéristiques à documenter : l'historique financier est souvent court (les premiers exercices autonomes sont des exercices de transition), les charges de séparation peuvent peser sur les comptes pendant 1 à 3 ans, et les frais de structure alloués par la maison mère disparaissent ou se transforment selon les accords de services transitoires. C'est pourquoi les premières années post-spin nécessitent des retraitements spécifiques avant toute comparaison historique.`,
+    related: ["capitalisation-boursiere", "goodwill", "rachat-actions"],
+    modules: [],
+  },
+
+  {
+    slug: "dilution",
+    label: "Dilution (du capital)",
+    category: "Analyse fondamentale",
+    shortDef: "Augmentation du nombre d'actions en circulation qui réduit mécaniquement la part de chaque actionnaire existant dans les bénéfices, les actifs et les droits de vote de l'entreprise.",
+    definition: `La dilution désigne toute opération qui augmente le nombre d'actions en circulation, réduisant ainsi le poids relatif de chaque actionnaire sans que celui-ci ait vendu ses titres. Les sources de dilution sont multiples : émissions d'actions nouvelles pour financer une acquisition, exercice de stock-options et de RSUs par les salariés, conversion d'obligations convertibles, ou augmentations de capital en numéraire.\n\nLa dilution se mesure en comparant le nombre d'actions dilué (incluant tous les instruments potentiellement convertibles) au nombre d'actions basique, ou en observant l'évolution annuelle du nombre d'actions d'une année sur l'autre.\n\nUne dilution modérée (0 à 2% par an) liée à la rémunération des salariés est généralement acceptée pour les entreprises technologiques. Une dilution négative — c'est-à-dire une concentration résultant de rachats d'actions — est un signal positif d'allocation du capital quand elle est réalisée en dessous de la valeur intrinsèque estimée. À l'inverse, une dilution forte et répétée érode la valeur par action même quand l'entreprise croît en valeur absolue.`,
+    related: ["rachat-actions", "bpa", "free-cash-flow", "rsu"],
+    modules: [],
+  },
+
+  {
+    slug: "couts-de-changement",
+    label: "Coûts de changement (Switching Costs)",
+    category: "Analyse fondamentale",
+    shortDef: "Frais financiers, opérationnels ou réglementaires que supporte un client pour changer de fournisseur, créant une barrière à la sortie qui renforce l'avantage concurrentiel du titulaire.",
+    definition: `Les coûts de changement (switching costs) désignent l'ensemble des frictions — financières, techniques, réglementaires ou relationnelles — qui rendent coûteuse pour un client le fait de substituer un fournisseur à un autre. C'est l'un des quatre archétypes de moat identifiés par la littérature d'analyse fondamentale, avec les effets de réseau, les actifs intangibles et les avantages de coût.\n\nLes coûts de changement peuvent prendre plusieurs formes : coûts directs (frais de résiliation, investissements de reconfiguration), coûts d'apprentissage (formation des équipes à un nouveau système), coûts réglementaires (recertification d'un équipement ou d'un fournisseur par une autorité de tutelle), et coûts relationnels (perte d'un historique de données ou d'une relation commerciale établie).\n\nPour l'analyste, les coûts de changement se détectent dans la récurrence du chiffre d'affaires (taux de rétention clients élevé), dans la durée des contrats, et dans la capacité de l'entreprise à augmenter ses prix sans perdre de clients (pricing power). Un moat fondé sur les coûts de changement est particulièrement défensif car il est ancré dans le comportement des clients plutôt que dans les actifs de l'entreprise.`,
+    related: ["moat", "pricing-power", "saas", "backlog"],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "ptc-nucleaire",
+    label: "PTC Nucléaire — Production Tax Credit",
+    category: "Analyse fondamentale",
+    shortDef: "Crédit d'impôt américain accordé par l'Inflation Reduction Act de 2022 aux producteurs d'électricité nucléaire existante, calculé en fonction de l'écart entre le prix de marché et un prix plancher garanti.",
+    definition: `Le Production Tax Credit (PTC) nucléaire est un mécanisme de soutien à la production d'énergie nucléaire introduit par l'Inflation Reduction Act américain de 2022 (Section 45U). Il entre en vigueur le 1er janvier 2024 pour les réacteurs nucléaires existants aux États-Unis.\n\nLe mécanisme est conçu comme un plancher de revenus inversement corrélé aux prix de marché. Lorsque le prix moyen annuel de l'électricité sur les marchés de gros est inférieur à un seuil défini (environ 25 $/MWh en 2024, indexé à l'inflation), le producteur perçoit un crédit d'impôt par MWh produit pour combler l'écart. Lorsque les prix de marché sont élevés, le PTC est réduit voire nul : l'entreprise bénéficie directement des prix de marché favorables.\n\nCet asymétrie crée une structure de rémunération qui limite le downside sans plafonner le upside : si les prix s'effondrent, le PTC compense ; si les prix flambent, le producteur en bénéficie intégralement. Pour l'analyste, le PTC transforme une entreprise cyclique pure (exposée à la volatilité des prix spot) en actif présentant un plancher réglementaire sur les revenus — ce qui justifie une prime de valorisation par rapport à un producteur sans ce mécanisme.`,
+    related: ["stranded-assets", "integrated-power", "ppa", "take-or-pay", "capex"],
+    modules: [],
+  },
+
+  {
+    slug: "inflation-reduction-act",
+    label: "IRA — Inflation Reduction Act",
+    category: "Analyse fondamentale",
+    shortDef: "Loi américaine de 2022 représentant le plus grand plan d'investissement climatique de l'histoire des États-Unis, incluant des crédits d'impôt à la production d'énergie propre et des incitations à la réindustrialisation verte.",
+    definition: `L'Inflation Reduction Act (IRA), promulgué en août 2022, est une loi budgétaire américaine qui alloue environ 369 milliards de dollars sur dix ans à des mesures liées au climat et à la sécurité énergétique. Son impact sur les entreprises cotées est structurel dans plusieurs secteurs.\n\nPrincipaux mécanismes pour l'investisseur : les crédits à la production d'énergie propre (PTC pour l'éolien, le solaire, le nucléaire existant), les crédits à l'investissement (ITC pour les projets de stockage et de capacité de production), les crédits à la fabrication de composants (semi-conducteurs, batteries, panneaux solaires aux États-Unis), et les crédits à la décarbonation industrielle (hydrogène propre, captage de carbone).\n\nPour l'analyste fondamental, l'IRA crée des avantages compétitifs géographiques (les producteurs américains bénéficient de crédits inaccessibles aux concurrents étrangers) et modifie les profils de rentabilité des entreprises éligibles, parfois de façon très significative. L'évaluation de l'impact réel nécessite de lire les notes aux états financiers (section "Government Assistance") pour identifier les montants reconnus et les conditions de maintien.`,
+    related: ["ptc-nucleaire", "capex", "stranded-assets", "scope-3", "greenwashing"],
+    modules: [],
+  },
+
+  {
+    slug: "nrc",
+    label: "NRC — Nuclear Regulatory Commission",
+    category: "Analyse fondamentale",
+    shortDef: "Agence fédérale américaine indépendante responsable de la réglementation de la sûreté des centrales nucléaires civiles, délivrant et renouvelant les licences d'exploitation.",
+    definition: `La Nuclear Regulatory Commission (NRC) est l'autorité de tutelle du nucléaire civil aux États-Unis. Créée en 1974, elle est responsable de la délivrance et du renouvellement des licences d'exploitation des réacteurs nucléaires, de l'inspection des installations, et de la réglementation du transport et du stockage des déchets radioactifs.\n\nLa durée initiale d'une licence NRC est de 40 ans. Le renouvellement pour 20 ans supplémentaires est possible après un processus d'examen pouvant durer 3 à 7 ans. Des demandes de renouvellement pour une exploitation jusqu'à 80 ans sont en cours d'instruction pour certaines unités.\n\nPour l'analyste, le statut de la licence NRC d'un réacteur est un paramètre fondamental : un réacteur sans licence renouvelée ne peut pas générer de revenus futurs, et le processus de renouvellement est un risque réglementaire réel. À l'inverse, un réacteur dont la licence vient d'être renouvelée pour 20 ans représente un actif dont la durée de vie économique est juridiquement sécurisée.`,
+    related: ["ptc-nucleaire", "stranded-assets", "capex"],
+    modules: [],
+  },
+
 ];
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────

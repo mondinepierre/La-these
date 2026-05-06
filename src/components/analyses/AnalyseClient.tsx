@@ -19,7 +19,7 @@ const MDX: Record<string, React.ComponentType<any>> = {
 
   // en construction
   'cameco':               dynamic(() => import('@/content/analyses/valeurs/cameco.mdx')),
-  'constellation-energy': dynamic(() => import('@/content/analyses/valeurs/constellation-energy.mdx')),
+  'constellationenergy':  dynamic(() => import('@/content/analyses/valeurs/constellationenergy.mdx')),
   'exail-technologies':   dynamic(() => import('@/content/analyses/valeurs/exail-technologies.mdx')),
   'gtt':                  dynamic(() => import('@/content/analyses/valeurs/gtt.mdx')),
   'msci-inc':             dynamic(() => import('@/content/analyses/valeurs/msci-inc.mdx')),
