@@ -9,7 +9,7 @@ export const constellationenergy: AnalyseCard = {
   geo:            'États-Unis',
   conviction:     'forte',
   positionnement: 'surveillance',
-  lastUpdated:    '2026-03-01',
+  lastUpdated:    '2026-05-06',
   statut:         'actif',
   portefeuille:   'CTO',
   horizon:        '5 ans',
@@ -46,7 +46,7 @@ export const constellationenergy: AnalyseCard = {
 
   updates: [
     {
-      date: '2026-03-01',
+      date: '2026-05-06',
       note:
         "Création de la fiche. Données FY2025 (10-K déposé le 24/02/2026). EPS ajusté $9,39. Calpine fermé le 16 janvier 2026, hors périmètre comptable FY2025. Crane Clean Energy Center (TMI) : redémarrage en attente des autorisations réglementaires au 31/12/2025.",
     },
