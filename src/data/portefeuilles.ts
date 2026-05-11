@@ -7,7 +7,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
     slug: 'stock-picking-thematique',
     title: 'Mon stock-picking thématique',
     description:
-      'Portefeuille concentré sur 7 thèmes macro de long terme. 17 lignes, 2 enveloppes, 0 ETF.',
+      "Portefeuille concentré sur 6 thèmes macro de long terme. 14 lignes, 2 enveloppes, 0 ETF. Arbitrage en cours.",
     type: 'personnel',
     statut: 'actif',
     profil: {
@@ -198,8 +198,18 @@ export const portefeuilles: PortefeuilleEntry[] = [
     allocation: [
       // ── IA & Technologie ──────────────────────────────
       {
+        label: 'ASML',
+        pct: 16.1,
+        theme: 'IA & Technologie',
+        enveloppe: 'PEA',
+        gics: 'Technologies — Semi-conducteurs',
+        geo: 'Europe (Pays-Bas)',
+        isin: 'NL0010273215',
+        analyseSlug: 'asml',
+      },
+      {
         label: 'Alphabet (C)',
-        pct: 11.8,
+        pct: 12.8,
         theme: 'IA & Technologie',
         enveloppe: 'CTO',
         gics: 'Comm. Services — Internet & Direct Marketing',
@@ -209,7 +219,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'Microsoft',
-        pct: 10.2,
+        pct: 9.1,
         theme: 'IA & Technologie',
         enveloppe: 'CTO',
         gics: 'Technologies — Logiciels',
@@ -219,7 +229,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'Rockwell Automation',
-        pct: 4.9,
+        pct: 5.1,
         theme: 'IA & Technologie',
         enveloppe: 'CTO',
         gics: 'Industrie — Équipements électriques',
@@ -227,29 +237,10 @@ export const portefeuilles: PortefeuilleEntry[] = [
         isin: 'US7739031091',
         analyseSlug: 'rockwell-automation',
       },
-      {
-        label: 'ASML',
-        pct: 18.1,
-        theme: 'IA & Technologie',
-        enveloppe: 'PEA',
-        gics: 'Technologies — Semi-conducteurs',
-        geo: 'Europe (Pays-Bas)',
-        isin: 'NL0010273215',
-        analyseSlug: 'asml',
-      },
       // ── Énergie & Transition ──────────────────────────
       {
-        label: 'Constellation Energy',
-        pct: 5,
-        theme: 'Énergie & Transition',
-        enveloppe: 'CTO',
-        gics: 'Services aux collect. — Électricité',
-        geo: 'États-Unis',
-        analyseSlug: 'constellation-energy',
-      },
-      {
         label: 'GTT',
-        pct: 6.4,
+        pct: 5.1,
         theme: 'Énergie & Transition',
         enveloppe: 'PEA',
         gics: 'Industrie — Ingénierie & Construction',
@@ -258,18 +249,26 @@ export const portefeuilles: PortefeuilleEntry[] = [
         analyseSlug: 'gtt',
       },
       {
-        label: 'Air Liquide',
-        pct: 2.8,
+        label: 'Cameco',
+        pct: 4.6,
         theme: 'Énergie & Transition',
-        enveloppe: 'PEA',
-        gics: 'Matériaux — Chimie spécialisée',
-        geo: 'Europe (France)',
-        isin: 'FR0000120073',
-        analyseSlug: 'airliquide',
+        enveloppe: 'CTO',
+        gics: 'Énergie — Uranium',
+        geo: 'Amérique du Nord (Canada)',
+        analyseSlug: 'cameco',
+      },
+      {
+        label: 'Constellation Energy',
+        pct: 4.3,
+        theme: 'Énergie & Transition',
+        enveloppe: 'CTO',
+        gics: 'Services aux collect. — Électricité',
+        geo: 'États-Unis',
+        analyseSlug: 'constellation-energy',
       },
       {
         label: 'TotalEnergies',
-        pct: 5.1,
+        pct: 3.8,
         theme: 'Énergie & Transition',
         enveloppe: 'PEA',
         gics: 'Énergie — Pétrole & Gaz intégré',
@@ -277,29 +276,10 @@ export const portefeuilles: PortefeuilleEntry[] = [
         isin: 'FR0000120271',
         analyseSlug: 'totalenergies',
       },
-      {
-        label: 'Cameco',
-        pct: 5.2,
-        theme: 'Énergie & Transition',
-        enveloppe: 'CTO',
-        gics: 'Énergie — Uranium',
-        geo: 'Amérique du Nord (Canada)',
-        analyseSlug: 'cameco',
-      },
-            {
-        label: "Vicat",
-        pct: 0.9,
-        theme: 'Énergie & Transition',
-        enveloppe: 'PEA',
-        gics: 'Utilities',
-        geo: 'Europe (France)',
-        isin: '',
-        analyseSlug: 'vicat',
-      },
       // ── Santé ─────────────────────────────────────────
       {
         label: 'Novo Nordisk',
-        pct: 3.9,
+        pct: 14.8,
         theme: 'Santé',
         enveloppe: 'PEA',
         gics: 'Santé — Produits pharmaceutiques',
@@ -310,7 +290,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       // ── Défense & Sécurité ────────────────────────────
       {
         label: 'Thales',
-        pct: 4.1,
+        pct: 2.8,
         theme: 'Défense & Sécurité',
         enveloppe: 'PEA',
         gics: 'Industrie — Aéronautique & Défense',
@@ -320,7 +300,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'Exail Technologies',
-        pct: 2,
+        pct: 1.3,
         theme: 'Défense & Sécurité',
         enveloppe: 'PEA',
         gics: 'Industrie — Équipements électroniques',
@@ -331,7 +311,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       // ── Finance & Data ────────────────────────────────
       {
         label: 'Visa',
-        pct: 4.2,
+        pct: 7.1,
         theme: 'Finance & Data',
         enveloppe: 'CTO',
         gics: 'Finance — Réseaux de paiement',
@@ -341,7 +321,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'MSCI Inc',
-        pct: 3,
+        pct: 2.5,
         theme: 'Finance & Data',
         enveloppe: 'CTO',
         gics: 'Finance — Services financiers diversifiés',
@@ -352,7 +332,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       // ── Consommation & Marques ────────────────────────
       {
         label: "L'Oréal",
-        pct: 5.5,
+        pct: 4.4,
         theme: 'Consommation & Marques',
         enveloppe: 'PEA',
         gics: 'Conso. courante — Produits personnels',
@@ -363,7 +343,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       // ── Actifs réels ──────────────────────────────────
       {
         label: 'Or physique (ETC)',
-        pct: 4.2,
+        pct: 3.3,
         theme: 'Actifs réels',
         enveloppe: 'CTO',
         gics: 'Matières premières — Métaux précieux',
@@ -372,7 +352,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
       },
       {
         label: 'Bitcoin (ETC)',
-        pct: 2.7,
+        pct: 2.9,
         theme: 'Actifs réels',
         enveloppe: 'CTO',
         gics: 'Crypto-actifs',
@@ -381,6 +361,7 @@ export const portefeuilles: PortefeuilleEntry[] = [
     ],
 
     updates: [
+      { date: '2026-05-11', note: "Coupure d'Air Liquide. Produit de la vente réalloué intégralement à Novo Nordisk. Sortie de Vicat. BTC et Or localisés chez Trade Republic (CTO). Recalcul des pondérations sur valorisation réelle — 16 lignes, total portefeuille ~8 126 €.",},
       { date: '2026-03-31', note: 'Mise à jour fin mars - Prise de profit sur 50% de la position TotalEnergies, et Achat d\'une action Microsoft.' },
       { date: '2026-03-17', note: 'Initialisation du portefeuille sur La Thèse - allocation réelle actuelle, avant arbitrage.' },
     ],
@@ -437,21 +418,21 @@ export const portefeuilles: PortefeuilleEntry[] = [
   },
 
   // ─── MODÈLE PÉDAGOGIQUE — Débutant type ─────────────────────────────────
-  {
+ {
     slug: 'portefeuille-debutant-type',
     title: 'Portefeuille débutant type',
     description:
-      'Construction pédagogique pour un premier portefeuille entre 1 000 et 5 000 €. Socle ETF avec deux valeurs de conviction.',
+      'Construction pédagogique pour un premier portefeuille entre 1 000 et 5 000 €. Socle ETF avec exposition tech et deux valeurs de conviction santé.',
     type: 'modele',
     statut: 'actif',
     profil: {
       niveau: 'debutant',
       horizon: '5-10 ans',
       risque: 'Modéré',
-      enveloppe: 'PEA',
+      enveloppe: 'PEA + CTO',
       capitalDepart: '1 000 – 5 000 €',
     },
-    updatedAt: '2026-03-17',
+    updatedAt: '2026-05-11',
     allocation: [
       {
         label: 'MSCI World (CW8)',
@@ -463,17 +444,17 @@ export const portefeuilles: PortefeuilleEntry[] = [
         isin: 'LU1681043599',
       },
       {
-        label: 'S&P 500 (PE500)',
-        pct: 20,
+        label: 'Nasdaq 100 (PUST)',
+        pct: 10,
         theme: 'Socle ETF',
         enveloppe: 'PEA',
         gics: 'ETF indiciel',
         geo: 'États-Unis',
-        isin: 'FR0011550185',
+        isin: 'LU1829221024',
       },
       {
         label: 'ASML',
-        pct: 5,
+        pct: 10,
         theme: 'Conviction',
         enveloppe: 'PEA',
         gics: 'Technologies — Semi-conducteurs',
@@ -482,13 +463,23 @@ export const portefeuilles: PortefeuilleEntry[] = [
         analyseSlug: 'asml',
       },
       {
-        label: 'Schneider Electric',
+        label: 'Novo Nordisk',
         pct: 5,
         theme: 'Conviction',
         enveloppe: 'PEA',
-        gics: 'Industrie — Gestion de l\'énergie',
-        geo: 'Europe (France)',
-        analyseSlug: 'schneider-electric',
+        gics: 'Santé — Produits pharmaceutiques',
+        geo: 'Europe (Danemark)',
+        isin: 'DK0060534915',
+        analyseSlug: 'novo',
+      },
+      {
+        label: 'Eli Lilly',
+        pct: 5,
+        theme: 'Conviction',
+        enveloppe: 'CTO',
+        gics: 'Santé — Produits pharmaceutiques',
+        geo: 'États-Unis',
+        isin: 'US5324571083',
       },
     ],
   },

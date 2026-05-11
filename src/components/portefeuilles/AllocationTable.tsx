@@ -52,7 +52,7 @@ export default function AllocationTable({ allocation }: Props) {
         </thead>
         <tbody>
           {Object.entries(grouped).map(([theme, lignes]) => {
-            const themePct = lignes.reduce((s, l) => s + l.pct, 0)
+            const themePct = Math.round(lignes.reduce((s, l) => s + l.pct, 0) * 10) / 10
             return (
               <React.Fragment key={theme}>
                 {/* Ligne thème */}
@@ -144,7 +144,7 @@ export default function AllocationTable({ allocation }: Props) {
               Total
             </td>
             <td style={{ ...tdStyle, textAlign: 'right', fontWeight: 700, color: '#1B4332', fontSize: 14, borderBottom: 'none' }}>
-              {allocation.reduce((s, l) => s + l.pct, 0)} %
+              {Math.round(allocation.reduce((s, l) => s + l.pct, 0) * 10) / 10} %
             </td>
             <td style={{ ...tdStyle, borderBottom: 'none' }} />
           </tr>
