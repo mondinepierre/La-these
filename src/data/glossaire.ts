@@ -1932,6 +1932,17 @@ export const glossaire: GlossaireTerm[] = [
     related: ["ptc-nucleaire", "stranded-assets", "capex"],
     modules: [],
   },
+  {
+    slug: 'intelligence-artificielle',
+    label: 'Intelligence artificielle (IA)',
+    category: 'Fondamentaux',
+    shortDef: "Technologie permettant aux machines d'apprendre, de raisonner et de produire à partir de données — catalyseur structurel de l'économie numérique.",
+    definition: `L'intelligence artificielle désigne un ensemble de techniques permettant à des systèmes informatiques d'effectuer des tâches qui requièrent normalement l'intelligence humaine : reconnaissance d'images, traitement du langage, prise de décision, génération de contenu. Les avancées récentes reposent principalement sur les réseaux de neurones profonds (deep learning) et les grands modèles de langage (LLM — Large Language Models).\n\nPour l'investisseur, l'IA n'est pas un secteur mais un catalyseur transversal. Elle restructure la productivité et les modèles économiques dans presque toutes les industries : santé, finance, industrie, médias, logistique. La question pertinente n'est pas "qui développe l'IA ?" mais "quelles entreprises voient leur avantage concurrentiel renforcé par l'IA, et lesquelles le voient érodé ?"\n\nLa chaîne de valeur IA se décompose en trois couches. L'infrastructure physique : fabricants de puces (Nvidia, AMD), équipementiers (ASML), fournisseurs d'énergie pour les datacenters. Les plateformes cloud et modèles : Microsoft (Azure + OpenAI), Alphabet (Google DeepMind, Gemini), Amazon (AWS Bedrock). Les applications métier : entreprises qui intègrent l'IA dans leurs produits pour réduire leurs coûts ou créer de nouveaux revenus.\n\nRisques à surveiller pour l'investisseur : concentration du capital sur quelques acteurs d'infrastructure, incertitude sur la monétisation des modèles de langage, consommation énergétique croissante des datacenters, et risque réglementaire (AI Act européen, débats sur la responsabilité algorithmique). L'enthousiasme autour de l'IA peut conduire à des valorisations déconnectées des fondamentaux — le filtre ROIC/WACC reste pertinent même sur les valeurs de croissance IA.`,
+    related: ['moat', 'free-cash-flow', 'roic', 'wacc'],
+    modules: [
+      { label: 'Analyse fondamentale', href: '/academie/intermediaire/analyse-fondamentale' },
+    ],
+  },
 
 ];
 
