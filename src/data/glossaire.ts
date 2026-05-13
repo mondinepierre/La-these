@@ -1733,7 +1733,7 @@ export const glossaire: GlossaireTerm[] = [
     label: "LTI - Long-Term Incentive",
     category: "Analyse fondamentale",
     shortDef: "Mécanisme de rémunération différée des dirigeants lié à la performance à long terme de l'entreprise, généralement sous forme d'actions soumises à des conditions sur 3 à 5 ans.",
-    definition: `Les Long-Term Incentives (LTI), ou rémunérations à long terme, désignent la composante différée de la rémunération des dirigeants et cadres supérieurs, conçue pour aligner leurs intérêts sur ceux des actionnaires sur une période multi-annuelle — typiquement 3 à 5 ans.\n\nContrairement à la part variable annuelle (bonus) liée aux résultats de l'exercice précédent, les LTI sont attribués sous condition de performance et ne se matérialisent qu'au terme d'une période de vesting. Les formes principales :\n- **Actions de performance** (Performance Shares) : actions attribuées si certains critères sont atteints au terme de la période\n- **Stock-options** : droit d'acheter des actions à un prix fixé d'avance\n- **Unités de performance** (PSU, RSU) : unités convertibles en actions selon la performance réalisée\n\nLes conditions attachées aux LTI peuvent porter sur des indicateurs financiers (ROCE, TSR relatif, croissance du BPA, génération de FCF) ou extra-financiers (critères ESG, réduction des émissions CO2). La présence d'un LTI significatif dans la rémunération du dirigeant est généralement considérée comme un signal d'alignement avec les actionnaires — à condition que les critères retenus soient pertinents et non manipulables.`,
+    definition: `Les Long-Term Incentives (LTI), ou rémunérations à long terme, désignent la composante différée de la rémunération des dirigeants et cadres supérieurs, conçue pour aligner leurs intérêts sur ceux des actionnaires sur une période multi-annuelle — typiquement 3 à 5 ans.\n\nContrairement à la part variable annuelle (bonus) liée aux résultats de l'exercice précédent, les LTI sont attribués sous condition de performance et ne se matérialisent qu'au terme d'une période de vesting. Les formes principales :\n- Actions de performance (Performance Shares) : actions attribuées si certains critères sont atteints au terme de la période\n- Stock-options : droit d'acheter des actions à un prix fixé d'avance\n- Unités de performance (PSU, RSU) : unités convertibles en actions selon la performance réalisée\n\nLes conditions attachées aux LTI peuvent porter sur des indicateurs financiers (ROCE, TSR relatif, croissance du BPA, génération de FCF) ou extra-financiers (critères ESG, réduction des émissions CO2). La présence d'un LTI significatif dans la rémunération du dirigeant est généralement considérée comme un signal d'alignement avec les actionnaires — à condition que les critères retenus soient pertinents et non manipulables.`,
     related: ["tsr", "roce", "dividende", "bpa"],
     modules: [
       { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
@@ -1745,7 +1745,7 @@ export const glossaire: GlossaireTerm[] = [
     label: "TSR - Total Shareholder Return",
     category: "Fondamentaux",
     shortDef: "Rendement total pour l'actionnaire : variation du cours de bourse plus dividendes perçus sur une période donnée, exprimé en pourcentage du prix d'entrée.",
-    definition: `Le Total Shareholder Return (TSR), ou rendement total de l'actionnaire, mesure le gain total obtenu par un investisseur qui détient une action sur une période donnée. Il combine deux composantes :\n\n1. **La plus-value ou moins-value en capital** : variation du cours de bourse entre le début et la fin de la période\n2. **Les revenus perçus** : dividendes versés, auxquels s'ajoutent les attributions gratuites d'actions ou les droits préférentiels de souscription\n\nFormule simplifiée : TSR = (Prix final - Prix initial + Dividendes) / Prix initial\n\nLe TSR est fréquemment utilisé comme critère de performance dans les LTI des dirigeants, souvent sous la forme de **TSR relatif** : la performance de l'action est comparée à celle d'un indice ou d'un groupe de pairs sur la même période. Si l'action surperforme son groupe de référence, le dirigeant perçoit tout ou partie des actions de performance attribuées.\n\nL'avantage du TSR comme indicateur : il est objectif, mesurable et aligne directement le management sur la création de valeur pour l'actionnaire. Sa limite : il est sensible aux conditions de marché et peut récompenser une performance boursière non liée aux décisions opérationnelles du management.`,
+    definition: `Le Total Shareholder Return (TSR), ou rendement total de l'actionnaire, mesure le gain total obtenu par un investisseur qui détient une action sur une période donnée. Il combine deux composantes :\n\n1. La plus-value ou moins-value en capital : variation du cours de bourse entre le début et la fin de la période\n2. Les revenus perçus : dividendes versés, auxquels s'ajoutent les attributions gratuites d'actions ou les droits préférentiels de souscription\n\nFormule simplifiée : TSR = (Prix final - Prix initial + Dividendes) / Prix initial\n\nLe TSR est fréquemment utilisé comme critère de performance dans les LTI des dirigeants, souvent sous la forme de TSR relatif : la performance de l'action est comparée à celle d'un indice ou d'un groupe de pairs sur la même période. Si l'action surperforme son groupe de référence, le dirigeant perçoit tout ou partie des actions de performance attribuées.\n\nL'avantage du TSR comme indicateur : il est objectif, mesurable et aligne directement le management sur la création de valeur pour l'actionnaire. Sa limite : il est sensible aux conditions de marché et peut récompenser une performance boursière non liée aux décisions opérationnelles du management.`,
     related: ["dividende", "lti", "attribution-gratuite", "bpa"],
     modules: [
       { label: "Fondamentaux", href: "/academie/debutant/fondamentaux" },
@@ -1769,7 +1769,7 @@ export const glossaire: GlossaireTerm[] = [
     label: "ATR - Average True Range",
     category: "Analyse technique",
     shortDef: "Indicateur de volatilité mesurant l'amplitude moyenne des mouvements de prix sur une période donnée — utilisé pour calibrer les stop loss ou les objectifs de cours.",
-    definition: `L'Average True Range (ATR) est un indicateur de volatilité développé par J. Welles Wilder. Il mesure l'amplitude moyenne des variations de prix d'un actif sur une période de référence — généralement 14 périodes (jours, semaines, etc.).\n\nLe True Range (TR) d'une période est le maximum entre :\n- La distance entre le plus haut et le plus bas de la période\n- La distance entre le plus haut et la clôture précédente\n- La distance entre le plus bas et la clôture précédente\n\nL'ATR est la moyenne mobile de ces True Range sur N périodes. Il ne donne pas de direction (haussière ou baissière) : il mesure l'intensité du mouvement.\n\nUtilisations pratiques :\n- **Placement de stop loss** : "2 ATR sous le cours" est une règle commune pour positionner un stop en tenant compte de la volatilité réelle du titre, évitant les arrêts sur bruit\n- **Calibrage d'objectifs** : les objectifs de cours sont parfois exprimés en multiples d'ATR\n- **Gestion de position** : un ATR plus élevé signale une période de volatilité accrue qui peut justifier une réduction de la taille de position\n\nL'ATR hebdomadaire lisse les variations journalières et donne une mesure de la volatilité structurelle du titre, plus adaptée aux décisions d'investissement à moyen terme.`,
+    definition: `L'Average True Range (ATR) est un indicateur de volatilité développé par J. Welles Wilder. Il mesure l'amplitude moyenne des variations de prix d'un actif sur une période de référence — généralement 14 périodes (jours, semaines, etc.).\n\nLe True Range (TR) d'une période est le maximum entre :\n- La distance entre le plus haut et le plus bas de la période\n- La distance entre le plus haut et la clôture précédente\n- La distance entre le plus bas et la clôture précédente\n\nL'ATR est la moyenne mobile de ces True Range sur N périodes. Il ne donne pas de direction (haussière ou baissière) : il mesure l'intensité du mouvement.\n\nUtilisations pratiques :\n- Placement de stop loss : "2 ATR sous le cours" est une règle commune pour positionner un stop en tenant compte de la volatilité réelle du titre, évitant les arrêts sur bruit\n- Calibrage d'objectifs : les objectifs de cours sont parfois exprimés en multiples d'ATR\n- Gestion de position : un ATR plus élevé signale une période de volatilité accrue qui peut justifier une réduction de la taille de position\n\nL'ATR hebdomadaire lisse les variations journalières et donne une mesure de la volatilité structurelle du titre, plus adaptée aux décisions d'investissement à moyen terme.`,
     related: ["stop-loss", "beta"],
     modules: [
       { label: "Analyse technique", href: "/academie/intermediaire/analyse-technique" },
@@ -1942,6 +1942,185 @@ export const glossaire: GlossaireTerm[] = [
     modules: [
       { label: 'Analyse fondamentale', href: '/academie/intermediaire/analyse-fondamentale' },
     ],
+  },
+  // ─────────────────────────────────────────────────────────────────────────────
+// ADDITIONS AU GLOSSAIRE — Fiche Thales
+// Deux étapes :
+//   1. Ajouter 'Analyse fondamentale' au type GlossaireCategory dans glossaire.ts
+//   2. Ajouter les 16 termes ci-dessous dans le tableau glossaire[]
+//   3. Corriger le slug 'per' → 'per-valorisation' dans thales.ts et thales.mdx
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ÉTAPE 1 — Modifier le type GlossaireCategory (ajout d'une ligne) :
+// export type GlossaireCategory =
+//   | 'Fondamentaux'
+//   | 'Marchés'
+//   | 'Stratégies'
+//   | 'Enveloppes fiscales'
+//   | 'ETF & indices'
+//   | 'Analyse fondamentale'
+//   | 'Analyse technique'
+//   | 'Gestion du risque'
+//   | 'Produits avancés'
+//   | 'Ordres de bourse'
+//   | 'Analyse fondamentale';   ← AJOUTER CETTE LIGNE
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ÉTAPE 2 — Nouveaux termes à coller dans le tableau glossaire[]
+// ─────────────────────────────────────────────────────────────────────────────
+
+  // ── Analyse fondamentale ──────────────────────────────────────────────────
+
+  {
+    slug: "ebit",
+    label: "EBIT",
+    category: "Analyse fondamentale",
+    shortDef: "Résultat opérationnel d'une entreprise avant charges financières et impôts.",
+    definition: `L'EBIT (Earnings Before Interest and Taxes) mesure la rentabilité opérationnelle d'une entreprise, indépendamment de sa structure de financement et de sa fiscalité. C'est le résultat généré par l'activité courante, avant que les intérêts sur la dette et l'impôt sur les sociétés n'en réduisent l'effet.\n\nOn l'obtient en partant du chiffre d'affaires et en soustrayant l'ensemble des charges opérationnelles (coût des ventes, frais généraux, amortissements, dépréciations). Le ratio EBIT / chiffre d'affaires donne la marge EBIT, qui mesure combien de centimes de résultat opérationnel chaque euro de CA génère.\n\nChez les industriels comme Thales, la marge EBIT est l'indicateur central de suivi de la rentabilité. Elle permet de comparer l'efficacité opérationnelle entre entreprises d'un même secteur, quelle que soit leur structure de capital ou leur taux d'imposition.`,
+    related: ['ebitda', 'marge-operationnelle', 'nopat', 'roic'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "book-to-bill",
+    label: "Book-to-bill",
+    category: "Analyse fondamentale",
+    shortDef: "Ratio entre les commandes reçues et le chiffre d'affaires facturé sur une période.",
+    definition: `Le book-to-bill (ou ratio prises de commandes / chiffre d'affaires) mesure si une entreprise industrielle accumule du carnet de commandes ou le consomme. Un ratio supérieur à 1 signifie que les nouvelles commandes excèdent les livraisons : le carnet grossit, la visibilité future s'améliore. Un ratio inférieur à 1 signifie l'inverse.\n\nC'est un indicateur avancé de la croissance future d'un industriel : un book-to-bill structurellement supérieur à 1 sur plusieurs années annonce une croissance organique soutenue dans les exercices à venir. À l'inverse, un book-to-bill inférieur à 1 sur plusieurs trimestres est un signal d'alerte sur la trajectoire de revenus.\n\nChez les industriels défense à longs cycles de production — comme Thales, Airbus ou Safran — le book-to-bill est l'un des indicateurs les plus suivis par les analystes car les contrats signés aujourd'hui ne se traduisent en chiffre d'affaires que sur plusieurs années.`,
+    related: ['carnet-de-commandes', 'backlog', 'chiffre-affaires'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "taux-sans-risque",
+    label: "Taux sans risque",
+    category: "Analyse fondamentale",
+    shortDef: "Rendement d'un placement considéré comme exempt de risque de défaut, utilisé comme référence dans les modèles de valorisation.",
+    definition: `Le taux sans risque est le rendement théorique d'un investissement qui ne comporte aucun risque de défaut. En pratique, on l'approxime par le rendement des obligations d'État des émetteurs les plus solides : l'OAT 10 ans en France, le Bund 10 ans en Allemagne, le Treasury 10 ans aux États-Unis.\n\nIl joue un rôle central dans les modèles de valorisation. Dans le WACC (Weighted Average Cost of Capital), il sert de point de départ au coût des capitaux propres via le CAPM : Re = Rf + β × ERP, où Rf est le taux sans risque, β la sensibilité au marché et ERP la prime de risque attendue sur les actions.\n\nSon niveau influence directement les valorisations boursières : lorsque les taux sans risque montent, le coût du capital augmente, et la valeur actuelle des flux futurs baisse — ce qui comprime les multiples de valorisation des actions. C'est pourquoi les marchés actions sont structurellement sensibles aux politiques des banques centrales.`,
+    related: ['wacc', 'dcf', 'beta', 'bund'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "zone-juste",
+    label: "Zone juste",
+    category: "Analyse fondamentale",
+    shortDef: "Prix d'achat d'aujourd'hui qui permet d'obtenir un rendement annualisé cible si le prix cible est atteint à horizon.",
+    definition: `La zone juste est le prix d'entrée implicite pour qu'un investisseur obtienne exactement son rendement annualisé exigé (r) si le titre atteint son prix cible à l'horizon défini. Elle s'obtient en actualisant le prix cible au taux r sur la durée de l'horizon : Zone juste = Prix cible / (1 + r)^n.\n\nSi l'on achète à la zone juste et que le prix cible est atteint à horizon n ans, le rendement annualisé sera exactement r. Si l'on achète en dessous de la zone juste, le rendement sera supérieur à r. D'où l'intérêt d'appliquer une marge de sécurité à la zone juste : entrer à zone juste × (1 - MoS) garantit un rendement supérieur au taux exigé en cas de scénario favorable.\n\nContrairement à la marge de sécurité appliquée au prix cible, la marge de sécurité appliquée à la zone juste a une interprétation économique directe : chaque point de MoS supplémentaire se traduit mécaniquement en rendement annualisé additionnel pour l'investisseur.`,
+    related: ['marge-de-securite', 'dcf', 'per-valorisation', 'wacc', 'taux-sans-risque'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  {
+    slug: "mix-produit",
+    label: "Mix produit",
+    category: "Analyse fondamentale",
+    shortDef: "Évolution de la composition des ventes d'une entreprise entre ses différentes gammes, qui influence mécaniquement la marge.",
+    definition: `Le mix produit désigne la répartition des ventes d'une entreprise entre ses différentes catégories de produits ou services, chacune ayant un niveau de marge différent. Quand la part des produits les plus rentables augmente dans le total des ventes, on parle d'effet mix favorable — et la marge globale progresse même si les volumes et les prix restent stables.\n\nC'est un levier de création de valeur souvent sous-estimé. Une entreprise peut voir sa rentabilité s'améliorer simplement parce que ses clients achètent davantage de ses offres haut de gamme, ou parce qu'un segment à forte marge prend du poids dans le CA total.\n\nDans l'analyse fondamentale, l'évolution du mix produit est une variable clé pour comprendre pourquoi une marge progresse ou recule indépendamment des volumes ou des prix. Un investisseur averti distingue toujours l'effet volume, l'effet prix et l'effet mix dans l'explication de la dynamique de rentabilité.`,
+    related: ['ebit', 'marge-brute', 'marge-operationnelle', 'levier-operationnel'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
+  // ── Analyse fondamentale ───────────────────────────────────────────────────
+
+  {
+    slug: "mco",
+    label: "MCO (Maintien en condition opérationnelle)",
+    category: "Analyse fondamentale",
+    shortDef: "Ensemble des opérations permettant de maintenir un équipement militaire en état de fonctionnement tout au long de sa vie.",
+    definition: `Le Maintien en condition opérationnelle (MCO) désigne l'ensemble des activités — maintenance préventive, maintenance corrective, gestion des pièces de rechange, mises à niveau logicielles — qui permettent de conserver un matériel militaire opérationnel pendant toute sa durée de vie, parfois 30 à 40 ans pour des plateformes comme les avions de combat, les frégates ou les sous-marins.\n\nDans le modèle économique des industriels défense, le MCO est une source de revenus récurrents à forte visibilité et à marges élevées. Contrairement aux ventes initiales d'équipements (qui sont contractées par appel d'offres compétitif), le MCO est souvent confié au fournisseur d'origine : personne ne connaît mieux un système que celui qui l'a conçu et fabriqué. C'est un avantage concurrentiel structurel.\n\nLe terme est utilisé en France par la DGA (Direction générale de l'armement). L'équivalent anglo-saxon est le MRO (Maintenance, Repair and Overhaul).`,
+    related: ['mro', 'carnet-de-commandes', 'book-to-bill'],
+    modules: [],
+  },
+
+  {
+    slug: "mro",
+    label: "MRO (Maintenance, Repair and Overhaul)",
+    category: "Analyse fondamentale",
+    shortDef: "Maintenance, réparation et révision d'équipements industriels ou militaires, source de revenus récurrents à forte marge.",
+    definition: `MRO est l'acronyme anglais de Maintenance, Repair and Overhaul. Il désigne l'ensemble des activités de maintenance industrielle permettant de conserver des équipements en état de marche : vérifications périodiques, réparations, grandes révisions et mises à niveau.\n\nDans l'industrie aéronautique et défense, le MRO représente une part considérable des revenus sur la durée de vie d'une plateforme. Pour un moteur d'avion commercial, le revenu total du MRO sur 30 ans dépasse souvent plusieurs fois le prix de vente initial du moteur. C'est pourquoi des groupes comme Safran construisent des positions dominantes sur ce segment : une fois un moteur certifié sur une flotte, la relation MCO/MRO dure des décennies.\n\nL'équivalent français est le MCO (Maintien en condition opérationnelle). Le terme MRO est utilisé dans le contexte aérospatial civil, le MCO dans le contexte militaire français.`,
+    related: ['mco', 'carnet-de-commandes', 'levier-operationnel'],
+    modules: [],
+  },
+
+  {
+    slug: "sna",
+    label: "SNA (Sous-marin nucléaire d'attaque)",
+    category: "Analyse fondamentale",
+    shortDef: "Sous-marin à propulsion nucléaire conçu pour des missions offensives et de renseignement, distinct du SNLE (sous-marin lanceur d'engins).",
+    definition: `Un Sous-marin nucléaire d'attaque (SNA) est un bâtiment à propulsion nucléaire dont la mission principale est le combat sous-marin, la protection des forces navales et la collecte de renseignements. Contrairement au SNLE (Sous-marin nucléaire lanceur d'engins), le SNA n'emporte pas de missiles balistiques intercontinentaux.\n\nLa marine française exploite la classe Rubis (6 unités) et son successeur la classe Suffren (programme Barracuda, première livraison en 2022). Ces bâtiments intègrent des systèmes électroniques complexes — sonar, optronique, traitement du signal, communications — fournis en grande partie par Thales.\n\nLa durée de vie d'un SNA (30 à 40 ans) et la sophistication de ses systèmes en font un marché MCO particulièrement attractif pour l'industriel fournisseur. Le coût de remplacement ou de changement de fournisseur en cours de vie est prohibitif.`,
+    related: ['mco', 'fremm', 'mro'],
+    modules: [],
+  },
+
+  {
+    slug: "fremm",
+    label: "FREMM (Frégate multi-missions)",
+    category: "Analyse fondamentale",
+    shortDef: "Programme de frégates de premier rang développées en coopération franco-italienne, épine dorsale des marines française et italienne.",
+    definition: `Les FREMM (FRégates Multi-Missions) sont des frégates de premier rang développées conjointement par la France (Naval Group, anciennement DCNS) et l'Italie (Fincantieri) dans le cadre d'un programme bilatéral. La Marine nationale en exploite 8 unités, avec des capacités de lutte anti-sous-marine, anti-aérienne et anti-navires selon les versions.\n\nCes bâtiments intègrent des systèmes de combat complexes fournis par Thales : le radar de veille aérienne et de surface Sea Fire, les systèmes de communication, le sonar, les systèmes de guerre électronique et le système de gestion du combat SETIS. La FREMM est emblématique de l'intégration profonde de Thales dans les plateformes navales françaises sur 30 à 40 ans.\n\nLe programme a servi de base d'exportation, avec des ventes à l'Egypte, au Maroc et aux Etats-Unis (dans une version adaptée pour la US Navy, les FFG(X)).`,
+    related: ['sna', 'mco', 'carnet-de-commandes'],
+    modules: [],
+  },
+
+  {
+    slug: "lpm",
+    label: "LPM (Loi de programmation militaire)",
+    category: "Analyse fondamentale",
+    shortDef: "Loi française pluriannuelle fixant les objectifs et les crédits alloués aux armées sur une période de 6 à 7 ans.",
+    definition: `La Loi de programmation militaire (LPM) est un texte législatif français qui définit la trajectoire des dépenses de défense sur une période pluriannuelle (généralement 6 à 7 ans). Elle fixe les priorités capacitaires des armées, les programmes d'armement à lancer ou à poursuivre, et la trajectoire budgétaire associée.\n\nLa LPM 2024-2030, adoptée en 2023, prévoit une enveloppe totale de 413 milliards d'euros sur 7 ans, avec une montée en puissance progressive de 54 milliards d'euros annuels en 2030. C'est le principal déterminant de la demande domestique pour les industriels français comme Thales, Naval Group ou Safran.\n\nPour un investisseur dans une valeur défense française, la LPM est le document de référence pour comprendre la trajectoire à 5-7 ans des commandes de l'État français. Une LPM adoptée et financée est le signal le plus fort de la réalité d'un cycle de réarmement.`,
+    related: ['scaf', 'mgcs', 'carnet-de-commandes'],
+    modules: [],
+  },
+
+  {
+    slug: "scaf",
+    label: "SCAF (Système de combat aérien du futur)",
+    category: "Analyse fondamentale",
+    shortDef: "Programme franco-germano-espagnol visant à remplacer le Rafale et l'Eurofighter à l'horizon 2040.",
+    definition: `Le Système de combat aérien du futur (SCAF) est un programme de défense européen associant la France (Dassault Aviation, Thales, Safran), l'Allemagne (Airbus, MTU) et l'Espagne (Indra, Airbus Spain). Il vise à développer le successeur du Rafale et de l'Eurofighter Typhoon pour les années 2040.\n\nLe programme repose sur un concept de système de systèmes (Next Generation Fighter + Remote Carrier + Cloud de combat), où des drones autonomes opèrent en essaim autour d'un avion piloté. Thales y joue un rôle central sur les systèmes de mission, l'avionique et la guerre électronique.\n\nLe SCAF est l'un des programmes industriels de défense les plus complexes et les plus coûteux jamais lancés en Europe. Ses échéances contractuelles — phase 1B en cours de négociation en 2025 — sont un catalyseur structurel pour Thales, Dassault et leurs partenaires sur 15 à 20 ans.`,
+    related: ['mgcs', 'lpm', 'carnet-de-commandes'],
+    modules: [],
+  },
+
+  {
+    slug: "mgcs",
+    label: "MGCS (Main Ground Combat System)",
+    category: "Analyse fondamentale",
+    shortDef: "Programme franco-allemand visant à développer le successeur du char Leclerc et du Leopard 2 à l'horizon 2035-2040.",
+    definition: `Le Main Ground Combat System (MGCS) est un programme de coopération franco-allemand destiné à remplacer le char Leclerc (France) et le Leopard 2 (Allemagne) par un système terrestre de nouvelle génération. Les industriels impliqués sont Nexter (KNDS), Rheinmetall, Thales et leurs sous-traitants.\n\nLe programme couvre le char du futur mais aussi son environnement numérique : communications sécurisées, vision nocturne, systèmes de détection de menaces, guerre électronique embarquée. Thales est positionné sur ces briques d'électronique de combat.\n\nComme le SCAF, le MGCS est un programme à très long cycle (décisions à 15-20 ans), dont l'impact sur le carnet de commandes de Thales ne sera significatif qu'à partir de la seconde moitié des années 2030. Son avancement reste sujet à des discussions politiques franco-allemandes régulières sur le partage des tâches industrielles.`,
+    related: ['scaf', 'lpm', 'carnet-de-commandes'],
+    modules: [],
+  },
+
+  {
+    slug: "samp-t",
+    label: "SAMP/T (Système de défense sol-air)",
+    category: "Analyse fondamentale",
+    shortDef: "Système de défense antimissile franco-italien à moyenne portée, développé par Eurosam (Thales, MBDA, Leonardo).",
+    definition: `Le SAMP/T (Sol-Air Moyenne Portée Terrestre) est un système de défense antimissile développé par Eurosam, consortium réunissant Thales, MBDA et Leonardo. Il est en service dans les armées françaises (Armée de l'Air et de l'Espace) et italiennes, et a été livré à l'Ukraine en 2023.\n\nIl est capable d'intercepter des missiles balistiques à courte portée, des missiles de croisière, des avions et des drones à des altitudes élevées. La nouvelle génération, le SAMP/T NG (Nouvelle Génération), intègre le missile Aster 30 Block 1 NT avec des capacités améliorées contre les missiles hypersoniques.\n\nPour Thales, le SAMP/T représente une ligne de produits à forte croissance dans le contexte du réarmement européen et des livraisons à l'Ukraine. La demande export (Roumanie, Arabie Saoudite, pays nordiques) est un moteur de commandes visible dans le carnet Défense.`,
+    related: ['carnet-de-commandes', 'lpm', 'book-to-bill'],
+    modules: [],
+  },
+
+  {
+    slug: "cieemg",
+    label: "CIEEMG",
+    category: "Analyse fondamentale",
+    shortDef: "Commission interministérielle française chargée d'examiner et d'autoriser les exportations de matériels de guerre.",
+    definition: `La Commission interministérielle pour l'étude des exportations de matériels de guerre (CIEEMG) est l'instance gouvernementale française qui instruit les demandes d'autorisation d'exportation d'armements. Elle réunit des représentants du Ministère des Affaires étrangères, du Ministère de la Défense, du Ministère de l'Économie et de la Présidence de la République.\n\nToute exportation d'équipements militaires depuis la France est soumise à son aval, quelle que soit la taille du contrat. La CIEEMG évalue la demande selon des critères géopolitiques, stratégiques et humanitaires (respect du droit international, risque de détournement, stabilité régionale).\n\nPour les industriels défense français comme Thales, la CIEEMG est une variable exogène de risque : un refus de licence peut bloquer des livraisons déjà contractées et inscrites au carnet de commandes. L'exemple le plus récent est l'embargo sur les ventes d'armement à certains pays au Moyen-Orient suite à des résolutions parlementaires.`,
+    related: ['carnet-de-commandes', 'lpm'],
+    modules: [],
   },
 
 ];

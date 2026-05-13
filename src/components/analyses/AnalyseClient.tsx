@@ -16,17 +16,17 @@ const MDX: Record<string, React.ComponentType<any>> = {
   'microsoft':          dynamic(() => import('@/content/analyses/valeurs/microsoft.mdx')),
   'visa':               dynamic(() => import('@/content/analyses/valeurs/visa.mdx')),
   'loreal':             dynamic(() => import('@/content/analyses/valeurs/loreal.mdx')),
-
-  // en construction
   'cameco':               dynamic(() => import('@/content/analyses/valeurs/cameco.mdx')),
   'constellationenergy':  dynamic(() => import('@/content/analyses/valeurs/constellationenergy.mdx')),
+  'thales':               dynamic(() => import('@/content/analyses/valeurs/thales.mdx')),
+
+  // en construction
+
   'exail-technologies':   dynamic(() => import('@/content/analyses/valeurs/exail-technologies.mdx')),
   'gtt':                  dynamic(() => import('@/content/analyses/valeurs/gtt.mdx')),
   'msci-inc':             dynamic(() => import('@/content/analyses/valeurs/msci-inc.mdx')),
   'rockwell-automation':  dynamic(() => import('@/content/analyses/valeurs/rockwell-automation.mdx')),
-  'schneider-electric':   dynamic(() => import('@/content/analyses/valeurs/schneider-electric.mdx')),
-  'thales':               dynamic(() => import('@/content/analyses/valeurs/thales.mdx')),
-  'vicat':                dynamic(() => import('@/content/analyses/valeurs/vicat.mdx')),
+
 
   // Ponctuelles
   'sondage':              dynamic(() => import('@/content/analyses/ponctuelles/sondage.mdx')),

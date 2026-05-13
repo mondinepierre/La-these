@@ -24,18 +24,15 @@ import { novo               } from './novo'
 import { totalenergies      } from './totalenergies'
 import { visa               } from './visa'
 import { loreal             } from './loreal'
-
+import { thales              } from './thales'
+import { constellationenergy } from './constellationenergy'
+import { cameco              } from './cameco'
 
 // ── Valeurs suivies — en construction ────────────────────────────────────────
 import { rockwellAutomation  } from './rockwell-automation'
-import { constellationenergy } from './constellationenergy'
 import { gtt                 } from './gtt'
-import { cameco              } from './cameco'
-import { thales              } from './thales'
 import { exailTechnologies   } from './exail-technologies'
 import { msciInc             } from './msci-inc'
-import { schneiderElectric   } from './schneider-electric'
-import { vicat               } from './vicat'
 
 // ── Analyses ponctuelles ──────────────────────────────────────────────────────
 import { sondage  } from './sondage'
@@ -54,6 +51,7 @@ export const ANALYSES: AnalyseCard[] = [
   loreal,
   microsoft,
   novo,
+  thales,
   totalenergies,
   visa,
 
@@ -61,11 +59,9 @@ export const ANALYSES: AnalyseCard[] = [
   // En construction
   rockwellAutomation,
   gtt,
-  thales,
+
   exailTechnologies,
   msciInc,
-  schneiderElectric,
-  vicat,
 
   // Analyses ponctuelles
   sondage,

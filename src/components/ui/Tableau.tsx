@@ -3398,6 +3398,126 @@ const TABLEAUX: Record<string, TableauData> = {
       },
     ],
   },
+
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // THALES (HO) — 6 tableaux
+  // Cours référence : 226 € (12 mai 2026) | BPA FY2025 : 8,13 € | PER central : 26,2x
+  // ─────────────────────────────────────────────────────────────────────────
+
+  'thales-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',    primary: true },
+      { key: 'valeur',    label: 'Valeur'                      },
+      { key: 'source',    label: 'Source / note'               },
+    ],
+    lignes: [
+      { parametre: 'Base FCF',              valeur: '2 565 M€',                                                    source: 'FCF opérationnel FY2025 — DEU 2025',                             _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'WACC',                  valeur: '6,0 %',                                                       source: 'CAPM — Rf Bund 10Y Allemagne 2,86 %, Beta 0,74, ERP Damodaran 4,78 %', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Croissance perpétuelle',valeur: '1,5 % (bear / central) — 2,0 % (bull)',                      source: 'PIB nominal zone euro long terme',                                _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Dette nette',           valeur: '1 683 M€',                                                    source: 'Bilan FY2025 — 0,53x EBITDA',                                    _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Actions diluées',       valeur: '206,1 M',                                                     source: 'Rapport annuel 2025',                                            _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Horizon explicite',     valeur: '5 ans (FY2026 — FY2030)',                                     source: 'Cohérent avec LPM 2024-2030 et cible marge 2028',                _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+    ],
+  },
+
+  'thales-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario',  label: 'Scénario',             primary: true },
+      { key: 'cagr',      label: 'CAGR FCF'                            },
+      { key: 'perp',      label: 'Croissance perp.'                    },
+      { key: 'hypothese', label: 'Hypothèse principale'                },
+      { key: 'dcf',       label: 'Valeur DCF / action'                 },
+    ],
+    lignes: [
+      { scenario: 'Bear',    cagr: '0 %',    perp: '1,5 %', hypothese: 'FCF stable — expansion de marge avortée, pas de levier opérationnel',             dcf: '254 €', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Central', cagr: '3,26 %', perp: '1,5 %', hypothese: 'CAGR FCF historique 5 ans — marge converge vers 11-12 % en 2028',                dcf: '296 €', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { scenario: 'Bull',    cagr: '7 %',    perp: '2,0 %', hypothese: 'Cible management 13-14 % EBIT 2028 atteinte — conversion FCF en forte expansion', dcf: '351 €', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+    ],
+  },
+
+  'thales-dcf-synthese': {
+    colonnes: [
+      { key: 'methode', label: 'Méthode',           primary: true },
+      { key: 'bear',    label: 'Scénario bear'                    },
+      { key: 'central', label: 'Scénario central'                 },
+      { key: 'bull',    label: 'Scénario bull'                    },
+    ],
+    lignes: [
+      { methode: 'DCF (FCF opérationnel)',        bear: '254 €', central: '296 €', bull: '351 €', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { methode: 'Calculateur PER — prix cible',  bear: '285 €', central: '381 €', bull: '487 €', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { methode: 'Zone juste r=10 % (PER)',       bear: '177 €', central: '236 €', bull: '303 €', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { methode: 'Cours actuel (12 mai 2026)',    bear: '226 €', central: '226 €', bull: '226 €', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
+  'thales-per-trois-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',             primary: true },
+      { key: 'bear',      label: 'Bear — CAGR 6 %'                      },
+      { key: 'central',   label: 'Central — CAGR 12,31 %'               },
+      { key: 'bull',      label: 'Bull — CAGR 18 %'                     },
+    ],
+    lignes: [
+      { parametre: 'BPA FY2025 (base)',      bear: '8,13 €',  central: '8,13 €',  bull: '8,13 €',  _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { parametre: 'BPA projeté 2030',       bear: '10,88 €', central: '14,53 €', bull: '18,60 €', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { parametre: 'PER central retenu',     bear: '26,2x',   central: '26,2x',   bull: '26,2x',   _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { parametre: 'Prix cible',             bear: '285 €',   central: '381 €',   bull: '487 €',   _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { parametre: 'Borne basse (MoE 11 %)', bear: '254 €',   central: '339 €',   bull: '434 €',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { parametre: 'Borne haute (MoE 11 %)', bear: '316 €',   central: '423 €',   bull: '541 €',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { parametre: 'Zone juste r=10 %',      bear: '177 €',   central: '236 €',   bull: '303 €',   _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
+
+  // MoS sur zone juste — bear (pc=285€, zj10=177€, zj12=162€)
+  'thales-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: "Entrée r=10 % (€)"                 },
+      { key: 'r12', label: "Entrée r=12 % (€)"                 },
+    ],
+    lignes: [
+      { mos: '5 %',  r10: '168,13', r12: '153,65', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { mos: '10 %', r10: '159,28', r12: '145,56', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { mos: '15 %', r10: '150,43', r12: '137,47', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { mos: '20 %', r10: '141,58', r12: '129,39', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
+  // MoS sur zone juste — central (pc=381€, zj10=236€, zj12=216€)
+  'thales-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: "Entrée r=10 % (€)"                  },
+      { key: 'r12', label: "Entrée r=12 % (€)"                  },
+    ],
+    lignes: [
+      { mos: '5 %',  r10: '224,49', r12: '205,38', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { mos: '10 %', r10: '212,68', r12: '194,57', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { mos: '15 %', r10: '200,86', r12: '183,76', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { mos: '20 %', r10: '189,05', r12: '172,95', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    ],
+  },
+
+  // MoS sur zone juste — bull (pc=487€, zj10=303€, zj12=276€)
+  'thales-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: "Entrée r=10 % (€)"                  },
+      { key: 'r12', label: "Entrée r=12 % (€)"                  },
+    ],
+    lignes: [
+      { mos: '5 %',  r10: '287,43', r12: '262,52', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { mos: '10 %', r10: '272,30', r12: '248,70', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { mos: '15 %', r10: '257,18', r12: '234,89', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { mos: '20 %', r10: '242,05', r12: '221,07', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
 }
 
 
