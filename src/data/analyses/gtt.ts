@@ -99,7 +99,7 @@ export const gtt: AnalyseCard = {
   horizon:        '5 ans',
   excerpt:        'GTT conçoit et licencie les systèmes de confinement membranaire pour le transport et le stockage du GNL. Pure-play technologique asset-light, quasi-monopole mondial sur les méthaniers à membrane, marges d\'exploitation >60 %, FCF conversion structurellement supérieure à 90 %.',
   glossaire:      ['moat', 'asset-light', 'royalties', 'roic', 'gnl', 'fsru'],
-  logo:           '/analyses/gtt.png',
+  logo:           '/analyse/gtt.png',
   prixCible:      { bas: 299, haut: 344, devise: 'EUR' },   // Scénario central PER 18x ± MoE 7 % — BPA 2030 17,88 €
   marginOfSafety: 'faible',           // Prime de 4,5 % sur zone juste centrale r=10 % — maintien sans renforcement
   readingTime:    40,
