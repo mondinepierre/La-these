@@ -30,6 +30,8 @@
 
 import type { AnalyseCard } from '@/types/analyses'
 
+
+
 export const microsoft: AnalyseCard = {
   slug:           'microsoft',           // URL : /analyses/[slug]
   type:           'valeur',
@@ -49,6 +51,13 @@ export const microsoft: AnalyseCard = {
   prixCible:      { bas: 939, haut: 1149, devise: 'USD' },
   marginOfSafety: 'forte', // forte | correcte | faible | négative | indéterminée
   readingTime:    25,
+  onePager: {
+    thesis:    "Azure transforme Microsoft en infrastructure de l'IA.",
+    cours:     409.43,
+    coursDate: '2026-05-14',
+    devise:    'USD',
+    range52w:  { low: 356, high: 555 },   // À vérifier / mettre à jour
+  },
 
   // ── Métriques snapshot — CY2025 TTM, cours clôture 31/12/2025 ────────────────
   // Valeurs issues directement de l'onglet Indicateurs Excel, colonne TTM/CY2025.

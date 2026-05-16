@@ -23,6 +23,13 @@ export const asml: AnalyseCard = {
     'marge-de-securite',
   ],
   readingTime:    35,
+    onePager: {
+    thesis:    "Le monopole physique de la lithographie — sans ASML, pas de puce avancée.",
+    cours:     1311.2,
+    coursDate: '2026-05-15',
+    devise:    'EUR',
+    range52w:  { low: 587, high: 1371 },   // À vérifier / mettre à jour
+  },
   logo:          '/analyse/ASML.png',
   prixCible: {
     bas:    1532,

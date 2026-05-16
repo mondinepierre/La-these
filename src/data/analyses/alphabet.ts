@@ -40,8 +40,15 @@ export const alphabet: AnalyseCard = {
   glossaire:      ['roic', 'moat', 'per-valorisation', 'capex', 'fcf-yield', 'levier-operationnel'],
   readingTime:    25,
   logo:           '/analyse/alphabet.png',
-  prixCible:      { bas: 310, haut: 401, devise: 'USD' },
+  prixCible:      { bas: 361, haut: 401, devise: 'USD' },
   marginOfSafety: 'faible',
+    onePager: {
+    thesis:    "25 ans de monopole Search — et un Cloud qui change la thèse.",
+    cours:     397.17,
+    coursDate: '2026-05-15',
+    devise:    'USD',
+    range52w:  { low: 163, high: 399 },   // À vérifier / mettre à jour
+  },
 
   metrics: {
     per:               29.04,

@@ -80,6 +80,13 @@ export const NOUVEAU_TICKER: AnalyseCard = {
   prixCible:      { bas: 0, haut: 0, devise: 'USD' },
   marginOfSafety: 'indéterminée',     // forte | correcte | faible | négative | indéterminée
   readingTime:    0,
+  onePager: {
+    thesis:    "Short thesis",
+    cours:     0,
+    coursDate: '2026-05-15',
+    devise:    'EUR',
+    range52w:  { low: 0, high: 0 },   // À vérifier / mettre à jour
+  },
 
   // ── Métriques snapshot (TTM ou dernier exercice) ───────────────────────────
   // Toutes les valeurs issues de calculs manuels sur données primaires.

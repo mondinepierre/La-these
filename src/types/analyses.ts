@@ -32,7 +32,13 @@ export type Conviction     = 'exceptionnelle' | 'forte' | 'moyenne' | 'spéculat
 export type Positionnement = 'achat fort' | 'accumulation' | 'surveillance' | 'allégement' | 'maintien'
 export type Tendance       = 'hausse' | 'stable' | 'baisse'
 export type MarginOfSafety = 'forte' | 'correcte' | 'faible' | 'indéterminée' | 'négative'
-
+export type OnePagerData = {
+  thesis:    string
+  cours:     number
+  coursDate: string
+  devise:    'USD' | 'EUR'
+  range52w:  { low: number; high: number }
+}
 // ─────────────────────────────────────────────
 // Analyse ponctuelle
 // ─────────────────────────────────────────────
@@ -64,6 +70,7 @@ export type FrontmatterPonctuelle = {
   logo?:          string
   chartData?:     ChartData
   origine?:       OrigineAnalyse
+  onePager?:      OnePagerData
 }
 
 // ─────────────────────────────────────────────
@@ -241,6 +248,7 @@ export type FrontmatterValeur = {
   glossaire?:     string[]
   readingTime?:   number
   logo?:          string
+  onePager?:      OnePagerData
 }
 
 // ─────────────────────────────────────────────
@@ -262,3 +270,5 @@ export function isPonctuelle(fm: FrontmatterAnalyse): fm is FrontmatterPonctuell
 // ─────────────────────────────────────────────
 
 export type AnalyseCard = FrontmatterAnalyse & { slug: string }
+
+
