@@ -2123,6 +2123,61 @@ export const glossaire: GlossaireTerm[] = [
     modules: [],
   },
 
+  // ─────────────────────────────────────────────────────────────────────────────
+// AJOUTS GLOSSAIRE — 5 termes manquants pour la fiche GTT
+// À insérer dans le tableau `glossaire` de src/data/glossaire.ts
+// ─────────────────────────────────────────────────────────────────────────────
+
+  {
+    slug: "methanier",
+    label: "Méthanier",
+    category: "Fondamentaux" as const,
+    shortDef: "Navire-citerne dédié au transport intercontinental de gaz naturel liquéfié à -162 °C.",
+    definition: `Un méthanier est un navire spécialement conçu pour transporter du gaz naturel sous forme liquide (GNL) entre les terminaux de liquéfaction et les terminaux de regazéification. La taille standard moderne est de 174 000 m³ — capable de chauffer environ 70 000 foyers européens pendant un an avec une seule cargaison.\n\nLa difficulté technique majeure est de maintenir le GNL à -162 °C pendant des traversées de 20 à 30 jours. Deux grandes familles de technologies de confinement existent : les cuves à membrane (technologie GTT, qui équipe ~86 % de la flotte mondiale) et les cuves indépendantes type Moss (sphères, qui équipent ~14 % de la flotte).\n\nLe carnet de commandes mondial de méthaniers est l'indicateur avancé de la demande GNL à long terme : chaque navire commandé aujourd'hui sera livré 3 à 4 ans plus tard et opérera ensuite 25 à 30 ans.`,
+    related: ["gnl", "fsru", "flng", "royalties"],
+    modules: [],
+  },
+
+  {
+    slug: "fsru",
+    label: "FSRU (Floating Storage and Regasification Unit)",
+    category: "Fondamentaux" as const,
+    shortDef: "Unité flottante de stockage et de regazéification — méthanier modifié qui regazéifie le GNL directement à quai.",
+    definition: `Une FSRU est un navire-terminal qui combine deux fonctions : stocker du GNL livré par méthaniers et le regazéifier à bord pour l'injecter directement dans le réseau de gaz local du pays d'accueil. Elle remplace un terminal de regazéification terrestre traditionnel, qui demande plusieurs années de construction et des investissements lourds.\n\nL'avantage stratégique de la FSRU est sa vitesse de déploiement : quelques mois suffisent pour amarrer une unité et démarrer la regazéification, contre 3 à 5 ans pour un terminal terrestre. L'Europe a massivement déployé des FSRU en 2022-2023 pour remplacer les importations de gaz russe par pipeline.\n\nLes FSRU constituent un sous-segment de la flotte de méthaniers : elles sont commandées en plus petit nombre mais génèrent des revenus de royalties similaires pour les technologies de confinement comme GTT.`,
+    related: ["gnl", "methanier", "flng"],
+    modules: [],
+  },
+
+  {
+    slug: "flng",
+    label: "FLNG (Floating LNG)",
+    category: "Fondamentaux" as const,
+    shortDef: "Unité flottante de liquéfaction — usine GNL embarquée sur un navire, capable de liquéfier le gaz directement sur un champ offshore.",
+    definition: `Une FLNG est un complexe industriel embarqué sur un navire qui combine extraction, traitement et liquéfaction du gaz naturel directement au-dessus d'un champ gazier offshore. Le GNL produit est ensuite transféré sur des méthaniers conventionnels pour être exporté.\n\nL'avantage économique de la FLNG est de monétiser des champs gaziers éloignés des côtes pour lesquels la construction d'un pipeline et d'un terminal de liquéfaction terrestre serait économiquement impossible. Elle réduit aussi l'empreinte environnementale au sol.\n\nLes FLNG sont des navires extrêmement complexes (plusieurs milliards de dollars unitaires) et peu nombreux dans le monde — quelques unités opérationnelles, quelques-unes en construction. Elles génèrent des royalties élevées pour les fournisseurs de technologie de confinement comme GTT, mais leur impact volumétrique reste limité face aux méthaniers conventionnels.`,
+    related: ["gnl", "methanier", "fsru"],
+    modules: [],
+  },
+
+  {
+    slug: "fid",
+    label: "FID (Final Investment Decision)",
+    category: "Analyse fondamentale",
+    shortDef: "Décision finale d'investissement — engagement formel d'allouer le capital nécessaire pour lancer un projet industriel de grande échelle.",
+    definition: `La FID (Final Investment Decision) est la décision formelle d'un consortium ou d'un opérateur de lancer la construction d'un grand projet industriel — typiquement une usine de liquéfaction GNL, un champ pétrolier offshore, une raffinerie, une mine.\n\nElle marque le point de non-retour : avant la FID, le projet est en phase d'études (FEED, faisabilité technique et économique), avec des dépenses limitées ; après la FID, les commandes d'équipements sont passées, les contrats de construction signés, et les flux financiers significatifs s'engagent. Une FID se déclenche typiquement quand le producteur a sécurisé des contrats d'achat long terme couvrant 70 à 90 % de la production future.\n\nPour les investisseurs dans la chaîne de valeur GNL (GTT, Technip Energies, équipementiers), le suivi des FID est un indicateur avancé central : chaque FID se traduit en commandes de méthaniers 6 à 18 mois plus tard, puis en royalties 3 à 4 ans après pendant la construction des navires.`,
+    related: ["capex", "take-or-pay", "gnl"],
+    modules: [],
+  },
+
+  {
+    slug: "royalties",
+    label: "Royalties",
+    category: "Analyse fondamentale",
+    shortDef: "Redevance versée pour l'usage d'une propriété intellectuelle, brevetée ou licenciée — modèle économique à très haute marge.",
+    definition: `Une royalty est un paiement versé par un licencié au détenteur d'une propriété intellectuelle (brevet, marque, savoir-faire, droit d'auteur) en échange du droit de l'utiliser. Elle peut être calculée en pourcentage du chiffre d'affaires généré par l'usage, en montant fixe par unité produite, ou en jalon (paiement à des étapes définies).\n\nLe modèle d'affaires par royalties est typique des entreprises de propriété intellectuelle pure : éditeurs de logiciels, laboratoires pharmaceutiques (licences de molécules), concédants technologiques (GTT pour le confinement GNL, ARM pour les architectures de processeurs). Il combine quatre avantages structurels : coûts marginaux quasi-nuls, marges d'exploitation élevées (50-70 %), conversion FCF supérieure à 80 %, et capital investi très faible.\n\nLa contrepartie est la dépendance à un noyau de propriété intellectuelle qui doit rester protégé, défendu juridiquement, et alimenté en R&D pour maintenir l'avance technologique sur la durée. Une fois la barrière franchie par un concurrent, le moat s'effondre rapidement.`,
+    related: ["asset-light", "pricing-power", "moat", "free-cash-flow"],
+    modules: [],
+  },
+
 ];
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────

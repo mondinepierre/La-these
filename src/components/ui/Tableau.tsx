@@ -3517,7 +3517,252 @@ const TABLEAUX: Record<string, TableauData> = {
       { mos: '20 %', r10: '242,05', r12: '221,07', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
     ],
   },
+// ─────────────────────────────────────────────────────────────────────────────
+// GTT — TABLEAUX DE VALORISATION
+// À insérer dans le record TABLEAUX de src/components/ui/Tableau.tsx
+// WACC : 5,14 % (Excel La Thèse — Re = Rf Bund 2,86 % + β 0,49 × ERP US 4,78 %)
+// FCF base ajusté 2026 : 350 M€ (guidance EBITDA 490-530 M€ × conv. FCF/EBITDA ~70 %)
+// Trésorerie nette : +218 M€ (bilan 31/12/2025)
+// Actions diluées : 37,18 M
+// ─────────────────────────────────────────────────────────────────────────────
 
+  // ── DCF — Paramètres ────────────────────────────────────────────────────
+  'gtt-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',     primary: true },
+      { key: 'valeur',    label: 'Valeur'                       },
+      { key: 'source',    label: 'Source / Note'                },
+    ],
+    lignes: [
+      {
+        parametre: 'WACC',
+        valeur:    '5,14 %',
+        source:    'Re = Rf Bund 2,86 % + β 0,49 × ERP US 4,78 % — pondération E/V 97,8 %, D/V 2,2 %',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Croissance perpétuelle',
+        valeur:    '2,0 %',
+        source:    'Ancré sur la croissance nominale long terme du secteur GNL',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'FCF base (FY2025)',
+        valeur:    '383,2 M€',
+        source:    'FCF réalisé FY2025 — base retenue telle quelle, sans ajustement forward',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Trésorerie nette',
+        valeur:    '+218 M€',
+        source:    'Ajoutée à l\'EV pour obtenir l\'Equity Value (dette nette négative = tréso)',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '37,18 M',
+        source:    'DEU FY2025 — nombre d\'actions dilué fin d\'exercice',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Part valeur terminale (central)',
+        valeur:    '~87 %',
+        source:    'Structurel pour ce modèle : WACC bas + FCF élevé concentrent la valeur dans la TV',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── DCF — Scénarios ────────────────────────────────────────────────────
+  'gtt-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario',  label: 'Scénario',             primary: true },
+      { key: 'cagr',      label: 'CAGR FCF 5 ans'                      },
+      { key: 'hypothese', label: 'Hypothèse principale'                 },
+      { key: 'fcf2030',   label: 'FCF projeté 2030'                     },
+      { key: 'dcf',       label: 'Valeur DCF / action'                  },
+    ],
+    lignes: [
+      {
+        scenario:  'Bear',
+        cagr:      '3 %',
+        hypothese: 'Rechargement du carnet tardif — commandes 30-40/an sur 2026-2027, trough prolongé',
+        fcf2030:   '444 M€',
+        dcf:       '357 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        scenario:  'Central',
+        cagr:      '8 %',
+        hypothese: 'Rechargement progressif à partir de 2027 — thèse 2028-2030 se réalise normalement',
+        fcf2030:   '563 M€',
+        dcf:       '445 €',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        scenario:  'Bull',
+        cagr:      '13 %',
+        hypothese: 'Fort rechargement dès 2026-2027 — synergies Digital 25-30 M€ EBIT atteintes en 2030',
+        fcf2030:   '706 M€',
+        dcf:       '551 €',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // ── DCF — Synthèse croisée ─────────────────────────────────────────────
+  'gtt-dcf-synthese': {
+    colonnes: [
+      { key: 'methode', label: 'Méthode',           primary: true },
+      { key: 'bear',    label: 'Scénario bear'                    },
+      { key: 'central', label: 'Scénario central'                 },
+      { key: 'bull',    label: 'Scénario bull'                    },
+    ],
+    lignes: [
+      {
+        methode: 'DCF (FCF opérationnel)',
+        bear: '357 €', central: '445 €', bull: '551 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        methode: 'Calculateur PER — prix cible (×18)',
+        bear: '255 €', central: '322 €', bull: '420 €',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        methode: 'Zone juste r=10 % (PER)',
+        bear: '158 €', central: '200 €', bull: '261 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        methode: 'Cours actuel (15 mai 2026)',
+        bear: '209 €', central: '209 €', bull: '209 €',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── PER — Les trois scénarios ──────────────────────────────────────────
+  // BPA FY2025 : 11,10 € | PER central : 18x | MoE : ±7 % (β 0,49 × 15 %)
+  'gtt-per-trois-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',            primary: true },
+      { key: 'bear',      label: 'Bear — CAGR 5 %'                     },
+      { key: 'central',   label: 'Central — CAGR 10 %'                 },
+      { key: 'bull',      label: 'Bull — CAGR 16 %'                    },
+    ],
+    lignes: [
+      {
+        parametre: 'BPA FY2025 (base)',
+        bear: '11,10 €', central: '11,10 €', bull: '11,10 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'BPA projeté FY2030',
+        bear: '14,17 €', central: '17,88 €', bull: '23,31 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'PER central retenu',
+        bear: '18x', central: '18x', bull: '18x',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Prix cible',
+        bear: '255 €', central: '322 €', bull: '420 €',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Borne basse (MoE 7 %)',
+        bear: '237 €', central: '299 €', bull: '390 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Borne haute (MoE 7 %)',
+        bear: '273 €', central: '344 €', bull: '449 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Zone juste r=10 %',
+        bear: '158 €', central: '200 €', bull: '261 €',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'Zone juste r=12 %',
+        bear: '145 €', central: '183 €', bull: '238 €',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── PER — Zone juste · Scénario bear ──────────────────────────────────
+  // Prix cible 255 € | Zone juste r=10 % : 158,34 € | Zone juste r=12 % : 144,71 €
+  'gtt-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: 'Entrée r=10 % (€)'                 },
+      { key: 'r12', label: 'Entrée r=12 % (€)'                 },
+    ],
+    lignes: [
+      {
+        mos: '15 %',
+        r10: '134,59', r12: '123,00',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        mos: '20 %',
+        r10: '126,67', r12: '115,77',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // ── PER — Zone juste · Scénario central ───────────────────────────────
+  // Prix cible 322 € | Zone juste r=10 % : 199,80 € | Zone juste r=12 % : 182,59 €
+  'gtt-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: 'Entrée r=10 % (€)'                 },
+      { key: 'r12', label: 'Entrée r=12 % (€)'                 },
+    ],
+    lignes: [
+      {
+        mos: '15 %',
+        r10: '169,83', r12: '155,20',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        mos: '20 %',
+        r10: '159,84', r12: '146,07',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // ── PER — Zone juste · Scénario bull ──────────────────────────────────
+  // Prix cible 420 € | Zone juste r=10 % : 260,57 € | Zone juste r=12 % : 238,12 €
+  'gtt-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: 'Entrée r=10 % (€)'                 },
+      { key: 'r12', label: 'Entrée r=12 % (€)'                 },
+    ],
+    lignes: [
+      {
+        mos: '15 %',
+        r10: '221,48', r12: '202,40',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        mos: '20 %',
+        r10: '208,46', r12: '190,50',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
 }
 
 
