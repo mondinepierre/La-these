@@ -27,10 +27,10 @@ import { loreal             } from './loreal'
 import { thales              } from './thales'
 import { constellationenergy } from './constellationenergy'
 import { cameco              } from './cameco'
+import { gtt                 } from './gtt'
 
 // ── Valeurs suivies — en construction ────────────────────────────────────────
 import { rockwellAutomation  } from './rockwell-automation'
-import { gtt                 } from './gtt'
 import { exailTechnologies   } from './exail-technologies'
 import { msciInc             } from './msci-inc'
 
@@ -48,6 +48,7 @@ export const ANALYSES: AnalyseCard[] = [
   asml,
   cameco,
   constellationenergy,
+  gtt,
   loreal,
   microsoft,
   novo,
@@ -58,7 +59,7 @@ export const ANALYSES: AnalyseCard[] = [
 
   // En construction
   rockwellAutomation,
-  gtt,
+
 
   exailTechnologies,
   msciInc,

@@ -94,7 +94,7 @@ export const gtt: AnalyseCard = {
   conviction:     'forte',
   positionnement: 'maintien',
   lastUpdated:    '2026-05-15',
-  statut:         'en-construction',
+  statut:         'actif',
   portefeuille:   'CTO',              // Non éligible PEA (cotation Euronext Paris mais revenus royalties — cotation hors directive PEA)
   horizon:        '5 ans',
   excerpt:        'GTT conçoit et licencie les systèmes de confinement membranaire pour le transport et le stockage du GNL. Pure-play technologique asset-light, quasi-monopole mondial sur les méthaniers à membrane, marges d\'exploitation >60 %, FCF conversion structurellement supérieure à 90 %.',
