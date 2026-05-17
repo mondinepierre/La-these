@@ -2,15 +2,24 @@
 
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
-import { glossaire, CATEGORIES, type GlossaireCategory } from '@/data/glossaire';
+import {
+  glossaire,
+  CATEGORIES,
+  THEMES,
+  THEME_LABELS,
+  type GlossaireCategory,
+  type GlossaireTheme,
+} from '@/data/glossaire';
 
 const CATEGORY_COLORS: Record<GlossaireCategory, string> = {
   'Fondamentaux': '#1B4332',
   'Marchés': '#2D6A4F',
-  'Stratégies': '#40916C',
+  'Stratégies': '#52766B',
   'Enveloppes fiscales': '#C9A84C',
-  'ETF & indices': '#1B4332',
+  'ETF & indices': '#3D5A80',
   'Analyse fondamentale': '#8B5E3C',
+  'Mécanismes financiers': '#6B4423',
+  'Stratégie & moat': '#3A5A40',
   'Analyse technique': '#4A4A6A',
   'Gestion du risque': '#7B2D2D',
   'Produits avancés': '#2D4A6A',
@@ -20,12 +29,17 @@ const CATEGORY_COLORS: Record<GlossaireCategory, string> = {
 export default function GlossairePage() {
   const [query, setQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<GlossaireCategory | 'Tous'>('Tous');
+  const [activeTheme, setActiveTheme] = useState<GlossaireTheme | 'Tous'>('Tous');
 
   const filtered = useMemo(() => {
     let results = glossaire;
 
     if (activeCategory !== 'Tous') {
       results = results.filter((t) => t.category === activeCategory);
+    }
+
+    if (activeTheme !== 'Tous') {
+      results = results.filter((t) => t.theme === activeTheme);
     }
 
     if (query.trim()) {
@@ -39,7 +53,7 @@ export default function GlossairePage() {
     }
 
     return results.sort((a, b) => a.label.localeCompare(b.label, 'fr'));
-  }, [query, activeCategory]);
+  }, [query, activeCategory, activeTheme]);
 
   // Group by first letter for the A-Z display
   const grouped = useMemo(() => {
@@ -53,6 +67,9 @@ export default function GlossairePage() {
   }, [filtered]);
 
   const allCategories: ('Tous' | GlossaireCategory)[] = ['Tous', ...CATEGORIES];
+  const allThemes: ('Tous' | GlossaireTheme)[] = ['Tous', ...THEMES];
+
+  const hasActiveFilter = activeCategory !== 'Tous' || activeTheme !== 'Tous' || query !== '';
 
   return (
     <main style={{ background: '#F7F4EF', minHeight: '100vh' }}>
@@ -99,7 +116,7 @@ export default function GlossairePage() {
               marginBottom: '2rem',
             }}
           >
-            {glossaire.length} termes essentiels pour comprendre l'investissement long terme — des fondamentaux aux produits avancés.
+            {glossaire.length} termes essentiels pour comprendre l'investissement long terme — des fondamentaux aux produits avancés, avec un filtre par secteur pour les notions spécialisées.
           </p>
 
           {/* Search */}
@@ -189,6 +206,69 @@ export default function GlossairePage() {
         </div>
       </section>
 
+      {/* Theme filters (secteur) */}
+      <section
+        style={{
+          background: '#0F2A1F',
+          padding: '0 1.5rem',
+          overflowX: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          borderTop: '1px solid rgba(168, 197, 181, 0.1)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1100px',
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.5rem 0',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          <span
+            style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: '0.6875rem',
+              fontWeight: 600,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              color: '#78A492',
+              marginRight: '0.5rem',
+              flexShrink: 0,
+            }}
+          >
+            Secteur :
+          </span>
+          {allThemes.map((theme) => {
+            const isActive = activeTheme === theme;
+            const label = theme === 'Tous' ? 'Tous' : THEME_LABELS[theme];
+            return (
+              <button
+                key={theme}
+                onClick={() => setActiveTheme(theme)}
+                style={{
+                  padding: '0.375rem 0.875rem',
+                  borderRadius: '2rem',
+                  border: isActive ? 'none' : '1px solid rgba(201, 168, 76, 0.3)',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '0.75rem',
+                  fontWeight: isActive ? 600 : 400,
+                  background: isActive ? '#C9A84C' : 'transparent',
+                  color: isActive ? '#1B4332' : '#A8C5B5',
+                  transition: 'all 0.15s ease',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
       {/* Content */}
       <section
         style={{
@@ -208,7 +288,11 @@ export default function GlossairePage() {
           >
             <p style={{ fontSize: '1.0625rem' }}>Aucun terme ne correspond à ta recherche.</p>
             <button
-              onClick={() => { setQuery(''); setActiveCategory('Tous'); }}
+              onClick={() => {
+                setQuery('');
+                setActiveCategory('Tous');
+                setActiveTheme('Tous');
+              }}
               style={{
                 marginTop: '1rem',
                 padding: '0.5rem 1.25rem',
@@ -227,18 +311,51 @@ export default function GlossairePage() {
         ) : (
           <>
             {/* Result count */}
-            <p
+            <div
               style={{
-                fontFamily: 'var(--font-sans)',
-                fontSize: '0.8125rem',
-                color: '#78716C',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
                 marginBottom: '2.5rem',
+                gap: '1rem',
+                flexWrap: 'wrap',
               }}
             >
-              {filtered.length} terme{filtered.length > 1 ? 's' : ''}
-              {activeCategory !== 'Tous' ? ` dans "${activeCategory}"` : ''}
-              {query ? ` pour "${query}"` : ''}
-            </p>
+              <p
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '0.8125rem',
+                  color: '#78716C',
+                  margin: 0,
+                }}
+              >
+                {filtered.length} terme{filtered.length > 1 ? 's' : ''}
+                {activeCategory !== 'Tous' ? ` dans "${activeCategory}"` : ''}
+                {activeTheme !== 'Tous' ? ` · secteur ${THEME_LABELS[activeTheme as GlossaireTheme]}` : ''}
+                {query ? ` pour "${query}"` : ''}
+              </p>
+              {hasActiveFilter && (
+                <button
+                  onClick={() => {
+                    setQuery('');
+                    setActiveCategory('Tous');
+                    setActiveTheme('Tous');
+                  }}
+                  style={{
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: '0.75rem',
+                    color: '#C9A84C',
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textDecoration: 'underline',
+                    padding: 0,
+                  }}
+                >
+                  Réinitialiser
+                </button>
+              )}
+            </div>
 
             {/* A-Z groups */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
@@ -306,24 +423,51 @@ export default function GlossairePage() {
                             (e.currentTarget as HTMLElement).style.boxShadow = 'none';
                           }}
                         >
-                          {/* Category badge */}
-                          <span
+                          {/* Badges */}
+                          <div
                             style={{
-                              display: 'inline-block',
-                              padding: '0.2rem 0.625rem',
-                              borderRadius: '2rem',
-                              fontSize: '0.6875rem',
-                              fontWeight: 600,
-                              fontFamily: 'var(--font-sans)',
-                              letterSpacing: '0.04em',
-                              textTransform: 'uppercase',
-                              color: CATEGORY_COLORS[term.category],
-                              background: `${CATEGORY_COLORS[term.category]}14`,
+                              display: 'flex',
+                              flexWrap: 'wrap',
+                              gap: '0.375rem',
                               marginBottom: '0.625rem',
                             }}
                           >
-                            {term.category}
-                          </span>
+                            <span
+                              style={{
+                                display: 'inline-block',
+                                padding: '0.2rem 0.625rem',
+                                borderRadius: '2rem',
+                                fontSize: '0.6875rem',
+                                fontWeight: 600,
+                                fontFamily: 'var(--font-sans)',
+                                letterSpacing: '0.04em',
+                                textTransform: 'uppercase',
+                                color: CATEGORY_COLORS[term.category],
+                                background: `${CATEGORY_COLORS[term.category]}14`,
+                              }}
+                            >
+                              {term.category}
+                            </span>
+                            {term.theme && (
+                              <span
+                                style={{
+                                  display: 'inline-block',
+                                  padding: '0.2rem 0.625rem',
+                                  borderRadius: '2rem',
+                                  fontSize: '0.6875rem',
+                                  fontWeight: 600,
+                                  fontFamily: 'var(--font-sans)',
+                                  letterSpacing: '0.04em',
+                                  textTransform: 'uppercase',
+                                  color: '#9C7F2E',
+                                  background: 'rgba(201, 168, 76, 0.12)',
+                                  border: '1px solid rgba(201, 168, 76, 0.25)',
+                                }}
+                              >
+                                {THEME_LABELS[term.theme]}
+                              </span>
+                            )}
+                          </div>
 
                           {/* Label */}
                           <h2

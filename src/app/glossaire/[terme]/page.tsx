@@ -5,7 +5,7 @@ import {
   getTermBySlug,
   getRelatedTerms,
   getAllSlugs,
-  CATEGORIES,
+  THEME_LABELS,
   type GlossaireCategory,
 } from '@/data/glossaire';
 
@@ -35,10 +35,12 @@ export async function generateMetadata({
 const CATEGORY_COLORS: Record<GlossaireCategory, string> = {
   'Fondamentaux': '#1B4332',
   'Marchés': '#2D6A4F',
-  'Stratégies': '#40916C',
+  'Stratégies': '#52766B',
   'Enveloppes fiscales': '#C9A84C',
-  'ETF & indices': '#1B4332',
+  'ETF & indices': '#3D5A80',
   'Analyse fondamentale': '#8B5E3C',
+  'Mécanismes financiers': '#6B4423',
+  'Stratégie & moat': '#3A5A40',
   'Analyse technique': '#4A4A6A',
   'Gestion du risque': '#7B2D2D',
   'Produits avancés': '#2D4A6A',
@@ -94,24 +96,51 @@ export default async function TermePage({ params }: { params: Promise<{ terme: s
             <span style={{ color: '#F7F4EF' }}>{term.label}</span>
           </nav>
 
-          {/* Category badge */}
-          <span
+          {/* Category + Theme badges */}
+          <div
             style={{
-              display: 'inline-block',
-              padding: '0.25rem 0.75rem',
-              borderRadius: '2rem',
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              fontFamily: 'var(--font-sans)',
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: categoryColor === '#C9A84C' ? '#1B4332' : '#F7F4EF',
-              background: categoryColor,
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '0.5rem',
               marginBottom: '1rem',
             }}
           >
-            {term.category}
-          </span>
+            <span
+              style={{
+                display: 'inline-block',
+                padding: '0.25rem 0.75rem',
+                borderRadius: '2rem',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                fontFamily: 'var(--font-sans)',
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                color: categoryColor === '#C9A84C' ? '#1B4332' : '#F7F4EF',
+                background: categoryColor,
+              }}
+            >
+              {term.category}
+            </span>
+            {term.theme && (
+              <span
+                style={{
+                  display: 'inline-block',
+                  padding: '0.25rem 0.75rem',
+                  borderRadius: '2rem',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  fontFamily: 'var(--font-sans)',
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  color: '#C9A84C',
+                  background: 'transparent',
+                  border: '1px solid #C9A84C',
+                }}
+              >
+                {THEME_LABELS[term.theme]}
+              </span>
+            )}
+          </div>
 
           {/* Title */}
           <h1
