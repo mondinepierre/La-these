@@ -384,4 +384,82 @@ export const analyseFondamentale: GlossaireTerm[] = [
       { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
     ],
   },
+    {
+    slug: 'fog',
+    label: 'FOG (Fiber Optic Gyroscope)',
+    category: 'Analyse fondamentale',
+    theme: 'defense-aerospatiale',
+    shortDef: "Gyroscope à fibre optique, technologie de capteur inertiel utilisé dans les centrales de navigation haute précision.",
+    definition: `Le FOG (Fiber Optic Gyroscope, gyroscope à fibre optique) est un type de gyroscope qui mesure la rotation en exploitant l'effet Sagnac : deux faisceaux lumineux circulent en sens opposés dans une boucle de fibre optique, et toute rotation du dispositif crée un déphasage entre les deux faisceaux, proportionnel à la vitesse de rotation.
+ 
+Contrairement aux gyroscopes mécaniques traditionnels, le FOG n'a aucune pièce mobile, ce qui lui confère une durée de vie très longue, une fiabilité exceptionnelle, et l'absence de dérive mécanique. C'est l'une des trois grandes technologies de gyroscopes haute précision utilisées dans les centrales de navigation inertielle pour applications militaires et spatiales, avec le gyroscope laser à anneau (RLG) et les capteurs MEMS de haute performance.
+ 
+Le FOG est particulièrement adapté aux environnements exigeants (sous-marins, espace, drones autonomes) où le signal GPS est indisponible ou dégradé. Cette indépendance vis-à-vis du GPS est devenue une exigence critique pour les forces armées dans un contexte de brouillage électronique généralisé. Les acteurs mondiaux capables de produire des centrales FOG à grade militaire haute précision sont peu nombreux : Northrop Grumman, Honeywell, Exail Technologies et dans une moindre mesure Safran Electronics & Defense.`,
+    related: ['roic'],
+    modules: [],
+  },
+  {
+    slug: 'mcm',
+    label: 'MCM (Mine Counter Measures)',
+    category: 'Analyse fondamentale',
+    theme: 'defense-aerospatiale',
+    shortDef: "Lutte anti-mines navales : ensemble des moyens militaires destinés à détecter et neutraliser les mines sous-marines.",
+    definition: `Le MCM (Mine Counter Measures, lutte anti-mines) regroupe l'ensemble des moyens et techniques militaires destinés à détecter, classifier, identifier et neutraliser les mines sous-marines. Les mines navales sont des armes asymétriques peu coûteuses qui peuvent paralyser le trafic maritime stratégique d'une nation entière (détroits, ports, voies commerciales).
+ 
+Historiquement, la lutte anti-mines reposait sur des navires "chasseurs de mines" équipés de sonars haute résolution et de plongeurs démineurs. La nouvelle génération MCM (depuis les années 2010) repose sur des systèmes de drones autonomes (USV de surface, AUV sous-marins, ROV téléopérés) qui éloignent les opérateurs de la zone dangereuse et permettent un déminage plus rapide et plus sûr.
+ 
+Le marché mondial du MCM est estimé à environ 3 Md€ sur les 15 prochaines années, avec un parc de plus de 300 navires chasseurs de mines en service dont 70 % âgés de plus de 20 ans qui devront être remplacés ou modernisés d'ici 2030. Exail Technologies est un leader mondial sur ce segment via son offre intégrée UMIS (USV + AUV + ROV + logiciel UMISOFT), illustrée par le contrat commun belgo-néerlandais (BENL) pour les marines belge et néerlandaise.`,
+    related: ['fog'],
+    modules: [],
+  },
+  {
+    slug: 'bitd',
+    label: 'BITD (Base Industrielle et Technologique de Défense)',
+    category: 'Analyse fondamentale',
+    theme: 'defense-aerospatiale',
+    shortDef: "Ensemble des entreprises produisant des biens et services nécessaires à la défense d'un pays ou d'un ensemble géopolitique.",
+    definition: `La BITD (Base Industrielle et Technologique de Défense) désigne l'ensemble des entreprises, à capitaux publics ou privés, qui produisent les biens et services nécessaires à la défense d'un pays. Le concept recouvre les grands intégrateurs systèmes (Thales, Naval Group, MBDA, BAE Systems, Lockheed Martin), les équipementiers de niveau 1 (Safran, Hensoldt, Kongsberg, Northrop Grumman), les fournisseurs spécialisés de composants critiques (Exail sur la navigation inertielle, Exosens sur la photonique sécuritaire), et un tissu de PME et ETI sous-traitantes.
+ 
+La BITD européenne a vécu plusieurs décennies de sous-investissement après la fin de la guerre froide, avec une dépendance technologique croissante vis-à-vis des États-Unis sur plusieurs briques critiques (GPS, électronique embarquée, satellites). Le retour de la guerre en Europe (Ukraine 2022) a relancé l'effort d'investissement et la priorité à la souveraineté technologique, traduits dans plusieurs initiatives européennes : loi de programmation militaire française 2024-2030, règlement européen EDIRPA (acquisition conjointe), règlement européen ASAP (montée en cadence munitions).
+ 
+Pour un investisseur, la BITD européenne offre un cycle d'investissement structurel pluriannuel à horizon 2028-2030, porté par l'objectif OTAN de 2 % du PIB en dépenses de défense (plusieurs pays visant désormais 3 %+).`,
+    related: ['cieemg', 'mcm'],
+    modules: [],
+  },
+  {
+    slug: 'odirnane',
+    label: 'ODIRNANE',
+    category: 'Analyse fondamentale',
+    shortDef: "Obligation à durée indéterminée remboursable en numéraire ou en actions, instrument hybride entre dette et capitaux propres.",
+    definition: `L'ODIRNANE (Obligation à Durée Indéterminée Remboursable en Numéraire ou en Actions Nouvelles ou Existantes) est un instrument financier hybride, à mi-chemin entre la dette et les capitaux propres. Trois caractéristiques principales le définissent.
+ 
+Premièrement, la durée indéterminée : pas de maturité fixe contractuelle. L'émetteur dispose de "call dates" périodiques (typiquement à 5, 7 ou 10 ans) où il peut choisir de rembourser tout ou partie de l'instrument. S'il choisit de ne pas rembourser, l'instrument continue indéfiniment.
+ 
+Deuxièmement, le remboursement à l'option de l'émetteur : à chaque call date, l'émetteur peut rembourser en numéraire (cash) ou en actions nouvelles ou existantes. Cette optionnalité protège l'émetteur en cas de tension de trésorerie ou de besoin de préserver le bilan.
+ 
+Troisièmement, le coupon : payable annuellement en cash. L'émetteur peut généralement suspendre le coupon en cas de stress financier sans déclencher de défaut, ce qui en fait un instrument plus flexible qu'une obligation classique. Le coupon est typiquement plus élevé que la dette senior pour rémunérer ce risque, mais inférieur aux instruments mezzanines ou obligataires high yield.
+ 
+Au plan comptable IFRS, si l'émetteur peut éviter perpétuellement le remboursement en cash, l'ODIRNANE est classée en capitaux propres et non en dette. Le coupon est alors traité comme un dividende préférentiel (distribution de capitaux propres), pas comme une charge financière du compte de résultat. Les agences de notation rattrapent ce traitement en reconnaissant typiquement 50 % d'equity credit sur ce type d'instrument.
+ 
+Exail Technologies a émis 552 M€ d'ODIRNANE en deux tranches (septembre 2025 et janvier 2026) pour refinancer la dette bancaire post-iXblue et solder les engagements ICG et les minoritaires hérités de la fusion.`,
+    related: ['purchase-price-allocation'],
+    modules: [],
+  },
+  {
+    slug: 'purchase-price-allocation',
+    label: 'Purchase Price Allocation (PPA)',
+    category: 'Analyse fondamentale',
+    shortDef: "Allocation comptable du prix d'acquisition d'une société entre ses actifs identifiables, le solde formant le goodwill. À distinguer du Power Purchase Agreement (utilities).",
+    definition: `La PPA (Purchase Price Allocation, allocation du prix d'acquisition) est un exercice comptable obligatoire après l'acquisition d'une société. Selon les normes IFRS (notamment IFRS 3), l'acquéreur doit répartir le prix payé entre les différents actifs et passifs identifiables de la cible, valorisés à leur juste valeur (et non à leur valeur comptable historique).
+ 
+Cette répartition fait apparaître généralement trois composantes : les actifs tangibles (immobilisations corporelles), les actifs incorporels identifiables (marques, brevets, relations clients, technologies, carnets de commandes) qui n'étaient pas comptabilisés au bilan de la cible, et le goodwill résiduel (différence entre le prix payé et la somme des justes valeurs des actifs nets identifiables).
+ 
+Les actifs incorporels identifiés par la PPA s'amortissent ensuite sur leur durée d'utilité estimée (typiquement 5 à 20 ans selon la nature), créant une charge d'amortissement supplémentaire qui plombe le résultat comptable de l'acquéreur pendant plusieurs exercices après l'acquisition. C'est une distorsion à connaître pour les investisseurs : le BPA publié post-acquisition est mécaniquement abaissé par cette charge non-cash, sans que la performance économique réelle ne soit affectée. Pour évaluer correctement la rentabilité économique post-fusion, il convient de reconstituer un BPA normalisé en réintégrant la charge d'amortissement PPA x (1 - taux d'IS).
+ 
+Pour Exail Technologies, la PPA générée par l'acquisition d'iXblue (2022) a fait apparaître environ 244 M€ d'actifs incorporels (technologies FOG, relations clients défense, marques) amortis sur plusieurs exercices, soit une charge récurrente d'environ 18 M€/an qui plombe le résultat publié jusqu'en 2030 environ.
+ 
+**Distinction importante** : la PPA Purchase Price Allocation (fusion-acquisition, slug 'purchase-price-allocation') ne doit pas être confondue avec le PPA Power Purchase Agreement (contrat d'achat d'électricité dans les utilities, slug 'ppa'). Ces deux termes partagent le même acronyme mais relèvent de domaines distincts.`,
+    related: ['odirnane'],
+    modules: [],
+  },
 ];

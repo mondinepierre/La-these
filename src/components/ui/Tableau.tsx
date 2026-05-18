@@ -3763,6 +3763,257 @@ const TABLEAUX: Record<string, TableauData> = {
       },
     ],
   },
+// ─────────────────────────────────────────────────────────────────────────────
+// EXAIL TECHNOLOGIES — TABLEAUX DE VALORISATION
+// À insérer dans le record TABLEAUX de src/components/ui/Tableau.tsx
+//
+// DCF : WACC 6,94 % - perpétuelle 2,5 % - FCF Y0 2026 75 M€ - 16,968 M actions
+// PER : BPA normalisé 2025 1,45 € - PER central 28x - MoE ±12,6 % (β 0,84 × 15 %)
+//       Scénarios CAGR BPA : Bear 15 % - Central 22 % - Bull 30 %
+// Niveaux personnels : R10 MoS20 (Surveillance) - R10 MoS25 (Premier renfo) - R12 MoS20 (Achat fort)
+// Cours de référence : 110,10 € (mai 2026)
+// ─────────────────────────────────────────────────────────────────────────────
+
+  // ── DCF - Paramètres ────────────────────────────────────────────────────
+  'exail-technologies-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',     primary: true },
+      { key: 'valeur',    label: 'Valeur'                       },
+      { key: 'source',    label: 'Source / Note'                },
+    ],
+    lignes: [
+      {
+        parametre: 'WACC',
+        valeur:    '6,94 %',
+        source:    'Re = Rf Bund 2,86 % + β 0,84 × ERP France 4,78 % - pondération E/V 81 %, D/V 19 %',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Croissance perpétuelle',
+        valeur:    '2,5 %',
+        source:    'Standard sectoriel défense long terme',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'FCF base (Y0 2026)',
+        valeur:    '75 M€',
+        source:    'FCF 2025 65 M€ + ~15 % implicite Q1 2026 (+40 % CA, levier opérationnel)',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Dette nette retraitée',
+        valeur:    '+276 M€',
+        source:    "50 % d'equity credit appliqué aux 552 M€ d'ODIRNANE (convention Moody's / S&P)",
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '16,97 M',
+        source:    "DEU FY2025 - nombre d'actions dilué fin d'exercice",
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Part valeur terminale (central)',
+        valeur:    '~85 %',
+        source:    'Au-dessus du seuil de vigilance 75 % - forte sensibilité à la croissance perpétuelle',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── DCF - Scénarios ────────────────────────────────────────────────────
+  'exail-technologies-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario',  label: 'Scénario',             primary: true },
+      { key: 'cagr',      label: 'CAGR FCF 5 ans'                      },
+      { key: 'hypothese', label: 'Hypothèse principale'                 },
+      { key: 'fcf2030',   label: 'FCF projeté 2030'                     },
+      { key: 'dcf',       label: 'Valeur DCF / action'                  },
+    ],
+    lignes: [
+      {
+        scenario:  'Bear',
+        cagr:      '8 %',
+        hypothese: 'Normalisation rapide post-2026 - pas de levier opérationnel matériel - marge EBITDA ~22 %',
+        fcf2030:   '102 M€',
+        dcf:       '104 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        scenario:  'Central',
+        cagr:      '18 %',
+        hypothese: 'Marge EBITDA franchit 25 % en 2027-2028 - book-to-bill stable 1,2 - conversion FCF/EBITDA améliorée',
+        fcf2030:   '145 M€',
+        dcf:       '151 €',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        scenario:  'Bull',
+        cagr:      '25 %',
+        hypothese: 'Marge EBITDA > 27 % - nouvelle phase prises de commandes 2027-2028 - photonique et quantique contribuent',
+        fcf2030:   '183 M€',
+        dcf:       '191 €',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // ── DCF - Synthèse croisée ─────────────────────────────────────────────
+  'exail-technologies-dcf-synthese': {
+    colonnes: [
+      { key: 'methode', label: 'Méthode',           primary: true },
+      { key: 'bear',    label: 'Scénario bear'                    },
+      { key: 'central', label: 'Scénario central'                 },
+      { key: 'bull',    label: 'Scénario bull'                    },
+    ],
+    lignes: [
+      {
+        methode: 'DCF (FCF opérationnel)',
+        bear: '104 €', central: '151 €', bull: '191 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        methode: 'Calculateur PER - prix cible (×28)',
+        bear: '82 €', central: '110 €', bull: '151 €',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        methode: 'Zone juste r=10 % (PER)',
+        bear: '51 €', central: '68 €', bull: '94 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        methode: 'Cours actuel (15 mai 2026)',
+        bear: '110,10 €', central: '110,10 €', bull: '110,10 €',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── PER - Les trois scénarios ──────────────────────────────────────────
+  // BPA normalisé 2025 : 1,45 € | PER central : 28x | MoE : ±12,6 % (β 0,84 × 15 %)
+  // Scénarios révisés : Bear 15 % - Central 22 % - Bull 30 %
+  'exail-technologies-per-trois-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',            primary: true },
+      { key: 'bear',      label: 'Bear - CAGR 15 %'                    },
+      { key: 'central',   label: 'Central - CAGR 22 %'                 },
+      { key: 'bull',      label: 'Bull - CAGR 30 %'                    },
+    ],
+    lignes: [
+      {
+        parametre: 'BPA normalisé FY2025',
+        bear: '1,45 €', central: '1,45 €', bull: '1,45 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'BPA projeté FY2030',
+        bear: '2,92 €', central: '3,92 €', bull: '5,38 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'PER central retenu',
+        bear: '28x', central: '28x', bull: '28x',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Prix cible',
+        bear: '82 €', central: '110 €', bull: '151 €',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Borne basse (MoE 12,6 %)',
+        bear: '71 €', central: '96 €', bull: '132 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Borne haute (MoE 12,6 %)',
+        bear: '92 €', central: '124 €', bull: '170 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Zone juste r=10 %',
+        bear: '51 €', central: '68 €', bull: '94 €',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'Zone juste r=12 %',
+        bear: '46 €', central: '62 €', bull: '86 €',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── PER - Zone juste - Scénario bear ──────────────────────────────────
+  // Prix cible 82 € | Zone juste r=10 % : 50,71 € | Zone juste r=12 % : 46,35 €
+  'exail-technologies-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: 'Entrée r=10 % (€)'                 },
+      { key: 'r12', label: 'Entrée r=12 % (€)'                 },
+    ],
+    lignes: [
+      {
+        mos: '15 %',
+        r10: '43,10', r12: '39,40',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        mos: '20 %',
+        r10: '40,57', r12: '37,08',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // ── PER - Zone juste - Scénario central ───────────────────────────────
+  // Prix cible 110 € | Zone juste r=10 % : 68,13 € | Zone juste r=12 % : 62,27 €
+  // MoS du tableau alignées sur les niveaux personnels (Surveillance 20 %, Premier renfo 25 %)
+  'exail-technologies-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: 'Entrée r=10 % (€)'                 },
+      { key: 'r12', label: 'Entrée r=12 % (€)'                 },
+    ],
+    lignes: [
+      {
+        mos: '20 %',
+        r10: '54,50', r12: '49,82',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        mos: '25 %',
+        r10: '51,10', r12: '46,70',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // ── PER - Zone juste - Scénario bull ──────────────────────────────────
+  // Prix cible 151 € | Zone juste r=10 % : 93,76 € | Zone juste r=12 % : 85,68 €
+  'exail-technologies-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: 'Entrée r=10 % (€)'                 },
+      { key: 'r12', label: 'Entrée r=12 % (€)'                 },
+    ],
+    lignes: [
+      {
+        mos: '15 %',
+        r10: '79,69', r12: '72,83',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        mos: '20 %',
+        r10: '75,01', r12: '68,55',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+  
 }
 
 
