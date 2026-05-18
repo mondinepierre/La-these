@@ -71,7 +71,7 @@ export default function SegmentRevenueChart({
     if (showTotal) {
       const net = segs.reduce((acc, s) => acc + s.value, 0)
       row['__net__']    = Math.round(net * 10) / 10
-      row['__spacer__'] = 0  // valeur 0 → pas de hauteur, mais occupe une largeur
+      row['__spacer__'] = 0
     }
     return row
   })
@@ -94,10 +94,8 @@ export default function SegmentRevenueChart({
       <ResponsiveContainer width="100%" height={300}>
         <BarChart
           data={flat}
-          margin={{ top: 30, right: 20, left: 0, bottom: 5 }}
+          margin={{ top: 40, right: 20, left: 0, bottom: 5 }}
           barCategoryGap="28%"
-          // barGap négatif = superpose "neg" et "pos" au même endroit
-          // fonctionne car négatifs vont sous 0 et positifs au-dessus → pas de chevauchement visuel
           barGap={hasNegatives ? -BAR_SIZE : 4}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="var(--color-stone-border)" />
@@ -112,7 +110,7 @@ export default function SegmentRevenueChart({
             formatter={(value, name) => {
               const nameStr = String(name ?? '')
               if (nameStr === '__net__'    ) return [`${Number(value)} ${unit}`, totalLabel]
-              if (nameStr === '__spacer__' ) return null  // masquer le spacer dans le tooltip
+              if (nameStr === '__spacer__' ) return null
               return [`${Number(value)} ${unit}`, nameStr]
             }}
             contentStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}
@@ -121,16 +119,16 @@ export default function SegmentRevenueChart({
             formatter={(value) => {
               const v = String(value ?? '')
               if (v === '__net__'    ) return totalLabel
-              if (v === '__spacer__' ) return null  // masquer le spacer dans la légende
+              if (v === '__spacer__' ) return null
               return v
             }}
             wrapperStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}
           />
 
-          {dataBreaks?.map(b => {
-            const idx      = dataYears.indexOf(b.year)
-            const nextYear = idx >= 0 && idx < dataYears.length - 1
-              ? dataYears[idx + 1]
+          {dataBreaks?.map((b, idx) => {
+            const yearIdx  = dataYears.indexOf(b.year)
+            const nextYear = yearIdx >= 0 && yearIdx < dataYears.length - 1
+              ? dataYears[yearIdx + 1]
               : b.year
             return (
               <ReferenceArea
@@ -142,12 +140,13 @@ export default function SegmentRevenueChart({
                 strokeDasharray="4 4"
                 strokeWidth={1}
                 label={{
-                  value:      b.label,
+                  value:      `${idx + 1}`,
                   position:   'top',
-                  fontSize:   10,
+                  fontSize:   11,
                   fontFamily: 'DM Sans',
+                  fontWeight: 600,
                   fill:       '#78716C',
-                  offset:     4,
+                  offset:     6,
                 }}
               />
             )
@@ -165,8 +164,7 @@ export default function SegmentRevenueChart({
             />
           ))}
 
-          {/* Stack "pos" — partent de 0 vers le haut
-              barGap=-BAR_SIZE les aligne sur "neg" */}
+          {/* Stack "pos" — partent de 0 vers le haut */}
           {positiveNames.map((seg) => (
             <Bar
               key={seg}
@@ -178,8 +176,7 @@ export default function SegmentRevenueChart({
             />
           ))}
 
-          {/* Spacer transparent — valeur 0, occupe SPACER_SIZE px de largeur
-              Après barGap (-BAR_SIZE), le total se retrouve décalé de TOTAL_GAP px */}
+          {/* Spacer transparent */}
           {showTotal && (
             <Bar
               dataKey="__spacer__"
@@ -190,7 +187,7 @@ export default function SegmentRevenueChart({
             />
           )}
 
-          {/* Colonne CA net — distincte, gris pierre */}
+          {/* Colonne CA net */}
           {showTotal && (
             <Bar
               dataKey="__net__"
@@ -202,6 +199,25 @@ export default function SegmentRevenueChart({
           )}
         </BarChart>
       </ResponsiveContainer>
+
+      {dataBreaks && dataBreaks.length > 0 && (
+        <div style={{ marginTop: '0.5rem' }}>
+          {dataBreaks.map((b, idx) => (
+            <p
+              key={b.year}
+              style={{
+                fontFamily: 'var(--font-sans)',
+                fontSize:   '11px',
+                color:      'var(--color-ink-faint)',
+                fontStyle:  'italic',
+                margin:     '0 0 2px 0',
+              }}
+            >
+              <span style={{ fontWeight: 600 }}>{idx + 1}.</span> {b.year} {'—'} {b.label}
+            </p>
+          ))}
+        </div>
+      )}
 
       {note && (
         <p style={{
