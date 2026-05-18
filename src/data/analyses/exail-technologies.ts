@@ -76,7 +76,7 @@ export const exailTechnologies: AnalyseCard = {
   logo:           '/analyse/exail-technologies.png',
   prixCible:      { bas: 132, haut: 170, devise: 'EUR' },   // à compléter après la section Valorisation
   marginOfSafety: 'correcte',                       // à compléter après la section Valorisation
-  readingTime:    0,                                    // à compléter à la fin de rédaction
+  readingTime:    50,                                    // à compléter à la fin de rédaction
 
   onePager: {
     thesis:    "Navigation inertielle, drones maritimes, photonique : carnet à 1 Md€, marges en construction.",
