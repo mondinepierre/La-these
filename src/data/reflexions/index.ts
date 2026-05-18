@@ -22,7 +22,11 @@ import { portefeuilleParThemes       } from './portefeuille-par-themes'
 import { lireUnRapportAnnuel         } from './lire-un-rapport-annuel'
 import { novoOrionEtude              } from './novo-orion-etude'
 import { airLiquideTapisRoulant      } from './air-liquide-tapis-roulant'
-import { visaQ2Fy2026      } from './visa-q2-fy2026'
+import { visaQ2Fy2026                } from './visa-q2-fy2026'
+import { novoWegovyOralEuropeMexique } from './novo-wegovy-oral-europe-mexique'
+
+
+
 export const articles: ArticleMeta[] = [
   evEbitdaEtRoic,
   roicEtWacc,
@@ -38,6 +42,7 @@ export const articles: ArticleMeta[] = [
   novoOrionEtude,
   airLiquideTapisRoulant,
   visaQ2Fy2026,
+  novoWegovyOralEuropeMexique
 ]
 
 export function getPublishedArticles(): ArticleMeta[] {

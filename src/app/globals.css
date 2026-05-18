@@ -453,3 +453,14 @@ tbody tr:nth-child(even) td {
     margin-bottom: 2px;
   }
 }
+/* ============================================================
+   SCROLLBAR — Cacher la scrollbar horizontale sur les pills
+   ============================================================ */
+.hide-scrollbar {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* Edge legacy */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari, Edge moderne */
+}

@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect, useCallback } from 'react';
+import type { ReactNode } from 'react';
 import {
   glossaire,
   CATEGORIES,
@@ -25,6 +26,172 @@ const CATEGORY_COLORS: Record<GlossaireCategory, string> = {
   'Produits avancés': '#2D4A6A',
   'Ordres de bourse': '#5A5A3A',
 };
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ScrollableRow — Container scrollable horizontalement avec fade + boutons
+// ─────────────────────────────────────────────────────────────────────────────
+
+function ScrollableRow({
+  children,
+  background,
+  fadeColor,
+  borderTop,
+}: {
+  children: ReactNode;
+  background: string;
+  fadeColor: string;
+  borderTop?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const updateScrollState = useCallback(() => {
+    const el = ref.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+  }, []);
+
+  useEffect(() => {
+    updateScrollState();
+    const handler = () => updateScrollState();
+    window.addEventListener('resize', handler);
+    // Recalcule après chargement des polices
+    const t = setTimeout(updateScrollState, 50);
+    return () => {
+      window.removeEventListener('resize', handler);
+      clearTimeout(t);
+    };
+  }, [updateScrollState]);
+
+  const scroll = (dir: 'left' | 'right') => {
+    const el = ref.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === 'left' ? -240 : 240, behavior: 'smooth' });
+  };
+
+  const buttonStyle: React.CSSProperties = {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    width: '32px',
+    height: '32px',
+    borderRadius: '50%',
+    border: '1px solid rgba(201, 168, 76, 0.35)',
+    background: 'rgba(27, 67, 50, 0.92)',
+    color: '#C9A84C',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 2,
+    padding: 0,
+    transition: 'all 0.15s ease',
+  };
+
+  return (
+    <section
+      style={{
+        background,
+        position: 'relative',
+        borderTop,
+      }}
+    >
+      {/* Fade gauche */}
+      {canScrollLeft && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            width: '72px',
+            background: `linear-gradient(to right, ${fadeColor}, ${fadeColor}DD 30%, transparent)`,
+            pointerEvents: 'none',
+            zIndex: 1,
+          }}
+        />
+      )}
+
+      {/* Bouton gauche */}
+      {canScrollLeft && (
+        <button
+          onClick={() => scroll('left')}
+          style={{ ...buttonStyle, left: '0.5rem' }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLElement).style.borderColor = '#C9A84C';
+            (e.currentTarget as HTMLElement).style.background = '#1B4332';
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(201, 168, 76, 0.35)';
+            (e.currentTarget as HTMLElement).style.background = 'rgba(27, 67, 50, 0.92)';
+          }}
+          aria-label="Défiler vers la gauche"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+      )}
+
+      {/* Container scrollable */}
+      <div
+        ref={ref}
+        onScroll={updateScrollState}
+        className="hide-scrollbar"
+        style={{
+          padding: '0 1.5rem',
+          overflowX: 'auto',
+          WebkitOverflowScrolling: 'touch',
+        }}
+      >
+        {children}
+      </div>
+
+      {/* Fade droit */}
+      {canScrollRight && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            bottom: 0,
+            width: '72px',
+            background: `linear-gradient(to left, ${fadeColor}, ${fadeColor}DD 30%, transparent)`,
+            pointerEvents: 'none',
+            zIndex: 1,
+          }}
+        />
+      )}
+
+      {/* Bouton droit */}
+      {canScrollRight && (
+        <button
+          onClick={() => scroll('right')}
+          style={{ ...buttonStyle, right: '0.5rem' }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLElement).style.borderColor = '#C9A84C';
+            (e.currentTarget as HTMLElement).style.background = '#1B4332';
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(201, 168, 76, 0.35)';
+            (e.currentTarget as HTMLElement).style.background = 'rgba(27, 67, 50, 0.92)';
+          }}
+          aria-label="Défiler vers la droite"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      )}
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Page glossaire
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default function GlossairePage() {
   const [query, setQuery] = useState('');
@@ -55,7 +222,6 @@ export default function GlossairePage() {
     return results.sort((a, b) => a.label.localeCompare(b.label, 'fr'));
   }, [query, activeCategory, activeTheme]);
 
-  // Group by first letter for the A-Z display
   const grouped = useMemo(() => {
     const map: Record<string, typeof filtered> = {};
     for (const term of filtered) {
@@ -164,14 +330,7 @@ export default function GlossairePage() {
       </section>
 
       {/* Category filters */}
-      <section
-        style={{
-          background: '#163829',
-          padding: '0 1.5rem',
-          overflowX: 'auto',
-          WebkitOverflowScrolling: 'touch',
-        }}
-      >
+      <ScrollableRow background="#163829" fadeColor="#163829">
         <div
           style={{
             maxWidth: '1100px',
@@ -204,17 +363,13 @@ export default function GlossairePage() {
             </button>
           ))}
         </div>
-      </section>
+      </ScrollableRow>
 
       {/* Theme filters (secteur) */}
-      <section
-        style={{
-          background: '#0F2A1F',
-          padding: '0 1.5rem',
-          overflowX: 'auto',
-          WebkitOverflowScrolling: 'touch',
-          borderTop: '1px solid rgba(168, 197, 181, 0.1)',
-        }}
+      <ScrollableRow
+        background="#0F2A1F"
+        fadeColor="#0F2A1F"
+        borderTop="1px solid rgba(168, 197, 181, 0.1)"
       >
         <div
           style={{
@@ -267,7 +422,7 @@ export default function GlossairePage() {
             );
           })}
         </div>
-      </section>
+      </ScrollableRow>
 
       {/* Content */}
       <section
