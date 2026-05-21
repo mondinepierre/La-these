@@ -64,6 +64,13 @@ export const thales: AnalyseCard = {
   prixCible:      { bas: 339, haut: 423, devise: 'EUR' },   // à compléter après la section Valorisation
   marginOfSafety: 'faible',                        // à compléter après la section Valorisation
   readingTime:    60,                                     // à compléter à la fin de rédaction
+      onePager: {
+    thesis: "53 Md€ de carnet consolidé : le réarmement européen en cours de matérialisation.",
+    cours:     209.40,
+    coursDate: '2026-05-19',
+    devise:    'EUR',
+    range52w:  { low: 147.3, high: 215 },   // À vérifier / mettre à jour
+  },
 
   // ── Métriques snapshot FY2025 ──────────────────────────────────────────────
   // Cours de référence : 229,80 € (clôture 31/12/2025)

@@ -1,1 +1,536 @@
-La fiche Rockwell Automation est en cours de préparation.
+## Présentation
+
+Rockwell Automation est un groupe industriel américain de droit privé, coté au New York Stock Exchange (ticker ROK) et inclus dans l'indice S&P 500. Le groupe prend son nom actuel en 2001 à l'issue du spin-off de Rockwell Collins, mais ses origines industrielles remontent à 1903, avec la création de la Allen-Bradley Company à Milwaukee, Wisconsin. En 2025, Rockwell réalise un chiffre d'affaires de 8 342 M$ avec 27 000 collaborateurs présents dans plus de 100 pays. Le groupe se classe leader nord-américain sur le marché de l'automatisation industrielle discrete, où il détient une part de marché estimée à 60-65 % aux États-Unis.
+
+<span className="text-sm text-ink-muted">Sources : 10-K FY2025 ; 10-Q Q2-FY2026 ; estimations sectorielles Interact Analysis, ARC Advisory Group.</span>
+
+Le modèle économique repose sur la conception, la production et l'intégration de plateformes d'automatisation industrielle propriétaires combinant matériel, logiciel et services, vendues principalement à des opérateurs manufacturing sur des cycles d'investissement longs. Le revenu se constitue en trois temps : ventes initiales d'équipements Allen-Bradley (drives, automates Logix, équipements de sécurité), revenus récurrents de logiciels et services (FactoryTalk, Plex en SaaS, Fiix en SaaS, contrats de maintenance), et revenus de [Lifecycle Services](/glossaire/lifecycle-services) sur les déploiements et la cybersécurité industrielle. La visibilité du compte de résultat tient à un parc installé estimé à 100 millions de [contrôleurs Logix](/glossaire/plc) déployés mondialement, avec une durée de vie moyenne de 20 à 25 ans, et à un carnet de commandes consolidé de 2 989 M$ fin FY2025, soit environ 4 mois de visibilité sur le chiffre d'affaires.
+
+L'organisation 2025 repose sur trois segments opérationnels depuis la réorganisation FY2021, qui a remplacé l'ancienne segmentation Architecture & Software / Control Products & Solutions. Le graphique ci-dessous présente le chiffre d'affaires des trois segments opérationnels. La JV Sensia (53 % Rockwell, 47 % Schlumberger, formée en octobre 2019 pour l'automation oil & gas) est en cours de dissolution depuis 2025, avec des charges de dissolution récurrentes visibles dans les comptes Q1-26 et Q2-26.
+
+<SegmentGraph unit="M$" />
+
+### Intelligent Devices - la rente Allen-Bradley sur le parc installé US
+
+Le segment Intelligent Devices représente 3 756 M$ en FY2025, soit 45 % du consolidé, en repli de 1,3 % sur l'exercice mais en réaccélération sur la TTM (4 015 M$, +5,8 % vs FY2024). La marge EBIT segment s'établit à 18,0 %, en léger repli de 3,4 % sur un an, dans la fourchette structurelle 17 à 21 % observée sur 5 ans.
+
+Le segment couvre les équipements d'automatisation discrete historiques : drives à vitesse variable PowerFlex, automates programmables industriels CompactLogix et ControlLogix, équipements de sécurité Safety I/O et GuardLogix, motion control Kinetix, capteurs et solutions de contrôle distribué. La marque commerciale Allen-Bradley, intégrée à Rockwell depuis 1985, jouit d'une notoriété quasi-monopolistique sur le marché américain de l'automation discrete, en concurrence directe avec Siemens (15-20 % de part de marché US), Schneider Electric (5-10 %) et ABB (5-7 %). À l'échelle mondiale, le segment est plus disputé : Siemens et Mitsubishi détiennent collectivement une part équivalente ou supérieure à Rockwell, mais leur présence reste plus européenne et asiatique respectivement.
+
+Le mécanisme commercial repose sur le modèle install-then-grow caractéristique de l'automation industrielle. Une usine choisit une plateforme (Allen-Bradley vs Siemens vs Schneider) lors de sa construction ou d'une rénovation majeure, puis reste sur cette plateforme pendant 20 à 25 ans en achetant régulièrement des composants additionnels, des mises à niveau et des consommables. Le revenu récurrent de cette base installée génère une partie importante des ventes du segment chaque année. La barrière de sortie pour un client est triple : coût de réécriture des programmes en langage propriétaire ladder logic, formation des équipes opérationnelles, et risque d'interruption de production lors d'une transition. Cette friction explique pourquoi le segment résiste mieux que les autres en bas de cycle.
+
+### Software & Control - le moteur de transformation, le segment le plus rentable
+
+Le segment Software & Control représente 2 383 M$ en FY2025, soit 29 % du consolidé, en croissance de 8,9 % sur l'exercice et de 17,6 % au premier trimestre FY2026. La marge EBIT segment s'établit à 29,7 %, en forte progression de 33,7 % sur un an et constitue désormais le segment le plus contributeur en EBIT du groupe (42 % du total consolidé).
+
+Le segment regroupe les logiciels industriels et l'infrastructure de contrôle. Logix est la plateforme de programmation des automates Allen-Bradley, langage propriétaire qui constitue le cœur de l'écosystème Rockwell. FactoryTalk est la suite de supervision (HMI, SCADA, analytique de production) qui pilote les opérations en temps réel. Plex Systems, acquis en août 2021 pour 2,2 Md$, est un [MES](/glossaire/mes) (Manufacturing Execution System) en SaaS multi-tenant qui ajoute une couche de gestion d'usine cloud à l'offre Rockwell. Fiix, acquis en décembre 2020, est un CMMS en SaaS pour la maintenance prédictive. Emulate3D fournit le jumeau numérique. Rockwell détient également 5 à 6 % du capital de PTC depuis 2018, dans le cadre d'un partenariat sur la plateforme ThingWorx pour l'[IoT industriel](/glossaire/iot-industriel).
+
+La concurrence est plus dispersée que sur le hardware : Siemens TIA Portal et Industrial Edge sur la programmation et l'analytique, Schneider EcoStruxure sur la supervision, Aveva (filiale Schneider) sur le MES, Honeywell ForgeSuite sur l'analytique process. Sur le segment du MES en SaaS spécifiquement, Plex affronte SAP Manufacturing Cloud et Oracle Manufacturing Cloud, qui bénéficient d'une intégration native avec leurs ERP respectifs mais sont moins spécialisés.
+
+Ce segment porte la transformation structurelle du modèle Rockwell. La part de revenu récurrent (ARR Plex, abonnements FactoryTalk, contrats de maintenance logicielle) est passée d'environ 8 % du CA en FY2021 à un objectif de 15 % à horizon FY2027 selon la communication interne. Cette transition explique l'écart de marge entre Software & Control (29,7 %) et Intelligent Devices (18,0 %) qui s'élargit progressivement, et matérialise la bascule vers un compounder à mix software.
+
+### Lifecycle Services - monétisation de la base installée
+
+Le segment Lifecycle Services représente 2 203 M$ en FY2025, soit 26 % du consolidé, en repli de 3,1 % sur l'exercice. La marge EBIT segment s'établit à 14,5 %, en repli de 12,6 % sur un an, principalement sous l'effet de la normalisation post-Covid et de la dissolution progressive de la JV Sensia.
+
+Le segment regroupe trois sous-ensembles. Les services de conseil et déploiement couvrent l'audit, la conception et l'intégration des solutions d'automatisation chez les clients industriels. Les services managés et cybersécurité industrielle englobent le suivi opérationnel 24/7, la cybersécurité [OT](/glossaire/operational-technology) après les acquisitions Oylo (2020) et Avnet Data Security (2020), et la maintenance des installations clientes. Enfin la JV Sensia (53 % Rockwell, 47 % Schlumberger) opère sur le marché spécifique de l'automatisation oil & gas - cette JV est en cours de dissolution depuis 2025, avec des charges de dissolution de 4 M$ par trimestre visibles dans les comptes Q1-FY2026 et Q2-FY2026.
+
+La concurrence vient principalement des grands intégrateurs de systèmes (Accenture Industry X, Capgemini Industrie, Atos, Wipro), des purs acteurs OT (Yokogawa Process Automation, Honeywell Connected Industrial), et des spécialistes cybersécurité industrielle (Claroty, Nozomi Networks). Le segment a connu une période de croissance forte en FY2023-2024 grâce aux contrats post-Covid de modernisation et de cybersécurité, mais souffre depuis 2025 d'une normalisation de la demande et de la fin progressive de la JV Sensia.
+
+La logique d'ensemble du segment est de capitaliser sur la base installée Allen-Bradley pour vendre des services à plus forte valeur ajoutée et à composante récurrente. Le segment joue un rôle de monétisation de la rente d'installé plutôt que de moteur de croissance organique, son intérêt stratégique étant de fidéliser les clients industriels sur l'écosystème complet Rockwell.
+
+---
+
+## Moat - rente d'installé, stack Industrie 4.0 propriétaire et dominance US
+
+**Type de [moat](/glossaire/moat) identifié :** [coûts de changement](/glossaire/couts-de-changement) très élevés sur la base installée Logix, combinés à une stack [Industrie 4.0](/glossaire/industrie-4-0) propriétaire complète unique sur le marché US, une position quasi-monopolistique sur l'automation discrete américaine, et un effet de réseau via l'écosystème PartnerNetwork et la main-d'œuvre certifiée.
+
+**Les piliers de l'avantage concurrentiel**
+
+**Pilier 1 - switching costs très élevés sur la base installée Logix.** Une usine équipée de contrôleurs Logix Allen-Bradley a réécrit des dizaines de milliers de lignes de code en langage propriétaire ladder logic au fil des années, formé des équipes de techniciens spécifiques à l'environnement Rockwell, et adapté ses processus opérationnels aux particularités de la plateforme. Migrer vers une plateforme Siemens TIA Portal ou Schneider EcoStruxure suppose de réécrire entièrement le code logique (non portable), reformer les équipes sur des certifications longues, accepter un risque opérationnel sur une transition de 12 à 24 mois, et engager des dépenses matérielles substantielles. Sur la durée de vie d'une usine (20-25 ans), le coût total de migration peut représenter 5 à 10 fois la valeur des composants Rockwell achetés sur la même période. Cette équation économique explique pourquoi les taux de rétention sur la base installée Allen-Bradley dépassent 95 % sur les renouvellements de plateforme.
+
+**Pilier 2 - stack Industrie 4.0 propriétaire complète, unique sur le marché US.** Rockwell est le seul acteur coté à offrir une stack 4.0 verticale entièrement intégrée, couvrant l'ensemble des couches d'une usine connectée : capteurs et drives (Allen-Bradley PowerFlex, GuardLogix), contrôle (Logix), supervision et analytique (FactoryTalk View, FactoryTalk Hub), exécution manufacturing en cloud (Plex Systems, MES SaaS multi-tenant), maintenance prédictive (Fiix CMMS SaaS), jumeau numérique (Emulate3D et partenariat PTC ThingWorx), cybersécurité OT (Oylo, Avnet Data Security), et analytique cloud (partenariat Microsoft Azure). Aucun concurrent direct n'offre cette intégration. Schneider Electric dépend d'Aveva pour le software industriel haut de stack, Siemens dépend de SAP ou d'Aveva pour le MES, Emerson est faible sur le software industriel hors process, ABB est faible sur le MES. Cette stack complète propriétaire constitue une barrière à l'entrée structurelle qui dépasse la simple position de marché : reproduire l'écosystème nécessiterait des acquisitions multiples coordonnées sur 5 à 10 ans, comme l'a montré le parcours Rockwell lui-même (vague d'acquisitions 2020-2022 pour environ 3,4 Md$ cumulés).
+
+**Pilier 3 - part de marché dominante sur l'automation discrete US (60-65 %).** Sur ce marché spécifique, Rockwell jouit d'une position quasi-monopolistique qui permet un pricing power supérieur à la concurrence européenne et asiatique. Cette domination s'auto-renforce : les écoles d'ingénieurs américaines forment majoritairement sur Allen-Bradley, les intégrateurs systèmes US sont certifiés Rockwell en priorité, et les nouveaux entrants sur le marché manufacturing américain trouvent plus simple d'adopter le standard local. Le reshoring industriel post-Inflation Reduction Act et CHIPS Act renforce cette dynamique en concentrant le capex sur des sites neufs aux États-Unis, où Allen-Bradley est le choix par défaut.
+
+**Pilier 4 - effet de réseau écosystème et main-d'œuvre certifiée.** L'avantage Rockwell est amplifié par son réseau PartnerNetwork de plus de 8 000 partenaires (intégrateurs systèmes, OEM, fournisseurs de composants compatibles) et par la communauté des techniciens certifiés. Selon les estimations sectorielles, environ 250 000 techniciens dans le monde sont certifiés Rockwell, ce qui crée une externalité de réseau pour les clients (disponibilité de la main-d'œuvre maintenance et opération) et pour les écoles d'ingénieurs qui forment majoritairement sur la plateforme dominante de leur région. Cet effet d'écosystème est particulièrement puissant aux États-Unis, où il auto-renforce les trois autres piliers.
+
+**Ce qui n'est pas un moat.** La marque Rockwell elle-même n'a pas de valeur de réputation grand public et reste secondaire face à Allen-Bradley, qui porte l'essentiel de la valeur de marque sur les clients industriels. Les acquisitions récentes (Plex 2,2 Md$, Fiix 0,3 Md$, ASEM, Kalypso, Avnet, AVATA) construisent la stack 4.0 mais ne créent pas un moat additionnel, elles renforcent le pilier 2 en lui donnant sa profondeur actuelle. La technologie Logix elle-même n'est pas un moat technologique au sens strict : Siemens, Schneider et Mitsubishi proposent des plateformes techniquement équivalentes, c'est la base installée et l'écosystème intégré qui font la différence.
+
+**Risques d'érosion du moat à 5-10 ans.** Deux risques sont matériels et combinés. Le premier est la migration cloud des plateformes industrielles européennes : si Siemens Industrial Edge ou Schneider EcoStruxure parvient à offrir une couche cloud qui permet de wrapper les contrôleurs Logix existants et de migrer progressivement vers leur plateforme sans réécrire le code ladder, les switching costs hardware seraient partiellement contournés. À ce jour, cette hypothèse reste théorique sans signe tangible sur le terrain. Le second est la faiblesse structurelle de Rockwell sur l'[Industrie 5.0](/glossaire/industrie-5-0) : si la prochaine vague de valeur ajoutée se déplace vers la robotique collaborative (cobots ABB, FANUC, Universal Robots), l'automatisation énergétique (Schneider Energy Management), ou la résilience supply chain customizable, Rockwell pourrait rater ce cycle de valeur. Le groupe n'a pas d'offre cobot propriétaire et ses partenariats (FANUC, Comau) sont limités. Un point d'attention en arrière-plan : la disruption potentielle par une plateforme IA-first qui transformerait la manière de programmer les usines (génération automatique de code de contrôle, agents IA qui automatisent les tâches actuellement assurées par les techniciens certifiés). L'horizon est plus lointain et plus spéculatif, mais à surveiller.
+
+**Intensité estimée :** Wide pondéré. Le moat est large et profond sur le marché américain (63 % du CA consolidé), avec un spread ROIC-WACC durablement supérieur à 8 points sur 15 ans qui matérialise la rente structurelle. Sur l'Asie-Pacifique (12 % du CA), le moat est en revanche Narrow voire absent : Siemens et Mitsubishi y dominent, et les acteurs locaux comme Inovance montent en gamme. En pondérant par les chiffres d'affaires, l'intensité consolidée reste Wide.
+
+---
+
+## Thèse d'investissement
+
+Rockwell Automation est le seul acteur coté à offrir une stack Industrie 4.0 propriétaire complète sur le marché américain de l'automatisation industrielle, et le groupe prépare activement sa transition vers un compounder à mix software dont les premiers effets sont visibles dans les marges. La rente Allen-Bradley sur la base installée US, vérifiée par 30 ans de spread ROIC-WACC durablement supérieur à 8 points, constitue le socle économique du business. La cyclicité structurelle est intacte (pic FY2023 9 058 M$, creux FY2024 8 264 M$, retour FY2025 8 342 M$, réaccélération TTM +5,3 %), mais le rebond cyclique observé depuis le Q1-FY2026 (+11,9 % de sales organiques, +30 % d'operating earnings au Q2-FY2026) confirme la sortie de creux et la trajectoire mid-cycle.
+
+**Pourquoi maintenant.** Le cycle 2024-2026 confirme la cyclicité et offre une lecture lisible : creux atteint au S2 FY2024, sortie en cours, mid-cycle attendu autour de FY2027-FY2028. La guidance FY2026 (Adjusted EPS 12,50-13,10 $) implique +18,7 à +24,4 % vs FY2025 et matérialise la dynamique. La trajectoire de transition software (segment S&C passé de 38 % à 42 % de l'EBIT consolidé en 4 ans, marge segment 29,7 % vs 18,0 % pour Intelligent Devices) est observable dans les chiffres et structurellement haussière.
+
+**Horizon :** 5 ans. La thèse repose sur trois piliers structurels qui se déploient sur cet horizon : maintien de la rente Allen-Bradley (vérifiable annuellement via le spread ROIC-WACC), matérialisation du revenu récurrent à 15 % du CA en FY2027 (transition software), expansion durable de la marge EBIT consolidée vers 19-20 % en mid-cycle.
+
+**Ce qui doit se produire pour que la thèse fonctionne.** Le revenu récurrent doit atteindre 15 % du CA à horizon FY2027 (cible interne Rockwell, indicateur central de la transition software). La marge EBIT du segment Software & Control doit rester durablement au-dessus de 28 % (rentabilité du mix software, qui justifie la prime de valorisation). Le ROIC consolidé doit rester au-dessus de 18 % (qualité du capital déployé sur cycle complet, malgré l'intégration du goodwill post-acquisitions 2020-2022).
+
+**Ce qui invaliderait la thèse.** Une migration cloud réussie de Siemens ou Schneider sur le marché US qui contournerait les switching costs Logix matérialiserait l'érosion du moat principal et invaliderait la prime structurelle. Une stagnation prolongée du segment Software & Control en dessous de 25 % de marge EBIT signalerait l'échec de la transition vers le compounder mixte. Un recul matériel des chiffres d'affaires reshoring américains (par exemple sur un retournement de l'IRA et du CHIPS Act après l'élection 2028) éroderait le moteur de croissance principal et exposerait la concentration géographique US comme une vulnérabilité.
+
+---
+
+## Management
+
+**Blake D. Moret - Chairman, President et CEO depuis 2018 (CEO depuis 2016).** Ingénieur diplômé de Georgia Tech (BS Mechanical Engineering, promotion 1985), Moret a rejoint Rockwell immédiatement après ses études et a passé 41 ans dans le groupe sans expérience externe. Il a gravi tous les échelons opérationnels : ingénieur produit, manager régional Asie-Pacifique, président de la division Control & Visualization Business, Senior Vice President Architecture & Software puis Senior Vice President Control Products & Solutions, avant d'être nommé Chief Operating Officer en 2016 puis CEO la même année. Cette trajectoire 100 % interne en fait un dirigeant exceptionnel par sa connaissance opérationnelle de l'automation industrielle, mais introduit un risque de pensée de groupe sur les inflexions stratégiques majeures (transition cloud, IA générative, exposition Chine). Son mandat de CEO depuis 2016 est marqué par trois inflexions stratégiques : le virage logiciel matérialisé par l'acquisition de Plex Systems pour 2,2 Md$ en août 2021 (plus grande opération de l'histoire du groupe), la réorganisation segmentaire de 2021 qui a aligné la structure interne sur la transformation digitale (Software & Control comme segment dédié), et la résilience opérationnelle sur le cycle 2022-2025 où Rockwell a mieux absorbé le creux que Schneider et Siemens grâce au mix US et à la base installée. Moret est un opérationnel compétent et discipliné, sans génie stratégique mais sans erreur majeure. La qualité d'exécution sur le cycle 2022-2025 est réelle, et l'inflexion vers le software via Plex est cohérente avec la stratégie long terme.
+
+**Nicholas C. Gangestad - Senior Vice President et Chief Financial Officer depuis 2020.** Gangestad a rejoint Rockwell après une carrière de 30 ans chez 3M où il a été VP Investor Relations puis CFO du segment Health Care. Ingénieur de formation et CPA, il apporte une expertise financière complète et une rigueur de communication avec les marchés financiers qui contraste avec le profil opérationnel de Moret. Son mandat se caractérise par une discipline forte sur le capital (rachats d'actions réguliers, dette nette/EBITDA contenue sous 2,5x), une transparence accrue sur les Adjusted EPS et la guidance, et l'introduction de la métrique FCF conversion (~100 % de l'Adjusted Net Income) comme repère central de la communication financière.
+
+**Structure de rémunération et alignement.** La rémunération 2025 de Blake Moret se structure en trois couches selon le Proxy Statement FY2026. Le fixe est de 1 350 000 $. La rémunération variable annuelle, conditionnée à des objectifs de sales growth, Adjusted EPS et free cash flow, est pondérée 60 % résultats financiers et 40 % objectifs non financiers (stratégie, leadership, innovation). La composante LTI (Long Term Incentive) est attribuée en actions de performance indexées sur l'EPS croissance triennale et le TSR relatif vs S&P 500 Industrials, avec une acquisition sur 3 ans. La rémunération totale 2025 ressort à environ 14,2 M$, dans la fourchette haute des CEO d'industriels US de capitalisation comparable. La structure LTI est alignée avec les indicateurs centraux de la thèse long terme : croissance organique de l'EPS, génération de trésorerie et performance boursière relative.
+
+**Gouvernance et actionnariat.** Le conseil d'administration compte 11 administrateurs au 31 décembre 2025, dont 10 indépendants. Point de gouvernance moyen : la séparation des fonctions Chairman et CEO n'est pas en vigueur, Moret cumule les deux. C'est une pratique courante chez les large caps US (Microsoft, Johnson & Johnson, ExxonMobil ont historiquement cumulé) mais qui s'écarte des standards modernes les plus stricts. Le Lead Independent Director est Lawrence D. Kingsley (ex-CEO de Pall Corporation), profil industriel solide qui compense en partie cette concentration de pouvoir. Pas d'actionnaire de référence familial ou institutionnel dominant : Vanguard, BlackRock et State Street détiennent ensemble environ 25 % du capital, structure typique des grandes capitalisations US.
+
+**Politique d'allocation du capital - mixte, avec deux critiques.** Sur la période FY2021-2025, le groupe a redistribué environ 4,8 Md$ aux actionnaires (2,7 Md$ de dividendes + 2,1 Md$ de rachats), soit l'équivalent du free cash flow cumulé sur la période (5,0 Md$). Le capex industriel reste modeste à 832 M$ cumulés (1,5-2,5 % du CA), confirmant le profil asset-light de l'automation. La dilution annuelle est négative depuis FY2022 (rachats supérieurs aux attributions LTI). Sur cette base macro, l'allocation est saine et disciplinée. Deux points méritent toutefois critique explicite. Premièrement, le timing de l'acquisition Plex en août 2021 à 2,2 Md$ : opération réalisée au sommet du cycle Tech avec un goodwill de 1,7 Md$ et une dilution de 4 % du capital, avant la correction Tech de 2022-2023. Une attente de 12-18 mois aurait probablement permis d'économiser 500 à 800 M$, et le ROIC propre de Plex reste à ce jour inférieur au coût du capital selon les analyses externes. Deuxièmement, le payout ratio est passé de 37 % en FY2021 à 79 % en FY2025 sur le creux EPS, signe que la politique dividende n'est pas calibrée sur le cycle. Une politique mieux structurée pourrait viser 50-60 % en cycle stable et 30-40 % en haut de cycle, plus protectrice de la flexibilité capitalistique en bas de cycle.
+
+**Qualité de communication.** Rockwell publie une guidance annuelle complète en début d'exercice et la met à jour à chaque trimestre. Sur l'exercice FY2025, la guidance initiale a été dépassée sur l'Adjusted EPS (10,53 $ réalisé vs guidance initiale 10,00-10,50 $), confirmant une approche conservatrice du management. L'historique récent dessine un management qui fixe des objectifs réalistes et les atteint ou les dépasse, ce qui contribue à la crédibilité de la guidance FY2026 (Adjusted EPS 12,50-13,10 $).
+
+**Succession - point d'attention.** Blake Moret a 66 ans en 2026 et la succession n'est pas préparée publiquement. Cette transition est probable entre 2027 et 2029, avec un profil de successeur (interne vs externe, opérationnel vs financier) qui sera déterminant pour la trajectoire stratégique post-2028. Ce point est traité comme catalyseur long terme dans la section dédiée.
+
+---
+
+## Croissance
+
+Le moteur de croissance de Rockwell sur 2021-2025 est cyclique et asymétrique selon les segments. La croissance consolidée de 4,5 % en [CAGR](/glossaire/cagr) sur 4 ans (6 997 M$ en FY2021 à 8 342 M$ en FY2025) cache l'amplitude cyclique : pic FY2023 à 9 058 M$ suivi d'une correction FY2024 à 8 264 M$ (-8,8 %), puis retour FY2025 et réaccélération TTM. Sur cycle complet 2015-2025, le CAGR long terme se situe entre 5 et 7 %, conforme à l'objectif interne Rockwell de croissance organique 6-8 %. La cyclicité est intrinsèque au business model : Rockwell vend principalement aux opérateurs manufacturing qui calibrent leur capex selon leur taux d'utilisation des capacités et leurs perspectives de demande finale. L'indicateur le plus prédictif est l'[ISM Manufacturing PMI](/glossaire/ism-pmi) : quand il passe sous 50 (contraction de l'activité manufacturing US), les commandes Rockwell ralentissent dans les 6 à 9 mois.
+
+### Chiffre d'affaires
+
+<RevenueGraph />
+
+Lecture : le CA consolidé montre une trajectoire en zigzag visible sur 5 ans qui matérialise le cycle complet. Pic FY2023 à 9 058 M$, correction FY2024 à 8 264 M$ (-8,8 %), retour FY2025 à 8 342 M$ (+0,9 %), et accélération TTM à 8 804 M$ (+5,3 % vs FY2024). Le rebond confirmé en Q1-FY2026 et Q2-FY2026 (+11,9 % organique sur chaque trimestre) confirme la sortie de creux. La guidance FY2026 vise 8,9 Md$ (+5 à +9 % organique, mid 7 %), ce qui placerait Rockwell au-dessus du pic FY2023 pour la première fois en valeur réelle.
+
+<SegmentGraph unit="M$" />
+
+Lecture : les trois segments montrent des trajectoires différenciées. Intelligent Devices suit le cycle macro avec un beta sectoriel proche de 1 (croissance 4-7 % en haut de cycle, repli 5-10 % en bas, +5,8 % TTM). Software & Control est le moteur structurel : croissance organique 8-12 % par an sur cycle complet, portée par la transition cloud (Plex en SaaS), l'ARR récurrent (FactoryTalk Hub) et la pénétration sur la base installée Allen-Bradley. Lifecycle Services est plus erratique, en repli depuis FY2024 sous l'effet de la normalisation post-Covid et de la dissolution progressive de la JV Sensia.
+
+### Bénéfice par action
+
+<MetricGraph_EPS title="BPA dilué GAAP et Adjusted EPS ($)" />
+
+Lecture : le BPA dilué GAAP est plus volatil que l'Adjusted EPS sur 5 ans (7,67 à 11,95 $ vs 9,43 à 12,25 $) du fait de l'amortissement PPA récurrent post-vague d'acquisitions 2020-2022. L'écart structurel d'environ 2 $/action entre GAAP et Adjusted reflète l'amortissement PPA (~1,30 $/action après IS), les charges de restructuration (~0,55 $), les charges asbestos legacy et Sensia (~0,55 $), et divers items non récurrents (~0,22 $). Pour le calculateur de valorisation, l'Adjusted EPS est retenu comme base de référence (cohérence avec les pairs sectoriels qui publient tous en Adjusted), tandis que le PER snapshot publié reste sur GAAP TTM pour cohérence inter-fiches La Thèse.
+
+---
+
+## Rentabilité et qualité
+
+La rentabilité opérationnelle de Rockwell présente trois caractéristiques structurelles : des marges brutes en amélioration tendancielle (41,4 % en FY2021 à 48,9 % en TTM), une marge EBIT cyclique avec un point bas plancher autour de 14 % et un point haut autour de 19 %, et un ROIC structurellement supérieur au WACC depuis plus de 10 ans avec un spread moyen de +9 points. La marge brute en amélioration matérialise trois effets cumulatifs : la montée en puissance du segment Software & Control (marge brute logicielle supérieure à 70 % par construction), l'amélioration du pricing power Allen-Bradley sur la base installée, et l'intégration progressive de Plex Systems en marge SaaS. Le niveau actuel (48,9 %) est proche du plafond structurel d'un industriel hybride hardware/software, estimé autour de 50-55 %.
+
+### Marges
+
+<MargesGraph />
+
+Lecture : les trois marges montrent une dynamique haussière sur 5 ans avec une exception sur la marge nette FY2021 (19,2 %) gonflée par +397 M$ de Change in fair value of investments (gain non récurrent sur PTC). À retraiter dans toute lecture cycle. La marge EBIT GAAP cyclique varie de 14,4 % au creux FY2024 à 18,7 % au pic FY2023, et la TTM remonte à 19,0 % - signe d'un effet de levier opérationnel significatif (un point de croissance du CA se traduit par environ 1,5 à 2 points de croissance de l'EBIT en haut de cycle). La guidance FY2026 vise une pretax margin de ~19,0 %, confirmant la dynamique haussière en milieu de cycle.
+
+<MetricGraph_AT title="Asset Turnover (x)" />
+
+Lecture : l'asset turnover est stable autour de 0,7-0,8x sur 5 ans, typique d'un industriel asset-medium. Plex et bases logicielles diluent légèrement l'asset turnover post-2020 (les actifs incorporels grossissent plus vite que le CA pendant l'intégration), mais le niveau actuel reste cohérent avec l'objectif de structure. La combinaison marge en hausse + AT stable explique l'amélioration du ROIC observée en TTM.
+
+### Retour sur capital investi
+
+<RoicGraph />
+
+Lecture : le ROIC ressort à 20,1 % en TTM et 18,0 % en FY2025, contre un WACC de 9,6 %, soit un spread de +10,5 points. Le ROIC est cyclique (15,0 % en FY2024 au creux, 23,9 % en FY2023 au pic), mais le plancher reste largement au-dessus du WACC. Le ROIC publié par Finviz/GuruFocus (10,9 %) est inférieur car il retient une méthodologie différente sur le calcul de l'invested capital, les deux convergeant sur l'idée d'un ROIC durablement supérieur au coût du capital.
+
+<RoicWacc />
+
+Lecture : le spread ROIC-WACC est resté positif sur l'ensemble de la période 2021-2025, avec une amplitude qui suit le cycle (+5,2 points au creux FY2024, +14,1 points au pic FY2023, +10,5 points en TTM). Cette régularité du spread sur cycle complet matérialise un compounder industriel de qualité : la création de valeur économique est durable, pas conjoncturelle. C'est la signature des moats robustes sur les industriels matures.
+
+<MetricGraph_ROCE title="ROCE vs WACC vs ROIC (%)" />
+
+Lecture : le ROCE (NOPAT / capital employed total, dette comprise) est supérieur au ROIC car le dénominateur est plus large (intègre toute la dette, pas seulement la dette nette plancher à 0). La stabilité du ROCE entre 19 % et 26 % sur 5 ans confirme la robustesse de la rente structurelle. Les trois métriques (ROCE, ROIC, WACC) racontent la même histoire : un business qui crée de la valeur économique de manière durable, avec une amplitude cyclique modérée mais sans inversion du signe du spread.
+
+### Rentabilité des investissements incrémentaux
+
+<MetricGraph_ROIIC_YoY title="ROIIC annuel (1 an glissant) (%)" />
+
+Lecture : la volatilité 2 % à 58 % YoY est typique des business à IC stable (peu de capex de croissance) où le delta NOPAT domine. Le ROIIC FY24 négatif est un artefact comptable lié au creux NOPAT, pas un signal de qualité du capital. La lecture annuelle est peu robuste pour Rockwell, le ROIIC multi-périodes est plus informatif.
+
+<MetricGraph_ROIIC title="ROIIC glissant multi-périodes (1 à 4 ans) (%)" />
+
+Lecture : le ROIIC 4 ans (FY2021 vs FY2025) à 2,1 % reflète l'absence de gain net de capital efficiency sur cycle complet, conséquence directe des acquisitions 2020-2022 qui ont gonflé l'IC sans contribution NOPAT immédiate (intégration en cours, en particulier sur Plex). Le ROIIC 1 an (11,2 % en FY2025) confirme le redressement post-creux. La divergence entre ROIIC annuel et ROIIC glissant invite à lire le capital incrémental dans la durée : la qualité réelle s'évaluera sur le cycle complet 2025-2030.
+
+<MetricGraph_FCF_OCF_Capex title="OCF, FCF et Capex (M$)" />
+
+Lecture : le FCF varie entre 640 M$ (FY2024) et 1 358 M$ (FY2025), avec une trajectoire en zigzag qui suit la cyclicité du business et l'évolution du BFR. La TTM à 1 339 M$ confirme la sortie de creux. Le ratio FCF/EBITDA TTM ressort à 72 %, modeste mais cohérent avec un industriel à BFR positif. Le capex industriel reste stable entre 120 M$ (FY2021) et 225 M$ (FY2024), soit 1,5 à 2,7 % du CA, confirmant le caractère asset-light du modèle. La guidance FY2026 vise un FCF d'environ 1,5 Md$, soit ~100 % de l'Adjusted Net Income (objectif structurel maintenu de FCF conversion à 100 %).
+
+---
+
+## Solidité financière
+
+La structure financière de Rockwell est saine sans être exceptionnelle pour un large cap industriel américain : dette nette modeste, FCF stable hors creux cycliques, BFR alourdi mais maîtrisé, et liquidité opérationnelle juste correcte. La capacité d'autofinancement reste largement positive et la notation crédit (A3/A par Moody's/S&P) reflète une solidité bilancielle correcte.
+
+### Dette et levier
+
+<MetricGraph_DETTE_EBITDA title="Dette nette / EBITDA (x)" />
+
+Lecture : le levier est resté dans la fourchette 1,0-2,5x sur la période 2021-2025 sans dérive, malgré la vague d'acquisitions Plex/Fiix/AVATA/Sensia/ASEM/Avnet pour 3,4 Md$ entre 2020 et 2022. La dette long terme est principalement à taux fixe pré-2022, ce qui explique le coût de la dette moyen modeste (3,95 % post-IS en TTM) malgré la hausse des taux. La dette nette se compose de 1 116 M$ de short-term debt + 2 571 M$ de long-term debt - 423 M$ de cash, structure équilibrée sans concentration de maturités courtes. Sur les 5 dernières années, le total de dette est passé de 3,98 Md$ (FY2021 post-Plex) à 3,22 Md$ (FY2025), en baisse nette malgré 4,8 Md$ redistribués aux actionnaires. Pas de signe de dérive du levier.
+
+### Liquidité à court terme
+
+<MetricGraph_CR title="Current Ratio (x)" />
+
+Lecture : le current ratio TTM 1,09 est faible par rapport au seuil de confort 1,5x retenu dans les indicateurs La Thèse. C'est en réalité une caractéristique structurelle des industriels US à BFR négatif court terme (DPO supérieur aux DSO+DIO partiels), le ratio reste autour de 1,0-1,1x depuis 10 ans sans signe de stress. La trésorerie à 423 M$ reste suffisante pour les besoins opérationnels, et les facilités de crédit non tirées (~1 Md$) offrent un coussin de sécurité supplémentaire. Le pic FY2023 (1,46x) reflète une cession ponctuelle d'actifs.
+
+### Cycle de conversion du cash
+
+<MetricGraph_CCC_resume title="DSO / DIO / DPO / CCC (jours)" />
+
+Lecture : le cycle de conversion de trésorerie (CCC) est passé de 66 jours en FY2021 à 111 jours en FY2025, soit une dégradation de 45 jours. Le DSO (créances clients) est resté stable autour de 78-87 jours, mais le DIO (stocks) a augmenté de 71 à 105 jours, effet combiné de la fusion Plex, des perturbations supply chain 2022-2023, et de la constitution de stocks de sécurité sur les composants électroniques. Cette inflation BFR coûte environ 250-300 M$ de cash mobilisé en plus depuis FY2021. La normalisation est en cours en TTM (CCC redescendu vers 100 jours), mais le retour au niveau pré-Covid (66 jours) est peu probable à court terme.
+
+### Retour aux actionnaires
+
+<MetricGraph_Dilution title="Variation annuelle du nombre d'actions (%)" />
+
+Lecture : la dilution annuelle est négative depuis FY2022 (réduction du nombre d'actions de 1 % par an en moyenne, rachats supérieurs aux attributions LTI). Le pic dilutif FY2021 (+4 %) correspond à l'émission d'actions liée à l'acquisition Plex. La trajectoire actuelle est saine : le management compense efficacement les attributions stock LTI par des rachats opportunistes.
+
+<MetricGraph_Dividendes title="Dividende par action ($)" />
+
+Lecture : le dividende croît régulièrement de 4,28 $ (FY2021) à 5,24 $ (FY2025), soit +5,2 % CAGR sur 4 ans. La régularité du dividende croissant en période de cycle baissier (le dividende continue d'augmenter même en FY2024 sur le creux EPS) est un signal de confiance du management sur la trajectoire mid-cycle, mais le ratio payout (analysé ci-dessous) montre que cette régularité commence à peser sur la flexibilité capitalistique.
+
+<MetricGraph_Payout title="Payout Ratio (%)" />
+
+Lecture : le payout ratio est passé de 37 % en FY2021 à 79 % en FY2025 sur le creux EPS, signe d'une politique dividende non recalibrée sur le cycle. C'est le point de gouvernance le plus visible à critiquer chez Rockwell : un payout 79 % laisse peu de marge pour un cycle baissier supplémentaire, et le retour à un payout 50-60 % suppose un EPS GAAP supérieur à 10 $ qui ne sera atteint qu'en haut de cycle. À surveiller en FY2026-2027.
+
+<MetricGraph_Capex_Action title="Retour aux actionnaires vs Capex (M$)" />
+
+Lecture : sur 5 ans, Rockwell a alloué 2,7 Md$ aux dividendes, 2,1 Md$ aux rachats et 832 M$ au capex industriel. Le mix favorise nettement la rémunération de l'actionnaire vs le réinvestissement, ce qui est cohérent avec le profil asset-light du modèle. Le pic de rachats FY2024 (594,9 M$) sur cours déprimé est un signe de discipline opportuniste positif. Le capex en hausse en FY2024 (224,7 M$) traduit les investissements R&D et software complémentaires, sans dérive cyclique.
+
+---
+
+## Répartition géographique
+
+Rockwell réalise une concentration géographique parmi les plus élevées du secteur de l'automation industrielle mondiale : 63 % du chiffre d'affaires en Amériques (incluant US et Canada), 18 % en EMEA, 12 % en Asie-Pacifique, 7 % en Amérique latine. Cette concentration s'est même renforcée ces dernières années (Amériques passées de 61 % en FY2021 à 63 % en FY2025), traduisant un cycle plus favorable côté américain (reshoring industriel, capex semi-conducteurs, énergie) face à une décélération européenne (industrie automobile, chimie) et une normalisation asiatique post-Covid.
+
+<GeoMap />
+
+Lecture : la surexposition à l'Amérique du Nord (63 % du CA) est à la fois une force et une vulnérabilité matérielles. Force, car le marché US est le plus rentable de Rockwell (pricing power Allen-Bradley sur la base installée) avec une dynamique structurelle favorable au reshoring sur les 5 prochaines années (IRA, CHIPS Act, energy transition). Vulnérabilité, car le groupe est plus exposé qu'un concurrent européen aux cycles d'investissement industriel américains et à toute correction du capex manufacturing US (par exemple sur un retournement de l'IRA après élection 2028). La concentration supérieure à 60 % sur une seule zone est à qualifier explicitement comme facteur de risque structurel à 5-10 ans.
+
+La répartition par segment est instructive. L'Intelligent Devices et le Software & Control sont les plus mondialisés (60-65 % en Amériques), alors que Lifecycle Services dépasse 70 % en Amériques. Le segment services bénéficie le moins de la mondialisation et reste très dépendant des relations clients de proximité.
+
+---
+
+## Forces et risques
+
+**Forces**
+
+**Un moat à quatre piliers solidement vérifié.** Switching costs sur la base installée Logix, stack Industrie 4.0 propriétaire unique sur le marché US, part de marché US dominante (60-65 % sur l'automation discrete), effet de réseau écosystème PartnerNetwork et main-d'œuvre certifiée. Ces piliers se renforcent mutuellement et expliquent le spread ROIC-WACC durablement supérieur à 8 points depuis 15 ans. La régularité de la création de valeur économique est l'attribut le plus précieux pour un investisseur long terme.
+
+**La transition software est en marche et améliore le mix.** La bascule vers le segment software (marge EBIT 29,7 % vs 18,0 % pour Intelligent Devices) est en cours et structurelle, portée par Plex et FactoryTalk. Le segment Software & Control est passé de 38 % à 42 % de l'EBIT consolidé en 4 ans, et l'objectif interne de revenu récurrent à 15 % du CA en FY2027 est crédible. Cette transition modifie progressivement la qualité économique du business model, sans rupture mais avec une régularité observable.
+
+**Le mix géographique US à 63 % capte les catalyseurs structurels américains.** L'industrie manufacturing américaine bénéficie de catalyseurs durables (reshoring, IRA, CHIPS Act, energy transition) qui n'ont pas d'équivalent ni en Europe ni en Chine. Rockwell capture cette dynamique mieux qu'aucun de ses pairs européens, dont l'exposition US plafonne autour de 30-35 % du CA (Schneider, ABB, Siemens).
+
+**Management opérationnellement compétent et discipliné sur le capital.** Moret et Gangestad ont géré le cycle 2022-2025 avec une discipline notable (dette stable, rachats opportunistes, dividende croissant). L'allocation du capital est globalement rationnelle, sans dérive vers des acquisitions non créatrices de valeur, moyennant les deux critiques mentionnées dans la section Management (timing Plex et politique dividende non calibrée sur cycle).
+
+**Risques**
+
+**Migration cloud Siemens/Schneider qui contournerait les switching costs hardware.** Hypothèse à ce jour théorique : si Siemens Industrial Edge ou Schneider EcoStruxure parvient à offrir une couche cloud permettant de wrapper les contrôleurs Logix existants et de migrer progressivement vers leur plateforme sans réécrire le code ladder, le pilier 1 du moat serait partiellement érodé. Horizon 5-10 ans. À surveiller en suivant l'évolution des stratégies cloud des deux concurrents.
+
+**Faiblesse structurelle sur l'Industrie 5.0 et les cobots.** Rockwell n'a pas d'offre de cobot propriétaire (partenariats avec FANUC et Comau, mais pas de plateforme dédiée), son positionnement énergétique est correct mais bien moins fort que Schneider, et sa résilience supply chain reste classique. Si l'Industrie 5.0 (collaboration humain-machine, durabilité énergétique, résilience customizable) devient le standard d'achat des prochaines générations d'usines, Rockwell pourrait rater ce cycle de valeur. Horizon 5-10 ans.
+
+**Dilution de la prime US par concentration géographique excessive.** La part Amériques est passée de 61 % à 63 % en 4 ans, et continuera probablement de croître. Toute correction prolongée du capex manufacturing US (par exemple sur un retournement de l'IRA après élection 2028) impacterait Rockwell de manière disproportionnée. Le groupe est de facto un pari sur la trajectoire industrielle américaine sur 5-10 ans.
+
+**Cyclicité structurelle probablement sous-évaluée par les multiples actuels.** Le marché actuel paie un PER forward 33x sur Adjusted EPS FY2026, ce qui est élevé pour un industriel cyclique en milieu de cycle. L'amplitude observée sur 5 ans (CA varie de 6,99 à 9,06 Md$, EBIT divisé par 1,5 entre creux et pic, FCF divisé par 2) montre que Rockwell n'est pas un compounder lissé type Microsoft ou Visa. Une récession industrielle américaine en 2027-2028 entraînerait mécaniquement une compression EBIT de 200 à 300 bps et un recul Adjusted EPS de 15 à 25 %, qui n'est pas dans les prix actuels. C'est le risque le moins discuté en ce moment mais le plus matériel à 3-5 ans : Rockwell est une valeur de qualité, mais ce n'est pas une valeur défensive.
+
+**Valorisation tendue qui limite l'asymétrie haussière.** Le PER forward 33x est cohérent avec la médiane secteur (33,9x) mais sans coussin. Au cours actuel 422,29 $, Rockwell intègre déjà un scénario d'exécution sans accroc sur les 3-5 prochaines années. Toute déception sur la transition software ou sur la dynamique US se traduirait par une compression rapide du multiple. Le risque est asymétrique : peu de potentiel de re-rating à la hausse, marge de baisse réelle.
+
+---
+
+## Catalyseurs
+
+**Court terme (0-3 mois)**
+
+Confirmation de la guidance FY2026 sur le mid-cycle lors des publications Q3 (août 2026) et Q4 (novembre 2026). Une accélération supérieure à +10 % sur les sales organiques en Q3 confirmerait le bull case, et la fixation finale de l'Adjusted EPS sur le mid-range guidance (12,80 $) ou supérieur ouvrirait une révision haussière des estimés consensus.
+
+Évolution du backlog publié dans le 10-K FY2026 en novembre 2026. Un retour au-dessus de 3 200 M$ (vs 2 989 M$ FY2025) signalerait une dynamique de prise de commandes forte sur la fin de cycle.
+
+**Moyen terme (6-18 mois)**
+
+Transition recurring/software comme catalyseur principal. Objectif interne ARR à 15 % du CA à horizon FY2027, possible formalisation publique d'une métrique ARR Plex en chiffre explicite, et confirmation du delta de marge EBIT entre Software & Control (>30 %) et le reste du groupe. Si cette transition se matérialise comme prévu, Rockwell justifierait alors la transition vers un multiple "compounder mixte" supérieur à la médiane des industriels classiques.
+
+Capital Markets Day probable au Q4 2026 ou Q1 2027 (le précédent date de 2023), qui pourrait formaliser publiquement des objectifs chiffrés d'ARR Plex et de revenu récurrent. Événement souvent inflexion sur la lecture du dossier par les analystes.
+
+Finalisation de la dissolution Sensia courant FY2026 ou FY2027, avec possibles termes négociés positifs avec Schlumberger.
+
+**Long terme (2-5 ans)**
+
+Succession de Blake Moret, probable entre 2027 et 2029. Le profil du successeur (interne vs externe, opérationnel vs financier) sera déterminant pour la trajectoire stratégique post-2028.
+
+Course à la migration cloud des plateformes industrielles. Si Rockwell réussit sa propre transition cloud avant Siemens et Schneider, le moat se renforce structurellement. À l'inverse, un retard signifierait l'érosion progressive du pilier switching costs.
+
+Trajectoire géopolitique américaine et internationale. Élection présidentielle américaine de 2028 et son impact potentiel sur l'IRA et le CHIPS Act, évolution des tensions US-Chine (Rockwell réalise environ 5 % de son CA en Chine, exposition limitée mais sensible). Ces variables ne sont pas dans les fondamentaux du business, mais elles conditionnent la durabilité de la prime US qui sous-tend la thèse.
+
+---
+
+## Position dans le cycle
+
+**Milieu de cycle - phase de réaccélération post-creux**
+
+Rockwell est positionné au milieu d'un cycle de capex manufacturing US qui devrait porter sur 4 à 6 ans. Le creux du cycle a été atteint au cours du second semestre FY2024 (correction CA -8,8 %, EBIT -29,6 %, FCF divisé par deux). La sortie de creux a commencé au Q1-FY2025 (septembre 2024-décembre 2024) et la confirmation est venue avec les chiffres Q1-FY2026 (+11,9 % sales) et Q2-FY2026 (+11,9 % sales, +30 % operating earnings). L'amplitude du cycle observé sur la période 2021-2025 (CA varie de 6,99 à 9,06 Md$, soit 30 % entre creux et pic) est cohérente avec l'historique long terme : les cycles précédents (2008-2009, 2015-2016, 2019-2020) ont montré des amplitudes similaires. Le cycle moyen dure 4 à 5 ans entre deux creux. Si le creux FY2024 est confirmé, le prochain pic est attendu autour de FY2027-FY2028, suivi d'une correction probable en FY2029-FY2030.
+
+**Comportement du titre sur le cycle**
+
+Historiquement, le cours Rockwell anticipe le cycle EPS de 6 à 12 mois. Le creux du titre en 2022 (257 $) a précédé le creux EPS de 18 mois, et le rebond 2024-2025 (260 $ à 422 $) a anticipé le rebond EPS visible aujourd'hui. Cette anticipation explique pourquoi le titre est cher sur le PER trailing au pic de cycle et bon marché en bas de cycle. Le timing optimal d'entrée est en bas de cycle EPS, mais pas en bas de cycle cours, c'est-à-dire 6 à 12 mois avant le creux EPS. Au cours actuel 422,29 $, Rockwell est en milieu de cycle (cours et EPS en réaccélération), zone de valorisation tendue qui invite à la patience plutôt qu'à l'entrée immédiate.
+
+---
+
+## Valorisation
+
+### Comparatif
+
+<ValuationChart_vs_secteur />
+
+<NoteAnalyse>*Source : Yahoo Finance, mai 2026. Médiane secteur calculée sur panel de 5 pairs (Schneider Electric, ABB, Siemens, Emerson Electric, Yokogawa Electric). Multiples au cours 422,29 $ pour Rockwell. Le ROIC affiché est convention Finviz/Yahoo (10,9 % pour ROK), distinct du ROIC La Thèse (20,1 %), pour cohérence inter-pairs.*</NoteAnalyse>
+
+**Rentabilité.** Rockwell affiche une marge EBIT 20,7 % vs 17,6 % pour la médiane secteur, mais un ROIC convention Finviz 10,9 % vs 9,0 % pour le panel (avantage relatif modeste). Le FCF Yield 2,8 % est inférieur à la médiane (3,7 %), reflet d'une valorisation premium qui dégrade le rendement implicite. Sur les métriques de qualité, Rockwell est légèrement au-dessus de la médiane mais sans surperformance marquée.
+
+**Solidité et croissance.** Dette nette/EBITDA 1,6x vs 1,4x médiane (légèrement plus levier), TCAC CA 3 ans 11,9 % vs 8,3 % médiane (dynamique meilleure que la moyenne sur le rebond cyclique récent). La croissance organique récente est tirée par le cycle US qui n'a pas d'équivalent côté pairs européens.
+
+**Valorisation.** PER trailing 45,3x vs médiane 33,9x (prime structurelle de 33 %), EV/EBITDA 25,7x vs 21,2x médiane (prime 21 %), P/FCF 35,7x vs 29,4x médiane (prime 21 %). Cette prime traduit la rareté du positionnement (seul pure-play US à grande capitalisation) et la stack 4.0 unique, mais elle limite aussi l'asymétrie haussière potentielle.
+
+<ValuationChart_vs_schneider />
+
+<NoteAnalyse>*Source : Yahoo Finance, mai 2026. Données Schneider Electric (SU.PA).*</NoteAnalyse>
+
+**Rentabilité.** Marges comparables (EBIT 20,7 % Rockwell vs 17,6 % Schneider), ROIC légèrement supérieur pour Rockwell (10,9 % vs 8,6 %), FCF Yield comparable (2,8 % vs 3,1 %).
+
+**Solidité et croissance.** Levier comparable (1,6x vs 1,7x). Mais croissance organique récente très différente : 11,9 % Rockwell vs 4,2 % Schneider, reflet de la divergence des cycles US et européen.
+
+**Valorisation.** PER 45,3x Rockwell vs 33,2x Schneider (prime de 36 %), EV/EBITDA 25,7x vs 20,1x (prime de 28 %). La prime Rockwell vs Schneider traduit le pure-play vs la diversification, mais Schneider offre aussi une exposition électrification (data centers, EV, réseaux) que Rockwell n'a pas. Pour un investisseur français, Schneider présente l'avantage supplémentaire d'être PEA-éligible.
+
+<ValuationChart_vs_abb />
+
+<NoteAnalyse>*Source : Yahoo Finance, mai 2026. Données ABB (ABBN.SW).*</NoteAnalyse>
+
+**Rentabilité.** Marge EBIT comparable (20,7 % vs 20,6 %), mais ROIC ABB nettement supérieur (14,2 % vs 10,9 %), FCF Yield comparable (2,8 % vs 3,0 %).
+
+**Solidité et croissance.** Bilan ABB plus sain (Dette/EBITDA 0,6x vs 1,6x), et croissance organique récente meilleure (18,3 % vs 11,9 %).
+
+**Valorisation.** PER ABB 38,7x vs Rockwell 45,3x (prime ROK 17 %), EV/EBITDA 21,2x vs 25,7x (prime ROK 21 %). ABB offre un meilleur profil ROIC et croissance à valorisation plus modeste, et un positionnement meilleur sur l'Industrie 5.0 (robotique collaborative). Rockwell reste préférable pour la rente Allen-Bradley US, la stack 4.0 complète propriétaire et la transition software plus avancée.
+
+<ValuationChart_vs_emerson />
+
+<NoteAnalyse>*Source : Yahoo Finance, mai 2026. Données Emerson Electric (EMR).*</NoteAnalyse>
+
+**Rentabilité.** Marge EBIT Emerson supérieure (24,2 % vs 20,7 %) mais ROIC Finviz inférieur (5,3 % vs 10,9 %), FCF Yield comparable (3,6 % vs 2,8 %).
+
+**Solidité et croissance.** Levier Emerson plus élevé (2,1x vs 1,6x), et croissance organique très inférieure (2,9 % vs 11,9 %).
+
+**Valorisation.** PER Emerson 30,8x vs Rockwell 45,3x (prime ROK 47 %), EV/EBITDA 14,6x vs 25,7x (prime ROK 76 %). Emerson offre une valorisation nettement plus attractive en absolu mais une dynamique commerciale moins favorable et un ROIC sensiblement inférieur. Rockwell capture mieux le reshoring US discrete et la transition software.
+
+<ValuationChart_vs_yokogawa />
+
+<NoteAnalyse>*Source : Yahoo Finance, mai 2026. Données Yokogawa Electric (6841.T). La trésorerie nette de Yokogawa (-1,4x EBITDA) reflète une structure bilancielle japonaise classique, non comparable directement au ratio Rockwell.*</NoteAnalyse>
+
+**Rentabilité.** Marge EBIT Rockwell supérieure (20,7 % vs 13,0 %), mais ROIC Yokogawa supérieur (12,4 % vs 10,9 %), FCF Yield Yokogawa nettement supérieur (6,0 % vs 2,8 %).
+
+**Solidité et croissance.** Yokogawa en trésorerie nette structurelle (Dette/EBITDA -1,4x vs +1,6x), croissance comparable (11,1 % vs 11,9 %).
+
+**Valorisation.** PER Yokogawa 20,6x vs Rockwell 45,3x (prime ROK 120 %), EV/EBITDA 9,5x vs 25,7x (prime ROK 170 %). L'écart de valorisation entre l'industrie US (Rockwell, Emerson) et l'industrie japonaise (Yokogawa, Fanuc) reste structurel : la décote japonaise persiste malgré des fondamentaux comparables ou supérieurs, signe d'une prime géographique US/EU vs Japon que les fondamentaux ne suffisent pas à expliquer. Sur le marché process spécifiquement, Yokogawa est probablement le meilleur opérateur mondial. Rockwell n'est pas le bon choix pour un investisseur qui cherche une exposition process pure, c'est Yokogawa qu'il faudrait regarder.
+
+---
+
+**Synthèse comparative.** Rockwell se trade à une prime structurelle de 17 à 120 % vs ses pairs sectoriels selon les multiples retenus. Cette prime traduit la rareté du positionnement (pure-play US, stack 4.0 propriétaire complète, transition software en cours) et la dynamique commerciale récente supérieure. Mais elle est tendue : peu de pairs offrent un meilleur profil ROIC + croissance, et la dispersion des valorisations sectorielles montre que des alternatives plus value (Yokogawa) ou plus équilibrées (ABB) existent. Les sections suivantes quantifient à quel prix cette promesse est déjà intégrée dans le cours.
+
+### Multiples historiques
+
+<MetricGraph_PER title="PER vs moyenne historique et PER ajusté au taux (x)" />
+
+Lecture : le PER trailing sur les 5 dernières années va de 25,9x (FY2023) à 50,6x (FY2025 sur creux EPS), avec une moyenne 5 ans de 34,6x. Le PER ajusté taux (qui normalise le multiple selon l'environnement de taux) montre une dynamique similaire : minimum 24,5x (FY2023), maximum 51,0x (FY2025), moyenne 5 ans 33,8x. L'ajustement de taux ne modifie pas matériellement la conclusion : Rockwell est à un multiple proche de sa moyenne historique 5 ans, ni en compression ni en expansion notable.
+
+<MetricGraph_EV_EBITDA title="EV/EBITDA vs moyenne historique (x)" />
+
+Lecture : EV/EBITDA TTM 25,7x vs moyenne 5 ans 26,5x, soit légèrement sous la moyenne historique. Le pic FY2021 (32,9x) était lié à l'effet de réévaluation Plex, et la normalisation depuis est lente. Le niveau actuel est cohérent avec un industriel à transition software en cours, mais pas avec un industriel cyclique classique.
+
+<MetricGraph_FCFy title="FCF Yield vs moyenne historique et UST 10 ans (%)" />
+
+Lecture : FCF Yield TTM 2,8 %, vs UST 10Y 4,17 %, spread négatif de 137 bps. Cette configuration (FCF Yield inférieur au taux sans risque) est rare sur les 10 dernières années pour Rockwell, et signale que l'investisseur paie une prime importante pour capter la croissance future. L'investisseur obtient au cours actuel une prime de risque négative vs le taux sans risque : ce n'est pas une situation soutenable sur la durée, le multiple doit soit se compresser, soit la croissance des FCF doit s'accélérer pour rétablir un écart positif.
+
+### Discount Cash Flow
+
+Le FCF TTM (1 339 M$) constitue la base du modèle. Rockwell a un profil FCF erratique sur 5 ans : creux FY2022 (682 M$) et FY2024 (640 M$), pics FY2021 (1 141 M$) et FY2025 (1 358 M$). La sensibilité centrale du modèle porte sur le taux de croissance du FCF sur l'horizon explicite, qui reflète directement l'hypothèse de transition software et d'expansion de marge.
+
+**Paramètres du modèle :**
+
+<Tableau id="rockwell-automation-dcf-parametres" />
+
+<span className="text-sm text-ink-muted">*WACC 9,65 %, croissance perpétuelle 2,5 %, dette nette 3 266 M$, 112,9 M actions diluées. Source : Excel La Thèse, onglet Indicateurs.*</span>
+
+La valeur terminale représente entre 68 et 75 % de la valeur d'entreprise selon le scénario (niveau standard pour un modèle à 5 ans sur une entreprise industrielle mature). La sensibilité au taux de croissance perpétuelle est réelle, et un ajustement de 50 bps sur la perpétuité modifie la valeur de 8 à 12 %.
+
+**Scénarios :**
+
+<Tableau id="rockwell-automation-dcf-scenarios" />
+
+Le scénario bear (CAGR FCF 3 %) retient l'hypothèse d'un cycle plat avec marges Lifecycle Services stagnantes et levier opérationnel limité. C'est un scénario pessimiste mais pas catastrophiste : il correspond à une Rockwell qui exécute correctement mais sans accélération supplémentaire. Le scénario central (CAGR FCF 6,5 %) est aligné avec la guidance FY2026 (FCF ~1,5 Md$ vs FY2025 1,36 Md$, soit +10 % YoY) et avec le CAGR historique long terme du secteur sur cycle complet. C'est le scénario le plus honnête analytiquement. Le scénario bull (CAGR FCF 9 %) suppose la bascule structurelle vers le recurring software (Plex SaaS, FactoryTalk ARR) avec levier marges sur le segment S&C, hypothèse crédible mais conditionnelle.
+
+Le CAGR FCF nécessaire pour justifier le cours actuel 422,29 $ se situe entre 11 et 12 % par an sur 5 ans, soit nettement au-dessus de la guidance interne (7-9 % organique sales, FCF conversion 100 %). Le cours actuel ne peut donc pas être justifié par le DCF central seul : il intègre une prime de rente structurelle que l'actualisation classique ne capture pas.
+
+### Calculateur PER : zone juste et points d'entrée
+
+**Paramètres communs**
+
+[BPA](/glossaire/bpa) Adjusted TTM : **12,24 $** · PER central : **34,10x** · Marge d'erreur : **21,2 %**
+(Beta 1,413 × 15 %)
+
+*PER central = (PER ajusté historique moyen 33,79x × 70 % + PER médian secteur 34,41x × 30 %) = 34,10x*
+
+**Les trois scénarios**
+
+<Tableau id="rockwell-automation-per-trois-scenarios" />
+
+---
+
+<NoteAnalyse>*Zone juste r=X % = prix cible actualisé au taux r sur 5 ans : prix d'achat aujourd'hui pour obtenir exactement r %/an à horizon. MoS = marge de sécurité appliquée à cette zone juste. Exemple : zone juste r=10 % à 380,7 $ avec MoS 15 % donne 323,6 $ ; à ce prix, l'investisseur obtient plus de 10 %/an si le prix cible est atteint dans 5 ans. PER central = moyenne PER ajusté historique 33,79x pondérée 70 % et médiane secteur 34,41x pondérée 30 % = 34,10x. Taux sans risque : UST 10Y.*</NoteAnalyse>
+
+---
+
+**Scénario bear (CAGR EPS 4 %) (sous-cycle prolongé)**
+
+Ce scénario retient une croissance de l'Adjusted EPS de 4 % par an, correspondant à un sub-cycle prolongé sans expansion de marge significative. C'est le plancher analytique : il suppose que la marge EBIT consolidée reste autour de 17-18 % (proche du cycle moyen), que le levier opérationnel attendu sur le segment Software & Control ne se matérialise pas pleinement, et que la dynamique reshoring US ralentit.
+
+BPA Adjusted projeté 2031 : **14,89 $** · Prix cible : **507,8 $** · [Zone juste](/glossaire/zone-juste) r=10 % : **315,3 $**
+
+Au cours actuel (~422 $), le cours est en prime de **33,9 %** par rapport à la zone juste r=10 % : le scénario bear ne justifie pas le cours actuel sur base de multiple. Les niveaux ci-dessous représentent des MoS appliquées à la zone juste pour un investisseur souhaitant se positionner en cas de correction marquée.
+
+<Tableau id="rockwell-automation-per-zone-bear" />
+
+---
+
+**Scénario central (CAGR EPS 8 %) (objectif long terme Rockwell)**
+
+Ce scénario retient un CAGR Adjusted EPS de 8 % par an, aligné avec l'objectif long terme officiel de Rockwell ("EPS growth above sales growth", sales 5-9 %) et avec le CAGR historique Adjusted EPS FY2021 à FY2026e estimé à 6,3 %. C'est le scénario qui correspond à l'état actuel de la pipeline et à la trajectoire de transition software (S&C qui passe de 38 % à 42 % de l'EBIT en 4 ans).
+
+BPA Adjusted projeté 2031 : **17,98 $** · Prix cible : **613,1 $** · Zone juste r=10 % : **380,7 $** · Zone juste r=12 % : **347,9 $**
+
+Au cours actuel (~422 $), le cours est **10,9 % au-dessus de la zone juste r=10 %** (380,7 $), prime modérée qui reflète l'anticipation du marché sur la transition software. Les niveaux ci-dessous représentent des MoS appliquées à la zone juste : acheter à ces prix garantit un retour annualisé supérieur au taux r de la colonne si le prix cible est atteint à horizon 5 ans.
+
+<Tableau id="rockwell-automation-per-zone-central" />
+
+---
+
+**Scénario bull (CAGR EPS 11 %) (haut de cycle prolongé et levier S&C)**
+
+Ce scénario suppose une croissance Adjusted EPS de 11 % par an, intégrant un haut de cycle prolongé, un levier marges sur le segment Software & Control au-delà de 30 %, et une accélération de l'ARR FactoryTalk/Plex. C'est le scénario de la thèse pleinement réalisée, conditionné à l'absence de récession industrielle américaine sur l'horizon 5 ans.
+
+BPA Adjusted projeté 2031 : **20,63 $** · Prix cible : **703,5 $** · Zone juste r=10 % : **436,8 $** · Zone juste r=12 % : **399,3 $**
+
+Au cours actuel (~422 $), le cours est **3,3 % en dessous de la zone juste r=10 %** (436,8 $) : pour que le scénario bull se matérialise, le marché doit confirmer cette anticipation par la trajectoire des résultats. Les niveaux ci-dessous représentent des MoS sur la zone juste.
+
+<Tableau id="rockwell-automation-per-zone-bull" />
+
+---
+
+<NoteAnalyse>*MoS appliquée à la zone juste (non au prix cible) : chaque entrée garantit un retour annualisé supérieur au r de la colonne si le prix cible est atteint à horizon 5 ans. Zone juste r=X % = prix cible / (1+r)^5. BPA base : Adjusted EPS TTM 12,24 $ (au 31/03/2026). PER central : 34,10x. Marge d'erreur : 21,2 % (Beta 1,413 × 15 %). Taux sans risque : UST 10Y 4,17 %.*</NoteAnalyse>
+
+---
+
+**Synthèse :**
+
+<Tableau id="rockwell-automation-dcf-synthese" />
+
+### Lecture croisée des méthodes
+
+Au cours de rédaction (~422 $), les méthodes divergent fortement. Le DCF central sort à **179,48 $** avec un CAGR FCF 6,5 %, la valeur terminale représentant 72 % de la valeur d'entreprise (sensibilité modérée à la perpétuité). La fourchette de conviction DCF est **147,85 - 209,33 $** selon le scénario.
+
+Le calculateur PER produit trois lectures selon la base de croissance retenue. Le scénario bear donne une zone juste de **315,3 $** à r=10 %. Le scénario central donne **380,7 $**. Le scénario bull donne **436,8 $**, il suppose un haut de cycle prolongé et un levier marges sur le segment Software & Control.
+
+**Le point analytique central**
+
+La tension principale entre les méthodes est l'écart matériel entre DCF (179 $) et PER (380,7 $) sur le scénario central, soit un écart de 110 %. Cet écart reflète la **prime de rente** que le marché accorde aux compounders industriels US à ROIC élevé : Rockwell trade historiquement à 2,2x-2,5x sa valeur intrinsèque DCF stricte. Cette prime n'est pas une exubérance, elle traduit la conviction du marché que la rente Allen-Bradley + stack 4.0 + transition software justifie un multiple supérieur à l'actualisation classique des flux. C'est un arbitrage structurel typique des compounders matures.
+
+Au cours actuel (422,29 $), le titre est correctement valorisé dans le scénario central PER (zone juste 380,7 $ avec prime de 10,9 %), mais largement au-dessus de la valeur intrinsèque DCF (prime de 135 %). L'investisseur qui paie aujourd'hui achète : la rente structurelle (justifiée par le ROIC durablement supérieur au WACC), la transition software (en cours, vérifiable), et l'optionalité du cycle (sortie de creux confirmée). Il ne paie pas pour une valeur intrinsèque stricte des flux futurs actualisés.
+
+**En synthèse :** Rockwell se valorise sur le PER, pas sur le DCF. Au cours actuel, l'investisseur paie le scénario central PER avec une prime modérée de 10,9 %, et un coussin négatif sur le DCF. La méthode dominante retenue dans cette fiche est le calculateur PER ajusté, avec le DCF en lecture croisée comme ancrage psychologique sur la valeur intrinsèque structurelle (180 $ en central, niveau qui ne s'est observé qu'en 2008-2009 et mars 2020).
+
+---
+
+## Pourquoi Rockwell plutôt que Schneider Electric
+
+Schneider Electric (SU.PA, France) est un industriel coté à Euronext Paris, valorisation EUR 145 Md, qui combine Energy Management (75 % du CA, transformateurs, distribution électrique, data centers) et Industrial Automation (25 %, EcoStruxure, Aveva via filiale). Le mix géographique est mondialisé : 30 % Amériques, 30 % Europe de l'Ouest, 30 % Asie-Pacifique et 10 % Reste du monde. Schneider trade à PER 33,2x et EV/EBITDA 20,1x, avec une croissance organique 4,2 % et un ROIC convention Finviz 8,6 %.
+
+**Rentabilité.** Marges comparables (EBIT 20,7 % Rockwell vs 17,6 % Schneider), ROIC Rockwell légèrement supérieur (10,9 % vs 8,6 %), FCF Yield comparable (2,8 % vs 3,1 %).
+
+**Solidité et croissance.** Levier comparable (Dette/EBITDA 1,6x vs 1,7x), mais croissance organique très différente (11,9 % vs 4,2 %), reflet de la divergence des cycles US et européen. Schneider est en phase de normalisation, Rockwell en phase de réaccélération.
+
+**Valorisation.** PER 45,3x Rockwell vs 33,2x Schneider (prime ROK 36 %), EV/EBITDA 25,7x vs 20,1x (prime ROK 28 %). La prime est cohérente avec le pure-play vs la diversification.
+
+**Ce qui différencie Rockwell.** Pure-play automation industriel (vs 25 % chez Schneider), rente Allen-Bradley US (vs absence de rente géographique forte chez Schneider), stack 4.0 propriétaire complète (vs dépendance d'Aveva chez Schneider). En contrepartie, Schneider offre une exposition électrification (data centers, EV, réseaux) que Rockwell n'a pas, et bénéficie de la PEA-éligibilité pour un investisseur français. Les deux peuvent coexister en portefeuille sans redondance forte.
+
+---
+
+## Pourquoi Rockwell plutôt que ABB
+
+ABB (ABBN.SW, Suisse) est techniquement le pair le plus comparable de Rockwell : pure-play automation industriel et robotique, valorisation USD 130 Md, listé à la Bourse de Zurich (et Stockholm, et NYSE en ADR). Le mix géographique est mondialisé (40 % EMEA, 30 % Amériques, 30 % APAC). ABB trade à PER 38,7x et EV/EBITDA 21,2x, avec une croissance organique 18,3 % et un ROIC convention Finviz 14,2 %.
+
+**Rentabilité.** Marge EBIT comparable (20,7 % vs 20,6 %), ROIC ABB nettement supérieur (14,2 % vs 10,9 %), FCF Yield comparable (2,8 % vs 3,0 %).
+
+**Solidité et croissance.** Bilan ABB plus sain (Dette/EBITDA 0,6x vs 1,6x), et croissance organique récente meilleure (18,3 % vs 11,9 %), reflet d'une exposition mondialisée mieux équilibrée.
+
+**Valorisation.** PER ABB 38,7x vs Rockwell 45,3x (prime ROK 17 %), EV/EBITDA 21,2x vs 25,7x (prime ROK 21 %).
+
+**Ce qui différencie Rockwell.** Rente Allen-Bradley US (vs absence de rente géographique forte chez ABB qui est plus diversifié), stack 4.0 propriétaire complète (vs ABB qui dépend en partie de partenaires sur le MES et le jumeau numérique), et exposition reshoring US (catalyseur structurel que ABB capture partiellement). En contrepartie, ABB offre un meilleur ROIC, un bilan plus solide, une croissance organique supérieure, et un positionnement meilleur sur l'Industrie 5.0 (robotique collaborative, cobots, automatisation énergétique). C'est probablement le pair le plus sérieusement à considérer pour un investisseur qui hésite à payer la prime Rockwell.
+
+---
+
+**Synthèse comparative.** Rockwell présente une dynamique commerciale supérieure à ses 5 pairs principaux sur le cycle récent (croissance organique 11,9 % vs médiane 8,3 %), une marge EBIT modestement supérieure, mais un ROIC convention Finviz en milieu de panel et un FCF Yield inférieur à la médiane. La prime de valorisation (17 à 120 % selon le pair) traduit la rareté du positionnement (pure-play US, stack 4.0 propriétaire) plutôt qu'une supériorité financière marquée. Pour un investisseur français, l'arbitrage se joue entre Rockwell (pure-play US, prime, exposition reshoring) et Schneider Electric (diversification, PEA, électrification) ; pour un investisseur multinational, ABB est probablement la meilleure alternative à valorisation plus modeste.
+
+---
+
+<div className="verdict-block">
+
+## Mon analyse - ce que j'en fais
+
+Rockwell Automation est, à ma lecture, un compounder industriel de qualité dans une zone de valorisation tendue. La rareté du positionnement (seul pure-play US à grande capitalisation, stack Industrie 4.0 propriétaire complète, transition software en cours observable dans les marges) justifie ma conviction Forte sur le business. Le moat à quatre piliers (switching costs base installée Logix, stack 4.0, dominance US 60-65 % automation discrete, écosystème PartnerNetwork) est large et profond, vérifié par 30 ans de spread ROIC-WACC durablement supérieur à 8 points. Le management est opérationnellement bon, la transition vers un mix software se matérialise, et le mix géographique US offre une exposition aux catalyseurs structurels (reshoring, IRA, CHIPS Act).
+
+Mais le marché paie aujourd'hui un PER forward 33x sur Adjusted FY2026 qui price déjà un scénario d'exécution sans accroc sur 3-5 ans. La cyclicité structurelle est probablement sous-évaluée par les multiples actuels (Rockwell n'est pas Microsoft ou Visa : amplitude EBIT divisé par 1,5 entre creux et pic, FCF divisé par 2). Au cours actuel 422,29 $, le titre se trade à 11 % de prime vs ma zone juste centrale (380,7 $) et à 3 % de décote vs ma zone juste bull (436,8 $) : le scénario bull est partiellement intégré, ce qui limite l'asymétrie haussière.
+
+Je ne suis pas acheteur au cours actuel et j'attends une consolidation cyclique pour entrer. Les niveaux personnels sont calculés selon la convention La Thèse pour les industriels matures avec BPA significatif (zone juste actualisée du calculateur PER avec MoS variable). La lecture technique confirme la pertinence de cette patience : j'identifie deux supports majeurs sur le graphique du titre. Le premier à environ **330 $** est très proche de mon niveau 1 PER (323,6 $) : la convergence entre la fondamentale et le technique renforce la conviction sur cette zone d'entrée. Le second à **244 $** correspond à une zone où le titre s'est souvent reposé entre janvier 2023 et mai 2025 : il s'agit d'un support multi-annuel solide qui se situe entre mon niveau 3 PER (295,7 $) et mon ancrage DCF central (179,48 $). Atteindre 244 $ supposerait un drawdown technique majeur, configuration qui converge avec un creux fondamental exceptionnel et constituerait une opportunité de renforcement structurel.
+
+Une invalidation de la thèse (migration cloud réussie de Siemens sur le marché US, ou stagnation prolongée du segment Software & Control sous 25 % de marge EBIT) me ferait sortir indépendamment du niveau de prix.
+
+---
+
+**Mon cours de référence au moment de la rédaction : ~422 $ (mai 2026)**
+
+<DisclaimerVerdict />
+
+**Mon prix cible personnel (5 ans)**
+
+# <span className="text-gold">483 – 743 $</span>
+
+<span className="text-sm text-ink-muted">*Scénario central : BPA Adjusted projeté 2031 : 17,98 $ × PER central 34,10x = 613 $. Fourchette calculée avec ±21,2 % (Beta 1,413 × 15 %). Hypothèses : CAGR Adjusted EPS 8 %/an sur 5 ans, aligné avec l'objectif long terme Rockwell ("EPS growth above sales growth") et le CAGR FY2021-FY2026e estimé à 6,3 %.*</span>
+
+---
+
+### Mes niveaux de suivi personnels
+
+Ces niveaux sont ceux auxquels j'envisage d'intervenir, en fonction de ma propre situation. Ils ne valent que pour moi.
+
+#### <span className="text-gold">323,6 $ · Premier renforcement</span>
+
+Zone juste r=10 % du scénario central avec MoS 15 %. À ce prix, l'investisseur obtient un retour annualisé d'environ 13,7 %/an si le prix cible central (613 $) est atteint à horizon 5 ans. Ce niveau correspond à une consolidation cyclique modérée (-23,4 % vs cours actuel), équivalent au cours observé en FY2024 ajusté du rebond intermédiaire. Condition d'activation : thèse intacte, confirmation de la trajectoire transition software, pas de signal d'érosion du moat.
+
+#### <span className="text-gold">304,6 $ · Renforcement</span>
+
+Zone juste r=10 % du scénario central avec MoS 20 %. Retour annualisé d'environ 15,0 %/an. Ce niveau est le point d'entrée qui me protège si la croissance EPS sur 5 ans s'établit à 80 % de mes hypothèses centrales. C'est le niveau que je cible en priorité si la correction se produit : il offre une marge de sécurité suffisante sur le scénario central sans requérir le scénario bull pour justifier l'investissement.
+
+#### <span className="text-gold">295,7 $ · Achat fort</span>
+
+Zone juste r=12 % du scénario central avec MoS 15 %. Retour annualisé d'environ 15,7 %/an. Ce niveau durcit mon exigence de rendement à 12 % par an (prime sur taux longs), atteignable uniquement en cas de drawdown cyclique significatif type FY2022 (cours descendu à 257 $) ou FY2024 (cours descendu à 260 $). À ce prix, la thèse est achetée avec une exigence de rendement élevée, ce qui justifie une taille de position plus importante.
+
+---
+
+**Ma marge de sécurité actuelle :** -10,9 % (prime). Le cours actuel (422,29 $) est au-dessus de ma zone juste r=10 % du scénario central (380,7 $). Ce n'est pas une marge de sécurité, c'est une prime modérée qui reflète l'anticipation du marché sur la transition software. En lecture croisée DCF, la valeur intrinsèque structurelle ressort autour de 180 $ (DCF central avec CAGR FCF 6,5 %, WACC 9,65 %, perpétuité 2,5 %) : niveau qui ne s'est observé qu'en 2008-2009 et mars 2020, mentionné comme ancrage psychologique mais pas comme niveau d'entrée actif.
+
+</div>
+
+---
+
+## Historique des mises à jour
+
+- **Mai 2026** : Création de la fiche. Données FY2025 (10-K publié en novembre 2025) et TTM au 31/03/2026 (10-Q Q2-FY2026 publié en mai 2026). Réaccélération du cycle confirmée : sales Q2-FY2026 à +11,9 % YoY, operating earnings +30 %. Guidance FY2026 réaffirmée à +5 à +9 % organique. Adjusted EPS guidé à 12,50-13,10 $. Cours de rédaction : 422,29 $ (20/05/2026). Conviction Forte.

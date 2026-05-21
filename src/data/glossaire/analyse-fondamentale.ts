@@ -462,4 +462,126 @@ Pour Exail Technologies, la PPA générée par l'acquisition d'iXblue (2022) a f
     related: ['odirnane'],
     modules: [],
   },
+  {
+    slug: 'industrie-4-0',
+    label: 'Industrie 4.0',
+    category: 'Analyse fondamentale',
+    theme: 'automation-industrielle',
+    shortDef: "Quatrième révolution industrielle, qui désigne la transformation numérique des usines via l'intégration verticale des systèmes de production.",
+    definition: `L'Industrie 4.0 est un concept qui désigne la transformation numérique des usines via l'intégration verticale de l'ensemble des systèmes de production : capteurs connectés, automates programmables (PLC), supervision en temps réel (HMI / SCADA), MES (Manufacturing Execution System), maintenance prédictive, jumeau numérique, cybersécurité OT et analytique cloud. La promesse est de faire émerger une usine connectée et autonome capable d'optimiser ses opérations en temps réel.
+
+Le concept naît en Allemagne au début des années 2010 sous l'impulsion du gouvernement fédéral et du programme Industrie 4.0, lancé officiellement en 2011. L'objectif est alors de préserver la compétitivité de l'industrie allemande face à la montée en gamme des acteurs asiatiques, en misant sur l'intégration numérique plutôt que sur la délocalisation. Le concept est rapidement adopté à l'échelle mondiale par les éditeurs d'automation industrielle, qui restructurent leur offre autour de cette logique d'intégration verticale.
+
+Pour un investisseur, la maîtrise complète de la stack 4.0 (du capteur au cloud) constitue une barrière à l'entrée structurelle dans l'automatisation industrielle. Les acteurs qui doivent recourir à des partenaires pour combler les briques manquantes (Schneider avec Aveva, Siemens avec SAP) sont en position relative plus faible que ceux qui possèdent une chaîne intégralement propriétaire, situation rare sur le marché coté.`,
+    related: ['plc', 'mes', 'iot-industriel', 'operational-technology'],
+    modules: [],
+  },
+
+  {
+    slug: 'industrie-5-0',
+    label: 'Industrie 5.0',
+    category: 'Analyse fondamentale',
+    theme: 'automation-industrielle',
+    shortDef: "Évolution de l'Industrie 4.0 ajoutant collaboration humain-machine, durabilité énergétique et résilience customizable des chaînes de production.",
+    definition: `L'Industrie 5.0 est une évolution du concept Industrie 4.0 qui ajoute trois dimensions à l'usine connectée. La première est la collaboration humain-machine, matérialisée notamment par les robots collaboratifs (dits cobots) qui partagent l'espace de travail avec les opérateurs sans cage de protection. La deuxième est la durabilité énergétique, qui couvre l'efficience énergétique des équipements, le suivi des émissions carbone et l'économie circulaire à l'échelle de l'usine. La troisième est la résilience customizable des chaînes de production, c'est-à-dire la capacité à reconfigurer rapidement l'outil industriel pour s'adapter aux ruptures de supply chain ou aux changements de demande.
+
+Le concept est promu par la Commission européenne à partir de 2021, dans le prolongement du Green Deal européen et de la stratégie de souveraineté industrielle. À la différence du concept Industrie 4.0 d'origine allemande centré sur l'efficacité, l'Industrie 5.0 met l'humain et la soutenabilité au cœur de la trajectoire de modernisation.
+
+Pour un investisseur, l'Industrie 5.0 est encore en phase de structuration commerciale mais ses briques sont déjà valorisées par le marché. Les acteurs les mieux positionnés sur la 5.0 sont ABB et FANUC sur la robotique collaborative, Schneider Electric sur l'automatisation énergétique, et les grands intégrateurs systèmes sur la résilience. Les acteurs centrés sur l'Industrie 4.0 sans extension 5.0 (Rockwell Automation par exemple) peuvent rater une partie de la prochaine vague de valeur ajoutée si le concept devient le standard d'achat des prochaines générations d'usines.`,
+    related: ['industrie-4-0'],
+    modules: [],
+  },
+
+  {
+    slug: 'plc',
+    label: 'PLC (Automate programmable industriel)',
+    category: 'Analyse fondamentale',
+    theme: 'automation-industrielle',
+    shortDef: "Programmable Logic Controller, ordinateur industriel dédié au pilotage en temps réel des machines sur une ligne de production.",
+    definition: `Un PLC (Programmable Logic Controller) est un ordinateur industriel dédié au pilotage en temps réel des machines et procédés sur une ligne de production. Il reçoit les signaux issus des capteurs disposés sur l'installation, exécute une logique de contrôle programmée par les ingénieurs automaticiens, et envoie en retour des commandes aux actionneurs (moteurs, vannes, vérins, robots). Les langages de programmation utilisés sont historiquement le ladder logic (graphique, inspiré des schémas de relais électromécaniques), le structured text (proche du Pascal) et le function block (graphique, par blocs fonctionnels), normalisés par la norme internationale IEC 61131-3.
+
+Les principales plateformes mondiales sont ControlLogix et CompactLogix de Rockwell Automation (commercialisées sous la marque Allen-Bradley) qui dominent le marché nord-américain avec environ 60 à 65 % de part de marché, SIMATIC S7 de Siemens qui domine le marché européen, Modicon de Schneider Electric, et MELSEC de Mitsubishi qui domine le marché asiatique. Le langage de programmation de chaque plateforme est propriétaire et non portable d'un éditeur à l'autre.
+
+Pour un investisseur, la plateforme PLC choisie par une usine structure son écosystème logiciel et sa main-d'œuvre sur 20 à 25 ans en raison des coûts de migration élevés (réécriture intégrale du code, reformation des équipes, risque opérationnel). C'est cette friction qui crée les coûts de changement structurels qui constituent le moat principal des éditeurs d'automation industrielle, et notamment de Rockwell sur le marché américain.`,
+    related: ['industrie-4-0', 'operational-technology', 'couts-de-changement'],
+    modules: [],
+  },
+
+  {
+    slug: 'mes',
+    label: 'MES (Manufacturing Execution System)',
+    category: 'Analyse fondamentale',
+    theme: 'automation-industrielle',
+    shortDef: "Système logiciel d'exécution manufacturing faisant l'interface entre les automates de production et les systèmes de gestion d'entreprise.",
+    definition: `Un MES (Manufacturing Execution System) est un système logiciel d'exécution manufacturing qui fait l'interface entre les automates de production (couche basse, PLC) et les systèmes de gestion d'entreprise (couche haute, ERP). Le MES suit en temps réel la production (ordres de fabrication, traçabilité, qualité, performance des équipements via l'OEE pour Overall Equipment Effectiveness), planifie les opérations à court terme, et fournit les données opérationnelles consolidées aux dirigeants d'usine et aux ingénieurs procédés.
+
+Les principales plateformes MES sont Plex Systems (acquis par Rockwell Automation en août 2021 pour 2,2 Md$, SaaS multi-tenant), Aveva (filiale de Schneider Electric depuis 2018), SAP Manufacturing Cloud et Oracle Manufacturing Cloud. Les plateformes SAP et Oracle bénéficient d'une intégration native avec leurs ERP respectifs, ce qui constitue un avantage pour les clients déjà équipés ; les plateformes spécialisées comme Plex et Aveva offrent une plus grande profondeur fonctionnelle.
+
+Le MES en SaaS multi-tenant est une catégorie en forte croissance qui modifie progressivement le mix de revenu des éditeurs d'automation industrielle. Le passage du modèle perpétuel (licence vendue une fois) au modèle abonnement améliore la visibilité du revenu et la qualité du compte de résultat, mais nécessite une phase d'investissement préalable lors de la bascule.`,
+    related: ['industrie-4-0', 'saas'],
+    modules: [],
+  },
+
+  {
+    slug: 'iot-industriel',
+    label: 'IoT industriel',
+    category: 'Analyse fondamentale',
+    theme: 'automation-industrielle',
+    shortDef: "Internet of Things appliqué au secteur industriel, qui collecte et analyse les données issues des équipements de production.",
+    definition: `L'IoT industriel (parfois abrégé IIoT pour Industrial Internet of Things) désigne l'ensemble des capteurs connectés, passerelles de communication et plateformes cloud qui collectent et analysent les données issues des équipements de production. À la différence de l'IoT grand public (objets connectés domestiques, wearables), l'IoT industriel opère dans des environnements contraints (latence faible, fiabilité élevée, sécurité OT) et sur des cycles de vie longs (10 à 20 ans contre 2 à 5 ans côté grand public).
+
+Les cas d'usage les plus courants sont la maintenance prédictive (détection de défaillances avant la panne à partir de signatures vibratoires, thermiques ou électriques), l'optimisation énergétique (suivi en temps réel de la consommation par équipement), la traçabilité fine des flux de production et l'optimisation des paramètres procédés. Les plateformes de référence sont ThingWorx de PTC (partenariat exclusif avec Rockwell Automation aux États-Unis depuis 2018), MindSphere de Siemens, et EcoStruxure de Schneider Electric.
+
+Pour un investisseur, la couche IoT est l'un des étages clés de la stack Industrie 4.0. Les acteurs qui possèdent une plateforme IoT propriétaire ou un partenariat exclusif sur leur marché géographique principal disposent d'un avantage de positionnement durable, alors que les acteurs dépendants de partenariats non exclusifs sont en position relative plus faible.`,
+    related: ['industrie-4-0', 'plc', 'mes'],
+    modules: [],
+  },
+
+  {
+    slug: 'operational-technology',
+    label: 'OT (Operational Technology)',
+    category: 'Analyse fondamentale',
+    theme: 'automation-industrielle',
+    shortDef: "Technologie opérationnelle, par opposition à l'IT, désignant les systèmes hardware et software qui pilotent les opérations physiques d'une usine.",
+    definition: `L'OT (Operational Technology) désigne l'ensemble des systèmes hardware et software qui pilotent les opérations physiques d'une usine ou d'une infrastructure critique : automates programmables, supervision (HMI / SCADA), équipements de sécurité industrielle, capteurs et actionneurs. L'OT s'oppose conceptuellement à l'IT (Information Technology) qui gère les systèmes d'information administratifs (ERP, CRM, messagerie, gestion documentaire). La frontière entre OT et IT s'est progressivement estompée avec l'avènement de l'Industrie 4.0 et la connexion des équipements industriels aux réseaux d'entreprise.
+
+La cybersécurité OT (Operational Technology Security) est une catégorie distincte de la cybersécurité IT classique. Elle protège des équipements industriels souvent anciens (cycles de vie de 20 à 30 ans), sensibles aux interruptions (une attaque sur un PLC peut arrêter une ligne de production ou créer un risque de sécurité physique), et opérant en temps réel sur des réseaux fermés ou peu connectés à internet. Les acteurs spécialisés sont Claroty (estimé à 7 Md$ de valorisation privée), Nozomi Networks et Dragos. Les éditeurs d'automation industrielle intègrent progressivement la cybersécurité OT à leur offre, Rockwell ayant fait l'acquisition d'Oylo en 2020 et d'Avnet Data Security en 2020.
+
+Pour un investisseur, la convergence IT / OT est une thématique structurelle de la décennie 2020-2030, avec un marché de la cybersécurité OT estimé à plus de 30 Md$ à horizon 2030 selon les analyses sectorielles.`,
+    related: ['industrie-4-0', 'plc'],
+    modules: [],
+  },
+
+  {
+    slug: 'lifecycle-services',
+    label: 'Lifecycle Services',
+    category: 'Analyse fondamentale',
+    theme: 'automation-industrielle',
+    shortDef: "Catégorie de services industriels qui couvre l'ensemble du cycle de vie d'une installation, du déploiement à la maintenance.",
+    definition: `Les Lifecycle Services désignent une catégorie de services industriels qui couvre l'ensemble du cycle de vie d'une installation : audit et conception en amont, déploiement et intégration des systèmes, formation des opérateurs, maintenance préventive et corrective, modernisation à mi-vie, gestion de l'obsolescence et démantèlement en fin de vie. Le périmètre est plus large que la simple maintenance, car il inclut les phases de conseil amont et de transformation digitale (cybersécurité OT, migration cloud, mise en conformité réglementaire).
+
+Chez les éditeurs d'automation industrielle, ce segment monétise la base installée d'équipements en générant des revenus récurrents et à plus forte valeur ajoutée que la vente de matériel seul. Le modèle économique est différent du modèle hardware : la barrière à l'entrée tient à la connaissance fine des équipements installés, au lien de proximité avec les opérateurs et à la disponibilité de la main-d'œuvre certifiée sur les plateformes propriétaires (Allen-Bradley, SIMATIC, EcoStruxure).
+
+La marge structurelle des Lifecycle Services se situe généralement entre 10 et 15 % d'EBIT, inférieure à celle du software (>25 %) mais avec une visibilité contractuelle longue (contrats pluriannuels de maintenance, accords cadres avec les grands opérateurs industriels). Le segment joue un rôle de monétisation de la rente d'installé plutôt que de moteur de croissance organique, mais son intérêt stratégique reste de fidéliser les clients industriels sur l'écosystème complet de l'éditeur.`,
+    related: ['mco', 'mro'],
+    modules: [],
+  },
+
+  {
+    slug: 'ism-pmi',
+    label: 'ISM Manufacturing PMI',
+    category: 'Analyse fondamentale',
+    theme: 'macroeconomie',
+    shortDef: "Purchasing Managers Index manufacturier américain publié mensuellement, indicateur composite et avancé du cycle industriel US.",
+    definition: `L'ISM Manufacturing PMI (Purchasing Managers Index) est un indice composite publié chaque mois par l'Institute for Supply Management aux États-Unis. Il est construit à partir d'une enquête mensuelle auprès de plus de 400 directeurs des achats de l'industrie manufacturière américaine, qui mesure cinq composantes : l'évolution des nouvelles commandes, de la production, de l'emploi, des délais de livraison fournisseurs et des stocks. L'indice composite est exprimé sur une échelle de 0 à 100.
+
+Un PMI supérieur à 50 signale une expansion de l'activité manufacturing par rapport au mois précédent, un PMI inférieur à 50 signale une contraction. Les seuils interprétatifs sont les suivants : un PMI durablement supérieur à 52-53 signale une expansion soutenue, un PMI compris entre 48 et 52 signale une zone d'incertitude (croissance faible ou stagnation), un PMI inférieur à 48 signale une contraction franche assimilable à une récession industrielle.
+
+L'ISM Manufacturing PMI est l'un des meilleurs indicateurs avancés du cycle industriel américain. Il anticipe le cycle d'investissement des opérateurs manufacturing (capex en machines, automation industrielle, équipements de production) avec un décalage typique de 6 à 9 mois. Pour un investisseur exposé au secteur de l'automatisation industrielle (Rockwell Automation, Emerson Electric, ABB, Schneider Electric), c'est un signal de positionnement dans le cycle. Un passage durable au-dessus de 52-53 confirme la phase d'expansion ; un repli sous 48-49 signale le prochain ralentissement.`,
+    related: ['cagr', 'inflation', 'levier-operationnel'],
+    modules: [],
+  },
+
+  
 ];
+

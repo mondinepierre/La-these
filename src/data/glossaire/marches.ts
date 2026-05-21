@@ -80,4 +80,5 @@ export const marches: GlossaireTerm[] = [
     related: ['oligopole', 'backlog'],
     modules: [],
   },
+  
 ];

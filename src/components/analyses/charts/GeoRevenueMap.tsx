@@ -93,6 +93,8 @@ const REGION_TO_CODES: Record<string, string[]> = {
   ],
 
   'Amérique du Nord':  ['124', '484', '840'],
+  
+  'États-Unis et Canada' : ['124', '840'],
 
   'Amérique Latine': [
     '028', '032', '044', '052', '068', '076', '084', '136', '152', '170', '188', '192',

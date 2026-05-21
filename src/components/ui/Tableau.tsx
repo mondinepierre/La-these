@@ -4013,6 +4013,256 @@ const TABLEAUX: Record<string, TableauData> = {
       },
     ],
   },
+  // ─────────────────────────────────────────────────────────────────────────────
+// ROCKWELL AUTOMATION — TABLEAUX DE VALORISATION
+// À insérer dans le record TABLEAUX de src/components/ui/Tableau.tsx
+//
+// DCF : WACC 9,65 % - perpétuelle 2,5 % - FCF TTM 1 339 M$ - 112,9 M actions diluées
+// PER : BPA Adjusted TTM 12,24 $ - PER central 34,10x - MoE ±21,2 % (β 1,413 × 15 %)
+//       Scénarios CAGR EPS : Bear 4 % - Central 8 % - Bull 11 %
+// Niveaux personnels : R10 MoS15 (323,6 $) - R10 MoS20 (304,6 $) - R12 MoS15 (295,7 $)
+// Cours de référence : 422,29 $ (20 mai 2026)
+// ─────────────────────────────────────────────────────────────────────────────
+
+  // ── DCF - Paramètres ────────────────────────────────────────────────────
+  'rockwell-automation-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',     primary: true },
+      { key: 'valeur',    label: 'Valeur'                       },
+      { key: 'source',    label: 'Source / Note'                },
+    ],
+    lignes: [
+      {
+        parametre: 'WACC',
+        valeur:    '9,65 %',
+        source:    'Re = Rf UST 10Y 4,09 % + β 1,413 × ERP US 4,23 % - pondération E/V 93,2 %, D/V 6,8 %',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Croissance perpétuelle',
+        valeur:    '2,5 %',
+        source:    'Standard sectoriel industriel mature US',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'FCF base (TTM au 31/03/2026)',
+        valeur:    '1 339 M$',
+        source:    'OCF TTM 1 525 M$ - Capex TTM 186 M$',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Dette nette',
+        valeur:    '3 266 M$',
+        source:    'Short-term debt 1 116 + Long-term debt 2 571 - Cash 423 (TTM)',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '112,9 M',
+        source:    '10-Q Q2-FY2026 - nombre d\'actions dilué moyen TTM',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Part valeur terminale (central)',
+        valeur:    '~72 %',
+        source:    'Niveau standard pour un modèle 5 ans sur industriel mature - sensibilité modérée à la perpétuité',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── DCF - Scénarios ────────────────────────────────────────────────────
+  'rockwell-automation-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario',  label: 'Scénario',             primary: true },
+      { key: 'cagr',      label: 'CAGR FCF 5 ans'                      },
+      { key: 'hypothese', label: 'Hypothèse principale'                 },
+      { key: 'fcf2030',   label: 'FCF projeté 2030'                     },
+      { key: 'dcf',       label: 'Valeur DCF / action'                  },
+    ],
+    lignes: [
+      {
+        scenario:  'Bear',
+        cagr:      '3 %',
+        hypothese: 'Cycle plat - marges Lifecycle stagnantes - levier opérationnel limité - pas d\'accélération transition software',
+        fcf2030:   '1 552 M$',
+        dcf:       '147,85 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        scenario:  'Central',
+        cagr:      '6,5 %',
+        hypothese: 'Aligné guidance FY2026 (+10 % YoY) et CAGR historique long terme - transition software qui contribue progressivement',
+        fcf2030:   '1 836 M$',
+        dcf:       '179,48 $',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        scenario:  'Bull',
+        cagr:      '9 %',
+        hypothese: 'Bascule structurelle recurring software - levier marges Software & Control au-delà de 30 % - haut de cycle prolongé',
+        fcf2030:   '2 060 M$',
+        dcf:       '209,33 $',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // ── DCF - Synthèse croisée ─────────────────────────────────────────────
+  'rockwell-automation-dcf-synthese': {
+    colonnes: [
+      { key: 'methode', label: 'Méthode',           primary: true },
+      { key: 'bear',    label: 'Scénario bear'                    },
+      { key: 'central', label: 'Scénario central'                 },
+      { key: 'bull',    label: 'Scénario bull'                    },
+    ],
+    lignes: [
+      {
+        methode: 'DCF (FCF opérationnel)',
+        bear: '147,85 $', central: '179,48 $', bull: '209,33 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        methode: 'Calculateur PER - prix cible (×34,10)',
+        bear: '507,8 $', central: '613,1 $', bull: '703,5 $',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        methode: 'Zone juste r=10 % (PER)',
+        bear: '315,3 $', central: '380,7 $', bull: '436,8 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        methode: 'Cours actuel (20 mai 2026)',
+        bear: '422,29 $', central: '422,29 $', bull: '422,29 $',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── PER - Les trois scénarios ──────────────────────────────────────────
+  // BPA Adjusted TTM : 12,24 $ | PER central : 34,10x | MoE : ±21,2 % (β 1,413 × 15 %)
+  // Scénarios CAGR Adj EPS : Bear 4 % - Central 8 % - Bull 11 %
+  'rockwell-automation-per-trois-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',            primary: true },
+      { key: 'bear',      label: 'Bear - CAGR 4 %'                     },
+      { key: 'central',   label: 'Central - CAGR 8 %'                  },
+      { key: 'bull',      label: 'Bull - CAGR 11 %'                    },
+    ],
+    lignes: [
+      {
+        parametre: 'BPA Adjusted TTM (31/03/2026)',
+        bear: '12,24 $', central: '12,24 $', bull: '12,24 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'BPA Adjusted projeté 2031',
+        bear: '14,89 $', central: '17,98 $', bull: '20,63 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'PER central retenu',
+        bear: '34,10x', central: '34,10x', bull: '34,10x',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Prix cible',
+        bear: '507,8 $', central: '613,1 $', bull: '703,5 $',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Borne basse (MoE 21,2 %)',
+        bear: '400,2 $', central: '483,1 $', bull: '554,4 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Borne haute (MoE 21,2 %)',
+        bear: '615,5 $', central: '743,1 $', bull: '852,6 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Zone juste r=10 %',
+        bear: '315,3 $', central: '380,7 $', bull: '436,8 $',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'Zone juste r=12 %',
+        bear: '288,1 $', central: '347,9 $', bull: '399,3 $',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── PER - Zone juste - Scénario bear ──────────────────────────────────
+  // Prix cible 507,8 $ | Zone juste r=10 % : 315,3 $ | Zone juste r=12 % : 288,1 $
+  'rockwell-automation-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: 'Entrée r=10 % ($)'                 },
+      { key: 'r12', label: 'Entrée r=12 % ($)'                 },
+    ],
+    lignes: [
+      {
+        mos: '15 %',
+        r10: '268,01', r12: '244,89',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        mos: '20 %',
+        r10: '252,24', r12: '230,48',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // ── PER - Zone juste - Scénario central ───────────────────────────────
+  // Prix cible 613,1 $ | Zone juste r=10 % : 380,7 $ | Zone juste r=12 % : 347,9 $
+  // MoS alignées sur les niveaux personnels (Premier renforcement 15 %, Renforcement 20 %)
+  'rockwell-automation-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: 'Entrée r=10 % ($)'                 },
+      { key: 'r12', label: 'Entrée r=12 % ($)'                 },
+    ],
+    lignes: [
+      {
+        mos: '15 %',
+        r10: '323,60', r12: '295,72',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        mos: '20 %',
+        r10: '304,56', r12: '278,32',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // ── PER - Zone juste - Scénario bull ──────────────────────────────────
+  // Prix cible 703,5 $ | Zone juste r=10 % : 436,8 $ | Zone juste r=12 % : 399,3 $
+  'rockwell-automation-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'mos', label: 'MoS sur zone juste', primary: true },
+      { key: 'r10', label: 'Entrée r=10 % ($)'                 },
+      { key: 'r12', label: 'Entrée r=12 % ($)'                 },
+    ],
+    lignes: [
+      {
+        mos: '15 %',
+        r10: '371,28', r12: '339,41',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        mos: '20 %',
+        r10: '349,44', r12: '319,44',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
   
 }
 
