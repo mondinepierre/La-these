@@ -80,5 +80,23 @@ export const marches: GlossaireTerm[] = [
     related: ['oligopole', 'backlog'],
     modules: [],
   },
-  
+  // -------------------------------------------------------
+// 4. ZIRP — Zero Interest Rate Policy
+// -------------------------------------------------------
+{
+  slug:     'zirp',
+  label:    'ZIRP - Zero Interest Rate Policy',
+  category: 'Marchés',
+  theme:    'macroeconomie',
+  shortDef: "Politique monétaire de taux directeurs proches de zéro conduite par les banques centrales, en vigueur de 2010 à 2022, qui a comprimé le coût du capital et gonflé les multiples de valorisation des actifs longs.",
+  definition: `La Zero Interest Rate Policy (ZIRP) désigne la période de politique monétaire ultra-accommodante dans laquelle les banques centrales (Fed, BCE, BoJ, BoE) ont maintenu leurs taux directeurs proches ou égaux à zéro, essentiellement entre 2009 et 2022.
+
+La ZIRP a été initialement déployée après la crise financière de 2008 pour stimuler le crédit et relancer l'économie. Après un retour partiel à des taux normaux entre 2016 et 2018, la pandémie de 2020 a provoqué un retour aux taux zéro jusqu'au cycle de resserrement historique de 2022-2023 (la Fed remontant de 0 % à 5,25 % en 16 mois).
+
+L'impact sur les valorisations boursières a été massif et bien documenté. Un taux sans risque proche de zéro réduit mécaniquement le WACC, ce qui augmente la valeur actuelle des flux futurs lointains dans tout modèle DCF. Les entreprises à forte croissance dont la valeur est concentrée dans une valeur terminale éloignée (tech, SaaS, biotech) ont été les plus bénéficiaires : leurs PER ont atteint des niveaux historiquement élevés (50x, 70x, voire 100x) entre 2020 et 2021.
+
+La fin de la ZIRP en 2022 a déclenché une compression multiples spectaculaire : les entreprises valorisées à 70x leurs bénéfices en 2021 sont revenues à 30-35x en 2023-2024, non pas parce que leurs fondamentaux s'étaient dégradés, mais parce que le taux d'actualisation avait doublé. Cette normalisation est un rappel structurel : un multiple de valorisation n'est pas une constante, il dépend du niveau des taux longs au moment de l'évaluation.`,
+  related:  ['taux-sans-risque', 'wacc', 'multiple-de-valorisation', 'dcf'],
+  modules:  [],
+},
 ];

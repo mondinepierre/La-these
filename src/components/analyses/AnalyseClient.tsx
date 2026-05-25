@@ -22,11 +22,12 @@ const MDX: Record<string, React.ComponentType<any>> = {
   'exail-technologies':   dynamic(() => import('@/content/analyses/valeurs/exail-technologies.mdx')),
   'gtt':                  dynamic(() => import('@/content/analyses/valeurs/gtt.mdx')),
   'rockwell-automation':  dynamic(() => import('@/content/analyses/valeurs/rockwell-automation.mdx')),
+    'msci':             dynamic(() => import('@/content/analyses/valeurs/msci-inc.mdx')),
 
   // en construction
 
 
-  'msci-inc':             dynamic(() => import('@/content/analyses/valeurs/msci-inc.mdx')),
+
 
 
 

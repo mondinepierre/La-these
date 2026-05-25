@@ -30,11 +30,12 @@ import { cameco              } from './cameco'
 import { gtt                 } from './gtt'
 import { exailTechnologies   } from './exail-technologies'
 import { rockwellAutomation  } from './rockwell-automation'
+import { MSCI             } from './msci-inc'
 
 // ── Valeurs suivies — en construction ────────────────────────────────────────
 
 
-import { msciInc             } from './msci-inc'
+
 
 // ── Analyses ponctuelles ──────────────────────────────────────────────────────
 import { sondage  } from './sondage'
@@ -54,6 +55,7 @@ export const ANALYSES: AnalyseCard[] = [
   gtt,
   loreal,
   microsoft,
+  MSCI,
   novo,
   rockwellAutomation,
   thales,
@@ -66,7 +68,6 @@ export const ANALYSES: AnalyseCard[] = [
 
 
 
-  msciInc,
 
   // Analyses ponctuelles
   sondage,

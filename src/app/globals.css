@@ -405,15 +405,32 @@ tbody tr:nth-child(even) td {
 }
 
 /* ============================================================
- GESTION TAILLE TABLEAUX
+   GESTION TAILLE TABLEAUX
    ============================================================ */
 
-.prose table {
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
+/* Desktop : vrai tableau — !important nécessaire pour écraser @tailwindcss/typography */
+@media (min-width: 641px) {
+  .prose table {
+    display: table !important;
+    white-space: normal !important;
+    overflow-x: visible !important;
+  }
+  .prose thead {
+    display: table-header-group !important;
+  }
+  .prose tbody {
+    display: table-row-group !important;
+  }
+  .prose tr {
+    display: table-row !important;
+  }
+  .prose th,
+  .prose td {
+    display: table-cell !important;
+  }
 }
 
+/* Mobile : cartes empilées */
 @media (max-width: 640px) {
   .prose table,
   .prose thead,
@@ -453,6 +470,28 @@ tbody tr:nth-child(even) td {
     margin-bottom: 2px;
   }
 }
+/* ============================================================
+   TABLEAU — Responsive custom (remplace sm:hidden / sm:block)
+   ============================================================ */
+.tableau-desktop {
+  display: block;
+}
+.tableau-mobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tableau-desktop {
+    display: none !important;
+  }
+  .tableau-mobile {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+}
+
 /* ============================================================
    SCROLLBAR — Cacher la scrollbar horizontale sur les pills
    ============================================================ */

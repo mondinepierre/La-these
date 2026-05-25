@@ -512,4 +512,22 @@ export const fondamentaux: GlossaireTerm[] = [
     related: ['fonderie', 'lithographie-euv', 'noeud-technologique', 'semi-conducteurs'],
     modules: [],
   },
+  // -------------------------------------------------------
+// 1. PRU — Prix de Revient Unitaire
+// -------------------------------------------------------
+{
+  slug:     'pru',
+  label:    'PRU - Prix de Revient Unitaire',
+  category: 'Fondamentaux',
+  shortDef: "Prix moyen d'acquisition d'un titre en portefeuille, calculé en divisant le montant total investi (frais compris) par le nombre de titres détenus.",
+  definition: `Le Prix de Revient Unitaire (PRU) est le coût moyen d'achat d'un titre en portefeuille. Il se calcule en divisant la somme totale investie (achats cumulés, frais de transaction inclus) par le nombre de titres détenus à l'instant T.
+
+Si un investisseur achète 10 actions à 100 $ puis 10 actions supplémentaires à 120 $, son PRU est de (10 × 100 + 10 × 120) / 20 = 110 $. Toute plus-value ou moins-value latente est mesurée par rapport à ce PRU.
+
+Le PRU est un indicateur de gestion personnelle et non une donnée fondamentale de l'entreprise. Il permet à l'investisseur de suivre sa performance réelle, de calibrer ses niveaux de renforcement et de calculer la fiscalité applicable lors d'une cession.
+
+Dans un contexte de suivi de thèse, le PRU sert de référence pour évaluer la marge de sécurité effective par rapport à la zone juste fondamentale : si le PRU est inférieur à la zone juste, la position est déjà en décote intrinsèque même si le cours actuel dépasse le PRU.`,
+  related:  ['marge-de-securite', 'rachat-actions', 'zone-juste'],
+  modules:  [],
+},
 ];

@@ -582,6 +582,30 @@ L'ISM Manufacturing PMI est l'un des meilleurs indicateurs avancés du cycle ind
     modules: [],
   },
 
+
+
+// -------------------------------------------------------
+// 2. Asset-based fees — Frais proportionnels aux encours
+// -------------------------------------------------------
+{
+  slug:     'asset-based-fees',
+  label:    'Asset-based fees',
+  category: 'Analyse fondamentale',
+  theme:    'finance-paiements',
+  shortDef: "Commission calculée en pourcentage des actifs sous gestion (AUM), versée périodiquement par un gestionnaire de fonds à un fournisseur d'indices, de données ou de solutions d'investissement.",
+  definition: `Les asset-based fees (ou frais basés sur les encours) sont des revenus calculés en proportion des actifs sous gestion (AUM) placés dans des produits financiers qui utilisent une licence ou un service donné. Ils constituent un modèle tarifaire distinct des abonnements fixes.
+
+Le mécanisme est simple : si 100 Mds$ d'AUM répliquent un indice MSCI World, et que la commission contractuelle est de 0,025 % par an, le revenu annuel généré est de 25 M$. Ce revenu évolue mécaniquement avec la valeur des marchés financiers : il monte quand les marchés montent, sans effort commercial supplémentaire.
+
+Ce modèle crée un levier naturel sur les revenus : le prestataire de l'indice ou du service n'a pas à signer de nouveaux contrats pour voir ses revenus progresser si les AUM augmentent via l'appréciation des actifs. A l'inverse, une correction de marché réduit temporairement les revenus même si le nombre de clients reste stable.
+
+Les asset-based fees sont caractéristiques des fournisseurs d'indices (MSCI, S&P Global, FTSE Russell), des gestionnaires d'actifs actifs (frais de gestion en pourcentage des encours), et des dépositaires. Pour les fournisseurs d'indices, la combinaison asset-based fees + abonnements récurrents génère un profil de revenus à forte visibilité avec un levier opérationnel élevé.`,
+  related:  ['encours', 'etf', 'indice-boursier', 'fcf-yield', 'pricing-power'],
+  modules:  [
+    { label: 'Analyse fondamentale', href: '/academie/intermediaire/analyse-fondamentale' },
+  ],
+},
+
   
 ];
 

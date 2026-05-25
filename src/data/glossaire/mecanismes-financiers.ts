@@ -277,4 +277,24 @@ export const mecanismesFinanciers: GlossaireTerm[] = [
       { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
     ],
   },
+  // -------------------------------------------------------
+// 3. PSU — Performance Stock Unit
+// -------------------------------------------------------
+{
+  slug:     'psu',
+  label:    'PSU - Performance Stock Unit',
+  category: 'Mécanismes financiers',
+  shortDef: "Unité de rémunération différée convertible en actions, conditionnée à l'atteinte d'objectifs de performance sur 3 à 5 ans. Principal outil d'alignement dirigeants/actionnaires dans les grandes entreprises cotées.",
+  definition: `Une Performance Stock Unit (PSU) est une promesse d'attribution d'actions soumise à une double condition : l'atteinte d'objectifs de performance prédéfinis (financiers et/ou extra-financiers) et le maintien dans l'entreprise jusqu'au terme d'une période de vesting, généralement 3 à 5 ans.
+
+Contrairement aux RSU (Restricted Stock Units) qui se débloquent automatiquement avec le temps, les PSU intègrent une composante performance : le nombre d'actions effectivement reçues peut être supérieur, inférieur ou nul à l'attribution initiale selon les résultats atteints. Un mécanisme classique prévoit un multiplicateur de 0x à 2x selon le niveau de performance.
+
+Les critères de performance attachés aux PSU peuvent être absolus (croissance du BPA, génération de FCF, ROIC) ou relatifs (TSR total shareholder return par rapport à un indice ou un groupe de pairs). Les critères ESG font une entrée croissante dans les programmes des grandes entreprises depuis 2020.
+
+Pour l'analyste fondamental, les PSU représentent une dilution potentielle du BPA dans les hypothèses haute performance, et un signal d'alignement managérial sur la création de valeur à long terme. La vérification de la cohérence entre les critères PSU et les indicateurs mis en avant par le management dans sa communication aux investisseurs est un test de cohérence utile : des KPIs de rémunération alignés sur la thèse d'investissement renforcent la crédibilité de la stratégie annoncée.`,
+  related:  ['rsu', 'lti', 'tsr', 'bpa'],
+  modules:  [
+    { label: 'Analyse fondamentale', href: '/academie/intermediaire/analyse-fondamentale' },
+  ],
+},
 ];

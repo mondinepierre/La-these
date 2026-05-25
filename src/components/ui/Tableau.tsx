@@ -4263,6 +4263,485 @@ const TABLEAUX: Record<string, TableauData> = {
       },
     ],
   },
+  // ============================================================
+// MSCI Inc. — Blocs tableaux pour src/components/ui/Tableau.tsx
+// A insérer dans le record TABLEAUX de Tableau.tsx
+// ============================================================
+// Paramètres DCF : FCF TTM $1 458,6 M$, WACC 7,88%, g 2,5%, dette nette $5 687 M, 76,6 M actions
+// Paramètres PER : BPA Adj FY2025 $17,28, CAGR central 12% (Pierre Q2-B), r=10%, n=5 ans, MoE 16,0%
+// Scénarios bear/bull : 4%/12% CAGR FCF | 7%/16% CAGR BPA | PER exit 28x/40x
+// Cours de référence : $588,55 (22/05/2026)
+// ============================================================
+
+// -------------------------------------------------------
+// 1. DCF - Paramètres du modèle
+// -------------------------------------------------------
+'msci-dcf-parametres': {
+  colonnes: [
+    { key: 'parametre', label: 'Parametre', primary: true },
+    { key: 'valeur',    label: 'Valeur'                  },
+    { key: 'source',    label: 'Source / Note'           },
+  ],
+  lignes: [
+    {
+      parametre:   'WACC',
+      valeur:      '7,88 %',
+      source:      'Rf 4,09 % (UST 10 ans) + ERP 4,60 % (Damodaran US) x Beta 1,069',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      parametre:   'Croissance perpetuelle (g)',
+      valeur:      '2,5 %',
+      source:      'Plancher conservateur : inflation US longue (~2,2 %) + croissance reelle faible. Sensibilite : +/-0,5 pp sur g = +/-11 % sur equity value',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'FCF reference (FY2025 TTM)',
+      valeur:      '1 458,6 M$',
+      source:      'OCF 1 588,4 M$ - Capex industriel 129,9 M$ (PP&E + logiciel capitalise). Convention La These : OCF - capex industriel, hors acquisitions financieres',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'Dette nette',
+      valeur:      '5 687,0 M$',
+      source:      'Dettes financieres brutes 6 028,0 M$ - tresorerie 341,0 M$ au 31/03/2026',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'Actions diluees',
+      valeur:      '76,6 M',
+      source:      'Actions diluees FY2025. Base stable (rachats ~1,5-2 % / an compensant le SBC ~0,6 %)',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'Horizon de projection',
+      valeur:      '5 ans',
+      source:      'FY2026-FY2030. Valeur terminale calculee a partir du FCF FY2030 x (1+g) / (WACC - g)',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   '% Valeur terminale / EV',
+      valeur:      '78-80 %',
+      source:      'Structurel sur les business asset-light a faible capex. Sensibilite au WACC et a g elevee. Cela confirme que le DCF est moins adapte que le PER pour valoriser MSCI (voir Lecture croisee)',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// -------------------------------------------------------
+// 2. DCF - Scénarios (projections FCF 2026-2030)
+// -------------------------------------------------------
+'msci-dcf-scenarios': {
+  colonnes: [
+    { key: 'parametre', label: 'Parametre',       primary: true },
+    { key: 'bear',      label: 'Bear (CAGR 4 %)'              },
+    { key: 'central',   label: 'Central (CAGR 8 %)' },
+    { key: 'bull',      label: 'Bull (CAGR 12 %)'             },
+  ],
+  lignes: [
+    {
+      parametre:   'FCF FY2025 (base)',
+      bear:        '1 458,6 M$',
+      central:     '1 458,6 M$',
+      bull:        '1 458,6 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'FCF annee 1 (FY2026)',
+      bear:        '1 516,9 M$',
+      central:     '1 575,3 M$',
+      bull:        '1 633,6 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'FCF annee 3 (FY2028)',
+      bear:        '1 640,7 M$',
+      central:     '1 837,4 M$',
+      bull:        '2 049,2 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'FCF annee 5 (FY2030)',
+      bear:        '1 774,7 M$',
+      central:     '2 143,1 M$',
+      bull:        '2 570,5 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'Somme VAN FCF (5 ans)',
+      bear:        '6 543 M$',
+      central:     '7 317 M$',
+      bull:        '8 171 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'Valeur terminale (brute)',
+      bear:        '33 811 M$',
+      central:     '40 831 M$',
+      bull:        '48 966 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'VAN valeur terminale',
+      bear:        '23 138 M$',
+      central:     '27 942 M$',
+      bull:        '33 508 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   '% VT / EV total',
+      bear:        '77,9 %',
+      central:     '79,3 %',
+      bull:        '80,4 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'EV totale actualisee',
+      bear:        '29 681 M$',
+      central:     '35 259 M$',
+      bull:        '41 679 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'Equity value totale',
+      bear:        '23 994 M$',
+      central:     '29 572 M$',
+      bull:        '35 992 M$',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'Equity value par action',
+      bear:        '313 $',
+      central:     '386 $',
+      bull:        '470 $',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// -------------------------------------------------------
+// 3. DCF - Synthèse
+// -------------------------------------------------------
+'msci-dcf-synthese': {
+  colonnes: [
+    { key: 'scenario',  label: 'Scenario',                    primary: true },
+    { key: 'cagr',      label: 'CAGR FCF'                                  },
+    { key: 'equity',    label: 'Equity value / action'                      },
+    { key: 'upside',    label: 'Ecart vs cours 589 $'                       },
+  ],
+  lignes: [
+    {
+      scenario:    'Bear - normalisation sectorielle',
+      cagr:        '4 %',
+      equity:      '313 $',
+      upside:      '-47 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      scenario:    'Central - poursuite regime actuel',
+      cagr:        '8 %',
+      equity:      '386 $',
+      upside:      '-34 %',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      scenario:    'Bull - reacceleration + synergies OneMSCI',
+      cagr:        '12 %',
+      equity:      '470 $',
+      upside:      '-20 %',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      scenario:    'Cours actuel (589 $) vs DCF',
+      cagr:        '',
+      equity:      '589 $',
+      upside:      'Prime de 53 % vs central DCF - le DCF sous-evalue MSCI (voir Lecture croisee)',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// -------------------------------------------------------
+// 4. PER - Les trois scénarios côte à côte
+// -------------------------------------------------------
+'msci-per-trois-scenarios': {
+  colonnes: [
+    { key: 'parametre', label: 'Parametre',            primary: true },
+    { key: 'bear',      label: 'Bear (CAGR 7 %)'                    },
+    { key: 'central',   label: 'Central (CAGR 12 %)'               },
+    { key: 'bull',      label: 'Bull (CAGR 16 %)'                   },
+  ],
+  lignes: [
+    {
+      parametre:   'BPA Adj FY2025 (reference)',
+      bear:        '17,28 $',
+      central:     '17,28 $',
+      bull:        '17,28 $',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'CAGR BPA ajuste (5 ans)',
+      bear:        '7 %',
+      central:     '12 %',
+      bull:        '16 %',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'BPA Adj projete FY2030',
+      bear:        '24,24 $',
+      central:     '30,46 $',
+      bull:        '36,29 $',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'PER de sortie retenu',
+      bear:        '28x',
+      central:     '35x',
+      bull:        '40x',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      parametre:   'Prix cible a horizon 5 ans',
+      bear:        '679 $',
+      central:     '1 066 $',
+      bull:        '1 452 $',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      parametre:   'Zone juste actualisee (r=10 %)',
+      bear:        '421 $',
+      central:     '662 $',
+      bull:        '901 $',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+    {
+      parametre:   'Ecart vs cours 589 $',
+      bear:        '-28 % (cours > zone juste bear)',
+      central:     '+11 % (cours sous zone juste)',
+      bull:        '+35 % (marge de securite correcte)',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+  ],
+},
+
+// -------------------------------------------------------
+// 5. PER Zone juste - Scénario Bear
+// -------------------------------------------------------
+'msci-per-zone-bear': {
+  compact: true,
+  colonnes: [
+    { key: 'mos',     label: 'Marge de securite',   primary: true },
+    { key: 'entree',  label: "Prix d'entree ($)"                  },
+    { key: 'note',    label: 'Contexte'                           },
+  ],
+  lignes: [
+    {
+      mos:     'Rappel : zone juste bear = 421 $',
+      entree:  '',
+      note:    'BPA Adj FY2030 24,24 $ x PER 28x = 679 $ / (1,10)^5',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     '0 % (zone juste seule)',
+      entree:  '421 $',
+      note:    'Entree si on suppose que le bear est le scenario le plus probable',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     '5 %',
+      entree:  '400 $',
+      note:    'Entree prudente scenario bear',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     '10 %',
+      entree:  '379 $',
+      note:    'Achat equilibre scenario bear',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      mos:     '15 %',
+      entree:  '358 $',
+      note:    'Achat fort scenario bear',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     '20 %',
+      entree:  '337 $',
+      note:    'Achat agressif scenario bear (repli de marche severe)',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     'Cours actuel : 589 $',
+      entree:  '',
+      note:    'Prime de 40 % vs zone juste bear (589 $ / 421 $ - 1) : cours incompatible avec scenario bear',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// -------------------------------------------------------
+// 6. PER Zone juste - Scénario Central
+// -------------------------------------------------------
+'msci-per-zone-central': {
+  compact: true,
+  colonnes: [
+    { key: 'mos',     label: 'Marge de securite',   primary: true },
+    { key: 'entree',  label: "Prix d'entree ($)"                  },
+    { key: 'note',    label: 'Contexte'                           },
+  ],
+  lignes: [
+    {
+      mos:     'Rappel : zone juste centrale = 662 $',
+      entree:  '',
+      note:    'BPA Adj FY2030 30,46 $ x PER 35x = 1 066 $ / (1,10)^5. Methode primaire recommandee pour MSCI',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      mos:     '0 % (zone juste seule)',
+      entree:  '662 $',
+      note:    'Entree si marge de securite non exigee (qualite du business)',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     '5 %',
+      entree:  '629 $',
+      note:    'Entree avec marge minimale - profil large cap, moat documente',
+      _headerBg:   '#C9A84C',
+      _headerText: '#1C1917',
+    },
+    {
+      mos:     '10 %',
+      entree:  '596 $',
+      note:    'Achat equilibre - correspond au cours actuel (589 $). Zone d\'entree actuelle',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+    {
+      mos:     '15 %',
+      entree:  '563 $',
+      note:    'Achat fort - correction de -5 % depuis le cours actuel',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     '20 %',
+      entree:  '530 $',
+      note:    'Achat agressif - correction de -10 % depuis le cours actuel',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     'Cours actuel : 589 $',
+      entree:  '',
+      note:    'MoS de +11 % vs zone juste centrale (662 $ - 589 $) / 662 $ = 11 %. Marge de securite correcte selon methode primaire PER',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+  ],
+},
+
+// -------------------------------------------------------
+// 7. PER Zone juste - Scénario Bull
+// -------------------------------------------------------
+'msci-per-zone-bull': {
+  compact: true,
+  colonnes: [
+    { key: 'mos',     label: 'Marge de securite',   primary: true },
+    { key: 'entree',  label: "Prix d'entree ($)"                  },
+    { key: 'note',    label: 'Contexte'                           },
+  ],
+  lignes: [
+    {
+      mos:     'Rappel : zone juste bull = 901 $',
+      entree:  '',
+      note:    'BPA Adj FY2030 36,29 $ x PER 40x = 1 452 $ / (1,10)^5. Scenario reacceleration + synergies OneMSCI',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      mos:     '0 % (zone juste seule)',
+      entree:  '901 $',
+      note:    'Entree si on est convaincu du scenario bull',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     '5 %',
+      entree:  '856 $',
+      note:    'Entree prudente scenario bull',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     '10 %',
+      entree:  '811 $',
+      note:    'Achat equilibre scenario bull',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     '15 %',
+      entree:  '766 $',
+      note:    'Achat fort scenario bull',
+      _headerBg:   '#D6EDDF',
+      _headerText: '#1B4332',
+    },
+    {
+      mos:     '20 %',
+      entree:  '721 $',
+      note:    'Achat agressif scenario bull',
+      _headerBg:   '#E0DBCF',
+      _headerText: '#44403C',
+    },
+    {
+      mos:     'Cours actuel : 589 $',
+      entree:  '',
+      note:    'MoS de +35 % vs zone juste bull (901 $ - 589 $) / 901 $ = 35 %. Marge de securite forte si le scenario bull se realise',
+      _headerBg:   '#1B4332',
+      _headerText: '#F7F4EF',
+    },
+  ],
+},
+
   
 }
 
@@ -4280,7 +4759,7 @@ export function Tableau({ id }: { id: string }) {
   return (
     <>
       {/* Desktop */}
-      <div className="hidden sm:block my-6">
+      <div className="tableau-desktop my-6">
         <table className="w-full text-sm border-collapse table-fixed">
           <thead>
             <tr className="border-b border-[#E0DBCF]">
@@ -4315,7 +4794,7 @@ export function Tableau({ id }: { id: string }) {
       </div>
 
       {/* Mobile — cartes empilées */}
-      <div className="flex flex-col gap-3 my-6 sm:hidden">
+      <div className="tableau-mobile">
         {lignes.map((ligne, i) => {
           const headerBg   = ligne._headerBg   ?? '#F7F4EF'
           const headerText = ligne._headerText ?? '#1B4332'
