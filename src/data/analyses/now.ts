@@ -67,7 +67,7 @@ export const NOW: AnalyseCard = {
   secteur:        'Technologie',
   geo:            'États-Unis',
   conviction:     'forte',                // a valider en Verdict ; pas exceptionnelle (concurrence Microsoft / Salesforce)
-  positionnement: 'surveillance',         // a valider en Verdict apres echange avec Pierre
+  positionnement: 'achat fort',         // a valider en Verdict apres echange avec Pierre
   lastUpdated:    '2026-05-27',
   statut:         'actif',
   portefeuille:   'CTO',
