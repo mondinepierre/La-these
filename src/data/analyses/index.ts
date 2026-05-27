@@ -31,6 +31,7 @@ import { gtt                 } from './gtt'
 import { exailTechnologies   } from './exail-technologies'
 import { rockwellAutomation  } from './rockwell-automation'
 import { MSCI             } from './msci-inc'
+import { NOW             } from './now'
 
 // ── Valeurs suivies — en construction ────────────────────────────────────────
 
@@ -57,6 +58,7 @@ export const ANALYSES: AnalyseCard[] = [
   microsoft,
   MSCI,
   novo,
+  NOW,
   rockwellAutomation,
   thales,
   totalenergies,

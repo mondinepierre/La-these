@@ -4741,6 +4741,282 @@ const TABLEAUX: Record<string, TableauData> = {
     },
   ],
 },
+// ── now-dcf-parametres ─────────────────────────────────────────────────────
+'now-dcf-parametres': {
+  colonnes: [
+    { key: 'parametre', label: 'Paramètre', primary: true },
+    { key: 'valeur',    label: 'Valeur'                  },
+    { key: 'source',    label: 'Source / Note'           },
+  ],
+  lignes: [
+    {
+      parametre: 'WACC',
+      valeur:    '7,70 %',
+      source:    'Re 7,77 % (Rf UST 4,09 % + β 0,87 × ERP 4,23 %) + Rd ap. IS 1,14 % pondéré dette/capi',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      parametre: 'Taux sans risque (Rf)',
+      valeur:    '4,09 %',
+      source:    'UST 10 ans au 31/12/2025',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'ERP',
+      valeur:    '4,23 %',
+      source:    'Damodaran US (mature market, sans CRP)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Beta',
+      valeur:    '0,87',
+      source:    'Régression mensuelle 5 ans vs S&P 500 Total Return',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Croissance perpétuelle',
+      valeur:    '2,5 %',
+      source:    'Inflation long terme + croissance économique réelle modérée',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Horizon explicite',
+      valeur:    '5 ans',
+      source:    'Convention La Thèse pour compounder en transition',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'FCF base FY2025',
+      valeur:    '4 576 M$',
+      source:    'OCF 5 444 - Capex 868 (10-K FY2025)',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      parametre: 'Trésorerie nette',
+      valeur:    '2 235 M$',
+      source:    'Cash 3 726 - Dette LT 1 491 (sans marketable securities)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Actions diluées post-split',
+      valeur:    '1 046,7 M',
+      source:    'Split 5:1 effectif 17/12/2025, retraitement rétroactif',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── now-dcf-scenarios ──────────────────────────────────────────────────────
+'now-dcf-scenarios': {
+  colonnes: [
+    { key: 'scenario',     label: 'Scénario',                  primary: true },
+    { key: 'cagrFcf',      label: 'CAGR FCF 5 ans'                          },
+    { key: 'evActualisee', label: 'EV actualisée (M$)'                      },
+    { key: 'equity',       label: 'Equity (M$)'                             },
+    { key: 'prixAction',   label: 'Prix / action ($)'                       },
+  ],
+  lignes: [
+    {
+      scenario:     'Bear',
+      cagrFcf:      '+14 %',
+      evActualisee: '147 052',
+      equity:       '149 287',
+      prixAction:   '142,6',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      scenario:     'Central',
+      cagrFcf:      '+22 %',
+      evActualisee: '202 003',
+      equity:       '204 238',
+      prixAction:   '195,1',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      scenario:     'Bull',
+      cagrFcf:      '+28 %',
+      evActualisee: '253 429',
+      equity:       '255 664',
+      prixAction:   '244,3',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+    {
+      scenario:     'Cours actuel (26/05/2026)',
+      cagrFcf:      'Implicite ~9 %',
+      evActualisee: '~102 350',
+      equity:       '~104 585',
+      prixAction:   '99,92',
+      _headerBg: '#1B4332', _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// ── now-dcf-synthese (a placer en section Lecture croisee) ─────────────────
+'now-dcf-synthese': {
+  colonnes: [
+    { key: 'lecture',         label: 'Lecture',           primary: true },
+    { key: 'dcfActualise',    label: 'DCF actualisé ($)'                },
+    { key: 'perRdix',         label: 'PER zone juste r=10 % ($)'        },
+    { key: 'ecart',           label: 'Convergence / Écart'              },
+  ],
+  lignes: [
+    {
+      lecture:      'Bear',
+      dcfActualise: '142,6',
+      perRdix:      '146,8',
+      ecart:        '+3 % - méthodes convergentes',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      lecture:      'Central',
+      dcfActualise: '195,1',
+      perRdix:      '206,2',
+      ecart:        '+6 % - méthodes convergentes',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      lecture:      'Bull',
+      dcfActualise: '244,3',
+      perRdix:      '262,1',
+      ecart:        '+7 % - méthodes convergentes',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+    {
+      lecture:      'Cours actuel',
+      dcfActualise: '99,92',
+      perRdix:      '99,92',
+      ecart:        'Décote ~51 % sur zone juste centrale actualisée',
+      _headerBg: '#1B4332', _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// ── now-per-trois-scenarios ────────────────────────────────────────────────
+'now-per-trois-scenarios': {
+  colonnes: [
+    { key: 'scenario',     label: 'Scénario',         primary: true },
+    { key: 'cagrEps',      label: 'CAGR Adj EPS'                    },
+    { key: 'bpaProj',      label: 'BPA projeté 2030 ($)'            },
+    { key: 'perCentral',   label: 'PER central'                     },
+    { key: 'prixCible',    label: 'Prix cible 5 ans ($)'            },
+  ],
+  lignes: [
+    {
+      scenario:    'Bear',
+      cagrEps:     '+14 %',
+      bpaProj:     '6,76',
+      perCentral:  '35x',
+      prixCible:   '236,5',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      scenario:    'Central',
+      cagrEps:     '+22 %',
+      bpaProj:     '9,49',
+      perCentral:  '35x',
+      prixCible:   '332,0',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      scenario:    'Bull',
+      cagrEps:     '+28 %',
+      bpaProj:     '12,06',
+      perCentral:  '35x',
+      prixCible:   '422,1',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+  ],
+},
+
+// ── now-per-zone-bear ──────────────────────────────────────────────────────
+'now-per-zone-bear': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 99,92 $'              },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '161,0 $',
+      mosCours:  'Décote 38 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '146,8 $',
+      mosCours:  'Décote 32 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '134,2 $',
+      mosCours:  'Décote 26 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── now-per-zone-central ───────────────────────────────────────────────────
+'now-per-zone-central': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 99,92 $'              },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '226,0 $',
+      mosCours:  'Décote 56 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '206,2 $',
+      mosCours:  'Décote 52 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '188,4 $',
+      mosCours:  'Décote 47 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── now-per-zone-bull ──────────────────────────────────────────────────────
+'now-per-zone-bull': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 99,92 $'              },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '287,2 $',
+      mosCours:  'Décote 65 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '262,1 $',
+      mosCours:  'Décote 62 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '239,5 $',
+      mosCours:  'Décote 58 %',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+  ],
+},
 
   
 }

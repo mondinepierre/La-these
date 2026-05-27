@@ -605,6 +605,79 @@ Les asset-based fees sont caractéristiques des fournisseurs d'indices (MSCI, S&
     { label: 'Analyse fondamentale', href: '/academie/intermediaire/analyse-fondamentale' },
   ],
 },
+ // ── rpo : Remaining Performance Obligations ───────────────────────────────
+  {
+    slug:     'rpo',
+    label:    "RPO - Remaining Performance Obligations",
+    category: 'Analyse fondamentale',
+    theme:    'finance-paiements',
+    shortDef: "Carnet de commandes contractuel non encore reconnu en chiffre d'affaires.",
+    definition: `Les Remaining Performance Obligations (RPO) representent le montant total des revenus contractes par une entreprise SaaS ou B2B mais non encore reconnu comptablement en chiffre d'affaires. Cette metrique inclut le deferred revenue (deja facture) et les montants non-cancellable qui seront factures et reconnus dans les exercices futurs. Le RPO est divulgue trimestriellement par les acteurs SaaS et fournit une visibilite long terme sur le pipeline contractuel.
+
+Le RPO se distingue du backlog comptable classique par sa rigueur normative : ASC 606 / IFRS 15 impose une definition unifiee qui exclut les contrats annulables sans penalite et les arrangements en mode "right to invoice" (time & material). Pour un SaaS pur avec contrats pluriannuels engagement ferme, le RPO peut representer 2 a 3 annees de chiffre d'affaires, signal de qualite du moat.
+
+Une variante cle : le current RPO (cRPO) represente la fraction du RPO qui sera reconnue dans les 12 prochains mois. Le cRPO est l'indicateur le plus suivi par les analystes : son taux de croissance trimestriel est un leading indicator des prochaines guidances de chiffre d'affaires. Un cRPO en croissance plus rapide que le CA suggere une acceleration des signatures recentes ; un cRPO ralenti signale une potentielle decelaration future.
+
+Pour ServiceNow, le RPO atteint 28,2 Md$ fin 2025 (+27 % YoY) avec un cRPO de 13,0 Md$ (+25 % YoY), soit l'equivalent de 2,1 annees de CA sous contrat. Le cRPO couvre a lui seul 82 % de la guidance Subscription 2026, ce qui limite mecaniquement le risque d'ecart entre guidance et realisation.`,
+    related:  ['backlog', 'saas', 'free-cash-flow', 'moat'],
+    modules:  [],
+  },
+
+  // ── arr : Annual Recurring Revenue ────────────────────────────────────────
+  {
+    slug:     'arr',
+    label:    "ARR - Annual Recurring Revenue",
+    category: 'Analyse fondamentale',
+    theme:    'finance-paiements',
+    shortDef: "Chiffre d'affaires recurrent annualise issu des abonnements actifs.",
+    definition: `L'Annual Recurring Revenue (ARR) est une metrique non-GAAP utilisee principalement par les SaaS B2B pour mesurer le chiffre d'affaires recurrent annualise issu des abonnements actifs a une date donnee. L'ARR se calcule comme la somme des valeurs annuelles de tous les contrats d'abonnement en cours a un instant T, normalisees sur 12 mois.
+
+L'ARR se distingue du chiffre d'affaires comptable de plusieurs facons : il exclut les revenus non-recurrents (Professional Services, implementation one-shot, frais ponctuels), il prend en compte les contrats signes mais pas encore factures, et il est snapshot a date donnee (pas un cumul sur une periode). C'est une metrique forward-looking qui mesure la base contractuelle a un moment precis.
+
+Les variations d'ARR se decomposent typiquement en quatre composantes : New ARR (nouveaux clients), Expansion ARR (clients existants qui ajoutent des modules), Churn ARR (clients qui partent), Contraction ARR (clients qui reduisent leur abonnement). La somme Net New ARR (New + Expansion - Churn - Contraction) est le veritable indicateur de la dynamique commerciale.
+
+L'ARR ne doit pas etre confondu avec le RPO : l'ARR est une projection annualisee de la base instantanee, le RPO est un montant total contractuel qui inclut la duree complete des contrats pluriannuels.`,
+    related:  ['saas', 'rpo', 'mix-produit'],
+    modules:  [],
+  },
+
+  // ── sbc : Stock-Based Compensation ────────────────────────────────────────
+  {
+    slug:     'sbc',
+    label:    "SBC - Stock-Based Compensation",
+    category: 'Analyse fondamentale',
+    theme:    'finance-paiements',
+    shortDef: "Remuneration des employes en actions, RSU ou stock options.",
+    definition: `La Stock-Based Compensation (SBC) designe la fraction de la remuneration des employes versee sous forme d'actions, de RSU (Restricted Stock Units), de PSU (Performance Stock Units) ou de stock options, en lieu et place d'une remuneration cash. La SBC est une charge comptable GAAP qui reduit le resultat operationnel publie, mais qui ne consomme pas de tresorerie - d'ou son caractere souvent debattu dans la lecture des marges.
+
+La SBC est massivement utilisee par les acteurs tech US, en particulier les SaaS et les semi-conducteurs, pour deux raisons : attirer et retenir les talents dans un marche du travail tendu (la part variable equity peut representer 30 a 60 % de la remuneration totale d'un ingenieur senior dans la Silicon Valley) et preserver le cash pour le reinvestissement. Pour les SaaS en hypergrowth, la SBC depasse couramment 15 % du chiffre d'affaires.
+
+Le debat analytique central porte sur le traitement de la SBC dans les metriques Non-GAAP. Les directions financieres tendent a l'exclure du calcul des marges et BPA Non-GAAP, en arguant qu'il s'agit d'une charge non-cash. Les investisseurs rigoureux considerent au contraire que la SBC est une charge bien reelle - elle dilue le capital et constitue une remuneration directe aux employes. La convention la plus rigoureuse (et celle adoptee par les fiches La These) est de garder la SBC dans les charges recurrentes pour la lecture des marges et du BPA ajuste.
+
+L'impact economique de la SBC depend du programme de rachat d'actions : si l'entreprise rachete autant d'actions qu'elle en emet via la SBC, la dilution nette est neutralisee mais le cash est ponctionne. Une SBC a 15 % du CA non compensee par les rachats represente une dilution structurelle de 1,5 a 3 % par an du capital.
+
+Pour ServiceNow, la SBC ressort a 1 955 M$ en FY2025 (14,7 % du CA), en baisse continue proportionnelle depuis 2021 (19,2 %). Elle est largement compensee par le programme de rachat (1 840 M$ en 2025), ce qui limite la dilution nette annuelle a moins de 0,5 %.`,
+    related:  ['rsu', 'dilution', 'bpa'],
+    modules:  [],
+  },
+
+  // ── acv : Annual Contract Value ───────────────────────────────────────────
+  {
+    slug:     'acv',
+    label:    "ACV - Annual Contract Value",
+    category: 'Analyse fondamentale',
+    theme:    'finance-paiements',
+    shortDef: "Valeur annuelle moyenne d'un contrat client pour un acteur SaaS.",
+    definition: `L'Annual Contract Value (ACV) represente la valeur annualisee d'un contrat client SaaS. Pour un contrat pluriannuel, l'ACV se calcule en divisant le Total Contract Value (TCV) par la duree en annees du contrat. C'est une metrique qui sert a comparer la taille des clients independamment de la duree contractuelle signee.
+
+Les acteurs SaaS utilisent generalement l'ACV pour segmenter leur base clients : les "large enterprises" sont typiquement definies comme des clients avec un ACV superieur a un seuil (souvent 100 k$ ou 1 M$ selon la maturite du segment). La croissance du nombre de clients a haute ACV est un indicateur cle de l'expansion upmarket et de la captation de comptes strategiques.
+
+L'ACV se distingue de l'ARR : l'ARR est une metrique snapshot pour l'ensemble de la base clients, l'ACV est une metrique par contrat individuel. Pour un client avec plusieurs contrats actifs, on parle generalement de Customer ACV total, qui est la somme des ACV de chaque contrat actif.
+
+Pour ServiceNow, le nombre de clients avec un ACV superieur a 5 M$ a augmente de 420 fin 2023 a 603 fin 2025, soit une croissance de 43 % en deux ans. Cette metrique materialise l'expansion upmarket de la plateforme et est l'un des signaux les plus robustes de la captation de comptes Fortune 500.`,
+    related:  ['arr', 'saas', 'rpo'],
+    modules:  [],
+  },
 
   
 ];
