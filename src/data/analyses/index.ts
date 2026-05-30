@@ -32,6 +32,7 @@ import { exailTechnologies   } from './exail-technologies'
 import { rockwellAutomation  } from './rockwell-automation'
 import { MSCI             } from './msci-inc'
 import { NOW             } from './now'
+import { APR_CORPORATION             } from './apr-corporation'
 
 // ── Valeurs suivies — en construction ────────────────────────────────────────
 
@@ -72,5 +73,6 @@ export const ANALYSES: AnalyseCard[] = [
 
 
   // Analyses ponctuelles
+  APR_CORPORATION,
   sondage,
 ]

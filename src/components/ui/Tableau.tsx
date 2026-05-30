@@ -5018,6 +5018,246 @@ const TABLEAUX: Record<string, TableauData> = {
   ],
 },
 
+// ── DCF : parametres du modele ──────────────────────────────────────────────
+  'apr-corporation-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      {
+        parametre: 'WACC',
+        valeur:    '8,4 %',
+        source:    "CAPM tout-equity (zero dette financière)",
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Bêta',
+        valeur:    '1,10',
+        source:    "Sectoriel bottom-up (régression KOSPI 0,47 écartée : historique coté trop court)",
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Taux sans risque',
+        valeur:    '3,385 %',
+        source:    'KTB Corée 10 ans (pas de plancher 2 %)',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Prime de risque actions',
+        valeur:    '4,65 %',
+        source:    'Damodaran marché mûr 4,23 % + CRP Corée 0,42 %',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Croissance perpétuelle (g)',
+        valeur:    '3,0 %',
+        source:    'Scénario central (2,5 % bear, 3,5 % bull)',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Trésorerie nette',
+        valeur:    'environ 190 Md KRW',
+        source:    'Hors IFRS 16, zéro dette financière',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '37,4 M',
+        source:    'Post-split 5:1, rachats nets 2025',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Poids de la valeur terminale',
+        valeur:    '82 %',
+        source:    "Scénario central : sensibilité élevée à g, MoS 25 % appliquée",
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── DCF : scenarios ─────────────────────────────────────────────────────────
+  'apr-corporation-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',                primary: true },
+      { key: 'croissance', label: 'CAGR FCF (Y1 à Y5, %/an)'           },
+      { key: 'g',        label: 'g perpétuelle'                         },
+      { key: 'valeur',   label: 'Valeur DCF / action'                  },
+    ],
+    lignes: [
+      {
+        scenario:   'Conservateur (bear)',
+        croissance: '+45 / 20 / 12 / 8 / 5',
+        g:          '2,5 %',
+        valeur:     '292 000 KRW',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        scenario:   'Central',
+        croissance: '+52 / 32 / 23 / 16 / 12',
+        g:          '3,0 %',
+        valeur:     '441 000 KRW',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        scenario:   'Optimiste (bull)',
+        croissance: '+65 / 44 / 30 / 22 / 16',
+        g:          '3,5 %',
+        valeur:     '642 000 KRW',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // ── Synthese : DCF vs Zone juste PER vs Prix cible ──────────────────────────
+  'apr-corporation-dcf-synthese': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',                    primary: true },
+      { key: 'dcf',      label: 'DCF / action'                              },
+      { key: 'zone',     label: 'Zone juste PER (r=10 %)'                    },
+      { key: 'cible',    label: 'Prix cible (horizon 2030)'                  },
+    ],
+    lignes: [
+      {
+        scenario: 'Conservateur (bear)',
+        dcf:      '292 000 KRW',
+        zone:     '191 000 KRW',
+        cible:    '307 000 KRW',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        scenario: 'Central',
+        dcf:      '441 000 KRW',
+        zone:     '338 000 KRW',
+        cible:    '544 000 KRW',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        scenario: 'Optimiste (bull)',
+        dcf:      '642 000 KRW',
+        zone:     '587 000 KRW',
+        cible:    '945 000 KRW',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        scenario: 'Cours actuel (28/05/2026)',
+        dcf:      '400 500 KRW',
+        zone:     'prime de 18 % / zone centrale',
+        cible:    'décote DCF 9 % (< MoS 25 %)',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // ── Calculateur PER : les trois scenarios ───────────────────────────────────
+  'apr-corporation-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',              primary: true },
+      { key: 'bpa',      label: 'BPA 2030 (KRW)'                       },
+      { key: 'per',      label: 'PER cible'                            },
+      { key: 'cible',    label: 'Prix cible (KRW)'                     },
+      { key: 'zone',     label: 'Zone juste r=10 % (KRW)'             },
+    ],
+    lignes: [
+      {
+        scenario: 'Bear',
+        bpa:      'environ 17 100',
+        per:      '18x',
+        cible:    'environ 307 000',
+        zone:     '191 000',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        scenario: 'Central',
+        bpa:      'environ 24 700',
+        per:      '22x',
+        cible:    'environ 544 000',
+        zone:     '338 000',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        scenario: 'Bull',
+        bpa:      'environ 33 700',
+        per:      '28x',
+        cible:    'environ 945 000',
+        zone:     '587 000',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // ── Zone juste - scenario bear (compact) ────────────────────────────────────
+  'apr-corporation-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'rendement', label: 'Rendement exigé',        primary: true },
+      { key: 'zone',      label: 'Zone juste'                            },
+      { key: 'zoneMos',   label: 'Zone juste - MoS 25 %'                 },
+    ],
+    lignes: [
+      {
+        rendement: 'r = 10 %',
+        zone:      '191 000 KRW',
+        zoneMos:   '143 000 KRW',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        rendement: 'r = 12 %',
+        zone:      '174 000 KRW',
+        zoneMos:   '131 000 KRW',
+      },
+    ],
+  },
+
+  // ── Zone juste - scenario central (compact) ─────────────────────────────────
+  'apr-corporation-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'rendement', label: 'Rendement exigé',        primary: true },
+      { key: 'zone',      label: 'Zone juste'                            },
+      { key: 'zoneMos',   label: 'Zone juste - MoS 25 %'                 },
+    ],
+    lignes: [
+      {
+        rendement: 'r = 10 %',
+        zone:      '338 000 KRW',
+        zoneMos:   '254 000 KRW',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        rendement: 'r = 12 %',
+        zone:      '309 000 KRW',
+        zoneMos:   '232 000 KRW',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // ── Zone juste - scenario bull (compact) ────────────────────────────────────
+  'apr-corporation-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'rendement', label: 'Rendement exigé',        primary: true },
+      { key: 'zone',      label: 'Zone juste'                            },
+      { key: 'zoneMos',   label: 'Zone juste - MoS 25 %'                 },
+    ],
+    lignes: [
+      {
+        rendement: 'r = 10 %',
+        zone:      '587 000 KRW',
+        zoneMos:   '440 000 KRW',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        rendement: 'r = 12 %',
+        zone:      '536 000 KRW',
+        zoneMos:   '402 000 KRW',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
   
 }
 

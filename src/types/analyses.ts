@@ -26,6 +26,7 @@ export type ZoneGeo =
   | 'Danemark'
   | 'Monde'
   | 'Autre'
+  | 'Corée du sud'
 
 export type Enveloppe      = 'PEA' | 'CTO' | 'PEA + CTO' | 'Aucun'
 export type Conviction     = 'exceptionnelle' | 'forte' | 'moyenne' | 'spéculative'
@@ -36,7 +37,7 @@ export type OnePagerData = {
   thesis:    string
   cours:     number
   coursDate: string
-  devise:    'USD' | 'EUR'
+  devise:    'USD' | 'EUR' | 'DKK' | 'KRW'
   range52w:  { low: number; high: number }
 }
 // ─────────────────────────────────────────────

@@ -679,6 +679,50 @@ Pour ServiceNow, le nombre de clients avec un ACV superieur a 5 M$ a augmente de
     modules:  [],
   },
 
+   {
+    slug:     'prime-de-risque',
+    label:    'Prime de risque actions (ERP)',
+    category: 'Analyse fondamentale',
+    shortDef: "Rendement supplémentaire exigé pour détenir des actions plutôt que l'actif sans risque.",
+    definition: `La prime de risque actions, souvent désignée par son sigle anglais ERP (Equity Risk Premium), est le rendement supplémentaire qu'un investisseur exige pour accepter le risque de détenir des actions plutôt que de placer son argent dans un actif considéré comme sans risque (typiquement une obligation d'État de référence). C'est l'une des trois briques du coût des capitaux propres dans le modèle CAPM : coût des fonds propres = taux sans risque + bêta × prime de risque.
+
+Concrètement, si les actions ne rapportaient pas davantage que les obligations d'État, personne n'accepterait leur volatilité : la prime de risque est la récompense de ce risque. Plus elle est élevée, plus le coût du capital de l'entreprise grimpe, et plus la valeur actualisée de ses flux futurs baisse.
+
+Sur les fiches La Thèse, la prime de risque retenue est celle publiée par le professeur Aswath Damodaran pour un marché mûr. Pour un pays présentant un risque pays supérieur à celui des marchés les plus sûrs, on ajoute une prime de risque pays (CRP, Country Risk Premium). Pour APR Corporation, la prime retenue est de 4,65 % : 4,23 % de prime marché mûr plus 0,42 % de CRP Corée du Sud.`,
+    related:  ['wacc', 'beta', 'taux-sans-risque', 'dcf'],
+    modules:  [],
+  },
+
+  {
+    slug:     'pdrn',
+    label:    'PDRN (polydésoxyribonucléotide)',
+    category: 'Analyse fondamentale',
+    theme:    'luxe-consommation',
+    shortDef: "Actif cosmétique de régénération cutanée, ingrédient héros de la marque Medicube.",
+    definition: `Le PDRN (polydésoxyribonucléotide) est un actif cosmétique composé de fragments d'ADN, le plus souvent extraits de laitance de saumon. Il est utilisé dans les soins de la peau pour ses propriétés revendiquées de régénération cellulaire, d'hydratation et d'apaisement. C'est un ingrédient phare de la cosmétique coréenne, popularisé d'abord par des usages dérivés de la médecine esthétique.
+
+Pour APR Corporation, le PDRN est l'ingrédient héros de la marque Medicube : le groupe revendique plus de 50 millions d'unités de produits PDRN vendues en cumulé. C'est autour de cet actif que s'est construite l'identité dermo-cosmétique de la marque et une partie de son pouvoir de fixation des prix.
+
+Point d'analyse important : le PDRN n'est pas une molécule exclusive à APR. Il est utilisé par de nombreuses marques et reste largement accessible via l'écosystème de sous-traitance coréen. Il constitue donc un argument marketing et un facteur de notoriété, mais pas une barrière concurrentielle protégée : c'est un avantage d'exécution, pas un actif intangible défendable au sens d'un moat.`,
+    related:  ['moat', 'pricing-power', 'k-beauty'],
+    modules:  [],
+  },
+
+  {
+    slug:     'k-beauty',
+    label:    'K-beauty (cosmétique coréenne)',
+    category: 'Analyse fondamentale',
+    theme:    'luxe-consommation',
+    shortDef: "Vague des produits et routines de soin issus de Corée du Sud, en forte expansion à l'export.",
+    definition: `La K-beauty (Korean beauty) désigne l'ensemble des produits, marques et routines de soin issus de Corée du Sud. Le terme recouvre une approche de la beauté centrée sur le soin de la peau (skincare), des formulations innovantes, des routines en plusieurs étapes et un rythme de lancement de produits très rapide. La Corée du Sud est devenue l'un des premiers pôles mondiaux d'innovation cosmétique.
+
+Depuis le milieu des années 2010, la K-beauty connaît une vague d'expansion internationale, d'abord en Asie puis aux États-Unis et en Europe. Cette dynamique est portée par l'influence culturelle coréenne plus large (musique, séries, contenus sociaux) et par un excellent rapport qualité-prix perçu. Pour des marques comme Medicube (APR Corporation), cette vague a permis de prendre des parts de marché significatives à l'export en quelques trimestres.
+
+Point d'analyse important pour l'investisseur : la K-beauty relève en partie d'un cycle de mode. La dynamique actuelle peut se prolonger plusieurs années comme se retourner, car elle repose sur l'engouement culturel autant que sur la performance produit. Une marque qui surfe sur cette vague sans barrière concurrentielle propre est exposée au risque de mode : c'est un moteur de croissance puissant mais non garanti dans la durée.`,
+    related:  ['moat', 'pdrn', 'travel-retail', 'pricing-power'],
+    modules:  [],
+  },
+
   
 ];
 
