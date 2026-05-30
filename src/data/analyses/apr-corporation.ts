@@ -36,7 +36,7 @@ export const APR_CORPORATION: AnalyseCard = {
   marginOfSafety: 'faible',
   readingTime:    45,
   onePager: {
-    thesis:    "Pari d'inflexion sur la preuve de durabilite des ventes americaines : si le sell-through US tient apres la phase de remplissage Target, la trajectoire justifie le multiple ; sinon, l'absence de moat expose a un de-rating brutal.",
+    thesis:    "Qualité réelle, douve absente, prix sans marge : je surveille la durabilité des ventes US avant d'envisager une position.",
     cours:     400500,
     coursDate: '2026-05-28',
     devise:    'KRW',
