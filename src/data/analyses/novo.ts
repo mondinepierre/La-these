@@ -49,6 +49,13 @@ export const novo: AnalyseCard = {
   prixCible:      { bas: 653, haut: 738, devise: 'DKK' },
   marginOfSafety: 'correcte',
   readingTime:    60,
+   onePager: {
+    thesis:    "Pharma GLP-1, ROIC 34 %, pricee pour 2026 a PER 10. Oral ouvert US + Europe, CagriSema FDA : la these se joue sur 2027.",
+    cours:     293,
+    coursDate: '2026-05-28',
+    devise:    'DKK',
+    range52w:  { low: 224, high: 533 },
+  },
 
   metrics: {
     per:               14.1,

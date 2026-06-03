@@ -33,6 +33,7 @@ import { rockwellAutomation  } from './rockwell-automation'
 import { MSCI             } from './msci-inc'
 import { NOW             } from './now'
 import { APR_CORPORATION             } from './apr-corporation'
+import { OTC_MARKETS_GROUP             } from './otc-markets-group'
 
 // ── Valeurs suivies — en construction ────────────────────────────────────────
 
@@ -60,6 +61,7 @@ export const ANALYSES: AnalyseCard[] = [
   MSCI,
   novo,
   NOW,
+  OTC_MARKETS_GROUP,
   rockwellAutomation,
   thales,
   totalenergies,

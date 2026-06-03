@@ -5258,6 +5258,241 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+  // ─────────────────────────────────────────────────────────────────────────────
+// OTC MARKETS GROUP (OTCM) -Bloc a inserer dans le record TABLEAUX de
+// src/components/ui/Tableau.tsx
+// DCF (parametres + scenarios + synthese) + Calculateur PER (3 scenarios + 3 zones).
+// Inputs valides : WACC 6,31 % (beta 0,547 vs S&P 500 TR), base FCF ajustee SBC 40,5 M$,
+// croissance normalisee 3/6/10 %, BPA TTM 2,66 $, PER central 19,5x, r exige 10 %.
+// ─────────────────────────────────────────────────────────────────────────────
+
+  // ── DCF : parametres ────────────────────────────────────────────────────────
+  'otc-markets-group-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Parametre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                    },
+      { key: 'source',    label: 'Source / Note'             },
+    ],
+    lignes: [
+      {
+        parametre: 'WACC',
+        valeur:    '6,31 %',
+        source:    'CAPM. Poids dette 1,4 % (baux), Rd environ 0 : WACC environ Re.',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Beta',
+        valeur:    '0,547',
+        source:    'Regression mensuelle 5 ans vs S&P 500 Total Return.',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Taux sans risque (Rf)',
+        valeur:    '4,088 %',
+        source:    'UST 10 ans au 31/12/2025 (pas de plancher 2 %).',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Prime de risque (ERP)',
+        valeur:    '4,23 %',
+        source:    'Damodaran US, marche mur, sans prime pays.',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Croissance perpetuelle',
+        valeur:    '2,5 %',
+        source:    'Convention La These (rente recurrente mature).',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Horizon explicite',
+        valeur:    '5 ans',
+        source:    'Projection 2026-2030.',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Base FCF (ajustee SBC)',
+        valeur:    '40,5 M$',
+        source:    'OCF 48,6 - remuneration en actions 6,8 - capex normalise 1,3.',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        parametre: 'Tresorerie nette ajoutee',
+        valeur:    '+40,5 M$',
+        source:    'Tresorerie et placements - obligations locatives.',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        parametre: 'Actions diluees',
+        valeur:    '11,865 M',
+        source:    'Moyenne diluee Q1-2026.',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // ── DCF : scenarios ─────────────────────────────────────────────────────────
+  'otc-markets-group-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario',   label: 'Scenario',          primary: true },
+      { key: 'croissance', label: 'Croiss. FCF'                      },
+      { key: 'fcf5',       label: 'FCF an 5'                         },
+      { key: 'valeur',     label: 'Valeur / action'                  },
+      { key: 'vt',         label: 'Poids val. terminale'             },
+    ],
+    lignes: [
+      {
+        scenario: 'Bear', croissance: '3 %', fcf5: '47 M$', valeur: '97 $', vt: '83 %',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        scenario: 'Central', croissance: '6 %', fcf5: '54 M$', valeur: '111 $', vt: '84 %',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        scenario: 'Bull', croissance: '10 %', fcf5: '65 M$', valeur: '131 $', vt: '85 %',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // ── DCF : synthese / pont (a placer en Lecture croisee) ─────────────────────
+  'otc-markets-group-dcf-synthese': {
+    colonnes: [
+      { key: 'element', label: 'Element',  primary: true },
+      { key: 'valeur',  label: 'Valeur'                  },
+      { key: 'lecture', label: 'Lecture'                 },
+    ],
+    lignes: [
+      {
+        element: 'DCF central (WACC 6,31 %)',
+        valeur:  '111 $',
+        lecture: 'Valeur intrinseque, mais 84 % en valeur terminale (hyper-sensible au WACC).',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        element: 'Zone juste DCF actualisee a r = 10 %',
+        valeur:  '94 $',
+        lecture: 'Pont : on actualise la valeur future au rendement exige plutot qu\'au WACC.',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        element: 'Zone juste PER centrale (r = 10 %)',
+        valeur:  '43 $',
+        lecture: 'Vue par les benefices : ignore la rente perpetuelle.',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        element: 'Cours actuel',
+        valeur:  '52 $',
+        lecture: 'Entre les deux methodes, beaucoup plus pres du PER.',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        element: 'WACC implicite au cours',
+        valeur:  '10,8 %',
+        lecture: 'Rendement exige par le marche : 4,5 pts au-dessus du WACC CAPM.',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+    ],
+  },
+
+  // ── DCF : sensibilite WACC x croissance (a placer en Lecture croisee) ───────
+  'otc-markets-group-dcf-sensibilite': {
+    colonnes: [
+      { key: 'wacc', label: 'WACC',        primary: true },
+      { key: 'g3',   label: 'Croiss. 3 %'                },
+      { key: 'g6',   label: 'Croiss. 6 %'                },
+      { key: 'g10',  label: 'Croiss. 10 %'               },
+    ],
+    lignes: [
+      { wacc: '5,5 %',           g3: '123 $', g6: '140 $', g10: '167 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { wacc: '6,0 %',           g3: '106 $', g6: '120 $', g10: '143 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { wacc: '6,31 % (retenu)', g3: '97 $',  g6: '111 $', g10: '131 $', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { wacc: '7,0 %',           g3: '83 $',  g6: '94 $',  g10: '111 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { wacc: '7,5 %',           g3: '75 $',  g6: '85 $',  g10: '100 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { wacc: '8,0 %',           g3: '68 $',  g6: '77 $',  g10: '91 $',  _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    ],
+  },
+
+  // ── Calculateur PER : 3 scenarios ───────────────────────────────────────────
+  'otc-markets-group-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario',   label: 'Scenario',     primary: true },
+      { key: 'croissance', label: 'Croiss. BPA'                 },
+      { key: 'bpa5',       label: 'BPA a 5 ans'                 },
+      { key: 'per',        label: 'PER de sortie'               },
+      { key: 'cible',      label: 'Cible 5 ans'                 },
+      { key: 'zonejuste',  label: 'Zone juste (r=10 %)'         },
+    ],
+    lignes: [
+      {
+        scenario: 'Bear', croissance: '3 %', bpa5: '3,08 $', per: '19,5x', cible: '60 $', zonejuste: '37 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        scenario: 'Central', croissance: '6 %', bpa5: '3,56 $', per: '19,5x', cible: '69 $', zonejuste: '43 $',
+        _headerBg: '#C9A84C', _headerText: '#1C1917',
+      },
+      {
+        scenario: 'Bull', croissance: '10 %', bpa5: '4,28 $', per: '19,5x', cible: '84 $', zonejuste: '52 $',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // ── Zone juste PER : scenario bear (compact) ────────────────────────────────
+  'otc-markets-group-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'parametre', label: 'Bear (croiss. 3 %)', primary: true },
+      { key: 'valeur',    label: ''                                   },
+    ],
+    lignes: [
+      { parametre: 'BPA projete 5 ans', valeur: '3,08 $' },
+      { parametre: 'PER de sortie',     valeur: '19,5x'  },
+      { parametre: 'Prix cible 5 ans',  valeur: '60 $'   },
+      { parametre: 'Zone juste (r=10 %)', valeur: '37 $', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { parametre: 'Bornes (MoE 8,2 %)', valeur: '34 - 40 $' },
+      { parametre: 'Prime vs cours 52 $', valeur: '+41 %' },
+    ],
+  },
+
+  // ── Zone juste PER : scenario central (compact) ─────────────────────────────
+  'otc-markets-group-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'parametre', label: 'Central (croiss. 6 %)', primary: true },
+      { key: 'valeur',    label: ''                                     },
+    ],
+    lignes: [
+      { parametre: 'BPA projete 5 ans', valeur: '3,56 $' },
+      { parametre: 'PER de sortie',     valeur: '19,5x'  },
+      { parametre: 'Prix cible 5 ans',  valeur: '69 $'   },
+      { parametre: 'Zone juste (r=10 %)', valeur: '43 $', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { parametre: 'Bornes (MoE 8,2 %)', valeur: '40 - 47 $' },
+      { parametre: 'Prime vs cours 52 $', valeur: '+21 %' },
+    ],
+  },
+
+  // ── Zone juste PER : scenario bull (compact) ────────────────────────────────
+  'otc-markets-group-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'parametre', label: 'Bull (croiss. 10 %)', primary: true },
+      { key: 'valeur',    label: ''                                    },
+    ],
+    lignes: [
+      { parametre: 'BPA projete 5 ans', valeur: '4,28 $' },
+      { parametre: 'PER de sortie',     valeur: '19,5x'  },
+      { parametre: 'Prix cible 5 ans',  valeur: '84 $'   },
+      { parametre: 'Zone juste (r=10 %)', valeur: '52 $', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { parametre: 'Bornes (MoE 8,2 %)', valeur: '48 - 56 $' },
+      { parametre: 'Prime vs cours 52 $', valeur: '0 %' },
+    ],
+  },
+
+
   
 }
 

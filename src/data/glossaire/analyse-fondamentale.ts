@@ -723,6 +723,32 @@ Point d'analyse important pour l'investisseur : la K-beauty relève en partie d'
     modules:  [],
   },
 
+  {
+    slug:     'deferred-revenue',
+    label:    'Produits constates d\'avance (deferred revenue)',
+    category: 'Analyse fondamentale',
+    shortDef: "Encaissement recu d'un client avant que le service ne soit rendu : une dette envers le client, inscrite au passif, qui finance le besoin en fonds de roulement.",
+    definition: `Le deferred revenue (produits constates d'avance) correspond a l'argent deja encaisse aupres d'un client pour un service qui n'a pas encore ete rendu. Comptablement, c'est un passif : l'entreprise doit encore livrer la prestation. Au fur et a mesure de l'execution, ce passif se transforme en chiffre d'affaires.
+
+Pour un modele d'abonnement, le deferred revenue est un signal de qualite a double titre. D'abord, il materialise la visibilite : les revenus futurs sont deja encaisses et contractes. Ensuite, il finance gratuitement l'exploitation : le client prepaie, ce qui cree un besoin en fonds de roulement negatif (les clients financent l'entreprise plutot que l'inverse).
+
+Chez OTC Markets, le deferred revenue depasse 33 M$ et provient surtout des abonnements annuels OTCQX, factures et encaisses au quatrieme trimestre pour l'annee suivante. C'est la vraie source de l'avantage de fonds de roulement de la societe, bien plus que le cycle clients-fournisseurs classique. C'est aussi ce qui explique la forte saisonnalite de sa tresorerie (haute en fin d'annee, basse au premier trimestre).`,
+    related:  ['working-capital', 'bfr', 'saas', 'free-cash-flow'],
+    modules:  [],
+  },
+{
+    slug:     'tri',
+    label:    'TRI (Taux de Rendement Interne)',
+    category: 'Analyse fondamentale',
+    shortDef: "Rendement annualise attendu d'un investissement : le taux qui egalise le prix paye aujourd'hui et la valeur actualisee des flux futurs (dividendes plus revente).",
+    definition: `Le TRI (Taux de Rendement Interne, internal rate of return ou IRR en anglais) est le rendement annualise qu'un investissement est cense delivrer. C'est le taux d'actualisation qui rend la valeur actuelle des flux futurs (dividendes encaisses, puis prix de revente a l'horizon) exactement egale au prix paye aujourd'hui.
+
+Le TRI est un angle de lecture complementaire de la zone juste. Plutot que de demander "a quel prix dois-je acheter pour obtenir le rendement exige ?", il inverse la question : "au cours actuel, quel rendement vais-je obtenir si mon scenario se realise ?". Un TRI implicite superieur au rendement exige signale une opportunite ; inferieur, une survalorisation.
+
+Il est particulierement utile quand le DCF et le calculateur PER divergent fortement. Calculer le taux d'actualisation qui justifie exactement le cours observe (le WACC implicite ou cout des fonds propres implicite) revele le rendement que le marche exige reellement, qui peut differer du WACC theorique issu du modele d'evaluation des actifs financiers (CAPM), notamment pour les petites valeurs peu liquides.`,
+    related:  ['dcf', 'zone-juste', 'wacc', 'marge-de-securite'],
+    modules:  [],
+  },
   
 ];
 

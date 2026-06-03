@@ -25,6 +25,7 @@ const MDX: Record<string, React.ComponentType<any>> = {
   'msci':             dynamic(() => import('@/content/analyses/valeurs/msci-inc.mdx')),
   'now':             dynamic(() => import('@/content/analyses/valeurs/now.mdx')),
   'apr-corporation':             dynamic(() => import('@/content/analyses/ponctuelles/apr-corporation.mdx')),
+  'otc-markets-group':             dynamic(() => import('@/content/analyses/valeurs/otc-markets-group.mdx')),
 
   // en construction
 

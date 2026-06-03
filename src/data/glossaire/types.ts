@@ -26,7 +26,8 @@ export type GlossaireTheme =
   | 'finance-paiements'
   | 'esg-climat'
   | 'automation-industrielle'
-  | 'macroeconomie';
+  | 'macroeconomie'
+  | 'marches-instruments';
 
 export interface ModuleLink {
   label: string;
@@ -55,6 +56,7 @@ export const THEME_LABELS: Record<GlossaireTheme, string> = {
   'esg-climat':           'ESG & climat',
   'automation-industrielle' : 'Automatisation industrielle',
   'macroeconomie' :       'macro économie',
+  'marches-instruments':  'Marchés & instruments',
 };
 
 export const THEMES: GlossaireTheme[] = [
@@ -67,6 +69,7 @@ export const THEMES: GlossaireTheme[] = [
   'esg-climat',
   'automation-industrielle',
   'macroeconomie',
+  'marches-instruments',
 ];
 
 export const CATEGORIES: GlossaireCategory[] = [

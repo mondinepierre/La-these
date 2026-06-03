@@ -99,4 +99,76 @@ La fin de la ZIRP en 2022 a déclenché une compression multiples spectaculaire 
   related:  ['taux-sans-risque', 'wacc', 'multiple-de-valorisation', 'dcf'],
   modules:  [],
 },
+
+  {
+    slug:     'rule-15c2-11',
+    label:    'Rule 15c2-11 (eligibilite a la cotation OTC)',
+    category: 'Marchés',
+    theme:    'marches-instruments',
+    shortDef: "Regle SEC qui conditionne le droit, pour un courtier, de publier des cotations sur un titre hors-cote a la disponibilite d'une information publique a jour.",
+    definition: `La Rule 15c2-11 est une regle de la SEC (le regulateur boursier americain) qui encadre la publication de cotations sur les marches de gre a gre. Avant qu'un courtier puisse afficher un prix acheteur ou vendeur sur un titre hors-cote, une information minimale et a jour sur l'emetteur doit etre publiquement disponible. La regle a ete sensiblement durcie en septembre 2021 : les titres dont l'emetteur ne publie plus d'information ont ete repousses vers un compartiment restreint (l'Expert Market), reserve aux investisseurs avertis.
+
+Le coeur du modele d'OTC Markets tient a cette regle. Sa filiale OTC Link ATS opere comme "Qualified Interdealer Quotation System" (Qualified IDQS) : c'est l'une des rares entites habilitees a realiser, et a rendre publiques, les determinations d'eligibilite d'un titre a la cotation au sens de la 15c2-11. Les courtiers s'appuient sur ces determinations pour pouvoir afficher leurs prix. Cette fonction quasi-reglementaire constitue une barriere a l'entree puissante.
+
+Le revers est symetrique : l'activite d'OTC Markets reste dependante de ce cadre reglementaire. Une evolution defavorable de la 15c2-11, ou de la Regulation SCI et du Consolidated Audit Trail qui l'accompagnent, pourrait alterer la valeur de cette franchise.`,
+    related:  ['ats', 'marches-otc', 'moat', 'effet-de-reseau'],
+    modules:  [],
+  },
+
+  {
+    slug:     'ats',
+    label:    'ATS (Alternative Trading System)',
+    category: 'Marchés',
+    theme:    'marches-instruments',
+    shortDef: "Plateforme electronique de negociation reglementee par la SEC, alternative aux Bourses traditionnelles, qui apparie les ordres d'acheteurs et de vendeurs.",
+    definition: `Un ATS (Alternative Trading System) est une plateforme electronique de negociation autorisee par la SEC, qui met en relation acheteurs et vendeurs de titres sans avoir le statut formel de Bourse (national securities exchange). Aux Etats-Unis, une part importante des volumes se traite sur des ATS plutot que sur les Bourses cotantes.
+
+OTC Markets exploite plusieurs ATS sous la marque OTC Link : un ECN (Electronic Communication Network, qui apparie automatiquement les ordres avec rebate de liquidite), OTC Link NQB et OTC Link ATS (un systeme de cotation interdealer). S'y ajoute MOON ATS, dedie a la negociation de nuit (overnight) de valeurs cotees en Bourse. Ces plateformes generent des revenus transactionnels (a l'execution) et d'usage (messages, acces aux cotations), par nature plus cycliques que les abonnements aux donnees ou aux services aux emetteurs.
+
+Le statut d'ATS implique des obligations reglementaires lourdes (Regulation ATS, Regulation SCI) qui renforcent la barriere a l'entree pour de nouveaux acteurs.`,
+    related:  ['rule-15c2-11', 'marches-otc', 'liquidite', 'spread'],
+    modules:  [],
+  },
+
+  {
+    slug:     'marches-otc',
+    label:    'Marches OTC (OTCQX, OTCQB, OTCID, Pink)',
+    category: 'Marchés',
+    theme:    'marches-instruments',
+    shortDef: "Marches de gre a gre americains organises en compartiments hierarchises selon le niveau d'information et de conformite des emetteurs.",
+    definition: `Les marches OTC (over-the-counter, de gre a gre) regroupent les titres negocies en dehors des Bourses cotantes comme le NYSE ou le Nasdaq. Aux Etats-Unis, OTC Markets Group les organise en compartiments hierarchises, du plus exigeant au plus risque :
+
+OTCQX Best Market : le compartiment premium, reserve aux societes etablies repondant a des standards financiers, de gouvernance et d'information eleves. OTCQB Venture Market : pour les societes en developpement, avec verification de conformite et reporting courant. OTCID Basic Market : lance en juillet 2025, un niveau d'entree qui exige une information de base et une certification du management, comblant l'espace au-dessus du compartiment Pink. Pink Limited : pour les titres a information limitee. Expert Market : reserve aux investisseurs avertis, pour les titres sans information publique a jour au sens de la Rule 15c2-11.
+
+Plus une societe monte dans la hierarchie, plus elle paie de services aux emetteurs (Corporate Services) et meilleure est la qualite de son marche. C'est le moteur du modele : inciter les emetteurs a se connecter et a publier davantage d'information pour ameliorer leur propre marche.`,
+    related:  ['rule-15c2-11', 'ats', 'liquidite', 'effet-de-reseau'],
+    modules:  [],
+  },
+
+  {
+    slug:     'blue-sky-laws',
+    label:    'Blue Sky laws (lois etatiques sur les valeurs mobilieres)',
+    category: 'Marchés',
+    theme:    'marches-instruments',
+    shortDef: "Lois propres a chaque Etat americain encadrant l'offre et la negociation de titres, en complement de la reglementation federale.",
+    definition: `Les Blue Sky laws sont les lois sur les valeurs mobilieres propres a chacun des 50 Etats americains (plus le District de Columbia et les territoires), qui s'ajoutent a la reglementation federale de la SEC. Elles encadrent l'offre, la vente et parfois la cotation des titres au niveau de chaque Etat, dans le but de proteger les investisseurs locaux contre la fraude.
+
+La conformite Blue Sky est complexe car elle suppose de satisfaire, Etat par Etat, des exigences differentes. OTC Markets en a fait un axe strategique : la societe a obtenu la conformite Blue Sky pour ses propres actions dans l'ensemble des 50 Etats, et entend transformer ce savoir-faire en service a valeur ajoutee pour ses emetteurs OTCQX. L'idee est de rapprocher la fonctionnalite de ses marches premium de celle des Bourses cotantes, ou les titres beneficient d'exemptions Blue Sky.`,
+    related:  ['marches-otc', 'rule-15c2-11'],
+    modules:  [],
+  },
+  {
+    slug:     'stock-based-compensation',
+    label:    'Remuneration en actions (SBC)',
+    category: 'Mécanismes financiers',
+    shortDef: "Remuneration des salaries et dirigeants sous forme d'actions ou d'options : une charge bien reelle, non decaissee, souvent reintegree dans les flux de tresorerie.",
+    definition: `La stock-based compensation (SBC, remuneration en actions) designe la part de la remuneration versee aux salaries et dirigeants sous forme d'actions, d'options ou d'unites d'actions (RSU, PSU). C'est une charge comptabilisee au compte de resultat, qui reduit donc le resultat net. Mais comme elle ne donne lieu a aucune sortie de cash, elle est reintegree dans le tableau des flux de tresorerie pour calculer le flux operationnel.
+
+C'est la source d'un piege d'analyse. En reintegrant la SBC, le flux de tresorerie operationnel, et donc le free cash flow, apparaissent superieurs au resultat net. Or la SBC est un cout economique reel pour l'actionnaire existant : elle le dilue, ou oblige l'entreprise a racheter des actions pour neutraliser cette dilution. Considerer le FCF brut comme entierement distribuable surestime donc la richesse revenant aux proprietaires.
+
+Une approche prudente, retenue dans la valorisation par actualisation des flux (DCF), consiste a traiter la SBC comme un cout cash et a la deduire du FCF. Chez OTC Markets, la SBC represente environ 6,8 M$ par an, soit a peu pres 22 % du resultat net : la difference entre FCF brut et FCF ajuste de la SBC est donc significative.`,
+    related:  ['dilution', 'rachat-actions', 'free-cash-flow', 'rsu'],
+    modules:  [],
+  },
+
 ];
