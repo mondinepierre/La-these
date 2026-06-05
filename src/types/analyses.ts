@@ -53,24 +53,24 @@ export type FrontmatterPonctuelle = {
   type:           'ponctuelle'
   title:          string
   ticker:         string
-  date:           string
   secteur:        Secteur
   geo:            ZoneGeo
   conviction:     Conviction
   positionnement: Positionnement
+  lastUpdated:    string
+  excerpt:        string
   statut:         'actif' | 'archive' | 'en-construction'
   portefeuille:   Enveloppe
   horizon:        string
-  excerpt:        string
   prixCible:      PrixCible
   marginOfSafety: MarginOfSafety
   metrics:        Metrics
   tendances:      Tendances
+  updates:        UpdateEntry[]
+  chartData?:     ChartData
   glossaire?:     string[]
   readingTime?:   number
   logo?:          string
-  chartData?:     ChartData
-  origine?:       OrigineAnalyse
   onePager?:      OnePagerData
 }
 

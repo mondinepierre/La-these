@@ -623,6 +623,38 @@ Pour ServiceNow, le RPO atteint 28,2 Md$ fin 2025 (+27 % YoY) avec un cRPO de 13
     modules:  [],
   },
 
+  // ── billings : facturations ───────────────────────────────────────────────
+  {
+    slug:     'billings',
+    label:    "Billings - facturations",
+    category: 'Analyse fondamentale',
+    theme:    'finance-paiements',
+    shortDef: "Chiffre d'affaires augmenté de la variation du revenu différé : mesure ce qui a été facturé sur la période, pas ce qui a été reconnu.",
+    definition: `Les billings (ou facturations) mesurent ce qu'une entreprise a facturé sur une période, et non ce qu'elle a reconnu en chiffre d'affaires. Ils se calculent comme le chiffre d'affaires de la période augmenté de la variation du revenu différé (deferred revenue) entre le début et la fin de période. Pour un acteur de l'abonnement, c'est un indicateur avancé de la demande : un client qui signe un contrat paye d'avance, ce qui gonfle les billings avant même que le revenu ne soit reconnu au prorata temporis.
+
+Les billings sont particulièrement suivis pendant les phases de transition du modèle de facturation. Lorsqu'une entreprise fait migrer ses contrats pluriannuels payés d'avance vers une facturation annuelle, ses billings se dégonflent mécaniquement (elle facture une année au lieu de trois d'un coup), même si la demande sous-jacente est intacte. C'est ce qui rend la métrique trompeuse hors contexte : il faut toujours la lire à la lumière du modèle de facturation en vigueur.
+
+Exemple chez Autodesk : lors de la bascule du paiement pluriannuel d'avance vers la facturation annuelle (FY2024 à FY2026), les billings sont passés sous le chiffre d'affaires reconnu en FY2024, avant de rebondir une fois la transition digérée. Le chiffre d'affaires, lui, est resté lisse, ce qui illustre que pendant une transition de facturation, c'est la trésorerie et les billings qui sont bruités, pas le revenu.`,
+    related:  ['rpo', 'deferred-revenue', 'saas', 'free-cash-flow'],
+    modules:  [],
+  },
+
+  // ── net-revenue-retention : taux de rétention nette du revenu ──────────────
+  {
+    slug:     'net-revenue-retention',
+    label:    "NRR - Net Revenue Retention",
+    category: 'Analyse fondamentale',
+    theme:    'finance-paiements',
+    shortDef: "Croissance du revenu récurrent issu de la seule base de clients existants, d'une année sur l'autre : expansion moins attrition.",
+    definition: `Le taux de rétention nette du revenu (Net Revenue Retention, NRR, parfois noté NR3 ou Dollar-Based Net Retention) mesure la croissance du revenu récurrent générée par la seule base de clients existants, d'une année sur l'autre. Il se calcule en divisant le revenu récurrent du trimestre courant issu des clients présents un an plus tôt par le revenu récurrent de ces mêmes clients douze mois auparavant. Les nouveaux clients ne sont pas comptés : la métrique isole la dynamique de la base installée.
+
+Un NRR supérieur à 100 % signifie que l'expansion (montées en gamme, modules supplémentaires, hausses de prix) l'emporte sur l'attrition et les réductions de contrat : la base de clients existants croît d'elle-même, sans coût d'acquisition. C'est l'une des signatures les plus fiables de la qualité d'un moat d'abonnement et de la profondeur des coûts de changement. Les meilleurs acteurs SaaS affichent un NRR durablement supérieur à 110 %.
+
+La métrique doit être lue avec son contexte : un NRR ponctuellement gonflé par un changement de modèle commercial ou tarifaire n'a pas la même valeur qu'un NRR structurellement élevé. Chez Autodesk, le NRR dépasse 110 % à change constant en FY2026, en partie sous l'effet du nouveau modèle de transaction, et le management le guide en retour vers une fourchette de 100 à 110 % une fois cet effet dissipé.`,
+    related:  ['arr', 'rpo', 'saas', 'moat'],
+    modules:  [],
+  },
+
   // ── arr : Annual Recurring Revenue ────────────────────────────────────────
   {
     slug:     'arr',

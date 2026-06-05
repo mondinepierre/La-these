@@ -24,7 +24,8 @@ import type { AnalyseCard } from '@/types/analyses'
 export const sondage: AnalyseCard = {
   slug:           'sondage',
   type:           'ponctuelle',
-  date:           '2026-02-05',
+  lastUpdated:    '2026-02-05',
+  updates:        [],
   title:          ' - Sondage communautaire',
   ticker:         'sondage',
   secteur:        'Technologie',
@@ -37,10 +38,6 @@ export const sondage: AnalyseCard = {
   excerpt:        '...',
   logo:           '/analyse/MSFT.png',
   readingTime:    12,
-  origine: {
-    type:  'actualite',
-    label: 'Analyse de Nvidia suite à un sondage communautaire',
-  },
   prixCible:      { bas: 380, haut: 440, devise: 'USD' },
   marginOfSafety: 'correcte',
 

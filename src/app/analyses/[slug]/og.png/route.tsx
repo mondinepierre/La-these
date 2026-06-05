@@ -28,8 +28,10 @@ export async function GET(
   // ── Récupération ──────────────────────────────────────────────────────────
   const analyse = ANALYSES.find((a: AnalyseCard) => a.slug === slug)
 
-  if (!analyse || analyse.type !== 'valeur') {
-    return new Response(`"${slug}" introuvable ou type !== 'valeur'`, { status: 404 })
+  // Valeurs suivies ET analyses ponctuelles ont la meme structure (metrics,
+  // onePager, prixCible...) : le onePager est genere pour les deux.
+  if (!analyse) {
+    return new Response(`"${slug}" introuvable`, { status: 404 })
   }
 
   const v = analyse as FrontmatterValeur & { slug: string }

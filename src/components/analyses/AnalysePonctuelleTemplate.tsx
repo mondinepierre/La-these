@@ -14,7 +14,6 @@ export default function AnalysePonctuelleTemplate({ frontmatter, Content }: Prop
     <ValeurSuivieTemplate
       frontmatter={frontmatter}
       Content={Content}
-      origine={frontmatter.origine}
     />
   )
 }

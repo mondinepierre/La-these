@@ -18,7 +18,7 @@ import type { AnalyseCard } from '@/types/analyses'
 
 export const APR_CORPORATION: AnalyseCard = {
   slug:           'apr-corporation',
-  type:           'valeur',
+  type:           'ponctuelle',
   title:          'APR Corporation',
   ticker:         'APR',
   secteur:        'Consommation',

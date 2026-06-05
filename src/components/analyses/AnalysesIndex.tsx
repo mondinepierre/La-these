@@ -28,7 +28,7 @@ function formatDate(iso: string) {
 function AnalyseCard({ analyse }: { analyse: AnalyseCard }) {
   const estValeur      = isValeurSuivie(analyse)
   const enConstruction = analyse.statut === 'en-construction'
-  const date           = estValeur ? analyse.lastUpdated : analyse.date
+  const date           = analyse.lastUpdated
 
   return (
     <Link
@@ -56,7 +56,9 @@ function AnalyseCard({ analyse }: { analyse: AnalyseCard }) {
         {/* Badges */}
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '0.75rem', alignItems: 'center' }}>
           <AnalyseTypeBadge type={analyse.type} />
-          {estValeur && <ConvictionBadge conviction={analyse.conviction} />}
+          {'conviction' in analyse && analyse.conviction && (
+            <ConvictionBadge conviction={analyse.conviction} />
+          )}
           {estValeur && <StatutBadge positionnement={analyse.positionnement} />}
 
           {/* Badge en construction */}

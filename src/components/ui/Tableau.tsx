@@ -5018,6 +5018,294 @@ const TABLEAUX: Record<string, TableauData> = {
   ],
 },
 
+// ════════════════════════════════════════════════════════════════════════════
+// AUTODESK (ADSK) - valorisation PER normalise (SBC en charge) primaire
+// ════════════════════════════════════════════════════════════════════════════
+
+// ── autodesk-dcf-parametres (DCF de confirmation sur FCF owner) ─────────────
+'autodesk-dcf-parametres': {
+  colonnes: [
+    { key: 'parametre', label: 'Paramètre', primary: true },
+    { key: 'valeur',    label: 'Valeur'                  },
+    { key: 'source',    label: 'Source / Note'           },
+  ],
+  lignes: [
+    {
+      parametre: 'WACC',
+      valeur:    '9,4 %',
+      source:    'Re 9,5 % (Rf UST 4,1 % + β 1,288 × ERP 4,2 %) + Rd ap. IS ~2,0 % pondéré dette 4 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      parametre: 'FCF de référence (owner FY27)',
+      valeur:    '2 067 M$',
+      source:    'FCF publié (guidance 2 750) - SBC après IS 683 : la SBC est passée en charge',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      parametre: 'Taux sans risque (Rf)',
+      valeur:    '4,1 %',
+      source:    'UST 10 ans au 31/01/2026 (pas de plancher 2 % en environnement US)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'ERP',
+      valeur:    '4,2 %',
+      source:    'Damodaran US (mature market, sans CRP)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Bêta',
+      valeur:    '1,288',
+      source:    'Régression mensuelle 5 ans vs S&P 500 Total Return',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Croissance FCF owner',
+      valeur:    '~12 % central',
+      source:    'SBC se normalisant de 11 % vers 8 % du CA (discipline Starboard)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Croissance perpétuelle',
+      valeur:    '3,0 %',
+      source:    'Central (2,5 % bear, 3,5 % bull) : moat durable, tailwind digitalisation',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Trésorerie nette',
+      valeur:    '+490 M$',
+      source:    'Net cash : dette financière 2 483 - cash & placements 2 973',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Actions diluées',
+      valeur:    '214 M',
+      source:    'Nombre d actions en baisse (rachats > dilution SBC)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── autodesk-dcf-scenarios (FCF owner, SBC passee en charge) ───────────────
+'autodesk-dcf-scenarios': {
+  colonnes: [
+    { key: 'scenario',     label: 'Scénario',                  primary: true },
+    { key: 'cagrFcf',      label: 'CAGR FCF owner'                           },
+    { key: 'gPerp',        label: 'g perpétuel'                              },
+    { key: 'equity',       label: 'Equity (M$)'                             },
+    { key: 'prixAction',   label: 'Prix / action ($)'                       },
+  ],
+  lignes: [
+    {
+      scenario:   'Bear',
+      cagrFcf:    '+8 %',
+      gPerp:      '2,5 %',
+      equity:     '36 356',
+      prixAction: '170',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      scenario:   'Central',
+      cagrFcf:    '+12 %',
+      gPerp:      '3,0 %',
+      equity:     '43 807',
+      prixAction: '205',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      scenario:   'Bull',
+      cagrFcf:    '+16 %',
+      gPerp:      '3,5 %',
+      equity:     '53 052',
+      prixAction: '248',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+    {
+      scenario:   'Cours actuel (04/06/2026)',
+      cagrFcf:    'Implicite : SBC non passée en charge',
+      gPerp:      '-',
+      equity:     '50 000',
+      prixAction: '233,64',
+      _headerBg: '#1B4332', _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// ── autodesk-dcf-synthese (Lecture croisee : le referendum SBC) ────────────
+'autodesk-dcf-synthese': {
+  colonnes: [
+    { key: 'methode',     label: 'Méthode',                   primary: true },
+    { key: 'justeValeur', label: 'Juste valeur centrale ($)'                },
+    { key: 'sbc',         label: 'Traitement SBC'                           },
+    { key: 'lecture',     label: 'Lecture'                                  },
+  ],
+  lignes: [
+    {
+      methode:     'DCF owner FCF (actualisé)',
+      justeValeur: '205',
+      sbc:         'en charge',
+      lecture:     'Mon ancrage',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      methode:     'PER normalisé - zone juste r=10 %',
+      justeValeur: '214',
+      sbc:         'en charge',
+      lecture:     'Confirmation',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      methode:     'EV/FCF owner',
+      justeValeur: '212',
+      sbc:         'en charge',
+      lecture:     'Confirmation',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      methode:     'Consensus / PER non-GAAP 26x',
+      justeValeur: '290-325',
+      sbc:         'ignorée',
+      lecture:     'Décote apparente ~40 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      methode:     'Cours actuel (04/06/2026)',
+      justeValeur: '233,64',
+      sbc:         '-',
+      lecture:     'Prime ~9 % vs juste valeur, SBC passée en charge',
+      _headerBg: '#1B4332', _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// ── autodesk-per-trois-scenarios ───────────────────────────────────────────
+'autodesk-per-trois-scenarios': {
+  colonnes: [
+    { key: 'scenario',   label: 'Scénario',              primary: true },
+    { key: 'cagrEps',    label: 'CAGR BPA normalisé'                   },
+    { key: 'bpaProj',    label: 'BPA projeté 5 ans ($)'                },
+    { key: 'perCentral', label: 'PER central'                         },
+    { key: 'prixCible',  label: 'Prix cible 5 ans ($)'                },
+  ],
+  lignes: [
+    {
+      scenario:   'Bear',
+      cagrEps:    '+8 %',
+      bpaProj:    '10,29',
+      perCentral: '28x',
+      prixCible:  '288',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      scenario:   'Central',
+      cagrEps:    '+12 %',
+      bpaProj:    '12,34',
+      perCentral: '28x',
+      prixCible:  '345',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      scenario:   'Bull',
+      cagrEps:    '+16 %',
+      bpaProj:    '14,70',
+      perCentral: '28x',
+      prixCible:  '412',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+  ],
+},
+
+// ── autodesk-per-zone-bear ─────────────────────────────────────────────────
+'autodesk-per-zone-bear': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 233,64 $'             },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '196,0 $',
+      mosCours:  'Prime 19 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '178,8 $',
+      mosCours:  'Prime 31 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '163,4 $',
+      mosCours:  'Prime 43 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── autodesk-per-zone-central ──────────────────────────────────────────────
+'autodesk-per-zone-central': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 233,64 $'             },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '234,8 $',
+      mosCours:  'Juste prix',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '214,2 $',
+      mosCours:  'Prime 9 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '195,8 $',
+      mosCours:  'Prime 19 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── autodesk-per-zone-bull ─────────────────────────────────────────────────
+'autodesk-per-zone-bull': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 233,64 $'             },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '280,4 $',
+      mosCours:  'Décote 17 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '255,8 $',
+      mosCours:  'Décote 9 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '233,8 $',
+      mosCours:  'Juste prix',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+  ],
+},
+
 // ── DCF : parametres du modele ──────────────────────────────────────────────
   'apr-corporation-dcf-parametres': {
     colonnes: [

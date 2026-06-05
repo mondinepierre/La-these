@@ -34,6 +34,7 @@ import { MSCI             } from './msci-inc'
 import { NOW             } from './now'
 import { APR_CORPORATION             } from './apr-corporation'
 import { OTC_MARKETS_GROUP             } from './otc-markets-group'
+import { autodesk            } from './autodesk'
 
 // ── Valeurs suivies — en construction ────────────────────────────────────────
 
@@ -75,6 +76,7 @@ export const ANALYSES: AnalyseCard[] = [
 
 
   // Analyses ponctuelles
+  autodesk,
   APR_CORPORATION,
   sondage,
 ]

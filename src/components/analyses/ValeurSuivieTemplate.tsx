@@ -85,7 +85,7 @@ export default function ValeurSuivieTemplate({ frontmatter, Content, origine }: 
 
   // Date affichée selon le type
   const dateLabel = isPonctuelle
-    ? `Analyse du ${new Date((frontmatter as FrontmatterPonctuelle).date).toLocaleDateString('fr-FR', {
+    ? `Analyse du ${new Date((frontmatter as FrontmatterPonctuelle).lastUpdated).toLocaleDateString('fr-FR', {
         day: 'numeric', month: 'long', year: 'numeric',
       })}`
     : `Mise à jour : ${new Date((frontmatter as FrontmatterValeur).lastUpdated).toLocaleDateString('fr-FR', {
