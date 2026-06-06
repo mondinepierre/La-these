@@ -59,7 +59,7 @@ export const cameco: AnalyseCard = {
   excerpt:        "Le premier producteur d\'uranium occidental, en phase de repricing de son carnet de commandes, associé à Westinghouse pour couvrir l\'ensemble du cycle du combustible nucléaire.",
   glossaire:      ['roic', 'wacc', 'free-cash-flow', 'moat', 'per-valorisation', 'marge-de-securite'],
   logo:           '/analyse/cameco.png',
-  prixCible:      { bas: 0, haut: 0, devise: 'CAD' },   // à compléter après la section Valorisation
+  prixCible:      { bas: 79, haut: 109, devise: '$US' },   // à compléter après la section Valorisation
   marginOfSafety: 'indéterminée',                         // méthodes divergentes — voir section Valorisation
   readingTime:    40,                                      // à compléter à la fin de rédaction
 

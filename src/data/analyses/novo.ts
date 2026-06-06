@@ -39,26 +39,26 @@ export const novo: AnalyseCard = {
   geo:            'Danemark',
   conviction:     'moyenne',
   positionnement: 'accumulation',
-  lastUpdated:    '2026-04-20',
+  lastUpdated:    '2026-06-06',
   statut:         'actif',
   portefeuille:   'PEA',
   horizon:        '2031',
   excerpt:        'Le géant danois du GLP-1, entre transition obésité et compression des multiples, dans un marché mondial à 2 % de pénétration.',
   glossaire:      ['glp-1', 'pbm', 'pipeline-pharma', 'marge-de-securite', 'moat', 'multiple-de-valorisation'],
   logo:           '/analyse/Novo_Nordisk.png',
-  prixCible:      { bas: 653, haut: 738, devise: 'DKK' },
+  prixCible:      { bas: 595, haut: 672, devise: 'DKK' },
   marginOfSafety: 'correcte',
   readingTime:    60,
    onePager: {
-    thesis:    "Pharma GLP-1, ROIC 34 %, pricee pour 2026 a PER 10. Oral ouvert US + Europe, CagriSema FDA : la these se joue sur 2027.",
-    cours:     293,
-    coursDate: '2026-05-28',
+    thesis:    "Pharma GLP-1, ROIC 34 %, ~12x les bénéfices. Pilule Wegovy : plus gros lancement GLP-1 US de l'histoire, guidance 2026 relevée. La thèse se joue sur l'oral et la reprise post-2027.",
+    cours:     283.9,
+    coursDate: '2026-06-06',
     devise:    'DKK',
     range52w:  { low: 224, high: 533 },
   },
 
   metrics: {
-    per:               14.1,
+    per:               12.3,
     evEbitda:          10.4,
     fcfYield:          3.8,
     roic:              33.6,
@@ -81,6 +81,10 @@ export const novo: AnalyseCard = {
   },
 
   updates: [
+    {
+      date: '2026-06-06',
+      note: "MAJ T1 2026 : guidance 2026 relevée (ventes et résultat opérationnel ajustés -4 à -12 % CER), Wegovy pill = plus gros lancement GLP-1 de l'histoire US (plus de 2 M scripts depuis janvier), amycretin renommée zenagamtide et passée en phase 3 (AMAZE). CAGR BPA corrigé à 6 % : prix cible 595-672 DKK et niveaux revus. Position portée à 44 actions, PRU 318 DKK.",
+    },
     {
       date: '2026-04-20',
       note: 'Mise à jour.',
