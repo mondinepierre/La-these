@@ -35,6 +35,7 @@ import { NOW             } from './now'
 import { APR_CORPORATION             } from './apr-corporation'
 import { OTC_MARKETS_GROUP             } from './otc-markets-group'
 import { autodesk            } from './autodesk'
+import { veeva               } from './veeva'
 
 // ── Valeurs suivies — en construction ────────────────────────────────────────
 
@@ -76,6 +77,7 @@ export const ANALYSES: AnalyseCard[] = [
 
 
   // Analyses ponctuelles
+  veeva,
   autodesk,
   APR_CORPORATION,
   sondage,

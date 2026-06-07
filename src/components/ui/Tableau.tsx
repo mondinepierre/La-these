@@ -5019,6 +5019,287 @@ const TABLEAUX: Record<string, TableauData> = {
 },
 
 // ════════════════════════════════════════════════════════════════════════════
+// VEEVA (VEEV) - valorisation PER normalise (SBC en charge) primaire + DCF FCF owner
+// ════════════════════════════════════════════════════════════════════════════
+
+// ── veeva-dcf-parametres ───────────────────────────────────────────────────
+'veeva-dcf-parametres': {
+  colonnes: [
+    { key: 'parametre', label: 'Paramètre', primary: true },
+    { key: 'valeur',    label: 'Valeur'                  },
+    { key: 'source',    label: 'Source / Note'           },
+  ],
+  lignes: [
+    {
+      parametre: 'WACC',
+      valeur:    '7,5 %',
+      source:    'Re = Rf 4,15 % + β 0,80 × ERP 4,23 % ; dette quasi nulle, WACC ≈ Re',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      parametre: 'Taux sans risque (Rf)',
+      valeur:    '4,15 %',
+      source:    'UST 10 ans au 31/01/2026',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'ERP',
+      valeur:    '4,23 %',
+      source:    'Damodaran US (mature market, sans CRP)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Beta',
+      valeur:    '0,80',
+      source:    'Régression mensuelle 5 ans vs S&P 500 Total Return',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Croissance perpétuelle',
+      valeur:    '2,5 %',
+      source:    'Inflation long terme + croissance économique réelle modérée',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Horizon explicite',
+      valeur:    '5 ans',
+      source:    'Convention La Thèse pour compounder en transition',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'FCF owner base FY2026',
+      valeur:    '1 013 M$',
+      source:    'FCF 1 386 - SBC après IS 373 (SBC 473 × 0,79). Base centrale du DCF',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      parametre: 'Trésorerie nette',
+      valeur:    '7 210 M$',
+      source:    'Cash 1 897 + placements CT 5 416 - leases 103 (au 30/04/2026)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Actions diluées',
+      valeur:    '166,0 M',
+      source:    'Diluées Q1 FY2027, en léger repli sous l\'effet des rachats',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── veeva-dcf-scenarios ─────────────────────────────────────────────────────
+'veeva-dcf-scenarios': {
+  colonnes: [
+    { key: 'scenario',     label: 'Scénario',             primary: true },
+    { key: 'cagrFcf',      label: 'CAGR FCF owner 5 ans'                },
+    { key: 'evActualisee', label: 'EV actualisée (M$)'                  },
+    { key: 'equity',       label: 'Equity (M$)'                         },
+    { key: 'prixAction',   label: 'Prix / action ($)'                   },
+  ],
+  lignes: [
+    {
+      scenario:     'Bear',
+      cagrFcf:      '+9 %',
+      evActualisee: '27 537',
+      equity:       '34 747',
+      prixAction:   '209',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      scenario:     'Central',
+      cagrFcf:      '+14 %',
+      evActualisee: '33 913',
+      equity:       '41 123',
+      prixAction:   '248',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      scenario:     'Bull',
+      cagrFcf:      '+19 %',
+      evActualisee: '41 461',
+      equity:       '48 671',
+      prixAction:   '293',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+    {
+      scenario:     'Cours actuel (05/06/2026)',
+      cagrFcf:      'Implicite ~6 %',
+      evActualisee: '~21 443',
+      equity:       '~28 653',
+      prixAction:   '172,61',
+      _headerBg: '#1B4332', _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// ── veeva-dcf-synthese (a placer en section Lecture croisee) ────────────────
+'veeva-dcf-synthese': {
+  colonnes: [
+    { key: 'lecture',      label: 'Lecture',            primary: true },
+    { key: 'dcfActualise', label: 'DCF FCF owner ($)'                 },
+    { key: 'perRdix',      label: 'PER zone juste r=10 % ($)'         },
+    { key: 'ecart',        label: 'Convergence / Écart'               },
+  ],
+  lignes: [
+    {
+      lecture:      'Bear',
+      dcfActualise: '209',
+      perRdix:      '154',
+      ecart:        '+36 % - le DCF capte la rente perpétuelle (VT 81 %)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      lecture:      'Central',
+      dcfActualise: '248',
+      perRdix:      '224',
+      ecart:        'Zone de juste valeur 224-248',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      lecture:      'Bull',
+      dcfActualise: '293',
+      perRdix:      '296',
+      ecart:        '-1 % - méthodes convergentes',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+    {
+      lecture:      'Cours actuel',
+      dcfActualise: '172,61',
+      perRdix:      '172,61',
+      ecart:        'Décote 23 à 30 % sur la zone juste centrale',
+      _headerBg: '#1B4332', _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// ── veeva-per-trois-scenarios ───────────────────────────────────────────────
+'veeva-per-trois-scenarios': {
+  colonnes: [
+    { key: 'scenario',   label: 'Scénario',             primary: true },
+    { key: 'cagrEps',    label: 'CAGR BPA normalisé'                  },
+    { key: 'bpaProj',    label: 'BPA projeté FY2031 ($)'              },
+    { key: 'perCible',   label: 'PER cible'                           },
+    { key: 'prixCible',  label: 'Prix cible 5 ans ($)'               },
+  ],
+  lignes: [
+    {
+      scenario:    'Bear',
+      cagrEps:     '+11 %',
+      bpaProj:     '10,33',
+      perCible:    '24x',
+      prixCible:   '248',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      scenario:    'Central',
+      cagrEps:     '+16 %',
+      bpaProj:     '12,88',
+      perCible:    '28x',
+      prixCible:   '361',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      scenario:    'Bull',
+      cagrEps:     '+21 %',
+      bpaProj:     '15,90',
+      perCible:    '30x',
+      prixCible:   '477',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+  ],
+},
+
+// ── veeva-per-zone-bear ─────────────────────────────────────────────────────
+'veeva-per-zone-bear': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 172,61 $'             },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '168,7 $',
+      mosCours:  'Prime 2 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '153,9 $',
+      mosCours:  'Prime 12 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '140,7 $',
+      mosCours:  'Prime 23 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── veeva-per-zone-central ──────────────────────────────────────────────────
+'veeva-per-zone-central': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 172,61 $'             },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '245,4 $',
+      mosCours:  'Décote 30 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '223,8 $',
+      mosCours:  'Décote 23 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '204,6 $',
+      mosCours:  'Décote 16 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── veeva-per-zone-bull ─────────────────────────────────────────────────────
+'veeva-per-zone-bull': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 172,61 $'             },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '324,6 $',
+      mosCours:  'Décote 47 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '296,2 $',
+      mosCours:  'Décote 42 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '270,7 $',
+      mosCours:  'Décote 36 %',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+  ],
+},
+
+// ════════════════════════════════════════════════════════════════════════════
 // AUTODESK (ADSK) - valorisation PER normalise (SBC en charge) primaire
 // ════════════════════════════════════════════════════════════════════════════
 
