@@ -6061,6 +6061,120 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+  // ── IDEXX Laboratories (NASDAQ IDXX) : cours réf. 562 $ (05/06/2026) ──────
+  'idexx-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',   primary: true },
+      { key: 'valeur',    label: 'Valeur'                     },
+      { key: 'source',    label: 'Source / Note'              },
+    ],
+    lignes: [
+      { parametre: 'WACC',                   valeur: '10,6 %',   source: 'CAPM : Rf 4,09 % (UST 10 ans) + beta 1,55 x ERP 4,23 % (Damodaran US)', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Croissance perpétuelle', valeur: '2,5 %',    source: 'Plancher conservateur (sous la croissance nominale US long terme)',     _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'FCF base FY2025',        valeur: '1 044 M$', source: 'OCF 1 182 - Capex 138 (Source : CF du 10-K)',                            _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Actions diluées',        valeur: '81,0 M',   source: 'Moyenne pondérée FY2025 (Source : CR)',                                  _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Dette nette',            valeur: '270 M$',   source: 'Faible levier (0,18x EBITDA) - Source : Bilan FY2025',                   _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Horizon de projection',  valeur: '5 ans',    source: '-',                                                                     _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    ],
+  },
+
+  'idexx-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',          primary: true },
+      { key: 'cagr',     label: 'CAGR FCF'                         },
+      { key: 'fcf5',     label: 'FCF an 5'                         },
+      { key: 'ev',       label: 'EV'                               },
+      { key: 'prix',     label: 'Prix implicite'                   },
+      { key: 'ecart',    label: 'Écart vs cours 562 $'             },
+    ],
+    lignes: [
+      { scenario: 'Bear : décélération organique',          cagr: '6 %',   fcf5: '1 397 M$', ev: '15 281 M$', prix: '~185 $', ecart: '-67 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { scenario: 'Central : guidance BPA',                 cagr: '9 %',   fcf5: '1 606 M$', ev: '17 274 M$', prix: '~210 $', ecart: '-63 %', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Bull : réaccélération (placements/menu)', cagr: '12 %', fcf5: '1 839 M$', ev: '19 483 M$', prix: '~237 $', ecart: '-58 %', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { scenario: 'Seuil : justifie le cours 562 $',        cagr: '~35 %', fcf5: '~4 700 M$', ev: '~45 800 M$', prix: '~562 $', ecart: '+0 %', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    ],
+  },
+
+  'idexx-dcf-synthese': {
+    colonnes: [
+      { key: 'composante', label: 'Composante',  primary: true },
+      { key: 'montant',    label: 'Montant (M$)'               },
+      { key: 'part',       label: '% de l\'EV'                 },
+    ],
+    lignes: [
+      { composante: 'Somme FCF actualisés (5 ans)',     montant: '4 996',  part: '28,9 %', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { composante: 'Valeur terminale actualisée',      montant: '12 278', part: '71,1 %', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { composante: 'Enterprise Value',                 montant: '17 274', part: '100 %',  _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { composante: 'Dette nette',                      montant: '-270',   part: '-',      _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { composante: 'Equity Value',                     montant: '17 004', part: '-',      _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { composante: 'Prix implicite (81,0 M actions)',  montant: '210 $',  part: '-',      _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    ],
+  },
+
+  'idexx-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',          primary: true },
+      { key: 'multiple', label: 'Multiple sortie'                  },
+      { key: 'bpa',      label: 'BPA 2030'                         },
+      { key: 'cible',    label: 'Prix cible'                       },
+      { key: 'zone10',   label: 'Zone juste r=10 %'                },
+      { key: 'mos',      label: 'MoS vs 562 $'                     },
+    ],
+    lignes: [
+      { scenario: 'Bear',    multiple: '30x', bpa: '22 $', cible: '661 $', zone10: '411 $', mos: '-37 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { scenario: 'Central', multiple: '36x', bpa: '22 $', cible: '793 $', zone10: '493 $', mos: '-14 %', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Bull',    multiple: '42x', bpa: '22 $', cible: '926 $', zone10: '575 $', mos: '+2 %',  _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+    ],
+  },
+
+  'idexx-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 562 $'                  },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',  zone: '471 $', mos: '-19 %', diag: 'Modéré',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '10 %', zone: '411 $', mos: '-37 %', diag: 'Standard', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '12 %', zone: '375 $', mos: '-50 %', diag: 'Élevé',    _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '15 %', zone: '329 $', mos: '-71 %', diag: 'Agressif', _headerBg: '#F7F4EF', _headerText: '#78716C' },
+    ],
+  },
+
+  'idexx-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 562 $'                  },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',  zone: '566 $', mos: '+1 %',  diag: 'Modéré',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '10 %', zone: '493 $', mos: '-14 %', diag: 'Standard', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '12 %', zone: '450 $', mos: '-25 %', diag: 'Élevé',    _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '15 %', zone: '394 $', mos: '-43 %', diag: 'Agressif', _headerBg: '#F7F4EF', _headerText: '#78716C' },
+    ],
+  },
+
+  'idexx-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 562 $'                  },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',  zone: '660 $', mos: '+15 %', diag: 'Modéré',   _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '10 %', zone: '575 $', mos: '+2 %',  diag: 'Standard', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '12 %', zone: '525 $', mos: '-7 %',  diag: 'Élevé',    _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '15 %', zone: '460 $', mos: '-22 %', diag: 'Agressif', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    ],
+  },
+
 
   
 }

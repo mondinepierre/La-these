@@ -28,6 +28,7 @@ import { thales              } from './thales'
 import { constellationenergy } from './constellationenergy'
 import { cameco              } from './cameco'
 import { gtt                 } from './gtt'
+import { IDEXX               } from './idexx'
 import { exailTechnologies   } from './exail-technologies'
 import { rockwellAutomation  } from './rockwell-automation'
 import { MSCI             } from './msci-inc'
@@ -78,6 +79,7 @@ export const ANALYSES: AnalyseCard[] = [
 
   // Analyses ponctuelles
   veeva,
+  IDEXX,
   autodesk,
   APR_CORPORATION,
   sondage,
