@@ -25,7 +25,7 @@ export const IDEXX: AnalyseCard = {
   logo:           '/analyse/idex-laboratories.png',
   prixCible:      { bas: 609, haut: 978, devise: 'USD' },  // Central PER 793 $ (BPA 2030 22 $ x 36x) +/- MoE 23,25 %
   marginOfSafety: 'négative',                              // Cours 562 $ vs zone juste centrale 493 $ : -14 %
-  readingTime:    22,
+  readingTime:    38,    // (5964 mots / 200) + (31 visuels x 0,25)
   onePager: {
     thesis:    "Quasi-monopole du diagnostic vétérinaire : 86 % de revenus récurrents, ROIC 58 %, mais payé 43x les bénéfices.",
     cours:     562.16,
