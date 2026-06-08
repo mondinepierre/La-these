@@ -27,7 +27,7 @@ export const IDEXX: AnalyseCard = {
   marginOfSafety: 'négative',                              // Cours 562 $ vs zone juste centrale 493 $ : -14 %
   readingTime:    22,
   onePager: {
-    thesis:    "Quasi-monopole du diagnostic vétérinaire, 86 % de revenus récurrents et ROIC de 58 %, mais payé 43x les bénéfices : qualité exceptionnelle, prix exigeant.",
+    thesis:    "Quasi-monopole du diagnostic vétérinaire : 86 % de revenus récurrents, ROIC 58 %, mais payé 43x les bénéfices.",
     cours:     562.16,
     coursDate: '2026-06-05',
     devise:    'USD',
@@ -125,7 +125,7 @@ export const IDEXX: AnalyseCard = {
     // ── CA par segment reportable (M$) ────────────────────────────────────────
     segmentRevenue: {
       unit: 'M$',
-      total: { show: true, label: 'CA total' },
+      total: { show: false, label: 'CA total' },
       data: [
         { year: 2021, segments: [
           { name: 'CAG (animaux de compagnie)', value: 2890.96 },
