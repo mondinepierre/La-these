@@ -56,9 +56,12 @@ export default function ValuationRadarChart({
       
     const base = avg
 
-    // 4. Normalisation (les valeurs négatives d'origine donneront 0 grâce au Math.max)
+    // 4. Normalisation : valeurs négatives clampées à 0, valeurs hors échelle
+    //    (supérieures à 2x la moyenne) clampées à 2 pour rester dans le domaine
+    //    de l'axe radial et éviter des graduations en doublon (clés non uniques).
+    //    La valeur brute reste affichée dans le tooltip.
     const norm = (v: number | undefined) =>
-      v !== undefined ? Math.max(0, parseFloat((v / base).toFixed(2))) : undefined
+      v !== undefined ? Math.min(2, Math.max(0, parseFloat((v / base).toFixed(2)))) : undefined
 
     return {
       label:           d.label,
@@ -146,6 +149,7 @@ export default function ValuationRadarChart({
             domain={[0, 2]}
             tick={{ fontSize: 10, fontFamily: 'DM Sans', fill: 'var(--color-ink-faint)' }}
             tickCount={3}
+            allowDataOverflow={false}
           />
           <Tooltip content={<CustomTooltip />} />
           <Legend wrapperStyle={{ fontFamily: 'DM Sans', fontSize: 12 }} />

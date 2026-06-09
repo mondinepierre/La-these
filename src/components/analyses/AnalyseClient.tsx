@@ -26,6 +26,7 @@ const MDX: Record<string, React.ComponentType<any>> = {
   'now':             dynamic(() => import('@/content/analyses/valeurs/now.mdx')),
   'idexx':           dynamic(() => import('@/content/analyses/ponctuelles/idexx.mdx')),
   'veeva':           dynamic(() => import('@/content/analyses/ponctuelles/veeva.mdx')),
+  'lly':             dynamic(() => import('@/content/analyses/ponctuelles/lly.mdx')),
   'autodesk':             dynamic(() => import('@/content/analyses/ponctuelles/autodesk.mdx')),
   'apr-corporation':             dynamic(() => import('@/content/analyses/ponctuelles/apr-corporation.mdx')),
   'otc-markets-group':             dynamic(() => import('@/content/analyses/valeurs/otc-markets-group.mdx')),

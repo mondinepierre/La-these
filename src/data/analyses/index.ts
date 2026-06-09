@@ -44,6 +44,7 @@ import { veeva               } from './veeva'
 
 
 // ── Analyses ponctuelles ──────────────────────────────────────────────────────
+import { lly      } from './lly'
 import { sondage  } from './sondage'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -78,6 +79,7 @@ export const ANALYSES: AnalyseCard[] = [
 
 
   // Analyses ponctuelles
+  lly,
   veeva,
   IDEXX,
   autodesk,

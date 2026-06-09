@@ -6175,8 +6175,109 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+  // ── ELI LILLY (LLY) ─────────────────────────────────────────────────────────
+  'lly-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      { parametre: 'WACC', valeur: '6,2 %', source: 'E/V x Re + D/V x Rd(1-t) ; quasi 100 % equity', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { parametre: 'Taux sans risque (Rf)', valeur: '4,09 %', source: 'UST 10 ans, fin 2025' },
+      { parametre: 'Beta', valeur: '0,527', source: 'Régression mensuelle 5 ans vs S&P 500 Total Return' },
+      { parametre: 'ERP', valeur: '4,23 %', source: 'Damodaran US (sans CRP)' },
+      { parametre: 'Coût des fonds propres (Re)', valeur: '6,32 %', source: 'Rf + beta x ERP' },
+      { parametre: 'Croissance perpétuelle', valeur: '2,5 %', source: 'Convention rente pharma mature' },
+      { parametre: 'Horizon explicite', valeur: '5 ans', source: '2026-2031' },
+      { parametre: 'FCF normalisé base (central)', valeur: '13,0 Md$', source: 'OCF - capex maintenance ~6 % CA (FCF publié 8,97 Md$ déprimé par le capex de capacité)' },
+      { parametre: 'Dette nette', valeur: '35 235 M$', source: 'Bilan FY2025' },
+      { parametre: 'Actions diluées', valeur: '899,3 M', source: '10-K FY2025' },
+    ],
+  },
 
-  
+  'lly-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario', primary: true },
+      { key: 'fcf',      label: 'FCF base (Md$)'          },
+      { key: 'cagr',     label: 'CAGR FCF 5 ans'          },
+      { key: 'valeur',   label: 'Valeur / action'         },
+    ],
+    lignes: [
+      { scenario: 'Bear',         fcf: '11,0', cagr: '10 %', valeur: '433 $',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Central',      fcf: '13,0', cagr: '18 %', valeur: '739 $',   _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { scenario: 'Bull',         fcf: '13,0', cagr: '25 %', valeur: '986 $',   _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { scenario: 'Cours actuel', fcf: '-',    cagr: '-',    valeur: '~1 149 $', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
+  'lly-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario', primary: true },
+      { key: 'cagr',     label: 'CAGR EPS 5 ans'          },
+      { key: 'bpa',      label: 'BPA 2031'                },
+      { key: 'per',      label: 'PER cible'               },
+      { key: 'cible',    label: 'Prix cible 2031'         },
+      { key: 'zone',     label: 'Zone juste auj. (r=10 %)' },
+    ],
+    lignes: [
+      { scenario: 'Bear',    cagr: '10 %', bpa: '55,2 $', per: '24x', cible: '1 324 $', zone: '822 $',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Central', cagr: '15 %', bpa: '68,9 $', per: '30x', cible: '2 067 $', zone: '1 284 $', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { scenario: 'Bull',    cagr: '20 %', bpa: '85,2 $', per: '36x', cible: '3 068 $', zone: '1 905 $', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+    ],
+  },
+
+  'lly-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'niveau', label: 'Bear', primary: true },
+      { key: 'valeur', label: '' },
+    ],
+    lignes: [
+      { niveau: 'Zone juste basse',    valeur: '757 $' },
+      { niveau: 'Zone juste centrale', valeur: '822 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { niveau: 'Zone juste haute',    valeur: '887 $' },
+    ],
+  },
+
+  'lly-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'niveau', label: 'Central', primary: true },
+      { key: 'valeur', label: '' },
+    ],
+    lignes: [
+      { niveau: 'Zone juste basse',    valeur: '1 182 $' },
+      { niveau: 'Zone juste centrale', valeur: '1 284 $', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { niveau: 'Zone juste haute',    valeur: '1 385 $' },
+    ],
+  },
+
+  'lly-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'niveau', label: 'Bull', primary: true },
+      { key: 'valeur', label: '' },
+    ],
+    lignes: [
+      { niveau: 'Zone juste basse',    valeur: '1 755 $' },
+      { niveau: 'Zone juste centrale', valeur: '1 905 $', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { niveau: 'Zone juste haute',    valeur: '2 055 $' },
+    ],
+  },
+
+  'lly-dcf-synthese': {
+    colonnes: [
+      { key: 'methode', label: 'Méthode', primary: true },
+      { key: 'central', label: 'Valeur centrale' },
+      { key: 'lecture', label: 'Lecture vs cours ~1 149 $' },
+    ],
+    lignes: [
+      { methode: 'DCF normalisé (dominant)', central: '739 $',    lecture: 'Surévalué : -36 %, même le bull (986 $) reste sous le cours', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { methode: 'PER forward (pont)',       central: '1 284 $',  lecture: 'Légère décote : +12 %, si 15 % de CAGR EPS et 30x tiennent 5 ans' },
+      { methode: 'Cours actuel',             central: '~1 149 $', lecture: 'Entre le bull DCF et le central PER : la perfection est payée', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
 }
 
 
