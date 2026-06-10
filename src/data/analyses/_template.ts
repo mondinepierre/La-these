@@ -199,10 +199,11 @@ export const NOUVEAU_TICKER: AnalyseCard = {
 
     // ── CA par segment (optionnel) ────────────────────────────────────────────
     // Décommenter si l'entreprise publie une ventilation par division.
-    // total.show = false si les segments ne couvrent pas 100 % du CA consolidé.
+    // total.show : false par défaut (les fiches existantes n'affichent pas la ligne de total ;
+    // les segments se lisent seuls). Passer à true seulement pour afficher explicitement le CA total.
     // segmentRevenue: {
     //   unit: 'Md$',
-    //   total: { show: true, label: 'CA total' },
+    //   total: { show: false, label: 'CA total' },
     //   data: [
     //     { year: 2021, segments: [
     //       { name: 'Segment A', value: 0 },

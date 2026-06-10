@@ -150,6 +150,16 @@ export const fondamentaux: GlossaireTerm[] = [
     modules: [],
   },
   {
+    slug: "cgm",
+    label: "CGM (Continuous Glucose Monitoring)",
+    category: 'Fondamentaux',
+    theme: 'pharma-sante',
+    shortDef: "Capteur porté en continu qui mesure le glucose dans le liquide interstitiel toutes les quelques minutes, sans piqûre au doigt. Standard de soin du diabète et coeur de métier de Dexcom et Abbott.",
+    definition: `Le CGM (Continuous Glucose Monitoring, ou mesure du glucose en continu) est un dispositif médical composé d'un capteur appliqué sur la peau, généralement sur le bras ou l'abdomen, dont un filament mesure le taux de glucose dans le liquide interstitiel. La donnée est transmise sans fil vers un smartphone ou un récepteur, toutes les une à cinq minutes, en remplacement des piqûres au doigt traditionnelles.\n\nLe CGM a transformé la prise en charge du diabète : il permet de suivre les tendances glycémiques en temps réel, de déclencher des alertes en cas d'hypoglycémie ou d'hyperglycémie, et de piloter automatiquement une pompe à insuline en boucle fermée. Le marché est dominé par un duopole, Dexcom (capteur G7) et Abbott (FreeStyle Libre).\n\nLa qualité d'un capteur se mesure par le MARD (Mean Absolute Relative Difference), l'écart moyen absolu entre la mesure du capteur et une référence sanguine : plus le MARD est bas, plus le capteur est précis. Un MARD faible conditionne à la fois l'autorisation réglementaire de piloter une pompe et la confiance du prescripteur. Le modèle économique est celui du consommable récurrent : le capteur est jetable et renouvelé tous les dix à quinze jours.`,
+    related: ['glp-1', 'moat', 'free-cash-flow'],
+    modules: [],
+  },
+  {
     slug: "glp-1",
     label: "GLP-1 (Glucagon-Like Peptide-1)",
     category: 'Fondamentaux',

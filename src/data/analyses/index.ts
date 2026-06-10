@@ -37,6 +37,7 @@ import { APR_CORPORATION             } from './apr-corporation'
 import { OTC_MARKETS_GROUP             } from './otc-markets-group'
 import { autodesk            } from './autodesk'
 import { veeva               } from './veeva'
+import { DEXCOM             } from './dexcom'
 
 // ── Valeurs suivies — en construction ────────────────────────────────────────
 
@@ -82,6 +83,7 @@ export const ANALYSES: AnalyseCard[] = [
   lly,
   veeva,
   IDEXX,
+  DEXCOM,
   autodesk,
   APR_CORPORATION,
   sondage,

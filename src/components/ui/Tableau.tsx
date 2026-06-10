@@ -864,6 +864,109 @@ const TABLEAUX: Record<string, TableauData> = {
 },
 // À ajouter dans TABLEAUX dans src/components/ui/Tableau.tsx
 
+// ─── DEXCOM (DXCM) ───────────────────────────────────────────────────────────
+'dexcom-dcf-parametres': {
+  compact: true,
+  colonnes: [
+    { key: 'parametre', label: 'Paramètre',      primary: true },
+    { key: 'valeur',    label: 'Valeur retenue'                },
+    { key: 'justif',    label: 'Justification'                 },
+  ],
+  lignes: [
+    { parametre: 'WACC',                   valeur: '9,9 %',     justif: 'Rf 4,09 % (UST 10 ans) + Beta 1,45 × ERP 4,23 % (Damodaran US)', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { parametre: 'FCF de base (FY2025)',   valeur: '1 077 M$',  justif: 'Cash opérationnel 1 441 M - capex 364 M',                        _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { parametre: 'Croissance perpétuelle', valeur: '2,5 %',     justif: 'Plancher conservateur, 7,4 points sous le WACC',                 _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { parametre: 'Dette nette',            valeur: '418 M$',    justif: 'Bilan FY2025, post-remboursement des convertibles',              _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { parametre: 'Actions diluées',        valeur: '405,5 M',   justif: '10-K FY2025',                                                    _headerBg: '#E0DBCF', _headerText: '#44403C' },
+  ],
+},
+
+'dexcom-dcf-scenarios': {
+  colonnes: [
+    { key: 'scenario',  label: 'Scénario',         primary: true },
+    { key: 'cagr',      label: 'CAGR FCF'                        },
+    { key: 'hypothese', label: 'Hypothèse'                       },
+    { key: 'cours',     label: 'Cours DCF (5 ans)'               },
+  ],
+  lignes: [
+    { scenario: 'Bear',    cagr: '9 %',  hypothese: 'Décélération sous la guidance, marge sous pression', cours: '~47 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { scenario: 'Central', cagr: '13 %', hypothese: 'Guidance CA +12 % + léger levier opérationnel',      cours: '~56 $', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    { scenario: 'Bull',    cagr: '17 %', hypothese: 'Stelo, international et GLP-1 porteur, marge stable',  cours: '~65 $', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+  ],
+},
+
+'dexcom-dcf-synthese': {
+  compact: true,
+  colonnes: [
+    { key: 'element', label: 'Élément',     primary: true },
+    { key: 'valeur',  label: 'Valeur (M$)'                },
+    { key: 'detail',  label: 'Détail'                     },
+  ],
+  lignes: [
+    { element: 'Somme FCF actualisés (5 ans)', valeur: '5 860',  detail: 'FCF base 1 077 M × croissance 13 %, actualisés à 9,9 %',      _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { element: 'Valeur terminale actualisée',  valeur: '17 169', detail: 'FCF5 × (1 + 2,5 %) / (9,9 % - 2,5 %), actualisée sur 5 ans',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { element: 'Enterprise Value',             valeur: '23 029', detail: "Somme FCF actualisés + valeur terminale (VT = 75 % de l'EV)", _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    { element: 'Dette nette',                  valeur: '418',    detail: 'Bilan FY2025',                                                 _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { element: 'Valeur des capitaux propres',  valeur: '22 611', detail: 'EV - dette nette',                                            _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { element: 'Cours DCF implicite',          valeur: '~56 $',  detail: 'Capitaux propres / 405,5 M actions',                          _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+  ],
+},
+
+'dexcom-per-trois-scenarios': {
+  colonnes: [
+    { key: 'element', label: 'Élément',            primary: true },
+    { key: 'bear',    label: 'Bear (BPA +12 %)'                  },
+    { key: 'central', label: 'Central (BPA +16 %)'              },
+    { key: 'bull',    label: 'Bull (BPA +20 %)'                  },
+  ],
+  lignes: [
+    { element: 'BPA projeté 2031',          bear: '3,68 $', central: '4,39 $', bull: '5,20 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { element: 'PER de sortie',             bear: '24x',    central: '24x',    bull: '24x',    _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { element: 'Prix cible 2031',           bear: '88 $',   central: '105 $',  bull: '125 $',  _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { element: 'Zone juste (r=10 %)',       bear: '55 $',   central: '65 $',   bull: '78 $',   _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    { element: "Point d'entrée (MoS 15 %)", bear: '47 $',   central: '56 $',   bull: '66 $',   _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+  ],
+},
+
+'dexcom-per-zone-bear': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zone',      label: 'Zone juste'                     },
+  ],
+  lignes: [
+    { rendement: 'r = 8 %',  zone: '60 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { rendement: 'r = 10 %', zone: '55 $', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    { rendement: 'r = 12 %', zone: '50 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+  ],
+},
+
+'dexcom-per-zone-central': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zone',      label: 'Zone juste'                     },
+  ],
+  lignes: [
+    { rendement: 'r = 8 %',  zone: '72 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { rendement: 'r = 10 %', zone: '65 $', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    { rendement: 'r = 12 %', zone: '60 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+  ],
+},
+
+'dexcom-per-zone-bull': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zone',      label: 'Zone juste'                     },
+  ],
+  lignes: [
+    { rendement: 'r = 8 %',  zone: '85 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    { rendement: 'r = 10 %', zone: '78 $', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    { rendement: 'r = 12 %', zone: '71 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+  ],
+},
+
 'novo-dcf-parametres': {
   compact: true,
   colonnes: [
