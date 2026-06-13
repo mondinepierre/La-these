@@ -46,6 +46,7 @@ import { DEXCOM             } from './dexcom'
 
 // ── Analyses ponctuelles ──────────────────────────────────────────────────────
 import { lly      } from './lly'
+import { uber     } from './uber'
 import { sondage  } from './sondage'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -80,6 +81,7 @@ export const ANALYSES: AnalyseCard[] = [
 
 
   // Analyses ponctuelles
+  uber,
   lly,
   veeva,
   IDEXX,

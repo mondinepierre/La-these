@@ -30,6 +30,7 @@ const MDX: Record<string, React.ComponentType<any>> = {
   'dexcom':          dynamic(() => import('@/content/analyses/ponctuelles/dexcom.mdx')),
   'autodesk':             dynamic(() => import('@/content/analyses/ponctuelles/autodesk.mdx')),
   'apr-corporation':             dynamic(() => import('@/content/analyses/ponctuelles/apr-corporation.mdx')),
+  'uber':                        dynamic(() => import('@/content/analyses/ponctuelles/uber.mdx')),
   'otc-markets-group':             dynamic(() => import('@/content/analyses/valeurs/otc-markets-group.mdx')),
 
   // en construction

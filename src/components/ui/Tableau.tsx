@@ -6381,6 +6381,110 @@ const TABLEAUX: Record<string, TableauData> = {
       { methode: 'Cours actuel',             central: '~1 149 $', lecture: 'Entre le bull DCF et le central PER : la perfection est payée', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
     ],
   },
+
+  // ── UBER TECHNOLOGIES (UBER) ────────────────────────────────────────────────
+  'uber-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      { parametre: 'WACC', valeur: '8,3 %', source: 'E/V x Re + D/V x Rd(1-t) ; equity ~93 %', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { parametre: 'Taux sans risque (Rf)', valeur: '4,09 %', source: 'UST 10 ans, fin 2025' },
+      { parametre: 'Beta', valeur: '1,12', source: 'Régression mensuelle 5 ans vs S&P 500 Total Return' },
+      { parametre: 'ERP', valeur: '4,23 %', source: 'Damodaran US (sans CRP)' },
+      { parametre: 'Coût des fonds propres (Re)', valeur: '8,83 %', source: 'Rf + beta x ERP' },
+      { parametre: 'Croissance perpétuelle', valeur: '2,5 %', source: 'Convention plateforme mature' },
+      { parametre: 'Horizon explicite', valeur: '5 ans', source: '2026-2031' },
+      { parametre: 'FCF owner base (central)', valeur: '8,4 Md$', source: 'FCF publié 9,8 Md$ - SBC après IS ; base conservatrice (float assurance)' },
+      { parametre: 'Dette nette', valeur: '4 975 M$', source: 'Bilan FY2025 (leases inclus)' },
+      { parametre: 'Actions diluées', valeur: '2 100 M', source: 'Post-rachats' },
+    ],
+  },
+
+  'uber-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario', primary: true },
+      { key: 'fcf',      label: 'FCF base (Md$)'          },
+      { key: 'cagr',     label: 'CAGR FCF 5 ans'          },
+      { key: 'valeur',   label: 'Valeur / action'         },
+    ],
+    lignes: [
+      { scenario: 'Bear',         fcf: '8,4', cagr: '8 %',  valeur: '73 $',  _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Central',      fcf: '8,4', cagr: '12 %', valeur: '103 $', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { scenario: 'Bull',         fcf: '9,8', cagr: '16 %', valeur: '163 $', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { scenario: 'Cours actuel', fcf: '-',   cagr: '-',    valeur: '~69 $', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
+  'uber-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario', primary: true },
+      { key: 'cagr',     label: 'CAGR BPA 5 ans'          },
+      { key: 'bpa',      label: 'BPA 2030'                },
+      { key: 'per',      label: 'PER cible'               },
+      { key: 'cible',    label: 'Prix cible 2030'         },
+      { key: 'zone',     label: 'Zone juste auj. (r=10 %)' },
+    ],
+    lignes: [
+      { scenario: 'Bear',    cagr: '12 %', bpa: '3,70 $', per: '22x', cible: '81 $',  zone: '51 $',  _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Central', cagr: '16 %', bpa: '4,41 $', per: '27x', cible: '119 $', zone: '74 $',  _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { scenario: 'Bull',    cagr: '20 %', bpa: '5,23 $', per: '31x', cible: '162 $', zone: '101 $', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+    ],
+  },
+
+  'uber-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'niveau', label: 'Bear', primary: true },
+      { key: 'valeur', label: '' },
+    ],
+    lignes: [
+      { niveau: 'Zone juste basse',    valeur: '42 $' },
+      { niveau: 'Zone juste centrale', valeur: '51 $', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { niveau: 'Zone juste haute',    valeur: '60 $' },
+    ],
+  },
+
+  'uber-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'niveau', label: 'Central', primary: true },
+      { key: 'valeur', label: '' },
+    ],
+    lignes: [
+      { niveau: 'Zone juste basse',    valeur: '62 $' },
+      { niveau: 'Zone juste centrale', valeur: '74 $', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { niveau: 'Zone juste haute',    valeur: '86 $' },
+    ],
+  },
+
+  'uber-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'niveau', label: 'Bull', primary: true },
+      { key: 'valeur', label: '' },
+    ],
+    lignes: [
+      { niveau: 'Zone juste basse',    valeur: '84 $' },
+      { niveau: 'Zone juste centrale', valeur: '101 $', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { niveau: 'Zone juste haute',    valeur: '118 $' },
+    ],
+  },
+
+  'uber-dcf-synthese': {
+    colonnes: [
+      { key: 'methode', label: 'Méthode', primary: true },
+      { key: 'central', label: 'Valeur centrale' },
+      { key: 'lecture', label: 'Lecture vs cours ~69 $' },
+    ],
+    lignes: [
+      { methode: 'DCF central (dominant)',     central: '103 $', lecture: 'Décote : +49 % ; même le bear (73 $) reste au-dessus du cours', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { methode: 'PER central (pont, r=10 %)', central: '74 $',  lecture: 'Décote : +7 % ; rejoint le DCF vers 120 $ en 2030' },
+      { methode: 'Cours actuel',               central: '~69 $', lecture: 'Sous la zone juste : le marché price une décélération sévère', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
 }
 
 

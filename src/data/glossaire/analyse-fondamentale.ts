@@ -781,6 +781,17 @@ Il est particulierement utile quand le DCF et le calculateur PER divergent forte
     related:  ['dcf', 'zone-juste', 'wacc', 'marge-de-securite'],
     modules:  [],
   },
-  
+  {
+    slug: "gross-bookings",
+    label: "Gross Bookings (volume brut)",
+    category: 'Analyse fondamentale',
+    shortDef: "Le volume brut total des transactions traitées par une plateforme, taxes et frais inclus, avant reversement aux partenaires.",
+    definition: `Les Gross Bookings désignent la valeur totale des transactions intermédiées par une place de marché ou une plateforme, taxes et frais inclus, avant tout reversement aux chauffeurs, livreurs, commerçants ou transporteurs. Chez Uber, ils agrègent la valeur des courses Mobility, des commandes Delivery et du fret.\n\nC'est l'indicateur de taille et de dynamique commerciale d'une plateforme : il mesure le volume d'affaires réellement traité, là où le chiffre d'affaires comptable ne retient souvent que la commission prélevée. Le rapport entre le chiffre d'affaires et les Gross Bookings définit le take rate (taux de prise) de la plateforme.\n\nUne plateforme peut afficher des Gross Bookings très supérieurs à son chiffre d'affaires : Uber traite environ 193 Md$ de Gross Bookings pour 52 Md$ de revenus en 2025, soit un take rate global de l'ordre de 27 %. Suivre la croissance des Gross Bookings, segment par segment, révèle la vitalité de la plateforme avant les effets de mix et de taux de commission.`,
+    related: ['chiffre-affaires', 'effet-de-reseau', 'asset-light'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+
 ];
 
