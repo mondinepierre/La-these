@@ -14,13 +14,13 @@
 //    US 21 % + states + mix international), participations et equity method retirés,
 //    SBC CONSERVEE en charge (3,5 % du CA, "pas un cas Autodesk"). BPA normalisé
 //    2025 = 2,10 $ (vs 4,73 GAAP dilué, vs 2,45 non-GAAP Uber qui réintègre la SBC).
-//  - ROIC normalise : NOPAT = EBIT x (1 - 24 %). Le modèle Excel calcule le NOPAT
-//    au taux d'IS EFFECTIF (74,9 % en 2025, distordu par la reprise de DTA), d'où
+//  - ROIC normalise : NOPAT = EBIT x (1 - 24 %). Au taux d'IS EFFECTIF publié
+//    (74,9 % en 2025, distordu par la reprise de DTA), le NOPAT serait écrasé, d'où
 //    un ROIC faux à 4,2 %. Au taux normalisé : ROIC 2025 = 12,8 %, premier exercice
 //    AU-DESSUS du WACC (8,3 %). C'est l'inflexion centrale de la fiche.
 //  - WACC US 8,33 % : Rf = UST 10 ans 4,09 %, beta 1,12 vs S&P 500 Total Return
-//    (régression mensuelle 5 ans), ERP Damodaran US 4,23 % (sans CRP). Rd : le
-//    modèle Excel le fixe à 4,8 % (placeholder) ; impact négligeable, D/V = 6,5 %.
+//    (régression mensuelle 5 ans), ERP Damodaran US 4,23 % (sans CRP). Rd retenu
+//    à 4,8 % (placeholder) ; impact négligeable, D/V = 6,5 %.
 //  - DETTE NETTE positive (4 975 M$ = dette totale 12 080 - cash 7 105, leases
 //    inclus), donc IC = CP + dette nette = 33 058 M$. Hors bilan : participations
 //    9,2 Md$ + placements assurance 8,9 Md$ (adossés aux réserves d'assurance).
@@ -28,12 +28,12 @@
 //    Capex plancher (336 M$ : business asset-light). Le DCF central tourne sur le
 //    FCF OWNER (FCF - SBC après IS = 8,4 Md$), conservateur ; le FCF publié est
 //    flatté par le float assurance (+2,7 Md$ de réserves en 2025).
-//  - Calculateurs Excel DCF/PER : #NUM! (CAGR calculé sur base 2021 négative,
+//  - Calculateurs automatiques DCF/PER : #NUM! (CAGR calculé sur base 2021 négative,
 //    FCF -743 / BPA négatif). Reconstruits manuellement (hypothèses ci-dessous).
 //  - Aucun dividende. Rachats d'actions 6,5 Md$ en 2025 (1,3 Md$ en 2024) : les
 //    actions diluées BAISSENT (2 151 -> 2 120 M), la SBC est plus que neutralisée.
-//  - RADARS (valuationCharts) : onglet "Comparaison sectorielle" de l'Excel (API
-//    Yahoo, base marché TTM courante). Multiples GAAP, donc le PER (17x) et le ROIC
+//  - RADARS (valuationCharts) : multiples de marché TTM via l'API Yahoo (base
+//    homogène). Multiples GAAP, donc le PER (17x) et le ROIC
 //    (6,8 %) du radar diffèrent des séries normalisées de la fiche (PER réel ~33x,
 //    ROIC 12,8 %). Ecart signalé en <NoteAnalyse>. Pairs directs : Lyft, DoorDash,
 //    Grab, Delivery Hero (tous en transition : multiples distordus, attendu).
@@ -202,8 +202,8 @@ export const uber: AnalyseCard = {
     },
 
     // ── Comparaison valorisation (radars) ─────────────────────────────────
-    // Source homogène : onglet "Comparaison sectorielle" de l'Excel (API Yahoo,
-    // multiples marché TTM courante). Base GAAP : le PER (17,1x) et le ROIC (6,8 %)
+    // Source : multiples de marché TTM via l'API Yahoo (base homogène pour tous
+    // les acteurs). Base GAAP : le PER (17,1x) et le ROIC (6,8 %)
     // d'Uber sont ici en base marché, à distinguer du PER normalisé (~33x) et du
     // ROIC normalisé (12,8 %) du reste de la fiche. Signalé en <NoteAnalyse>.
     valuationCharts: [
