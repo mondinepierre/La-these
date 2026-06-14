@@ -8,6 +8,17 @@ import type { GlossaireTerm } from './types';
 
 export const analyseFondamentale: GlossaireTerm[] = [
   {
+    slug: "reverse-dcf",
+    label: "DCF inversé (Reverse DCF)",
+    category: 'Analyse fondamentale',
+    shortDef: "Méthode qui inverse le DCF pour déduire, à partir du cours actuel, le taux de croissance que le marché price implicitement, afin de juger si ces attentes sont réalistes.",
+    definition: `Le DCF inversé (reverse DCF) part du principe que le cours de Bourse est le résultat d'un modèle d'actualisation, et cherche à retrouver l'hypothèse cachée derrière ce prix. Au lieu de projeter des flux pour en déduire une valeur, on fixe la valeur (le cours actuel) et on résout pour la variable d'entrée : le plus souvent, le taux de croissance des flux que le marché suppose implicitement.\n\nLa lecture est puissante car elle déplace la question. Plutôt que de demander combien vaut l'entreprise (un exercice fragile, très sensible aux hypothèses), on demande quelle performance il faut croire pour justifier le cours d'aujourd'hui, et si elle est plausible. Si le marché price une croissance de 50 % par an pendant cinq ans, il suffit de juger la crédibilité de ce chiffre.\n\nC'est un antidote particulièrement utile sur les valeurs de croissance à multiple élevé, où le DCF classique donne des fourchettes trop larges. Le DCF inversé transforme une valorisation en pari explicite et falsifiable.`,
+    related: ['dcf', 'per-valorisation', 'wacc', 'free-cash-flow'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+  {
     slug: "bpa",
     label: "BPA — Bénéfice par Action",
     category: 'Analyse fondamentale',

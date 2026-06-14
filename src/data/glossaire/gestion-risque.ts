@@ -8,6 +8,17 @@ import type { GlossaireTerm } from './types';
 
 export const gestionRisque: GlossaireTerm[] = [
   {
+    slug: "concentration-clients",
+    label: "Concentration clients",
+    category: 'Gestion du risque',
+    shortDef: "Situation où une part élevée du chiffre d'affaires dépend d'un petit nombre de clients, exposant l'entreprise à un choc brutal en cas de perte ou de renégociation de l'un d'eux.",
+    definition: `La concentration clients mesure la part du chiffre d'affaires réalisée avec les principaux clients d'une entreprise. Plus cette part est élevée, plus l'entreprise est vulnérable : la perte, la renégociation ou simplement la réduction des commandes d'un seul gros client peut amputer une fraction significative des revenus du jour au lendemain.\n\nLes documents réglementaires américains (10-K) imposent de divulguer tout client représentant plus de 10 % du chiffre d'affaires. Un seuil d'alerte classique est franchi quand le top 5 dépasse 50 % des ventes, ou qu'un client unique dépasse 20 à 30 %.\n\nPour l'investisseur, une forte concentration clients est l'inverse d'une rente : elle place le pouvoir de négociation du côté de l'acheteur, pèse sur les marges et fragilise la prévisibilité des revenus. Elle doit être pondérée dans le dimensionnement d'une position et dans la prime de risque exigée. Mama's Creations illustre ce risque : sur l'exercice 2026, deux clients représentaient environ 38 % et 17 % des ventes brutes.`,
+    related: ['moat', 'pricing-power', 'category-captain'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+  {
     slug: "beta",
     label: "Bêta (β)",
     category: 'Gestion du risque',

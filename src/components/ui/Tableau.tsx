@@ -5407,6 +5407,284 @@ const TABLEAUX: Record<string, TableauData> = {
 // ════════════════════════════════════════════════════════════════════════════
 
 // ── autodesk-dcf-parametres (DCF de confirmation sur FCF owner) ─────────────
+// ── mama-dcf-parametres ─────────────────────────────────────────────────────
+'mama-dcf-parametres': {
+  colonnes: [
+    { key: 'parametre', label: 'Paramètre', primary: true },
+    { key: 'valeur',    label: 'Valeur'                  },
+    { key: 'source',    label: 'Source / Note'           },
+  ],
+  lignes: [
+    {
+      parametre: 'WACC',
+      valeur:    '6,6 %',
+      source:    'Re 6,64 % (Rf 4,09 % + β 0,60 × ERP 4,23 %) ; testé à 8,5 % (prime small cap)',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      parametre: 'Marge EBIT cible (5 ans)',
+      valeur:    '8 % central',
+      source:    'Levier d échelle : 4,1 % FY2026 vers 8 % (6 % bear, 10 % bull)',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      parametre: 'Croissance CA (5 ans)',
+      valeur:    '18 % central',
+      source:    'CAGR CA (12 % bear, 25 % bull) ; CAGR historique 3 ans 22,6 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Taux sans risque (Rf)',
+      valeur:    '4,09 %',
+      source:    'UST 10 ans au 31/12/2025 (pas de plancher 2 % en environnement US)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'ERP',
+      valeur:    '4,23 %',
+      source:    'Damodaran US (mature market, sans CRP)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Bêta',
+      valeur:    '0,60',
+      source:    'Régression vs S&P 500 TR ; peu fiable sur small cap, d où le test à 8,5 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Croissance perpétuelle',
+      valeur:    '2,5 %',
+      source:    'Prudent (business non encore mature, exécution à prouver)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Trésorerie nette',
+      valeur:    '+13,4 M$',
+      source:    'FY2026 (24,4 M$ au Q1-FY27) : dette 6,6 - cash 19,9',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Actions diluées',
+      valeur:    '41,4 M',
+      source:    'Dilution ~3,5 %/an (SBC + actions émises) vers ~49 M à 5 ans',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── mama-dcf-scenarios (juste valeur AUJOURD HUI) ──────────────────────────
+'mama-dcf-scenarios': {
+  colonnes: [
+    { key: 'scenario',  label: 'Scénario',           primary: true },
+    { key: 'cagrCA',    label: 'CAGR CA'                            },
+    { key: 'margeTerm', label: 'Marge EBIT cible'                   },
+    { key: 'jv66',      label: 'JV/action WACC 6,6 %'               },
+    { key: 'jv85',      label: 'JV/action WACC 8,5 %'               },
+  ],
+  lignes: [
+    {
+      scenario:  'Bear',
+      cagrCA:    '+12 %',
+      margeTerm: '6 %',
+      jv66:      '4,77 $',
+      jv85:      '3,28 $',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      scenario:  'Central',
+      cagrCA:    '+18 %',
+      margeTerm: '8 %',
+      jv66:      '7,72 $',
+      jv85:      '5,19 $',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      scenario:  'Bull',
+      cagrCA:    '+25 %',
+      margeTerm: '10 %',
+      jv66:      '12,30 $',
+      jv85:      '8,16 $',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+    {
+      scenario:  'Cours actuel (12/06/2026)',
+      cagrCA:    'Implicite reverse-DCF : ~51 %',
+      margeTerm: '-',
+      jv66:      '14,91 $',
+      jv85:      '14,91 $',
+      _headerBg: '#1B4332', _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// ── mama-dcf-synthese (Lecture croisee) ────────────────────────────────────
+'mama-dcf-synthese': {
+  colonnes: [
+    { key: 'methode',     label: 'Méthode',                   primary: true },
+    { key: 'justeValeur', label: 'Juste valeur aujourd hui ($)'             },
+    { key: 'lecture',     label: 'Lecture'                                  },
+  ],
+  lignes: [
+    {
+      methode:     'DCF central (WACC 6,6 %)',
+      justeValeur: '7,72',
+      lecture:     'Mon ancrage',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      methode:     'PER normalisé - zone juste r=10 %',
+      justeValeur: '7,85',
+      lecture:     'Confirmation (convergence)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      methode:     'DCF central (WACC 8,5 % prudent)',
+      justeValeur: '5,19',
+      lecture:     'Scénario prudent small cap',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      methode:     'DCF bull (WACC 6,6 %)',
+      justeValeur: '12,30',
+      lecture:     'Sous le cours malgré 25 % de CAGR',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+    {
+      methode:     'Cours actuel (12/06/2026)',
+      justeValeur: '14,91',
+      lecture:     'Prime ~90 % vs juste valeur centrale',
+      _headerBg: '#1B4332', _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+// ── mama-per-trois-scenarios ───────────────────────────────────────────────
+'mama-per-trois-scenarios': {
+  colonnes: [
+    { key: 'scenario',   label: 'Scénario',              primary: true },
+    { key: 'cagrCA',     label: 'CAGR CA'                              },
+    { key: 'bpaProj',    label: 'BPA normalisé FY2031 ($)'            },
+    { key: 'perCentral', label: 'PER de sortie'                       },
+    { key: 'prixCible',  label: 'Prix cible 5 ans ($)'                },
+  ],
+  lignes: [
+    {
+      scenario:   'Bear',
+      cagrCA:     '+12 %',
+      bpaProj:    '0,28',
+      perCentral: '20x',
+      prixCible:  '5,62',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      scenario:   'Central',
+      cagrCA:     '+18 %',
+      bpaProj:    '0,49',
+      perCentral: '26x',
+      prixCible:  '12,63',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      scenario:   'Bull',
+      cagrCA:     '+25 %',
+      bpaProj:    '0,81',
+      perCentral: '30x',
+      prixCible:  '24,31',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+  ],
+},
+
+// ── mama-per-zone-bear ─────────────────────────────────────────────────────
+'mama-per-zone-bear': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 14,91 $'              },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '3,83 $',
+      mosCours:  'Prime 289 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '3,49 $',
+      mosCours:  'Prime 327 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '3,19 $',
+      mosCours:  'Prime 367 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── mama-per-zone-central ──────────────────────────────────────────────────
+'mama-per-zone-central': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 14,91 $'              },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '8,60 $',
+      mosCours:  'Prime 73 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '7,85 $',
+      mosCours:  'Prime 90 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '7,17 $',
+      mosCours:  'Prime 108 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+// ── mama-per-zone-bull ─────────────────────────────────────────────────────
+'mama-per-zone-bull': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 14,91 $'              },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '16,55 $',
+      mosCours:  'Décote 10 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '15,09 $',
+      mosCours:  'Juste prix (prime 1 %)',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '13,80 $',
+      mosCours:  'Prime 8 %',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+  ],
+},
+
 'autodesk-dcf-parametres': {
   colonnes: [
     { key: 'parametre', label: 'Paramètre', primary: true },

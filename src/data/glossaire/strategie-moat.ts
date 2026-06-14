@@ -8,6 +8,18 @@ import type { GlossaireTerm } from './types';
 
 export const strategieMoat: GlossaireTerm[] = [
   {
+    slug: "category-captain",
+    label: "Category captain (capitaine de catégorie)",
+    category: 'Stratégie & moat',
+    theme: 'luxe-consommation',
+    shortDef: "Fournisseur désigné par un distributeur pour piloter toute une catégorie de produits en rayon (assortiment, merchandising, innovation), ce qui crée une proximité opérationnelle et de modestes coûts de changement.",
+    definition: `Le category captain (capitaine de catégorie) est le fournisseur qu'une enseigne de distribution choisit pour l'aider à gérer l'ensemble d'une catégorie de produits : choix de l'assortiment, implantation en rayon (merchandising), calendrier promotionnel et innovation. En échange de cette expertise, le fournisseur gagne une position privilégiée et une visibilité sur les ventes de toute la catégorie, pas seulement de ses propres références.\n\nPour l'analyste, ce statut est une source d'avantage concurrentiel modeste mais réel : il crée des coûts de changement pour le distributeur (réorganiser une catégorie entière coûte du temps et du risque) et une proximité opérationnelle difficile à déloger. C'est une forme atténuée de moat, fondée sur la relation et l'exécution plutôt que sur un actif protégé.\n\nLa limite est structurelle : le statut reste à la main du distributeur, qui peut le retirer. Il ne confère pas de pouvoir de prix et coexiste souvent avec une forte dépendance commerciale : le fournisseur qui pilote la catégorie d'une grande enseigne en est aussi, souvent, dangereusement dépendant. Mama's Creations occupe ce rôle sur le rayon traiteur de certaines enseignes américaines.`,
+    related: ['moat', 'couts-de-changement', 'pricing-power', 'concentration-clients'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+  {
     slug: "antitrust",
     label: "Antitrust (droit de la concurrence)",
     category: 'Stratégie & moat',
