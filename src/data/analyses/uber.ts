@@ -80,11 +80,11 @@ export const uber: AnalyseCard = {
 
   metrics: {
     per:               32.8,   // cours 68,85 / BPA normalisé 2,10 (le PER GAAP de 17x est gonflé par la reprise d'impôt)
-    evEbitda:          17.3,   // EV @ cours du jour 150,9 Md$ / Adjusted EBITDA 8,73 Md$
+    evEbitda:          23.9,   // EV @ cours du jour 150,9 Md$ / EBITDA GAAP 6,31 Md$ (base Excel)
     fcfYield:          6.5,    // FCF 9 763 / EV (dénominateur EV, convention La Thèse)
     roic:              12.8,   // NOPAT normalisé (IS 24 %) / IC -> au-dessus du WACC pour la 1re fois
     wacc:              8.3,
-    detteEbitda:       0.57,   // dette nette 4 975 / Adjusted EBITDA 8 730
+    detteEbitda:       0.79,   // dette nette 4 975 / EBITDA GAAP 6 312 (base Excel)
     croissanceCA3ans:  17.7,   // CAGR CA 2022-2025
     croissanceBPA3ans: 71.9,   // CAGR BPA 3 ans N/M (BPA 2022 négatif) ; proxy = CAGR Adjusted EBITDA 2022-2025
     margeEbit:         10.7,
@@ -260,21 +260,19 @@ export const uber: AnalyseCard = {
         name:  'EV/EBITDA',
         unit:  'x',
         data: [
-          { year: 2022, value: 32.6 },
-          { year: 2023, value: 33.4 },
-          { year: 2024, value: 20.6 },
-          { year: 2025, value: 20.4 },
+          { year: 2023, value: 70.0 },
+          { year: 2024, value: 37.8 },
+          { year: 2025, value: 28.2 },
         ],
         competitors: [
           {
-            name:   'Moyenne historique (2022-2025)',
+            name:   'Moyenne historique (2023-2025)',
             color:  '#C9A84C',
             dashed: true,
             data: [
-              { year: 2022, value: 26.7 },
-              { year: 2023, value: 26.7 },
-              { year: 2024, value: 26.7 },
-              { year: 2025, value: 26.7 },
+              { year: 2023, value: 45.3 },
+              { year: 2024, value: 45.3 },
+              { year: 2025, value: 45.3 },
             ],
           },
         ],
@@ -412,21 +410,19 @@ export const uber: AnalyseCard = {
         unit:  'x',
         yMin:  0,
         data: [
-          { year: 2022, value: 4.05 },
-          { year: 2023, value: 1.61 },
-          { year: 2024, value: 0.63 },
-          { year: 2025, value: 0.57 },
+          { year: 2023, value: 3.4 },
+          { year: 2024, value: 1.2 },
+          { year: 2025, value: 0.8 },
         ],
         competitors: [
           {
-            name:   'Moyenne historique (2022-2025)',
+            name:   'Moyenne historique (2023-2025)',
             color:  '#C9A84C',
             dashed: true,
             data: [
-              { year: 2022, value: 1.71 },
-              { year: 2023, value: 1.71 },
-              { year: 2024, value: 1.71 },
-              { year: 2025, value: 1.71 },
+              { year: 2023, value: 1.8 },
+              { year: 2024, value: 1.8 },
+              { year: 2025, value: 1.8 },
             ],
           },
         ],
