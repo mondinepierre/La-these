@@ -501,11 +501,11 @@ export const uber: AnalyseCard = {
         name:  'ROCE',
         unit:  '%',
         data: [
-          { year: 2021, value: -17.3 },
-          { year: 2022, value: -11.9 },
-          { year: 2023, value:   4.4 },
-          { year: 2024, value:   8.0 },
-          { year: 2025, value:  12.8 },
+          { year: 2021, value: -14.6 },
+          { year: 2022, value:  -9.4 },
+          { year: 2023, value:   4.7 },
+          { year: 2024, value:   8.7 },
+          { year: 2025, value:  13.9 },
         ],
         competitors: [
           {
@@ -538,19 +538,21 @@ export const uber: AnalyseCard = {
         name:  'ROIIC',
         unit:  '%',
         data: [
-          { year: 2023, value: -39.8 },
-          { year: 2024, value:  34.1 },
-          { year: 2025, value:  28.6 },
+          { year: 2022, value:   4.1 },
+          { year: 2023, value: -41.7 },
+          { year: 2024, value: -56.2 },
+          { year: 2025, value:  34.0 },
         ],
       },
       {
         label: 'ROIIC',
-        name:  'ROIIC glissant (1 à 3 ans)',
+        name:  'ROIIC glissant (1 à 4 ans)',
         unit:  '%',
         data: [
-          { year: 1, value:  28.6 },
-          { year: 2, value:  30.4 },
-          { year: 3, value: 137.8 },
+          { year: 1, value: 34.0 },
+          { year: 2, value:  3.5 },
+          { year: 3, value: 72.5 },
+          { year: 4, value: 36.9 },
         ],
       },
       {
@@ -582,7 +584,7 @@ export const uber: AnalyseCard = {
         data: [
           { year: 2021, value: -0.86 },
           { year: 2022, value:  0.70 },
-          { year: 2023, value:  2.49 },
+          { year: 2023, value:  2.48 },
           { year: 2024, value:  5.15 },
           { year: 2025, value:  5.48 },
         ],
