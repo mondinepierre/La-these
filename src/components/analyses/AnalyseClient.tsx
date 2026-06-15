@@ -41,6 +41,7 @@ const MDX: Record<string, React.ComponentType<any>> = {
 
 
   // Ponctuelles
+  'krikri':               dynamic(() => import('@/content/analyses/ponctuelles/krikri.mdx')),
   'mama':                 dynamic(() => import('@/content/analyses/ponctuelles/mama.mdx')),
   'sondage':              dynamic(() => import('@/content/analyses/ponctuelles/sondage.mdx')),
 }

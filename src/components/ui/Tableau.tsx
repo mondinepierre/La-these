@@ -5685,6 +5685,266 @@ const TABLEAUX: Record<string, TableauData> = {
   ],
 },
 
+'krikri-dcf-parametres': {
+  colonnes: [
+    { key: 'parametre', label: 'Paramètre', primary: true },
+    { key: 'valeur',    label: 'Valeur'                  },
+    { key: 'source',    label: 'Source / Note'           },
+  ],
+  lignes: [
+    {
+      parametre: 'WACC',
+      valeur:    '8,84 %',
+      source:    'Re 8,97 % (Rf 2,86 % + β 0,82 × ERP 7,43 %) ; ERP intègre un CRP Grèce ~3,2 pts',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      parametre: 'FCF normalisé (base 2026)',
+      valeur:    '~40 M€',
+      source:    'Owner earnings : OCF moins capex de maintenance (~D&A 6,5 M) ; exclut 22,2 M de construction en cours',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      parametre: 'Croissance perpétuelle',
+      valeur:    '2,5 %',
+      source:    'Prudent (laitier mature, marge cyclique)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Taux sans risque (Rf)',
+      valeur:    '2,86 %',
+      source:    'Bund 10 ans au 31/12/2025 (convention EU)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'ERP',
+      valeur:    '7,43 %',
+      source:    'Mature ~4,2 % + CRP Grèce ~3,2 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Bêta',
+      valeur:    '0,82',
+      source:    'Régression mensuelle 5 ans vs indice grec ATHEX',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Trésorerie nette',
+      valeur:    '+7,8 M€',
+      source:    'FY2025 : dette 16,3 moins trésorerie 24,1',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      parametre: 'Actions diluées',
+      valeur:    '33,0 M',
+      source:    'Capital stable, dilution proche de zéro',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+'krikri-dcf-scenarios': {
+  colonnes: [
+    { key: 'scenario', label: 'Scénario',                 primary: true },
+    { key: 'cagrFcf',  label: 'CAGR FCF normalisé'                      },
+    { key: 'jv',       label: 'JV/action (WACC 8,84 %)'                 },
+    { key: 'lecture',  label: 'Lecture'                                 },
+  ],
+  lignes: [
+    {
+      scenario: 'Bear',
+      cagrFcf:  '+5 %',
+      jv:       '21,0 €',
+      lecture:  'Prime 34 % vs cours',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      scenario: 'Central',
+      cagrFcf:  '+8 %',
+      jv:       '23,2 €',
+      lecture:  'Mon ancrage de contrôle',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      scenario: 'Bull',
+      cagrFcf:  '+12 %',
+      jv:       '26,3 €',
+      lecture:  'Sous le cours malgré 12 % de CAGR',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+    {
+      scenario: 'Cours actuel (12/06/2026)',
+      cagrFcf:  'r implicite ~7,7 %',
+      jv:       '28,15 €',
+      lecture:  'Au-dessus du scénario bull',
+      _headerBg: '#1B4332', _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'krikri-dcf-synthese': {
+  colonnes: [
+    { key: 'methode',     label: 'Méthode',                primary: true },
+    { key: 'justeValeur', label: 'Juste valeur centrale (€)'             },
+    { key: 'lecture',     label: 'Lecture'                               },
+  ],
+  lignes: [
+    {
+      methode:     'DCF normalisé central (WACC 8,84 %)',
+      justeValeur: '23,2',
+      lecture:     'Mon ancrage de contrôle',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      methode:     'PER zone juste centrale r=10 %',
+      justeValeur: '23,3',
+      lecture:     'Convergence (méthode indépendante)',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      methode:     'DCF normalisé bull',
+      justeValeur: '26,3',
+      lecture:     'Sous le cours malgré 12 % de CAGR FCF',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+    {
+      methode:     'Rendement triangulé à 28 €',
+      justeValeur: '~10 %/an',
+      lecture:     'Conditionnel à la croissance, coussin dividende mince',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      methode:     'Cours actuel (12/06/2026)',
+      justeValeur: '28,15',
+      lecture:     'Prime ~21 % vs juste valeur centrale',
+      _headerBg: '#1B4332', _headerText: '#F7F4EF',
+    },
+  ],
+},
+
+'krikri-per-trois-scenarios': {
+  colonnes: [
+    { key: 'scenario',   label: 'Scénario',            primary: true },
+    { key: 'croissance', label: 'Croissance BPA post-2026'           },
+    { key: 'bpaProj',    label: 'BPA projeté 2030 (€)'               },
+    { key: 'perCentral', label: 'PER de sortie'                      },
+    { key: 'prixCible',  label: 'Prix cible 5 ans (€)'               },
+  ],
+  lignes: [
+    {
+      scenario:   'Bear',
+      croissance: '+5 %/an',
+      bpaProj:    '1,76',
+      perCentral: '19x',
+      prixCible:  '33',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      scenario:   'Central',
+      croissance: '+8 %/an',
+      bpaProj:    '1,97',
+      perCentral: '19x',
+      prixCible:  '37',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      scenario:   'Bull',
+      croissance: '+12 %/an',
+      bpaProj:    '2,28',
+      perCentral: '19x',
+      prixCible:  '43',
+      _headerBg: '#D6EDDF', _headerText: '#1B4332',
+    },
+  ],
+},
+
+'krikri-per-zone-bear': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 28,15 €'              },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '22,8 €',
+      mosCours:  'Prime 24 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '20,8 €',
+      mosCours:  'Prime 35 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '19,0 €',
+      mosCours:  'Prime 48 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+'krikri-per-zone-central': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 28,15 €'              },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '25,5 €',
+      mosCours:  'Prime 10 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '23,3 €',
+      mosCours:  'Prime 21 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '21,3 €',
+      mosCours:  'Prime 32 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
+'krikri-per-zone-bull': {
+  compact: true,
+  colonnes: [
+    { key: 'rendement', label: 'Rendement exigé', primary: true },
+    { key: 'zoneJuste', label: 'Zone juste'                    },
+    { key: 'mosCours',  label: 'vs cours 28,15 €'              },
+  ],
+  lignes: [
+    {
+      rendement: 'r=8 %',
+      zoneJuste: '29,5 €',
+      mosCours:  'Décote 5 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+    {
+      rendement: 'r=10 %',
+      zoneJuste: '26,9 €',
+      mosCours:  'Prime 5 %',
+      _headerBg: '#C9A84C', _headerText: '#1C1917',
+    },
+    {
+      rendement: 'r=12 %',
+      zoneJuste: '24,6 €',
+      mosCours:  'Prime 14 %',
+      _headerBg: '#E0DBCF', _headerText: '#44403C',
+    },
+  ],
+},
+
 'autodesk-dcf-parametres': {
   colonnes: [
     { key: 'parametre', label: 'Paramètre', primary: true },

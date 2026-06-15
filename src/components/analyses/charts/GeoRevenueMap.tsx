@@ -40,6 +40,7 @@ const REGION_TO_CODES: Record<string, string[]> = {
   'Mexique':          ['484'],
   'France':           ['250'],
   'Allemagne':        ['276'],
+  'Grèce':            ['300'],
   'Royaume-Uni':      ['826'],
   'Chine':            ['156'],
   'Japon':            ['392'],

@@ -139,4 +139,27 @@ export const strategieMoat: GlossaireTerm[] = [
       { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
     ],
   },
+  {
+    slug: "private-label",
+    label: "Marque de distributeur (private label)",
+    category: 'Stratégie & moat',
+    theme: 'luxe-consommation',
+    shortDef: "Produit fabriqué par un industriel mais vendu sous la marque d'une enseigne de distribution. Le fabricant gagne en volume ce qu'il abandonne en visibilité de marque.",
+    definition: `La marque de distributeur (private label, ou MDD) désigne un produit fabriqué par un industriel mais commercialisé sous la marque propre d'une enseigne de distribution (le yaourt "Carrefour", la lessive "Marque Repère", etc.). Le fabricant ne vend plus en son nom : il devient le sous-traitant de production du distributeur.\n\nPour le fabricant, le private label est un arbitrage. Il abandonne la prime de marque et la relation directe avec le consommateur, donc une partie de la marge brute, en échange d'un volume important, prévisible et peu coûteux en marketing. Le modèle n'est rentable que pour un producteur disposant d'un avantage de coût réel : c'est le coût de production, pas la marque, qui permet de remporter les appels d'offres des enseignes et de dégager une marge malgré le prix négocié.\n\nLe risque structurel du private label est la dépendance client : quelques enseignes peuvent concentrer une large part des ventes, et un contrat perdu a un impact matériel. Il n'y a en général pas de coûts de changement qui verrouillent le distributeur, qui peut multi-sourcer ou ré-internaliser. Le moat d'un fabricant de private label tient donc à son avantage de coût et, parfois, à une compétence ou une authenticité d'origine difficile à répliquer, jamais à la marque elle-même.`,
+    related: ['moat', 'category-captain', 'pricing-power', 'marge-brute'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+  {
+    slug: "integration-verticale",
+    label: "Intégration verticale",
+    category: 'Stratégie & moat',
+    shortDef: "Stratégie consistant à contrôler plusieurs maillons successifs de la chaîne de valeur (de l'amont des matières premières à l'aval de la distribution) pour sécuriser coût, qualité ou approvisionnement.",
+    definition: `L'intégration verticale désigne le contrôle, par une même entreprise, de plusieurs maillons successifs de sa chaîne de valeur, plutôt que de les acheter à des tiers. L'intégration amont concerne les matières premières et la production des intrants ; l'intégration aval concerne la distribution et la relation client.\n\nL'intérêt principal est la maîtrise du coût et de la qualité de l'intrant critique. Dans un modèle où la matière première représente l'essentiel du coût des ventes (un laitier, un sidérurgiste), contrôler cet amont est un levier de marge et de différenciation. L'intégration peut être totale (l'entreprise détient l'actif, par exemple une ferme) ou contractuelle (accords d'approvisionnement exclusifs assortis d'un appui technique, qui sécurisent l'intrant sans en porter le capital).\n\nLe revers est le capital immobilisé et la rigidité : l'intégration alourdit le bilan et réduit la flexibilité en cas de retournement. Pour l'investisseur, une intégration verticale n'est un avantage concurrentiel que si elle procure un avantage de coût ou de qualité durable, vérifiable dans les marges, et non une simple complexité opérationnelle.`,
+    related: ['moat', 'marge-brute', 'supply-chain', 'capex'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
 ];

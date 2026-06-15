@@ -803,6 +803,18 @@ Il est particulierement utile quand le DCF et le calculateur PER divergent forte
       { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
     ],
   },
+  {
+    slug: "prime-de-risque-pays",
+    label: "Prime de risque pays (CRP)",
+    category: 'Analyse fondamentale',
+    theme: 'macroeconomie',
+    shortDef: "Supplément de rendement exigé par les investisseurs pour détenir un actif dans un pays plus risqué qu'un marché mature. Elle renchérit le coût du capital, donc le WACC, indépendamment de la qualité de l'entreprise.",
+    definition: `La prime de risque pays (Country Risk Premium, CRP) est le supplément de rendement qu'un investisseur exige pour s'exposer à un pays jugé plus risqué qu'un marché de référence mature (États-Unis, Allemagne). Elle capture le risque souverain, politique, monétaire et institutionnel propre à ce pays, et s'ajoute à la prime de risque actions (ERP) du marché mature.\n\nConcrètement, la CRP gonfle l'ERP utilisée dans le calcul du coût des fonds propres : Re = Rf + beta x (ERP mature + CRP). Une entreprise située dans un pays à CRP élevée verra donc son coût du capital, et donc son WACC, renchéri mécaniquement, même si son bilan est solide et son bêta faible. Damodaran publie chaque année des estimations de CRP par pays, dérivées des notations souveraines et des spreads de défaut.\n\nPour l'investisseur, l'effet est concret sur la valorisation : un WACC plus élevé abaisse la valeur actualisée des flux futurs, donc la juste valeur. Une excellente entreprise dans un pays à risque (par exemple un industriel grec ou turc) peut ainsi afficher une juste valeur déprimée non pas par ses fondamentaux, mais par le risque souverain de son pays de cotation. Distinguer le risque de l'entreprise du risque du pays est alors essentiel pour ne pas confondre cherté et prime de pays.`,
+    related: ['wacc', 'taux-sans-risque', 'beta', 'dcf'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
 
 ];
 
