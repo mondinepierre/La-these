@@ -25,29 +25,36 @@ import type { AnalyseCard } from '@/types/analyses'
 export const loreal: AnalyseCard = {
   slug:           'loreal',           // URL : /analyses/[slug]
   type:           'valeur',
-  title:          'L\'Oreal',
+  title:          "L'Oréal",
   ticker:         'OR.PA',
   secteur:        'Consommation',  // voir union Secteur dans types/analyses.ts
   geo:            'France',   // voir union ZoneGeo
   conviction:     'forte',      // exceptionnelle | forte | moyenne | spéculative
   positionnement: 'maintien', // achat fort | accumulation | surveillance | maintien | allégement
-  lastUpdated:    '2026-04-13',
+  lastUpdated:    '2026-06-16',
   statut:         'actif', // en-construction | actif | archivé
   portefeuille:   'PEA',          // PEA | CTO | PEA + CTO | Aucun
   horizon:        '5 ans',
   excerpt:        "Le leader mondial des cosmétiques au pricing power structurel, entre ralentissement du premium en Chine et redéploiement vers les marchés émergents à fort potentiel.",
   glossaire:      ['moat', 'free-cash-flow', 'roic', 'pricing-power', 'cagr', 'payout-ratio'],
   logo:          '/analyse/loreal.png',
-  prixCible:      { bas: 435, haut: 564, devise: 'EUR' },
+  prixCible:      { bas: 400, haut: 532, devise: 'EUR' },
   marginOfSafety: 'négative', // forte | correcte | faible | négative | indéterminée
-  readingTime:    25,
+  readingTime:    42,
+  onePager: {
+    thesis:    "Le leader mondial de la beauté, du mass au derma. Moat large, ROIC 17 %. Mais à plus de 30x les bénéfices, la qualité se paie déjà plein pot.",
+    cours:     386.15,
+    coursDate: '2026-06-16',
+    devise:    'EUR',
+    range52w:  { low: 338.85, high: 408.35 },   // extrêmes intraday 52 sem. (Cours historique)
+  },
 
   metrics: {
     per:               32,  // Price / Earnings
     evEbitda:          18.5,  // EV / EBITDA
-    fcfYield:          3.65,  // FCF Yield en %
+    fcfYield:          3.6,  // FCF Yield (EV) en %
     roic:              17.3,  // Return on Invested Capital en %
-    wacc:              6.6,  // Weighted Average Cost of Capital en %
+    wacc:              6.98,  // WACC France : Rf Bund 2,86 % + bêta 0,945 vs CAC 40 GR + ERP Damodaran France 4,78 % (CRP 0,55 % inclus)
     detteEbitda:       0.19,  // Dette nette / EBITDA — négatif = trésorerie nette
     croissanceCA3ans:  4.8,  // TCAC CA sur 3 ans en %
     croissanceBPA3ans: 2.5,  // TCAC BPA sur 3 ans en %
@@ -67,8 +74,12 @@ export const loreal: AnalyseCard = {
 
   updates: [
     {
+      date: '2026-06-16',
+      note: "Révision : cours spot 386,15 € (+8 % vs création) et 52 sem. intraday, WACC actualisé à 6,98 % (bêta 0,945 vs CAC 40 GR), radars portés à 8 branches (pairs Estée Lauder, Beiersdorf, Shiseido), valorisation et prix cible recalibrés (PER central 27,7x, croissance BPA normalisée 8 %), intégration du T1 2026 (+6,7 % comparable ajusté) et de la finalisation de Kering Beauté au 31/03/2026. Ajout du onePager.",
+    },
+    {
       date: '2026-04-13',
-      note: 'Création de la fiche.',
+      note: 'Création de la fiche. Données FY2025 (DEU 2025), cours au 13/04/2026.',
     },
   ],
 
@@ -113,11 +124,11 @@ export const loreal: AnalyseCard = {
     // ── ROIC vs WACC ──────────────────────────────────────────
     // Composant MDX : <RoicWacc />
     roicVsWacc: [
-      { year: 2021, value: 17.2, wacc: -1 },
-      { year: 2022, value: 18.5, wacc: 5.2 },
-      { year: 2023, value: 18.8, wacc: 6.8 },
-      { year: 2024, value: 17.6, wacc: 7.4 },
-      { year: 2025, value: 17.3, wacc: 6.6 },
+      { year: 2021, value: 17.2, wacc: 4.25 },
+      { year: 2022, value: 18.5, wacc: 8.45 },
+      { year: 2023, value: 18.8, wacc: 6.67 },
+      { year: 2024, value: 17.6, wacc: 6.69 },
+      { year: 2025, value: 17.3, wacc: 6.98 },
     ],
 
     // ── Free Cash Flow sur 5 ans ──────────────────────────────
@@ -595,11 +606,11 @@ export const loreal: AnalyseCard = {
               color: '#52B788',
               dashed: true,
               data: [
-                { year: 2021, value: 56.2 },
-                { year: 2022, value: 30.0 },
-                { year: 2023, value: 39.0 },
-                { year: 2024, value: 27.7 },
-                { year: 2025, value: 29.8 },
+                { year: 2021, value: 56.6 },
+                { year: 2022, value: 28.7 },
+                { year: 2023, value: 39.6 },
+                { year: 2024, value: 30.0 },
+                { year: 2025, value: 31.2 },
               ],
             }      
           ]
@@ -644,30 +655,44 @@ export const loreal: AnalyseCard = {
     ],
         valuationCharts: [
       {
+        // Base homogène API Yahoo (onglet Comparaison sectorielle, multiples TTM courants).
+        // Médiane = panel de 13 sociétés (Coty, Estée Lauder, Inter Parfums, Shiseido,
+        // Beiersdorf, Galderma, Kao, P&G, Unilever, Hermès, LVMH, Sanofi soin, Exosens).
+        // ROIC L'Oréal en base Yahoo (12,5 %) ; ROIC La Thèse = 17,3 %. TCAC CA L'Oréal =
+        // TCAC 3 ans réel (4,8 %) en substitution de la cellule Yahoo (piège Monster).
         id:    'vs_secteur',
         type:  'radar',
-        title: "Valorisation comparée — L'Oréal vs secteur Personal Care",
+        title: "Valorisation comparée - L'Oréal vs médiane secteur beauté",
         data: [
-          { label: 'PER',                  valeur: 31.34, secteur: 21.5  },
-          { label: 'P/FCF',                valeur: 26.8,  secteur: 18.6  },
-          { label: 'EV/EBITDA',            valeur: 19.57, secteur: 12.6  },
-          { label: 'Marge opérationnelle', valeur: 19.2,  secteur: 17.8  },
-          { label: 'ROIC',                 valeur: 12.5,  secteur: 10.4  },
+          { label: 'PER',              valeur: 33.81, secteur: 23.05 },
+          { label: 'EV/EBITDA',        valeur: 21.03, secteur: 13.56 },
+          { label: 'P/FCF',            valeur: 28.8,  secteur: 19.85 },
+          { label: 'Marge EBIT %',     valeur: 19.2,  secteur: 20.05 },
+          { label: 'ROIC %',           valeur: 12.5,  secteur: 9.7   },
+          { label: 'FCF Yield %',      valeur: 3.5,   secteur: 5.05  },
+          { label: 'Dette/EBITDA',     valeur: 0.21,  secteur: 1.74  },
+          { label: 'TCAC CA 3 ans %',  valeur: 4.8,   secteur: 5.3   },
         ],
       },
       {
+        // Pairs directs (bloc dédié de l'onglet Comparaison). PER Estée Lauder et Shiseido
+        // = "N/M" (résultat net négatif) : point omis. ROIC Shiseido -1,8 % et Dette/EBITDA
+        // Beiersdorf -0,68 (trésorerie nette) : clampés au centre par le composant.
         id:          'vs_pairs',
         type:        'radar',
-        title:       "Valorisation comparée — L'Oréal vs pairs directs",
-        concurrent1: 'Unilever',
-        concurrent2: 'Estée Lauder',
-        concurrent3: 'LVMH',
+        title:       "Valorisation comparée - L'Oréal vs pairs directs",
+        concurrent1: 'Estée Lauder',
+        concurrent2: 'Beiersdorf',
+        concurrent3: 'Shiseido',
         data: [
-          { label: 'PER',                  valeur: 31.34, concurrent1: 19.32,                       concurrent3: 22.12 },
-          { label: 'P/FCF',                valeur: 26.8,  concurrent1: 18.9,  concurrent2: 39.2,    concurrent3: 16.9  },
-          { label: 'EV/EBITDA',            valeur: 19.57, concurrent1: 14.05, concurrent2: 14.78,   concurrent3: 12.86 },
-          { label: 'Marge opérationnelle', valeur: 19.2,  concurrent1: 20.1,  concurrent2: 14.3,    concurrent3: 21.2  },
-          { label: 'ROIC',                 valeur: 12.5,  concurrent1: 12.7,  concurrent2: 8.3,     concurrent3: 10.4  },
+          { label: 'PER',              valeur: 33.81,                     concurrent2: 16.66                    },
+          { label: 'EV/EBITDA',        valeur: 21.03, concurrent1: 16.48, concurrent2: 8.15,  concurrent3: 16.01 },
+          { label: 'P/FCF',            valeur: 28.8,  concurrent1: 47.8,  concurrent2: 48.0,  concurrent3: 15.6  },
+          { label: 'Marge EBIT %',     valeur: 19.2,  concurrent1: 14.9,  concurrent2: 11.2,  concurrent3: 5.3   },
+          { label: 'ROIC %',           valeur: 12.5,  concurrent1: 8.3,   concurrent2: 10.6,  concurrent3: -1.8  },
+          { label: 'FCF Yield %',      valeur: 3.5,   concurrent1: 2.1,   concurrent2: 2.1,   concurrent3: 6.4   },
+          { label: 'Dette/EBITDA',     valeur: 0.21,  concurrent1: 2.79,  concurrent2: -0.68, concurrent3: 2.86  },
+          { label: 'TCAC CA 3 ans %',  valeur: 4.8,   concurrent1: 4.6,   concurrent2: -0.2,  concurrent3: 1.6   },
         ],
       },
     ],
