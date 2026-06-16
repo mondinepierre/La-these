@@ -6816,6 +6816,120 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+  // ── MONSTER BEVERAGE (NASDAQ MNST) : cours réf. 93 $ (15/06/2026) ──────────
+  'monster-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',   primary: true },
+      { key: 'valeur',    label: 'Valeur'                     },
+      { key: 'source',    label: 'Source / Note'              },
+    ],
+    lignes: [
+      { parametre: 'WACC',                   valeur: '6,34 %',   source: 'CAPM : Rf 4,09 % (UST 10 ans) + beta 0,531 x ERP 4,23 % (Damodaran US) ; = coût des fonds propres (dette négligeable)', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Croissance perpétuelle', valeur: '2,5 %',    source: 'Plancher conservateur (sous la croissance nominale US long terme)',     _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'FCF base FY2025',        valeur: '1 936 M$', source: 'OCF 2 098 - Capex 162 (Source : CF du 10-K)',                            _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Actions diluées',        valeur: '984 M',    source: 'Moyenne pondérée FY2025 (Source : CR)',                                  _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Trésorerie nette',       valeur: '+2 382 M$', source: 'Cash 2 088 + placements CT 677 - dette 384 ; s\'ajoute a l\'EV',         _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Horizon de projection',  valeur: '5 ans',    source: '-',                                                                     _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    ],
+  },
+
+  'monster-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',          primary: true },
+      { key: 'cagr',     label: 'CAGR FCF'                         },
+      { key: 'fcf5',     label: 'FCF an 5'                         },
+      { key: 'ev',       label: 'EV'                               },
+      { key: 'prix',     label: 'Prix implicite'                   },
+      { key: 'ecart',    label: 'Écart vs cours 93 $'              },
+    ],
+    lignes: [
+      { scenario: 'Bear : maturité US domine',          cagr: '4 %',    fcf5: '2 356 M$', ev: '55 355 M$', prix: '~59 $', ecart: '-37 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { scenario: 'Central : décélération maîtrisée',    cagr: '8 %',    fcf5: '2 845 M$', ev: '66 053 M$', prix: '~69 $', ecart: '-25 %', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Bull : prolongation du rythme',       cagr: '12 %',   fcf5: '3 413 M$', ev: '78 399 M$', prix: '~82 $', ecart: '-12 %', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { scenario: 'Seuil : justifie le cours 93 $',      cagr: '~15 %',  fcf5: '~3 921 M$', ev: '~89 419 M$', prix: '~93 $', ecart: '+0 %', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    ],
+  },
+
+  'monster-dcf-synthese': {
+    colonnes: [
+      { key: 'composante', label: 'Composante',  primary: true },
+      { key: 'montant',    label: 'Montant (M$)'               },
+      { key: 'part',       label: '% de l\'EV'                 },
+    ],
+    lignes: [
+      { composante: 'Somme FCF actualisés (5 ans)',     montant: '10 146', part: '15,4 %', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { composante: 'Valeur terminale actualisée',      montant: '55 907', part: '84,6 %', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { composante: 'Enterprise Value',                 montant: '66 053', part: '100 %',  _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { composante: 'Trésorerie nette',                 montant: '+2 382', part: '-',      _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { composante: 'Equity Value',                     montant: '68 434', part: '-',      _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { composante: 'Prix implicite (984 M actions)',   montant: '69 $',   part: '-',      _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    ],
+  },
+
+  'monster-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario',  label: 'Scénario',          primary: true },
+      { key: 'croissance', label: 'Croissance BPA'                  },
+      { key: 'bpa',       label: 'BPA 2030'                         },
+      { key: 'cible',     label: 'Prix cible (28x)'                 },
+      { key: 'zone10',    label: 'Zone juste r=10 %'                },
+      { key: 'mos',       label: 'MoS vs 93 $'                      },
+    ],
+    lignes: [
+      { scenario: 'Bear',    croissance: '6 %',  bpa: '2,76 $', cible: '77 $',  zone10: '48 $', mos: '-49 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { scenario: 'Central', croissance: '10 %', bpa: '3,32 $', cible: '93 $',  zone10: '58 $', mos: '-38 %', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Bull',    croissance: '14 %', bpa: '3,97 $', cible: '111 $', zone10: '69 $', mos: '-26 %', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+    ],
+  },
+
+  'monster-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 93 $'                   },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',  zone: '55 $', mos: '-41 %', diag: 'Modéré',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '10 %', zone: '48 $', mos: '-49 %', diag: 'Standard', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '12 %', zone: '44 $', mos: '-53 %', diag: 'Élevé',    _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '15 %', zone: '38 $', mos: '-59 %', diag: 'Agressif', _headerBg: '#F7F4EF', _headerText: '#78716C' },
+    ],
+  },
+
+  'monster-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 93 $'                   },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',  zone: '66 $', mos: '-29 %', diag: 'Modéré',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '10 %', zone: '58 $', mos: '-38 %', diag: 'Standard', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '12 %', zone: '53 $', mos: '-43 %', diag: 'Élevé',    _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '15 %', zone: '46 $', mos: '-50 %', diag: 'Agressif', _headerBg: '#F7F4EF', _headerText: '#78716C' },
+    ],
+  },
+
+  'monster-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 93 $'                   },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',  zone: '79 $', mos: '-15 %', diag: 'Modéré',   _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '10 %', zone: '69 $', mos: '-26 %', diag: 'Standard', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '12 %', zone: '63 $', mos: '-32 %', diag: 'Élevé',    _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '15 %', zone: '55 $', mos: '-41 %', diag: 'Agressif', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    ],
+  },
+
   // ── ELI LILLY (LLY) ─────────────────────────────────────────────────────────
   'lly-dcf-parametres': {
     colonnes: [
