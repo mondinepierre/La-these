@@ -208,6 +208,14 @@ const REGION_TO_CODES: Record<string, string[]> = {
   'Reste du monde': [],
 }
 
+// Zone AOA de Nestlé = Asie + Océanie + Afrique + Moyen-Orient (annexe géographique des comptes).
+REGION_TO_CODES['Asie-Océanie-Afrique'] = [
+  ...REGION_TO_CODES['Asie'],
+  ...REGION_TO_CODES['Océanie'],
+  ...REGION_TO_CODES['Afrique'],
+  ...REGION_TO_CODES['Moyen-Orient'],
+]
+
 function hexAvecOpacite(hex: string, opacite: number): string {
   const r = parseInt(hex.slice(1, 3), 16)
   const g = parseInt(hex.slice(3, 5), 16)

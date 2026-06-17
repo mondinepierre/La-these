@@ -130,14 +130,15 @@ export const NESTLE: AnalyseCard = {
       { year: 2025, value: 89490 },
     ],
 
-    // ── Répartition géographique du CA (FY2025, ventes par marché) ────────────
-    // Zone Amériques (AMS) 48 % dont US 32 % ; Zone AOA (Asie/Océanie/Afrique) 27 % ;
-    // Zone Europe (EUR) 25 %. Libellé "Asie" = Zone AOA (inclut Océanie et Afrique).
+    // ── Répartition géographique du CA (FY2025, par zone géographique publiée) ──
+    // Source : annexe "by geographic area" des comptes 2025 (somme = 89 490 M CHF).
+    // Zone Amériques (AMS) 42 958 = 48,0 % (dont USA 28 605) ; Zone Asie-Océanie-
+    // Afrique (AOA) 23 989 = 26,8 % ; Zone Europe (EUR) 22 543 = 25,2 %. Découpage
+    // officiel Nestlé en 3 zones (pas EMENA/LATAM : EMENA = ancien nom d'avant 2022).
     geoRevenue: [
-      { region: 'États-Unis',    pct: 32.0 },
-      { region: 'Asie',          pct: 26.8 },
-      { region: 'Europe',        pct: 25.2 },
-      { region: 'Amérique Latine', pct: 16.0 },
+      { region: 'Amériques',            pct: 48.00 },
+      { region: 'Asie-Océanie-Afrique', pct: 26.81 },
+      { region: 'Europe',               pct: 25.19 },
     ],
 
     // ── Marges sur 5 ans (%) - marge opérationnelle = EBIT publié (UTOP plus haute) ─
