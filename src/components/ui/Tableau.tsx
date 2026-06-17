@@ -7042,6 +7042,122 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+  // ── COCA-COLA (NYSE KO) : cours réf. 79,94 $ (17/06/2026) ─────────────────────
+  'coca-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      { parametre: 'WACC',                       valeur: '5,19 %',   source: 'E/V 86 % x Re 5,56 % + D/V 14 % x Rd après IS 2,83 %', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Taux sans risque (Rf)',      valeur: '4,09 %',   source: 'UST 10 ans, fin 2025 (le libellé "bund" de l\'onglet est une coquille)' },
+      { parametre: 'Beta',                       valeur: '0,3486',   source: 'Régression mensuelle 5 ans vs S&P 500 Total Return' },
+      { parametre: 'ERP',                        valeur: '4,23 %',   source: 'Damodaran US (marché mature, CRP 0)' },
+      { parametre: 'Coût des fonds propres (Re)', valeur: '5,56 %',  source: 'Rf + beta x ERP' },
+      { parametre: 'Croissance perpétuelle',     valeur: '2,5 %',    source: 'Plancher sous la croissance nominale US long terme' },
+      { parametre: 'FCF normalisé (base)',       valeur: '11,5 Md$', source: 'Publié 2025 5,3 Md$ déprimé (fairlife + dépôt IRS) ; KO guide un FCF 2026 de ~12,2 Md$', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { parametre: 'Dette nette',                valeur: '34 190 M$', source: 'Dette totale 48 062 - trésorerie + placements CT 13 872 (Bilan FY2025)' },
+      { parametre: 'Actions diluées',            valeur: '4 313 M',  source: 'Moyenne pondérée FY2025' },
+      { parametre: 'Horizon de projection',      valeur: '5 ans',    source: '2026-2031' },
+    ],
+  },
+
+  'coca-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',     primary: true },
+      { key: 'cagr',     label: 'CAGR FCF 5 ans'              },
+      { key: 'fcf5',     label: 'FCF an 5'                    },
+      { key: 'valeur',   label: 'Valeur / action'            },
+      { key: 'ecart',    label: 'Écart vs cours 80 $'        },
+    ],
+    lignes: [
+      { scenario: 'Bear : maturité, change défavorable', cagr: '3 %', fcf5: '13,3 Md$', valeur: '96 $',  ecart: '+20 %', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Central : algorithme tenu',           cagr: '5 %', fcf5: '14,7 Md$', valeur: '106 $', ecart: '+33 %', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { scenario: 'Bull : reprise volumes + change',     cagr: '7 %', fcf5: '16,1 Md$', valeur: '117 $', ecart: '+46 %', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { scenario: 'Cours actuel (WACC implicite ~6,0 %)', cagr: '-',   fcf5: '-',        valeur: '~80 $', ecart: '0 %',   _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
+  'coca-dcf-synthese': {
+    colonnes: [
+      { key: 'methode', label: 'Méthode',         primary: true },
+      { key: 'valeur',  label: 'Valeur centrale'                },
+      { key: 'lecture', label: 'Lecture vs cours 80 $'          },
+    ],
+    lignes: [
+      { methode: 'DCF, WACC 5,19 % (officiel)',      valeur: '106 $', lecture: 'Décote apparente, mais VT = 88 % de l\'EV : fragile', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { methode: 'DCF, WACC 6,5 % (normalisé)',      valeur: '68 $',  lecture: 'Prime ~15 % : le DCF est piloté par le taux',          _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { methode: 'PER, prix cible 5 ans (22,8x)',    valeur: '94 $',  lecture: 'Objectif horizon, non actualisé (+17 %)',              _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { methode: 'PER, zone juste r=10 %',           valeur: '58 $',  lecture: 'Prime ~37 % : exiger 10 % impose un repli',            _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { methode: 'Rendement attendu au spot (Bogle)', valeur: '~9 %', lecture: 'Div 2,7 % + croissance 6,5 % : sous le seuil 10 %',    _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
+  'coca-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario',   label: 'Scénario',         primary: true },
+      { key: 'croissance', label: 'Croissance BPA'                  },
+      { key: 'bpa',        label: 'BPA 2030'                        },
+      { key: 'cible',      label: 'Prix cible (22,8x)'              },
+      { key: 'zone10',     label: 'Zone juste r=10 %'               },
+      { key: 'mos',        label: 'MoS vs 80 $'                     },
+    ],
+    lignes: [
+      { scenario: 'Bear',    croissance: '4 %',   bpa: '3,65 $', cible: '83 $',  zone10: '52 $', mos: '-55 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { scenario: 'Central', croissance: '6,5 %', bpa: '4,11 $', cible: '94 $',  zone10: '58 $', mos: '-37 %', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Bull',    croissance: '8 %',   bpa: '4,41 $', cible: '100 $', zone10: '62 $', mos: '-28 %', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+    ],
+  },
+
+  'coca-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 80 $'                   },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',   zone: '59 $', mos: '-35 %', diag: 'Modéré',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '8,5 %', zone: '55 $', mos: '-45 %', diag: 'Standard', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '10 %',  zone: '52 $', mos: '-55 %', diag: 'Exigeant', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '12 %',  zone: '47 $', mos: '-69 %', diag: 'Strict',   _headerBg: '#F7F4EF', _headerText: '#78716C' },
+    ],
+  },
+
+  'coca-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 80 $'                   },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',   zone: '67 $', mos: '-20 %', diag: 'Modéré',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '8,5 %', zone: '62 $', mos: '-28 %', diag: 'Standard', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '10 %',  zone: '58 $', mos: '-37 %', diag: 'Exigeant', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { taux: '12 %',  zone: '53 $', mos: '-50 %', diag: 'Strict',   _headerBg: '#F7F4EF', _headerText: '#78716C' },
+    ],
+  },
+
+  'coca-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 80 $'                   },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',   zone: '72 $', mos: '-11 %', diag: 'Modéré',   _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '8,5 %', zone: '67 $', mos: '-20 %', diag: 'Standard', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '10 %',  zone: '62 $', mos: '-28 %', diag: 'Exigeant', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '12 %',  zone: '57 $', mos: '-40 %', diag: 'Strict',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    ],
+  },
+
   // ── ELI LILLY (LLY) ─────────────────────────────────────────────────────────
   'lly-dcf-parametres': {
     colonnes: [

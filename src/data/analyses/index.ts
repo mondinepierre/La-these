@@ -45,6 +45,7 @@ import { DEXCOM             } from './dexcom'
 
 
 // ── Analyses ponctuelles ──────────────────────────────────────────────────────
+import { COCA     } from './coca'
 import { NESTLE   } from './nestle'
 import { MONSTER  } from './monster'
 import { krikri   } from './krikri'
@@ -85,6 +86,7 @@ export const ANALYSES: AnalyseCard[] = [
 
 
   // Analyses ponctuelles
+  COCA,
   NESTLE,
   MONSTER,
   krikri,
