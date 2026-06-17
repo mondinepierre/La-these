@@ -6816,6 +6816,118 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+  // ── NESTLÉ (SIX NESN) : cours réf. 79,58 CHF (16/06/2026) ─────────────────
+  // DCF neutralisé (paradoxe des taux suisses) : valo pilotée par le PER.
+  'nestle-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre',   primary: true },
+      { key: 'valeur',    label: 'Valeur'                     },
+      { key: 'source',    label: 'Source / Note'              },
+    ],
+    lignes: [
+      { parametre: 'WACC observé',           valeur: '3,90 %',    source: 'CAPM suisse : Rf Confédération 10 ans 0,28 % + beta 0,978 (vs SMI Total Return) x ERP 4,23 % (CRP Suisse 0)', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'WACC normalisé',         valeur: '6,50 %',    source: 'Rf re-planché vers 2,5 % : sortie de l\'anomalie de taux quasi nul suisse',                                  _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { parametre: 'Croissance perpétuelle', valeur: '2,0 %',     source: 'Convention rente alimentaire mature',                                                                       _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'FCF base FY2025',        valeur: '10 993 M CHF', source: 'OCF 15 904 - Capex 4 911 (Source : tableau de flux)',                                                     _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Dette nette',            valeur: '53 273 M CHF', source: 'Dette totale 57 852 - cash et équivalents 4 579 ; se soustrait de la valeur',                            _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Actions diluées',        valeur: '2 576 M',   source: 'Moyenne pondérée FY2025 (Source : compte de résultat)',                                                     _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+    ],
+  },
+
+  'nestle-dcf-scenarios': {
+    colonnes: [
+      { key: 'wacc',    label: 'WACC retenu',            primary: true },
+      { key: 'valeur',  label: 'Juste valeur / action'                 },
+      { key: 'lecture', label: 'Lecture'                               },
+    ],
+    lignes: [
+      { wacc: '3,90 % (observé)',      valeur: '~355 CHF', lecture: 'Artefact des taux suisses (WACC - g = 1,4 %) : non retenu', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { wacc: '5,50 %',                valeur: '~116 CHF', lecture: 'Rf partiellement normalisé',                                _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { wacc: '6,50 % (normalisé)',    valeur: '~85 CHF',  lecture: 'Ancrage retenu : proche du cours, sain',                   _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { wacc: '7,50 %',                valeur: '~66 CHF',  lecture: 'Hurdle exigeant',                                          _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    ],
+  },
+
+  'nestle-dcf-synthese': {
+    colonnes: [
+      { key: 'methode',  label: 'Méthode',                 primary: true },
+      { key: 'valeur',   label: 'Juste valeur centrale'                  },
+      { key: 'lecture',  label: 'Lecture'                                },
+    ],
+    lignes: [
+      { methode: 'DCF (WACC normalisé 6,5 %)',              valeur: '~85 CHF',    lecture: 'Très sensible aux taux ; ~355 au WACC observé 3,9 %',  _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { methode: 'PER central, cours seul (r=10 %)',        valeur: '~63 CHF',    lecture: 'Hurdle 10 % hors dividende',                          _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { methode: 'PER central, rendement total (div. bonus)', valeur: '~75 CHF',  lecture: 'Lentille adaptée a une valeur de rendement (3,9 %)',   _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { methode: 'Rendement total attendu au cours',        valeur: '~8 a 9 %/an', lecture: 'Dividende 3,9 % + croissance ~5 %',                   _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { methode: 'Cours spot (16/06/2026)',                 valeur: '79,58 CHF',  lecture: 'Prime légère (base stricte), ~juste (rendement total)', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+    ],
+  },
+
+  'nestle-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario',   label: 'Scénario',        primary: true },
+      { key: 'croissance', label: 'Croissance BPA'                 },
+      { key: 'bpa',        label: 'BPA s.-j. 2030'                 },
+      { key: 'per',        label: 'PER cible'                      },
+      { key: 'cible',      label: 'Prix cible 2030'                },
+      { key: 'zone10',     label: 'Zone juste r=10 %'              },
+      { key: 'mos',        label: 'MoS vs 79,58'                   },
+    ],
+    lignes: [
+      { scenario: 'Bear',    croissance: '2 %', bpa: '4,88 CHF', per: '16x', cible: '78 CHF',  zone10: '48 CHF', mos: '-39 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { scenario: 'Central', croissance: '5 %', bpa: '5,64 CHF', per: '18x', cible: '101 CHF', zone10: '63 CHF', mos: '-21 %', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Bull',    croissance: '7 %', bpa: '6,20 CHF', per: '20x', cible: '124 CHF', zone10: '77 CHF', mos: '-3 %',  _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+    ],
+  },
+
+  'nestle-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 79,58'                  },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',  zone: '56 CHF', mos: '-30 %', diag: 'Modéré',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '10 %', zone: '48 CHF', mos: '-39 %', diag: 'Standard', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '12 %', zone: '44 CHF', mos: '-44 %', diag: 'Élevé',    _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '15 %', zone: '39 CHF', mos: '-51 %', diag: 'Agressif', _headerBg: '#F7F4EF', _headerText: '#78716C' },
+    ],
+  },
+
+  'nestle-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 79,58'                  },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',  zone: '72 CHF', mos: '-9 %',  diag: 'Modéré',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '10 %', zone: '63 CHF', mos: '-21 %', diag: 'Standard', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '12 %', zone: '58 CHF', mos: '-27 %', diag: 'Élevé',    _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '15 %', zone: '50 CHF', mos: '-37 %', diag: 'Agressif', _headerBg: '#F7F4EF', _headerText: '#78716C' },
+    ],
+  },
+
+  'nestle-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 79,58'                  },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',  zone: '88 CHF', mos: '+11 %', diag: 'Modéré',   _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '10 %', zone: '77 CHF', mos: '-3 %',  diag: 'Standard', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '12 %', zone: '70 CHF', mos: '-12 %', diag: 'Élevé',    _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '15 %', zone: '62 CHF', mos: '-22 %', diag: 'Agressif', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    ],
+  },
+
   // ── MONSTER BEVERAGE (NASDAQ MNST) : cours réf. 93 $ (15/06/2026) ──────────
   'monster-dcf-parametres': {
     colonnes: [

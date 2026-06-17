@@ -37,7 +37,7 @@ export type OnePagerData = {
   thesis:    string
   cours:     number
   coursDate: string
-  devise:    'USD' | 'EUR' | 'DKK' | 'KRW'
+  devise:    'USD' | 'EUR' | 'DKK' | 'KRW' | 'CHF'
   range52w:  { low: number; high: number }
 }
 // ─────────────────────────────────────────────

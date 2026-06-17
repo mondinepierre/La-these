@@ -314,7 +314,7 @@ export interface OnePagerProps {
   positionnement: Positionnement
   thesis:         string
   cours:          number
-  devise:         'USD' | 'EUR' | 'DKK' | 'KRW'
+  devise:         'USD' | 'EUR' | 'DKK' | 'KRW' | 'CHF'
   coursDateLabel: string
   range52w:       { low: number; high: number }
   prixCible:      { bas: number; haut: number }
