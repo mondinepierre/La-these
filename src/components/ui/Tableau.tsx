@@ -7042,6 +7042,123 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+  // ── WALMART (NYSE WMT) : cours réf. 117,17 $ (18/06/2026) ─────────────────────
+  'walmart-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      { parametre: 'WACC',                        valeur: '6,42 %',    source: 'E/V 93 % x Re 6,67 % + D/V 7 % x Rd après IS 3,15 %', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { parametre: 'Taux sans risque (Rf)',       valeur: '4,15 %',    source: 'UST 10 ans, fin FY2026 (le libellé "bund" de l\'onglet est une coquille)' },
+      { parametre: 'Beta',                        valeur: '0,594',     source: 'Régression mensuelle 5 ans vs S&P 500 Total Return' },
+      { parametre: 'ERP',                         valeur: '4,23 %',    source: 'Damodaran US (marché mature, CRP 0)' },
+      { parametre: 'Coût des fonds propres (Re)', valeur: '6,67 %',    source: 'Rf + beta x ERP' },
+      { parametre: 'Croissance perpétuelle',      valeur: '2,5 %',     source: 'Plancher sous la croissance nominale US long terme' },
+      { parametre: 'FCF base (publié)',           valeur: '15,0 Md$',  source: 'Comprimé par le capex de pic (26,5 Md$) ; capacité normalisée ~22 Md$', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { parametre: 'Dette nette',                 valeur: '56 368 M$', source: 'Toute dette incl. leases finance + opérationnels - trésorerie (Bilan FY2026)' },
+      { parametre: 'Actions diluées',             valeur: '8 022 M',   source: 'Moyenne pondérée FY2026' },
+      { parametre: 'Horizon de projection',       valeur: '5 ans',     source: 'FY2027-FY2031' },
+    ],
+  },
+
+  'walmart-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',     primary: true },
+      { key: 'cagr',     label: 'CAGR FCF 5 ans'              },
+      { key: 'fcf5',     label: 'FCF an 5'                    },
+      { key: 'valeur',   label: 'Valeur / action'            },
+      { key: 'ecart',    label: 'Écart vs cours 117 $'       },
+    ],
+    lignes: [
+      { scenario: 'Bear : FCF publié, croissance 6 %',     cagr: '6 %',  fcf5: '20,1 Md$', valeur: '50 $',  ecart: '-57 %', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Central : FCF publié, croissance 8 %',  cagr: '8 %',  fcf5: '22,1 Md$', valeur: '56 $',  ecart: '-52 %', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Bull : FCF publié, croissance 11 %',    cagr: '11 %', fcf5: '25,3 Md$', valeur: '64 $',  ecart: '-45 %', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Central : FCF normalisé (~22 Md$)',     cagr: '8 %',  fcf5: '32,3 Md$', valeur: '82 $',  ecart: '-30 %', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { scenario: 'Cours actuel (taux implicite ~4,5-6,5 %)', cagr: '-', fcf5: '-',        valeur: '~117 $', ecart: '0 %',  _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
+  'walmart-dcf-synthese': {
+    colonnes: [
+      { key: 'methode', label: 'Méthode',         primary: true },
+      { key: 'valeur',  label: 'Valeur centrale'                },
+      { key: 'lecture', label: 'Lecture vs cours 117 $'         },
+    ],
+    lignes: [
+      { methode: 'DCF, FCF publié (central)',           valeur: '56 $',  lecture: 'Cours = 2,1x : le FCF est trop mince (capex de pic)', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { methode: 'DCF, FCF normalisé (~22 Md$)',        valeur: '82 $',  lecture: 'Cours = 1,4x : même normalisé, sous le cours',         _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { methode: 'PER, prix cible 5 ans (25x)',         valeur: '99 $',  lecture: 'Objectif horizon SOUS le spot : payé au-delà de sa cible', _headerBg: '#E0DBCF', _headerText: '#1C1917' },
+      { methode: 'PER, zone juste r=10 % (central)',    valeur: '62 $',  lecture: 'MoS -90 % : exiger 10 % impose un repli de moitié',     _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { methode: 'Multiple de sortie implicite à 117 $', valeur: '47x',   lecture: 'Pour 10 %/an, le titre doit coter 47x en 2031 (vs 44x aujourd\'hui)', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+    ],
+  },
+
+  'walmart-per-trois-scenarios': {
+    colonnes: [
+      { key: 'scenario',   label: 'Scénario',         primary: true },
+      { key: 'croissance', label: 'Croissance BPA'                  },
+      { key: 'bpa',        label: 'BPA 2031'                        },
+      { key: 'cible',      label: 'Prix cible (25x)'                },
+      { key: 'zone10',     label: 'Zone juste r=10 %'               },
+      { key: 'mos',        label: 'MoS vs 117 $'                    },
+    ],
+    lignes: [
+      { scenario: 'Bear',    croissance: '6 %',   bpa: '3,53 $', cible: '88 $',  zone10: '55 $', mos: '-113 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { scenario: 'Central', croissance: '8,5 %', bpa: '3,97 $', cible: '99 $',  zone10: '62 $', mos: '-90 %',  _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { scenario: 'Bull',    croissance: '11 %',  bpa: '4,45 $', cible: '111 $', zone10: '69 $', mos: '-70 %',  _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+    ],
+  },
+
+  'walmart-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 117 $'                  },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',   zone: '63 $', mos: '-86 %',  diag: 'Modéré',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '8,5 %', zone: '59 $', mos: '-100 %', diag: 'Standard', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '10 %',  zone: '55 $', mos: '-113 %', diag: 'Exigeant', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '12 %',  zone: '50 $', mos: '-134 %', diag: 'Strict',   _headerBg: '#F7F4EF', _headerText: '#78716C' },
+    ],
+  },
+
+  'walmart-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 117 $'                  },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',   zone: '71 $', mos: '-66 %',  diag: 'Modéré',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '8,5 %', zone: '66 $', mos: '-78 %',  diag: 'Standard', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '10 %',  zone: '62 $', mos: '-90 %',  diag: 'Exigeant', _headerBg: '#C9A84C', _headerText: '#1C1917' },
+      { taux: '12 %',  zone: '56 $', mos: '-108 %', diag: 'Strict',   _headerBg: '#F7F4EF', _headerText: '#78716C' },
+    ],
+  },
+
+  'walmart-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'taux', label: 'Taux exigé (r)', primary: true },
+      { key: 'zone', label: 'Zone juste'                    },
+      { key: 'mos',  label: 'MoS vs 117 $'                  },
+      { key: 'diag', label: 'Interprétation'                },
+    ],
+    lignes: [
+      { taux: '7 %',   zone: '79 $', mos: '-48 %', diag: 'Modéré',   _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '8,5 %', zone: '74 $', mos: '-58 %', diag: 'Standard', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { taux: '10 %',  zone: '69 $', mos: '-70 %', diag: 'Exigeant', _headerBg: '#E0DBCF', _headerText: '#44403C' },
+      { taux: '12 %',  zone: '63 $', mos: '-86 %', diag: 'Strict',   _headerBg: '#E0DBCF', _headerText: '#44403C' },
+    ],
+  },
+
   // ── COCA-COLA (NYSE KO) : cours réf. 79,94 $ (17/06/2026) ─────────────────────
   'coca-dcf-parametres': {
     colonnes: [

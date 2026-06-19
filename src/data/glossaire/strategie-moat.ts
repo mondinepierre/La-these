@@ -8,6 +8,30 @@ import type { GlossaireTerm } from './types';
 
 export const strategieMoat: GlossaireTerm[] = [
   {
+    slug: "retail-media",
+    label: "Retail media (régie publicitaire d'un distributeur)",
+    category: 'Stratégie & moat',
+    theme: 'luxe-consommation',
+    shortDef: "Activité par laquelle un distributeur vend de l'espace publicitaire à ses propres fournisseurs et marques, en s'appuyant sur ses données d'achat et son audience de clients. Une couche de revenus à très forte marge greffée sur le trafic du magasin et du site.",
+    definition: `Le retail media (média de distribution) désigne la régie publicitaire qu'un distributeur exploite à partir de son audience et de ses données de transactions. Concrètement, l'enseigne vend à ses fournisseurs et aux marques des emplacements sponsorisés sur son site et son application (produits mis en avant dans les résultats de recherche, bannières), de la publicité en magasin (écrans, têtes de gondole) et, de plus en plus, des espaces sur des écrans tiers (télévisions connectées) alimentés par ses données. Walmart Connect aux États-Unis et l'acquisition du fabricant de téléviseurs VIZIO en sont l'illustration.\n\nL'intérêt financier est considérable : la publicité ne coûte presque rien à produire (le trafic et les données existent déjà), si bien que chaque dollar de recette publicitaire tombe à la marge avec un taux très supérieur à celui de la vente de marchandises. Pour un distributeur dont la marge opérationnelle tourne autour de 4 %, greffer une activité publicitaire à 50-70 % de marge transforme le profil de rentabilité dès lors qu'elle prend de l'ampleur. C'est ce mécanisme de mix qui justifie qu'un distributeur soit revalorisé en bourse comme une plateforme et non plus comme un simple détaillant.\n\nLe moat du retail media tient à un actif difficile à répliquer : la combinaison d'une audience massive, de données d'achat réelles (qui a acheté quoi, où, à quel prix) et d'une boucle de mesure fermée (l'annonceur voit l'effet de sa publicité sur les ventes en magasin). Sa limite est qu'il dépend du trafic sous-jacent : sans clients dans les rayons et sur le site, il n'y a pas d'audience à monétiser. Le retail media amplifie une position de distribution dominante, il ne la crée pas.`,
+    related: ['moat', 'effet-de-reseau', 'pricing-power', 'asset-turnover'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+  {
+    slug: "edlp",
+    label: "EDLP (Every Day Low Prices)",
+    category: 'Stratégie & moat',
+    theme: 'luxe-consommation',
+    shortDef: "Stratégie de prix bas permanents, sans promotions ponctuelles, qui s'appuie sur un avantage de coût durable pour offrir en continu les prix les plus bas du marché. La signature de Walmart.",
+    definition: `L'EDLP (Every Day Low Prices, prix bas tous les jours) est une politique commerciale qui consiste à proposer en permanence des prix bas plutôt qu'à alterner prix élevés et promotions agressives (le modèle dit high-low). L'enseigne renonce aux rabais ponctuels spectaculaires au profit d'une promesse simple et constante : le meilleur prix, tout le temps, sans avoir à guetter les soldes.\n\nCette stratégie, popularisée par Walmart, n'est tenable que si elle repose sur un avantage de coût réel et durable : volumes d'achat colossaux qui donnent un pouvoir de négociation maximal sur les fournisseurs, chaîne logistique optimisée, frais de structure comprimés. L'EDLP enclenche alors un cercle vertueux : les prix bas attirent du volume, le volume abaisse les coûts unitaires, des coûts plus bas permettent des prix encore plus bas. C'est l'avantage de coût érigé en modèle, et la barrière à l'entrée la plus difficile à franchir dans la distribution de masse.\n\nL'EDLP a aussi des vertus opérationnelles : une demande plus régulière (sans les à-coups des promotions) qui simplifie la prévision et la gestion des stocks, et une fidélité fondée sur la confiance plutôt que sur la chasse aux bonnes affaires. Sa contrepartie est qu'elle laisse peu de marge : elle suppose d'accepter structurellement une marge faible compensée par une rotation élevée, et elle est vulnérable à tout choc de coût (inflation, droits de douane) qui ne pourrait être répercuté sans renier la promesse de prix.`,
+    related: ['moat', 'pricing-power', 'asset-turnover', 'supply-chain'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+  {
     slug: "category-captain",
     label: "Category captain (capitaine de catégorie)",
     category: 'Stratégie & moat',
