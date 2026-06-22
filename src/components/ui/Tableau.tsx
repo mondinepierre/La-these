@@ -2186,60 +2186,57 @@ const TABLEAUX: Record<string, TableauData> = {
   },
   
 // ─────────────────────────────────────────────────────────────────────────────
-// TABLEAU ENTRIES — TotalEnergies v2
-// À coller dans le record TABLEAUX de src/components/ui/Tableau.tsx
+// =============================================================================
+// TABLEAU ENTRIES - TotalEnergies v3 (revision 22/06/2026, valo au spot)
 //
-// BASE : BPA ajusté FY2025 = résultat net ajusté 15 600 M$ / 2 214 M actions = 7,05 $
-// (résultat net ajusté publié dans le DEU 2025 — hors effets de stock et éléments
-// non récurrents. Les analystes buy-side utilisent cette base.)
+// BASE : BPA ajuste FY2025 = resultat net ajuste 15 600 M$ / 2 214 M actions = 7,05 $.
+// Multiple central : 8,32x (moyenne du PER ajuste multiplicatif sur 5 ans).
+// Marge d'erreur   : 7,8 % (beta 0,52 x 15 %).
+// r retenu : 10 % ; Dividende annuel : 3,90 $ (3,40 EUR x EUR/USD 1,146).
+// Cours de redaction : 80,70 $ = environ 71 EUR (22/06/2026), Brent autour de 80 $.
 //
-// Multiple central : 8,57× (moyenne des multiples ajustés aux taux sur 5 ans)
-// Marge d'erreur   : 14,2 % (bêta 0,947 × 15 %)
-// r retenu         : 10 % (défensif haut de fourchette — cyclique intégrée à dividende)
-// Dividende annuel : 3,92 $/action (3,40 € × taux de change 1,153 au 20/03/2026)
-// Cours de rédaction : 88,75 $ = 76,96 € (20/03/2026)
+// ZONE JUSTE CENTRALE a r = 10 % :
+//   Prix cible central = 8,58 $ x 8,32 = 71,4 $.
+//   Zone juste = 71,4 / (1,10)^5 + PV div (3,90 x 3,791) = 44,3 + 14,8 = 59,1 $ (51,6 EUR).
 //
-// ZONE JUSTE CENTRALE à r = 10 % :
-//   Prix cible central = 8,58 $ × 8,57 = 73,5 $
-//   Zone juste = 73,5 / (1,10)^5 + PV dividendes (3,92 $ × 3,791) = 45,6 + 14,9 = 60,5 $
-//   Soit 60,5 / 1,153 = 52,5 € — correspond à la MM200 hebdomadaire (52 €)
-//
-// DCF : inchangé — basé sur le cash-flow libre, pas le résultat net
-// ─────────────────────────────────────────────────────────────────────────────
+// DCF NEUTRALISE : a WACC 4,64 % (beta 0,52), VT > 88 % de l'EV, cours implicite 174 $.
+//   Le tableau "scenarios" est une SENSIBILITE AU WACC ; le marche price environ 7,2 %.
+// =============================================================================
 
-  // ── 1. DCF — Paramètres ────────────────────────────────────────────────────
+  // -- 1. DCF - Parametres --
   'totalenergies-dcf-parametres': {
     colonnes: [
-      { key: 'parametre', label: 'Paramètre',      primary: true },
-      { key: 'valeur',    label: 'Valeur'                        },
-      { key: 'source',    label: 'Source / Note'                 },
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
     ],
     lignes: [
       {
         parametre: 'Cash-flow libre de base (FY2025)',
         valeur:    '10 390 M$',
-        source:    'Cash-flow opérationnel 27 343 − Investissements industriels 16 953 — DEU 2025',
+        source:    'OCF 27 343 - investissements industriels 16 953 (DEU 2025)',
         _headerBg: '#1B4332', _headerText: '#F7F4EF',
       },
       {
-        parametre: 'Coût moyen pondéré du capital',
-        valeur:    '6,08 %',
-        source:    'CAPM — Rf OAT 2,86 % + bêta 0,947 × prime de risque 4,78 % — coût de la dette après impôt 2,97 %',
+        parametre: 'WACC (recalculé 06/2026)',
+        valeur:    '4,64 %',
+        source:    "CAPM, bêta 0,52 vs CAC 40 GR. Rf Bund 2,86 %, ERP 4,78 %, Rd ap. IS 2,97 %",
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
       },
       {
-        parametre: 'Taux de croissance perpétuelle',
+        parametre: 'Croissance perpétuelle',
         valeur:    '2,0 %',
-        source:    'Croissance nominale long terme — en ligne avec cible inflation BCE',
+        source:    'Croissance nominale long terme (cible inflation BCE)',
       },
       {
         parametre: 'Horizon de projection',
         valeur:    '5 ans',
-        source:    '2026 – 2030',
+        source:    '2026 - 2030',
       },
       {
         parametre: 'Actions diluées',
         valeur:    '2 214 M',
-        source:    'FY2025 — DEU 2025',
+        source:    'FY2025 (DEU 2025)',
       },
       {
         parametre: 'Dette nette déduite',
@@ -2247,99 +2244,90 @@ const TABLEAUX: Record<string, TableauData> = {
         source:    'Bilan consolidé 31/12/2025',
       },
       {
-        parametre: 'Part valeur terminale / valeur d\'entreprise',
-        valeur:    '80 – 84 %',
-        source:    'Selon le scénario — ±0,5 pt sur le taux de croissance perpétuelle = ±15 $ sur le cours implicite',
+        parametre: 'Part valeur terminale / EV',
+        valeur:    'environ 88 %',
+        source:    "À WACC 4,64 %, le modèle est piloté par la valeur terminale, donc par le taux",
       },
     ],
   },
 
-  // ── 2. DCF — Scénarios ─────────────────────────────────────────────────────
+  // -- 2. DCF - Sensibilite au WACC (DCF neutralise par le faible beta) --
   'totalenergies-dcf-scenarios': {
     colonnes: [
-      { key: 'scenario', label: 'Scénario',                          primary: true },
-      { key: 'brent',    label: 'Brent retenu'                                     },
-      { key: 'cagr',     label: 'Croissance cash-flow libre / an'                  },
-      { key: 'fcf2030',  label: 'Cash-flow libre 2030'                             },
-      { key: 'sommefcf', label: 'Somme flux actualisés'                            },
-      { key: 'vt',       label: 'Valeur terminale actualisée'                      },
-      { key: 'ev',       label: 'Valeur d\'entreprise'                             },
+      { key: 'wacc',  label: 'WACC retenu',                 primary: true },
+      { key: 'note',  label: 'Lecture'                                     },
+      { key: 'vt',    label: 'Part VT / EV'                                 },
+      { key: 'cours', label: 'Cours implicite (FCF +3 %/an)'               },
     ],
     lignes: [
       {
-        scenario:  'Conservateur',
-        brent:     '60 – 65 $',
-        cagr:      '−5 %/an',
-        fcf2030:   '8 040 M$',
-        sommefcf:  '37 765 M$',
-        vt:        '149 545 M$',
-        ev:        '187 310 M$',
-        _headerBg: '#1B4332', _headerText: '#F7F4EF',
-      },
-      {
-        scenario:  'Central',
-        brent:     '72 – 75 $',
-        cagr:      '+3 %/an',
-        fcf2030:   '12 045 M$',
-        sommefcf:  '47 600 M$',
-        vt:        '224 120 M$',
-        ev:        '271 720 M$',
+        wacc:  '4,64 %',
+        note:  'WACC comptable (bêta 0,52)',
+        vt:    '88 %',
+        cours: '174 $',
         _headerBg: '#C9A84C', _headerText: '#1B4332',
       },
       {
-        scenario:  'Optimiste',
-        brent:     '82 – 85 $',
-        cagr:      '+8 %/an',
-        fcf2030:   '15 266 M$',
-        sommefcf:  '54 837 M$',
-        vt:        '284 150 M$',
-        ev:        '338 987 M$',
-        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+        wacc:  '5,5 %',
+        note:  'Bêta normalisé vers 0,7',
+        vt:    '85 %',
+        cours: '127 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        wacc:  '6,5 %',
+        note:  'Bêta vers 0,9 (WACC v1 de la fiche)',
+        vt:    '81 %',
+        cours: '96 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        wacc:  '7,2 %',
+        note:  "Taux implicite du marché (cours = DCF)",
+        vt:    '79 %',
+        cours: '81 $',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        wacc:  '7,5 %',
+        note:  'Major cyclique de risque standard',
+        vt:    '77 %',
+        cours: '75 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
       },
     ],
   },
 
-  // ── 3. DCF — Synthèse ──────────────────────────────────────────────────────
+  // -- 3. DCF - Synthese --
   'totalenergies-dcf-synthese': {
     colonnes: [
-      { key: 'scenario',  label: 'Scénario',          primary: true },
-      { key: 'equity',    label: 'Valeur des fonds propres'         },
-      { key: 'cours',     label: 'Cours implicite'                  },
-      { key: 'reference', label: 'Cours 20/03/2026'                 },
-      { key: 'ecart',     label: 'Prime / Décote'                   },
+      { key: 'lecture',     label: 'Lecture',     primary: true },
+      { key: 'valeur',      label: 'Valeur'                      },
+      { key: 'commentaire', label: 'Commentaire'                 },
     ],
     lignes: [
       {
-        scenario:  'Conservateur',
-        equity:    '152 479 M$',
-        cours:     '68,9 $',
-        reference: '88,75 $',
-        ecart:     '−22,4 %',
-        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+        lecture:     'DCF au WACC comptable (4,64 %)',
+        valeur:      '174 $ (environ 152 €)',
+        commentaire: "Inexploitable : VT 88 % de l'EV, gonflée par le bêta 0,52",
+        _headerBg:   '#E0DBCF', _headerText: '#44403C',
       },
       {
-        scenario:  'Central',
-        equity:    '236 889 M$',
-        cours:     '107,0 $',
-        reference: '88,75 $',
-        ecart:     '+20,6 %',
-        _headerBg: '#C9A84C', _headerText: '#1B4332',
+        lecture:     "Taux d'actualisation implicite du marché",
+        valeur:      'environ 7,2 %',
+        commentaire: 'Le cours (80,70 $) = DCF à 7,2 %, soit +2,6 pts sur le WACC comptable',
+        _headerBg:   '#C9A84C', _headerText: '#1B4332',
       },
       {
-        scenario:  'Optimiste',
-        equity:    '304 156 M$',
-        cours:     '137,4 $',
-        reference: '88,75 $',
-        ecart:     '+54,8 %',
-        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+        lecture:     'Conclusion',
+        valeur:      'DCF neutralisé',
+        commentaire: 'Le marché refuse le bêta 0,52 et price une major cyclique normale. Valo pilotée au PER.',
+        _headerBg:   '#1B4332', _headerText: '#F7F4EF',
       },
     ],
   },
 
-  // ── 4. Calculateur de multiples — Synthèse des trois scénarios ─────────────
-  // Base : BPA ajusté FY2025 = 7,05 $ (résultat net ajusté DEU 2025 / actions diluées)
-  // Le BPA consolidé IFRS (5,78 $) intègre des éléments non récurrents (effets de
-  // stock, dépréciations ponctuelles) que le marché exclut de sa valorisation.
+  // -- 4. Calculateur PER - Synthese des trois scenarios --
   'totalenergies-per-trois-scenarios': {
     colonnes: [
       { key: 'parametre', label: 'Paramètre', primary: true },
@@ -2349,155 +2337,98 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
     lignes: [
       {
-        parametre:  'Brent retenu',
-        bear:       '60 – 65 $',
-        central:    '72 – 75 $',
-        bull:       '82 – 85 $',
-        _headerBg:  '#1B4332', _headerText: '#F7F4EF',
+        parametre: 'Brent retenu',
+        bear:      '60 - 65 $',
+        central:   '70 - 75 $',
+        bull:      '82 - 85 $',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
       },
       {
-        parametre:  'Croissance BPA par an',
-        bear:       '−3 %',
-        central:    '+4 %',
-        bull:       '+9 %',
+        parametre: 'Croissance BPA ajusté / an',
+        bear:      '-3 %',
+        central:   '+4 %',
+        bull:      '+9 %',
       },
       {
-        parametre:  'BPA ajusté projeté FY2031',
-        bear:       '6,05 $',
-        central:    '8,58 $',
-        bull:       '10,85 $',
+        parametre: 'BPA ajusté projeté FY2031',
+        bear:      '6,05 $',
+        central:   '8,58 $',
+        bull:      '10,85 $',
       },
       {
-        parametre:  'Multiple central retenu',
-        bear:       '8,57×',
-        central:    '8,57×',
-        bull:       '8,57×',
+        parametre: 'Multiple central retenu',
+        bear:      '8,32x',
+        central:   '8,32x',
+        bull:      '8,32x',
       },
       {
-        parametre:  'Prix cible',
-        bear:       '51,8 $',
-        central:    '73,5 $',
-        bull:       '93,0 $',
-        _headerBg:  '#C9A84C', _headerText: '#1B4332',
+        parametre: 'Prix cible (5 ans)',
+        bear:      '50,3 $',
+        central:   '71,4 $',
+        bull:      '90,3 $',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
       },
       {
-        parametre:  'Fourchette basse (−14,2 %)',
-        bear:       '44,4 $',
-        central:    '63,1 $',
-        bull:       '79,8 $',
+        parametre: 'Fourchette (MoE 7,8 %)',
+        bear:      '46,4 - 54,2 $',
+        central:   '65,8 - 77,0 $',
+        bull:      '83,2 - 97,3 $',
       },
       {
-        parametre:  'Fourchette haute (+14,2 %)',
-        bear:       '59,2 $',
-        central:    '83,9 $',
-        bull:       '106,2 $',
-      },
-      {
-        parametre:  'Cours 20/03/2026 (position)',
-        bear:       '↑ au-dessus',
-        central:    '↑ au-dessus',
-        bull:       '→ dans la fourchette haute',
-        _headerBg:  '#E0DBCF', _headerText: '#44403C',
+        parametre: 'Cours 22/06 (80,70 $)',
+        bear:      'au-dessus',
+        central:   'au-dessus',
+        bull:      'sous la fourchette',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
       },
     ],
   },
 
-  // ── 5. Zone juste — Scénario conservateur ──────────────────────────────────
-  // Zone juste = prix cible / (1+r)^5 + valeur actuelle des dividendes sur 5 ans
-  // Prix cible conservateur = 51,8 $ | Dividende annuel = 3,92 $/action
+  // -- 5. Zone juste - Scenario conservateur --
   'totalenergies-per-zone-bear': {
+    compact: true,
     colonnes: [
-      { key: 'signal',       label: 'Signal',            primary: true },
-      { key: 'mos',          label: 'Marge de sécurité'                },
-      { key: 'zonejuste',    label: 'Zone juste ($)'                   },
-      { key: 'fourchette',   label: 'Fourchette d\'achat (€)'          },
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste ($)'                   },
+      { key: 'fourchette', label: 'Fourchette achat (€)'             },
     ],
     lignes: [
-      {
-        signal:       'Surveillance active',
-        mos:          '5 – 10 %',
-        zonejuste:    '42,2 $',
-        fourchette:   '32 – 34 €',
-        _headerBg:    '#1B4332', _headerText: '#F7F4EF',
-      },
-      {
-        signal:       'Premier renforcement',
-        mos:          '15 – 20 %',
-        zonejuste:    '42,2 $',
-        fourchette:   '29 – 32 €',
-      },
-      {
-        signal:       'Achat fort',
-        mos:          '25 – 30 %',
-        zonejuste:    '42,2 $',
-        fourchette:   '25 – 28 €',
-      },
+      { signal: 'Surveillance',         mos: '5 - 10 %',  zonejuste: '46,0 $', fourchette: '36 - 38 €', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { signal: 'Premier renforcement', mos: '15 - 20 %', zonejuste: '46,0 $', fourchette: '32 - 34 €' },
+      { signal: 'Achat fort',           mos: '25 - 30 %', zonejuste: '46,0 $', fourchette: '28 - 30 €' },
     ],
   },
 
-  // ── 6. Zone juste — Scénario central ───────────────────────────────────────
-  // Zone juste = 73,5 / (1,10)^5 + PV dividendes = 45,6 + 14,9 = 60,5 $
-  // 60,5 / 1,153 = 52,5 € — correspond à la MM200 hebdomadaire (52 €)
+  // -- 6. Zone juste - Scenario central --
   'totalenergies-per-zone-central': {
+    compact: true,
     colonnes: [
-      { key: 'signal',       label: 'Signal',            primary: true },
-      { key: 'mos',          label: 'Marge de sécurité'                },
-      { key: 'zonejuste',    label: 'Zone juste ($)'                   },
-      { key: 'fourchette',   label: 'Fourchette d\'achat (€)'          },
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste ($)'                   },
+      { key: 'fourchette', label: 'Fourchette achat (€)'             },
     ],
     lignes: [
-      {
-        signal:       'Surveillance active',
-        mos:          '5 – 10 %',
-        zonejuste:    '60,5 $',
-        fourchette:   '47 – 50 €',
-        _headerBg:    '#C9A84C', _headerText: '#1B4332',
-      },
-      {
-        signal:       'Premier renforcement',
-        mos:          '15 – 20 %',
-        zonejuste:    '60,5 $',
-        fourchette:   '42 – 45 €',
-      },
-      {
-        signal:       'Achat fort',
-        mos:          '25 – 30 %',
-        zonejuste:    '60,5 $',
-        fourchette:   '37 – 40 €',
-      },
+      { signal: 'Surveillance',         mos: '5 - 10 %',  zonejuste: '59,1 $', fourchette: '46 - 49 €', _headerBg: '#C9A84C', _headerText: '#1B4332' },
+      { signal: 'Premier renforcement', mos: '12 - 15 %', zonejuste: '59,1 $', fourchette: '44 - 45 €' },
+      { signal: 'Achat fort',           mos: '25 - 30 %', zonejuste: '59,1 $', fourchette: '36 - 39 €' },
     ],
   },
 
-  // ── 7. Zone juste — Scénario optimiste ─────────────────────────────────────
-  // Zone juste = 93,0 / (1,10)^5 + PV dividendes = 57,8 + 14,9 = 72,7 $
-  // Le cours de rédaction (88,75 $) est 22 % au-dessus de cette zone juste.
+  // -- 7. Zone juste - Scenario optimiste --
   'totalenergies-per-zone-bull': {
+    compact: true,
     colonnes: [
-      { key: 'signal',       label: 'Signal',            primary: true },
-      { key: 'mos',          label: 'Marge de sécurité'                },
-      { key: 'zonejuste',    label: 'Zone juste ($)'                   },
-      { key: 'fourchette',   label: 'Fourchette d\'achat (€)'          },
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste ($)'                   },
+      { key: 'fourchette', label: 'Fourchette achat (€)'             },
     ],
     lignes: [
-      {
-        signal:       'Surveillance active',
-        mos:          '5 – 10 %',
-        zonejuste:    '72,7 $',
-        fourchette:   '56 – 60 €',
-        _headerBg:    '#D6EDDF', _headerText: '#1B4332',
-      },
-      {
-        signal:       'Premier renforcement',
-        mos:          '15 – 20 %',
-        zonejuste:    '72,7 $',
-        fourchette:   '50 – 54 €',
-      },
-      {
-        signal:       'Achat fort',
-        mos:          '25 – 30 %',
-        zonejuste:    '72,7 $',
-        fourchette:   '44 – 48 €',
-      },
+      { signal: 'Surveillance',         mos: '5 - 10 %',  zonejuste: '70,9 $', fourchette: '56 - 59 €', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { signal: 'Premier renforcement', mos: '15 - 20 %', zonejuste: '70,9 $', fourchette: '49 - 53 €' },
+      { signal: 'Achat fort',           mos: '25 - 30 %', zonejuste: '70,9 $', fourchette: '43 - 46 €' },
     ],
   },
 
