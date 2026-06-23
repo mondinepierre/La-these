@@ -10,7 +10,7 @@ export const portefeuilleParThemes: ArticleMeta4 = {
   category: 'parcours',
   level: 'intermediaire',
   readingTime: 8,
-  summary: "Pourquoi raisonner en thèmes structurels plutôt qu'en secteurs GICS — nucléaire, défense, infrastructure IA, LNG. La logique de construction, la sélection des valeurs, le dimensionnement des lignes.",
+  summary: "Pourquoi raisonner en thèmes structurels plutôt qu'en secteurs GICS : nucléaire, défense, infrastructure IA, LNG. La logique de construction, la sélection des valeurs, le dimensionnement des lignes.",
   tags: ['portefeuille', 'thèmes macro', 'construction', 'stock picking'],
   related: [],
   analyses: [],

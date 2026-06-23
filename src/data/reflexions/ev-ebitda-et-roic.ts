@@ -2,14 +2,14 @@ import type { ArticleMeta } from '@/types/reflexions'
 
 export const evEbitdaEtRoic: ArticleMeta = {
   slug: 'ev-ebitda-et-roic',
-  title: "EV/EBITDA et ROIC — aller plus loin en analyse fondamentale",
+  title: "EV/EBITDA et ROIC : le prix et la qualité",
   date: '2026-03-17',
   category: 'pedagogie',
   level: 'intermediaire',
-  readingTime: 6,
-  summary: "Deux indicateurs que les screeners affichent rarement bien expliqués. Comment les lire, les comparer, et les combiner pour évaluer la qualité réelle d'une entreprise.",
+  readingTime: 5,
+  summary: "L'EV/EBITDA dit à quel prix je paie une entreprise, le ROIC dit ce qu'elle vaut vraiment. Comment je lis chacun, et surtout comment je les croise.",
   tags: ['analyse fondamentale', 'valorisation', 'ROIC', 'EV/EBITDA'],
-  related: ['ROIC-et-WACC'],
-  analyses: ['asml'],
+  related: ['roic-le-juge-de-paix', 'ROIC-et-WACC', 'fcf-yield'],
+  analyses: [],
   portefeuilles: [],
 }

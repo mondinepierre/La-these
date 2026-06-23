@@ -10,7 +10,7 @@ export const declarationRetourExperience: ArticleMeta3 = {
   category: 'parcours',
   level: 'debutant',
   readingTime: 6,
-  summary: "L'IFU, les brokers étrangers, le W-8BEN, l'option barème — ce que personne ne vous dit avant la première déclaration, et les réflexes à installer pour que la suivante soit triviale.",
+  summary: "L'IFU, les brokers étrangers, le W-8BEN, l'option barème : ce que personne ne vous dit avant la première déclaration, et les réflexes à installer pour que la suivante soit triviale.",
   tags: ['fiscalité', 'déclaration', 'impôts', 'IBKR', 'parcours'],
   related: ['declarer-ses-investissements'],
   analyses: [],

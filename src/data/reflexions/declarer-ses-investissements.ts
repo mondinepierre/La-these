@@ -9,7 +9,7 @@ export const declarerSesInvestissements: ArticleMeta = {
   category: 'parcours',
   level: 'debutant',
   readingTime: 7,
-  summary: "CTO, PEA, assurance-vie, brokers étrangers — les cases à remplir, les erreurs à éviter, et une checklist pour ne rien oublier avant de valider votre déclaration.",
+  summary: "CTO, PEA, assurance-vie, brokers étrangers : les cases à remplir, les erreurs à éviter, et une checklist pour ne rien oublier avant de valider votre déclaration.",
   tags: ['fiscalité', 'déclaration', 'impôts', 'CTO', 'PEA', 'assurance-vie'],
   related: [],
   analyses: [],
