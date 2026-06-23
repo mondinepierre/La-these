@@ -25,9 +25,29 @@ import { airLiquideTapisRoulant      } from './air-liquide-tapis-roulant'
 import { visaQ2Fy2026                } from './visa-q2-fy2026'
 import { novoWegovyOralEuropeMexique } from './novo-wegovy-oral-europe-mexique'
 
+// Série méthodologie : mes filtres d'analyse fondamentale (9 articles)
+import { roicLeJugeDePaix           } from './roic-le-juge-de-paix'
+import { waccLeCoutDuCapital        } from './wacc-le-cout-du-capital'
+import { spreadRoicWacc             } from './spread-roic-wacc'
+import { qualityPrice               } from './quality-price'
+import { pegCroissance              } from './peg-croissance'
+import { scoreAcceleration          } from './score-acceleration'
+import { scoreLevierOperationnel    } from './score-levier-operationnel'
+import { momentum52Semaines         } from './momentum-52-semaines'
+import { scoreMoat                  } from './score-moat'
+
 
 
 export const articles: ArticleMeta[] = [
+  roicLeJugeDePaix,
+  waccLeCoutDuCapital,
+  spreadRoicWacc,
+  qualityPrice,
+  pegCroissance,
+  scoreAcceleration,
+  scoreLevierOperationnel,
+  momentum52Semaines,
+  scoreMoat,
   evEbitdaEtRoic,
   roicEtWacc,
   leRoiic,

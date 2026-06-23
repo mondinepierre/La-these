@@ -1,0 +1,27 @@
+Un <Terme id="roic" /> de 20 %, est-ce beaucoup ? Impossible à dire tant que je ne sais pas ce que coûte l'argent qui l'a produit. C'est tout le rôle du <Terme id="wacc" />.
+
+## Le problème que le WACC résout
+
+Une rentabilité ne se juge jamais dans l'absolu, seulement face à son coût. Si une entreprise dégage 20 % de rentabilité mais que ses apporteurs de capitaux, actionnaires et créanciers, exigent 18 %, elle ne crée presque rien. À l'inverse, 12 % de rentabilité quand le capital coûte 7 % est une vraie réussite. Sans point de comparaison, le ROIC est un chiffre suspendu dans le vide.
+
+Le WACC, le coût moyen pondéré du capital, est ce point de comparaison. C'est le rendement minimum que l'entreprise doit produire pour satisfaire ceux qui la financent.
+
+## Comment je le construis
+
+Je le garde volontairement simple, en deux briques.
+
+La première est le <Terme id="taux-sans-risque" label="taux sans risque" />. Je prends l'obligation d'État à 10 ans de la zone concernée : le <Terme id="bund" /> allemand pour une entreprise qui publie en euros, le Treasury américain à 10 ans pour une entreprise en dollars. C'est le rendement qu'un investisseur obtient sans prendre de risque actions.
+
+La seconde est la <Terme id="prime-de-risque" label="prime de risque actions" />. C'est le supplément de rendement exigé pour accepter le risque d'une action plutôt qu'une obligation d'État. J'utilise les primes par pays publiées par Aswath Damodaran, une référence académique mise à jour régulièrement, qui intègre le risque propre à chaque pays.
+
+<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-xl font-display italic text-gold tracking-tight">WACC de référence = taux sans risque + prime de risque du pays</span></div>
+
+Un exemple. Pour une entreprise en dollars, avec un Treasury 10 ans à 4,3 % et une prime de risque États-Unis à 4,5 %, mon coût du capital de référence ressort à 8,8 %. Pour une entreprise située dans un pays à prime plus élevée, je peux monter à 9 ou 10 %. Le ROIC devra battre ce chiffre pour que je parle de création de valeur.
+
+## Pourquoi cette méthode
+
+Ancrer le coût du capital sur les taux réels du moment, et non sur une valeur fixe sortie d'un manuel, me permet de rester cohérent avec l'environnement. Quand les taux montent, mon exigence monte avec eux, automatiquement. Une entreprise qui créait de la valeur à taux zéro peut en détruire à taux élevés sans que rien n'ait changé dans son métier. Mon WACC capte ce basculement.
+
+## La limite à garder en tête
+
+C'est un proxy, pas un instrument de précision. Je ne pondère pas finement la part de dette et la part de fonds propres, je n'applique pas de bêta entreprise par entreprise. J'assume cette simplification : une fausse précision au troisième chiffre après la virgule ne ferait qu'habiller d'une illusion de rigueur une hypothèse qui reste une hypothèse. Ce que je veux, c'est un seuil honnête et comparable d'une analyse à l'autre. Le vrai sujet n'est d'ailleurs pas le WACC seul, mais l'écart entre le ROIC et lui. C'est ce que je creuse ensuite avec le <Terme id="spread" />.

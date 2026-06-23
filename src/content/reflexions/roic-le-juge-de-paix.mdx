@@ -1,0 +1,25 @@
+Quand je veux savoir si une entreprise est réellement rentable, je ne regarde pas le ROE. Je regarde le <Terme id="roic" />. La différence entre les deux explique pourquoi je me méfie du premier.
+
+## Le problème que le ROIC résout
+
+Le ROE, la rentabilité des capitaux propres, a un défaut majeur : il adore la dette. Mécaniquement, plus une entreprise finance son activité par l'emprunt plutôt que par ses fonds propres, plus son ROE grimpe, sans que le business soit meilleur pour autant. Une entreprise médiocre très endettée peut afficher un ROE flatteur. C'est un piège.
+
+Le ROIC, la rentabilité du <Terme id="capital-investi" label="capital investi" />, corrige ce biais en regardant la totalité du capital mobilisé, fonds propres et dette confondus. Il répond à une question simple : pour chaque euro réellement mis dans la machine, peu importe d'où il vient, combien l'entreprise dégage-t-elle ?
+
+## Comment je le calcule
+
+<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-2xl font-display italic text-gold tracking-tight">ROIC = NOPAT / Capital investi</span></div>
+
+Le <Terme id="nopat" />, c'est le résultat opérationnel après impôt : le résultat d'exploitation multiplié par (1 moins le taux d'impôt). J'isole ainsi la performance du métier, avant les effets de la structure financière.
+
+Le capital investi, je le définis comme les capitaux propres plus la <Terme id="dette-nette" label="dette nette" />, avec une règle que je m'impose : si la dette nette est négative, c'est-à-dire si l'entreprise détient plus de trésorerie que de dette, je la ramène à zéro. Concrètement, je ne soustrais pas le cash excédentaire du dénominateur. Sinon, une montagne de liquidités qui dort viendrait gonfler artificiellement le ratio et me ferait croire à une rentabilité qui n'existe pas. C'est un choix volontairement conservateur.
+
+## Pourquoi mon seuil est à 12 %
+
+En dessous de 12 %, je considère que la rentabilité n'est pas assez nette pour parler de qualité. Ce seuil n'a rien de magique, c'est une exigence : il laisse une marge confortable au-dessus du coût du capital de la plupart des entreprises, qui se situe souvent entre 7 et 10 %. Une entreprise qui dégage durablement 12 % et plus crée de la valeur avec une avance qui ne tient pas à un coup de chance.
+
+Un exemple chiffré. Une entreprise affiche un résultat d'exploitation de 500, un taux d'impôt de 25 %, des capitaux propres de 2 000 et une dette nette de 500. Son NOPAT vaut 500 × 0,75 = 375. Son capital investi vaut 2 000 + 500 = 2 500. Son ROIC ressort à 375 / 2 500 = 15 %. Au-dessus de mon seuil : la machine est rentable.
+
+## La limite à garder en tête
+
+Le ROIC mesure le passé. C'est une photo de la rentabilité déjà réalisée, pas une promesse sur demain. Un ROIC élevé peut aussi cacher un dénominateur sous-évalué : une entreprise ancienne dont les actifs sont largement amortis affichera un capital investi optiquement faible, donc un ROIC flatté. Et un chiffre seul ne dit rien : 15 % de ROIC peut être excellent ou insuffisant selon ce que coûte le capital. C'est précisément pour ça que je ne lis jamais le ROIC sans le confronter à son coût, le <Terme id="wacc" />. C'est l'objet de ma prochaine réflexion.

@@ -10,7 +10,7 @@ export const roicEtWacc: ArticleMeta = {
   readingTime: 8,
   summary: "Deux indicateurs qui tirent leur force de la création d'un troisième.",
   tags: ['analyse fondamentale', 'WACC', 'ROIC', 'EV/EBITDA', 'spread'],
-  related: ['ev-ebitda-et-roic'],
+  related: ['ev-ebitda-et-roic', 'roic-le-juge-de-paix', 'wacc-le-cout-du-capital', 'spread-roic-wacc'],
   analyses: ['totalenergies', 'alphabet'],
   portefeuilles: [],
 }
