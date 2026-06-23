@@ -1,73 +1,39 @@
-Dans une précédente réflexion, j'ai présenté le <Terme id="roic" /> comme mon juge de paix de la qualité d'un business. Mais un chiffre seul ne raconte jamais toute l'histoire.
+Le <Terme id="roic" />, le <Terme id="wacc" /> et le <Terme id="spread" />, je les utilise comme des filtres simples, et je leur ai consacré une réflexion chacun : un [ROIC supérieur à 12 %](/reflexions/roic-le-juge-de-paix), un [WACC](/reflexions/wacc-le-cout-du-capital) construit sur le taux sans risque et la prime de risque du pays, un [spread de plus de 5 points](/reflexions/spread-roic-wacc) tenu quatre années sur cinq.
 
-Si je dis qu'un ROIC de 18 % peut créer moins de valeur qu'un ROIC de 12 %, ça paraît absurde. Pourtant tout dépend de ce que coûte le capital qui a produit cette rentabilité. Sans ce point de comparaison, je ne peux rien juger.
-
-Bienvenue dans le duel entre le ROIC et le <Terme id="wacc" />.
-
-## ROIC, la rentabilité réelle du capital
-
-Rappel de la formule :
-
-<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-2xl font-display italic text-gold tracking-tight">ROIC = NOPAT / Capital investi</span></div>
-
-- **NOPAT** (Net Operating Profit After Taxes) : le résultat d'exploitation après impôt, soit résultat opérationnel × (1 moins le taux d'imposition). J'isole ainsi la performance du métier, avant les effets de la structure financière.
-- **Capital investi** : les capitaux propres plus la dette financière nette. La dette nette vaut dette totale moins trésorerie.
-
-**Pourquoi ajouter la dette aux fonds propres ?** Parce qu'elle finance elle aussi la machine. Le capital investi, c'est l'intégralité de l'argent misé dans le business, d'où qu'il vienne.
-
-**Une règle que je m'impose : la dette nette plancher à zéro.** Quand une entreprise détient plus de trésorerie que de dette, sa dette nette devient négative. Si je la laissais telle quelle, elle réduirait le dénominateur et gonflerait artificiellement le ROIC. Je la ramène donc à zéro : je refuse qu'un tas de cash qui dort vienne flatter le ratio. C'est le ROIC que j'appelle Cash-Adjusted, celui que j'utilise par défaut.
-
-**Mon seuil : 12 %.** En dessous, je considère que la rentabilité n'est pas assez nette pour parler de qualité. Au-dessus, et surtout de façon durable, l'entreprise crée de la valeur avec une avance qui ne tient pas à un coup de chance.
+Ici, je creuse deux raffinements que ces articles laissent volontairement de côté : les trois façons de calculer le ROIC, et la lecture croisée du spread avec l'EV/EBITDA. C'est la version avancée, pour quand le filtre de base ne suffit plus à départager deux dossiers.
 
 ## Trois façons de lire le ROIC
 
-Tout se joue au dénominateur. J'adapte le capital investi de trois manières :
+Le principe reste le même : le résultat opérationnel après impôt, le NOPAT, rapporté au capital investi.
 
-- **Invested Capital** : le capital investi classique, la lecture brute du bilan.
-- **Cash-Adjusted** : dette nette plancher à zéro, pour neutraliser la trésorerie excédentaire. J'y inclus le <Terme id="goodwill" />. C'est ma lecture par défaut.
-- **Tangible** : dette nette plancher à zéro également, mais goodwill soustrait, pour isoler la performance opérationnelle pure.
+<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-2xl font-display italic text-gold tracking-tight">ROIC = NOPAT / Capital investi</span></div>
+
+Tout se joue au dénominateur, et je l'adapte de trois manières selon la question posée.
+
+- **Invested Capital** : le capital investi classique (capitaux propres plus dette financière nette), la lecture brute du bilan. Utile pour observer la solidité financière globale, impact du cash compris.
+- **Cash-Adjusted** : dette nette plancher à zéro, pour neutraliser la trésorerie excédentaire qui dort. J'y inclus le <Terme id="goodwill" />. C'est ma lecture par défaut, focalisée sur l'allocation du capital.
+- **Tangible** : dette nette plancher à zéro également, mais goodwill soustrait. Il isole la performance opérationnelle pure, en faisant abstraction du prix payé pour les acquisitions passées.
 
 <Tableau id="roic-variantes-alphabet" />
 
-Lequel je privilégie ? Le Cash-Adjusted dans la majorité des cas, car il juge l'allocation du capital sans se laisser flatter par la trésorerie. Le Tangible est utile pour une entreprise très acquisitive, afin de distinguer la performance interne du prix payé pour les acquisitions passées.
+Lequel je privilégie ? Le Cash-Adjusted dans la majorité des cas, car il juge l'allocation du capital sans se laisser flatter par la trésorerie. Pour une entreprise très acquisitive, comparer le Tangible et le Cash-Adjusted me permet de distinguer la performance interne du prix payé pour les rachats. Le Invested Capital, lui, reste utile quand le poids du cash dans le bilan fait partie de l'histoire.
 
 > Sur *La Thèse*, sauf mention contraire, le ROIC affiché est le Cash-Adjusted.
 
-## WACC, ce que coûte l'argent
+## Lire le spread à travers l'EV/EBITDA
 
-Le <Terme id="wacc" /> répond à une question simple : combien coûte le capital utilisé par l'entreprise ? C'est le rendement minimum qu'elle doit produire pour satisfaire ceux qui la financent, actionnaires comme créanciers.
-
-Je le construis de façon simple et reproductible, en deux briques :
-
-- **Le taux sans risque** : l'obligation d'État à 10 ans de la zone concernée. Le <Terme id="bund" /> allemand pour une entreprise en euros, le Treasury américain à 10 ans pour une entreprise en dollars.
-- **La <Terme id="prime-de-risque" /> actions** : le supplément de rendement exigé pour préférer une action à une obligation d'État. J'utilise les primes par pays publiées par Aswath Damodaran, qui intègrent le risque propre à chaque pays.
-
-<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-xl font-display italic text-gold tracking-tight">WACC de référence = taux sans risque + prime de risque du pays</span></div>
-
-Concrètement, une entreprise en dollars ressort souvent autour de 8 à 9 %. Une entreprise très exposée à un pays risqué, dont la prime est bien plus élevée, peut atteindre 13 ou 14 %. Ancrer le coût du capital sur les taux réels du moment me garde cohérent avec l'environnement : quand les taux montent, mon exigence monte avec eux, automatiquement.
-
-## Le spread, le vrai moteur de valeur
-
-C'est ici que les deux indicateurs fusionnent :
-
-<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-2xl font-display italic text-gold tracking-tight">ROIC - WACC = Spread</span></div>
-
-Le spread est la véritable mesure de la création de richesse. Un ROIC de 15 % avec un WACC de 9 % crée 6 points de valeur nette par an.
-
-C'est aussi la réponse à ma question d'ouverture. Une entreprise très exposée au risque pays, avec un ROIC de 18 % mais un WACC de 14 %, ne dégage que 4 points de spread. Une entreprise mature comme TotalEnergies, avec un ROIC de 12 % et un WACC de 7 %, en dégage 5. La seconde crée davantage de valeur nette, malgré un ROIC brut inférieur.
-
-## Combiner le spread avec l'EV/EBITDA
-
-Coupler l'<Terme id="ev-ebitda" /> au spread offre une lecture bien plus fine de la valorisation :
+Le spread, soit le ROIC moins le WACC, me dit si l'entreprise crée de la valeur. L'<Terme id="ev-ebitda" /> me dit à quel prix je la paie. Croiser les deux donne une lecture bien plus fine qu'un multiple isolé.
 
 <Tableau id="spread-ev-ebitda" />
 
 <span className="block text-sm text-ink-muted italic">*Les valeurs de spread et d'EV/EBITDA se comparent toujours à l'historique et au secteur.</span>
 
+L'idée centrale : un EV/EBITDA élevé n'est cher que rapporté au spread. Une entreprise qui dégage un spread large et régulier mérite un multiple élevé, parce qu'elle compose de la valeur année après année. Payer le même multiple pour un spread étroit ou ponctuel, c'est acheter une prime sans le moteur qui la justifie.
+
 ## Deux limites à garder en tête
 
-**La régularité avant le pic.** Un spread de 8 points maintenu sur dix ans vaut bien plus qu'un pic de 20 points sans lendemain. Payer un EV/EBITDA élevé pour un spread structurellement large se justifie. Payer le même multiple pour un spread ponctuel, c'est acheter une bulle.
+**La régularité avant le pic.** Un spread de 8 points maintenu sur dix ans vaut bien plus qu'un pic de 20 points sans lendemain. C'est d'ailleurs pourquoi, dans mon filtre, j'exige le spread sur quatre années sur cinq et pas seulement en moyenne.
 
-**Le rétroviseur.** Le ROIC mesure le passé. Comme toujours en finance, les performances passées ne préjugent pas des performances futures.
+**Le rétroviseur.** Le ROIC et le spread mesurent le passé. Comme toujours en finance, les performances passées ne préjugent pas des performances futures. Ces variantes affinent la photo, elles ne la transforment pas en prédiction.
 
-Dans un prochain article, je détaille le **ROIIC** (Return On Incremental Invested Capital), l'outil qui éclaire la rentabilité de la croissance à venir.
+Pour la suite logique, le <Terme id="roiic" /> (Return On Incremental Invested Capital) éclaire la rentabilité non plus du capital déjà en place, mais de chaque euro nouvellement investi.
