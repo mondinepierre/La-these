@@ -5,7 +5,7 @@ import type { AnalyseCard } from '@/types/analyses'
 // Creation : 24/06/2026
 //
 // DEVISE : EUR pure. Engie publie ET cote en euros (Euronext Paris, ENGI.PA,
-//   PEA-eligible). Les libelles "Cours ($)" de l'Excel sont des coquilles de
+//   PEA-eligible). Les libelles "Cours ($)" sont des coquilles heritees de
 //   template (miroir Kri Kri) : toutes les valeurs sont lues en EUR.
 //
 // SNAPSHOT : structurel FY2025 fige. Cours spot 26,96 € (23/06/2026) vs cloture
@@ -16,7 +16,7 @@ import type { AnalyseCard } from '@/types/analyses'
 //   NOPAT = EBIT x (1 - T_effectif) ; IC = CP + max(dette nette, 0), goodwill inclus
 //   2025 : NOPAT 6 231 / IC 81 288 = 7,66 %. Spread ROIC-WACC = +3,07 pts.
 //
-// WACC (onglet WACC) :
+// WACC :
 //   Rf   = Bund 10 ans 31/12/2025 = 2,86 % (libelle correct)
 //   beta = 0,759 : regression SLOPE 60 mois (le libelle "Finviz/Bloomberg" est une coquille)
 //   ERP  = Damodaran mature 4,23 % + CRP France 0,55 % = 4,78 % (CRP deja inclus)
@@ -34,7 +34,7 @@ import type { AnalyseCard } from '@/types/analyses'
 //   2025 (RNRpg 4,9 Md€), mesure propre publiee par Engie. Le BPA publie 1,51 € est
 //   distordu (impairments, MtM, non-recurrents). Accord Pierre (Regle des chiffres).
 //
-// DETTE : nette IFRS 40,5 Md€ (Excel) ; nette ECONOMIQUE 45,2 Md€ (Engie, integre 50 %
+// DETTE : nette IFRS 40,5 Md€ ; nette ECONOMIQUE 45,2 Md€ (Engie, integre 50 %
 //   des hybrides perpetuels + financement nucleaire) -> retenue pour EV/SOTP. 3,1x EBITDA.
 //
 // NUCLEAIRE BELGE : accord 2023 avec l'Etat ; contribution plafonnee a 8,4 Md€, dechets
@@ -83,7 +83,7 @@ export const engie: AnalyseCard = {
 
   // ── Metriques snapshot - cloture FY2025 (22,41 € / 31/12/2025) ──
   metrics: {
-    per:               11.53,  // Capi 54 748 M€ / RN 4 748 M€ (Excel). Sur BPA recurrent : ~11,2x
+    per:               11.53,  // Capi 54 748 M€ / RN 4 748 M€. Sur BPA recurrent : ~11,2x
     evEbitda:           6.90,  // EV 95 206 M€ / EBITDA 13 807 M€ (FY-end)
     fcfYield:          -8.98,  // FCF -8 547 / EV - DISTORDU par BFR GEMS ; normalise ~ +4 a 5 %
     roic:               7.66,  // NOPAT 6 231 / IC 81 288 - Cash Adjusted
@@ -172,7 +172,7 @@ export const engie: AnalyseCard = {
       ],
     },
 
-    // operating = EBIT (Excel) / CA. 2022 : creux de marge (choc energetique, MtM negatif).
+    // operating = EBIT / CA. 2022 : creux de marge (choc energetique, MtM negatif).
     marges: [
       { year: 2021, gross: 32.84, operating: 11.62, net:  6.35 },
       { year: 2022, gross: 20.59, operating:  1.20, net: -1.91 },
@@ -207,7 +207,7 @@ export const engie: AnalyseCard = {
       { year: 2025, value: -8.547 },
     ],
 
-    // Radars 8 branches, source onglet "Comparaison sectorielle" (API Yahoo, base TTM
+    // Radars 8 branches, source API Yahoo (base TTM
     // homogene). Pairs retenus : Iberdrola, Enel, E.ON (RWE et Orsted ecartes : aberrants
     // / PER N/M). Cellules Engie distordues par l'annee BFR (P/FCF N/M, FCF Yield -12,8 %)
     // remplacees par des valeurs normalisees La These ; signale en NoteAnalyse du MDX.
