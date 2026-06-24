@@ -77,7 +77,7 @@ export const schneiderElectric: AnalyseCard = {
   readingTime:    40,
   logo:           '/analyse/schneider.png',
   onePager: {
-    thesis:    "L'arsenal électrique de l'IA et de l'électrification. ROIC 13,6 %, marge 18,7 %, datacenter en moteur. Qualité réelle, prime assumée.",
+    thesis:    "L'arsenal électrique de l'IA et de l'électrification. ROIC 13,6 %, marge EBITA 18,7 %, datacenter en moteur. Qualité réelle, prime assumée.",
     cours:     281.2,
     coursDate: '2026-06-24',
     devise:    'EUR',
