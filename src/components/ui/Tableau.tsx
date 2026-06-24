@@ -2707,6 +2707,216 @@ const TABLEAUX: Record<string, TableauData> = {
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
+  // SCHNEIDER ELECTRIC - 7 blocs (DCF parametres / scenarios / synthese + PER trois
+  // scenarios + zones bear/central/bull). Base PER = Adjusted EPS publie 8,59 €.
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  'schneider-electric-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      {
+        parametre: 'Free cash-flow de base (2025)',
+        valeur:    '4 635 M€',
+        source:    'OCF 6 131 - capex industriel 1 496. Conversion proche de 100 % du résultat net',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'WACC',
+        valeur:    '8,83 %',
+        source:    'CAPM, bêta 1,439 (régression 60 mois vs CAC 40 GR). Rf Bund 2,86 %, ERP France 4,78 %',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Croissance perpétuelle',
+        valeur:    '2,5 %',
+        source:    'Croissance nominale long terme prudente',
+      },
+      {
+        parametre: 'Horizon de projection',
+        valeur:    '5 ans',
+        source:    '2026 - 2030',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '570,5 M',
+        source:    'FY2025. Dilution annuelle minime (environ +0,3 %/an)',
+      },
+      {
+        parametre: 'Dette nette déduite',
+        valeur:    '13 246 M€',
+        source:    'FY2025. Hausse 2025 liée au rachat des minoritaires indiens (~5,5 Md€)',
+      },
+      {
+        parametre: 'Part valeur terminale / EV',
+        valeur:    'environ 76 %',
+        source:    'Bêta 1,44 et WACC 8,83 % : DCF exploitable (pas de neutralisation faible-bêta)',
+      },
+    ],
+  },
+
+  'schneider-electric-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario',  label: 'Scénario',                 primary: true },
+      { key: 'croiss',    label: 'Croissance FCF / an'                      },
+      { key: 'cours',     label: 'Cours DCF (€)'                            },
+      { key: 'vt',        label: 'Part VT / EV'                             },
+    ],
+    lignes: [
+      {
+        scenario: 'Conservateur',
+        croiss:   '+6 %',
+        cours:    '130 €',
+        vt:       '75 %',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        scenario: 'Central',
+        croiss:   '+9 %',
+        cours:    '150 €',
+        vt:       '76 %',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        scenario: 'Optimiste',
+        croiss:   '+12 %',
+        cours:    '173 €',
+        vt:       '77 %',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'schneider-electric-dcf-synthese': {
+    colonnes: [
+      { key: 'lecture',     label: 'Lecture',     primary: true },
+      { key: 'valeur',      label: 'Valeur'                      },
+      { key: 'commentaire', label: 'Commentaire'                 },
+    ],
+    lignes: [
+      {
+        lecture:     'DCF central (croissance perpétuelle 2,5 %)',
+        valeur:      'environ 150 €',
+        commentaire: "Plancher de prudence : la croissance terminale bornée tronque la rente séculaire de l'électrification",
+        _headerBg:   '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        lecture:     'Zone juste PER centrale (r=10 %)',
+        valeur:      'environ 240 €',
+        commentaire: 'Méthode dominante : capte le multiple que le marché paie pour la croissance ajustée',
+        _headerBg:   '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        lecture:     'Cours actuel (281 €)',
+        valeur:      'Prime / payé pour la perfection',
+        commentaire: 'Au-dessus des deux. Rendement implicite environ 6,6 %/an sur le scénario central',
+        _headerBg:   '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  'schneider-electric-per-trois-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'bear',      label: 'Conservateur'              },
+      { key: 'central',   label: 'Central'                   },
+      { key: 'bull',      label: 'Optimiste'                 },
+    ],
+    lignes: [
+      {
+        parametre: 'Croissance BPA ajusté / an',
+        bear:      '+7 %',
+        central:   '+10 %',
+        bull:      '+13 %',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'BPA ajusté projeté 2030',
+        bear:      '12,05 €',
+        central:   '13,83 €',
+        bull:      '15,83 €',
+      },
+      {
+        parametre: 'PER central retenu',
+        bear:      '24x',
+        central:   '28x',
+        bull:      '32x',
+      },
+      {
+        parametre: 'Prix cible (5 ans)',
+        bear:      '289 €',
+        central:   '387 €',
+        bull:      '506 €',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Fourchette (MoE 21,6 %)',
+        bear:      '226 - 352 €',
+        central:   '304 - 471 €',
+        bull:      '397 - 615 €',
+      },
+      {
+        parametre: 'Zone juste centrale (r=10 %)',
+        bear:      '180 €',
+        central:   '240 €',
+        bull:      '315 €',
+      },
+      {
+        parametre: 'Cours 24/06 (281 €)',
+        bear:      'au-dessus',
+        central:   'au-dessus (+17 %)',
+        bull:      'proche / sous',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  'schneider-electric-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'rendement', label: 'Rendement exigé', primary: true },
+      { key: 'zonejuste', label: 'Zone juste (€)'                  },
+      { key: 'vscours',   label: 'vs cours 281 €'                  },
+    ],
+    lignes: [
+      { rendement: 'r = 8 %',  zonejuste: '197 €', vscours: '-30 %', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { rendement: 'r = 10 %', zonejuste: '180 €', vscours: '-36 %' },
+      { rendement: 'r = 12 %', zonejuste: '164 €', vscours: '-42 %' },
+    ],
+  },
+
+  'schneider-electric-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'rendement', label: 'Rendement exigé', primary: true },
+      { key: 'zonejuste', label: 'Zone juste (€)'                  },
+      { key: 'vscours',   label: 'vs cours 281 €'                  },
+    ],
+    lignes: [
+      { rendement: 'r = 8 %',  zonejuste: '264 €', vscours: '-6 %',  _headerBg: '#C9A84C', _headerText: '#1B4332' },
+      { rendement: 'r = 10 %', zonejuste: '240 €', vscours: '-15 %' },
+      { rendement: 'r = 12 %', zonejuste: '220 €', vscours: '-22 %' },
+    ],
+  },
+
+  'schneider-electric-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'rendement', label: 'Rendement exigé', primary: true },
+      { key: 'zonejuste', label: 'Zone juste (€)'                  },
+      { key: 'vscours',   label: 'vs cours 281 €'                  },
+    ],
+    lignes: [
+      { rendement: 'r = 8 %',  zonejuste: '345 €', vscours: '+23 %', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { rendement: 'r = 10 %', zonejuste: '315 €', vscours: '+12 %' },
+      { rendement: 'r = 12 %', zonejuste: '287 €', vscours: '+2 %'  },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────────
 // ALPHABET — 7 blocs à insérer dans le Record TABLEAUX de src/components/ui/Tableau.tsx
 // Insérer avant la dernière accolade fermante } du Record TABLEAUX
 // ─────────────────────────────────────────────────────────────────────────────

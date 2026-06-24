@@ -42,6 +42,7 @@ const MDX: Record<string, React.ComponentType<any>> = {
 
   // Ponctuelles
   'engie':                dynamic(() => import('@/content/analyses/ponctuelles/engie.mdx')),
+  'schneider-electric':   dynamic(() => import('@/content/analyses/ponctuelles/schneider-electric.mdx')),
   'walmart':              dynamic(() => import('@/content/analyses/ponctuelles/walmart.mdx')),
   'coca':                 dynamic(() => import('@/content/analyses/ponctuelles/coca.mdx')),
   'nestle':               dynamic(() => import('@/content/analyses/ponctuelles/nestle.mdx')),
