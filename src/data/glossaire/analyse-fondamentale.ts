@@ -52,6 +52,29 @@ export const analyseFondamentale: GlossaireTerm[] = [
     ],
   },
   {
+    slug: "rab",
+    label: "RAB - Base d'actifs régulés",
+    category: 'Analyse fondamentale',
+    theme: 'energie',
+    shortDef: "La valeur des actifs d'un réseau régulé (électricité, gaz) sur laquelle le régulateur autorise l'opérateur à percevoir chaque année une rémunération garantie.",
+    definition: `La RAB (Regulated Asset Base, ou base d'actifs régulés) est la valeur comptable des infrastructures d'un opérateur de réseau régulé : canalisations de gaz, lignes électriques, terminaux de regazéification, stockages. C'est l'assiette sur laquelle le régulateur (en France, la Commission de régulation de l'énergie) autorise l'opérateur à percevoir une rémunération annuelle, calculée en appliquant un taux de rendement réglementé à la RAB.\n\nLe mécanisme transforme un réseau en quasi-rente : l'opérateur récupère ses coûts d'exploitation, l'amortissement de ses actifs, et un rendement sur le capital investi, le tout fixé d'avance par le régulateur sur des périodes pluriannuelles. La RAB est généralement indexée sur l'inflation, et tout nouvel investissement validé par le régulateur vient l'augmenter, donc augmente mécaniquement les revenus futurs. Le risque volume est faible (la demande de transport et de distribution d'énergie est inélastique), le risque prix est porté par le régulateur.\n\nC'est pourquoi les réseaux régulés se valorisent souvent à un multiple de leur RAB (de l'ordre de 1,0 à 1,5x selon la qualité du cadre réglementaire) plutôt qu'au seul multiple de résultat : la RAB est le socle de valeur le plus prévisible d'une utility. Chez Engie, les réseaux français (distribution de gaz GRDF, transport NaTran, terminaux Elengy, stockages Storengy) représentaient une RAB d'environ 32 milliards d'euros début 2025, rémunérée entre 4 % et plus de 7 % selon l'ancienneté des actifs.`,
+    related: ['ppa', 'wacc', 'dette-nette', 'free-cash-flow'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+  {
+    slug: "equity-credit",
+    label: "Equity credit (obligations hybrides)",
+    category: 'Analyse fondamentale',
+    shortDef: "La part d'une obligation hybride que les agences de notation traitent comme des fonds propres plutôt que comme de la dette, en général 50 %.",
+    definition: `Les obligations hybrides perpétuelles (en France, ODIRNANE) sont des titres de dette sans échéance fixe, dont l'émetteur peut différer les coupons : elles se situent à mi-chemin entre la dette et les fonds propres. Au sens des normes comptables IFRS, elles sont souvent classées en capitaux propres, ce qui peut rendre la dette nette publiée trompeuse.\n\nPour juger du levier réel, les agences de notation (Moody's, S&P) appliquent un equity credit : elles considèrent qu'une fraction de l'hybride, en général 50 %, joue le rôle de fonds propres (elle absorbe les pertes, ne force pas de remboursement), et que l'autre moitié reste de la dette économique. Cette convention sert à calculer une dette nette économique plus prudente que la dette nette IFRS.\n\nUn gros émetteur d'hybrides comme Engie présente ainsi deux niveaux d'endettement : une dette nette IFRS (qui exclut la part hybride logée en capitaux propres) et une dette nette économique plus élevée (qui réintègre 50 % des hybrides et les engagements de type dette comme le financement du démantèlement nucléaire). Pour un calcul de valeur d'entreprise ou un DCF, c'est la dette nette économique qu'il faut déduire.`,
+    related: ['odirnane', 'dette-nette', 'dette-ebitda', 'wacc'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+  {
     slug: "chiffre-affaires",
     label: "Chiffre d'affaires (CA)",
     category: 'Analyse fondamentale',

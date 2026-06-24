@@ -53,6 +53,7 @@ import { krikri   } from './krikri'
 import { mama     } from './mama'
 import { lly      } from './lly'
 import { uber     } from './uber'
+import { engie    } from './engie'
 import { sondage  } from './sondage'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -87,6 +88,7 @@ export const ANALYSES: AnalyseCard[] = [
 
 
   // Analyses ponctuelles
+  engie,
   WALMART,
   COCA,
   NESTLE,

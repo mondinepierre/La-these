@@ -2433,6 +2433,280 @@ const TABLEAUX: Record<string, TableauData> = {
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
+  // ENGIE - DCF neutralise (faible beta + FCF distordu) + SOTP + Calculateur PER
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  // -- 1. DCF - Parametres (sur FCF normalise hors appels de marge GEMS) --
+  'engie-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      {
+        parametre: 'Cash-flow libre normalisé (base)',
+        valeur:    'environ 5 000 M€',
+        source:    'OCF normalisé hors appels de marge GEMS (environ 12,5 Md€) - capex récurrent. Le FCF publié 2025 (-8 547 M€) est inexploitable',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'WACC',
+        valeur:    '4,60 %',
+        source:    'CAPM, bêta 0,759 (régression 60 mois). Rf Bund 2,86 %, ERP 4,78 %, Rd ap. IS 2,72 %',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Croissance perpétuelle',
+        valeur:    '2,0 %',
+        source:    'Croissance nominale long terme (cible inflation BCE)',
+      },
+      {
+        parametre: 'Horizon de projection',
+        valeur:    '5 ans',
+        source:    '2026 - 2030',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '2 443 M',
+        source:    'FY2025. Une augmentation de capital (ABB) pour UKPN diluera 2026',
+      },
+      {
+        parametre: 'Dette nette économique déduite',
+        valeur:    '45 200 M€',
+        source:    'Convention Engie : intègre 50 % des hybrides perpétuels + financement nucléaire (vs 40,5 Md€ IFRS)',
+      },
+      {
+        parametre: 'Part valeur terminale / EV',
+        valeur:    'environ 87 %',
+        source:    'À WACC 4,60 %, le modèle est piloté par la valeur terminale, donc par le taux',
+      },
+    ],
+  },
+
+  // -- 2. DCF - Sensibilite au WACC (DCF neutralise par le faible beta) --
+  'engie-dcf-scenarios': {
+    colonnes: [
+      { key: 'wacc',  label: 'WACC retenu',                 primary: true },
+      { key: 'note',  label: 'Lecture'                                     },
+      { key: 'vt',    label: 'Part VT / EV'                                 },
+      { key: 'cours', label: 'Cours implicite (FCF +2 %/an)'               },
+    ],
+    lignes: [
+      {
+        wacc:  '4,60 %',
+        note:  'WACC comptable (bêta 0,76)',
+        vt:    '87 %',
+        cours: 'environ 60 €',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        wacc:  '5,5 %',
+        note:  'Bêta normalisé vers 0,9',
+        vt:    '84 %',
+        cours: 'environ 40 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        wacc:  '6,5 %',
+        note:  'Prime de risque utility complexe (cours = DCF)',
+        vt:    '80 %',
+        cours: 'environ 27 €',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        wacc:  '7,0 %',
+        note:  'Risque cyclique + dilution',
+        vt:    '78 %',
+        cours: 'environ 22 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // -- 3. DCF - Synthese --
+  'engie-dcf-synthese': {
+    colonnes: [
+      { key: 'lecture',     label: 'Lecture',     primary: true },
+      { key: 'valeur',      label: 'Valeur'                      },
+      { key: 'commentaire', label: 'Commentaire'                 },
+    ],
+    lignes: [
+      {
+        lecture:     'DCF au WACC comptable (4,60 %)',
+        valeur:      'environ 60 €',
+        commentaire: "Inexploitable : VT 87 % de l'EV, gonflée par le bêta 0,76 et un FCF de base incertain",
+        _headerBg:   '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        lecture:     "Taux d'actualisation implicite du marché",
+        valeur:      'environ 6,5 %',
+        commentaire: 'Le cours (26,96 €) = DCF à ~6,5 %, soit +1,9 pt sur le WACC comptable',
+        _headerBg:   '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        lecture:     'Conclusion',
+        valeur:      'DCF neutralisé',
+        commentaire: 'Le marché price une utility de risque normal. Valorisation pilotée au PER et à la somme des parties.',
+        _headerBg:   '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // -- 4. Somme des parties (SOTP) - multiples d'EBITDA FY2025 par pole --
+  'engie-sotp': {
+    colonnes: [
+      { key: 'pole',     label: 'Pôle',                primary: true },
+      { key: 'ebitda',   label: 'EBITDA 2025 (M€)'                    },
+      { key: 'multiple', label: 'Multiple EV/EBITDA'                  },
+      { key: 'ev',       label: 'EV (Md€)'                            },
+    ],
+    lignes: [
+      {
+        pole:     'Réseaux régulés',
+        ebitda:   '4 975',
+        multiple: '11x',
+        ev:       '54,7',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      { pole: 'Renouvelables & BESS',                ebitda: '3 524', multiple: '9x', ev: '31,7' },
+      { pole: 'Supply & Energy Management (GEMS)',   ebitda: '2 824', multiple: '5x', ev: '14,1' },
+      { pole: 'Infrastructures énergétiques locales', ebitda: '939',  multiple: '9x', ev: '8,5'  },
+      { pole: 'Gas Generation (flexibilité)',        ebitda: '1 438', multiple: '5x', ev: '7,2'  },
+      { pole: 'Nucléaire belge (vie finie 2035)',    ebitda: '1 318', multiple: '3x', ev: '4,0'  },
+      { pole: 'Corporate / Autres',                  ebitda: '-286',  multiple: '5x', ev: '-1,4' },
+      {
+        pole:     "Valeur d'entreprise (EV)",
+        ebitda:   '',
+        multiple: '',
+        ev:       'environ 119',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      { pole: 'moins dette nette économique',  ebitda: '', multiple: '', ev: '-45,2' },
+      { pole: 'moins minoritaires (au marché)', ebitda: '', multiple: '', ev: 'environ -11' },
+      {
+        pole:     'Capitaux propres (part du Groupe)',
+        ebitda:   '',
+        multiple: '',
+        ev:       'environ 63',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        pole:     'Par action (2 443 M actions)',
+        ebitda:   '',
+        multiple: '',
+        ev:       'environ 26 €',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // -- 5. Calculateur PER - Synthese des trois scenarios (BPA recurrent) --
+  'engie-per-trois-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'bear',      label: 'Conservateur'              },
+      { key: 'central',   label: 'Central'                   },
+      { key: 'bull',      label: 'Optimiste'                 },
+    ],
+    lignes: [
+      {
+        parametre: 'Croissance BPA récurrent / an',
+        bear:      '+1 %',
+        central:   '+3 %',
+        bull:      '+5 %',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'BPA récurrent projeté 2030',
+        bear:      '2,05 €',
+        central:   '2,26 €',
+        bull:      '2,49 €',
+      },
+      {
+        parametre: 'PER central retenu',
+        bear:      '13,5x',
+        central:   '13,5x',
+        bull:      '13,5x',
+      },
+      {
+        parametre: 'Prix cible (5 ans)',
+        bear:      '27,7 €',
+        central:   '30,5 €',
+        bull:      '33,6 €',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Fourchette (MoE 11,4 %)',
+        bear:      '24,5 - 30,9 €',
+        central:   '27,0 - 34,0 €',
+        bull:      '29,8 - 37,4 €',
+      },
+      {
+        parametre: 'Zone juste (hurdle Re, dividende en bonus)',
+        bear:      '20,2 €',
+        central:   '22,3 €',
+        bull:      '24,5 €',
+      },
+      {
+        parametre: 'Cours 23/06 (26,96 €)',
+        bear:      'au-dessus',
+        central:   'au-dessus',
+        bull:      'proche du haut',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // -- 6. Zone juste - Scenario conservateur --
+  'engie-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste (€)'                   },
+      { key: 'fourchette', label: "Fourchette d'entrée (€)"          },
+    ],
+    lignes: [
+      { signal: 'Surveillance',         mos: '0 - 5 %',   zonejuste: '20,2 €', fourchette: '19 - 20 €', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { signal: 'Premier renforcement', mos: '10 - 15 %', zonejuste: '20,2 €', fourchette: '17 - 18 €' },
+      { signal: 'Achat fort',           mos: '25 - 30 %', zonejuste: '20,2 €', fourchette: '14 - 15 €' },
+    ],
+  },
+
+  // -- 7. Zone juste - Scenario central --
+  'engie-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste (€)'                   },
+      { key: 'fourchette', label: "Fourchette d'entrée (€)"          },
+    ],
+    lignes: [
+      { signal: 'Surveillance',         mos: '0 - 5 %',   zonejuste: '22,3 €', fourchette: '21 - 22 €', _headerBg: '#C9A84C', _headerText: '#1B4332' },
+      { signal: 'Premier renforcement', mos: '8 - 12 %',  zonejuste: '22,3 €', fourchette: '20 €' },
+      { signal: 'Achat fort',           mos: '25 %',      zonejuste: '22,3 €', fourchette: '16 - 17 €' },
+    ],
+  },
+
+  // -- 8. Zone juste - Scenario optimiste --
+  'engie-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste (€)'                   },
+      { key: 'fourchette', label: "Fourchette d'entrée (€)"          },
+    ],
+    lignes: [
+      { signal: 'Surveillance',         mos: '0 - 5 %',   zonejuste: '24,5 €', fourchette: '23 - 25 €', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { signal: 'Premier renforcement', mos: '12 - 15 %', zonejuste: '24,5 €', fourchette: '21 - 22 €' },
+      { signal: 'Achat fort',           mos: '25 - 30 %', zonejuste: '24,5 €', fourchette: '17 - 18 €' },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────────
 // ALPHABET — 7 blocs à insérer dans le Record TABLEAUX de src/components/ui/Tableau.tsx
 // Insérer avant la dernière accolade fermante } du Record TABLEAUX
 // ─────────────────────────────────────────────────────────────────────────────
