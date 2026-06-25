@@ -50,6 +50,7 @@ const REGION_TO_CODES: Record<string, string[]> = {
   'Australie':        ['036'],
   'Russie':           ['643'],
   'Brésil':           ['076'],
+  'Espagne':          ['724'],
   'US':               ['840'],
   'USA':              ['840'],
   'Pays-Bas':         ['528'],

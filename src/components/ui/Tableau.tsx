@@ -2707,6 +2707,278 @@ const TABLEAUX: Record<string, TableauData> = {
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
+  // IBERDROLA - 8 blocs (DCF parametres / sensibilite WACC / synthese + SOTP + PER
+  // trois scenarios + zones bear/central/bull). Base PER = BPA dilue publie 0,843 €.
+  // DCF neutralise (faible beta + FCF distordu) -> presente en sensibilite au WACC.
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  'iberdrola-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      {
+        parametre: 'Cash-flow libre normalisé (base)',
+        valeur:    'environ 6 000 M€',
+        source:    "OCF 11 635 - capex de maintenance (environ 5 600, soit ~D&A). Le FCF publié 2025 (1 677 M€) est écrasé par le capex de croissance RAB (utility de croissance)",
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'WACC',
+        valeur:    '5,74 %',
+        source:    'CAPM, bêta 0,682 (régression 61 mois). Rf 2,86 %, ERP 5,53 % (Damodaran mature + CRP Espagne 1,30 %), Rd ap. IS 3,54 %',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Croissance perpétuelle',
+        valeur:    '2,5 %',
+        source:    'Croissance nominale long terme de la base régulée + renouvelables',
+      },
+      {
+        parametre: 'Horizon de projection',
+        valeur:    '5 ans',
+        source:    '2026 - 2030',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '6 747 M',
+        source:    'FY2025. Le dividende-action (scrip) dilue ~+4,5 %/an, partiellement racheté',
+      },
+      {
+        parametre: 'Dette nette économique déduite',
+        valeur:    '55 500 M€',
+        source:    "Convention : dette financière nette 50 200 + 50 % des hybrides perpétuels (equity credit) + leases (vs 50,2 Md€ IFRS communiqué)",
+      },
+      {
+        parametre: 'Part valeur terminale / EV',
+        valeur:    'plus de 85 %',
+        source:    'À WACC 5,74 % et g 2,5 %, le modèle est piloté par la valeur terminale, donc par le taux : DCF neutralisé',
+      },
+    ],
+  },
+
+  // -- 2. DCF - Sensibilite au WACC (DCF neutralise par le faible beta + FCF distordu) --
+  'iberdrola-dcf-scenarios': {
+    colonnes: [
+      { key: 'wacc',  label: 'WACC retenu',                 primary: true },
+      { key: 'note',  label: 'Lecture'                                     },
+      { key: 'vt',    label: 'Part VT / EV'                                 },
+      { key: 'cours', label: 'Cours implicite (FCF norm. +2,5 %/an)'       },
+    ],
+    lignes: [
+      {
+        wacc:  '5,74 %',
+        note:  'WACC comptable (bêta 0,68)',
+        vt:    '88 %',
+        cours: 'environ 20 €',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        wacc:  '6,5 %',
+        note:  'Prime de risque utility / exécution capex',
+        vt:    '84 %',
+        cours: 'environ 15 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        wacc:  '7,0 %',
+        note:  'Normalisation des taux',
+        vt:    '82 %',
+        cours: 'environ 12 €',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        wacc:  '7,5 %',
+        note:  'Bêta normalisé vers 0,9 + risque réglementaire',
+        vt:    '80 %',
+        cours: 'environ 10 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // -- 3. DCF - Synthese --
+  'iberdrola-dcf-synthese': {
+    colonnes: [
+      { key: 'lecture',     label: 'Lecture',     primary: true },
+      { key: 'valeur',      label: 'Valeur'                      },
+      { key: 'commentaire', label: 'Commentaire'                 },
+    ],
+    lignes: [
+      {
+        lecture:     'DCF au WACC comptable (5,74 %)',
+        valeur:      'environ 20 €',
+        commentaire: "Inexploitable : VT plus de 85 % de l'EV, gonflée par le bêta 0,68 et un FCF de base difficile à normaliser (utility de croissance)",
+        _headerBg:   '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        lecture:     "Taux d'actualisation implicite du marché",
+        valeur:      'environ 5,7 %',
+        commentaire: 'Le cours (21,6 €) = DCF au WACC comptable : le marché price un risque régulé minimal (A-rated), sans prime',
+        _headerBg:   '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        lecture:     'Conclusion',
+        valeur:      'DCF neutralisé',
+        commentaire: 'Le moindre point de WACC efface 25 % de la valeur. Valorisation pilotée au PER et à la somme des parties.',
+        _headerBg:   '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  // -- 4. Somme des parties (SOTP) - multiples d'EBITDA FY2025 par pole --
+  'iberdrola-sotp': {
+    colonnes: [
+      { key: 'pole',     label: 'Pôle',                primary: true },
+      { key: 'ebitda',   label: 'EBITDA 2025 (M€)'                    },
+      { key: 'multiple', label: 'Multiple EV/EBITDA'                  },
+      { key: 'ev',       label: 'EV (Md€)'                            },
+    ],
+    lignes: [
+      {
+        pole:     'Réseaux régulés (RAB 51 Md€)',
+        ebitda:   '7 900',
+        multiple: '12x',
+        ev:       '94,8',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      { pole: 'Renouvelables',                       ebitda: '4 950', multiple: '10x', ev: '49,5' },
+      { pole: 'Production et commercialisation',     ebitda: '2 920', multiple: '7x',  ev: '20,4' },
+      { pole: 'Corporate / ajustements',             ebitda: '-86',   multiple: '5x',  ev: '-0,5' },
+      {
+        pole:     "Valeur d'entreprise (EV)",
+        ebitda:   '',
+        multiple: '',
+        ev:       'environ 164',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      { pole: 'moins dette nette économique',  ebitda: '', multiple: '', ev: '-55,5' },
+      { pole: 'moins minoritaires (au marché)', ebitda: '', multiple: '', ev: 'environ -14' },
+      {
+        pole:     'Capitaux propres (part du Groupe)',
+        ebitda:   '',
+        multiple: '',
+        ev:       'environ 95',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        pole:     'Par action (6 747 M actions)',
+        ebitda:   '',
+        multiple: '',
+        ev:       'environ 14 €',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  // -- 5. Calculateur PER - Synthese des trois scenarios (BPA dilue publie) --
+  'iberdrola-per-trois-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'bear',      label: 'Conservateur'              },
+      { key: 'central',   label: 'Central'                   },
+      { key: 'bull',      label: 'Optimiste'                 },
+    ],
+    lignes: [
+      {
+        parametre: 'Croissance BPA / an',
+        bear:      '+4 %',
+        central:   '+7 %',
+        bull:      '+9 %',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'BPA projeté 2030',
+        bear:      '1,03 €',
+        central:   '1,18 €',
+        bull:      '1,30 €',
+      },
+      {
+        parametre: 'PER central retenu',
+        bear:      '16,3x',
+        central:   '16,3x',
+        bull:      '16,3x',
+      },
+      {
+        parametre: 'Prix cible (5 ans)',
+        bear:      '16,7 €',
+        central:   '19,3 €',
+        bull:      '21,2 €',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Fourchette (MoE 10,2 %)',
+        bear:      '15,0 - 18,4 €',
+        central:   '17,3 - 21,3 €',
+        bull:      '19,0 - 23,3 €',
+      },
+      {
+        parametre: 'Zone juste (hurdle Re, dividende en bonus)',
+        bear:      '12,1 €',
+        central:   '14,0 €',
+        bull:      '15,4 €',
+      },
+      {
+        parametre: 'Cours juin 2026 (21,6 €)',
+        bear:      'très au-dessus',
+        central:   'au-dessus de la cible',
+        bull:      'au niveau de la cible',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  // -- 6. Zone juste - Scenario conservateur --
+  'iberdrola-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste (€)'                   },
+      { key: 'fourchette', label: "Fourchette d'entrée (€)"          },
+    ],
+    lignes: [
+      { signal: 'Surveillance',         mos: '0 - 5 %',   zonejuste: '12,1 €', fourchette: '11 - 12 €', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { signal: 'Premier renforcement', mos: '10 - 15 %', zonejuste: '12,1 €', fourchette: '10 - 11 €' },
+      { signal: 'Achat fort',           mos: '20 - 25 %', zonejuste: '12,1 €', fourchette: '9 - 10 €' },
+    ],
+  },
+
+  // -- 7. Zone juste - Scenario central --
+  'iberdrola-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste (€)'                   },
+      { key: 'fourchette', label: "Fourchette d'entrée (€)"          },
+    ],
+    lignes: [
+      { signal: 'Surveillance',         mos: '0 - 5 %',   zonejuste: '14,0 €', fourchette: '13 - 14 €', _headerBg: '#C9A84C', _headerText: '#1B4332' },
+      { signal: 'Premier renforcement', mos: '8 - 12 %',  zonejuste: '14,0 €', fourchette: '12 - 13 €' },
+      { signal: 'Achat fort',           mos: '20 - 25 %', zonejuste: '14,0 €', fourchette: '11 €' },
+    ],
+  },
+
+  // -- 8. Zone juste - Scenario optimiste --
+  'iberdrola-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste (€)'                   },
+      { key: 'fourchette', label: "Fourchette d'entrée (€)"          },
+    ],
+    lignes: [
+      { signal: 'Surveillance',         mos: '0 - 5 %',   zonejuste: '15,4 €', fourchette: '15 - 16 €', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { signal: 'Premier renforcement', mos: '10 - 15 %', zonejuste: '15,4 €', fourchette: '13 - 14 €' },
+      { signal: 'Achat fort',           mos: '20 - 25 %', zonejuste: '15,4 €', fourchette: '12 €' },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────────
   // SCHNEIDER ELECTRIC - 7 blocs (DCF parametres / scenarios / synthese + PER trois
   // scenarios + zones bear/central/bull). Base PER = Adjusted EPS publie 8,59 €.
   // ─────────────────────────────────────────────────────────────────────────────

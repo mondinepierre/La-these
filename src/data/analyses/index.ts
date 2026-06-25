@@ -54,6 +54,7 @@ import { mama     } from './mama'
 import { lly      } from './lly'
 import { uber     } from './uber'
 import { engie    } from './engie'
+import { iberdrola } from './iberdrola'
 import { schneiderElectric } from './schneider-electric'
 import { sondage  } from './sondage'
 
@@ -89,6 +90,7 @@ export const ANALYSES: AnalyseCard[] = [
 
 
   // Analyses ponctuelles
+  iberdrola,
   schneiderElectric,
   engie,
   WALMART,
