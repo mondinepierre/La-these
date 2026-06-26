@@ -2979,6 +2979,265 @@ const TABLEAUX: Record<string, TableauData> = {
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
+  // SIEMENS ENERGY - 8 blocs (DCF parametres / scenarios / synthese + SOTP + PER trois
+  // scenarios + zones bear/central/bull). Turnaround : PER FORWARD (BPA normalise FY2030)
+  // dominant, DCF exploitable (beta 1,77) en complement, SOTP au coeur de l'angle.
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  'siemens-energy-dcf-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      {
+        parametre: 'Cash-flow libre normalisé (base)',
+        valeur:    'environ 4 000 M€',
+        source:    "FCF FY2025 publié 4 157 M€ NORMALISÉ : il est dopé par les avances clients sur le carnet record (passifs de contrats +3,5 Md€). Le FCF pre-tax guidé FY2026 (~8 Md€) n'est pas un régime de croisière",
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'WACC',
+        valeur:    '9,92 %',
+        source:    'CAPM, bêta 1,767 (régression 60 mois vs DAX). Rf 2,86 % (Bund), ERP 4,23 % (Damodaran mature, CRP Allemagne 0 %), E/V 95 % (quasi pas de dette nette)',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Croissance perpétuelle',
+        valeur:    '2,5 %',
+        source:    'Croissance nominale long terme du marché électrique',
+      },
+      {
+        parametre: 'Horizon de projection',
+        valeur:    '5 ans',
+        source:    'FY2026 - FY2030',
+      },
+      {
+        parametre: 'Actions diluées',
+        valeur:    '883 M',
+        source:    'FY2025. Stable depuis la fin des augmentations de capital de sauvetage',
+      },
+      {
+        parametre: 'Trésorerie nette ajoutée',
+        valeur:    '+4 013 M€',
+        source:    'Cash 9 162 - dette totale 5 149. Net cash : l\'EV est INFÉRIEURE à la capitalisation',
+      },
+      {
+        parametre: 'Part valeur terminale / EV',
+        valeur:    'environ 73 %',
+        source:    "Bêta ÉLEVÉ (1,77) -> WACC 9,9 % qui borne la VT : le DCF est EXPLOITABLE (≠ famille faible-bêta), mais le FCF de base est incertain",
+      },
+    ],
+  },
+
+  'siemens-energy-dcf-scenarios': {
+    colonnes: [
+      { key: 'scenario', label: 'Scénario',                  primary: true },
+      { key: 'cagr',     label: 'CAGR FCF (5 ans)'                          },
+      { key: 'vt',       label: 'Part VT / EV'                              },
+      { key: 'cours',    label: 'Valeur par action'                         },
+    ],
+    lignes: [
+      {
+        scenario: 'Conservateur',
+        cagr:     '+6 %/an',
+        vt:       '72 %',
+        cours:    'environ 77 €',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        scenario: 'Central',
+        cagr:     '+9 %/an',
+        vt:       '73 %',
+        cours:    'environ 87 €',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        scenario: 'Optimiste',
+        cagr:     '+12 %/an',
+        vt:       '74 %',
+        cours:    'environ 98 €',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'siemens-energy-dcf-synthese': {
+    colonnes: [
+      { key: 'lecture',     label: 'Lecture',     primary: true },
+      { key: 'valeur',      label: 'Valeur'                      },
+      { key: 'commentaire', label: 'Commentaire'                 },
+    ],
+    lignes: [
+      {
+        lecture:     'DCF central (WACC 9,92 %, FCF normalisé)',
+        valeur:      'environ 87 €',
+        commentaire: "Exploitable (VT 73 % de l'EV, pas de piège faible-bêta), mais le FCF de base est incertain (gonflé par les avances clients)",
+        _headerBg:   '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        lecture:     "Taux d'actualisation implicite du marché",
+        valeur:      'sous 9,9 %',
+        commentaire: 'Le cours (163 €) suppose un FCF normalisé bien supérieur à 4 Md€ OU une croissance pérenne très au-dessus de 2,5 % : le marché price la montée en marge de 2028',
+        _headerBg:   '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        lecture:     'Convergence DCF / SOTP / PER',
+        valeur:      'environ 75 - 90 €',
+        commentaire: 'Les trois méthodes pointent une valeur intrinsèque autour de 75-90 €, soit environ la MOITIÉ du cours. La prime tient à la livraison parfaite de la cible FY2028',
+        _headerBg:   '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  'siemens-energy-sotp': {
+    colonnes: [
+      { key: 'pole',     label: 'Pôle',                          primary: true },
+      { key: 'profit',   label: 'Profit av. SI 2025 (M€)'                       },
+      { key: 'multiple', label: 'Multiple'                                      },
+      { key: 'ev',       label: 'EV (Md€)'                                      },
+    ],
+    lignes: [
+      {
+        pole:     'Grid Technologies (le joyau, +25 %)',
+        profit:   '1 746',
+        multiple: '18x EBIT aj.',
+        ev:       '31,4',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      { pole: 'Gas Services',                    profit: '1 569',  multiple: '11x EBIT aj.', ev: '17,3' },
+      { pole: 'Transformation of Industry',      profit: '626',    multiple: '10x EBIT aj.', ev: '6,3'  },
+      { pole: 'Siemens Gamesa (option, déficit)', profit: '-1 359', multiple: '0,6x ventes',  ev: '6,2'  },
+      { pole: 'Corporate / central',             profit: '-227',   multiple: '10x',          ev: '-2,3' },
+      {
+        pole:     "Valeur d'entreprise (EV)",
+        profit:   '',
+        multiple: '',
+        ev:       'environ 58,9',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      { pole: 'plus trésorerie nette',           profit: '', multiple: '', ev: '+4,0'  },
+      { pole: 'moins minoritaires (au marché)',  profit: '', multiple: '', ev: 'environ -0,5' },
+      {
+        pole:     'Capitaux propres (part du Groupe)',
+        profit:   '',
+        multiple: '',
+        ev:       'environ 62,4',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        pole:     'Par action (883 M actions)',
+        profit:   '',
+        multiple: '',
+        ev:       'environ 71 €',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'siemens-energy-per-trois-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'bear',      label: 'Conservateur'              },
+      { key: 'central',   label: 'Central'                   },
+      { key: 'bull',      label: 'Optimiste'                 },
+    ],
+    lignes: [
+      {
+        parametre: 'Croissance BPA / an',
+        bear:      '+6 %',
+        central:   '+9 %',
+        bull:      '+12 %',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'BPA normalisé projeté FY2030',
+        bear:      '5,85 €',
+        central:   '7,10 €',
+        bull:      '8,35 €',
+      },
+      {
+        parametre: 'PER cible normalisé',
+        bear:      '16x',
+        central:   '18x',
+        bull:      '20x',
+      },
+      {
+        parametre: 'Prix cible (5 ans)',
+        bear:      '94 €',
+        central:   '128 €',
+        bull:      '167 €',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Fourchette (MoE 26,5 %)',
+        bear:      '69 - 119 €',
+        central:   '94 - 162 €',
+        bull:      '123 - 211 €',
+      },
+      {
+        parametre: 'Zone juste (r = 10 %, actualisée)',
+        bear:      '58 €',
+        central:   '79 €',
+        bull:      '104 €',
+      },
+      {
+        parametre: 'Cours juin 2026 (163 €)',
+        bear:      'très au-dessus',
+        central:   'au-dessus de la cible',
+        bull:      'au niveau de la cible',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  'siemens-energy-per-zone-bear': {
+    compact: true,
+    colonnes: [
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste (€)'                   },
+      { key: 'fourchette', label: "Fourchette d'entrée (€)"          },
+    ],
+    lignes: [
+      { signal: 'Surveillance',         mos: '0 - 5 %',   zonejuste: '58 €', fourchette: '56 - 58 €', _headerBg: '#1B4332', _headerText: '#F7F4EF' },
+      { signal: 'Premier intérêt',      mos: '10 - 12 %', zonejuste: '58 €', fourchette: '51 - 52 €' },
+      { signal: 'Achat fort',           mos: '17 - 20 %', zonejuste: '58 €', fourchette: '47 - 48 €' },
+    ],
+  },
+
+  'siemens-energy-per-zone-central': {
+    compact: true,
+    colonnes: [
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste (€)'                   },
+      { key: 'fourchette', label: "Fourchette d'entrée (€)"          },
+    ],
+    lignes: [
+      { signal: 'Surveillance',         mos: '0 - 5 %',   zonejuste: '79 €', fourchette: '77 - 79 €', _headerBg: '#C9A84C', _headerText: '#1B4332' },
+      { signal: 'Premier intérêt',      mos: '10 - 12 %', zonejuste: '79 €', fourchette: '70 - 71 €' },
+      { signal: 'Achat fort',           mos: '25 - 27 %', zonejuste: '79 €', fourchette: '58 €' },
+    ],
+  },
+
+  'siemens-energy-per-zone-bull': {
+    compact: true,
+    colonnes: [
+      { key: 'signal',     label: 'Signal',           primary: true },
+      { key: 'mos',        label: 'Marge de sécurité'                },
+      { key: 'zonejuste',  label: 'Zone juste (€)'                   },
+      { key: 'fourchette', label: "Fourchette d'entrée (€)"          },
+    ],
+    lignes: [
+      { signal: 'Surveillance',         mos: '0 - 5 %',   zonejuste: '104 €', fourchette: '101 - 104 €', _headerBg: '#D6EDDF', _headerText: '#1B4332' },
+      { signal: 'Premier intérêt',      mos: '12 - 14 %', zonejuste: '104 €', fourchette: '90 - 91 €' },
+      { signal: 'Achat fort',           mos: '24 - 25 %', zonejuste: '104 €', fourchette: '78 €' },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────────
   // SCHNEIDER ELECTRIC - 7 blocs (DCF parametres / scenarios / synthese + PER trois
   // scenarios + zones bear/central/bull). Base PER = Adjusted EPS publie 8,59 €.
   // ─────────────────────────────────────────────────────────────────────────────
