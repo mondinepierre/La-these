@@ -57,6 +57,7 @@ import { engie    } from './engie'
 import { iberdrola } from './iberdrola'
 import { schneiderElectric } from './schneider-electric'
 import { siemensEnergy } from './siemens-energy'
+import { lundinGold } from './lundin-gold'
 import { sondage  } from './sondage'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -91,6 +92,7 @@ export const ANALYSES: AnalyseCard[] = [
 
 
   // Analyses ponctuelles
+  lundinGold,
   siemensEnergy,
   iberdrola,
   schneiderElectric,

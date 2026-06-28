@@ -2984,6 +2984,232 @@ const TABLEAUX: Record<string, TableauData> = {
   // dominant, DCF exploitable (beta 1,77) en complement, SOTP au coeur de l'angle.
   // ─────────────────────────────────────────────────────────────────────────────
 
+  // ─────────────────────────────────────────────────────────────────────────────
+  // LUNDIN GOLD - producteur d'or à actif unique (Fruta del Norte, Équateur).
+  // Valorisation au cadre MINIER : NAV vie-de-mine par deck de prix de l'or (pas de
+  // DCF perpétuel : la mine s'épuise), multiples (EV/EBITDA, P/FCF, FCF Yield) et P/NAV.
+  // Devise : NAV en USD natif ; prixCible et niveaux du Verdict en CAD (cours TSX).
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  'lundin-gold-nav-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      {
+        parametre: 'Réserves prouvées et probables',
+        valeur:    '5,85 Moz Au',
+        source:    '25,7 Mt @ 7,09 g/t (AIF 2025, NI 43-101). Estimées à un prix de l\'or de seulement 1 700 $/oz. Ressources M&I 7,48 Moz, inférées 2,03 Moz',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'Production annuelle',
+        valeur:    'environ 500 koz',
+        source:    'FY2025 : 498 315 oz. Guidance 2026 : 475 000 - 525 000 oz',
+      },
+      {
+        parametre: 'Vie de mine (réserves)',
+        valeur:    'environ 12 ans',
+        source:    '5,85 Moz / 0,5 Moz par an. Modèle NAV : 14 ans en central (conversion partielle des ressources M&I)',
+      },
+      {
+        parametre: 'AISC (coût tout compris)',
+        valeur:    'environ 1 150 $/oz',
+        source:    'FY2025 publié 1 015 $/oz. Retenu 1 150 $ en vie de mine (dérive des coûts + capex de croissance FDNS)',
+      },
+      {
+        parametre: 'Taux d\'imposition effectif',
+        valeur:    'environ 30 %',
+        source:    'Équateur. Les redevances (NSR + participation) sont déjà nettées dans l\'AISC',
+      },
+      {
+        parametre: 'Taux d\'actualisation',
+        valeur:    '5 % (base) ; 25 % (risque-honnête)',
+        source:    'Convention minière P/NAV à 5 %. Le WACC La Thèse (CRP Équateur 11,85 %) ressort à 25,1 % : c\'est l\'écart entre les deux qui mesure le prix du risque pays',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Trésorerie nette',
+        valeur:    '+704 M$',
+        source:    'Q1-2026. Zéro dette (dette de construction soldée). Ajoutée à la NAV',
+      },
+    ],
+  },
+
+  'lundin-gold-deck-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Scénario de deck', primary: true },
+      { key: 'bear',      label: 'Bear'                            },
+      { key: 'central',   label: 'Central'                         },
+      { key: 'bull',      label: 'Bull'                            },
+    ],
+    lignes: [
+      {
+        parametre: 'Deck de prix de l\'or',
+        bear:      '2 400 $/oz',
+        central:   '3 200 $/oz',
+        bull:      '4 000 $/oz (~spot)',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'FCF après impôt / an',
+        bear:      'environ 440 M$',
+        central:   'environ 720 M$',
+        bull:      'environ 1 000 M$',
+      },
+      {
+        parametre: 'NAV par action (discount 5 %)',
+        bear:      'environ 21 $US',
+        central:   'environ 32 $US',
+        bull:      'environ 44 $US',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'NAV par action (en CAD, x1,42)',
+        bear:      'environ 30 CAD',
+        central:   'environ 46 CAD',
+        bull:      'environ 62 CAD',
+      },
+      {
+        parametre: 'P/NAV au cours (77 CAD / 54 $US)',
+        bear:      '2,6x',
+        central:   '1,7x',
+        bull:      '1,25x',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  'lundin-gold-nav-deck': {
+    colonnes: [
+      { key: 'deck',  label: 'Deck de l\'or', primary: true },
+      { key: 'd5',    label: 'Discount 5 %'                  },
+      { key: 'd8',    label: 'Discount 8 %'                  },
+      { key: 'd12',   label: 'Discount 12 %'                 },
+      { key: 'd25',   label: 'WACC 25 %'                     },
+    ],
+    lignes: [
+      {
+        deck: '2 400 $/oz (bear)',
+        d5:   '21 $',  d8: '18 $',  d12: '15 $',  d25: '10 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        deck: '3 200 $/oz (central)',
+        d5:   '32 $',  d8: '27 $',  d12: '23 $',  d25: '14 $',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        deck: '4 000 $/oz (bull / spot)',
+        d5:   '44 $',  d8: '37 $',  d12: '30 $',  d25: '19 $',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        deck: 'Cours actuel : 54 $US (77 CAD)',
+        d5:   'P/NAV 1,2-2,6x',  d8: '1,5-3,0x',  d12: '1,8-3,7x',  d25: '2,9-5,4x',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  'lundin-gold-multiples': {
+    colonnes: [
+      { key: 'metrique', label: 'Multiple (cours spot)', primary: true },
+      { key: 'lug',      label: 'Lundin Gold'                          },
+      { key: 'pairs',    label: 'Médiane producteurs'                  },
+      { key: 'histo',    label: 'Moyenne 5 ans LUG'                    },
+    ],
+    lignes: [
+      {
+        metrique: 'PER (trailing)',
+        lug:      '16,6x',
+        pairs:    '10,3x',
+        histo:    '18,9x',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      { metrique: 'EV / EBITDA',      lug: '10,1x', pairs: '8,1x',  histo: '8,0x'  },
+      { metrique: 'P / FCF',          lug: '14,0x', pairs: '32,9x', histo: 'n.s.'  },
+      { metrique: 'FCF Yield',        lug: '7,1 %', pairs: '2,5 %', histo: '13,3 %' },
+      { metrique: 'Dette nette / EBITDA', lug: '-0,5x', pairs: '-0,2x', histo: '0,2x' },
+      {
+        metrique: 'P / NAV (deck central, 5 %)',
+        lug:      '1,7x',
+        pairs:    'environ 1,0x',
+        histo:    '-',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'lundin-gold-fcf-deck': {
+    colonnes: [
+      { key: 'deck',   label: 'Deck de l\'or',   primary: true },
+      { key: 'fcf',    label: 'FCF après impôt'                },
+      { key: 'yield',  label: 'FCF Yield (cap)'                },
+      { key: 'lecture', label: 'Lecture'                        },
+    ],
+    lignes: [
+      {
+        deck: '2 400 $/oz',
+        fcf:  'environ 440 M$',
+        yield: 'environ 3,3 %',
+        lecture: 'Sous le taux sans risque US (4,1 %) : plus de marge de sécurité',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        deck: '3 200 $/oz',
+        fcf:  'environ 720 M$',
+        yield: 'environ 5,4 %',
+        lecture: 'Au-dessus du taux sans risque, prime mince',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        deck: '3 594 $/oz (réalisé 2025)',
+        fcf:  '937 M$ (réel)',
+        yield: '7,1 %',
+        lecture: 'Le FCF Yield "bon marché" actuel suppose un or qui reste près du spot',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        deck: '4 000 $/oz (spot)',
+        fcf:  'environ 1 000 M$',
+        yield: 'environ 7,6 %',
+        lecture: 'Le meilleur des cas, déjà dans le cours',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'lundin-gold-nav-synthese': {
+    colonnes: [
+      { key: 'lecture',     label: 'Lecture',     primary: true },
+      { key: 'valeur',      label: 'Valeur'                      },
+      { key: 'commentaire', label: 'Commentaire'                 },
+    ],
+    lignes: [
+      {
+        lecture:     'NAV centrale (deck 3 200 $, discount 5 %)',
+        valeur:      'environ 32 $US / 46 CAD',
+        commentaire: 'Le cours (77 CAD) traite à 1,7x cette NAV. Les mineurs traitent en général 0,7-1,3x NAV',
+        _headerBg:   '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        lecture:     'Deck implicite du cours',
+        valeur:      'environ spot (4 000 $)',
+        commentaire: 'Le cours n\'est justifié (P/NAV 1,06x) qu\'au scénario deck spot + conversion totale des ressources (18 ans) + discount 5 % qui price ZÉRO risque Équateur',
+        _headerBg:   '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        lecture:     'Effet du risque pays (CRP Équateur)',
+        valeur:      'NAV divisée par environ 2',
+        commentaire: 'Au WACC La Thèse 25 % (CRP Équateur 11,85 %), la NAV tombe à 14-19 $ même à or élevé : P/NAV 3-4x. Le marché actualise comme un actif sans risque pays',
+        _headerBg:   '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
   'siemens-energy-dcf-parametres': {
     colonnes: [
       { key: 'parametre', label: 'Paramètre', primary: true },

@@ -838,6 +838,28 @@ Il est particulierement utile quand le DCF et le calculateur PER divergent forte
       { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
     ],
   },
+  {
+    slug: "nav-minier",
+    label: "NAV et P/NAV (valeur d'actif net d'un mineur)",
+    category: 'Analyse fondamentale',
+    shortDef: "La NAV (Net Asset Value) d'un mineur est la valeur actualisée après impôt des flux de trésorerie de toute la vie de la mine, à un prix de matière première donné (le deck), augmentée des options d'exploration et diminuée de la dette nette. Le P/NAV (cours rapporté à la NAV par action) est le multiple de référence du secteur.",
+    definition: `La valeur d'actif net (Net Asset Value, NAV) est la méthode de valorisation centrale d'un producteur minier. Contrairement à une entreprise classique dont on capitalise les bénéfices à perpétuité, une mine est un actif qui s'épuise : ses réserves sont finies. La NAV est donc un DCF de vie-de-mine : on projette la production année par année jusqu'à l'épuisement des réserves, on en déduit les flux de trésorerie après impôt (prix de l'or moins coût tout compris, moins redevances et impôts), on les actualise, puis on ajoute la trésorerie nette et la valeur des options d'exploration, et l'on retranche la dette. Pas de valeur terminale perpétuelle : à la fin de la mine, le flux tombe à zéro (ou à la valeur de récupération nette des coûts de fermeture).\n\nL'hypothèse la plus structurante de la NAV est le deck, c'est-à-dire le prix de la matière première retenu sur la durée de vie. Pour l'or, l'écart est majeur entre le prix spot (souvent un record) et un prix normalisé de long terme : une NAV à 2 400 $/oz et une NAV au spot peuvent varier du simple au double. On présente donc systématiquement la NAV en plusieurs scénarios de deck (bear, central, bull).\n\nLe P/NAV (cours divisé par la NAV par action) est le multiple de référence du secteur. Historiquement, les producteurs d'or se traitent autour de 0,7x à 1,3x NAV : sous 1x, le marché doute de la pérennité du prix ou de l'exécution ; au-dessus de 1x, il price une croissance des réserves, une réduction du risque ou un prix de matière première durablement élevé. Le second levier de la NAV est le taux d'actualisation : la convention de marché retient souvent 5 % réel, mais un actif situé dans un pays à risque appelle une prime de risque pays qui, intégrée au taux, peut diviser la NAV par deux.`,
+    related: ['dcf', 'aisc', 'prime-de-risque-pays', 'free-cash-flow'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+  {
+    slug: "aisc",
+    label: "AISC (coût de production tout compris)",
+    category: 'Analyse fondamentale',
+    shortDef: "L'AISC (All-In Sustaining Cost) mesure le coût complet, par once produite, pour maintenir une mine en activité : coûts d'extraction et de traitement, redevances, frais généraux et capex de maintien. C'est l'indicateur de compétitivité clé d'un mineur ; l'écart entre le prix de vente et l'AISC est la marge.",
+    definition: `L'AISC (All-In Sustaining Cost, coût de maintien tout compris) est la mesure de référence du coût de production d'un mineur, exprimée par once (pour l'or) ou par livre (pour d'autres métaux). C'est une mesure non comptable (non-IFRS) standardisée par le World Gold Council pour permettre la comparaison entre producteurs.\n\nL'AISC additionne les coûts opérationnels directs (cash costs : extraction, traitement, transport, raffinage), les redevances et taxes minières, les frais généraux administratifs, et le capex de maintien (sustaining capital) nécessaire pour faire tourner la mine à son rythme actuel. Il exclut en revanche le capex de croissance (nouveaux gisements, expansions) et les coûts de financement.\n\nLa lecture est immédiate : la marge AISC est la différence entre le prix de vente réalisé et l'AISC. Un producteur à AISC de 1 015 $/oz qui vend son or 3 594 $/oz dégage une marge de plus de 2 500 $/oz, soit l'une des plus élevées du secteur. Plus l'AISC est bas, plus la mine résiste à une baisse du prix de la matière première : c'est la mesure de sa robustesse dans le cycle. Pour un investisseur, comparer l'AISC d'un mineur à celui de ses pairs, et le situer dans la courbe de coût mondiale, dit l'essentiel de sa qualité d'actif. L'AISC est aussi l'input de coût central du calcul de la valeur d'actif net (NAV).`,
+    related: ['nav-minier', 'free-cash-flow', 'marge-brute'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
 
 ];
 

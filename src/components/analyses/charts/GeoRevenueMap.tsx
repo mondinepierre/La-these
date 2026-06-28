@@ -217,6 +217,10 @@ REGION_TO_CODES['Asie-Océanie-Afrique'] = [
   ...REGION_TO_CODES['Moyen-Orient'],
 ]
 
+// Équateur (ISO 218) : actif unique de Lundin Gold (Fruta del Norte). Clé mono-pays,
+// le tri par spécificité revendique le code 218 avant 'Amériques'.
+REGION_TO_CODES['Équateur'] = ['218']
+
 function hexAvecOpacite(hex: string, opacite: number): string {
   const r = parseInt(hex.slice(1, 3), 16)
   const g = parseInt(hex.slice(3, 5), 16)

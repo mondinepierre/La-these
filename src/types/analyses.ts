@@ -19,6 +19,7 @@ export type Secteur =
 export type ZoneGeo =
   | 'États-Unis'
   | 'Canada'
+  | 'Amériques'
   | 'Europe'
   | 'Asie'
   | 'France'
@@ -37,7 +38,7 @@ export type OnePagerData = {
   thesis:    string
   cours:     number
   coursDate: string
-  devise:    'USD' | 'EUR' | 'DKK' | 'KRW' | 'CHF'
+  devise:    'USD' | 'EUR' | 'DKK' | 'KRW' | 'CHF' | 'CAD'
   range52w:  { low: number; high: number }
 }
 // ─────────────────────────────────────────────
