@@ -18,6 +18,7 @@ import { perAjusteAuxTaux            } from './per-ajuste-aux-taux'
 import { declarationRetourExperience } from './declaration-retour-experience'
 import { dcfIntuition                } from './dcf-intuition'
 import { fcfYield                    } from './fcf-yield'
+import { navValoriserUneMine         } from './nav-valoriser-une-mine'
 import { portefeuilleParThemes       } from './portefeuille-par-themes'
 import { lireUnRapportAnnuel         } from './lire-un-rapport-annuel'
 import { novoOrionEtude              } from './novo-orion-etude'
@@ -57,6 +58,7 @@ export const articles: ArticleMeta[] = [
   declarationRetourExperience,
   dcfIntuition,
   fcfYield,
+  navValoriserUneMine,
   portefeuilleParThemes,
   lireUnRapportAnnuel,
   novoOrionEtude,

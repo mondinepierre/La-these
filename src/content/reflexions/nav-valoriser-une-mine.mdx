@@ -1,0 +1,63 @@
+Une société minière ne ressemble à aucune autre entreprise. Deux particularités cassent les outils de valorisation habituels.
+
+D'abord, c'est un preneur de prix. Un mineur d'or ne fixe pas le prix de son or : il le subit. Son chiffre d'affaires, ses marges, ses bénéfices montent et descendent avec un cours qu'il ne contrôle pas. Ses bénéfices d'aujourd'hui, gonflés par un métal au plus haut, ne disent rien de ses bénéfices de demain.
+
+Ensuite, son actif s'épuise. Une mine a des réserves finies. Chaque once extraite est une once en moins. Au bout d'un certain nombre d'années, le gisement est vide et la mine ferme. Une entreprise classique est supposée durer indéfiniment ; une mine a une date de péremption.
+
+Ces deux faits expliquent pourquoi on ne valorise pas un mineur au PER ni au DCF classique, et pourquoi le secteur a sa propre méthode : la NAV.
+
+## Pourquoi le PER et le DCF classique trompent
+
+Le <Terme id="per-valorisation" label="PER" /> rapporte le cours au bénéfice. Mais sur un mineur, le bénéfice est cyclique : à un prix de l'or record, le PER paraît faible (donc le titre semble bon marché) alors qu'il capitalise des profits de pic, peu susceptibles de durer. Le même titre, dans un creux du cycle, affichera un PER énorme ou un résultat négatif. Le PER instantané d'un mineur n'a presque aucun sens.
+
+Le <Terme id="dcf" label="DCF" /> classique a un défaut encore plus profond ici. Un DCF projette des flux sur quelques années, puis ajoute une valeur terminale qui suppose que l'entreprise continue à perpétuité. Or une mine ne dure pas à perpétuité : elle s'épuise. Lui appliquer une valeur terminale infinie, c'est faire comme si le gisement se rechargeait tout seul. C'est faux, et cela surévalue mécaniquement l'actif.
+
+## La NAV : la valeur de toute la vie de la mine
+
+La méthode de référence du secteur est la NAV (Net Asset Value, ou valeur d'actif net). C'est un DCF, mais un DCF de vie-de-mine : on ne projette pas quelques années suivies d'une rente infinie, on projette toute la vie de la mine, année par année, jusqu'à l'épuisement des réserves. Et à la fin, le flux tombe à zéro.
+
+<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-xl font-display italic text-gold tracking-tight">NAV = flux de chaque année actualisés + trésorerie nette + exploration - dette</span></div>
+
+Concrètement, pour chaque année de vie de la mine, on calcule le flux de trésorerie après impôt, qui vaut à peu près :
+
+<div className="my-6 py-4 border-y border-stone-border"><span className="block text-center text-lg font-display italic text-gold tracking-tight">(prix de l'or - coût tout compris) x onces produites x (1 - impôt)</span></div>
+
+Le coût tout compris, c'est l'<Terme id="aisc" label="AISC" /> : il regroupe le coût d'extraction, les redevances et le capex nécessaire pour maintenir la mine en activité. La différence entre le prix de vente et l'AISC, c'est la marge par once. On actualise ces flux, on ajoute la trésorerie nette et la valeur des projets d'exploration, on retranche la dette, et l'on obtient la valeur des capitaux propres. Divisée par le nombre d'actions, c'est la NAV par action.
+
+La durée de vie se déduit simplement : réserves divisées par la production annuelle. Une mine de 6 millions d'onces de réserves qui produit 500 000 onces par an a une vie d'environ douze ans.
+
+## Le deck : l'hypothèse qui décide de tout
+
+Toute la NAV repose sur une hypothèse centrale : le prix de l'or retenu sur la durée de vie de la mine. On l'appelle le deck.
+
+C'est là que se joue l'essentiel. Le prix spot est souvent très différent d'un prix normalisé de long terme. Quand l'or est à 4 000 dollars l'once mais qu'on estime sa moyenne durable plutôt autour de 2 400 ou 3 000, faut-il valoriser la mine au spot ou à la moyenne ? La réponse change la NAV du simple au double.
+
+C'est pourquoi on ne donne jamais une seule NAV, mais une fourchette : un scénario bas (deck conservateur), un scénario central, un scénario haut (souvent le spot). La vraie question d'investissement devient alors : quel deck le cours actuel suppose-t-il ? Si le cours n'est justifié qu'au prix spot maintenu pour toujours, l'investisseur paie pour un métal éternellement haut.
+
+## Le P/NAV : le multiple de référence
+
+Une fois la NAV calculée, on compare le cours à cette valeur via le P/NAV (cours divisé par la NAV par action). C'est l'équivalent du PER pour les mineurs, et c'est le langage du secteur.
+
+Historiquement, les producteurs se traitent entre 0,7 et 1,3 fois leur NAV. Sous 1x, le marché doute : de la pérennité du prix, de la qualité de l'exécution, ou de la durée de vie. Au-dessus de 1x, il price quelque chose en plus : une croissance des réserves attendue, une réduction du risque, ou un prix de matière première qu'il juge durablement élevé. Un producteur qui traite à 1,7 fois sa NAV centrale envoie un message clair : tout doit aller bien pour justifier le cours.
+
+## Le second levier : le taux d'actualisation et le risque pays
+
+Le deck n'est pas la seule hypothèse qui fait bouger la NAV. Le taux d'actualisation, lui aussi, change tout, et il révèle souvent le vrai sujet d'un dossier.
+
+Par convention, le secteur actualise les flux d'une mine à environ 5 %. Mais une mine n'est pas un actif sans risque : elle est quelque part. Et si elle se trouve dans un pays politiquement instable, à la fiscalité imprévisible, l'investisseur devrait exiger un rendement supérieur, c'est-à-dire actualiser à un taux plus élevé. C'est le rôle de la <Terme id="prime-de-risque-pays" label="prime de risque pays" />, qui s'ajoute au coût du capital (le <Terme id="wacc" label="WACC" />). Point essentiel : c'est le pays d'opération de la mine qui compte, pas le pays de cotation de la société.
+
+L'écart entre la NAV à 5 % et la NAV au taux qui intègre honnêtement le risque pays mesure, en euros, le prix de ce risque. Et c'est souvent le cœur d'une thèse : quand le cours n'est défendable qu'au taux conventionnel de 5 %, cela signifie que le marché valorise la mine comme si elle ne portait aucun risque pays, alors même que ce risque est bien réel.
+
+## Un exemple : la mine d'or la plus rentable du monde
+
+Le cas est presque caricatural avec Lundin Gold, dont l'unique mine se trouve en Équateur. À un coût tout compris de 1 015 dollars l'once et un or vendu près de 3 600 dollars, c'est l'un des actifs aurifères les plus rentables de la planète. Au prix spot, à 7 % de rendement du cash, le titre paraît même bon marché.
+
+Mais sa NAV centrale, à un deck d'or plus sobre et au taux conventionnel de 5 %, ressort bien sous le cours : le titre se paie environ 1,7 fois sa valeur d'actif. Et si l'on applique un taux d'actualisation qui reflète vraiment le risque équatorien, la NAV est divisée par deux. Autrement dit, le marché valorise une mine en Équateur comme si elle était au Canada, et price un or record comme s'il était permanent. Les deux signaux que seule la NAV permet de voir, et que le PER de pic masque complètement.
+
+## Les limites
+
+La NAV est puissante mais fragile sur ses hypothèses. Le deck est un pari sur le prix d'une matière première, par nature imprévisible. La durée de vie dépend de la conversion des ressources en réserves, qui n'est jamais acquise. Le taux d'actualisation est un choix, et un demi-point d'écart déplace sensiblement le résultat.
+
+Elle suppose aussi une bonne estimation de la production et des coûts futurs, qui peuvent déraper (incident géologique, dérive des coûts, retard d'expansion). Et pour un mineur en pleine croissance, il faut modéliser un profil de production qui monte, pas un plateau plat, ce qui ajoute une couche d'incertitude liée à l'exécution.
+
+La NAV ne donne donc pas un prix juste unique, mais une fourchette conditionnée à des hypothèses qu'il faut rendre explicites. C'est précisément sa valeur : elle force à dire à quel prix de matière première et à quel niveau de risque on achète. Sur un mineur, c'est la seule question qui compte vraiment.
