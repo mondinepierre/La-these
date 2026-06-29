@@ -44,6 +44,7 @@ const REGION_TO_CODES: Record<string, string[]> = {
   'Royaume-Uni':      ['826'],
   'Chine':            ['156'],
   'Japon':            ['392'],
+  'Papouasie-Nouvelle-Guinée': ['598'],
   'Corée du Sud':     ['410'],
   'Taïwan':           ['158'],
   'Inde':             ['356'],

@@ -3210,6 +3210,289 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+  'knt-nav-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      {
+        parametre: 'Réserves prouvées et probables',
+        valeur:    '1,69 Moz AuEq',
+        source:    '6,18 Mt @ 8,51 g/t AuEq (AIF 2025, NI 43-101, Kora + Judd). Calculées à un prix de l\'or de seulement 1 900 $/oz. Ressources Kora/Judd M&I + inférées environ 7 Moz AuEq ; Blue Lake (porphyre) maiden inférée 14,6 Moz AuEq',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'Profil de production (AuEq)',
+        valeur:    'CROISSANT, vers environ 400 koz',
+        source:    'FY2025 174 koz ; guidance 2026 190-225 koz ; Stage 3 (1,2 Mtpa) run-rate environ 300-319 koz ; Stage 4 (1,8 Mtpa, fin 2027) environ 400 koz. NAV : montée en cadence modélisée, pas un plateau',
+      },
+      {
+        parametre: 'Vie de mine retenue',
+        valeur:    'environ 13 ans (central)',
+        source:    'Stage 3 DFS : 7 ans sur réserves seules (1,69 Moz). Central NAV : environ 4,25 Moz extraits, soit réserves + conversion partielle des ressources Kora/Judd (le pari)',
+      },
+      {
+        parametre: 'AISC co-product (vie de mine)',
+        valeur:    'environ 1 150 $/oz AuEq',
+        source:    'FY2025 publié 1 308 $/oz (by-product) ; guidance 2026 co-product 1 480-1 580 $. DFS Stage 3 : LOM 920 $/oz co-product. Retenu environ 1 150 $ (conservateur, déclinant avec l\'échelle)',
+      },
+      {
+        parametre: 'Capex d\'expansion (hors AISC)',
+        valeur:    'environ 340 M$ (2026-2028)',
+        source:    'Stage 4 / accéléré. Distinct du capex de maintien (dans l\'AISC). Soustrait de la NAV en début de vie. Autofinancé (cash + cash-flow + lignes de crédit)',
+      },
+      {
+        parametre: 'Taux d\'imposition effectif',
+        valeur:    'environ 32 %',
+        source:    'Papouasie-Nouvelle-Guinée (IS minier 30 % + prélèvements/redevances). Redevances déjà nettées dans l\'AISC',
+      },
+      {
+        parametre: 'Taux d\'actualisation',
+        valeur:    '5 % (base) ; 16,8 % (risque-honnête)',
+        source:    'Convention minière P/NAV à 5 %. Le WACC La Thèse (CRP PNG 7,0 %, Rf US 4,09 %, bêta 1,12 vs S&P/TSX 60 TR, ERP 11,35 %) ressort à 16,8 % : l\'écart entre les deux mesure le prix du risque pays + exécution',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Trésorerie nette',
+        valeur:    '+242,6 M$ (record)',
+        source:    'Q1-2026 (publié 11/05/2026). Dette quasi nulle. Ajoutée à la NAV. FY2025 : +176 M$',
+      },
+    ],
+  },
+
+  'knt-deck-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Scénario de deck', primary: true },
+      { key: 'bear',      label: 'Bear'                            },
+      { key: 'central',   label: 'Central'                         },
+      { key: 'bull',      label: 'Bull'                            },
+    ],
+    lignes: [
+      {
+        parametre: 'Deck de prix de l\'or',
+        bear:      '2 800 $/oz',
+        central:   '3 400 $/oz',
+        bull:      '4 000 $/oz (~spot)',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'FCF après impôt / an (régime Stage 4)',
+        bear:      'environ 480 M$',
+        central:   'environ 640 M$',
+        bull:      'environ 800 M$',
+      },
+      {
+        parametre: 'NAV par action (discount 5 %)',
+        bear:      'environ 13,5 $US',
+        central:   'environ 18,6 $US',
+        bull:      'environ 23,8 $US',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'NAV par action (en CAD, x1,42)',
+        bear:      'environ 19 CAD',
+        central:   'environ 26 CAD',
+        bull:      'environ 34 CAD',
+      },
+      {
+        parametre: 'P/NAV au cours (22,3 CAD / 15,7 $US)',
+        bear:      '1,17x',
+        central:   '0,84x',
+        bull:      '0,66x',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'knt-nav-deck': {
+    colonnes: [
+      { key: 'deck',  label: 'Deck de l\'or',  primary: true },
+      { key: 'd5',    label: 'Discount 5 %'                  },
+      { key: 'd8',    label: 'Discount 8 %'                  },
+      { key: 'd12',   label: 'Discount 12 %'                 },
+      { key: 'd17',   label: 'WACC 16,8 %'                   },
+    ],
+    lignes: [
+      {
+        deck: '2 800 $/oz (bear)',
+        d5:   '13,5 $',  d8: '11,3 $',  d12: '9,0 $',  d17: '7,1 $',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        deck: '3 400 $/oz (central)',
+        d5:   '18,6 $',  d8: '15,6 $',  d12: '12,5 $',  d17: '9,9 $',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        deck: '4 000 $/oz (bull / spot)',
+        d5:   '23,8 $',  d8: '19,9 $',  d12: '16,0 $',  d17: '12,7 $',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        deck: 'Cours actuel : 15,7 $US (22,3 CAD)',
+        d5:   'P/NAV 0,7-1,2x',  d8: '0,8-1,4x',  d12: '1,0-1,7x',  d17: '1,2-2,2x',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  'knt-production-ramp': {
+    colonnes: [
+      { key: 'jalon',  label: 'Jalon',           primary: true },
+      { key: 'debit',  label: 'Débit'                          },
+      { key: 'prod',   label: 'Production AuEq'                 },
+      { key: 'aisc',   label: 'AISC'                           },
+    ],
+    lignes: [
+      {
+        jalon: '2024 (réalisé)',
+        debit: '0,6 Mtpa',
+        prod:  '150 koz',
+        aisc:  '1 066 $/oz',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        jalon: '2025 (réalisé, record)',
+        debit: '0,6 -> 1,2 Mtpa',
+        prod:  '174 koz',
+        aisc:  '1 308 $/oz',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        jalon: '2026 (guidance)',
+        debit: '1,2 Mtpa',
+        prod:  '190-225 koz',
+        aisc:  '1 250-1 350 $ (by-prod.)',
+      },
+      {
+        jalon: 'Stage 3 (régime, dès 2026)',
+        debit: '1,2 Mtpa',
+        prod:  'environ 300-319 koz',
+        aisc:  'LOM 920 $/oz (co-prod., DFS)',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        jalon: 'Stage 4 (commissioning fin 2027)',
+        debit: '1,8 Mtpa',
+        prod:  'environ 400 koz',
+        aisc:  'bas (économies d\'échelle)',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        jalon: 'Cible Tier 1 (long terme)',
+        debit: '1,8 Mtpa +',
+        prod:  'vers 500 koz',
+        aisc:  'parmi les plus bas du secteur',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  'knt-multiples': {
+    colonnes: [
+      { key: 'metrique', label: 'Multiple (cours spot)', primary: true },
+      { key: 'knt',      label: 'K92 Mining'                           },
+      { key: 'pairs',    label: 'Médiane producteurs'                  },
+      { key: 'lug',      label: 'Lundin Gold'                          },
+    ],
+    lignes: [
+      {
+        metrique: 'PER (trailing)',
+        knt:      '12,1x',
+        pairs:    '12,2x',
+        lug:      '14,3x',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      { metrique: 'PER (forward)',       knt: '6,0x',  pairs: '7,6x',  lug: '11,6x' },
+      { metrique: 'EV / EBITDA',         knt: '10,6x', pairs: '9,6x',  lug: '12,6x' },
+      { metrique: 'P / FCF',             knt: '84x',   pairs: '32x',   lug: '14x'   },
+      { metrique: 'FCF Yield',           knt: '1,2 %', pairs: '2,6 %', lug: '7,1 %' },
+      { metrique: 'Dette nette / EBITDA', knt: '-0,4x', pairs: '-0,2x', lug: '-0,5x' },
+      {
+        metrique: 'P / NAV (deck central, 5 %)',
+        knt:      '0,84x',
+        pairs:    'environ 1,0x',
+        lug:      '1,7x',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'knt-fcf-deck': {
+    colonnes: [
+      { key: 'deck',    label: 'Deck de l\'or',  primary: true },
+      { key: 'fcf',     label: 'FCF après impôt'                },
+      { key: 'yield',   label: 'FCF Yield (cap)'                },
+      { key: 'lecture', label: 'Lecture'                        },
+    ],
+    lignes: [
+      {
+        deck: '2 800 $/oz',
+        fcf:  'environ 480 M$',
+        yield: 'environ 12 %',
+        lecture: 'En RÉGIME Stage 4 (environ 400 koz) : le yield se normalise une fois l\'expansion finie',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        deck: '3 400 $/oz (central)',
+        fcf:  'environ 640 M$',
+        yield: 'environ 17 %',
+        lecture: 'Le potentiel post-expansion : c\'est ce FCF que le marché n\'a pas encore (capex en cours)',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        deck: '3 296 $/oz (réalisé 2025)',
+        fcf:  '65 M$ (réel, bridé)',
+        yield: '1,7 %',
+        lecture: 'Le FCF ACTUEL est mince : l\'OCF record (281 M$) est absorbé par le capex d\'expansion (216 M$)',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        deck: '4 000 $/oz (spot)',
+        fcf:  'environ 800 M$',
+        yield: 'environ 21 %',
+        lecture: 'Le meilleur des cas en régime Stage 4 : suppose exécution + or au spot',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'knt-nav-synthese': {
+    colonnes: [
+      { key: 'lecture',     label: 'Lecture',     primary: true },
+      { key: 'valeur',      label: 'Valeur'                      },
+      { key: 'commentaire', label: 'Commentaire'                 },
+    ],
+    lignes: [
+      {
+        lecture:     'NAV centrale (deck 3 400 $, discount 5 %)',
+        valeur:      'environ 18,6 $US / 26 CAD',
+        commentaire: 'Le cours (22,3 CAD) traite à 0,84x cette NAV : SOUS la valeur d\'actif centrale. L\'inverse de Lundin Gold (1,7x). La croissance n\'est pas entièrement price',
+        _headerBg:   '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        lecture:     'Discount implicite du cours (deck central)',
+        valeur:      'environ 8 %',
+        commentaire: 'Le marché actualise la central deck à environ 8 % : il croit à l\'exécution et à un or sobre, mais applique une prime modeste pour PNG + exécution. Ni le bull deck, ni le WACC plein 16,8 %',
+        _headerBg:   '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        lecture:     'NAV "réserves seules" (sans conversion)',
+        valeur:      'environ 14 CAD',
+        commentaire: 'Sur les seules 1,69 Moz de réserves (environ 6 ans), la NAV centrale tombe à environ 14 CAD : P/NAV 1,6x. La valeur au-dessus de ce plancher EST le pari sur la conversion des ressources',
+        _headerBg:   '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        lecture:     'Effet du risque pays + exécution (WACC 16,8 %)',
+        valeur:      'NAV centrale environ 14 CAD',
+        commentaire: 'Au WACC honnête (CRP PNG 7,0 %), la NAV centrale tombe à 9,9 $US / 14 CAD : P/NAV 1,6x. Beaucoup moins extrême que Lundin (3-4x), mais le cours est alors fair-to-rich',
+        _headerBg:   '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
   'siemens-energy-dcf-parametres': {
     colonnes: [
       { key: 'parametre', label: 'Paramètre', primary: true },
