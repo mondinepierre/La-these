@@ -860,6 +860,41 @@ Il est particulierement utile quand le DCF et le calculateur PER divergent forte
       { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
     ],
   },
+  {
+    slug: "cuivre",
+    label: "Cuivre (le métal de l'électrification)",
+    category: 'Fondamentaux',
+    theme: 'energie',
+    shortDef: "Métal industriel de base, le cuivre est le conducteur électrique de référence. Sa demande structurelle (réseaux, véhicules électriques, centres de données, énergies renouvelables) face à une offre minière contrainte alimente le récit d'un supercycle. Son prix, fixé sur le LME, est un driver direct pour les producteurs.",
+    definition: `Le cuivre est un métal industriel coté sur le London Metal Exchange (LME) et le COMEX, dont le prix s'exprime en dollars par tonne. C'est le meilleur conducteur électrique d'usage courant : on le retrouve dans les câbles, les moteurs, les transformateurs, les bobinages. Cette propriété en fait le métal central de l'électrification de l'économie.\n\nLa thèse du supercycle repose sur un déséquilibre offre-demande de long terme. Côté demande, la transition énergétique est gourmande en cuivre : un véhicule électrique en contient trois à quatre fois plus qu'un véhicule thermique, les réseaux électriques doivent être étendus et renforcés, les centres de données pour l'intelligence artificielle et les fermes solaires ou éoliennes en consomment massivement. Côté offre, les grands gisements vieillissent, leurs teneurs déclinent, et les nouveaux projets miniers mettent dix à quinze ans à entrer en production, dans des juridictions souvent à risque. Le résultat attendu est un déficit structurel qui soutient le prix.\n\nPour un investisseur en producteurs de cuivre, le prix du métal est le driver dominant : le mineur est un price-taker (il subit le cours, ne le fixe pas), et sa rentabilité est l'écart entre ce prix et son coût de production (le cash cost C1, ou l'AISC). Un déck de prix du cuivre (bear, central, bull) est donc l'hypothèse la plus structurante de toute valorisation d'un producteur. Au-delà du métal physique, le cuivre est aussi un baromètre macroéconomique surnommé "Dr. Copper" pour sa sensibilité au cycle industriel mondial.`,
+    related: ['cobalt', 'somme-des-parties', 'aisc'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+  {
+    slug: "cobalt",
+    label: "Cobalt (le métal des batteries)",
+    category: 'Fondamentaux',
+    theme: 'energie',
+    shortDef: "Métal critique des batteries lithium-ion, le cobalt est extrait majoritairement comme sous-produit du cuivre en République démocratique du Congo. Son marché, très concentré géographiquement, est sujet à des chocs d'offre violents (suspensions d'export, quotas) qui font de son prix un actif aussi volatil que politique.",
+    definition: `Le cobalt est un métal critique utilisé principalement dans les cathodes de batteries lithium-ion (véhicules électriques, électronique portable) pour leur stabilité thermique et leur densité énergétique. C'est presque toujours un sous-produit : il est co-extrait du cuivre (en République démocratique du Congo, qui fournit environ 70 % de l'offre mondiale) ou du nickel (en Indonésie). Son prix s'exprime en dollars par livre.\n\nCette nature de sous-produit a une conséquence majeure : l'offre de cobalt dépend des décisions d'investissement prises pour le cuivre ou le nickel, pas pour le cobalt lui-même. Le marché est donc structurellement sujet à des excès d'offre (glut) quand la production de cuivre et de nickel accélère, ce qui a longtemps pesé sur les prix. La concentration géographique extrême en RDC en fait aussi un métal hautement politique : une décision souveraine (suspension des exports, instauration de quotas) peut faire bondir le prix de plus de 100 % en quelques mois, indépendamment de la demande réelle des batteries.\n\nPour un investisseur, le cobalt est donc à double tranchant. Détenu par un producteur de cuivre, il représente souvent une option : un crédit de coût qui réduit le coût net du cuivre quand son prix est haut, mais un actif dont la valeur peut s'effondrer quand l'offre se libère. La tendance de fond des chimies de batteries va d'ailleurs vers la réduction de la teneur en cobalt (cathodes LFP sans cobalt), ce qui pèse sur la demande de long terme. Le prix du cobalt se lit donc moins comme un pari de croissance que comme un pari sur la gestion politique de l'offre congolaise.`,
+    related: ['cuivre', 'somme-des-parties'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
+  {
+    slug: "somme-des-parties",
+    label: "Somme des parties (SOTP)",
+    category: 'Mécanismes financiers',
+    shortDef: "La somme des parties (Sum-of-the-Parts) valorise un groupe diversifié en additionnant la valeur de chacune de ses activités, évaluée séparément au multiple cohérent avec son profil, puis en passant de la valeur d'entreprise à la valeur des fonds propres (moins dette nette et minoritaires). Méthode de référence des conglomérats illisibles.",
+    definition: `La somme des parties (Sum-of-the-Parts, SOTP) est une méthode de valorisation qui consiste à décomposer un groupe diversifié en ses différentes activités, à valoriser chacune séparément avec le multiple ou la méthode la plus adaptée à son profil, puis à additionner ces valeurs pour reconstituer la valeur d'ensemble. Elle est la méthode de référence quand un groupe mélange des métiers de qualité et de cyclicité très différentes, qu'un multiple consolidé unique masquerait.\n\nLa mécanique est en deux temps. On valorise d'abord chaque pôle en valeur d'entreprise (Enterprise Value), typiquement en appliquant à son EBITDA un multiple cohérent avec son secteur et la qualité de sa rente : un réseau régulé ou une franchise se paient cher, une activité de négoce ou une division cyclique se paient bas. On somme ces valeurs d'entreprise, puis on fait le pont vers la valeur des fonds propres : on retranche la dette nette, les intérêts minoritaires (valorisés au marché), et l'on ajoute les actifs hors exploitation (participations cotées, trésorerie excédentaire). Le résultat, divisé par le nombre d'actions, donne une valeur par action comparable au cours.\n\nLa lecture de l'écart entre la SOTP et le cours est l'angle d'analyse. Une SOTP nettement au-dessus du cours signale une décote de conglomérat (le marché pénalise l'illisibilité ou le risque d'allocation du capital) : c'est une thèse de re-rating ou de scission. À l'inverse, une SOTP statique sous le cours, sur un groupe en croissance, signale que le marché capitalise déjà par avance la croissance future des activités : le titre est alors "payé pour la perfection". Pour un producteur de matières premières diversifié, la SOTP est complétée par une sensibilité aux prix des métaux, chaque pôle réagissant à son propre driver.`,
+    related: ['ev-ebitda', 'dcf', 'nav-minier'],
+    modules: [
+      { label: "Analyse fondamentale", href: "/academie/intermediaire/analyse-fondamentale" },
+    ],
+  },
 
 ];
 

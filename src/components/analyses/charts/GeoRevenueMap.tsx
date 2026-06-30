@@ -222,6 +222,10 @@ REGION_TO_CODES['Asie-Océanie-Afrique'] = [
 // le tri par spécificité revendique le code 218 avant 'Amériques'.
 REGION_TO_CODES['Équateur'] = ['218']
 
+// République démocratique du Congo (ISO 180) : actifs cuivre-cobalt de CMOC (TFM, KFM).
+// Clé mono-pays, le tri par spécificité revendique le code 180 avant 'Afrique'.
+REGION_TO_CODES['République démocratique du Congo'] = ['180']
+
 function hexAvecOpacite(hex: string, opacite: number): string {
   const r = parseInt(hex.slice(1, 3), 16)
   const g = parseInt(hex.slice(3, 5), 16)

@@ -59,6 +59,7 @@ import { schneiderElectric } from './schneider-electric'
 import { siemensEnergy } from './siemens-energy'
 import { lundinGold } from './lundin-gold'
 import { knt } from './knt'
+import { cmoc } from './cmoc'
 import { sondage  } from './sondage'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -93,6 +94,7 @@ export const ANALYSES: AnalyseCard[] = [
 
 
   // Analyses ponctuelles
+  cmoc,
   knt,
   lundinGold,
   siemensEnergy,

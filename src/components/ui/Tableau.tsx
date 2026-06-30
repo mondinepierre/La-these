@@ -3493,6 +3493,237 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+  'cmoc-sotp': {
+    colonnes: [
+      { key: 'pole',     label: 'Pôle (somme des parties)', primary: true },
+      { key: 'ebitda',   label: 'EBITDA est. (Mds CNY)'                   },
+      { key: 'multiple', label: 'Multiple EV/EBITDA'                      },
+      { key: 'ev',       label: "Valeur d'entreprise"                     },
+    ],
+    lignes: [
+      {
+        pole:     'Cuivre-cobalt (RDC : TFM + KFM)',
+        ebitda:   'environ 32',
+        multiple: '5,5x (décote RDC)',
+        ev:       'environ 176 Mds',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      { pole: 'Molybdène-tungstène (Chine)', ebitda: 'environ 4,0', multiple: '6,0x', ev: 'environ 24 Mds' },
+      { pole: 'Niobium-phosphates (Brésil)', ebitda: 'environ 2,5', multiple: '7,0x (franchise)', ev: 'environ 18 Mds' },
+      { pole: 'Or (Brésil + Équateur, naissant)', ebitda: 'environ 2,5 (fwd)', multiple: '6,0x', ev: 'environ 15 Mds' },
+      { pole: 'Négoce IXM (Suisse)', ebitda: 'environ 1,5', multiple: '6,0x / book', ev: 'environ 9 Mds' },
+      {
+        pole:     "Valeur d'entreprise (somme des pôles)",
+        ebitda:   '-',
+        multiple: '-',
+        ev:       'environ 242 Mds',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        pole:     '+ Trésorerie nette',
+        ebitda:   '-',
+        multiple: '-',
+        ev:       '+15,3 Mds',
+      },
+      {
+        pole:     'Valeur des fonds propres / 21,4 Md actions',
+        ebitda:   '-',
+        multiple: '-',
+        ev:       'environ 12-13 CNY/action',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        pole:     'Cours de l\'action A (Shanghai)',
+        ebitda:   '-',
+        multiple: '-',
+        ev:       '17,55 CNY (prime sur la SOTP statique)',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'cmoc-decks': {
+    colonnes: [
+      { key: 'param',   label: 'Deck de prix des métaux', primary: true },
+      { key: 'bear',    label: 'Bear'                                    },
+      { key: 'central', label: 'Central'                                 },
+      { key: 'bull',    label: 'Bull'                                    },
+    ],
+    lignes: [
+      {
+        param:   'Cuivre (LME, $/t)',
+        bear:    '9 000',
+        central: '10 500',
+        bull:    '13 000 (~spot record)',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        param:   'Cobalt ($/lb)',
+        bear:    '12 (quota levé)',
+        central: '18',
+        bull:    '26 (~spot, quotas)',
+      },
+      {
+        param:   'EBITDA groupe implicite (Mds CNY)',
+        bear:    'environ 33',
+        central: 'environ 42',
+        bull:    'environ 52',
+      },
+      {
+        param:   "Valeur / action (EV/EBITDA 7x + tréso nette)",
+        bear:    'environ 11,5 CNY',
+        central: 'environ 14,4 CNY',
+        bull:    'environ 17,7 CNY',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        param:   'Lecture au cours (17,55 CNY)',
+        bear:    'P/V 1,5x',
+        central: 'P/V 1,2x',
+        bull:    'P/V 1,0x',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'cmoc-production': {
+    colonnes: [
+      { key: 'metal',  label: 'Métal',           primary: true },
+      { key: 'p2024',  label: '2024'                           },
+      { key: 'p2025',  label: '2025'                           },
+      { key: 'g2026',  label: 'Guidance 2026'                  },
+    ],
+    lignes: [
+      {
+        metal: 'Cuivre',
+        p2024: '650 kt',
+        p2025: '741 kt (+14 %)',
+        g2026: '760-820 kt',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        metal: 'Cobalt (#1 mondial)',
+        p2024: '114 kt',
+        p2025: '117 kt',
+        g2026: '100-120 kt (quota RDC)',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      { metal: 'Molybdène',  p2024: 'environ 16 kt', p2025: 'environ 15 kt', g2026: 'maintenu' },
+      { metal: 'Niobium',    p2024: '8,3 kt',        p2025: '7,1 kt',        g2026: 'environ 7 kt' },
+      { metal: 'Tungstène',  p2024: '15,4 kt',       p2025: '13,9 kt',       g2026: 'maintenu' },
+      {
+        metal: 'Or (nouveau segment)',
+        p2024: '-',
+        p2025: 'démarrage (acquisitions)',
+        g2026: '6-8 t (Brésil)',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'cmoc-multiples': {
+    colonnes: [
+      { key: 'metrique', label: 'Multiple (base API Yahoo, TTM)', primary: true },
+      { key: 'cmoc',     label: 'CMOC'                                          },
+      { key: 'pairs',    label: 'Médiane pairs'                                 },
+      { key: 'glencore', label: 'Glencore'                                      },
+    ],
+    lignes: [
+      {
+        metrique: 'PER (trailing)',
+        cmoc:     '13,8x',
+        pairs:    '18,0x',
+        glencore: 'N/M (257x)',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      { metrique: 'PER (forward 2026E)', cmoc: 'environ 13x', pairs: '13,2x', glencore: '11,4x' },
+      { metrique: 'EV / EBITDA',         cmoc: '6,0x',  pairs: '8,8x', glencore: '9,9x' },
+      { metrique: 'P / FCF',             cmoc: '21x',   pairs: '21x',  glencore: 'N/M' },
+      { metrique: 'FCF Yield',           cmoc: '3,5 %', pairs: '4,9 %', glencore: '-0,5 %' },
+      { metrique: 'Dette nette / EBITDA', cmoc: '-0,4x (net cash)', pairs: '0,8x', glencore: '4,1x' },
+      {
+        metrique: 'Note A/H',
+        cmoc:     'sur l\'action A (Shanghai) : +25 %',
+        pairs:    '-',
+        glencore: '-',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'cmoc-fcf-deck': {
+    colonnes: [
+      { key: 'deck',    label: 'Deck de cuivre',  primary: true },
+      { key: 'fcf',     label: 'FCF normalisé'                   },
+      { key: 'yield',   label: 'FCF Yield (cap)'                 },
+      { key: 'lecture', label: 'Lecture'                         },
+    ],
+    lignes: [
+      {
+        deck: '9 000 $/t (bear)',
+        fcf:  'environ 10 Mds',
+        yield: 'environ 2,7 %',
+        lecture: 'Post-KFM Phase II (capex de croissance retombé) : le FCF se libère même à cuivre normalisé',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        deck: '10 500 $/t (central)',
+        fcf:  'environ 18 Mds',
+        yield: 'environ 4,8 %',
+        lecture: 'Le potentiel une fois l\'expansion finie : c\'est le FCF que le capex actuel bride',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        deck: '9 945 $/t (réalisé 2025)',
+        fcf:  '13,3 Mds (bridé)',
+        yield: '3,5 %',
+        lecture: 'Le FCF ACTUEL : l\'OCF (20,8 Mds) est absorbé par le capex de croissance (KFM II, TFM)',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        deck: '13 000 $/t (bull / spot)',
+        fcf:  'environ 28 Mds',
+        yield: 'environ 7,5 %',
+        lecture: 'Le meilleur des cas : cuivre au record + capex retombé. Suppose un supercycle durable',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'cmoc-synthese': {
+    colonnes: [
+      { key: 'lecture',     label: 'Lecture',     primary: true },
+      { key: 'valeur',      label: 'Valeur'                      },
+      { key: 'commentaire', label: 'Commentaire'                 },
+    ],
+    lignes: [
+      {
+        lecture:     'SOTP statique (FY2025, multiples par métal)',
+        valeur:      'environ 12-13 CNY',
+        commentaire: 'Le cours (17,55) traite à environ 1,4x cette SOTP statique : SOUS aucun pôle pris isolément, mais au-dessus de leur somme. Comme Iberdrola/Siemens Energy, le marché capitalise par avance la croissance forward (KFM II, or, supercycle)',
+        _headerBg:   '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        lecture:     'Deck implicite du cours',
+        valeur:      'bull (cuivre ~record + cobalt haut)',
+        commentaire: 'À EV/EBITDA 7x, le cours 17,55 correspond au scénario bull (EBITDA environ 52 Mds). Le marché price un cuivre durablement au record et un cobalt soutenu par les quotas RDC : peu de marge si l\'un des deux reflue',
+        _headerBg:   '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        lecture:     'EV/EBITDA forward (2026E environ 46 Mds)',
+        valeur:      'environ 7,8x',
+        commentaire: 'En forward, le titre revient en ligne avec la médiane des pairs (8,8x trailing). Ni cher ni en solde : un producteur de qualité au juste prix, pas une décote',
+        _headerBg:   '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        lecture:     'Décote A/H (action H, Hong Kong)',
+        valeur:      'environ -25 %',
+        commentaire: 'Sur le 3993.HK, l\'EV/EBITDA tombe à environ 6x : la vraie décote « cuivre bon marché » est sur la ligne de Hong Kong, pas sur l\'action A de Shanghai affichée ici',
+        _headerBg:   '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
   'siemens-energy-dcf-parametres': {
     colonnes: [
       { key: 'parametre', label: 'Paramètre', primary: true },
