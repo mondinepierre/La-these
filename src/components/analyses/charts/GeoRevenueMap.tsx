@@ -226,6 +226,10 @@ REGION_TO_CODES['Équateur'] = ['218']
 // Clé mono-pays, le tri par spécificité revendique le code 180 avant 'Afrique'.
 REGION_TO_CODES['République démocratique du Congo'] = ['180']
 
+// Pérou (ISO 604) : mines de cuivre de Southern Copper (Toquepala, Cuajone). Clé mono-pays,
+// le tri par spécificité revendique le code 604 avant 'Amériques'. ('Mexique' déjà présent.)
+REGION_TO_CODES['Pérou'] = ['604']
+
 function hexAvecOpacite(hex: string, opacite: number): string {
   const r = parseInt(hex.slice(1, 3), 16)
   const g = parseInt(hex.slice(3, 5), 16)

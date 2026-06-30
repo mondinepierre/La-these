@@ -3724,6 +3724,275 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+  'scco-nav-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre (NAV vie-de-mine)', primary: true },
+      { key: 'valeur',    label: 'Valeur'                                      },
+      { key: 'source',    label: 'Source / Note'                              },
+    ],
+    lignes: [
+      {
+        parametre: 'Production cuivre normalisée',
+        valeur:    'environ 2 050 M lbs/an',
+        source:    'Production 2025 : 2 035,6 M lbs (~923 kt) ; guidance 2026 : 911 kt. Cinq mines (Pérou 43 %, Mexique 57 %)',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'Coût cash net de sous-produits',
+        valeur:    '0,58 $/lb (2025)',
+        source:    'Le plus bas du secteur. Avant crédit de sous-produits : 2,17 $/lb. Les sous-produits (molybdène, argent, zinc) sont crédités contre le coût du cuivre, pas valorisés à part',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Sensibilité disclosée',
+        valeur:    '+0,10 $/lb = +120 M$ de RN',
+        source:    'Sensibilité du 10-K (donc +1 887 M$ d\'EBIT pré-impôt par dollar/lb). Sert à dériver le NOPAT par deck',
+      },
+      {
+        parametre: 'Vie de mine retenue',
+        valeur:    '30 ans (conservateur)',
+        source:    'Réserves calculées à 3,80 $/lb, vies de mine 20 à 35 ans PAR mine + ressources massives. 30 ans est une borne basse pour les plus grandes réserves de cuivre du secteur',
+      },
+      {
+        parametre: 'Taux d\'imposition',
+        valeur:    '36 %',
+        source:    'Taux effectif FY2025 (Pérou + Mexique, redevances minières incluses dans le coût)',
+      },
+      {
+        parametre: 'Trésorerie nette',
+        valeur:    '-2 889 M$ (dette nette)',
+        source:    'Dette totale 7 798 - trésorerie 4 909. Levier très bas (0,37x EBITDA)',
+      },
+      {
+        parametre: 'Taux d\'actualisation (double lentille)',
+        valeur:    '5 % / 8 % / 10 %',
+        source:    '5 % = convention minière ; 10 % = WACC plein (CRP blend Pérou/Mexique ~1,5 %, juridictions investment-grade)',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+    ],
+  },
+
+  'scco-deck-scenarios': {
+    colonnes: [
+      { key: 'param',   label: 'Scénario (deck de cuivre)', primary: true },
+      { key: 'bear',    label: 'Bear'                                       },
+      { key: 'central', label: 'Central'                                    },
+      { key: 'bull',    label: 'Bull'                                       },
+    ],
+    lignes: [
+      {
+        param:   'Prix cuivre (deck, $/lb)',
+        bear:    '3,80 (prix des réserves)',
+        central: '4,40 (mid-cycle)',
+        bull:    '5,20 (proche spot record)',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        param:   'NOPAT steady-state (M$)',
+        bear:    'environ 3 193',
+        central: 'environ 3 913',
+        bull:    'environ 4 873',
+      },
+      {
+        param:   'NAV/action à 5 % (convention)',
+        bear:    'environ 56 $',
+        central: 'environ 69 $',
+        bull:    'environ 87 $',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        param:   'NAV/action à 8 %',
+        bear:    'environ 40 $',
+        central: 'environ 50 $',
+        bull:    'environ 63 $',
+      },
+      {
+        param:   'P/NAV au cours (174 $), à 5 %',
+        bear:    '3,1x',
+        central: '2,5x',
+        bull:    '2,0x',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'scco-nav-deck': {
+    colonnes: [
+      { key: 'deck',  label: 'NAV/action ($) par deck x discount', primary: true },
+      { key: 'd5',    label: '5 % (convention)'                                   },
+      { key: 'd8',    label: '8 %'                                                },
+      { key: 'd10',   label: '10 % (WACC plein)'                                  },
+    ],
+    lignes: [
+      {
+        deck: 'Bear (cuivre 3,80 $/lb)',
+        d5:   '56 $ - P/NAV 3,1x',
+        d8:   '40 $ - 4,3x',
+        d10:  '33 $ - 5,3x',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        deck: 'Central (cuivre 4,40 $/lb)',
+        d5:   '69 $ - P/NAV 2,5x',
+        d8:   '50 $ - 3,5x',
+        d10:  '41 $ - 4,2x',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        deck: 'Bull (cuivre 5,20 $/lb)',
+        d5:   '87 $ - P/NAV 2,0x',
+        d8:   '63 $ - 2,8x',
+        d10:  '52 $ - 3,3x',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        deck: 'Cuivre PERPÉTUEL à 5,20 $ (pas d\'épuisement)',
+        d5:   '114 $ - P/NAV 1,5x',
+        d8:   '70 $ - 2,5x',
+        d10:  '56 $ - 3,1x',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  'scco-production': {
+    colonnes: [
+      { key: 'metal',  label: 'Métal',          primary: true },
+      { key: 'p2024',  label: '2024'                          },
+      { key: 'p2025',  label: '2025'                          },
+      { key: 'g2026',  label: 'Guidance 2026'                 },
+    ],
+    lignes: [
+      {
+        metal: 'Cuivre (mine)',
+        p2024: '2 147 M lbs',
+        p2025: '2 108 M lbs (-1,8 %)',
+        g2026: '911 kt (~2 009 M lbs)',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        metal: 'Coût cash net (par lb)',
+        p2024: '0,89 $/lb',
+        p2025: '0,58 $/lb',
+        g2026: 'le plus bas du secteur',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      { metal: 'Molybdène',  p2024: '63,9 M lbs', p2025: '68,7 M lbs (+7,4 %)', g2026: 'maintenu' },
+      { metal: 'Argent',     p2024: 'croissance', p2025: '+15,3 %',             g2026: 'maintenu' },
+      { metal: 'Zinc',       p2024: '287 M lbs',  p2025: '390 M lbs (+36 %)',   g2026: 'Buenavista Zinc à pleine capacité' },
+      {
+        metal: 'Pipeline (organique)',
+        p2024: '-',
+        p2025: 'Tia Maria, Los Chancas en lancement',
+        g2026: 'El Pilar, Michiquillay, El Arco',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'scco-multiples': {
+    colonnes: [
+      { key: 'metrique', label: 'Multiple (base API Yahoo, TTM)', primary: true },
+      { key: 'scco',     label: 'Southern Copper'                               },
+      { key: 'pairs',    label: 'Médiane pairs'                                 },
+      { key: 'freeport', label: 'Freeport'                                      },
+    ],
+    lignes: [
+      {
+        metrique: 'PER (trailing)',
+        scco:     '33x (spot) / 29,5x (relevé)',
+        pairs:    '15,9x',
+        freeport: '33,3x',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      { metrique: 'EV / EBITDA',          scco: '18,7x (spot)', pairs: '9,0x',  freeport: '~11x' },
+      { metrique: 'P / FCF',              scco: '42x',          pairs: '34,3x', freeport: '81x' },
+      { metrique: 'FCF Yield',            scco: '2,3 %',        pairs: '2,9 %', freeport: '1,2 %' },
+      { metrique: 'Dette nette / EBITDA', scco: '0,37x',        pairs: '0,85x', freeport: '0,68x' },
+      { metrique: 'Marge EBIT',           scco: '52-58 %',      pairs: '31 %',  freeport: '31 %' },
+      {
+        metrique: 'P/NAV (deck central, 5 %)',
+        scco:     '2,5x',
+        pairs:    '0,7-1,3x (norme minière)',
+        freeport: '-',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'scco-fcf-deck': {
+    colonnes: [
+      { key: 'deck',    label: 'Deck de cuivre',  primary: true },
+      { key: 'fcf',     label: 'FCF (OCF - capex)'               },
+      { key: 'yield',   label: 'FCF Yield (cap)'                 },
+      { key: 'lecture', label: 'Lecture'                         },
+    ],
+    lignes: [
+      {
+        deck: '3,80 $/lb (bear)',
+        fcf:  'environ 2 170 M$',
+        yield: 'environ 1,5 %',
+        lecture: 'Cuivre normalisé : le FCF se comprime, le rendement tombe sous le taux sans risque',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        deck: '4,40 $/lb (central)',
+        fcf:  'environ 2 890 M$',
+        yield: 'environ 2,0 %',
+        lecture: 'Mid-cycle : un rendement du cash modeste pour un titre payé 33x les bénéfices',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        deck: '4,85 $/lb (réalisé 2025)',
+        fcf:  '3 427 M$',
+        yield: '2,4 %',
+        lecture: 'Le FCF ACTUEL, déjà à cuivre élevé. Attention : le capex de croissance (Tia Maria, El Pilar, Los Chancas) va MONTER et presser le FCF futur',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        deck: '5,20 $/lb (bull / proche spot)',
+        fcf:  'environ 3 850 M$',
+        yield: 'environ 2,7 %',
+        lecture: 'Cuivre proche du record : même là, le rendement du FCF reste mince. On ne paie pas pour le cash immédiat, mais pour la rareté de l\'actif',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'scco-nav-synthese': {
+    colonnes: [
+      { key: 'lecture',     label: 'Lecture',     primary: true },
+      { key: 'valeur',      label: 'Valeur'                      },
+      { key: 'commentaire', label: 'Commentaire'                 },
+    ],
+    lignes: [
+      {
+        lecture:     'NAV vie-de-mine, deck central à 5 %',
+        valeur:      'environ 69 $/action',
+        commentaire: 'À la convention minière la plus généreuse (5 %, cuivre mid-cycle), le cours (174 $) vaut déjà 2,5 fois la valeur d\'actif. À 8 %, 3,5x. SCCO est plus cher sur NAV que Lundin Gold (1,7x), pourtant qualifiée de « payée pour la perfection »',
+        _headerBg:   '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        lecture:     'NAV à cuivre PERPÉTUEL (5,20 $) à 5 %',
+        valeur:      'environ 114 $/action',
+        commentaire: 'Même en supposant un cuivre au record À PERPÉTUITÉ (pas d\'épuisement des réserves) et le discount le plus bas, la valeur reste sous le cours. Le marché paie au-delà de toute hypothèse raisonnable de prix et de durée',
+        _headerBg:   '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        lecture:     'Deck implicite du cours',
+        valeur:      'cuivre durablement > 5 $/lb + discount < 5 %',
+        commentaire: 'Pour réconcilier le cours avec la NAV, il faut un cuivre éternellement au record ET un taux d\'actualisation inférieur à la convention minière. Le marché valorise SCCO comme une rente quasi perpétuelle sur le cuivre, pas comme un actif fini',
+        _headerBg:   '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        lecture:     'Ce que la prime achète',
+        valeur:      'le coût le plus bas + les réserves les plus longues',
+        commentaire: 'La prime n\'est pas absurde : coût cash 0,58 $/lb (survit à tout repli), réserves parmi les plus grandes du monde (rente longue), juridictions investment-grade (WACC ~10 %), ROIC 32 %. Mais elle suppose la perfection maintenue, et ignore le risque Pérou (Tia Maria) et le contrôle Grupo México',
+        _headerBg:   '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
   'siemens-energy-dcf-parametres': {
     colonnes: [
       { key: 'parametre', label: 'Paramètre', primary: true },
