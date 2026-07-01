@@ -44,6 +44,7 @@ const MDX: Record<string, React.ComponentType<any>> = {
   'siemens-energy':       dynamic(() => import('@/content/analyses/ponctuelles/siemens-energy.mdx')),
   'lundin-gold':          dynamic(() => import('@/content/analyses/ponctuelles/lundin-gold.mdx')),
   'knt':                  dynamic(() => import('@/content/analyses/ponctuelles/knt.mdx')),
+  'waf':                  dynamic(() => import('@/content/analyses/ponctuelles/waf.mdx')),
   'cmoc':                 dynamic(() => import('@/content/analyses/ponctuelles/cmoc.mdx')),
   'scco':                 dynamic(() => import('@/content/analyses/ponctuelles/scco.mdx')),
   'iberdrola':            dynamic(() => import('@/content/analyses/ponctuelles/iberdrola.mdx')),

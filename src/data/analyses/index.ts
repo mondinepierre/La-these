@@ -61,6 +61,7 @@ import { lundinGold } from './lundin-gold'
 import { knt } from './knt'
 import { cmoc } from './cmoc'
 import { scco } from './scco'
+import { waf } from './waf'
 import { sondage  } from './sondage'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -95,6 +96,7 @@ export const ANALYSES: AnalyseCard[] = [
 
 
   // Analyses ponctuelles
+  waf,
   scco,
   cmoc,
   knt,

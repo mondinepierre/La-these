@@ -3493,6 +3493,289 @@ const TABLEAUX: Record<string, TableauData> = {
     ],
   },
 
+  'waf-nav-parametres': {
+    colonnes: [
+      { key: 'parametre', label: 'Paramètre', primary: true },
+      { key: 'valeur',    label: 'Valeur'                  },
+      { key: 'source',    label: 'Source / Note'           },
+    ],
+    lignes: [
+      {
+        parametre: 'Réserves prouvées et probables',
+        valeur:    '7,0 Moz',
+        source:    'JORC, calculées à des prix conservateurs de 1 400 $/oz (open pit) et 1 800 $/oz (souterrain), très en dessous du spot (4 050 $) : optionnalité forte. Ressources 12,2 Moz (upside par conversion). Sanbrado + Kiaka',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'Profil de production',
+        valeur:    'CROISSANT, vers 500 koz +',
+        source:    'FY2025 300 koz ; cible 10 ans relevée à 533 koz/an moy. (2026-2035), pic 569 koz en 2029, plus de 500 koz dès 2027. NAV : montée en cadence modélisée, pas un plateau. Kiaka DFS 255 koz/an 2026-2030',
+      },
+      {
+        parametre: 'Vie de mine retenue',
+        valeur:    'environ 13 ans (réserves)',
+        source:    'Réserves 7,0 Moz / production moyenne. Durée déjà +11 ans sur les seules réserves ; les 12,2 Moz de ressources l\'étendent bien au-delà (optionnalité, hors NAV de base)',
+      },
+      {
+        parametre: 'AISC groupe (régime plein)',
+        valeur:    'environ 1 300 $/oz',
+        source:    'FY2025 publié 1 488 $/oz (gonflé par la montée en cadence Kiaka + royalty or glissante). Sanbrado SSC 1 348 $, Kiaka DFS LOM 1 052 $ (an 1-5 953 $). Deck 1 250 / 1 350 / 1 450 $ (la royalty monte avec l\'or)',
+      },
+      {
+        parametre: 'Capex d\'expansion (hors AISC)',
+        valeur:    'essentiellement DÉPENSÉ',
+        source:    'Kiaka est construit (première coulée H2 2025). Reste un capex de croissance modeste (crushers secondaires 2028-2029, forage de réserves). Contraste K92 : la phase d\'investissement lourde est DERRIÈRE, le FCF se libère',
+      },
+      {
+        parametre: 'Taux d\'imposition effectif',
+        valeur:    'environ 28-30 %',
+        source:    'IS Burkina Faso + intérêt minoritaire de l\'État (part NCI). Royalty or à barème glissant (à partir de 3 %, non plafonnée) déjà nettée dans l\'AISC',
+      },
+      {
+        parametre: 'Taux d\'actualisation',
+        valeur:    '5 % (convention) ; 20 % (risque-honnête)',
+        source:    'Convention minière P/NAV à 5 %. Le WACC La Thèse (CRP Burkina Faso 9,47 % Caa2, Rf australien 4,2 %, bêta 1,1, ERP 13,7 %) ressort à environ 20 % : l\'écart entre les deux mesure le prix du risque pays',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'Trésorerie nette',
+        valeur:    'environ +730 M$AU',
+        source:    'Q1-2026 : 732 M$US de trésorerie + or non vendu contre 250 M$US de dette Kiaka (tirée). Ajoutée à la NAV. FY2025 : +131 M$AU. 100 % non couvert (unhedged)',
+      },
+    ],
+  },
+
+  'waf-deck-scenarios': {
+    colonnes: [
+      { key: 'parametre', label: 'Scénario de deck', primary: true },
+      { key: 'bear',      label: 'Bear'                            },
+      { key: 'central',   label: 'Central'                         },
+      { key: 'bull',      label: 'Bull'                            },
+    ],
+    lignes: [
+      {
+        parametre: 'Deck de prix de l\'or',
+        bear:      '3 000 $/oz',
+        central:   '3 500 $/oz',
+        bull:      '4 050 $/oz (~spot)',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        parametre: 'AISC groupe retenu',
+        bear:      '1 250 $/oz',
+        central:   '1 350 $/oz',
+        bull:      '1 450 $/oz',
+      },
+      {
+        parametre: 'FCF après impôt / an (régime plein)',
+        bear:      'environ 900 M$AU',
+        central:   'environ 1 100 M$AU',
+        bull:      'environ 1 350 M$AU',
+      },
+      {
+        parametre: 'NAV par action (discount 5 %)',
+        bear:      'environ 6,9 AUD',
+        central:   'environ 8,4 AUD',
+        bull:      'environ 10,1 AUD',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        parametre: 'P/NAV au cours (2,67 AUD)',
+        bear:      '0,39x',
+        central:   '0,32x',
+        bull:      '0,26x',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'waf-nav-deck': {
+    colonnes: [
+      { key: 'deck',  label: 'Deck de l\'or',  primary: true },
+      { key: 'd5',    label: 'Discount 5 %'                  },
+      { key: 'd8',    label: 'Discount 8 %'                  },
+      { key: 'd12',   label: 'Discount 12 %'                 },
+      { key: 'd20',   label: 'WACC 20 %'                     },
+    ],
+    lignes: [
+      {
+        deck: '3 000 $/oz (bear)',
+        d5:   '6,9 AUD',  d8: '6,0 AUD',  d12: '5,1 AUD',  d20: '3,9 AUD',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        deck: '3 500 $/oz (central)',
+        d5:   '8,4 AUD',  d8: '7,3 AUD',  d12: '6,2 AUD',  d20: '4,7 AUD',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        deck: '4 050 $/oz (bull / spot)',
+        d5:   '10,1 AUD',  d8: '8,8 AUD',  d12: '7,4 AUD',  d20: '5,6 AUD',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        deck: 'Cours actuel : 2,67 AUD',
+        d5:   'P/NAV 0,3-0,4x',  d8: '0,3-0,4x',  d12: '0,4-0,5x',  d20: '0,5-0,7x',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  'waf-production-ramp': {
+    colonnes: [
+      { key: 'jalon',  label: 'Jalon',           primary: true },
+      { key: 'prod',   label: 'Production'                      },
+      { key: 'aisc',   label: 'AISC (US$/oz)'                  },
+      { key: 'note',   label: 'Note'                           },
+    ],
+    lignes: [
+      {
+        jalon: '2024 (réalisé)',
+        prod:  '207 koz',
+        aisc:  '1 240',
+        note:  'Sanbrado seul (souterrain haute teneur + open pit)',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        jalon: '2025 (réalisé)',
+        prod:  '300 koz',
+        aisc:  '1 488',
+        note:  'Sanbrado 205 koz + Kiaka 95 koz (montée en cadence, 5 mois) ; AISC gonflé par le ramp',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        jalon: '2026 (1er exercice Kiaka plein)',
+        prod:  'vers 500 koz',
+        aisc:  'en baisse (ramp fini)',
+        note:  'Premier exercice avec les deux centres à plein régime',
+      },
+      {
+        jalon: 'Dès 2027',
+        prod:  'plus de 500 koz',
+        aisc:  'Kiaka DFS LOM 1 052',
+        note:  'Cible +500 koz/an affichée. Sanbrado plus de 250 koz, Kiaka 255 koz/an',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        jalon: 'Pic 2029',
+        prod:  '569 koz',
+        aisc:  'bas (échelle Kiaka)',
+        note:  'Sommet du plan 10 ans (moyenne 533 koz/an sur 2026-2035)',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+      {
+        jalon: 'Réserves / ressources',
+        prod:  '7,0 / 12,2 Moz',
+        aisc:  '-',
+        note:  'Vie de mine +11 ans sur réserves seules ; les ressources l\'étendent bien au-delà',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+    ],
+  },
+
+  'waf-multiples': {
+    colonnes: [
+      { key: 'metrique', label: 'Multiple (cours spot)', primary: true },
+      { key: 'waf',      label: 'WAF'                                  },
+      { key: 'pairs',    label: 'Médiane ouest-africains'             },
+      { key: 'norme',    label: 'Norme minière'                       },
+    ],
+    lignes: [
+      {
+        metrique: 'PER (trailing)',
+        waf:      '6,5x',
+        pairs:    '11,3x',
+        norme:    '10-15x',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      { metrique: 'PER (forward)',        waf: '3,0x',  pairs: '5,1x',  norme: '-'     },
+      { metrique: 'EV / EBITDA',          waf: '3,2x',  pairs: '6,5x',  norme: '5-8x'  },
+      { metrique: 'FCF Yield (EV)',       waf: '12 %',  pairs: '6,6 %', norme: '-'     },
+      { metrique: 'Dette nette / EBITDA', waf: '-0,1x', pairs: '-0,2x', norme: '-'     },
+      { metrique: 'ROIC',                 waf: '33 %',  pairs: '22 %',  norme: '-'     },
+      {
+        metrique: 'P / NAV (deck central, 5 %)',
+        waf:      '0,32x',
+        pairs:    'environ 0,7-1,0x',
+        norme:    '0,7-1,3x',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'waf-fcf-deck': {
+    colonnes: [
+      { key: 'deck',    label: 'Deck de l\'or',  primary: true },
+      { key: 'fcf',     label: 'FCF après impôt'                },
+      { key: 'yield',   label: 'FCF Yield (cap)'                },
+      { key: 'lecture', label: 'Lecture'                        },
+    ],
+    lignes: [
+      {
+        deck: '3 000 $/oz',
+        fcf:  'environ 900 M$AU',
+        yield: 'environ 30 %',
+        lecture: 'En RÉGIME PLEIN (les deux mines à plein, capex de construction fini) : le FCF est colossal même au deck bas',
+        _headerBg: '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        deck: '3 500 $/oz (central)',
+        fcf:  'environ 1 100 M$AU',
+        yield: 'environ 36 %',
+        lecture: 'La capitalisation entière (3 050 M$AU) serait remboursée en moins de trois ans de FCF. C\'est ce que le marché n\'intègre pas',
+        _headerBg: '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        deck: '3 525 $/oz (réalisé 2025)',
+        fcf:  '358 M$AU (réel, transition)',
+        yield: '10,5 %',
+        lecture: 'FY2025 : déjà +358 M$AU alors que Kiaka finissait sa construction (capex 431 M$AU). La libération ne fait que commencer',
+        _headerBg: '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        deck: '4 050 $/oz (spot)',
+        fcf:  'environ 1 350 M$AU',
+        yield: 'environ 44 %',
+        lecture: 'Le meilleur des cas au spot record : suppose l\'or maintenu et l\'exécution du régime plein',
+        _headerBg: '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
+  'waf-nav-synthese': {
+    colonnes: [
+      { key: 'lecture',     label: 'Lecture',     primary: true },
+      { key: 'valeur',      label: 'Valeur'                      },
+      { key: 'commentaire', label: 'Commentaire'                 },
+    ],
+    lignes: [
+      {
+        lecture:     'NAV centrale (deck 3 500 $, discount 5 %)',
+        valeur:      'environ 8,4 AUD',
+        commentaire: 'Le cours (2,67 AUD) traite à 0,32x cette NAV : très SOUS la valeur d\'actif. Plus décoté que K92 (0,84x), le bookend exact de Southern Copper (2,5x)',
+        _headerBg:   '#E0DBCF', _headerText: '#44403C',
+      },
+      {
+        lecture:     'NAV au WACC honnête (deck 3 500 $, discount 20 %)',
+        valeur:      'environ 4,7 AUD',
+        commentaire: 'Même en discountant honnêtement le Caa2 burkinabè (20 %), la NAV reste à 4,7 AUD : P/NAV 0,57x. Le WACC plein ne suffit PAS à ramener la NAV au cours',
+        _headerBg:   '#C9A84C', _headerText: '#1B4332',
+      },
+      {
+        lecture:     'Taux d\'actualisation implicite du cours',
+        valeur:      'environ 45 %',
+        commentaire: 'Pour que la NAV centrale égale le cours de 2,67 AUD, il faut actualiser à environ 45 % : plus du double du WACC Caa2-honnête (20 %). Cet écart de 25 points EST la probabilité d\'expropriation / nationalisation que le marché price',
+        _headerBg:   '#1B4332', _headerText: '#F7F4EF',
+      },
+      {
+        lecture:     'Assise "réserves seules"',
+        valeur:      'plancher solide',
+        commentaire: 'Contraste K92 : la NAV de WAF repose sur 7,0 Moz de RÉSERVES (+11 ans), pas sur une conversion incertaine de ressources. Les 12,2 Moz de ressources sont une optionnalité EN PLUS, hors NAV de base',
+        _headerBg:   '#D6EDDF', _headerText: '#1B4332',
+      },
+    ],
+  },
+
   'cmoc-sotp': {
     colonnes: [
       { key: 'pole',     label: 'Pôle (somme des parties)', primary: true },

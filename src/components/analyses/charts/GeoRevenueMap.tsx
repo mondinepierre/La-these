@@ -230,6 +230,10 @@ REGION_TO_CODES['République démocratique du Congo'] = ['180']
 // le tri par spécificité revendique le code 604 avant 'Amériques'. ('Mexique' déjà présent.)
 REGION_TO_CODES['Pérou'] = ['604']
 
+// Burkina Faso (ISO 854) : mines d'or de West African Resources (Sanbrado, Kiaka). Clé mono-pays,
+// le tri par spécificité revendique le code 854 avant 'Afrique'.
+REGION_TO_CODES['Burkina Faso'] = ['854']
+
 function hexAvecOpacite(hex: string, opacite: number): string {
   const r = parseInt(hex.slice(1, 3), 16)
   const g = parseInt(hex.slice(3, 5), 16)
